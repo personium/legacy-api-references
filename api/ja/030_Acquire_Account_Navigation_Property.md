@@ -119,7 +119,7 @@ GET
 #### CURLコマンド(UNIX)
 AccountのnavigationProperty経由一覧
 ```sh
-curl "https://fqdn/cell_name/__ctl/Account('account_name')/_Role" -X GET -v -H 'Authorization:Bearer auth_token' -H 'Accept: application/json'
+curl "https://fqdn/cell_name/__ctl/Account('account_name')/_Role" -X GET -H 'Authorization:Bearer auth_token' -H 'Accept: application/json'
 ```
 <br>
 <br>

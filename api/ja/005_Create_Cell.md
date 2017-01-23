@@ -119,7 +119,7 @@ JSON
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/__ctl/Cell" -X POST -H 'Authorization:Bearer auth_token' -H 'Accept: application/json'  -d '{"Name":"cell_name"}'
+curl "https://fqdn/__ctl/Cell" -X POST -H 'Authorization:Bearer auth_token' -H 'Accept: application/json' -d '{"Name":"cell_name"}'
 ```
 <br>
 <br>

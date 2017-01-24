@@ -23,7 +23,7 @@
 または、
 /__ctl/Cell('{cell_name}')
 ```
-※ _Domain.Nameパラメタを省略した場合は、nullが指定されたものとする
+
 #### メソッド
 PUT
 #### リクエストクエリ
@@ -52,7 +52,7 @@ JSON
 |項目名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
 |Name<br>|EntityType名<br>|桁数：1&#65374;128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)は指定不可<br>null<br>|○<br>|<br>|
-|_Domain.Name<br>|Cellが紐づくDomain名<br>|桁数：1&#65374;128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)null<br>|×<br>|バリデート未実装<br>|
+
 #### リクエストサンプル
 ```json
 {"Name":"cell_name"}
@@ -76,7 +76,7 @@ JSON
 |403<br>|Forbidden<br>|アクセス権限が不足している場合<br>|
 |404<br>|Not Found<br>|存在しないリソースを指定<br>|
 |405<br>|Method Not Allowed<br>|許可していないリクエストメソッドを指定<br>|
-|409<br>|Conflict<br>|既に同じ"Name"と"_Domain.Name"のCellが存在している場合<br>|
+|409<br>|Conflict<br>|既に同じ"Name"のCellが存在している場合<br>|
 |412<br>|Precondition Failed<br>|存在しないバージョンを指定<br>|
 #### レスポンスサンプル
 なし

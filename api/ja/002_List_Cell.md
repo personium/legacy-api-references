@@ -101,7 +101,6 @@ Cell固有レスポンスボディ
 |:--|:--|:--|:--|
 |{3}<br>|type<br>|string<br>|UnitCtl.Cell &#160;<br>|
 |{2}<br>|Name<br>|string<br>|Cellの名称<br>
-|{2}<br>|_Domain.Name<br>|string<br>|Domain名(null)<br>
 
 #### エラーメッセージ一覧
 [エラーメッセージ一覧](198_Error_Messages.html)を参照
@@ -117,8 +116,7 @@ Cell固有レスポンスボディ
         "Type": "UnitCtl.Cell"
       }
       "Name": "cell_name",
-      "_Domain.Name":
-                 "Domain",
+
       "__published":
                  "/ Date (1335147338609) /",
       "__updated":
@@ -132,7 +130,6 @@ Cell固有レスポンスボディ
         "Type": "UnitCtl.Cell"  
       }
       "Name": "cell_name01",
-      "_Domain.Name": "Null",
       "__published":  "/ Date (1335147349000) /",
       "__updated": "/ Date (1335147350000) /"
       }]

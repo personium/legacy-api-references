@@ -22,7 +22,6 @@
 または、
 /__ctl/Cell('{cell_name}')
 ```
-※	_Domain.Nameパラメタを省略した場合は、nullが指定されたものとする
 
 #### メソッド
 GET
@@ -83,7 +82,7 @@ GET
 |:--|:--|:--|:--|
 |{3}<br>|type<br>|string<br>|UnitCtl.Cell &#160;<br>|
 |{2}<br>|Name<br>|string<br>|Cellの名称<br>|
-|{2}<br>|_Domain.Name<br>|string<br>|Domain名(null)<br>|
+
 #### エラーメッセージ一覧
 [エラーメッセージ一覧](198_Error_Messages.html)を参照
 
@@ -94,7 +93,6 @@ GET
     "results":{
        "Name":"cell_name",
        "__published":"\/Date(1347498017297)\/",
-       "_Domain.Name":null,
        "__updated":"\/Date(1347498017297)\/",
        "__metadata":{
           "etag":"1-1347498017297",

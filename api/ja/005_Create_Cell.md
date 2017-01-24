@@ -45,7 +45,7 @@ JSON
 |項目名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
 |Name<br>|Cell名<br>|桁数：1&#65374;128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>ただし、先頭文字に_(半角アンダーバー)と:(コロン)は指定不可<br>|○<br>|&#160;<br>|
-|_Domain.Name<br>|Cellが紐づくDomain名<br>|桁数：1&#65374;128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>null<br>|×<br>|バリデート未実装<br>|
+
 #### リクエストサンプル
 ```json
 {"Name":"cell_name"}
@@ -83,7 +83,7 @@ JSON
 |:--|:--|:--|:--|
 |{3}<br>|type<br>|string<br>|UnitCtl.Cell &#160;<br>|
 |{2}<br>|Name<br>|string<br>|Cellの名称<br>|
-|{2}<br>|_Domain.Name<br>|string<br>|Domain名(null)<br>|
+
 #### エラーメッセージ一覧
 [エラーメッセージ一覧](198_Error_Messages.html)を参照
 
@@ -94,7 +94,7 @@ JSON
 |403<br>|Forbidden<br>|アクセス権限が不足している場合<br>|&#160;<br>|
 |404<br>|Not Found<br>|存在しないリソースを指定<br>|&#160;<br>|
 |405<br>|Method Not Allowed<br>|許可していないリクエストメソッドを指定<br>|&#160;<br>|
-|409<br>|The entity already exists.<br>|既に同じ"Name"と"_Domain.Name"のCellが存在している場合<br>|&#160;<br>|
+|409<br>|The entity already exists.<br>|既に同じ"Name"のCellが存在している場合<br>|&#160;<br>|
 |412<br>|Precondition Failed<br>|存在しないバージョンを指定<br>|&#160;<br>|
 #### レスポンスサンプル
 ```json
@@ -103,7 +103,6 @@ JSON
     "results":{
        "Name":"cell_name",
        "__published":"\/Date(1347498017297)\/",
-       "_Domain.Name":null,
        "__updated":"\/Date(1347498017297)\/",
        "__metadata":{
           "etag":"1-1347498017297",

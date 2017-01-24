@@ -82,7 +82,7 @@ PUT
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/cell_name/__ctl/Account('account_name')" -X PUT -H "If-Match: *" -H "X-Dc-Credential:password" -H 'Authorization:Bearer auth_token' -H 'Accept: application/json' -d '{"Name":"account_name"}'
+curl "https://fqdn/cell_name/__ctl/Account('account_name')" -X PUT -i -H 'If-Match: *' -H 'X-Dc-Credential:password' -H 'Authorization: Bearer auth_token' -H 'Accept: application/json' -d '{"Name":"account_name"}'
 ```
 <br>
 <br>

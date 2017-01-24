@@ -118,8 +118,8 @@ DELETE
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/Cell_name/__ctl/Relation(Name='relation_name',_Box.Name='box_name')/$links/_Box('box_name')" -X DELETE -H 'If-Match:*'
- -H 'Authorization:Bearer auth_token' -H 'Accept: application/json'
+curl "https://fqdn/Cell_name/__ctl/Relation(Name='relation_name',_Box.Name='box_name')/$links/_Box('box_name')" -X DELETE -i -H 'If-Match:*'
+ -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
 ```
 <br>
 <br>

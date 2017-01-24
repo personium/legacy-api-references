@@ -93,7 +93,7 @@ GET
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/cell_name/__ctl/Account(Name='account_name')/$links/_Role" -X POST -H 'Authorization:Bearer auth_token' -H 'Accept: application/json' -d '{"uri":"https://fqdn/cell_name/__ctl/Role('role_name')"}'
+curl "https://fqdn/cell_name/__ctl/Account(Name='account_name')/$links/_Role" -X POST -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json' -d '{"uri":"https://fqdn/cell_name/__ctl/Role('role_name')"}'
 ```
 <br>
 <br>

@@ -123,8 +123,7 @@ MKCOL
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl 'https://fqdn/cell_name/box_name/collection_name' -X MKCOL -v \ -H 'Authorization:Bearer auth_token'\
--d '<?xml version="1.0" encoding="utf-8"?><D:mkcol xmlns:D="DAV:" xmlns:dc="urn:x-dc1:xmlns"><D:set><D:prop>
+curl "https://fqdn/cell_name/box_name/collection_name" -X MKCOL -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8"?><D:mkcol xmlns:D="DAV:" xmlns:dc="urn:x-dc1:xmlns"><D:set><D:prop>
 <D:resourcetype><D:collection/></D:resourcetype></D:prop></D:set></D:mkcol>'
 ```
 <br>

@@ -67,8 +67,7 @@ DELETE
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl 'https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata/Property('Property_Name')/$links/_EntityType('Profile')'\
--X DELETE -v -k -H 'If-Match: *' -H 'Authorization:Bearer auth_token'
+curl "https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata/Property('Property_Name')/$links/_EntityType('Profile')" -X DELETE -i -H 'If-Match: *' -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
 ```
 <br>
 <br>

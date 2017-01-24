@@ -95,20 +95,17 @@ HTTP/1.1 207 Multi-Status
 #### CURLコマンド(UNIX)
 コレクション名変更(終端の"/"は必須)
 ```sh
-   curl -X MOVE "http://[FQDN]/[cell_name]/[box_naem]/[collection_name]/[old_name]/"
-   -H "Destination:http://[FQDN]/[cell]/[box]/[collection]/[new_name]/" -i -k -s
+   curl "http://[FQDN]/[cell_name]/[box_naem]/[collection_name]/[old_name]/" -X MOVE -i -H 'Destination:http://[FQDN]/[cell]/[box]/[collection]/[new_name]/'
 ```
 
 ファイル名変更
 ```sh
-   curl -X MOVE "http://[FQDN]/[cell_name]/[box_name]/[collection_name]/[dir]/old.txt"
-   -H "Destination:http://[FQDN]/[cell_name]/[box_name]/[collection_name]/[dir]/new.txt" -i -k -s
+   curl  "http://[FQDN]/[cell_name]/[box_name]/[collection_name]/[dir]/old.txt" -X MOVE -i -H 'Destination:http://[FQDN]/[cell_name]/[box_name]/[collection_name]/[dir]/new.txt'
 ```
 
 ファイル移動
 ```sh
-   curl -X MOVE "http://[FQDN]/[cell_name]/[box_name]/[collection_name]/[from]/file.txt"
-   -H "Destination:http://[FQDN]/[cell_name]/[box_name]/[collection_name]/[to]/file.txt" -i -k -s
+   curl  "http://[FQDN]/[cell_name]/[box_name]/[collection_name]/[from]/file.txt" -X MOVE -i -H 'Destination:http://[FQDN]/[cell_name]/[box_name]/[collection_name]/[to]/file.txt'
 ```
 <br>
 <br>

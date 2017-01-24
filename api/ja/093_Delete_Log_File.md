@@ -71,8 +71,7 @@ DELETE
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl 'https://fqdn/cell_name/__log/archive/default.log.1' -X DELETE -v -k \
--H 'Authorization:Bearer auth_token'
+curl "https://fqdn/cell_name/__log/archive/default.log.1" -X DELETE -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
 ```
 <br>
 <br>

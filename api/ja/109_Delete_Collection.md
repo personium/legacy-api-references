@@ -84,7 +84,7 @@ WebDav 共通リクエストクエリ
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl 'https://fqdn/cell_name/box_name/collection_name' -X DELETE -v \ -H 'Authorization:Bearerauth_token'
+curl "https://fqdn/cell_name/box_name/collection_name" -X DELETE -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
 ```
 <br>
 <br>

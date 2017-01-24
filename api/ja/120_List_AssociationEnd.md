@@ -170,7 +170,7 @@ GET
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl 'https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata/AssociationEnd' -X GET -v \ -H 'Authorization:Bearer auth_token'
+curl "https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata/AssociationEnd" -X GET -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
 ```
 <br>
 <br>

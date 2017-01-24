@@ -84,10 +84,7 @@ JSON
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/cell_name/__ctl/Box('box_name')"  -X PUT -v \
--H "Authorization: Bearer auth_token" \
--H "If-Match: *" \
--d '{"Name":"box_name"}' -k
+curl "https://fqdn/cell_name/__ctl/Box('box_name')" -X PUT -i -H 'If-Match: *' -H 'Authorization: Bearer personiumio' -H 'Accept: application/json' -d '{"Name":"box_name"}'
 ```
 <br>
 <br>

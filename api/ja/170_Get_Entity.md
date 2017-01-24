@@ -149,8 +149,7 @@ GET
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl 'https://fqdn/cell_name/box_name/odata_colleciton_path/entity(%270022b630db5c4aedade200a955e82285%27)'\
--X GET -H 'Authorization:Bearer auth_token' -k -i
+curl "https://fqdn/cell_name/box_name/odata_colleciton_path/entity(%270022b630db5c4aedade200a955e82285%27)" -X GET -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
 ```
 <br>
 <br>

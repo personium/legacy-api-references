@@ -88,9 +88,7 @@ JSON
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl 'https://fqdn/cell_name/box_name/collection_name/entity_name("userid")/$links/_entity_name'-X POST -v -k \
--d '{"uri":"https://fqdn/cell_name/box_name/collection_name/entity_name('userid')"}' \
--H 'Authorization:Bearer auth_token'
+curl "https://fqdn/cell_name/box_name/collection_name/entity_name("userid")/$links/_entity_name" -X POST -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json' -d '{"uri":"https://fqdn/cell_name/box_name/collection_name/entity_name('userid')"}'
 ```
 <br>
 <br>

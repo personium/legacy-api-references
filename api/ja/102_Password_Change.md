@@ -55,9 +55,7 @@ PUT
 <br>
 ### CURLサンプル
 ```sh
-curl 'https://fqdn/cell_name/__mypassword' -X PUT -v -k \
--H 'Authorization: Bearer auth_token' \
--H 'X-Dc-Credential: change_password'
+curl "https://fqdn/cell_name/__mypassword' -X PUT -i -H 'X-Dc-Credential: change_password' -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
 ```
 <br>
 <br>

@@ -154,11 +154,8 @@ JSON
 <br>
 ### CURLサンプル
 ```sh
-curl 'https://fqdn/cell_name/__message/send' -X POST -v -k \
--d '{"BoxBound":true,"InReplyTo":"xnKXmd4TTZCw-bfSEw4f0A","To":"https://fqdn/targetcell_name",\
-"Relation":"","Type":"req.relation.build","Title":"友人登録依頼です","Body":"先日はありがとうごさいました。友人登録承認をお願いいたします。",\
-"Priority":3,"RequestRelation":"https://fqdn/appcell/__relation/__/+:Friend","RequestRelationTarget":"https://fqdn/cell_name"}}}' \
--H 'Authorization:Bearer auth_token'
+curl "https://fqdn/cell_name/__message/send" -X POST -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json' -d '{"BoxBound":true,"InReplyTo":"xnKXmd4TTZCw-bfSEw4f0A","To":"https://fqdn/targetcell_name", "Relation":"","Type":"req.relation.build","Title":"友人登録依頼です","Body":"先日はありがとうごさいました。友人登録承認をお願いいたします。",
+"Priority":3,"RequestRelation":"https://fqdn/appcell/__relation/__/+:Friend","RequestRelationTarget":"https://fqdn/cell_name"}'
 ```
 <br>
 <br>

@@ -109,7 +109,7 @@ Account固有レスポンスボディ
 #### CURLコマンド(UNIX)
 ##### AccountとRoleのnavigationProperty経由登録
 ```sh
-curl "https://fqdn/cell_name/__ctl/Account('acount_name')/_Role" -X POST -H 'Authorization:Bearer auth_token' -H 'Accept: application/json' -d '{"Name":"role_name"}'
+curl "https://fqdn/cell_name/__ctl/Account('acount_name')/_Role" -X POST -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json' -d '{"Name":"role_name"}'
 ```
 <br>
 <br>

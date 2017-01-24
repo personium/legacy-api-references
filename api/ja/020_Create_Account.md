@@ -116,7 +116,7 @@ POST
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/cell_name/__ctl/Account" -X POST -H 'X-Dc-Credential:password' -H 'Authorization:Bearer auth_token' -H 'Accept: application/json' -d '{"Name":"account_name"}'
+curl "https://fqdn/cell_name/__ctl/Account" -X POST -i -H 'X-Dc-Credential:password' -H 'Authorization: Bearer auth_token' -H 'Accept: application/json' -d '{"Name":"account_name"}'
 ```
 <br>
 ###### Copyright 2017    FUJITSU LIMITED

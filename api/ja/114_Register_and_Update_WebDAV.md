@@ -83,9 +83,7 @@ PUT
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl 'https://fqdn/cell_name/box_name/test.txt' -X PUT -v -k \
--d '【ファイル内容】' \
--H 'Authorization:Bearer auth_token'
+curl "https://fqdn/cell_name/box_name/test.txt' -X PUT -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json' -d '【ファイル内容】'
 ```
 <br>
 <br>

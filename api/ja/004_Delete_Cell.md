@@ -68,7 +68,7 @@ DELETE
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/__ctl/Cell(Name='cell_name')" -X DELETE -H 'If-Match: *' -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
+curl "https://fqdn/__ctl/Cell(Name='cell_name')" -X DELETE -i -H 'If-Match: *' -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
 ```
 <br>
 <br>

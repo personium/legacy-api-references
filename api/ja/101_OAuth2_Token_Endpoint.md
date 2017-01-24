@@ -157,28 +157,23 @@ grant_type=refresh_token&refresh_token={token}
 ### CURLサンプル
 ##### パスワード認証
 ```sh
-curl 'https://fqdn/cell_name/__auth' -X POST -v -k \
--d 'grant_type=password&username={username}&password={password}'
+curl "https://fqdn/cell_name/__auth" -X POST -i -d 'grant_type=password&username={username}&password={password}'
 ```
 ##### トークン認証
 ```sh
-curl 'https://fndn/cellname/__auth' -k -v \
--X POST -d 'grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&assertion=SAML_token'
+curl "https://fndn/cellname/__auth" -X POST -i -d 'grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&assertion=SAML_token'
 ```
 ##### リフレッシュトークン認証
 ```sh
-curl 'https://fqdn/cellname/__auth'  -k -v \
--X POST -d 'grant_type=refresh_token&refresh_token={refresh_token}'
+curl "https://fqdn/cellname/__auth' -X POST -i -d 'grant_type=refresh_token&refresh_token={refresh_token}'
 ```
 ##### パスワード認証 + スキーマ認証
 ```sh
-curl 'https://fqdn/cellname/__auth' -X POST -v -k \
--d 'grant_type=password&username={user_name}&password={pass}&client_id=https://fqdn/appcellname/&client_secret={token_from_app_cell}'
+curl "https://fqdn/cellname/__auth" -X POST -i -d 'grant_type=password&username={user_name}&password={pass}&client_id=https://fqdn/appcellname/&client_secret={token_from_app_cell}'
 ```
 ##### トークン認証 + トランスセルトークン認証
 ```sh
-curl'https://fqdn/cellname/__auth' -X POST -v -k \
--d 'grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&assertion={SAML_token}&dc_target=https://fqdn/cellname/'
+curl "https://fqdn/cellname/__auth" -X POST -i -d 'grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&assertion={SAML_token}&dc_target=https://fqdn/cellname/'
 ```
 <br>
 <br>

@@ -117,7 +117,7 @@ GET
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "cell_name/box_name/collection_name/entity_name('userid')/$links/_entitylinkname" -X GET -v -k -H 'Authorization:Bearer auth_token'
+curl "cell_name/box_name/collection_name/entity_name('userid')/$links/_entitylinkname" -X GET -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
 ```
 <br>
 <br>

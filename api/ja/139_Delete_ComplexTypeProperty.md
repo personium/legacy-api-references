@@ -71,8 +71,7 @@ DELETE
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata/ComplexTypeProperty(Name='PostalCode',_ComplexType.Name='Address')" \
--v -i -k -s -X DELETE -v -H 'Authorization:Bearer auth_token'
+curl "https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata/ComplexTypeProperty(Name='PostalCode',_ComplexType.Name='Address')" -X DELETE -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
 ```
 <br>
 <br>

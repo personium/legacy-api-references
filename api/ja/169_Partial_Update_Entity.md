@@ -115,9 +115,7 @@ MERGE
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl 'https://fqdn/cell_name/box_name/odata_colleciton_path/parent('100-1_20101108-111352093')' -H 'Authorization:Bearer auth_token' -H 'If-Match:*' \
--d '{"name": "episode","outcome": "治療後"}' \
--k -i -X MERGE
+curl "https://fqdn/cell_name/box_name/odata_colleciton_path/parent('100-1_20101108-111352093')" -X MERGE -i -H 'If-Match:*' -H 'Authorization: Bearer auth_token' -H 'Accept: application/json' -d '{"name": "episode","outcome": "治療後"}'
 ```
 <br>
 <br>

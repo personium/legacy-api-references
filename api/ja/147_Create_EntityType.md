@@ -142,9 +142,7 @@ JSON
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl 'https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata/EntityType' -X POST -v -i -k -s \
--d '{ "Name": "animal" }' \
--H 'Authorization:Bearer auth_token'
+curl "https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata/EntityType" -X POST -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json' -d '{ "Name": "animal" }' 
 ```
 <br>
 <br>

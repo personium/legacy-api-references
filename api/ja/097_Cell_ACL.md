@@ -177,10 +177,7 @@ privilegeタグ配下の権限設定の内容については、認証モデル�
 <br>
 ### CURLサンプル
 ```sh
-curl 'https://example.com/cell'  -X ACL -v -k \
--H 'Authorization: Bearer auth_token' \
--d '<?xml version="1.0" encoding="utf-8" ?><D:acl xmlns:D="DAV:" xmlns:dc="urn:x-dc1:xmlns" xml:base="http://localhost:8080/dc1-core/acell1/__role/__/"> \
-<D:ace><D:principal><D:href>doctor</D:href></D:principal><D:grant><D:privilege><dc:box-read/></D:privilege><D:privilege><dc:auth/></D:privilege></D:grant>
+curl "https://example.com/cell" -X ACL -H 'Authorization: Bearer auth_token' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8" ?><D:acl xmlns:D="DAV:" xmlns:dc="urn:x-dc1:xmlns" xml:base="http://localhost:8080/dc1-core/acell1/__role/__/">  <D:ace><D:principal><D:href>doctor</D:href></D:principal><D:grant><D:privilege><dc:box-read/></D:privilege><D:privilege><dc:auth/></D:privilege></D:grant>
 </D:ace></D:acl>'
 ```
 <br>

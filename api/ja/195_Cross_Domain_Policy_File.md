@@ -44,7 +44,7 @@ XML形式
 <br>
 ### CURLサンプル
 ```sh
-curl 'https://fqdn/crossdomain.xml -X GET -v -k
+curl "https://fqdn/crossdomain.xml" -X GET -i
 ```
 <br>
 <br>

@@ -95,15 +95,11 @@ JSON
 ### CURLサンプル
 ##### Register a Role
 ```sh
-curl -X POST "https://fqdn/CellName/__ctl/Box('box')/_Role" -v
--d '{"Name":"RoleName"}' -i -k
--H 'Authorization:Bearer token'          
+curl "https://fqdn/CellName/__ctl/Box('box')/_Role" -X POST -i  -H 'Authorization: Bearer auth_token' -H 'Accept: application/json' -d '{"Name":"RoleName"}'
 ```
 ##### Register a Relation
 ```sh
-curl -X POST "https://fqdn/CellName/__ctl/Box('box')/_Relation" -v
--d '{"Name":"RelationName"}' -i -k
--H 'Authorization:Bearer token'
+curl "https://fqdn/CellName/__ctl/Box('box')/_Relation" -X POST -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json' -d '{"Name":"RelationName"}'
 ```
 <br>
 <br>

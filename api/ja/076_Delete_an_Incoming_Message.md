@@ -63,9 +63,7 @@ DELETE
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/__ctl/ReceivedMessage('MessageID')" -X DELETE -v \
--H "If-Match: *" \
--H "Authorization: Bearer auth_token" -k
+curl "https://fqdn/__ctl/ReceivedMessage('MessageID')" -X DELETE -i -H 'If-Match: *' -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
 ```
 <br>
 <br>

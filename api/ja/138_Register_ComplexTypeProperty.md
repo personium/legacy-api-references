@@ -193,15 +193,14 @@ DefaultValueの有効値はTypeの値（型定義）によって異なり、以�
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl 'https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata/ComplexTypeProperty' -XPOST -v -i -k -s \
--d '{
+curl "https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata/ComplexTypeProperty" -X POST -i  -H 'Authorization: Bearer auth_token' -H 'Accept: application/json' -d '{
   "Name": "PostalCode",
   "_ComplexType.Name": "Address",
   "Type": "Edm.String",
   "Nullable": true,
   "DefaultValue": null,
   "CollectionKind": "None"  
-}' -H 'Authorization:Bearer auth_token'
+}'
 ```
 <br>
 <br>

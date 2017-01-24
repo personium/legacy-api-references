@@ -93,11 +93,7 @@ JSON
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata/ComplexTypeProrerty('animal')"\
--X PUT -v -i -k -s \
--H "Authorization:Bearer auth_token" \
--H "If-Match: *" \
--d '{"Name":"ComplexTypeProrerty"}'
+curl "https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata/ComplexTypeProrerty('animal')" -X PUT -i -H 'If-Match: *' -H 'Authorization: Bearer auth_token' -H 'Accept: application/json' -d '{"Name":"ComplexTypeProrerty"}'
 ```
 <br>
 <br>

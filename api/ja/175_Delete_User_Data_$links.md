@@ -83,8 +83,8 @@ JSON
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/cell_name/box_name/collection_name/entity_name('userid')/$links/_entitylinkname('userlinkid')"-X DELETE -v -k \
--H 'Authorization:Bearer auth_token' -H 'If-Match: *'
+curl "https://fqdn/cell_name/box_name/collection_name/entity_name('userid')/$links/_entitylinkname('userlinkid')" -X DELETE -i \
+-H 'Authorization: Bearer auth_token' -H 'Accept: application/json' -H 'If-Match: *'
 ```
 <br>
 ###### Copyright 2017    FUJITSU LIMITED

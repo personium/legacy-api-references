@@ -8,9 +8,7 @@ $skip={number}
 
 例：10セルの取得を省き、11セル目からの情報を取得する場合:
 ```sh
-curl -X GET "https://fqdn/__ctl/Cell?$skip=10"\
--H "Accept:application/json" -i -k -s
--H "Authorization:Bearer token"
+curl "https://fqdn/__ctl/Cell?$skip=10" -X GET -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
 ```
 <br>
 <br>

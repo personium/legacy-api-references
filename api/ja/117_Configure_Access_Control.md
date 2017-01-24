@@ -170,9 +170,8 @@ DTD表記
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl 'https://fqdn/cell_name/box_name/colection_name' -X ACL -v -k \
--H "Authorization: Bearer auth_token"\
--d
+curl "https://fqdn/cell_name/box_name/colection_name" -X ACL -i 
+-H 'Authorization: Bearer auth_token' -H 'Accept: application/json' -d
 '<?xml version="1.0" encoding="utf-8" ?>
  <D:acl xmlns:D="DAV:" xml:base="https://fqdn/cell_name/__role/box_name/"　xmlns:dc="urn:x-dc1:xmlns" dc:requireSchemaAuthz="none">
   <D:ace>

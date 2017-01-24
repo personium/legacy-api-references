@@ -96,8 +96,7 @@ GET
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/cellname/__ctl/ExtRole(ExtRole=\'https%3A%2F%2Ffqdn%2Fcellname%2F__role%2F__%2Froletest\',_Relation.Name=\'relation\',_Relation._Box.Name=\'box\')" -X GET -H 'Authorization:Bearer auth_token' -H 'Accept: application/json'
-
+curl "https://fqdn/cellname/__ctl/ExtRole(ExtRole='https%3A%2F%2Ffqdn%2Fcellname%2F__role%2F__%2Froletest',_Relation.Name='relation',_Relation._Box.Name='box')" -X GET -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
 ```
 <br>
 <br>

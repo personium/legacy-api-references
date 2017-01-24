@@ -144,8 +144,8 @@ GET
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/__ctl/SentMessage('MessageID')" -X GET -v \
--H 'Authorization:Bearer auth_token'
+curl "https://fqdn/__ctl/SentMessage('MessageID')" -X GET -i 
+-H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
 ```
 <br>
 <br>

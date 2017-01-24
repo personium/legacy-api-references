@@ -177,7 +177,7 @@ xmlns:dc='urn:x-dc1:xmlns'>
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl 'https://fqdn/cell_name/box_name/odata_colname/$metadata/$metadata' -X GET
+curl "https://fqdn/cell_name/box_name/odata_colname/$metadata/$metadata" -X GET -i
 ```
 <br>
 <br>

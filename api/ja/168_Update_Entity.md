@@ -123,8 +123,7 @@ PUT
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl 'https://fqdn/cell_name/box_name/odata_colleciton_path/parent('100-1_20101108-111352093')'\
--H 'Authorization:Bearer auth_token' -d '{"animalId": "100-1","name": "episode","startedAt":"2010-11-08","episodeType": "care","endedAt": "","outcome": "治療中"}' -k -i -X PUT
+curl "https://fqdn/cell_name/box_name/odata_colleciton_path/parent('100-1_20101108-111352093')" -X PUT -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json' -d '{"animalId": "100-1","name": "episode","startedAt":"2010-11-08","episodeType": "care","endedAt": "","outcome": "治療中"}'
 ```
 <br>
 <br>

@@ -138,13 +138,12 @@ GET
 ### CURLサンプル
 #### CURLコマンド(UNIX) EntityType
 ```sh
-curl "https://fqdn/cell_name/box_name/Collection_name/$metadata/EntityType(Name='entitytype_name')/$links/_AssociationEnd" -X GET -v -k -H 'Authorization:Bearer auth_token'
+curl "https://fqdn/cell_name/box_name/Collection_name/$metadata/EntityType(Name='entitytype_name')/$links/_AssociationEnd" -X GET -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
 ```
 
 #### CURLコマンド(UNIX) AssociationEnd
 ```sh
-curl "https://fqdn/cell_name/box_name/collection_name/$metadata/AssociationEnd(Name='associationend_name',_EntityType.Name='entitytype_name')/$links/_EntityType"\
--X GET -v -k -H 'Authorization:Bearer auth_token'
+curl "https://fqdn/cell_name/box_name/collection_name/$metadata/AssociationEnd(Name='associationend_name',_EntityType.Name='entitytype_name')/$links/_EntityType" -X GET -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
 ```
 <br>
 <br>

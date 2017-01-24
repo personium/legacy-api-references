@@ -92,7 +92,7 @@ xmlns:atom='http://www.w3.org/2005/Atom' xmlns:app='http://www.w3.org/2007/app'>
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl 'https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata' -X GET -H "Accept:application/atomsvc+xml" -H "Authorization:Bearer auth_token" -v -k
+curl "https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata' -X GET -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/atomsvc+xml'
 ```
 <br>
 <br>

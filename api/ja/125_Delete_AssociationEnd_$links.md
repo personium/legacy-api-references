@@ -97,13 +97,12 @@ DELETE
 ### CURLサンプル
 #### CURLコマンド(UNIX) EntityType
 ```sh
-curl 'https://fqdn/cell_name/box_name/collection_name/$metadata/EntityType(Name='entitytype_name')/$links/_AssociationEnd(Name='AssociationEnd_name',_EntityType.Name='entitytype_name')'\
--X DELETE -v -k -H 'If-Match: *' -H 'Authorization:Bearer auth_token'
+curl "https://fqdn/cell_name/box_name/collection_name/$metadata/EntityType(Name='entitytype_name')/$links/_AssociationEnd(Name='AssociationEnd_name',_EntityType.Name='entitytype_name')" -X DELETE -i -H 'If-Match: *' -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
 ```
 #### CURLコマンド(UNIX) AssociationEnd
 ```sh
-curl 'https://fqdn/cell_name/box_name/collection_name/$metadata/AssociationEnd(Name='associationEnd_name',_EntityType.Name='entitytype_name')/$links/_AssociationEnd(Name='associationEnd_name2',
-_EntityType.Name='entitytype_name2')' -X DELETE -v -k -H 'If-Match: *' -H 'Authorization:Bearer auth_token'
+curl "https://fqdn/cell_name/box_name/collection_name/$metadata/AssociationEnd(Name='associationEnd_name',_EntityType.Name='entitytype_name')/$links/_AssociationEnd(Name='associationEnd_name2',
+_EntityType.Name='entitytype_name2')" -X DELETE -i -H 'If-Match: *' -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
 ```
 <br>
 <br>

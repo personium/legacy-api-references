@@ -112,8 +112,7 @@ GET
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/cell_name/box_name/collection_name/$metadata/EntityType(Name='entitytype_name')/$links/_AssociationEnd" -X GET -v -k\
--H 'Authorization:Bearer auth_token'
+curl "https://fqdn/cell_name/box_name/collection_name/$metadata/EntityType(Name='entitytype_name')/$links/_AssociationEnd" -X GET -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
 ```
 <br>
 <br>

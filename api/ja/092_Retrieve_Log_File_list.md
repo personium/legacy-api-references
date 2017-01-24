@@ -205,8 +205,7 @@ PROPFIND
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl 'https://fqdn/cell_namess/__log/archive' -X PROPFIND -v \
--H 'Authorization:Bearer auth_token'
+curl "https://fqdn/cell_namess/__log/archive" -X PROPFIND -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
 ```
 <br>
 <br>

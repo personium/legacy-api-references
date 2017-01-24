@@ -88,8 +88,7 @@ DELETE
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl 'https://fqdn/cell_name/box_name/collection_name/$metadata/ComplexType('Address')/$links/_Property('PostalCode')'\
--X DELETE -v -k -H 'If-Match: *' -H 'Authorization:Bearer auth_token'
+curl "https://fqdn/cell_name/box_name/collection_name/$metadata/ComplexType('Address')/$links/_Property('PostalCode')" -X DELETE -i -H 'If-Match: *' -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
 ```
 <br>
 <br>

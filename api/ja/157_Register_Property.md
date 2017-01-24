@@ -166,8 +166,7 @@ DefaultValueの有効値はTypeの値（型定義）によって異なり、以�
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl 'https://fqdn/cell_name/box_name/odata_colleciton_path$metadata/Property' -X POST -v \
--d '{
+curl "https://fqdn/cell_name/box_name/odata_colleciton_path$metadata/Property" -X POST -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json' -d '{
   "Name": "PetName",
   "_EntityType.Name": "Profile",
   "Type": "Edm.String",
@@ -176,7 +175,7 @@ curl 'https://fqdn/cell_name/box_name/odata_colleciton_path$metadata/Property' -
   "CollectionKind": "None",
   "IsKey": true,
   "UniqueKey": null
-}' -H 'Authorization:Bearer auth_token'
+}'
 ```
 <br>
 <br>

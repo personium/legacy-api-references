@@ -145,7 +145,7 @@ GET
 #### CURLコマンド(UNIX)
 ##### AccountとRoleのnavigationProperty経由一覧
 ```sh
-curl "https://fqdn/cellname/__ctl/Role('role_name')/_Role" -X GET -H 'Authorization:Bearer auth_token' -H 'Accept: application/json'
+curl "https://fqdn/cellname/__ctl/Role('role_name')/_Role" -X GET -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
 ```
 <br>
 <br>

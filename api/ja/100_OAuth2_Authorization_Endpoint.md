@@ -105,8 +105,7 @@ GET : 認証フォーム リクエスト
 <br>
 ### CURLサンプル
 ```sh
-curl 'https://fqdn/cell_name/__authz' -X POST -v -k \
--d 'response_type=token&client_id=https://fqdn/app&redirect_uri=https://fqdn/app/__/redirect.html&state=0000000111'
+curl "https://fqdn/cell_name/__authz" -X POST -i -d 'response_type=token&client_id=https://fqdn/app&redirect_uri=https://fqdn/app/__/redirect.html&state=0000000111'
 ```
 <br>
 <br>

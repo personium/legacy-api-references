@@ -82,9 +82,7 @@ JSON
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/cell_name/__message/received/{uuid}" -X POST -v \
--d '{"Command": "approved"}' \
--H 'Authorization:Bearer auth_token'
+curl "https://fqdn/cell_name/__message/received/{uuid}" -X POST -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json' -d '{"Command": "approved"}' 
 ```
 <br>
 <br>

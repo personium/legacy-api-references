@@ -101,8 +101,7 @@ currentのログ取得時にログが存在しない場合は、空のレスポ�
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl 'https://fqdn/cellname/__log/current/default.log' -X GET -v -k \
--H 'Authorization:Bearer auth_token          
+curl "https://fqdn/cellname/__log/current/default.log" -X GET -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'          
 ```
 <br>
 <br>

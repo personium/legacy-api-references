@@ -140,7 +140,7 @@ Cell固有レスポンスボディ
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/__ctl/Cell" -X GET -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
+curl "https://fqdn/__ctl/Cell" -X GET -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
 ```
 <br>
 <br>

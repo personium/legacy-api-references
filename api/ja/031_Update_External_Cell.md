@@ -80,7 +80,7 @@ PUT
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/cell_name/__ctl/ExtCell('http%3A%2F%2Ffqdn%2Fcellname')" -X PUT -H "If-Match: *" -H 'Authorization:Bearer auth_token'
+curl "https://fqdn/cell_name/__ctl/ExtCell('http%3A%2F%2Ffqdn%2Fcellname')" -X PUT -i -H 'If-Match: *' -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
  -H 'Accept: application/json' -d '{"Url":"http://fqdn/cell_name/"}'
 ```
 <br>

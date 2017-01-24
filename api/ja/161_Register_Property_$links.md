@@ -80,9 +80,7 @@ JSON
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata/Property('property_nameName')/$links/_EntityType"\
--X POST -v -k \ -d '{"uri":"https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata/EntityType('Profile')"}'\
--H 'Authorization:Bearer auth_token'
+curl "https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata/Property('property_nameName')/$links/_EntityType" -X POST -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json' -d '{"uri":"https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata/EntityType('Profile')"}' 
 ```
 <br>
 <br>

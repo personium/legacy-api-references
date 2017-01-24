@@ -128,7 +128,7 @@ POST
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl 'https://fqdn/cell_name/__ctl/Role' -X POST -H 'Authorization:Bearer auth_token' -H 'Accept: application/json' -d '{ "Name": "role_name", "_Box.Name": "box_name }'
+curl "https://fqdn/cell_name/__ctl/Role" -X POST -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json' -d '{ "Name": "role_name", "_Box.Name": "box_name }'
 ```
 <br>
 <br>

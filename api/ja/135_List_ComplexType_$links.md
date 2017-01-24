@@ -129,8 +129,7 @@ GET
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/cell_name/box_name/collection_name/$metadata/ComplexType('Address')/$links/_Property" -X GET -v -k \
--H 'Authorization:Bearer auth_token'
+curl "https://fqdn/cell_name/box_name/collection_name/$metadata/ComplexType('Address')/$links/_Property" -X GET -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
 ```
 <br>
 <br>

@@ -71,17 +71,14 @@ POST
 ### CURLサンプル
 #### CURLコマンド(UNIX) EntityType
 ```sh
-curl'https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata/EntityType(Name='entitytypeName')/$links/_AssociationEnd' \
--d '{"uri": "https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata/AssociationEnd(Name='assocName_link',_EntityType.Name=null)"}' \
--X POST -v -H 'Authorization:Bearer auth_token' -H 'Accept:application/json'
+curl "https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata/EntityType(Name='entitytypeName')/$links/_AssociationEnd" -X POST -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json' -H 'Accept:application/json' -d '{"uri": "https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata/AssociationEnd(Name='assocName_link',_EntityType.Name=null)"}'
 ```
 
 
 #### CURLコマンド(UNIX) AssociationEnd
 ```sh
-curl'https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata/AssociationEnd(Name='assocName2',_EntityType.Name=Entity)/$links/_AssociationEnd' \
--d '{"uri": "https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata/AssociationEnd(Name='assocName_link',_EntityType.Name=Entity2)"}' \
--X POST -v -H 'Authorization:Bearer auth_token' -H 'Accept:application/json'
+curl "https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata/AssociationEnd(Name='assocName2',_EntityType.Name=Entity)/$links/_AssociationEnd" -X POST -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json' -H 'Accept:application/json' 
+-d '{"uri": "https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata/AssociationEnd(Name='assocName_link',_EntityType.Name=Entity2)"}'
 ```
 <br>
 <br>

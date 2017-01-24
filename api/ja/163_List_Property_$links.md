@@ -113,7 +113,7 @@ GET
 #### CURLコマンド(UNIX)
 ```sh
 curl "https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata/Property('Property_Name')/$links/_EntityType"
--X GET -v -k -H 'Authorization:Bearer auth_token'
+-X GET -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
 ```
 <br>
 <br>

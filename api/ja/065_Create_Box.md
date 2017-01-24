@@ -114,9 +114,7 @@ JSON
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl 'https://fqdn/cell_name/__ctl/Box' -X POST -v \
--d '{"Name":"box_name"}' \
--H 'Authorization:Bearer auth_token'
+curl "https://fqdn/cell_name/__ctl/Box" -X POST -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json' -d '{"Name":"box_name"}'
 ```
 <br>
 ###### Copyright 2017    FUJITSU LIMITED

@@ -83,8 +83,7 @@ PUT
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl 'https://fqdn/cell_name/box_name/svccol/__src/hello.js' -X PUT -v -k \-d '【ファイル内容】' \
--H 'Authorization:Bearer auth_token' -H 'Content-Type:text/javascript'
+curl "https://fqdn/cell_name/box_name/svccol/__src/hello.js" -X PUT -i  -H 'Authorization: Bearer auth_token' -H 'Accept: application/json' -H 'Content-Type:text/javascript' -d '【ファイル内容】'
 ```
 <br>
 <br>

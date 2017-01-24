@@ -110,7 +110,7 @@ JSON
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/cellname/__ctl/Role(Name="role_name",_Box.Name=null)/$links/_Box" -X POST -H 'Authorization:Bearer auth_token' -H 'Accept: application/json' -d '{"uri":"https://fqdn/cellname/__ctl/Box('box_name')"}'
+curl "https://fqdn/cellname/__ctl/Role(Name='role_name',_Box.Name=null)/$links/_Box" -X POST -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json' -d '{"uri":"https://fqdn/cellname/__ctl/Box('box_name')"}'
 ```
 <br>
 <br>

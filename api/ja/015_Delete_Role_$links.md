@@ -135,7 +135,7 @@ Or,
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/cell_name/__ctl/Role(Name='role_name')/$links/_Relation(Name='relation_name')" -X DELETE -H 'If-Match: *' -H 'Authorization:Bearer auth_token' -H 'Accept: application/json'
+curl "https://fqdn/cell_name/__ctl/Role(Name='role_name')/$links/_Relation(Name='relation_name')" -X DELETE -i -H 'If-Match: *' -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
 ```
 <br>
 <br>

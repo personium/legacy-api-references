@@ -168,8 +168,7 @@ GET
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl 'https://fqdn/cell_name/box_name/odata_colleciton_path/parent(\'100-1_20101108-111352092\')/_child'\
--X GET -H 'Authorization:Bearer auth_token' -k -i
+curl "https://fqdn/cell_name/box_name/odata_colleciton_path/parent('100-1_20101108-111352092')/_child" -X GET -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
 ```
 <br>
 <br>

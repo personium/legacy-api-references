@@ -89,7 +89,7 @@ PUT
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/cellname/__ctl/Role(Name='role_name',_Box.Name='box_name')" -X PUT  -H 'If-Match: *' -H 'Authorization:Bearer auth_token' -H 'Accept: application/json' -d '{"Name":"role_name","_Box.Name":"box_name"}'
+curl "https://fqdn/cellname/__ctl/Role(Name='role_name',_Box.Name='box_name')" -X PUT -i -H 'If-Match: *' -H 'Authorization: Bearer auth_token' -H 'Accept: application/json' -d '{"Name":"role_name","_Box.Name":"box_name"}'
 ```
 <br>
 <br>

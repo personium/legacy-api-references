@@ -83,13 +83,11 @@ Location:https://fqdn/Cell_Name/box/
 ### CURLコマンド(UNIX)
 #### Syntax
 ```sh
-curl -X GET 'https://fqdn/Cell_Name/__box' -v -k \
--H 'Authorization:Bearer token'
+curl "https://fqdn/Cell_Name/__box" -X GET -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
 ```
 
 ```sh
-curl -X GET 'https://fqdn/Cell_Name/__box?schema=https%3A%2F%2Ffqdn%2Fappcell%2F' -v -k \
--H 'Authorization:Bearer token'
+curl "https://fqdn/Cell_Name/__box?schema=https%3A%2F%2Ffqdn%2Fappcell%2F" -X GET -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
 ```
 <br>
 <br>

@@ -128,10 +128,7 @@ Boxメタデータ取得API用URLの詳細は、Boxメタデータ取得を参�
 ### CURLコマンド(UNIX)
 #### Syntax
 ```sh
-curl -X MKCOL 'https://fqdn/Cell_name/BoxName' -v \
--H 'Content-type: application / zip' \
--F '{file_path}; type = application/zip' \
--H 'Authorization: Bearer token'
+curl "https://fqdn/Cell_name/BoxName" -X MKCOL -i -H 'Content-type: application/zip' -H 'Authorization: Bearer auth_token' -H 'Accept: application/json' -F '{file_path}; type = application/zip'
 ```
 <br>
 <br>

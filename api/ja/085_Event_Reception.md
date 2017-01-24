@@ -83,11 +83,7 @@ JSON
 ### CURLコマンド(UNIX)
 #### CURLサンプル
 ```sh
-curl 'https://fqdn/cellname/__event' -X POST -v -k \
--d '{"level":"INFO", "action":"authSchema", \
-"object":"/cell_name/box_name/service_name/token_keeper", \
-"result":"[XXXX2033] Success schema authorization. cellUrl=https://fqdn/keeper-d4a57bb26eae481486b07d06487051d1/"}'
--H 'Authorization:Bearer auth_token'
+curl "https://fqdn/cellname/__event" -X POST -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json' -d '{"level":"INFO", "action":"authSchema", "object":"/cell_name/box_name/service_name/token_keeper", "result":"[XXXX2033] Success schema authorization. cellUrl=https://fqdn/keeper-d4a57bb26eae481486b07d06487051d1/"}'
 ```
 <br>
 <br>

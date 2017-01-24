@@ -97,9 +97,7 @@ Basic認証エラーの場合は 400 + WWW-Authenticated:Basicヘッダを返却
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl 'https://fqdn/cell_name/box_name/test.txt' -X GET -v -k \-H 'Authorization:Bearer auth_token' \
--H 'If-None-Match:"1-1372742704414"' \
--H "Range:bytes=10-20 "
+curl "https://fqdn/cell_name/box_name/test.txt" -X GET -i -H 'If-None-Match:"1-1372742704414"' -H 'Range:bytes=10-20 ' -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
 ```
 <br>
 <br>

@@ -304,9 +304,7 @@ DataServiceVersion: 2.0
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl 'https://fqdn/cell_name/box_name/odata_colleciton_path/$batch' \
--X POST -H 'Authorization:Bearer' -H 'Content-Type:multipart/mixed; boundary= batch_XAmu9BiJJLBa20sRWIq74jp2UlNAVueztqu' -k -i \
--d '--batch_XAmu9BiJJLBa20sRWIq74jp2UlNAVueztqu Content-Type: application/http Content-Transfer-Encoding:binary  GET user('0000') Host: host
+curl "https://fqdn/cell_name/box_name/odata_colleciton_path/$batch" -X POST -i -H 'Content-Type:multipart/mixed; boundary= batch_XAmu9BiJJLBa20sRWIq74jp2UlNAVueztqu' -H 'Authorization: Bearer auth_token' -H 'Accept: application/json' -d  '--batch_XAmu9BiJJLBa20sRWIq74jp2UlNAVueztqu Content-Type: application/http Content-Transfer-Encoding:binary  GET user('0000') Host: host
   --batch_XAmu9BiJJLBa20sRWIq74jp2UlNAVueztqu Content-Type: multipart/mixed; boundary=changeset_cLzcDEEVPwvvoxS3yJTFTpRauSK_FAQ6mQtyo0aby93-SDP3lAs2A19a2uBb
  Content-Length: 995  --changeset_cLzcDEEVPwvvoxS3yJTFTpRauSK_FAQ6mQtyo0aby93-SDP3lAs2A19a2uBb Content-Type: application/http Content-Transfer-Encoding: binary
   POST user HTTP/1.1 Host:  Connection: close Accept: application/json Content-Type: application/json Content-Length: 38  {"__id":"0000","Name":"田中 太郎"}

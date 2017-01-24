@@ -309,7 +309,7 @@ $formatにatomsvcを指定した場合、SchemaのAtom ServiceDocumentを返却�
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl 'https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata' -X GET -H 'Authorization:Bearer auth_token' -H 'Accept:application/xml' -k
+curl "https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata" -X GET -i -H 'Authorization: Bearer auth_token' -H 'Accept:application/xml'
 ```
 <br>
 <br>

@@ -180,9 +180,7 @@ PROPFIND
 <br>
 ### CURLサンプル
 ```sh
-curl 'https://fqdn/cell_name' -X PROPFIND \ -H 'Authorization:Bearer auth_token' \
--d '<?xml version="1.0" encoding="utf-8"?><D:propfind xmlns:D="DAV:"><D:allpop/></D:propfind>' \
--H 'Depth:1' -i
+curl "https://fqdn/cell_name" -X PROPFIND -i -H 'Depth:1' -H 'Authorization: Bearer auth_token' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8"?><D:propfind xmlns:D="DAV:"><D:allpop/></D:propfind>'
 ```
 <br>
 <br>

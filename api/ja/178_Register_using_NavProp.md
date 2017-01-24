@@ -140,9 +140,8 @@ POST
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl 'https://fqdn/cell_name/box_name/odata_colleciton_path/parent(\'100-1_20101108-111352092\')/child'\
--X POST -H 'Authorization:Bearer auth_token' -k -i \
--d '{"__id": "100-1_20101108-111352093","animalId":"100-1","name": "episode","startedAt": "2010-11-08","abc": "def","ghi":"jkl","mno": "pqr"}'
+curl "https://fqdn/cell_name/box_name/odata_colleciton_path/parent('100-1_20101108-111352092')/child"
+-X POST -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json' -d '{"__id": "100-1_20101108-111352093","animalId":"100-1","name": "episode","startedAt": "2010-11-08","abc": "def","ghi":"jkl","mno": "pqr"}'
 ```
 <br>
 <br>

@@ -119,8 +119,7 @@ PROPPATCH
 <br>
 ### CURLサンプル
 ```sh
-curl 'https://fqdn/cell' -X PROPPATCH -v -k \ -H "Authorization: Bearer auth-token" \
--d '<?xml version="1.0" encoding="utf-8" ?> \
+curl "https://fqdn/cell" -X PROPPATCH -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8" ?> 
 <D:propertyupdate xmlns:D="DAV:" xmlns:dc="urn:x-dc1:xmlns" xmlns:Z="http://www.w3.com/standards/z39.50/"><D:set><D:prop><Z:Author>${author1}</Z:Author>
 <dc:hoge>${hoge}</dc:hoge></D:prop></D:set><D:remove><D:prop><Z:Author/><dc:hoge/></D:prop></D:remove></D:propertyupdate>'
 ```

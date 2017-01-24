@@ -133,8 +133,6 @@ JSON
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl 'https://fqdn/Cell_name/__ctl/Relation(Name=\'relation_name\',_Box.Name=\'box_name\')/$links/_Box(\'box_name\')' -X PUT -v \
--d '{"uri":"https://fqdn/Cell_name/__ctl/Box('update_box_name')"}' \
--H 'Authorization:Bearer auth_token' -H 'If-Match:*'
-```
+curl "https://fqdn/Cell_name/__ctl/Relation(Name='relation_name',_Box.Name='box_name')/$links/_Box('box_name')" -X PUT -H 'If-Match:*' -H 'Authorization:Bearer auth_token' -H 'Accept: application/json'
+-d '{"uri":"https://fqdn/Cell_name/__ctl/Box('update_box_name')"}' ```
 ###### Copyright 2017    FUJITSU LIMITED

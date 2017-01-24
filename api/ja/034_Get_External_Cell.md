@@ -99,8 +99,7 @@ GET
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl 'https://fqdn/cell_name/__ctl/ExtCell('http%3A%2F%2Ffqdn%2Fcell_name')' -X GET -v -k\
--H 'Authorization:Bearer auth_token'
+curl "https://fqdn/cell_name/__ctl/ExtCell('http%3A%2F%2Ffqdn%2Fcell_name')" -X GET -H 'Authorization:Bearer auth_token' -H 'Accept: application/json'
 ```
 <br>
 <br>

@@ -80,9 +80,7 @@ DELETE
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl 'https://fqdn/cell_name/__ctl/Relation(Name=\'relation_name\',_Box.Name=\'box_name\')'
--X DELETE -v -k \
--H 'Authorization:Bearer auth_token'
+curl "https://fqdn/cell_name/__ctl/Relation(Name='relation_name',_Box.Name='box_name')" -X DELETE -H 'Authorization:Bearer auth_token' -H 'Accept: application/json'
 ```
 <br>
 <br>

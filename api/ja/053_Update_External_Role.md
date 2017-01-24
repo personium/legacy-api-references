@@ -67,12 +67,10 @@ PUT
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl 'https://fqdn/cell_name/__ctl/ExtRole(ExtRole=\'https%3A%2F%2Ffqdn%2Fcellname%2F__role%2F__%2Froletest\',_Relation.Name=\'relation_name\',
-_Relation._Box.Name=null)' -X PUT -v \
--H 'Authorization:Bearer auth_token' \
--H "If-Match: *" \
--d '{ "ExtRole": "https://fqdn/cell_name/__role/__/rolename", "_Relation.Name":"relation_name",
-"_Relation._Box.Name": null }' -k
+curl "https://fqdn/cell_name/__ctl/ExtRole(ExtRole=\'https%3A%2F%2Ffqdn%2Fcellname%2F__role%2F__%2Froletest\',_Relation.Name=\'relation_name\',
+_Relation._Box.Name=null)" -X PUT -H 'If-Match: *' -H 'Authorization:Bearer auth_token' -H 'Accept: application/json'
+ -d '{ "ExtRole": "https://fqdn/cell_name/__role/__/rolename", "_Relation.Name":"relation_name",
+"_Relation._Box.Name": null }'
 ```
 <br>
 <br>

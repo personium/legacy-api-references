@@ -123,9 +123,8 @@ POST
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl 'https://fqdn/cell_name/__ctl/Relation' -X POST -v \
--d '{ "Name":"relation_name", "_Box.Name": "box_name" }' \
--H 'Authorization:Bearer auth_token'
+curl 'https://fqdn/cell_name/__ctl/Relation' -X POST -H 'Authorization:Bearer auth_token' -H 'Accept: application/json'
+-d '{ "Name":"relation_name", "_Box.Name": "box_name" }'
 ```
 <br>
 <br>

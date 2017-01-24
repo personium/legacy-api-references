@@ -121,9 +121,7 @@ GET
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl 'https://fqdn/cell_name/__ctl/Relation(Name=\'relation_name\',_Box.Name=\'box_name\')'
--X GET -v -k\
--H 'Authorization:Bearer auth_token'
+curl "https://fqdn/cell_name/__ctl/Relation(Name='relation_name',_Box.Name='box_name')" -X GET -H 'Authorization:Bearer auth_token' -H 'Accept: application/json'
 ```
 <br>
 <br>

@@ -118,9 +118,7 @@ JSON
 #### CURLコマンド(UNIX)
 ##### ExtRoleを登録する場合
 ```sh
-curl "https://fqdn/cell_name/__ctl/Relation('relation_name')/_ExtRole" -X POST -v \
--d '{"ExtRole":"relation","_Relation.Name":"relation_name","_Relation._Box.Name":"box"}' -i -k \
--H 'Authorization:Bearer auth_token'
+curl "https://fqdn/cell_name/__ctl/Relation('relation_name')/_ExtRole" -X POST -H 'Authorization:Bearer auth_token' -H 'Accept: application/json' -d '{"ExtRole":"relation","_Relation.Name":"relation_name","_Relation._Box.Name":"box"}'
 ```
 <br>
 <br>

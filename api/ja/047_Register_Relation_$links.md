@@ -111,9 +111,7 @@ JSON
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl 'https://fqdn/Cell_name/__ctl/Relation(Name="relation_name",_Box.Name=null)/$links/_Box' -X POST -v \
--d '{"uri":"https://fqdn/Cell_name/__ctl/Box('box_name')"}' \
--H 'Authorization:Bearer auth_token'
+curl "https://fqdn/Cell_name/__ctl/Relation(Name='relation_name',_Box.Name=null)/$links/_Box" -X POST  -H 'Authorization:Bearer auth_token' -H 'Accept: application/json' -d '{"uri":"https://fqdn/Cell_name/__ctl/Box('box_name')"}' 
 ```
 <br>
 <br>

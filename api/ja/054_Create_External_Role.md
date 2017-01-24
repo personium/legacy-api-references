@@ -113,9 +113,8 @@ POST
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl 'https://fqdn/cell_name/__ctl/ExtRole' -X POST -v -k \
--d '{ "ExtRole": "https://fqdn/cell_name/__role/__/role_name", "_Relation.Name": "relation_name" }' \
--H 'Authorization:Bearer auth_token'
+curl 'https://fqdn/cell_name/__ctl/ExtRole' -X POST -H 'Authorization:Bearer auth_token' -H 'Accept: application/json'
+ -d '{ "ExtRole": "https://fqdn/cell_name/__role/__/role_name", "_Relation.Name": "relation_name" }'
 ```
 <br>
 <br>

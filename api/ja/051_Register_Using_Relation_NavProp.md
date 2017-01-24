@@ -146,9 +146,7 @@ Relation固有レスポンスボディ
 #### CURLコマンド(UNIX)
 ##### Relationを登録した場合
 ```sh
-curl "https://fqdn/cellname/__ctl/ExtCell('https%3A%2F%2Ffqdn%2Fcellname')/_Relation" -X POST -v \
--d '{"Name":"relationname"}' -i -k \
--H 'Authorization:Bearer auth_token'
+curl "https://fqdn/cellname/__ctl/ExtCell('https%3A%2F%2Ffqdn%2Fcellname')/_Relation" -X POST -H 'Authorization:Bearer auth_token' -H 'Accept: application/json -d '{"Name":"relationname"}'
 ```
 <br>
 <br>

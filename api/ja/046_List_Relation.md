@@ -143,8 +143,7 @@ GET
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl 'https://fqdn/cell_name/__ctl/Relation' -X GET -v -k \
--H 'Authorization:Bearer auth_token'
+curl "https://fqdn/cell_name/__ctl/Relation" -X GET  -H 'Authorization:Bearer auth_token' -H 'Accept: application/json'
 ```
 <br>
 <br>

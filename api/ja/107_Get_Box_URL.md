@@ -19,7 +19,7 @@ BoxのURLを取得するために用いるリソースです。スキーマ認�
 
 |URL<br>|概要<br>|
 |:--|:--|
-|/{cellname}/__box<br>|BoxのURLの取得<br>|
+|/{CellName}/__box<br>|BoxのURLの取得<br>|
 #### メソッド
 GET
 
@@ -38,7 +38,7 @@ GET
 |X-HTTP-Method-Override<br>|メソッドオーバーライド機能<br>|任意<br>|×<br>|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用されます。<br>|
 |X-Override<br>|ヘッダオーバライド機能<br>|${上書きするヘッダ名}:${値}  override} $: $ {value}<br>|×<br>|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定します。<br>|
 |X-Dc-RequestKey<br>|イベントログに出力するRequestKeyフィールドの値<br>|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字<br>|×<br>|指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応<br>|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {TokenValue}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
 #### リクエストボディ
 なし
 
@@ -59,7 +59,7 @@ GET
 |Location<br>|Boxメタデータ取得API用URL<br>|リクエストの指定方法により、以下の値となる<br>schemaクエリを指定<br>schemaクエリで指定されたアプリセルURLに対応するBoxのURL<br>schemaクエリなしで、Authorizationヘッダのみを指定<br>トークンに含まれるスキーマURLに対応するBoxのURL<br>|
 Locationサンプル
 ```
-Location:https://fqdn/cell_name/box
+Location:https://{UnitFQDN}/{CellName}/box
 ```
 
 #### レスポンスボディ
@@ -77,17 +77,17 @@ Location:https://fqdn/cell_name/box
 
 #### レスポンスサンプル
 ```
-Location:https://fqdn/Cell_Name/box/
+Location:https://{UnitFQDN}/{CellName}/box/
 ```
 <br>
 ### CURLコマンド(UNIX)
 #### Syntax
 ```sh
-curl "https://fqdn/Cell_Name/__box" -X GET -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/__box" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
 ```
 
 ```sh
-curl "https://fqdn/Cell_Name/__box?schema=https%3A%2F%2Ffqdn%2Fappcell%2F" -X GET -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/__box?schema=https%3A%2F%2FUnitFQDN%2Fappcell%2F" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
 ```
 <br>
 <br>

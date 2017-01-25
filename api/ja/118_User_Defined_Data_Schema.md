@@ -12,7 +12,7 @@ read
 ### リクエスト
 #### リクエストURL
 ```
-/{Cell_name}/{Box_name}/{odata_colname}/$metadata
+/{CellName}/{BoxName}/{odata_colname}/$metadata
 ```
 #### メソッド
 GET
@@ -177,7 +177,7 @@ xmlns:dc='urn:x-dc1:xmlns'>
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/cell_name/box_name/odata_colname/$metadata/$metadata" -X GET -i
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/odata_colname/$metadata/$metadata" -X GET -i
 ```
 <br>
 <br>

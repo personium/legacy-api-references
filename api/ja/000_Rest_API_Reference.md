@@ -9,7 +9,7 @@ Unit Level APIは、Cell群をホストするユニットに属するAPI(Cellの
 
 Resource Path
 ````
-https://{FQDN}/
+https://{UnitFQDN}/
 ````
 |<br>|<br>|作成・登録<br>|取得<br>|更新<br>|削除<br>|
 |:--|:--|:--|:--|:--|:--|
@@ -19,7 +19,7 @@ https://{FQDN}/
 ### [Cell Level API](008_Cell_Level_APIs.html)
 Resource Path
 ```
-https://{FQDN}/{cell_name}
+https://{UnitFQDN}/{CellName}
 ```
 
 ##### Cell内部設定API：単体セルモデルにおける設定
@@ -61,8 +61,8 @@ https://{FQDN}/{cell_name}
 Resource Path（※一部例外あり）
 
 ```
-https://{FQDN}/{cell_name}/{box_name}
-https://{FQDN}/{cell_name}/{box_name}/{resource_path}
+https://{UnitFQDN}/{CellName}/{BoxName}
+https://{UnitFQDN}/{CellName}/{BoxName}/{ResourcePath}
 ```
 
 ##### Box管理

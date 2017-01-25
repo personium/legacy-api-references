@@ -14,7 +14,7 @@ read
 ### リクエスト
 #### リクエストURL
 ```
-/{Cell_name}/{Box_name}/{odataname}/$metadata
+/{CellName}/{BoxName}/{odataname}/$metadata
 ```
 #### メソッド
 GET
@@ -232,7 +232,7 @@ $formatにatomsvcを指定した場合、SchemaのAtom ServiceDocumentを返却�
 ##### SchemaのAtom ServiceDocumentの場合
 以下を固定で返却する。
 ```xml
-<service xmlns='http://www.w3.org/2007/app' xml:base='https://fqdn/cell_name/box_name/col/$metadata?$format=atomsvc/'
+<service xmlns='http://www.w3.org/2007/app' xml:base='https://{UnitFQDN}/{CellName}/{BoxName}/col/$metadata?$format=atomsvc/'
  xmlns:atom='http://www.w3.org/2005/Atom' xmlns:app='http://www.w3.org/2007/app'>
   <workspace>
     <atom:title>
@@ -309,7 +309,7 @@ $formatにatomsvcを指定した場合、SchemaのAtom ServiceDocumentを返却�
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata" -X GET -i -H 'Authorization: Bearer auth_token' -H 'Accept:application/xml'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept:application/xml'
 ```
 <br>
 <br>

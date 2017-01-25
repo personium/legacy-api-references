@@ -22,7 +22,7 @@ event
 #### リクエストURL
 |URL<br>|概要<br>|
 |:--|:--|
-|/{cellname}/__event<br>|イベント受付エンドポイント<br>|
+|/{CellName}/__event<br>|イベント受付エンドポイント<br>|
 #### メソッド
 POST
 #### リクエストクエリ
@@ -49,8 +49,8 @@ JSON
 {
   "level":"INFO",
   "action":"authSchema",
-  "object":"/cell_name/box_name/service_name/token_keeper",
-  "result":"[XXXX2033] Success schema authorization. cellUrl=https://fqdn/keeper-d4a57bb26eae481486b07d06487051d1/"
+  "object":"/{CellName}/{BoxName}/service_name/token_keeper",
+  "result":"[XXXX2033] Success schema authorization. cellUrl=https://{UnitFQDN}/keeper-d4a57bb26eae481486b07d06487051d1/"
 }
 ```
 
@@ -83,7 +83,7 @@ JSON
 ### CURLコマンド(UNIX)
 #### CURLサンプル
 ```sh
-curl "https://fqdn/cellname/__event" -X POST -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json' -d '{"level":"INFO", "action":"authSchema", "object":"/cell_name/box_name/service_name/token_keeper", "result":"[XXXX2033] Success schema authorization. cellUrl=https://fqdn/keeper-d4a57bb26eae481486b07d06487051d1/"}'
+curl "https://{UnitFQDN}/{CellName}/__event" -X POST -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '{"level":"INFO", "action":"authSchema", "object":"/{CellName}/{BoxName}/service_name/token_keeper", "result":"[XXXX2033] Success schema authorization. cellUrl=https://{UnitFQDN}/keeper-d4a57bb26eae481486b07d06487051d1/"}'
 ```
 <br>
 <br>

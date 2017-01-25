@@ -14,7 +14,7 @@ Accountのパスワードに関する操作を行うAPI
 ### リクエスト
 #### リクエストURL
 ```
-{Cell_name}/__mypassword
+{CellName}/__mypassword
 ```
 #### メソッド
 PUT
@@ -23,7 +23,7 @@ PUT
 #### リクエストヘッダ
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {TokenValue}<br>|○<br>|認証トークンは認証トークン取得APIで取得したセルローカルトークン<br>|
+|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|○<br>|認証トークンは認証トークン取得APIで取得したセルローカルトークン<br>|
 |X-Dc-Credential<br>|変更後パスワード<br>|文字列<br>|○<br>|文字数：6&#65374;32文字<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>|
 #### リクエストボディ
 なし
@@ -55,7 +55,7 @@ PUT
 <br>
 ### CURLサンプル
 ```sh
-curl "https://fqdn/cell_name/__mypassword' -X PUT -i -H 'X-Dc-Credential: change_password' -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/__mypassword' -X PUT -i -H 'X-Dc-Credential: change_password' -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
 ```
 <br>
 <br>

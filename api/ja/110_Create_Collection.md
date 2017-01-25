@@ -13,13 +13,13 @@ WebDAV制限
 ### リクエスト
 #### リクエストURL
 ```
-/{Cell_name}/{Box_name}/{resource_path}
+/{CellName}/{BoxName}/{ResourcePath}
 ```
 |パス<br>|概要<br>|備考<br>|
 |:--|:--|:--|
-|Cell_name<br>|セル名<br>|<br>
-|Box_name<br>|ボックス名<br>|<br>
-|resource_path<br>|リソースへのパス<br>|有効値 桁数:1&#65374;128<br>使用可能文字種<br>半角英数字、半角ピリオド(.)、半角アンダーバー(_)、半角ハイフン(-)<br>|
+|{CellName}<br>|セル名<br>|<br>
+|{BoxName}<br>|ボックス名<br>|<br>
+|{ResourcePath}<br>|リソースへのパス<br>|有効値 桁数:1&#65374;128<br>使用可能文字種<br>半角英数字、半角ピリオド(.)、半角アンダーバー(_)、半角ハイフン(-)<br>|
 #### メソッド
 MKCOL
 #### リクエストクエリ
@@ -39,7 +39,7 @@ MKCOL
 ###### 個別リクエストヘッダ
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {TokenValue}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
 #### リクエストボディ
 ##### 名前空間
 |URI<br>|概要<br>|参考prefix<br>|
@@ -123,7 +123,7 @@ MKCOL
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/cell_name/box_name/collection_name" -X MKCOL -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8"?><D:mkcol xmlns:D="DAV:" xmlns:dc="urn:x-dc1:xmlns"><D:set><D:prop>
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}" -X MKCOL -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8"?><D:mkcol xmlns:D="DAV:" xmlns:dc="urn:x-dc1:xmlns"><D:set><D:prop>
 <D:resourcetype><D:collection/></D:resourcetype></D:prop></D:set></D:mkcol>'
 ```
 <br>

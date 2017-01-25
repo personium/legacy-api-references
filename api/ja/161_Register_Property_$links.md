@@ -17,7 +17,7 @@ alter-schema
 #### リクエストURL
 EntityTypeとの$links
 ```
-/{Cell_name}/{Box_name}/{Collection_name}/$metadata/Property(Name='{Property_name}',_EntityType.Name='{EntityType_name}')/$links/_EntityType
+/{CellName}/{BoxName}/{CollectionName}/$metadata/Property(Name='{Property_name}',_EntityType.Name='{EntitytypeName}')/$links/_EntityType
 ```
 #### メソッド
 POST
@@ -35,7 +35,7 @@ POST
 ##### OData共通リクエストヘッダ
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {TokenValue}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
 ##### OData登録リクエストヘッダ
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
@@ -51,7 +51,7 @@ JSON
 
 #### リクエストサンプル
 ```json
-{"uri":"https://fqdn/Cell/__ctl/Box('box_name')"}
+{"uri":"https://{UnitFQDN}/Cell/__ctl/Box('{BoxName}')"}
 ```
 
 <br>
@@ -80,7 +80,7 @@ JSON
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata/Property('property_nameName')/$links/_EntityType" -X POST -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json' -d '{"uri":"https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata/EntityType('Profile')"}' 
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/Property('property_nameName')/$links/_EntityType" -X POST -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '{"uri":"https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/EntityType('Profile')"}' 
 ```
 <br>
 <br>

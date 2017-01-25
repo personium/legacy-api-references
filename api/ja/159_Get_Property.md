@@ -13,7 +13,7 @@ read
 ### リクエスト
 #### リクエストURL
 ```
-/{Cell_name}/{Box_name}/{odata_colleciton_path}/$metadata/Property(Name='property_name',_EntityType.Name='EntityType_name')
+/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/Property(Name='property_name',_EntityType.Name='{EntitytypeName}')
 ```
 #### メソッド
 GET
@@ -40,7 +40,7 @@ GET
 ##### OData共通リクエストヘッダ
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {TokenValue}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
 ##### OData取得リクエストヘッダ
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
@@ -93,7 +93,7 @@ GET
     "results": {
       "_EntityType": {
         "__deferred": {
-          "uri": "https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata/Property(Name='PetName',_EntityType.Name='Profile')/_EntityType"
+          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/Property(Name='PetName',_EntityType.Name='Profile')/_EntityType"
         }
       },
       "Name": "PetName",
@@ -109,7 +109,7 @@ GET
       "__metadata": {
         "etag": "1-1349434504818",
         "type": "ODataSvcSchema.Property",
-        "uri": "https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata/Property(Name='PetName',_EntityType.Name='Profile')"
+        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/Property(Name='PetName',_EntityType.Name='Profile')"
       }
     }
   }
@@ -120,8 +120,8 @@ GET
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl  "https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata/Property(Name='PetName',_EntityType.Name='Profile')"
- -X GET -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
+curl  "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/Property(Name='PetName',_EntityType.Name='Profile')"
+ -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
 ```
 <br>
 <br>

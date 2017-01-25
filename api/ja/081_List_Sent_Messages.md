@@ -13,7 +13,7 @@ message または message-read
 ### リクエスト
 #### リクエストURL
 ```
-/{cell_name}/__ctl/SentMessage
+/{CellName}/__ctl/SentMessage
 ```
 #### メソッド
 GET
@@ -52,7 +52,7 @@ GET
 ##### OData共通リクエストヘッダ
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {TokenValue}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
 ##### OData一覧取得リクエストヘッダ
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
@@ -114,34 +114,34 @@ GET
         "__id": "hnKXm44TTZCw-bfSEw4f0A",
         "__published": "/Date(1349435294656)/",
         "__updated": "/Date(1349435294656)/",
-        "_Box.Name ": "box_name",
+        "_Box.Name ": "{BoxName}",
         "__metadata": {
           "etag": "1-1349435294656",
           "type": "CellCtl.SentMessage",
-          "uri": "https://fqdn/cell_name/__ctl/SentMessage('hnKXm44TTZCw-bfSEw4f0A')"
+          "uri": "https://{UnitFQDN}/{CellName}/__ctl/SentMessage('hnKXm44TTZCw-bfSEw4f0A')"
         },
         "InReplyTo": "xnKXmd4TTZCw-bfSEw4f0A",
-        "To": "https://fqdn/targetcellname",
+        "To": "https://{UnitFQDN}/target{CellName}",
         "ToRelation": "",
         "Type": "req.relation.build",
         "Title": "友人登録依頼です",
         "Body": "先日はありがとうごさいました。友人登録承認をお願いいたします。",
         "Priority": 3,
-        "RequestRelation": "https://fqdn/appcell/__relation/__/+:Friend",
-        "RequestRelationTarget": "https://fqdn/cell_name",
+        "RequestRelation": "https://{UnitFQDN}/appcell/__relation/__/+:Friend",
+        "RequestRelationTarget": "https://{UnitFQDN}/{CellName}",
         "Result": [
           {
-            "To": "https://fqdn/cell_name-sample1",
+            "To": "https://{UnitFQDN}/{CellName}-sample1",
             "Code": "201"  
             "Reason": "Created."  
           },
           {
-            "To": "https://fqdn/cell_name-sample2",
+            "To": "https://{UnitFQDN}/{CellName}-sample2",
             "Code": "404",
             "Reason": "Cell not found."  
           },
           {
-            "To": "https://fqdn/cell_name-sample3",
+            "To": "https://{UnitFQDN}/{CellName}-sample3",
             "Code": "201"  
             "Reason": "Created."  
           }
@@ -151,14 +151,14 @@ GET
         "__id": "HnKXm44abZCw-bfSEw4fyz",
         "__published": "/Date(1349435294123)/",
         "__updated": "/Date(1349435294123)/",
-        "_Box.Name ": "box_name",
+        "_Box.Name ": "{BoxName}",
         "__metadata": {
           "etag": "1-1234535294656",
           "type": "CellCtl.SentMessage",
-          "uri": "https://fqdn/cell_name/__ctl/SentMessage('HnKXm44abZCw-bfSEw4fyz')"
+          "uri": "https://{UnitFQDN}/{CellName}/__ctl/SentMessage('HnKXm44abZCw-bfSEw4fyz')"
         },
         "InReplyTo": "xnKXmd4TTZCw-bfSEw4f0A",
-        "To": "https://fqdn/targetcell_name",
+        "To": "https://{UnitFQDN}/target{CellName}",
         "ToRelation": "",
         "Type": "message",
         "Title": "御礼",
@@ -168,17 +168,17 @@ GET
         "RequestRelationTarget": null,
         "Result": [
           {
-            "To": "https://fqdn/cell_name-sample1",
+            "To": "https://{UnitFQDN}/{CellName}-sample1",
             "Code": "201"  
             "Reason": "Created."  
           },
           {
-            "To": "https://fqdn/cell_name-sample2",
+            "To": "https://{UnitFQDN}/{CellName}-sample2",
             "Code": "404",
             "Reason": "Cell not found."  
           },
           {
-            "To": "https://fqdn/cell_name-sample3",
+            "To": "https://{UnitFQDN}/{CellName}-sample3",
             "Code": "201"  
             "Reason": "Created."  
           }
@@ -193,8 +193,8 @@ GET
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/__ctl/SentMessage" -X GET -i 
--H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/__ctl/SentMessage" -X GET -i 
+-H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
 ```
 <br>
 <br>

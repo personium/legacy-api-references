@@ -28,9 +28,9 @@ log-read
 #### リクエストURL
 |URL<br>|概要<br>|
 |:--|:--|
-|/{cellname}/__log/current/{log_name}<br>|最新のログファイル<br>|
-|/{cellname}/__log/current/{log_name}<br>|ローテートされたログファイル<br>|
-※{log_name}は、ログファイル情報取得API で返却されたファイル名を指定する。
+|/{CellName}/__log/current/{LogName}<br>|最新のログファイル<br>|
+|/{CellName}/__log/current/{LogName}<br>|ローテートされたログファイル<br>|
+※{LogName}は、ログファイル情報取得API で返却されたファイル名を指定する。
 #### メソッド
 GET
 #### リクエストクエリ
@@ -44,7 +44,7 @@ GET
 |X-HTTP-Method-Override<br>|メソッドオーバーライド機能<br>|任意<br>|×<br>|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用される<br>|
 |X-Override<br>|ヘッダオーバライド機能<br>|${上書きするヘッダ名}:${値}<br>|×<br>|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定する<br>|
 |X-Dc-RequestKey<br>|イベントログに出力するRequestKeyフィールドの値<br>|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字<br>|×<br>|指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応<br>|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {TokenValue}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
 #### リクエストボディ
 なし
 #### リクエストサンプル
@@ -89,19 +89,19 @@ currentのログ取得時にログが存在しない場合は、空のレスポ�
 #### レスポンスサンプル
 外部イベント
 ```
-2013-02-04T00:50:12.761Z,[INFO ],Req_animal-access_1001,client,https://fqdn/cell_name/,https://fqdn/servicemanager/#admin,authSchema,/cell_name/box_name/service_name/token_keeper,[XXXX2033] Success schema authorization. cellUrl=https://fqdn/keeper-d4a57bb26eae481486b07d06487051d1/
+2013-02-04T00:50:12.761Z,[INFO ],Req_animal-access_1001,client,https://{UnitFQDN}/{CellName}/,https://{UnitFQDN}/servicemanager/#admin,authSchema,/{CellName}/{BoxName}/service_name/token_keeper,[XXXX2033] Success schema authorization. cellUrl=https://{UnitFQDN}/keeper-d4a57bb26eae481486b07d06487051d1/
 ```
 
 内部イベント
 ```
-2013-04-18T14:52:39.778Z,[ERROR],PCS-1364350331902,server,https://fqdn/appCell/,https://fqdn/appCell/#staff,POST,/homeClinic/__auth,200
+2013-04-18T14:52:39.778Z,[ERROR],PCS-1364350331902,server,https://{UnitFQDN}/appCell/,https://{UnitFQDN}/appCell/#staff,POST,/homeClinic/__auth,200
 ```
 
 <br>
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/cellname/__log/current/default.log" -X GET -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'          
+curl "https://{UnitFQDN}/{CellName}/__log/current/default.log" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'          
 ```
 <br>
 <br>

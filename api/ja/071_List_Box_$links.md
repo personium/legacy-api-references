@@ -20,19 +20,19 @@ Boxに紐付いたODataリソースを一覧取得する<br>以下のODataリソ
 #### リクエストURL
 ##### Roleとの紐付け
 ```
-/{Cell_name}/__ctl/Box(Name='{box_name}',Schema='{schema_url}')/$links/_Role
+/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{schema_url}')/$links/_Role
 または、
-/{Cell_name}/__ctl/Box(Name='{box_name}')/$links/_Role
+/{CellName}/__ctl/Box(Name='{BoxName}')/$links/_Role
 または、
-/{Cell_name}/__ctl/Box('{box_name}')/$links/_Role
+/{CellName}/__ctl/Box('{BoxName}')/$links/_Role
 ```
 ##### Relationとの紐付け
 ```
-/{Cell_name}/__ctl/Box(Name='{box_name}',Schema='{schema_url}')/$links/_Relation
+/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{schema_url}')/$links/_Relation
 または、
-/{Cell_name}/__ctl/Box(Name='{box_name}')/$links/_Relation
+/{CellName}/__ctl/Box(Name='{BoxName}')/$links/_Relation
 または、
-/{Cell_name}/__ctl/Box('{box_name}')/$links/_Relation
+/{CellName}/__ctl/Box('{BoxName}')/$links/_Relation
 ```
 ※ Schemaパラメタを省略した場合は、nullが指定されたものとする
 
@@ -71,7 +71,7 @@ GET
 |X-HTTP-Method-Override<br>|メソッドオーバーライド機能<br>|任意<br>|×<br>|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用されます。<br>|
 |X-Override<br>|ヘッダオーバライド機能<br>|${上書きするヘッダ名}:${値}<br>|×<br>|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定します。<br>|
 |X-Dc-RequestKey<br>|イベントログに出力するRequestKeyフィールドの値<br>|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字<br>|×<br>|指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応<br>|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {TokenValue}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
 |Accept<br>|レスポンスボディの形式を指定する<br>|application / json<br>|×<br>|省略時は[application/json]として扱う<br>|
 #### リクエストボディ
 なし
@@ -108,10 +108,10 @@ GET
   "d": {
     "results": [
       {
-        "uri": "https://fqdn/cell_name/__ctl/Role(Name='role_name',_Box.Name=null)"
+        "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name=null)"
       },
       {
-        "uri": "https://fqdn/cell_name/__ctl/Role(Name='role_name',_Box.Name='box1')"
+        "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='box1')"
       }
     ]
   }
@@ -121,7 +121,7 @@ GET
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/Cell_name/__ctl/Box('box_name')/$links/_Role" -X GET -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/$links/_Role" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
 ```
 <br>
 <br>

@@ -30,7 +30,7 @@ alter-schema
 ### リクエスト
 #### リクエストURL
 ```
-/{Cell_name}/{Box_name}/{odata_colleciton_path}/$metadata/ComplexTypeProperty
+/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/ComplexTypeProperty
 ```
 #### メソッド
 POST
@@ -55,7 +55,7 @@ POST
 
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {TokenValue}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
 
 ##### OData登録リクエストヘッダ
 
@@ -168,7 +168,7 @@ DefaultValueの有効値はTypeの値（型定義）によって異なり、以�
     "results": {
       "_ComplexType": {
         "__deferred": {
-          "uri": "https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata/ComplexTypeProperty(Name='PostalCode',_ComplexType.Name='Address')/_ComplexType"
+          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/ComplexTypeProperty(Name='PostalCode',_ComplexType.Name='Address')/_ComplexType"
         }
       },
       "Name": "PostalCode",
@@ -182,7 +182,7 @@ DefaultValueの有効値はTypeの値（型定義）によって異なり、以�
       "__metadata": {
         "etag": "1-1349434504818",
         "type": "ODataSvcSchema.ComplexTypeProperty",
-        "uri": "https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata/ComplexTypeProperty(Name='PostalCode',_ComplexType.Name='Address')"
+        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/ComplexTypeProperty(Name='PostalCode',_ComplexType.Name='Address')"
       }
     }
   }
@@ -193,7 +193,7 @@ DefaultValueの有効値はTypeの値（型定義）によって異なり、以�
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata/ComplexTypeProperty" -X POST -i  -H 'Authorization: Bearer auth_token' -H 'Accept: application/json' -d '{
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/ComplexTypeProperty" -X POST -i  -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '{
   "Name": "PostalCode",
   "_ComplexType.Name": "Address",
   "Type": "Edm.String",

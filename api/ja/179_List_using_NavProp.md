@@ -10,16 +10,16 @@ read
 ### リクエスト
 #### リクエストURL
 ```
-/{Cell_name}/{Box_name}/{odata_colleciton_path}/{entity_set}({KeyPredicate})/{navigation_property}
+/{CellName}/{BoxName}/{OdataCollecitonPath}/{EntitySet}({KeyPredicate})/{{NavigationProperty}}
 ```
 |パス<br>|概要<br>|
 |:--|:--|
-|Cell_name<br>|セル名<br>|
-|Box_name<br>|ボックス名<br>|
-|odata_colleciton_path<br>|コレクション名<br>|
-|entity_set<br>|EntitySet名<br>|
+|{CellName}<br>|セル名<br>|
+|{BoxName}<br>|ボックス名<br>|
+|{OdataCollecitonPath}<br>|コレクション名<br>|
+|{EntitySet}<br>|EntitySet名<br>|
 |KeyPredicate<br>|EntityのID<br>|
-|navigation_property<br>|NavigationProperty名<br>|
+|{NavigationProperty}<br>|NavigationProperty名<br>|
 指定できるNavigationProperty名は、EntitySetと以下の関連を持つものに限る。
 
 |From Role<br>|To Role<br>|
@@ -63,7 +63,7 @@ GET
 #### リクエストヘッダ
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {TokenValue}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
 |Accept<br>|レスポンスボディの形式を指定する<br>|application / json<br>|×<br>|省略時は[application/json]として扱う<br>|
 #### リクエストボディ
 特になし
@@ -130,7 +130,7 @@ GET
                {
                    "__metadata":
                    {
-                       "uri": "http://localhost:8080/dc1-core/test_cell1/box_name1/entyty_set/Sales('test')",
+                       "uri": "http://localhost:8080/dc1-core/test_cell1/{BoxName}1/entyty_set/Sales('test')",
                        "type": "PF-9dqR7RLalymQqQc4wtw.Sales"
                    },
                    "__id": "test",
@@ -140,21 +140,21 @@ GET
                    {
                        "__deferred":
                        {
-                           "uri": "http://localhost:8080/dc1-core/test_cell1/box_name1/entyty_set/Sales('test')/_Product"
+                           "uri": "http://localhost:8080/dc1-core/test_cell1/{BoxName}1/entyty_set/Sales('test')/_Product"
                        }
                    },
                    "_SalesDetail":
                    {
                        "__deferred":
                        {
-                           "uri": "http://localhost:8080/dc1-core/test_cell1/box_name1/entyty_set/Sales('test')/_SalesDetail"
+                           "uri": "http://localhost:8080/dc1-core/test_cell1/{BoxName}1/entyty_set/Sales('test')/_SalesDetail"
                        }
                    },
                    "_Supplier":
                    {
                        "__deferred":
                        {
-                           "uri": "http://localhost:8080/dc1-core/test_cell1/box_name1/entyty_set/Sales('test')/_Supplier"
+                           "uri": "http://localhost:8080/dc1-core/test_cell1/{BoxName}1/entyty_set/Sales('test')/_Supplier"
                        }
                    }
                }
@@ -168,7 +168,7 @@ GET
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/cell_name/box_name/odata_colleciton_path/parent('100-1_20101108-111352092')/_child" -X GET -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/parent('100-1_20101108-111352092')/_child" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
 ```
 <br>
 <br>

@@ -15,7 +15,7 @@ read
 ### リクエスト
 #### リクエストURL
 ```
-/{Cell_name}/{Box_name}/{odata_colleciton_path}/$metadata/ComplexType
+/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/ComplexType
 ```
 #### メソッド
 GET
@@ -58,7 +58,7 @@ GET
 
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {TokenValue}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
 
 ##### OData一覧取得リクエストヘッダ
 
@@ -111,7 +111,7 @@ GET
       {
         "_Property": {
           "__deferred": {
-            "uri": "https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata/ComplexType('Address')/_Property"
+            "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/ComplexType('Address')/_Property"
           }
         },
         "Name": "Address",
@@ -120,13 +120,13 @@ GET
         "__metadata": {
           "etag": "1-1349434504818",
           "type": "ODataSvcSchema.ComplexType",
-          "uri": "https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata/ComplexType('Address')"
+          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/ComplexType('Address')"
         }
       },
       {
         "_Property": {
           "__deferred": {
-            "uri": "https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata/ComplexType('NestedColumn')/_Property"
+            "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/ComplexType('NestedColumn')/_Property"
           }
         },
         "Name": "NestedColumn",
@@ -135,7 +135,7 @@ GET
         "__metadata": {
           "etag": "1-1349323504818",
           "type": "ODataSvcSchema.ComplexType",
-          "uri": "https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata/ComplexType('NestedColumn')"
+          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/ComplexType('NestedColumn')"
         }
       }
     ]
@@ -150,7 +150,7 @@ GET
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata/ComplexType" -X GET -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/ComplexType" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
 ```
 <br>
 <br>

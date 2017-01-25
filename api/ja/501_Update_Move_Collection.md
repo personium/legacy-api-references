@@ -14,14 +14,14 @@ write
 ### リクエスト
 #### リクエストURL
 ```
-/{Cell_name}/{Box_name}/{Collection_name}/
+/{CellName}/{BoxName}/{CollectionName}/
 または、
-/{Cell_name}/{Box_name}/{Collection_name}/{path}/{to}/{File_name}
+/{CellName}/{BoxName}/{CollectionName}/{ResourcePath}/{to}/{File_name}
 ```
 |パス<br>|概要<br>|備考<br>|
 |:--|:--|:--|
-|Cell_name<br>|セル名<br>| <br>
-|Box_name<br>|ボックス名<br>| <br>
+|{CellName}<br>|セル名<br>| <br>
+|{BoxName}<br>|ボックス名<br>| <br>
 #### メソッド
 MOVE
 #### リクエストクエリ
@@ -44,7 +44,7 @@ MOVE
 |Destination<br>|変更先<br>|Absolute URI<br>|○<br>|移動/名前を変更するファイル名を指定する。<br> |
 |Overwrite<br>|上書き<br>|"T" or "F"<br>|×<br>|上書き可("T")、上書き不可("F")を指定する。(初期値は"F")<br>|
 |Depth<br>|移動階層<br>|"infinity"<br>|×<br>|移動するコレクション階層の深さを指定する。(初期値は無限)<br>|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {TokenValue}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
 #### リクエストボディ
 なし
 #### リクエストサンプル
@@ -95,17 +95,17 @@ HTTP/1.1 207 Multi-Status
 #### CURLコマンド(UNIX)
 コレクション名変更(終端の"/"は必須)
 ```sh
-   curl "http://[FQDN]/[cell_name]/[box_naem]/[collection_name]/[old_name]/" -X MOVE -i -H 'Destination:http://[FQDN]/[cell]/[box]/[collection]/[new_name]/'
+   curl "http://[UnitFQDN]/[{CellName}]/[box_naem]/[{CollectionName}]/[old_name]/" -X MOVE -i -H 'Destination:http://[UnitFQDN]/[cell]/[box]/[collection]/[new_name]/'
 ```
 
 ファイル名変更
 ```sh
-   curl  "http://[FQDN]/[cell_name]/[box_name]/[collection_name]/[dir]/old.txt" -X MOVE -i -H 'Destination:http://[FQDN]/[cell_name]/[box_name]/[collection_name]/[dir]/new.txt'
+   curl  "http://[UnitFQDN]/[{CellName}]/[{BoxName}]/[{CollectionName}]/[dir]/old.txt" -X MOVE -i -H 'Destination:http://[UnitFQDN]/[{CellName}]/[{BoxName}]/[{CollectionName}]/[dir]/new.txt'
 ```
 
 ファイル移動
 ```sh
-   curl  "http://[FQDN]/[cell_name]/[box_name]/[collection_name]/[from]/file.txt" -X MOVE -i -H 'Destination:http://[FQDN]/[cell_name]/[box_name]/[collection_name]/[to]/file.txt'
+   curl  "http://[UnitFQDN]/[{CellName}]/[{BoxName}]/[{CollectionName}]/[from]/file.txt" -X MOVE -i -H 'Destination:http://[UnitFQDN]/[{CellName}]/[{BoxName}]/[{CollectionName}]/[to]/file.txt'
 ```
 <br>
 <br>

@@ -15,7 +15,7 @@ read
 ### リクエスト
 #### リクエストURL
 ```
-/{Cell_name}/{Box_name}/{odata_colleciton_path}/$metadata/EntityType
+/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/EntityType
 ```
 
 #### メソッド
@@ -58,7 +58,7 @@ GET
 
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {TokenValue}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
 
 ##### OData一覧取得リクエストヘッダ
 
@@ -109,41 +109,41 @@ GET
     "results": [
       {
         "__metadata": {
-          "uri": "https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata/EntityType('entityType_name')",
+          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/EntityType('{EntitytypeName}')",
           "etag": "1-1349434504818",
           "type": "ODataSvcSchema.EntityType"  
         },
-        "Name": "entityType_name",
+        "Name": "{EntitytypeName}",
         "__published": "/Date(1349434504818)/",
         "__updated": "/Date(1349434504818)/",
         "_AssociationEnd": {
           "__deferred": {
-            "uri": "https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata/EntityType('entityType_name')/_AssociationEnd"
+            "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/EntityType('{EntitytypeName}')/_AssociationEnd"
           }
         },
         "_Property": {
           "__deferred": {
-            "uri": "https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata/EntityType('entityType_name')/_Property"
+            "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/EntityType('{EntitytypeName}')/_Property"
           }
         }
       },
       {
         "__metadata": {
-          "uri": "https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata/EntityType('entityType_name2')",
+          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/EntityType('{EntitytypeName}2')",
           "etag": "1-1349434509722",
           "type": "ODataSvcSchema.EntityType"  
         },
-        "Name": "entityType_name2",
+        "Name": "{EntitytypeName}2",
         "__published": "/Date(1349434509722)/",
         "__updated": "/Date(1349434509722)/",
         "_AssociationEnd": {
           "__deferred": {
-            "uri": "https://fqdn/cell_name/box/col/$metadata/EntityType('entityType_name2')/_AssociationEnd"
+            "uri": "https://{UnitFQDN}/{CellName}/box/col/$metadata/EntityType('{EntitytypeName}2')/_AssociationEnd"
           }
         },
         "_Property": {
           "__deferred": {
-            "uri": "https://fqdn/cell_name/box/col/$metadata/EntityType('entityType2')/_Property"
+            "uri": "https://{UnitFQDN}/{CellName}/box/col/$metadata/EntityType('entityType2')/_Property"
           }
         }
       }
@@ -156,7 +156,7 @@ GET
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata/EntityType" -X GET -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/EntityType" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
 ```
 <br>
 <br>

@@ -74,7 +74,7 @@ bar/
 {
   "bar_version": "1",
   "box_version": "1",
-  "DefaultPath": "box_Name",
+  "DefaultPath": "{BoxName}",
   "schema": "http://app1.example.com"
 }
 ```
@@ -128,14 +128,14 @@ bar/
 |ExtRoles/_Relation.Name<br>|Relation名<br>|&#65293;<br>|○<br>|nullは不可<br>|
 
 (※ 1) エクスポート時にロールクラスURLへ変換
-https://fqdn/cell1/__role/box/staff → https://fqdn/cell1/__role/__/staff
+https://{UnitFQDN}/cell1/__role/box/staff → https://{UnitFQDN}/cell1/__role/__/staff
 
 ##### サンプル
 ```json
 {
   "ExtRoles": [
     {
-      "ExtRole": "https://fqdn/cell_Name/__role/__/role2",
+      "ExtRole": "https://{UnitFQDN}/{CellName}/__role/__/role2",
       "_Relation.Name": "Relation1"
     }
   ]
@@ -177,7 +177,7 @@ https://fqdn/cell1/__role/box/staff → https://fqdn/cell1/__role/__/staff
         },
       "ToType": "ExtRole",
       "ToName": {
-          "ExtRole": "https://fqdn/Cell_Name/__role/__/role2",
+          "ExtRole": "https://{UnitFQDN}/{CellName}/__role/__/role2",
           "_Relation.Name": "Relation1"
         }
     }
@@ -203,7 +203,7 @@ barファイルのインストール時には、下記サンプルの<prop>配�
               <resourcetype>
                   <collection/>
               </resourcetype>
-              <acl xml:base="https://fqdn/cell/__role/__/" xmlns:dc="urn:x-dc1:xmlns">
+              <acl xml:base="https://{UnitFQDN}/cell/__role/__/" xmlns:dc="urn:x-dc1:xmlns">
                   <ace>
                       <principal>
                           <href>admin</href>
@@ -226,7 +226,7 @@ barファイルのインストール時には、下記サンプルの<prop>配�
                   <collection/>
                   <dc:service xmlns:dc="urn:x-dc1:xmlns"/>
               </resourcetype>
-              <acl xml:base="https://fqdn/cell/__role/__/" xmlns:dc="urn:x-dc1:xmlns">
+              <acl xml:base="https://{UnitFQDN}/cell/__role/__/" xmlns:dc="urn:x-dc1:xmlns">
                   <ace>
                       <principal>
                           <href>user</href>
@@ -254,7 +254,7 @@ barファイルのインストール時には、下記サンプルの<prop>配�
               <resourcetype>
                   <collection/>
               </resourcetype>
-              <acl xml:base="https://fqdn/cell/__role/__/" xmlns:dc="urn:x-dc1:xmlns">
+              <acl xml:base="https://{UnitFQDN}/cell/__role/__/" xmlns:dc="urn:x-dc1:xmlns">
                   <ace>
                       <principal>
                           <href>user</href>
@@ -291,7 +291,7 @@ barファイルのインストール時には、下記サンプルの<prop>配�
                   <collection/>
                   <dc:service xmlns:dc="urn:x-dc1:xmlns"/>
               </resourcetype>
-             <acl xml:base="https://fqdn/cell/__role/__/" xmlns:dc="urn:x-dc1:xmlns"/>
+             <acl xml:base="https://{UnitFQDN}/cell/__role/__/" xmlns:dc="urn:x-dc1:xmlns"/>
               <dc:service language="JavaScript" xmlns:D="DAV:" xmlns:dc="urn:x-dc1:xmlns" \
               xmlns:Z="http://www.w3.com/standards/z39.50/">
                   <dc:path name="ehr" src="ehr.js"/>
@@ -307,7 +307,7 @@ barファイルのインストール時には、下記サンプルの<prop>配�
                 <resourcetype>
                     <collection/>
                 </resourcetype>
-                <acl xml:base="https://fqdn/cell/__role/__/"\
+                <acl xml:base="https://{UnitFQDN}/cell/__role/__/"\
                  xmlns:dc="urn:x-dc1:xmlns"/>
             </prop>
         </propstat>
@@ -405,7 +405,7 @@ Boxインストール時には、Schemaタグの配下をインストール対�
 
 ```json
 {
-    "__id": "entity",
+    "__id": "{EntityName}",
     "name": "pochi",
     "address": {
         "country": "japan",
@@ -434,7 +434,7 @@ bar/90_contents/{Service}/{src.js}に格納されたソースファイルを、�
                     <collection/>
                     <dc:service xmlns:dc="urn:x-dc1:xmlns"/>
                 </resourcetype>
-                <acl xml:base="https://fqdn/cell/__role/__/"\
+                <acl xml:base="https://{UnitFQDN}/cell/__role/__/"\
                 xmlns:dc="urn:x-dc1:xmlns"/>
                 <dc:service language="JavaScript" xmlns:D="DAV:" xmlns:dc="urn:x-dc1:xmlns" \
                 xmlns:Z="http://www.w3.com/standards/z39.50/">
@@ -451,7 +451,7 @@ bar/90_contents/{Service}/{src.js}に格納されたソースファイルを、�
                 <resourcetype>
                     <collection/>
                 </resourcetype>
-                <acl xml:base="https://fqdn/cell/__role/__/"\
+                <acl xml:base="https://{UnitFQDN}/cell/__role/__/"\
                  xmlns:dc="urn:x-dc1:xmlns"/>
             </prop>
         </propstat>

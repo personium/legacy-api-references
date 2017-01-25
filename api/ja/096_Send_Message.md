@@ -15,7 +15,7 @@ message
 ### リクエスト
 #### リクエストURL
 ```
-/{cell_name}/__message/send
+/{CellName}/__message/send
 ```
 #### メソッド
 POST
@@ -29,7 +29,7 @@ POST
 |:--|:--|:--|:--|:--|
 |X-HTTP-Method-Override<br>|メソッドオーバーライド機能<br>|任意<br>|×<br>|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用されます。<br>|
 |X-Override<br>|ヘッダオーバライド機能<br>|${上書きするヘッダ名}:${値}<br>|×<br>|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定します。<br>|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {TokenValue}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
 |Content-Type<br>|リクエストボディの形式を指定する<br>|application / json<br>|×<br>|省略時は[application/json]として扱う<br>|
 |Accept<br>|レスポンスボディの形式を指定する<br>|application / json<br>|×<br>|省略時は[application/json]として扱う<br>|
 #### リクエストボディ
@@ -53,14 +53,14 @@ JSON
 {
   "BoxBound": true,
   "InReplyTo": "hnKXm44TTZCw-bfSEw4f0A",
-  "To": "https://fqdn/targetcell_name",
+  "To": "https://{UnitFQDN}/target{CellName}",
   "ToRelation": null,
   "Type": "req.relation.build",
   "Title": "友人登録依頼です",
   "Body": "先日はありがとうごさいました。友人登録承認をお願いいたします。",
   "Priority": 3,
-  "RequestRelation": "https://fqdn/appcell/__relation/__/+:Friend",
-  "RequestRelationTarget": "https://fqdn/cell_name"
+  "RequestRelation": "https://{UnitFQDN}/appcell/__relation/__/+:Friend",
+  "RequestRelationTarget": "https://{UnitFQDN}/{CellName}"
 }
 ```
 <br>
@@ -115,34 +115,34 @@ JSON
       "__id": "hnKXm44TTZCw-bfSEw4f0A",
       "__published": "/Date(1349435294656)/",
       "__updated": "/Date(1349435294656)/",
-      "_Box.Name ": "box_name",
+      "_Box.Name ": "{BoxName}",
       "__metadata": {
         "etag": "1-1349435294656",
         "type": "CellCtl.SentMessage",
-        "uri": "https://fqdn/cell_name/__ctl/SentMessage('hnKXm44TTZCw-bfSEw4f0A')"
+        "uri": "https://{UnitFQDN}/{CellName}/__ctl/SentMessage('hnKXm44TTZCw-bfSEw4f0A')"
       },
       "InReplyTo": "xnKXmd4TTZCw-bfSEw4f0A",
-      "To": "https://fqdn/targetcel_lname",
+      "To": "https://{UnitFQDN}/targetcel_lname",
       "ToRelation": "",
       "Type": "req.relation.build",
       "Title": "友人登録依頼です",
       "Body": "先日はありがとうごさいました。友人登録承認をお願いいたします。",
       "Priority": 3,
-      "RequestRelation": "https://fqdn/appcell/__relation/__/+:Friend",
-      "RequestRelationTarget": "https://fqdn/cell_name",
+      "RequestRelation": "https://{UnitFQDN}/appcell/__relation/__/+:Friend",
+      "RequestRelationTarget": "https://{UnitFQDN}/{CellName}",
       "Result": [
         {
-          "To": "https://fqdn/cell_name-sample1",
+          "To": "https://{UnitFQDN}/{CellName}-sample1",
           "Code": "201",
           "Reason": "Created."
         },
         {
-          "To": "https://fqdn/cell_name-sample2",
+          "To": "https://{UnitFQDN}/{CellName}-sample2",
           "Code": "404",
           "Reason": "Cell not found."
         },
         {
-          "To": "https://fqdn/cell_name-sample3",
+          "To": "https://{UnitFQDN}/{CellName}-sample3",
           "Code": "201",
           "Reason": "Created."
         }
@@ -154,8 +154,8 @@ JSON
 <br>
 ### CURLサンプル
 ```sh
-curl "https://fqdn/cell_name/__message/send" -X POST -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json' -d '{"BoxBound":true,"InReplyTo":"xnKXmd4TTZCw-bfSEw4f0A","To":"https://fqdn/targetcell_name", "Relation":"","Type":"req.relation.build","Title":"友人登録依頼です","Body":"先日はありがとうごさいました。友人登録承認をお願いいたします。",
-"Priority":3,"RequestRelation":"https://fqdn/appcell/__relation/__/+:Friend","RequestRelationTarget":"https://fqdn/cell_name"}'
+curl "https://{UnitFQDN}/{CellName}/__message/send" -X POST -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '{"BoxBound":true,"InReplyTo":"xnKXmd4TTZCw-bfSEw4f0A","To":"https://{UnitFQDN}/target{CellName}", "Relation":"","Type":"req.relation.build","Title":"友人登録依頼です","Body":"先日はありがとうごさいました。友人登録承認をお願いいたします。",
+"Priority":3,"RequestRelation":"https://{UnitFQDN}/appcell/__relation/__/+:Friend","RequestRelationTarget":"https://{UnitFQDN}/{CellName}"}'
 ```
 <br>
 <br>

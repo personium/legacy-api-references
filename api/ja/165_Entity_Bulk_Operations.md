@@ -18,13 +18,13 @@ ODataEntityに対して、一覧取得や一件取得、登録、更新、削除
 ### リクエスト
 #### リクエストURL
 ```
-/{Cell_name}/{Box_name}/{odata_colleciton_path}/$batch
+/{CellName}/{BoxName}/{OdataCollecitonPath}/$batch
 ```
 |パス<br>|概要<br>|
 |:--|:--|
-|Cell_name<br>|セル名<br>|
-|Box_name<br>|ボックス名<br>|
-|odata_colleciton_path<br>|コレクション名<br>|
+|{CellName}<br>|セル名<br>|
+|{BoxName}<br>|ボックス名<br>|
+|{OdataCollecitonPath}<br>|コレクション名<br>|
 #### メソッド
 POST
 #### リクエストクエリ
@@ -34,7 +34,7 @@ POST
 #### リクエストヘッダ
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {TokenValue}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン テスト未実施<br>|
+|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン テスト未実施<br>|
 |Content-Type<br>|リクエストボディの形式を指定する<br>|multipart / mixed; boundary = {Boundary}<br>|○<br>|省略時は[multipart/mixed]として扱う 　{Boundary}に使用可能な文字種：半角英数大小文字 '()+_,-./:=?<br>未対応<br>|
 #### リクエストボディ
 バッチ処理内容をMIMEのマルチパートデータ形式でリクエストボディに指定する
@@ -252,8 +252,8 @@ HTTP/1.1 201 Created
 Content-Type: application/json
 Content-Length: 425
 DataServiceVersion: 2.0
-Location: http://fqdn:50280/api/context/xxx-ah,http%253A%252F%252Ffqdn%252Fds%252Fabc-web/odata/user('0000')
-{"d":{"Results":{"Name":"\u5bcc\u58eb\u901a \u592a\u90ce","__metadata":{"Type":"user","ETag":"1-9fcc9e8203dc56dc7fe74a7b39e30e88","uri":"http://fqdn/api/context/fujitsu-ah,http%253A%252F%252Ffqdn%252Fds%252Fvet-web/odata/user('0000')"},"__published":"2010-12-24T11:31:50+09:00","__id":"0000","::meta":{"Type":"user","links":[],"published":"2010-12-24T11:31:50+09:00","id":"0000"}}}}
+Location: http://{UnitFQDN}:50280/api/context/xxx-ah,http%253A%252F%252FUnitFQDN%252Fds%252Fabc-web/odata/user('0000')
+{"d":{"Results":{"Name":"\u5bcc\u58eb\u901a \u592a\u90ce","__metadata":{"Type":"user","ETag":"1-9fcc9e8203dc56dc7fe74a7b39e30e88","uri":"http://{UnitFQDN}/api/context/fujitsu-ah,http%253A%252F%252FUnitFQDN%252Fds%252Fvet-web/odata/user('0000')"},"__published":"2010-12-24T11:31:50+09:00","__id":"0000","::meta":{"Type":"user","links":[],"published":"2010-12-24T11:31:50+09:00","id":"0000"}}}}
 --changeset_qPJh1ATATNykjJT8ocPE5MJE3QzMBS19ljS--
 --batch_AI6AVj7wPaHhKrBkYqBmA78weSj3u848CuX
 Content-Type: multipart/mixed; boundary=changeset_mry0iPNyKqKONtK237cBbGHUQhNgwIxlg70
@@ -304,7 +304,7 @@ DataServiceVersion: 2.0
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/cell_name/box_name/odata_colleciton_path/$batch" -X POST -i -H 'Content-Type:multipart/mixed; boundary= batch_XAmu9BiJJLBa20sRWIq74jp2UlNAVueztqu' -H 'Authorization: Bearer auth_token' -H 'Accept: application/json' -d  '--batch_XAmu9BiJJLBa20sRWIq74jp2UlNAVueztqu Content-Type: application/http Content-Transfer-Encoding:binary  GET user('0000') Host: host
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$batch" -X POST -i -H 'Content-Type:multipart/mixed; boundary= batch_XAmu9BiJJLBa20sRWIq74jp2UlNAVueztqu' -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d  '--batch_XAmu9BiJJLBa20sRWIq74jp2UlNAVueztqu Content-Type: application/http Content-Transfer-Encoding:binary  GET user('0000') Host: host
   --batch_XAmu9BiJJLBa20sRWIq74jp2UlNAVueztqu Content-Type: multipart/mixed; boundary=changeset_cLzcDEEVPwvvoxS3yJTFTpRauSK_FAQ6mQtyo0aby93-SDP3lAs2A19a2uBb
  Content-Length: 995  --changeset_cLzcDEEVPwvvoxS3yJTFTpRauSK_FAQ6mQtyo0aby93-SDP3lAs2A19a2uBb Content-Type: application/http Content-Transfer-Encoding: binary
   POST user HTTP/1.1 Host:  Connection: close Accept: application/json Content-Type: application/json Content-Length: 38  {"__id":"0000","Name":"田中 太郎"}

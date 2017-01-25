@@ -13,7 +13,7 @@ OAuth2の認可エンドポイントAPI
 ### リクエスト
 #### リクエストURL
 ```
-{Cell_name}/__authz
+{CellName}/__authz
 ```
 #### メソッド
 POST : 認証フォーム リクエスト、トークン認証
@@ -105,7 +105,7 @@ GET : 認証フォーム リクエスト
 <br>
 ### CURLサンプル
 ```sh
-curl "https://fqdn/cell_name/__authz" -X POST -i -d 'response_type=token&client_id=https://fqdn/app&redirect_uri=https://fqdn/app/__/redirect.html&state=0000000111'
+curl "https://{UnitFQDN}/{CellName}/__authz" -X POST -i -d 'response_type=token&client_id=https://{UnitFQDN}/app&redirect_uri=https://{UnitFQDN}/app/__/redirect.html&state=0000000111'
 ```
 <br>
 <br>

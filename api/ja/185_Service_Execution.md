@@ -13,14 +13,14 @@ exec
 ### リクエスト
 #### リクエストURL
 ```
-/{Cell_name}/{Box_name}/{path}/{src_name}
+/{CellName}/{BoxName}/{ResourcePath}/{SrcName}
 ```
 |パス<br>|概要<br>|備考<br>|
 |:--|:--|:--|
-|Cell_name<br>|セル名<br>| <br>|
-|Box_name<br>|ボックス名<br>| <br>|
-|resource_path<br>|リソースへのパス<br>|有効値 桁数:1&#65374;128<br>使用可能文字種<br>半角英数字、半角ピリオド(.)、半角アンダーバー(_)、半角ハイフン(-)<br>|
-|src_name<br>|サービスソースの名前を指定<br>|有効値(制限) 桁数:1&#65374;128<br>使用可能文字種<br>半角英数字、半角ピリオド(.)、半角アンダーバー(_)、半角ハイフン(-)<br>|
+|{CellName}<br>|セル名<br>| <br>|
+|{BoxName}<br>|ボックス名<br>| <br>|
+|{ResourcePath}<br>|リソースへのパス<br>|有効値 桁数:1&#65374;128<br>使用可能文字種<br>半角英数字、半角ピリオド(.)、半角アンダーバー(_)、半角ハイフン(-)<br>|
+|{SrcName}<br>|サービスソースの名前を指定<br>|有効値(制限) 桁数:1&#65374;128<br>使用可能文字種<br>半角英数字、半角ピリオド(.)、半角アンダーバー(_)、半角ハイフン(-)<br>|
 #### メソッド
 GET / POST / PUT / DELETE
 #### リクエストクエリ
@@ -71,7 +71,7 @@ GET / POST / PUT / DELETE
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/cell_name/box_name/svccol/hello" -X GET -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/svccol/hello" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
 ```
 <br>
 <br>

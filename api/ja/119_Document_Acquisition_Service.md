@@ -10,7 +10,7 @@ read
 ### リクエスト
 #### リクエストURL
 ```
-/{Cell_name}/{Box_name}/{odata_colleciton_path}/$metadata
+/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata
 ```
 #### メソッド
 GET
@@ -49,7 +49,7 @@ GET
 #### レスポンスボディ
 固定で以下を返却する
 ```xml
-<service xmlns='http://www.w3.org/2007/app' xml:base='https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata'
+<service xmlns='http://www.w3.org/2007/app' xml:base='https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata'
 xmlns:atom='http://www.w3.org/2005/Atom' xmlns:app='http://www.w3.org/2007/app'>
   <workspace>
     <atom:title>
@@ -92,7 +92,7 @@ xmlns:atom='http://www.w3.org/2005/Atom' xmlns:app='http://www.w3.org/2007/app'>
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata' -X GET -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/atomsvc+xml'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata' -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/atomsvc+xml'
 ```
 <br>
 <br>

@@ -22,7 +22,7 @@
 #### リクエストURL
 ```
 ユーザデータとの$links
-/{Cell_name}/{Box_name}/{Collection_name}/{EntityType_name}('{usedata_id}')/$links/_{EntityType_name}
+/{CellName}/{BoxName}/{CollectionName}/{EntitytypeName}('{UsedataId}')/$links/_{EntitytypeName}
 ```
 #### メソッド
 GET
@@ -61,7 +61,7 @@ GET
 ##### OData共通リクエストヘッダ
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {TokenValue}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
 ##### OData一覧取得リクエストヘッダ
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
@@ -103,10 +103,10 @@ GET
    "d": {
     "results": [
       {
-        "uri": "https://fqdn/cell_name/__ctl/Role(Name='role_name',_Box.Name=null)"
+        "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name=null)"
       },
       {
-        "uri": "https://fqdn/cell_name/__ctl/Role(Name='role_name',_Box.Name='box1')"
+        "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='box1')"
       }
     ]
   }
@@ -117,7 +117,7 @@ GET
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "cell_name/box_name/collection_name/entity_name('userid')/$links/_entitylinkname" -X GET -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
+curl "{CellName}/{BoxName}/{CollectionName}/{EntityName}('userid')/$links/_entitylinkname" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
 ```
 <br>
 <br>

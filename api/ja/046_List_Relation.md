@@ -19,7 +19,7 @@ social-read
 ### リクエスト
 #### リクエストURL
 ```
-/{Cell_name}/__ctl/Relation
+/{CellName}/__ctl/Relation
 ```
 #### メソッド
 GET
@@ -60,7 +60,7 @@ GET
 
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {TokenValue}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
 #### OData登録リクエストヘッダ
 
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
@@ -110,7 +110,7 @@ GET
         "Name": "testrelation",
         "_Box.Name": "testbox",
         "__metadata": {
-          "uri": "https://fqdn/cell_name/__ctl/Relation(Name='relation_name',_Box.Name='box_name')",
+          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')",
           "type": "CellCtl.Relation"
         },
         "__published" : "\/Date(1339128525502)\/",
@@ -118,15 +118,15 @@ GET
         "_Box": {
           "__deferred":
           {
-            "uri": "https://fqdn/cell_name/__ctl/Box('box_name')"
+            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')"
           }
         }
       },
       {
-        "Name": "relation_name2",
-        "_Box.Name": "box_name",
+        "Name": "RelationName2",
+        "_Box.Name": "{BoxName}",
         "__metadata": {
-          "uri": "https://fqdn/cell_name/__ctl/Relation(Name='relation_name2',_Box.Name='box_name')",
+          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='RelationName2',_Box.Name='{BoxName}')",
           "type": "CellCtl.Relation"
         },
         "__published" : "\/Date(1339128525502)\/",
@@ -143,7 +143,7 @@ GET
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/cell_name/__ctl/Relation" -X GET -i  -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Relation" -X GET -i  -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
 ```
 <br>
 <br>

@@ -18,22 +18,22 @@ log-read
 #### リクエストURL
 最新のログファイル一覧取得
 ```
-/{cell_name}/__log/current
+/{CellName}/__log/current
 ```
 
 最新のログファイル情報取得
 ```
-/{cell_name}/__log/current/{log_name}
+/{CellName}/__log/current/{LogName}
 ```
 
 ローテートされたログファイル一覧取得
 ```
-/{cell_name}/__log/archive
+/{CellName}/__log/archive
 ```
 
 ローテートされたログファイル情報取得
 ```
-/{cell_name}/__log/archive/{log_name}
+/{CellName}/__log/archive/{LogName}
 ```
 
 #### メソッド
@@ -52,7 +52,7 @@ PROPFIND
 |X-HTTP-Method-Override<br>|メソッドオーバーライド機能<br>|任意<br>|×<br>|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用されます。<br>|
 |X-Override<br>|ヘッダオーバライド機能<br>|${上書きするヘッダ名}:${値}<br>|×<br>|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定します。<br>|
 |X-Dc-RequestKey<br>|イベントログに出力するRequestKeyフィールドの値<br>|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字<br>|×<br>|指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応<br>|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {TokenValue}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
 |Depth<br>|取得するリソースの階層<br>|0:対象のリソース自身<br>1:対象のリソースとそれの直下のリソース<br>|○<br>|<br>|
 #### リクエストボディ
 なし
@@ -148,7 +148,7 @@ PROPFIND
 <?xml version="1.0" encoding="utf-8"?>
 <multistatus xmlns="DAV:" xmlns:dc="urn:x-dc1:xmlns">
     <response>
-        <href>https://fqdn/cell_name/__log/archive</href>
+        <href>https://{UnitFQDN}/{CellName}/__log/archive</href>
         <propstat>
             <prop>
                 <creationdate>2014-01-24T15:21:27.140+0900</creationdate>
@@ -156,7 +156,7 @@ PROPFIND
                 <resourcetype>
                     <collection/>
                 </resourcetype>
-                <acl xml:base="https://fqdn/cell_name/__role/__/">
+                <acl xml:base="https://{UnitFQDN}/{CellName}/__role/__/">
                     <ace>
                         <principal>
                             <all/>
@@ -171,7 +171,7 @@ PROPFIND
         </propstat>
     </response>
     <response>
-        <href>https://fqdn/cell_name/__log/archive/default.log.1</href>
+        <href>https://{UnitFQDN}/{CellName}/__log/archive/default.log.1</href>
         <propstat>
             <prop>
                 <creationdate>2014-01-24T15:21:27.140+0900</creationdate>
@@ -179,7 +179,7 @@ PROPFIND
                 <getcontentlength>5331315</getcontentlength>
                 <getcontenttype>text/csv</getcontenttype>
                 <resourcetype/>
-                <acl xml:base="https://fqdn/cell_name/__role/__/">
+                <acl xml:base="https://{UnitFQDN}/{CellName}/__role/__/">
                     <ace>
                         <principal>
                             <all/>
@@ -194,7 +194,7 @@ PROPFIND
         </propstat>
     </response>
     <response>
-        <href>https://fqdn/cell_name/__log/archive/default.log.2</href>
+        <href>https://{UnitFQDN}/{CellName}/__log/archive/default.log.2</href>
         <propstat>
             <prop>
                 <creationdate>2014-01-31T10:21:27.140+0900</creationdate>
@@ -202,7 +202,7 @@ PROPFIND
                 <getcontentlength>5208785</getcontentlength>
                 <getcontenttype>text/csv</getcontenttype>
                 <resourcetype/>
-                <acl xml:base="https://fqdn/cell_name/__role/__/">
+                <acl xml:base="https://{UnitFQDN}/{CellName}/__role/__/">
                     <ace>
                         <principal>
                             <all/>
@@ -221,7 +221,7 @@ PROPFIND
 <br>
 ### CURLサンプル
 ```sh
-curl "https://fqdn/cell_name/__log/archive" -X PROPFIND -i -H 'Depth:1' -H 'Authorization: Bearer auth_token' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8"?><D:propfind xmlns:D="DAV:"><D:allprop/></D:propfind>'
+curl "https://{UnitFQDN}/{CellName}/__log/archive" -X PROPFIND -i -H 'Depth:1' -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8"?><D:propfind xmlns:D="DAV:"><D:allprop/></D:propfind>'
 ```
 <br>
 <br>

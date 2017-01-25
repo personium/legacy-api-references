@@ -20,11 +20,11 @@ auth
 ### リクエスト
 #### リクエストURL
 ```
-/{Cell_name}/__ctl/Role(Name='{role_name}',_Box.Name='{box_name}')
+/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')
 または、
-/{Cell_name}/__ctl/Role(Name='{role_name}')
+/{CellName}/__ctl/Role(Name='{RoleName}')
 または、
-/{Cell_name}/__ctl/Role('{role_name}')
+/{CellName}/__ctl/Role('{RoleName}')
 ```
 ※ _Box.Nameパラメタを省略した場合は、nullが指定されたものとする
 #### メソッド
@@ -42,7 +42,7 @@ DELETE
 #### ODataリクエストヘッダ
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {TokenValue}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
 #### OData登録リクエストヘッダ
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
@@ -71,7 +71,7 @@ DELETE
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/cell_name/__ctl/Role(Name='role_name',_Box.Name='box_name')" -X DELETE -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')" -X DELETE -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
 ```
 <br>
 <br>

@@ -15,7 +15,7 @@ read
 ### リクエスト
 #### リクエストURL
 ```
-/{Cell_name}/{Box_name}/{odata_colleciton_path}/$metadata/ComplexTypeProperty
+/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/ComplexTypeProperty
 ```
 #### メソッド
 GET
@@ -58,7 +58,7 @@ GET
 
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {TokenValue}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
 
 ##### OData一覧取得リクエストヘッダ
 
@@ -116,11 +116,11 @@ GET
             "Name" : "PostalCode",
             "Nullable" : true,
             "Type" : "Edm.String",
-            "_ComplexType" : { "__deferred" : { "uri" : "https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata/ComplexTypeProperty(Name='PostalCode',_ComplexType.Name='Address')/_ComplexType" } },
+            "_ComplexType" : { "__deferred" : { "uri" : "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/ComplexTypeProperty(Name='PostalCode',_ComplexType.Name='Address')/_ComplexType" } },
             "_ComplexType.Name" : "Address",
             "__metadata" : { "etag" : "1-1349434504818",
                 "type" : "ODataSvcSchema.ComplexTypeProperty",
-                "uri" : "https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata/ComplexTypeProperty(Name='PostalCode',_ComplexType.Name='Address')"
+                "uri" : "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/ComplexTypeProperty(Name='PostalCode',_ComplexType.Name='Address')"
               },
             "__published" : "/Date(1349434504818)/",
             "__updated" : "/Date(1349434504818)/"
@@ -130,11 +130,11 @@ GET
             "Name" : "Prefecture",
             "Nullable" : false,
             "Type" : "Edm.Int32",
-            "_ComplexType" : { "__deferred" : { "uri" : "https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata/ComplexTypeProperty(Name='Prefecture',_ComplexType.Name='Address')/_ComplexType" } },
+            "_ComplexType" : { "__deferred" : { "uri" : "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/ComplexTypeProperty(Name='Prefecture',_ComplexType.Name='Address')/_ComplexType" } },
             "_ComplexType.Name" : "Address",
             "__metadata" : { "etag" : "1-1349434944818",
                 "type" : "ODataSvcSchema.ComplexTypeProperty",
-                "uri" : "https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata/ComplexTypeProperty(Name='Prefecture',_ComplexType.Name='Address')"
+                "uri" : "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/ComplexTypeProperty(Name='Prefecture',_ComplexType.Name='Address')"
               },
             "__published" : "/Date(1349434944818)/",
             "__updated" : "/Date(1349434944818)/"
@@ -146,7 +146,7 @@ GET
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata/ComplexTypeProperty" -X GET -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/ComplexTypeProperty" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
 ```
 <br>
 <br>

@@ -19,14 +19,14 @@ write
 ### リクエスト
 #### リクエストURL
 ```
-/{Cell_name}/{Box_name}/{odata_colleciton_path}/{entity_set}({KeyPredicate})
+/{CellName}/{BoxName}/{OdataCollecitonPath}/{EntitySet}({KeyPredicate})
 ```
 |パス<br>|概要<br>|
 |:--|:--|
-|Cell_name<br>|セル名<br>|
-|Box_name<br>|ボックス名<br>|
-|odata_colleciton_path<br>|コレクション名<br>|
-|entity_set<br>|EntitySet名<br>|
+|{CellName}<br>|セル名<br>|
+|{BoxName}<br>|ボックス名<br>|
+|{OdataCollecitonPath}<br>|コレクション名<br>|
+|{EntitySet}<br>|EntitySet名<br>|
 |KeyPredicate<br>|更新するEntityのID<br>|
 #### メソッド
 PUT
@@ -48,7 +48,7 @@ PUT
 ##### OData共通リクエストヘッダ
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {TokenValue}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
 ##### OData更新リクエストヘッダ
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
@@ -123,7 +123,7 @@ PUT
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/cell_name/box_name/odata_colleciton_path/parent('100-1_20101108-111352093')" -X PUT -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json' -d '{"animalId": "100-1","name": "episode","startedAt":"2010-11-08","episodeType": "care","endedAt": "","outcome": "治療中"}'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/parent('100-1_20101108-111352093')" -X PUT -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '{"animalId": "100-1","name": "episode","startedAt":"2010-11-08","episodeType": "care","endedAt": "","outcome": "治療中"}'
 ```
 <br>
 <br>

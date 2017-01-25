@@ -18,7 +18,7 @@ alter-schema
 #### リクエストURL
 ```
 Propertyとの$links
-/{Cell_name}/{Box_name}/{Collection_name}/$metadata/ComplexType('{ComplexType_name}')/$links/_Property('{Property_name}')
+/{CellName}/{BoxName}/{CollectionName}/$metadata/ComplexType('{ComplextypeName}')/$links/_Property('{Property_name}')
 ```
 #### メソッド
 DELETE
@@ -43,7 +43,7 @@ DELETE
 
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {TokenValue}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
 
 ##### OData削除リクエストヘッダ
 
@@ -88,7 +88,7 @@ DELETE
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/cell_name/box_name/collection_name/$metadata/ComplexType('Address')/$links/_Property('PostalCode')" -X DELETE -i -H 'If-Match: *' -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/$metadata/ComplexType('Address')/$links/_Property('PostalCode')" -X DELETE -i -H 'If-Match: *' -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
 ```
 <br>
 <br>

@@ -15,7 +15,7 @@ alter-schema
 ### リクエスト
 #### リクエストURL
 ```
-/{Cell_name}/{Box_name}/{odata_colleciton_path}/$metadata/AssociationEnd
+/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/AssociationEnd
 ```
 #### メソッド
 POST
@@ -33,7 +33,7 @@ POST
 ##### OData共通リクエストヘッダ
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {TokenValue}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
 ##### OData登録リクエストヘッダ
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
@@ -107,7 +107,7 @@ JSON
       "__metadata": {
         "etag": "1-1349435294656",
         "type": "ODataSvcSchema.AssociationEnd",
-        "uri": "https://fqdn/cell_name/box_name/collection_name/$metadata/AssociationEnd(Name='associationEnd',_EntityType.Name='entityType')"
+        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/$metadata/AssociationEnd(Name='associationEnd',_EntityType.Name='entityType')"
       },
       "Multiplicity": "*"  
     }
@@ -130,7 +130,7 @@ JSON
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata/AssociationEnd" -X POST -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json' -d '{ "Name": "animal-keeper", "Multiplicity": "0..1", "_EntityType.Name": "animal"}'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/AssociationEnd" -X POST -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '{ "Name": "animal-keeper", "Multiplicity": "0..1", "_EntityType.Name": "animal"}'
 ```
 <br>
 <br>

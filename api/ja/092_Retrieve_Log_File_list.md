@@ -26,11 +26,11 @@ log-read
 #### リクエストURL
 ##### 最新のログファイルの一覧を取得
 ```
-/{cell_name}/__log/current
+/{CellName}/__log/current
 ```
 ##### ローテートされたログファイルの一覧を取得
 ```
-/{cell_name}/__log/archive
+/{CellName}/__log/archive
 ```
 #### メソッド
 PROPFIND
@@ -44,7 +44,7 @@ PROPFIND
 |X-HTTP-Method-Override<br>|メソッドオーバーライド機能<br>|任意<br>|×<br>|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用されます。<br>|
 |X-Override<br>|ヘッダオーバライド機能<br>|${上書きするヘッダ名}:${値}<br>|×<br>|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定します。<br>|
 |X-Dc-RequestKey<br>|イベントログに出力するRequestKeyフィールドの値<br>|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字<br>|×<br>|指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応<br>|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {TokenValue}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
 #### リクエストボディ
 ##### 名前空間
 |URI<br>|概要<br>|備考()prefix<br>|
@@ -143,7 +143,7 @@ PROPFIND
 <?xml version="1.0" encoding="utf-8"?>
 <multistatus xmlns="DAV:">
     <response>
-        <href>https://fqdn/cell_name/__log/archive</href>
+        <href>https://{UnitFQDN}/{CellName}/__log/archive</href>
         <propstat>
             <prop>
                 <creationdate>2013-03-27T07:05:04.265+0000</creationdate>
@@ -156,7 +156,7 @@ PROPFIND
         </propstat>
     </response>
     <response>
-        <href>https://fqdn/cell_name/__log/archive/default.log.1364350331902</href>
+        <href>https://{UnitFQDN}/{CellName}/__log/archive/default.log.1364350331902</href>
         <propstat>
             <prop>
                 <creationdate>2013-03-27T02:12:11.265+0000</creationdate>
@@ -169,7 +169,7 @@ PROPFIND
         </propstat>
     </response>
     <response>
-        <href>https://fqdn/cell_name/__log/archive/default.log.1364460341902</href>
+        <href>https://{UnitFQDN}/{CellName}/__log/archive/default.log.1364460341902</href>
         <propstat>
             <prop>
                 <creationdate>2013-03-27T08:45:41.265+0000</creationdate>
@@ -205,7 +205,7 @@ PROPFIND
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/cell_namess/__log/archive" -X PROPFIND -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}ss/__log/archive" -X PROPFIND -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
 ```
 <br>
 <br>

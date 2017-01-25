@@ -20,16 +20,16 @@ V1.0計での制限
 ### リクエスト
 #### リクエストURL
 ```
-/{Cell_name}/{Box_name}
-/{Cell_name}/{Box_name}/{resource_path}
+/{CellName}/{BoxName}
+/{CellName}/{BoxName}/{ResourcePath}
 ```
 
 
 |パス<br>|概要<br>|備考<br>|
 |:--|:--|:--|
-|Cell_name<br>|セル名<br>| <br>
-|Box_name<br>|ボックス名<br>| <br>
-|resource_path<br>|リソースへのパス<br>|有効値 桁数:1&#65374;128<br>使用可能文字種<br>半角英数字、半角ピリオド(.)、半角アンダーバー(_)、半角ハイフン(-)<br>|
+|{CellName}<br>|セル名<br>| <br>
+|{BoxName}<br>|ボックス名<br>| <br>
+|{ResourcePath}<br>|リソースへのパス<br>|有効値 桁数:1&#65374;128<br>使用可能文字種<br>半角英数字、半角ピリオド(.)、半角アンダーバー(_)、半角ハイフン(-)<br>|
 
 #### メソッド
 PROPFIND
@@ -53,7 +53,7 @@ WebDav 共通リクエストクエリ
 |X-HTTP-Method-Override<br>|メソッドオーバーライド機能<br>|任意<br>|×<br>|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用される<br>|
 |X-Override<br>|ヘッダオーバライド機能<br>|${上書きするヘッダ名}:${値}<br>|×<br>|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定する<br>|
 |X-Dc-RequestKey<br>|イベントログに出力するRequestKeyフィールドの値<br>|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字<br>|×<br>|指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応<br>|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {TokenValue}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
 |Depth<br>|取得するリソースの階層<br>|0:対象のリソース自身 <br>1:対象のリソースとそれの直下のリソース<br>|○<br>| <br>
 #### リクエストボディ
 名前空間
@@ -190,7 +190,7 @@ DTD表記
 <?xml version="1.0" encoding="utf-8"?>
 <multistatus xmlns="DAV:">
     <response>
-        <href>https://fqdn/cell_name/box_name/collection_name/col01</href>
+        <href>https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/col01</href>
         <propstat>
             <prop>
                 <creationdate>2012-05-14T15:21:27.140+0900</creationdate>
@@ -203,7 +203,7 @@ DTD表記
         </propstat>
     </response>
     <response>
-        <href>https://fqdn/cell_name/box_name/collection_name/col01/index.html</href>
+        <href>https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/col01/index.html</href>
         <propstat>
             <prop>
                 <creationdate>2012-05-14T16:05:04.265+0900</creationdate>
@@ -221,7 +221,7 @@ DTD表記
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/cell_name/box_name/collection_name" -X PROPFIND -i  -H 'Depth:1' -H 'Authorization: Bearer auth_token' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8"?><D:propfind xmlns:D="DAV:"><D:allprop/></D:propfind>'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}" -X PROPFIND -i  -H 'Depth:1' -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8"?><D:propfind xmlns:D="DAV:"><D:allprop/></D:propfind>'
 ```
 <br>
 <br>

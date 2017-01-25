@@ -15,7 +15,7 @@ read
 ### リクエスト
 #### リクエストURL
 ```
-/{Cell_name}/{Box_name}/{odata_colleciton_path}/$metadata/AssociationEnd
+/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/AssociationEnd
 ```
 #### メソッド
 GET
@@ -57,7 +57,7 @@ GET
 
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {TokenValue}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
 ##### OData一覧取得リクエストヘッダ
 
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
@@ -115,33 +115,33 @@ GET
     "results": [
       {
         "__metadata": {
-          "uri": "https://fqdn/cell_name/box_name/collection_name/$metadata/AssociationEnd(Name='associationEnd_name',_EntityType.Name='entityType_name')",
+          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/$metadata/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntitytypeName}')",
           "etag": "1-1349435294656",
           "type": "ODataSvcSchema.AssociationEnd"  
         },
-        "Name": "associationEnd_name",
+        "Name": "{AssociationEndName}",
         "Multiplicity": "*",
-        "_EntityType.Name": "entityType_name",
+        "_EntityType.Name": "{EntitytypeName}",
         "__published": "/Date(1349435294656)/",
         "__updated": "/Date(1349435294656)/",
         "_EntityType": {
           "__deferred": {
-            "uri": "https://fqdn/cell_name/box_name/collection_name/$metadata/AssociationEnd(Name='associationEnd_name',_EntityType.Name='entityType_name')/_EntityType"
+            "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/$metadata/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntitytypeName}')/_EntityType"
 
           }
         },
         "_AssociationEnd": {
           "__deferred": {
-            "uri": "https://fqdn/cell_name/box_name/collection_name/$metadata/AssociationEnd(Name='associationEnd_name',_EntityType.Name='entityType_')/_AssociationEnd"
+            "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/$metadata/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='entityType_')/_AssociationEnd"
 
           }
         }
       },
       {
         "__metadata": {
-          "uri": "https://fqdn/cell_name/box_name/collection_name/$metadata/AssociationEnd(Name='associationEnd_name2',_EntityType.Name='entityType_name')",
+          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/$metadata/AssociationEnd(Name='{AssociationEndName}2',_EntityType.Name='{EntitytypeName}')",
           "etag": "1-1349435349927",
-          "type": "ODataSvcSchema.associationEnd_name2"  
+          "type": "ODataSvcSchema.{AssociationEndName}2"  
         },
         "Name": "associationEnd2",
         "Multiplicity": "*",
@@ -150,13 +150,13 @@ GET
         "__updated": "/Date(1349435349927)/",
         "_EntityType": {
           "__deferred": {
-            "uri": "https://fqdn/cell_name/box_name/collection_name/$metadata/AssociationEnd(Name='associationEnd2',_EntityType.Name='entientityType_name')/_EntityType"
+            "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/$metadata/AssociationEnd(Name='associationEnd2',_EntityType.Name='enti{EntitytypeName}')/_EntityType"
 
           }
         },
         "_AssociationEnd": {
           "__deferred": {
-            "uri": "https://fqdn/cell_name/box/col/$metadata/AssociationEnd(Name='associationEnd2',_EntityType.Name='entityType')/_AssociationEnd"
+            "uri": "https://{UnitFQDN}/{CellName}/box/col/$metadata/AssociationEnd(Name='associationEnd2',_EntityType.Name='entityType')/_AssociationEnd"
 
           }
         }
@@ -170,7 +170,7 @@ GET
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata/AssociationEnd" -X GET -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/AssociationEnd" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
 ```
 <br>
 <br>

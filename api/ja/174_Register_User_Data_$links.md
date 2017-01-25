@@ -24,7 +24,7 @@ No
 #### リクエストURL
 ユーザデータとの$links
 ```
-/{Cell_name}/{Box_name}/{Collection_name}/{EntityType_name}('{usedata_id}')/$links/_{EntityType_name}
+/{CellName}/{BoxName}/{CollectionName}/{EntitytypeName}('{UsedataId}')/$links/_{EntitytypeName}
 ```
 #### メソッド
 POST
@@ -45,7 +45,7 @@ POST
 ##### OData共通リクエストヘッダ
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {TokenValue}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
 ##### OData登録リクエストヘッダ
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
@@ -60,7 +60,7 @@ JSON
 |uri<br>|紐付けるODataリソースのURI<br>|桁数：1&#65374;1024<br>URIの形式に従う<br>scheme：http / https / urn<br>|○<br>|<br>|
 #### リクエストサンプル
 ```json
-{"uri":"https://fqdn/Cell_name/__ctl/Box_name/collection_name/entitytype('id')"}
+{"uri":"https://{UnitFQDN}/{CellName}/__ctl/{BoxName}/{CollectionName}/entitytype('id')"}
 ```
 
 <br>
@@ -88,7 +88,7 @@ JSON
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/cell_name/box_name/collection_name/entity_name("userid")/$links/_entity_name" -X POST -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json' -d '{"uri":"https://fqdn/cell_name/box_name/collection_name/entity_name('userid')"}'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/{EntityName}("userid")/$links/_{EntityName}" -X POST -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '{"uri":"https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/{EntityName}('userid')"}'
 ```
 <br>
 <br>

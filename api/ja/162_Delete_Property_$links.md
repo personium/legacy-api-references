@@ -14,7 +14,7 @@ alter-schema
 #### リクエストURL
 EntityTypeとLinkしている場合
 ```
-/{Cell_name}/{Box_name}/{Collection_name}/$metadata/Property(Name='{Property_name}',_EntityType.Name='{EntityType_name}')/$links/_EntityType('{EntityType_name}')
+/{CellName}/{BoxName}/{CollectionName}/$metadata/Property(Name='{Property_name}',_EntityType.Name='{EntitytypeName}')/$links/_EntityType('{EntitytypeName}')
 ```
 #### メソッド
 DELETE
@@ -32,7 +32,7 @@ DELETE
 ##### OData共通リクエストヘッダ
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {TokenValue}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
 ##### OData削除リクエストヘッダ
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
@@ -67,7 +67,7 @@ DELETE
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata/Property('Property_Name')/$links/_EntityType('Profile')" -X DELETE -i -H 'If-Match: *' -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/Property('Property_Name')/$links/_EntityType('Profile')" -X DELETE -i -H 'If-Match: *' -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
 ```
 <br>
 <br>

@@ -10,13 +10,13 @@ write-properties
 ### リクエスト
 #### リクエストURL
 ```
-/{Cell_name}/{Box_name}/{path}
+/{CellName}/{BoxName}/{ResourcePath}
 ```
 |パス<br>|概要<br>|備考<br>|
 |:--|:--|:--|
-|Cell_name<br>|セル名<br>| <br>|
-|Box_name<br>|ボックス名<br>| <br>|
-|resource_path<br>|リソースへのパス<br>|有効値 桁数:1&#65374;128<br>使用可能文字種<br>半角英数字、半角ピリオド(.)、半角アンダーバー(_)、半角ハイフン(-)<br>|
+|{CellName}<br>|セル名<br>| <br>|
+|{BoxName}<br>|ボックス名<br>| <br>|
+|{ResourcePath}<br>|リソースへのパス<br>|有効値 桁数:1&#65374;128<br>使用可能文字種<br>半角英数字、半角ピリオド(.)、半角アンダーバー(_)、半角ハイフン(-)<br>|
 #### メソッド
 PROPPATCH
 #### リクエストクエリ
@@ -34,7 +34,7 @@ PROPPATCH
 ##### サービスコレクション設定固有リクエストヘッダ
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {TokenValue}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
 |Content-Type<br>|コンテンツ形式を指定する<br>|application/xml<br>|×<br>| <br>
 |Accept<br>|レスポンスで受け入れ可能なメディアタイプを指定する  <br>|application/xml<br>|×<br>| <br>|
 #### リクエストボディ
@@ -140,7 +140,7 @@ DTD表記
 ```xml
 <multistatus xmlns="DAV:">
     <response>
-        <href>http://localhost:9998/testcell1/box_name1/patchcol</href>
+        <href>http://localhost:9998/testcell1/{BoxName}1/patchcol</href>
         <propstat>
             <prop>
                 <dc:service language="JavaScript" subject="user" xmlns:D="DAV:" xmlns:dc="urn:x-dc1:xmlns" xmlns:Z="http://www.w3.com/standards/z39.50/">
@@ -161,7 +161,7 @@ DTD表記
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/cell_name/box_name/servicecol' -X PROPPATCH -i -H 'Authorization: Bearer auth_token' -d '<?xml version="1.0" encoding="utf-8" ?><D:propertyupdate xmlns:D="DAV:" xmlns:dc="urn:x-dc1:xmlns"
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/servicecol' -X PROPPATCH -i -H 'Authorization: Bearer {UnitUserToken}' -d '<?xml version="1.0" encoding="utf-8" ?><D:propertyupdate xmlns:D="DAV:" xmlns:dc="urn:x-dc1:xmlns"
 xmlns:Z="http://www.w3.com/standards/z39.50/"><D:set>
 <D:prop><dc:service language="JavaScript"　subject="${accountName}"><dc:path name="${name1}"
 src="${src1}"/><dc:path name="${name2}" src="${src2}"/><dc:path

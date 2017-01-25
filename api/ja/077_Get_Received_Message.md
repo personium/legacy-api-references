@@ -13,7 +13,7 @@ message または message-read
 ### リクエスト
 #### リクエストURL
 ```
-/{cell_name}/__ctl/ReceivedMessage('MessageID')
+/{CellName}/__ctl/ReceivedMessage('{MessageID}')
 ```
 #### メソッド
 GET
@@ -52,7 +52,7 @@ GET
 ##### OData共通リクエストヘッダ
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {TokenValue}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
 ##### OData取得リクエストヘッダ
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
@@ -110,22 +110,22 @@ GET
       "__id": "5c06cf76315c4d8095b7faf85f33aec6",
       "__published": "/Date(1349435294656)/",
       "__updated": "/Date(1349435294656)/",
-      "_Box.Name ": "box_name",
+      "_Box.Name ": "{BoxName}",
       "__metadata": {
         "etag": "1-1349435294656",
         "type": "CellCtl.ReceivedMessage",
-        "uri": "https://fqdn/cell_name/__ctl/ReceivedMessage('hnKXm44TTZCw-bfSEw4f0A')"
+        "uri": "https://{UnitFQDN}/{CellName}/__ctl/ReceivedMessage('hnKXm44TTZCw-bfSEw4f0A')"
       },
       "InReplyTo": "d884e0c019c54eaa88046a98147f7920",
-      "From": "https://fqdn/mycell_name",
+      "From": "https://{UnitFQDN}/my{CellName}",
       "MulticastTo": "",
       "Type": "req.relation.build",
       "Title": "友人登録依頼です",
       "Body": "先日はありがとうごさいました。友人登録承認をお願いいたします。",
       "Priority": 3,
       "Status": "none",
-      "RequestRelation": "https://fqdn/appcell/__relation/__/+:Friend",
-      "RequestRelationTarget": "https://fqdn/cell_name"  
+      "RequestRelation": "https://{UnitFQDN}/appcell/__relation/__/+:Friend",
+      "RequestRelationTarget": "https://{UnitFQDN}/{CellName}"  
     }
   }
 }
@@ -135,7 +135,7 @@ GET
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/__ctl/ReceivedMessage('MessageID')" -X GET -i  -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/__ctl/ReceivedMessage('{MessageID}')" -X GET -i  -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
 ```
 <br>
 <br>

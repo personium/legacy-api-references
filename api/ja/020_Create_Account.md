@@ -15,7 +15,7 @@ auth
 ### リクエスト
 #### リクエストURL
 ```
-/{Cell_name}/__ctl/Account
+/{CellName}/__ctl/Account
 ```
 #### メソッド
 POST
@@ -30,7 +30,7 @@ POST
 |X-HTTP-Method-Override<br>|メソッドオーバーライド機能<br>|任意<br>|×<br>|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用されます。<br>|
 |X-Override<br>|ヘッダオーバライド機能<br>|${上書きするヘッダ名}:${値}<br>|×<br>|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定します。<br>|
 |X-Dc-RequestKey<br>|イベントログに出力するRequestKeyフィールドの値<br>|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字<br>|×<br>|指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応<br>|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {TokenValue}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
 |Content-Type<br>|リクエストボディの形式を指定する<br>|application / json<br>|×<br>|省略時は[application/json]として扱う<br>|
 |Accept<br>|レスポンスボディの形式を指定する<br>|application / json<br>|×<br>|省略時は[application/json]として扱う<br>|
 |X-Dc-Credential<br>|パスワード<br>|文字列<br>|×<br>|文字数：6&#65374;32文字<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>|
@@ -43,7 +43,7 @@ POST
 #### リクエストサンプル
 ```json
 {
-  "Name": "account_name"
+  "Name": "{AccountName}"
 }
 ```
 <br>
@@ -96,7 +96,7 @@ POST
     "array": {
         "d": {
             "results": {
-                "Name": "account_name",
+                "Name": "{AccountName}",
                 "__published": "/Date(1349355810698)/",
                 "Cell": null,
                 "__updated": "/Date(1349355810698)/",
@@ -104,7 +104,7 @@ POST
                 "__metadata": {
                     "etag": "1-1349355810698",
                     "type": "CellCtl.Account",
-                    "uri": "https://fqdn/cell_name/__ctl/Account('account_name
+                    "uri": "https://{UnitFQDN}/{CellName}/__ctl/Account('AccountName
                     ')"
                 }
             }
@@ -116,7 +116,7 @@ POST
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/cell_name/__ctl/Account" -X POST -i -H 'X-Dc-Credential:password' -H 'Authorization: Bearer auth_token' -H 'Accept: application/json' -d '{"Name":"account_name"}'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Account" -X POST -i -H 'X-Dc-Credential:password' -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '{"Name":"{AccountName}"}'
 ```
 <br>
 ###### Copyright 2017    FUJITSU LIMITED

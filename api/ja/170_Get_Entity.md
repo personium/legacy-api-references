@@ -19,14 +19,14 @@ read
 ### リクエスト
 #### リクエストURL
 ```
-/{Cell_name}/{Box_name}/{odata_colleciton_path}/{entity_set}({KeyPredicate})}
+/{CellName}/{BoxName}/{OdataCollecitonPath}/{EntitySet}({KeyPredicate})}
 ```
 |パス<br>|概要<br>|
 |:--|:--|
-|Cell_name<br>|セル名<br>|
-|Box_name<br>|ボックス名<br>|
-|odata_colleciton_path<br>|コレクション名<br>|
-|entity_set<br>|EntitySet名<br>|
+|{CellName}<br>|セル名<br>|
+|{BoxName}<br>|ボックス名<br>|
+|{OdataCollecitonPath}<br>|コレクション名<br>|
+|{EntitySet}<br>|EntitySet名<br>|
 |KeyPredicate<br>|取得するEntityのID<br>|
 #### メソッド
 GET
@@ -53,7 +53,7 @@ GET
 ##### OData共通リクエストヘッダ
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {TokenValue}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
 ##### OData取得リクエストヘッダ
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
@@ -125,7 +125,7 @@ GET
             "__metadata": {
                 "type": "UserData.Category",
                 "etag":"1-1341540667021",
-                "uri": "fqdn/cell_name/box_name/odata_colleciton_path/Category('0022b630db5c4aedade200a955e82285')",
+                "uri": "UnitFQDN/{CellName}/{BoxName}/{OdataCollecitonPath}/Category('0022b630db5c4aedade200a955e82285')",
             },
             "__published": "/Date(1341540667021)/",
             "__updated": "/Date(1341540667021)/",
@@ -137,7 +137,7 @@ GET
             "startedAt": "2010-11-08",
             "_Sales": {
               "__deferred": {
-                "uri": "https://fqdn/cell_name/box_name/odata_colleciton_path/Sales('0abc630db5c4aedade200a955e82285')"
+                "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/Sales('0abc630db5c4aedade200a955e82285')"
               }
            }
         }
@@ -149,7 +149,7 @@ GET
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/cell_name/box_name/odata_colleciton_path/entity(%270022b630db5c4aedade200a955e82285%27)" -X GET -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/entity(%270022b630db5c4aedade200a955e82285%27)" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
 ```
 <br>
 <br>

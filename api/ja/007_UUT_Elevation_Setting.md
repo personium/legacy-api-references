@@ -10,11 +10,11 @@ UUT（Unit User Token）昇格設定を変更する
 ### リクエスト
 #### リクエストURL
 ```
-/{Cell_name}
+/{CellName}
 ```
 |Path<br>|概要<br>|
 |:--|:--|
-|Cell_name<br>|セル名<br>|
+|{CellName}<br>|セル名<br>|
 
 #### メソッド
 PROPPATCH
@@ -28,7 +28,7 @@ PROPPATCH
 |:--|:--|:--|:--|:--|
 |X-HTTP-Method-Override<br>|メソッドオーバーライド機能<br>|任意<br>|×<br>|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用されます。<br>|
 |X-Override<br>|ヘッダオーバライド機能<br>|${上書きするヘッダ名}:${値}<br>|×<br>|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定します。<br>|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {TokenValue}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
 |Content-Type<br>|コンテンツ形式を指定する<br>|application / xml<br>|×<br>|&#160;<br>|
 |Accept<br>|レスポンスで受け入れ可能なメディアタイプを指定する<br>|application / xml<br>|×<br>|&#160;<br>|
 #### リクエストボディ
@@ -151,7 +151,7 @@ PROPPATCH
 <br>
 ### CURLサンプル
 ```sh
-curl "https://fqdn/cell -X PROPPATCH" -H 'Authorization: Bearer auth_token' -d '<?xml version="1.0" encoding="utf-8" ?>
+curl "https://{UnitFQDN}/cell -X PROPPATCH" -H 'Authorization: Bearer {UnitUserToken}' -d '<?xml version="1.0" encoding="utf-8" ?>
 <D:propertyupdate xmlns:D="DAV:" xmlns:dc="urn:x-dc1:xmlns" xmlns:Z="http://www.w3.com/standards/z39.50/">
 <D:set><D:prop><dc:requireSchemaAuthz>confidential</dc:requireSchemaAuthz></D:prop></D:set></D:propertyupdate>'
 ```

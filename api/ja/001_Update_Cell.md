@@ -19,9 +19,9 @@
 ### リクエスト
 #### リクエストURL
 ```
-/__ctl/Cell(Name='{cell_name}')
+/__ctl/Cell(Name='{CellName}')
 または、
-/__ctl/Cell('{cell_name}')
+/__ctl/Cell('{CellName}')
 ```
 
 #### メソッド
@@ -38,7 +38,7 @@ PUT
 ##### OData共通リクエストヘッダ
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {TokenValue}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
 ##### OData更新リクエストヘッダ
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
@@ -55,7 +55,7 @@ JSON
 
 #### リクエストサンプル
 ```json
-{"Name":"cell_name"}
+{"Name":"{CellName}"}
 ```
 
 <br>
@@ -85,7 +85,7 @@ JSON
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/__ctl/Cell(Name='cell_name')" -X PUT -i -H 'If-Match: *' -H 'Authorization: Bearer auth_token' -H 'Accept: application/json' -d '{"Name":"cell_name"}'
+curl "https://{UnitFQDN}/__ctl/Cell(Name='{CellName}')" -X PUT -i -H 'If-Match: *' -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '{"Name":"{CellName}"}'
 ```
 <br>
 <br>

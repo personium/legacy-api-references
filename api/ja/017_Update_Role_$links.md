@@ -17,73 +17,73 @@ Roleの$link情報を更新する
 #### リクエストURL
 ##### Correlating with the Account
 ```
-/{Cell_name}/__ctl/Role(Name='{role_name}',_Box.Name='{box_name}')/$links/_Account(Name='{account_name}')
+/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_Account(Name='{AccountName}')
 または、
-/{Cell_name}/__ctl/Role(Name='{role_name}',_Box.Name='{box_name}')/$links/_Account('{account_name}')
+/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_Account('{AccountName}')
 または、
-/{Cell_name}/__ctl/Role(Name='{role_name}')/$links/_Account(Name='{account_name}')
+/{CellName}/__ctl/Role(Name='{RoleName}')/$links/_Account(Name='{AccountName}')
 または、
-/{Cell_name}/__ctl/Role(Name='{role_name}')/$links/_Account('{account_name}')
+/{CellName}/__ctl/Role(Name='{RoleName}')/$links/_Account('{AccountName}')
 または、
-/{Cell_name}/__ctl/Role('{role_name}')/$links/_Account(Name='{account_name}')
+/{CellName}/__ctl/Role('{RoleName}')/$links/_Account(Name='{AccountName}')
 または、
-/{Cell_name}/__ctl/Role('{role_name}')/$links/_Account('{account_name}')
+/{CellName}/__ctl/Role('{RoleName}')/$links/_Account('{AccountName}')
 ```
 ##### Correlating with ExtCell
 ```
-/{Cell_name}/__ctl/Role(Name='{role_name}',_Box.Name='{box_name}')/$links/_ExtCell(Url='{url}')
+/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_ExtCell(Url='{url}')
 または、
-/{Cell_name}/__ctl/Role(Name='{role_name}',_Box.Name='{box_name}')/$links/_ExtCell('{url}')
+/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_ExtCell('{url}')
 または、
-/{Cell_name}/__ctl/Role('{role_name}')/$links/_ExtCell(Url='{url}')
+/{CellName}/__ctl/Role('{RoleName}')/$links/_ExtCell(Url='{url}')
 または、
-/{Cell_name}/__ctl/Role('{role_name}')/$links/_ExtCell('{url}')
+/{CellName}/__ctl/Role('{RoleName}')/$links/_ExtCell('{url}')
 ```
 ##### Correlating with ExtRole
 ```
-/{Cell_name}/__ctl/Role(Name='{role_name}',_Box.Name='{box_name}')/$links/_ExtRole(ExtRole='{extrole_name}',_Relation.Name='{relation_name}',_Relation._Box.Name='{box_name}')
+/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_ExtRole(ExtRole='{extRoleName}',_Relation.Name='{RelationName}',_Relation._Box.Name='{BoxName}')
 または、
-/{Cell_name}/__ctl/Role(Name='{role_name}',_Box.Name='{box_name}')/$links/_ExtRole(ExtRole='{extrole_name}',_Relation.Name='{relation_name}')
+/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_ExtRole(ExtRole='{extRoleName}',_Relation.Name='{RelationName}')
 または、
-/{Cell_name}/__ctl/Role(Name='{role_name}',_Box.Name='{box_name}')/$links/_ExtRole(ExtRole='{extrole_name}')
+/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_ExtRole(ExtRole='{extRoleName}')
 または、
-/{Cell_name}/__ctl/Role(Name='{role_name}',_Box.Name='{box_name}')/$links/_ExtRole('{extrole_name}')
+/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_ExtRole('{extRoleName}')
 または、
-/{Cell_name}/__ctl/Role(Name='{role_name}')/$links/_ExtRole(ExtRole='{extrole_name}',_Relation.Name='{relation_name}',_Relation._Box.Name='{box_name}')
+/{CellName}/__ctl/Role(Name='{RoleName}')/$links/_ExtRole(ExtRole='{extRoleName}',_Relation.Name='{RelationName}',_Relation._Box.Name='{BoxName}')
 または、
-/{Cell_name}/__ctl/Role(Name='{role_name}')/$links/_ExtRole(ExtRole='{extrole_name}',_Relation.Name='{relation_name}')
+/{CellName}/__ctl/Role(Name='{RoleName}')/$links/_ExtRole(ExtRole='{extRoleName}',_Relation.Name='{RelationName}')
 または、
-/{Cell_name}/__ctl/Role(Name='{role_name}')/$links/_ExtRole(ExtRole='{extrole_name}')
+/{CellName}/__ctl/Role(Name='{RoleName}')/$links/_ExtRole(ExtRole='{extRoleName}')
 または、
-/{Cell_name}/__ctl/Role(Name='{role_name}')/$links/_ExtRole('{extrole_name}')
+/{CellName}/__ctl/Role(Name='{RoleName}')/$links/_ExtRole('{extRoleName}')
 または、
-/{Cell_name}/__ctl/Role('{role_name}')/$links/_ExtRole(ExtRole='{extrole_name}',_Relation.Name='{relation_name}',_Relation._Box.Name='{box_name}')
+/{CellName}/__ctl/Role('{RoleName}')/$links/_ExtRole(ExtRole='{extRoleName}',_Relation.Name='{RelationName}',_Relation._Box.Name='{BoxName}')
 または、
-/{Cell_name}/__ctl/Role('{role_name}')/$links/_ExtRole(ExtRole='{extrole_name}',_Relation.Name='{relation_name}')
+/{CellName}/__ctl/Role('{RoleName}')/$links/_ExtRole(ExtRole='{extRoleName}',_Relation.Name='{RelationName}')
 または、
-/{Cell_name}/__ctl/Role('{role_name}')/$links/_ExtRole(ExtRole='{extrole_name}')
+/{CellName}/__ctl/Role('{RoleName}')/$links/_ExtRole(ExtRole='{extRoleName}')
 または、
-/{Cell_name}/__ctl/Role('{role_name}')/$links/_ExtRole('{extrole_name}')
+/{CellName}/__ctl/Role('{RoleName}')/$links/_ExtRole('{extRoleName}')
 ```
 ##### Relation with linking
 ```
-/{Cell_name}/__ctl/Role(Name='{role_name}',_Box.Name='{box_name}')/$links/_Relation(Name='{relation_name}',_Box.Name='{box_name}')
+/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_Relation(Name='{RelationName}',_Box.Name='{BoxName}')
 または、
-/{Cell_name}/__ctl/Role(Name='{role_name}',_Box.Name='{box_name}')/$links/_Relation(Name='{relation_name}')
+/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_Relation(Name='{RelationName}')
 または、
-/{Cell_name}/__ctl/Role(Name='{role_name}',_Box.Name='{box_name}')/$links/_Relation('{relation_name}')
+/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_Relation('{RelationName}')
 または、
-/{Cell_name}/__ctl/Role(Name='{role_name}')/$links/_Relation(Name='{relation_name}',_Box.Name='{box_name}')
+/{CellName}/__ctl/Role(Name='{RoleName}')/$links/_Relation(Name='{RelationName}',_Box.Name='{BoxName}')
 または、
-/{Cell_name}/__ctl/Role(Name='{role_name}')/$links/_Relation(Name='{relation_name}')
+/{CellName}/__ctl/Role(Name='{RoleName}')/$links/_Relation(Name='{RelationName}')
 または、
-/{Cell_name}/__ctl/Role(Name='{role_name}')/$links/_Relation('{relation_name}')
+/{CellName}/__ctl/Role(Name='{RoleName}')/$links/_Relation('{RelationName}')
 または、
-/{Cell_name}/__ctl/Role('{role_name}')/$links/_Relation(Name='{relation_name}',_Box.Name='{box_name}')
+/{CellName}/__ctl/Role('{RoleName}')/$links/_Relation(Name='{RelationName}',_Box.Name='{BoxName}')
 Or,
-/{Cell_name}/__ctl/Role('{role_name}')/$links/_Relation(Name='{relation_name}')
+/{CellName}/__ctl/Role('{RoleName}')/$links/_Relation(Name='{RelationName}')
 または、
-/{Cell_name}/__ctl/Role('{role_name}')/$links/_Relation('{relation_name}')
+/{CellName}/__ctl/Role('{RoleName}')/$links/_Relation('{RelationName}')
 ```
 ※ _Box.Nameパラメタを省略した場合は、nullが指定されたものとする
 ※ ExtCellのキーはURLエンコードした文字列を指定する
@@ -103,7 +103,7 @@ Or,
 |X-HTTP-Method-Override<br>|メソッドオーバーライド機能<br>|任意<br>|×<br>|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用されます。<br>|
 |X-Override<br>|ヘッダオーバライド機能<br>|${上書きするヘッダ名}:${値} &#160;override} $: $ {value}<br>|×<br>|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定します。<br>|
 |X-Dc-RequestKey<br>|イベントログに出力するRequestKeyフィールドの値<br>|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字<br>|×<br>|指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応<br>|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {TokenValue}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
 |If-Match<br>|対象ETag値を指定する<br>|ETag値<br>|×<br>|省略時は[*]として扱う<br>|
 #### リクエストボディ
 ##### Format
@@ -115,7 +115,7 @@ JSON
 
 #### リクエストサンプル
 ```json
-{"uri":"https://fqdn/Cell/__ctl/Box('box_name')"}
+{"uri":"https://{UnitFQDN}/Cell/__ctl/Box('{BoxName}')"}
 ```
 <br>
 ### レスポンス
@@ -143,7 +143,7 @@ JSON
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/cellname/__ctl/Role(Name="role_name",_Box.Name=null)/$links/_Box" -X PUT -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json' -d '{"uri":"https://fqdn/cellname/__ctl/Box('box_name')"}'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Role(Name="{RoleName}",_Box.Name=null)/$links/_Box" -X PUT -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '{"uri":"https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')"}'
 ```
 <br>
 

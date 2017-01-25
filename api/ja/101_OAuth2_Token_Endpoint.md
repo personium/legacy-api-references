@@ -28,7 +28,7 @@ Basic認証
 リクエスト
 #### リクエストURL
 ```
-{Cell_name}/__auth
+{CellName}/__auth
 ```
 #### メソッド
 POST
@@ -70,12 +70,12 @@ grant_type=password&username=username&password=pass&dc_cookie=true
 
 パスワード認証によるトランスセルトークン発行
 ```
-grant_type=password&username=username&password=pass&dc_target=https://fqdn/cell_name/
+grant_type=password&username=username&password=pass&dc_target=https://{UnitFQDN}/{CellName}/
 ```
 
 スキーマ付きパスワード認証
 ```
-grant_type=password&username=username&password=pass&client_id=https://fqdn/appcell_name/&client_secret=
+grant_type=password&username=username&password=pass&client_id=https://{UnitFQDN}/app{CellName}/&client_secret=
 WjzDmvJSLvM9qVuJL1xxP6hSxt64HijoIea0P5R2CVloXJ2HEvEILl7UOtEtjSDdjlvyx9wrosPBhDRU97Qnn6EQIQ3MwaqtIx7HjuX36_ZBC6qxcgscCDmdtGb4nHgo
 ```
 OIDC(Open ID Connect(Google))認証
@@ -157,23 +157,23 @@ grant_type=refresh_token&refresh_token={token}
 ### CURLサンプル
 ##### パスワード認証
 ```sh
-curl "https://fqdn/cell_name/__auth" -X POST -i -d 'grant_type=password&username={username}&password={password}'
+curl "https://{UnitFQDN}/{CellName}/__auth" -X POST -i -d 'grant_type=password&username={username}&password={password}'
 ```
 ##### トークン認証
 ```sh
-curl "https://fndn/cellname/__auth" -X POST -i -d 'grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&assertion=SAML_token'
+curl "https://{UnitFQDN}/{CellName}/__auth" -X POST -i -d 'grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&assertion=SAML_token'
 ```
 ##### リフレッシュトークン認証
 ```sh
-curl "https://fqdn/cellname/__auth' -X POST -i -d 'grant_type=refresh_token&refresh_token={refresh_token}'
+curl "https://{UnitFQDN}/{CellName}/__auth' -X POST -i -d 'grant_type=refresh_token&refresh_token={refresh_token}'
 ```
 ##### パスワード認証 + スキーマ認証
 ```sh
-curl "https://fqdn/cellname/__auth" -X POST -i -d 'grant_type=password&username={user_name}&password={pass}&client_id=https://fqdn/appcellname/&client_secret={token_from_app_cell}'
+curl "https://{UnitFQDN}/{CellName}/__auth" -X POST -i -d 'grant_type=password&username={user_name}&password={pass}&client_id=https://{UnitFQDN}/app{CellName}/&client_secret={token_from_app_cell}'
 ```
 ##### トークン認証 + トランスセルトークン認証
 ```sh
-curl "https://fqdn/cellname/__auth" -X POST -i -d 'grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&assertion={SAML_token}&dc_target=https://fqdn/cellname/'
+curl "https://{UnitFQDN}/{CellName}/__auth" -X POST -i -d 'grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&assertion={SAML_token}&dc_target=https://{UnitFQDN}/{CellName}/'
 ```
 <br>
 <br>

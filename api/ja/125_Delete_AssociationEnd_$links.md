@@ -15,38 +15,38 @@ alter-schema
 ##### Linking with EntityType
 ```
 AssociationEndとの$links
-/{Cell_name}/{Box_name}/{Collection_name}/EntityType('{EntityType_name}')/$links/_AssociationEnd(Name='{AssociationEnd_name}',_EntityType.Name='{EntityType_name}')
+/{CellName}/{BoxName}/{CollectionName}/EntityType('{EntitytypeName}')/$links/_AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntitytypeName}')
 または、
-/{Cell_name}/{Box_name}/{Collection_name}/EntityType('{EntityType_name}')/$links/_AssociationEnd(Name='{AssociationEnd_name}')
+/{CellName}/{BoxName}/{CollectionName}/EntityType('{EntitytypeName}')/$links/_AssociationEnd(Name='{AssociationEndName}')
 または、
-/{Cell_name}/{Box_name}/{Collection_name}/EntityType('{EntityType_name}')/$links/_AssociationEnd('{AssociationEnd_name}')
+/{CellName}/{BoxName}/{CollectionName}/EntityType('{EntitytypeName}')/$links/_AssociationEnd('{AssociationEndName}')
 ```
 ##### Linking with AssociationEnd
 ```
 EntityTypeとの$links
-/{Cell_name}/{Box_name}/{Collection_name}/AssociationEnd(Name='{AssociationEnd_name}',_EntityType.Name='{entitytype_name}')/$links/_EntityType('{entitytype_name}')
+/{CellName}/{BoxName}/{CollectionName}/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntitytypeName}')/$links/_EntityType('{EntitytypeName}')
 または、
-/{Cell_name}/{Box_name}/{Collection_name}/AssociationEnd(Name='{AssociationEnd_name}'')/$links/_EntityType('{entitytype_name}')
+/{CellName}/{BoxName}/{CollectionName}/AssociationEnd(Name='{AssociationEndName}'')/$links/_EntityType('{EntitytypeName}')
 または、
-/{Cell_name}/{Box_name}/{Collection_name}/AssociationEnd('{AssociationEnd_name}')/$links/_EntityType('{entitytype_name}')
+/{CellName}/{BoxName}/{CollectionName}/AssociationEnd('{AssociationEndName}')/$links/_EntityType('{EntitytypeName}')
 AssociationEndとの$links
-/{Cell_name}/{Box_name}/{Collection_name}/AssociationEnd(Name='{AssociationEnd_name}',_EntityType.Name='{entitytype_name}')/$links/_AssociationEnd(Name='{AssociationEnd_name}',_EntityType.Name='{entitytype_name}')
+/{CellName}/{BoxName}/{CollectionName}/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntitytypeName}')/$links/_AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntitytypeName}')
 または、
-/{Cell_name}/{Box_name}/{Collection_name}/AssociationEnd(Name='{AssociationEnd_name}',_EntityType.Name='{entitytype_name}')/$links/_AssociationEnd(Name='{AssociationEnd_name}')
+/{CellName}/{BoxName}/{CollectionName}/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntitytypeName}')/$links/_AssociationEnd(Name='{AssociationEndName}')
 または、
-/{Cell_name}/{Box_name}/{Collection_name}/AssociationEnd(Name='{AssociationEnd_name}',_EntityType.Name='{entitytype_name}')/$links/_AssociationEnd({AssociationEnd_name}')
+/{CellName}/{BoxName}/{CollectionName}/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntitytypeName}')/$links/_AssociationEnd({AssociationEndName}')
 または、
-/{Cell_name}/{Box_name}/{Collection_name}/AssociationEnd(Name='{AssociationEnd_name}')/$links/_AssociationEnd(Name='{AssociationEnd_name}',_EntityType.Name='{entitytype_name}')
+/{CellName}/{BoxName}/{CollectionName}/AssociationEnd(Name='{AssociationEndName}')/$links/_AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntitytypeName}')
 または、
-/{Cell_name}/{Box_name}/{Collection_name}/AssociationEnd(Name='{AssociationEnd_name}')/$links/_AssociationEnd(Name='{AssociationEnd_name}')
+/{CellName}/{BoxName}/{CollectionName}/AssociationEnd(Name='{AssociationEndName}')/$links/_AssociationEnd(Name='{AssociationEndName}')
 または、
-/{Cell_name}/{Box_name}/{Collection_name}/AssociationEnd(Name='{AssociationEnd_name}')/$links/_AssociationEnd('{AssociationEnd_name}')
+/{CellName}/{BoxName}/{CollectionName}/AssociationEnd(Name='{AssociationEndName}')/$links/_AssociationEnd('{AssociationEndName}')
 または、
-/{Cell_name}/{Box_name}/{Collection_name}/AssociationEnd('{AssociationEnd_name}')/$links/_AssociationEnd(Name='{AssociationEnd_name}',_EntityType.Name='{entitytype_name}')
+/{CellName}/{BoxName}/{CollectionName}/AssociationEnd('{AssociationEndName}')/$links/_AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntitytypeName}')
 または、
-/{Cell_name}/{Box_name}/{Collection_name}/AssociationEnd('{AssociationEnd_name}')/$links/_AssociationEnd(Name='{AssociationEnd_name}')
+/{CellName}/{BoxName}/{CollectionName}/AssociationEnd('{AssociationEndName}')/$links/_AssociationEnd(Name='{AssociationEndName}')
 または、
-/{Cell_name}/{Box_name}/{Collection_name}/AssociationEnd('{AssociationEnd_name}')/$links/_AssociationEnd('{AssociationEnd_name}')
+/{CellName}/{BoxName}/{CollectionName}/AssociationEnd('{AssociationEndName}')/$links/_AssociationEnd('{AssociationEndName}')
 ```
 #### メソッド
 DELETE
@@ -62,7 +62,7 @@ DELETE
 ##### OData共通リクエストヘッダ
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {TokenValue}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
 ##### OData削除リクエストヘッダ
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
@@ -97,12 +97,12 @@ DELETE
 ### CURLサンプル
 #### CURLコマンド(UNIX) EntityType
 ```sh
-curl "https://fqdn/cell_name/box_name/collection_name/$metadata/EntityType(Name='entitytype_name')/$links/_AssociationEnd(Name='AssociationEnd_name',_EntityType.Name='entitytype_name')" -X DELETE -i -H 'If-Match: *' -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/$metadata/EntityType(Name='{EntitytypeName}')/$links/_AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntitytypeName}')" -X DELETE -i -H 'If-Match: *' -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
 ```
 #### CURLコマンド(UNIX) AssociationEnd
 ```sh
-curl "https://fqdn/cell_name/box_name/collection_name/$metadata/AssociationEnd(Name='associationEnd_name',_EntityType.Name='entitytype_name')/$links/_AssociationEnd(Name='associationEnd_name2',
-_EntityType.Name='entitytype_name2')" -X DELETE -i -H 'If-Match: *' -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/$metadata/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntitytypeName}')/$links/_AssociationEnd(Name='{AssociationEndName}2',
+_EntityType.Name='{EntitytypeName}2')" -X DELETE -i -H 'If-Match: *' -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
 ```
 <br>
 <br>

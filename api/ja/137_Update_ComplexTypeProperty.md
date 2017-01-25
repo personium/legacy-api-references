@@ -15,7 +15,7 @@ alter-schema
 ### リクエスト
 #### リクエストURL
 ```
-/{Cell_name}/{Box_name}/{odata_colleciton_path}/$metadata/ComplexTypeProrerty('ComplexTypeProrerty')
+/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/ComplexTypeProrerty('ComplexTypeProrerty')
 ```
 #### メソッド
 PUT
@@ -43,7 +43,7 @@ PUT
 
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {TokenValue}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
 
 ##### OData更新リクエストヘッダ
 
@@ -93,7 +93,7 @@ JSON
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/cell_name/box_name/odata_colleciton_path/$metadata/ComplexTypeProrerty('animal')" -X PUT -i -H 'If-Match: *' -H 'Authorization: Bearer auth_token' -H 'Accept: application/json' -d '{"Name":"ComplexTypeProrerty"}'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/ComplexTypeProrerty('animal')" -X PUT -i -H 'If-Match: *' -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '{"Name":"ComplexTypeProrerty"}'
 ```
 <br>
 <br>

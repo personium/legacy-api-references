@@ -17,43 +17,43 @@ Boxとの$link情報を削除する
 #### リクエストURL
 ##### Roleとの紐付け
 ```
-/{Cell_name}/__ctl/Box(Name='{box_name}',Schema='{schema_uri}')/$links/_Role(Name='{role_name}',_Box.Name='{box_name}')
+/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{schema_uri}')/$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')
 または、
-/{Cell_name}/__ctl/Box(Name='{box_name}',Schema='{schema_uri}')/$links/_Role(Name='{role_name}')
+/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{schema_uri}')/$links/_Role(Name='{RoleName}')
 または、
-/{Cell_name}/__ctl/Box(Name='{box_name}',Schema='{schema_uri}')/$links/_Role('{role_name}')
+/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{schema_uri}')/$links/_Role('{RoleName}')
 または、
-/{Cell_name}/__ctl/Box(Name='{box_name}')/$links/_Role(Name='{role_name}',_Box.Name='{box_name}')
+/{CellName}/__ctl/Box(Name='{BoxName}')/$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')
 または、
-/{Cell_name}/__ctl/Box(Name='{box_name}')/$links/_Role(Name='{role_name}')
+/{CellName}/__ctl/Box(Name='{BoxName}')/$links/_Role(Name='{RoleName}')
 または、
-/{Cell_name}/__ctl/Box(Name='{box_name}')/$links/_Role('{role_name}')
+/{CellName}/__ctl/Box(Name='{BoxName}')/$links/_Role('{RoleName}')
 または、
-/{Cell_name}/__ctl/Box('{box_name}')/$links/_Role(Name='{role_name}',_Box.Name='{box_name}')
+/{CellName}/__ctl/Box('{BoxName}')/$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')
 または、
-/{Cell_name}/__ctl/Box('{box_name}')/$links/_Role(Name='{role_name}')
+/{CellName}/__ctl/Box('{BoxName}')/$links/_Role(Name='{RoleName}')
 または、
-/{Cell_name}/__ctl/Box('{box_name}')/$links/_Role('{role_name}')
+/{CellName}/__ctl/Box('{BoxName}')/$links/_Role('{RoleName}')
 ```
 ##### Relationとの紐付け
 ```
-/{Cell_name}/__ctl/Box(Name='{box_name}',Schema='{schema_uri}')/$links/_Relation(Name='{relation_name}',_Box.Name='{box_name}')
+/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{schema_uri}')/$links/_Relation(Name='{RelationName}',_Box.Name='{BoxName}')
 または、
-/{Cell_name}/__ctl/Box(Name='{box_name}',Schema='{schema_uri}')/$links/_Relation(Name='{relation_name}')
+/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{schema_uri}')/$links/_Relation(Name='{RelationName}')
 または、
-/{Cell_name}/__ctl/Box(Name='{box_name}',Schema='{schema_uri}')/$links/_Relation('{relation_name}')
+/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{schema_uri}')/$links/_Relation('{RelationName}')
 または、
-/{Cell_name}/__ctl/Box(Name='{box_name}')/$links/_Relation(Name='{relation_name}',_Box.Name='{box_name}')
+/{CellName}/__ctl/Box(Name='{BoxName}')/$links/_Relation(Name='{RelationName}',_Box.Name='{BoxName}')
 または、
-/{Cell_name}/__ctl/Box(Name='{box_name}')/$links/_Relation(Name='{relation_name}')
+/{CellName}/__ctl/Box(Name='{BoxName}')/$links/_Relation(Name='{RelationName}')
 または、
-/{Cell_name}/__ctl/Box(Name='{box_name}')/$links/_Relation('{relation_name}')
+/{CellName}/__ctl/Box(Name='{BoxName}')/$links/_Relation('{RelationName}')
 または、
-/{Cell_name}/__ctl/Box('{box_name}')/$links/_Relation(Name='{relation_name}',_Box.Name='{box_name}')
+/{CellName}/__ctl/Box('{BoxName}')/$links/_Relation(Name='{RelationName}',_Box.Name='{BoxName}')
 または、
-/{Cell_name}/__ctl/Box('{box_name}')/$links/_Relation(Name='{relation_name}')
+/{CellName}/__ctl/Box('{BoxName}')/$links/_Relation(Name='{RelationName}')
 または、
-/{Cell_name}/__ctl/Box('{box_name}')/$links/_Relation('{relation_name}')
+/{CellName}/__ctl/Box('{BoxName}')/$links/_Relation('{RelationName}')
 ```
 ※ Schemaパラメタを省略した場合は、nullが指定されたものとする
 
@@ -73,7 +73,7 @@ DELETE
 |X-HTTP-Method-Override<br>|メソッドオーバーライド機能<br>|任意<br>|×<br>|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用されます。<br>|
 |X-Override<br>|ヘッダオーバライド機能<br>|${上書きするヘッダ名}:${値}override} $: $ {value}<br>|×<br>|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定します。<br>|
 |X-Dc-RequestKey<br>|イベントログに出力するRequestKeyフィールドの値<br>|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字<br>|×<br>|指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応<br>|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {TokenValue}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
 |If-Match<br>|対象ETag値を指定する<br>|ETag値<br>|×<br>|省略時は[*]として扱う<br>|
 #### リクエストボディ
 なし
@@ -106,7 +106,7 @@ DELETE
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/cell_name/__ctl/Box('box_name')/$links/_Relation('relation_name')" -X DELETE -i -H 'If-Match: *' -H 'Authorization: Bearer auth_token' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/$links/_Relation('{RelationName}')" -X DELETE -i -H 'If-Match: *' -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
 ```
 <br>
 <br>

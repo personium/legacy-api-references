@@ -143,7 +143,7 @@
 [OData] サポートしているODataクエリの1つ。HTTPレスポンスにおいてメディアタイプを指定するクエリ。（詳細事項）
 
 
-###### FQDN
+###### UnitFQDN
 [一般] Fully Qualified Domain Name（完全修飾ドメイン名）の略称。
 インターネット上の特定のコンピュータやホストを一意に定義する完全なドメイン名をあらわす（例：host-name.domain-name.com）
 
@@ -318,7 +318,7 @@ personium.ioでは以下の種類:があり、発行から1時間で変更され
 
 ##### <a name="anc_u"> U
 ###### Unit
-[personium.io] personium.io基盤サーバ内で、1つ以上のセルから構成されるデータ領域。完全修飾ドメイン名（FQDN）を持ち、絶対ドメイン名として参照される。
+[personium.io] personium.io基盤サーバ内で、1つ以上のセルから構成されるデータ領域。完全修飾ドメイン名（UnitFQDN）を持ち、絶対ドメイン名として参照される。
 
 
 ###### Unit制御オブジェクト

@@ -32,7 +32,7 @@ POST
 ##### OData共通リクエストヘッダ
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {TokenValue}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
 ##### OData登録リクエストヘッダ
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
@@ -48,7 +48,7 @@ JSON
 
 #### リクエストサンプル
 ```json
-{"Name":"cell_name"}
+{"Name":"{CellName}"}
 ```
 
 <br>
@@ -101,13 +101,13 @@ JSON
 {
   "d":{
     "results":{
-       "Name":"cell_name",
+       "Name":"{CellName}",
        "__published":"\/Date(1347498017297)\/",
        "__updated":"\/Date(1347498017297)\/",
        "__metadata":{
           "etag":"1-1347498017297",
           "type":"UnitCtl.Cell",
-          "uri":"https://fqdn/__ctl/Cell(Name='cell_name')"
+          "uri":"https://{UnitFQDN}/__ctl/Cell(Name='{CellName}')"
          }
        }
     }
@@ -118,7 +118,7 @@ JSON
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://fqdn/__ctl/Cell" -X POST -i -H 'Authorization: Bearer auth_token' -H 'Accept: application/json' -d '{"Name":"cell_name"}'
+curl "https://{UnitFQDN}/__ctl/Cell" -X POST -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '{"Name":"{CellName}"}'
 ```
 <br>
 <br>

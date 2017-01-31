@@ -23,36 +23,52 @@ Relationに$linkで指定したODataリソースを紐付ける<br>以下のODat
 ##### Correlating with Box
 ```
 /{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_Box
+```
 または、
+```
 /{CellName}/__ctl/Relation(Name='{RelationName}')/$links/_Box
+```
 または、
+```
 /{CellName}/__ctl/Relation('{RelationName}')/$links/_Box
 ```
 ##### Correlating with ExtCell
 ```
 /{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_ExtCell
+```
 または、
+```
 /{CellName}/__ctl/Relation(Name='{RelationName}')/$links/_ExtCell
+```
 または、
+```
 /{CellName}/__ctl/Relation('{RelationName}')/$links/_ExtCell
 ```
 ##### Correlating with ExtRole
 ```
 /{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_ExtRole
+```
 または、
+```
 /{CellName}/__ctl/Relation(Name='{RelationName}')/$links/_ExtRole
+```
 または、
+```
 /{CellName}/__ctl/Relation('{RelationName}')/$links/_ExtRole
 ```
 ##### Correlating with the role
 ```
 /{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_Role
+```
 または、
+```
 /{CellName}/__ctl/Relation(Name='{RelationName}')/$links/_Role
+```
 または、
+```
 /{CellName}/__ctl/Relation('{RelationName}')/$links/_Role
 ```
-※ _Box.Nameパラメタを省略した場合は、nullが指定されたものとする
+※ \_Box.Nameパラメタを省略した場合は、nullが指定されたものとする
 
 #### メソッド
 POST
@@ -102,7 +118,7 @@ JSON
 なし
 
 #### エラーメッセージ一覧
-[エラーメッセージ一覧](198_Error_Messages.html)を参照
+[エラーメッセージ一覧](199_Error_Messages.html)を参照
 
 #### レスポンスサンプル
 なし
@@ -111,7 +127,7 @@ JSON
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name=null)/$links/_Box" -X POST -i  -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '{"uri":"https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')"}' 
+curl "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name=null)/$links/_Box" -X POST -i  -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '{"uri":"https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')"}'
 ```
 <br>
 <br>

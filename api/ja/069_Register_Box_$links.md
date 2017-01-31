@@ -21,17 +21,25 @@ Boxに$linkで指定したODataリソースを紐付ける<Br>以下のODataリ�
 ##### Roleとの紐付け
 ```
 /{CellName}/__ctl/Box(Name='{BoxName}',Schema='{schema_url}')/$links/_Role
+```
 または、
+```
 /{CellName}/__ctl/Box(Name='{BoxName}')/$links/_Role
+```
 または、
+```
 /{CellName}/__ctl/Box('{BoxName}')/$links/_Role
 ```
 ##### Relationとの紐付け
 ```
 /{CellName}/__ctl/Box(Name='{BoxName}',Schema='{schema_url}')/$links/_Relation
+```
 または、
+```
 /{CellName}/__ctl/Box(Name='{BoxName}')/$links/_Relation
+```
 または、
+```
 /{CellName}/__ctl/Box('{BoxName}')/$links/_Relation
 ```
 
@@ -85,7 +93,7 @@ JSON
 なし
 
 #### エラーメッセージ一覧
-[エラーメッセージ一覧](198_Error_Messages.html)を参照
+[エラーメッセージ一覧](199_Error_Messages.html)を参照
 
 #### レスポンスサンプル
 なし

@@ -89,7 +89,7 @@ GET
 |ルート<br>|message<br>|object<br>|Object (message format)<br>|statusが以下の場合のみ出力する。<br>&#183;        "Installation failed"<br>詳細は エラーメッセージ一覧を参照<br>|
 
 #### エラーメッセージ一覧
-[エラーメッセージ一覧](198_Error_Messages.html)を参照
+[エラーメッセージ一覧](199_Error_Messages.html)を参照
 
 |コード<br>|メッセージ<br>|概要<br>|備考<br>|
 |:--|:--|:--|:--|

@@ -227,7 +227,7 @@ $formatにatomsvcを指定した場合、SchemaのAtom ServiceDocumentを返却�
 |403<br>|アクセス権限が不足している場合<br>|
 |404<br>|存在しないCellを指定した場合<br>存在しないBoxを指定した場合<br>存在しないODataCollection を指定した場合 <br>|
 |405<br>|許可していないリクエストメソッドを指定した場合<br>|
-[エラーメッセージ一覧](198_Error_Messages.html)を参照
+[エラーメッセージ一覧](199_Error_Messages.html)を参照
 #### レスポンスサンプル
 ##### SchemaのAtom ServiceDocumentの場合
 以下を固定で返却する。

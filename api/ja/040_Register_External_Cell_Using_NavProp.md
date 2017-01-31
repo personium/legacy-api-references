@@ -16,13 +16,17 @@ write
 ##### RoleへのnavigationProperty
 ```
 /{CellName}/__ctl/ExtCell(Url='{extcell_url}')/_Role
+```
 または、
+```
 /{CellName}/__ctl/ExtCell('{extcell_url}')/_Role
 ```
 ##### RelationへのnavigationProperty
 ```
 /{CellName}/__ctl/ExtCell(Url='{extcell_url}')/_Relation
+```
 または、
+```
 /{CellName}/__ctl/ExtCell('{extcell_url}')/_Relation
 ```
 #### メソッド
@@ -84,7 +88,7 @@ ExtCell固有レスポンスボディ
 |{3}<br>|type<br>|string<br>|CellCtl.ExtCell<br>|
 |{2}<br>|Url<br>|string<br>|対象CellのURL<br>|
 #### エラーメッセージ一覧
-[エラーメッセージ一覧](198_Error_Messages.html)を参照
+[エラーメッセージ一覧](199_Error_Messages.html)を参照
 
 ##### レスポンスサンプル
 ```json

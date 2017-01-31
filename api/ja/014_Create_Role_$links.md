@@ -22,36 +22,52 @@ Roleに$linkで指定したODataリソースを紐付ける
 ##### Association with the account
 ```
 /{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_Account
+```
 または、
+```
 /{CellName}/__ctl/Role(Name='{RoleName}')/$links/_Account
+```
 または、
+```
 /{CellName}/__ctl/Role('{RoleName}')/$links/_Account
 ```
 ##### Association with the ExtCell
 ```
 /{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_ExtCell
+```
 または、
+```
 /{CellName}/__ctl/Role(Name='{RoleName}')/$links/_ExtCell
+```
 または、
+```
 /{CellName}/__ctl/Role('{RoleName}')/$links/_ExtCell
 ```
 ##### Association with the ExtRole
 ```
 /{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_ExtRole
+```
 または、
+```
 /{CellName}/__ctl/Role(Name='{RoleName}')/$links/_ExtRole
+```
 または、
+```
 /{CellName}/__ctl/Role('{RoleName}')/$links/_ExtRole
 ```
 ##### Association with the relation
 ```
 /{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_Relation
+```
 または、
+```
 /{CellName}/__ctl/Role(Name='{RoleName}')/$links/_Relation
+```
 または、
+```
 /{CellName}/__ctl/Role('{RoleName}')/$links/_Relation
 ```
-※ _Box.Nameパラメタを省略した場合は、nullが指定されたものとする
+※ \_Box.Nameパラメタを省略した場合は、nullが指定されたものとする
 
 #### メソッド
 POST
@@ -102,7 +118,7 @@ JSON
 なし
 
 #### エラーメッセージ一覧
-[エラーメッセージ一覧](198_Error_Messages.html)を参照
+[エラーメッセージ一覧](199_Error_Messages.html)を参照
 
 #### レスポンスサンプル
 なし

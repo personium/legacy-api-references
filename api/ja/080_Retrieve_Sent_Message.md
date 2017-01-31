@@ -25,11 +25,11 @@ GET
 |:--|:--|:--|:--|:--|
 |dc_cookie_peer<br>|クッキー認証値<br>|認証時にサーバから返却されたクッキー認証値<br>|×<br>|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br>|
 
-[$select クエリ](192_$select_Query.html)
+[$select クエリ](193_$Select_Query.html)
 
-[$expand クエリ](191_$expand_Query.html)
+[$expand クエリ](192_$Expand_Query.html)
 
-[$format クエリ](190_$Format_Query.html)
+[$format クエリ](191_$Format_Query.html)
 
 #### リクエストヘッダ
 ##### 共通リクエストヘッダ
@@ -73,7 +73,7 @@ GET
 |{3}<br>|etag<br>|string<br>|Etag値<br>|
 |{3}<br>|uri<br>|string<br>|作成したリソースへのURL<br>|
 ##### SentMessage固有レスポンスボディ
-|オブジェクト<br>|名前【キー）<br>|型<br>|値<br>|
+|オブジェクト<br>|名前【キー】<br>|型<br>|値<br>|
 |:--|:--|:--|:--|
 |{3}<br>|type<br>|string<br>|CellCtl.ReceivedMessage<br>|
 |{2}<br>|__id<br>|string<br>|受信メッセージID<br>UUIDで「b5d008e9092f489c8d3c574a768afc33」のような32文字の文字列を返却<br>|
@@ -93,7 +93,7 @@ GET
 |{4}<br>|Code<br>|string<br>|ステータスコード<br>|
 |{4}<br>|Reason<br>|string<br>|詳細メッセージ<br>|
 #### エラーメッセージ一覧
-[エラーメッセージ一覧](198_Error_Messages.html)を参照
+[エラーメッセージ一覧](199_Error_Messages.html)を参照
 
 #### レスポンスサンプル
 ```json
@@ -144,7 +144,7 @@ GET
 ### CURLサンプル
 #### CURLコマンド(UNIX)
 ```sh
-curl "https://{UnitFQDN}/__ctl/SentMessage('{MessageID}')" -X GET -i 
+curl "https://{UnitFQDN}/__ctl/SentMessage('{MessageID}')" -X GET -i
 -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
 ```
 <br>

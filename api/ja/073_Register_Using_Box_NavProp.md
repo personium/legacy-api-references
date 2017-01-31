@@ -16,17 +16,25 @@ write
 ##### RoleへのnavigationProperty
 ```
 /{CellName}/__ctl/Box(Name='{BoxName}',Schema='schema_url')/_Role
+```
 または、
+```
 /{CellName}/__ctl/Box(Name='{BoxName}')/_Role
+```
 または、
+```
 /{CellName}/__ctl/Box('{BoxName}')/_Role
 ```
 ##### RelationへのnavigationProperty
 ```
 /{CellName}/__ctl/Box(Name='{BoxName}',Schema='schema_url')/_Relation
+```
 または、
+```
 /{CellName}/__ctl/Box(Name='{BoxName}')/_Relation
+```
 または、
+```
 /{CellName}/__ctl/Box('{BoxName}')/_Relation
 ```
 ※ Schemaパラメタを省略した場合は、nullが指定されたものとする
@@ -89,7 +97,7 @@ JSON
 |d / results / Name<br>|Relation名<br>|<br>|
 |d / results / _Box.Name<br>|関係対象のBox名<br>|<br>|
 #### エラーメッセージ一覧
-[エラーメッセージ一覧](198_Error_Messages.html)を参照
+[エラーメッセージ一覧](199_Error_Messages.html)を参照
 
 <br>
 ### CURLサンプル

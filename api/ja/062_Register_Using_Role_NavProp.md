@@ -23,7 +23,7 @@ _Relation._Box.Name='{BoxName}')/_Role
 /{CellName}/__ctl/ExtRole(ExtRole='{extRoleName}',_Relation.Name='{RelationName}',
 _Relation._Box.Name='{BoxName}')/_Relation
 ```
-※ _Relation._Box.Nameパラメタを省略した場合は、nullが指定されたものとする
+※ \_Relation.\_Box.Nameパラメタを省略した場合は、nullが指定されたものとする
 ※ ExtRoleのNavProp経由登録APIではRoleの登録のみ有効
 #### メソッド
 POST
@@ -91,7 +91,7 @@ JSON
 |{2}<br>|_Relation.Name<br>|string<br>|Relation名<br>|
 |{2}<br>|_Relation._Box.Name<br>|string<br>|Relationに紐付くBox名<br>|
 #### エラーメッセージ一覧
-[エラーメッセージ一覧](198_Error_Messages.html)を参照
+[エラーメッセージ一覧](199_Error_Messages.html)を参照
 
 #### レスポンスサンプル
 ```json

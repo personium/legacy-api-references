@@ -19,16 +19,20 @@ ExtCellに$linkで指定したODataリソースを紐付ける<br>以下のOData
 ##### Correlating with the role
 ```
 /{CellName}/__ctl/ExtCell(Url='{ExtCellName}')/$links/_Role
+```
 または、
+```
 /{CellName}/__ctl/ExtCell('{ExtCellName}')/$links/_Role
 ```
 ##### Correlating with the relation
 ```
 /{CellName}/__ctl/ExtCell(Url='{ExtCellName}')/$links/_Relation
+```
 または、
+```
 /{CellName}/__ctl/ExtCell('{ExtCellName}')/$links/_Relation
 ```
-※ _Box.Nameパラメタを省略した場合は、nullが指定されたものとする
+※ \_Box.Nameパラメタを省略した場合は、nullが指定されたものとする
 #### メソッド
 POST
 #### リクエストクエリ
@@ -70,7 +74,7 @@ JSON
 #### レスポンスボディ
 なし
 #### エラーメッセージ一覧
-[エラーメッセージ一覧](198_Error_Messages.html)を参照
+[エラーメッセージ一覧](199_Error_Messages.html)を参照
 
 #### レスポンスサンプル
 なし

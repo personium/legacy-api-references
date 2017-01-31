@@ -18,7 +18,9 @@ Accountに$linkで指定したODataリソースを紐付ける
 Roleと紐付ける場合
 ```
 /{CellName}/__ctl/Account(Name='{AccountName}')/$links/_Role
+```
 または、
+```
 /{CellName}/__ctl/Account('{AccountName}')/$links/_Role
 ```
 
@@ -66,7 +68,7 @@ JSON
 なし
 
 #### エラーメッセージ一覧
-[エラーメッセージ一覧](198_Error_Messages.html)を参照
+[エラーメッセージ一覧](199_Error_Messages.html)を参照
 
 #### レスポンスサンプル
 なし

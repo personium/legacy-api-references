@@ -15,7 +15,9 @@ write
 ##### RoleへのnavigationProperty
 ```
 /{CellName}/__ctl/Account(Name='{AccountName}')/_Role
+```
 または、
+```
 /{CellName}/__ctl/Account('{AccountName}')/_Role
 ```
 #### メソッド
@@ -102,7 +104,7 @@ Account固有レスポンスボディ
 }   
 ```
 #### エラーメッセージ一覧
-[エラーメッセージ一覧](198_Error_Messages.html)を参照
+[エラーメッセージ一覧](199_Error_Messages.html)を参照
 
 <br>
 ### CURLサンプル

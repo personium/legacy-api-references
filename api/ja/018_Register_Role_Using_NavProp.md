@@ -16,36 +16,52 @@ write
 ##### AccountへのnavigationProperty
 ```
 /{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_Account
+```
 または、
+```
 /{CellName}/__ctl/Role(Name='{RoleName}')/_Account
+```
 または、
+```
 /{CellName}/__ctl/Role('{RoleName}')/_Account
 ```
 ##### ExtCellへのnavigationProperty
 ```
 /{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_ExtCell
+```
 または、
+```
 /{CellName}/__ctl/Role(Name='{RoleName}')/_ExtCell
+```
 または、
+```
 /{CellName}/__ctl/Role('{RoleName}')/_ExtCell
 ```
 ##### ExtRoleへのnavigationProperty
 ```
 /{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_ExtRole
+```
 または、
+```
 /{CellName}/__ctl/Role(Name='{RoleName}')/_ExtRole
+```
 または、
+```
 /{CellName}/__ctl/Role('{RoleName}')/_ExtRole
 ```
 ##### RelationへのnavigationProperty
 ```
 /{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_Relation
+```
 または、
+```
 /{CellName}/__ctl/Role(Name='{RoleName}')/_Relation
+```
 または、
+```
 /{CellName}/__ctl/Role('{RoleName}')/_Relation
 ```
-※ _Box.Nameパラメタを省略した場合は、nullが指定されたものとする
+※ \_Box.Nameパラメタを省略した場合は、nullが指定されたものとする
 #### メソッド
 POST
 #### リクエストクエリ
@@ -125,7 +141,7 @@ POST
  }
 ```
 #### エラーメッセージ一覧
-[エラーメッセージ一覧](198_Error_Messages.html)を参照
+[エラーメッセージ一覧](199_Error_Messages.html)を参照
 
 <br>
 ### CURLサンプル

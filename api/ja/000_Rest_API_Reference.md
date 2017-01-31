@@ -1,4 +1,4 @@
-# personium.io REST API リファレンス
+﻿﻿﻿# personium.io REST API リファレンス
 REST API リファレンスへようこそ。
 REST API リファレンスでは、personium.ioが提供するすべてのREST APIに関する技術的な詳細仕様を記述しています。
 <br>

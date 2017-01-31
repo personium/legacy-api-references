@@ -1,4 +1,4 @@
-# EntityType一覧取得
+﻿﻿﻿# EntityType一覧取得
 ### 概要
 既存のEntityType情報の一覧を取得する
 

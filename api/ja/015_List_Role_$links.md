@@ -1,4 +1,4 @@
-# Role_$links一覧取得
+﻿﻿﻿# Role_$links一覧取得
 ### 概要
 Roleに紐付いたODataリソースを一覧取得する
 以下のODataリソースを指定することができる

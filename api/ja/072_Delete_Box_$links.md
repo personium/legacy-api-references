@@ -1,4 +1,4 @@
-# Box_$links削除
+﻿﻿﻿# Box_$links削除
 ### 概要
 Boxとの$link情報を削除する
 

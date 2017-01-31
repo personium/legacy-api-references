@@ -1,4 +1,4 @@
-# Box_NavProp経由登録
+﻿﻿﻿# Box_NavProp経由登録
 ### 概要
 Role、RelationをBoxのNavigation Property経由で登録する
 ### 必要な権限

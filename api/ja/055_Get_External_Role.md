@@ -1,4 +1,4 @@
-# ExtRole取得
+﻿﻿﻿# ExtRole取得
 ### 概要
 既存のExtRole情報を取得する
 ### 必要な権限

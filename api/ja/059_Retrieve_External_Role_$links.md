@@ -1,4 +1,4 @@
-# ExtRole_$links一覧取得
+﻿﻿﻿# ExtRole_$links一覧取得
 ### 概要
 Relationに紐付いたODataリソースを一覧取得する<br>以下のODataリソースを指定することができる
 

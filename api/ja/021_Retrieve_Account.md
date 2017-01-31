@@ -1,4 +1,4 @@
-# Account取得
+﻿﻿﻿# Account取得
 ### 概要
 既存のAccount情報を取得する
 ### 必要な権限

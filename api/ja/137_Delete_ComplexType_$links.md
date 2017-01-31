@@ -1,4 +1,4 @@
-# ComplexType_$links削除
+﻿﻿﻿# ComplexType_$links削除
 ### 概要
 ComplexType の$link情報を削除する
 

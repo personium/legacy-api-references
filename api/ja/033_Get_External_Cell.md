@@ -1,4 +1,4 @@
-# ExtCell取得
+﻿﻿﻿# ExtCell取得
 ### 概要
 既存のExtCell情報を取得する
 

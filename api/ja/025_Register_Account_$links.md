@@ -1,4 +1,4 @@
-# Account_$links登録
+﻿﻿﻿# Account_$links登録
 ### 概要
 Accountに$linkで指定したODataリソースを紐付ける
 以下のODataリソースと紐付けることができる

@@ -1,4 +1,4 @@
-# EntityType_$links登録
+﻿﻿﻿# EntityType_$links登録
 ### 概要
 EntityTypeの$links情報を登録する
 ### 必要な権限

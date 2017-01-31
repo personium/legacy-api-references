@@ -1,4 +1,4 @@
-# Property取得
+﻿﻿﻿# Property取得
 ### 概要
 既存のProperty情報を取得する
 ### 必要な権限

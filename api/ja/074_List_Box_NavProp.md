@@ -1,4 +1,4 @@
-# Box_NavProp経由取得
+﻿﻿﻿# Box_NavProp経由取得
 ### 概要
 セル制御オブジェクトをNavigation Property経由で取得する
 ### 必要な権限

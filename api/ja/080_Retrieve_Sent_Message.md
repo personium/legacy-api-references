@@ -1,4 +1,4 @@
-# SentMessage取得
+﻿﻿﻿# SentMessage取得
 ### 概要
 送信メッセージ情報を取得する
 ### 必要な権限

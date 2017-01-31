@@ -1,4 +1,4 @@
-# Box_$links登録
+﻿﻿﻿# Box_$links登録
 ### 概要
 Boxに$linkで指定したODataリソースを紐付ける<Br>以下のODataリソースと紐付けることができる
 

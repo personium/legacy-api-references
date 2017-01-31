@@ -1,4 +1,4 @@
-# EntityType登録
+﻿﻿﻿# EntityType登録
 ### 概要
 ユーザーデータのEntityTypeを登録する
 

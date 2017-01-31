@@ -1,4 +1,4 @@
-# EntityType_$links削除
+﻿﻿﻿# EntityType_$links削除
 ### 概要
 Entity Typeの$link情報を削除する
 ### 必要な権限

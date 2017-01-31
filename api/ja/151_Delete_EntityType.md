@@ -1,4 +1,4 @@
-# EntityType削除
+﻿﻿﻿# EntityType削除
 ### 概要
 既存のEntityType情報を削除する
 

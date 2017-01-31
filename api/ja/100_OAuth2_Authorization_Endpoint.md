@@ -1,4 +1,4 @@
-# OAuth2_認可エンドポイント(\__authz)
+﻿﻿﻿# OAuth2_認可エンドポイント(\__authz)
 ### 概要
 OAuth2の認可エンドポイントAPI
 このAPIは、JSアプリケーション・ネイティブアプリでpersonium.ioを利用する場合のOAuth2の認可エンドポイントである。

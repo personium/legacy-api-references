@@ -1,4 +1,4 @@
-# ComplexTypeProperty削除
+﻿﻿﻿# ComplexTypeProperty削除
 ### 概要
 既存のComplexTypeProperty情報を削除する
 ### 必要な権限

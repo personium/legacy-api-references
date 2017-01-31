@@ -1,4 +1,4 @@
-# ExtRole_$links削除
+﻿﻿﻿# ExtRole_$links削除
 ### 概要
 ExtRoleとの$link情報を削除する<br>以下のODataリソースを指定できる
 

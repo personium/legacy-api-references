@@ -1,4 +1,4 @@
-# Relation_$links一覧取得
+﻿﻿﻿# Relation_$links一覧取得
 ### 概要
 Relationに紐付いたODataリソースを一覧取得する
 以下のODataリソースを指定することができる

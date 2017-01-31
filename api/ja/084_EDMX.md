@@ -1,4 +1,4 @@
-# EDMX取得($metadata)
+﻿﻿﻿# EDMX取得($metadata)
 
 
  

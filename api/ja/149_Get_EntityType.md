@@ -1,4 +1,4 @@
-# EntityType取得
+﻿﻿﻿# EntityType取得
 ### 概要
 既存のEntityType情報を取得する
 

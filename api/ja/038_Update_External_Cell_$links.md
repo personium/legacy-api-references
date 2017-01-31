@@ -1,4 +1,4 @@
-# Extcell_$links更新
+﻿﻿﻿# Extcell_$links更新
 ### 概要
 Boxに紐付いたODataリソースを一覧取得する<br>以下のODataリソースを指定することができる
 

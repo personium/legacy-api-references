@@ -1,4 +1,4 @@
-# EntityType更新
+﻿﻿﻿# EntityType更新
 ### 概要
 既存のEntityType情報を更新する
 

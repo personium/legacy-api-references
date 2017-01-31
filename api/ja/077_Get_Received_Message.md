@@ -1,4 +1,4 @@
-# ReceivedMessage取得
+﻿﻿﻿# ReceivedMessage取得
 ### 概要
 受信メッセージ情報を取得する
 ### 必要な権限

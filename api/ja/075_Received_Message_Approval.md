@@ -73,7 +73,7 @@ JSON
 |root<br>|message<br>|object<br>|オブジェクト{1}<br>|
 |{1}<br>|lang<br>|string<br>|言語<br>固定値:en<br>|
 |{1}<br>|value<br>|string<br>|×<br>|
-[エラーメッセージ一覧](199_Error_Messages.html)を参照
+[エラーメッセージ一覧](200_Error_Messages.html)を参照
 
 #### レスポンスサンプル
 なし

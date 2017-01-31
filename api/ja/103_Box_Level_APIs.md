@@ -40,8 +40,8 @@ Box Level API は、アプリケーション等がデータを操作するため
 |**ComplexTypeProperty**|<br>|[登録](137_Register_ComplexTypeProperty.html)|[取得](139_Get_ComplexTypeProperty.html)<br>[一覧取得](138_List_ComplexTypeProperty.html)|[更新](140_Update_ComplexTypeProperty.html)|[削除](141_Delete_ComplexTypeProperty.html)|
 |<br>|_$links|[登録](142_Register ComplextTypeProperty $ Links.html)|[一覧取得](144_List_ComplextTypeProperty_$links.html)|[更新](145_Update ComplextTypeProperty $ Links.html)|[削除](146_Delete_ComplextTypeProperty_$links.html)|
 |**Entity**|[一括操作](170_Entity_Bulk_Operations.html)|[作成](166_Create_Entity.html)|[取得](168_Get_Entity.html)<br>[一覧取得](167_List_Entity.html)|[更新](168_Get_Entity.html)<br>[部分更新](171_Partial_Update_Entity.html)|[削除](172_Delete_Entity.html)|
-|（ユーザデータ）|_$links|[登録](174_Register_User_Data_$links.html)|[一覧取得](175_User_Data_List_$links.html)|[更新](177_Update_User_Data_$links.html)|[削除](178_Delete_User_Data_$links.html)|
-|（ユーザデータ）|_NavProp経由|[登録](179_Register_using_NavProp.html)|[一覧取得](180_List_using_NavProp.html)|<br>|<br>|
+|（ユーザデータ）|_$links|[登録](175_Register_User_Data_$links.html)|[一覧取得](177_User_Data_List_$links.html)|[更新](178_Update_User_Data_$links.html)|[削除](179_Delete_User_Data_$links.html)|
+|（ユーザデータ）|_NavProp経由|[登録](180_Register_using_NavProp.html)|[一覧取得](181_List_using_NavProp.html)|<br>|<br>|
 
 ##### データ操作
 * [スキーマ取得](172_Get_Schema.html)
@@ -49,15 +49,15 @@ Box Level API は、アプリケーション等がデータを操作するため
 
 <br>
 #### 特別なコレクション: Engine Service コレクション
-##### [サーバスクリプト(Engine Service Collection)](181_Engine_Service_Collection_APIs.html)
+##### [サーバスクリプト(Engine Service Collection)](182_Engine_Service_Collection_APIs.html)
 personium.ioアプリケーションやCell利用者が作成したサーバサイドロジックを登録しこれを走行させることができます。
 はじめに、ユーザロジックをファイルとして登録し、サービスコレクションの設定を行ってパスとの関連付けを行うことで、
 コレクション配下の任意のパスからのリクエストに対してユーザーロジックを走行させることができます。
 
 |<br>|<br>|作成・登録<br>|取得<br>|更新<br>|削除<br>|
 |:--|:--|:--|:--|:--|:--|
-|サービスコレクションソース|<br>|[作成](183_Create_Service_Collection_Source.html)|[取得](184_List_Service_Collection_Source.html)|[設定適用](182_Configure_Service_Collection.html)|[削除](185_Delete_Service_Collection_Source.html)|
-|<br>|[サービス実行](186_Service_Execution.html)<br>|<br>|<br>|<br>|
+|サービスコレクションソース|<br>|[作成](184_Create_Service_Collection_Source.html)|[取得](185_List_Service_Collection_Source.html)|[設定適用](183_Configure_Service_Collection.html)|[削除](186_Delete_Service_Collection_Source.html)|
+|<br>|[サービス実行](187_Service_Execution.html)<br>|<br>|<br>|<br>|
 <br>
 <br>
 <br>

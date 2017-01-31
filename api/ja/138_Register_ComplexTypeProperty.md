@@ -149,7 +149,7 @@ DefaultValueの有効値はTypeの値（型定義）によって異なり、以�
 |{2}<br>|CollectionKind<br>|string<br>|配列種別<br>|
 
 #### エラーメッセージ一覧
-[エラーメッセージ一覧](199_Error_Messages.html)を参照
+[エラーメッセージ一覧](200_Error_Messages.html)を参照
 
 |コード<br>|メッセージ<br>|概要<br>|備考<br>|
 |:--|:--|:--|:--|

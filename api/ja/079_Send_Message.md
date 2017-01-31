@@ -105,7 +105,7 @@ JSON
 |d / results / Result / Code<br>|ステータスコード<br>|<br>|
 |d / results / Result / Reason<br>|詳細メッセージ<br>|<br>|
 #### エラーメッセージ一覧
-[エラーメッセージ一覧](199_Error_Messages.html)を参照
+[エラーメッセージ一覧](200_Error_Messages.html)を参照
 
 #### レスポンスサンプル
 ```json

@@ -1,10 +1,10 @@
-﻿﻿﻿# personium.io REST API リファレンス
-REST API リファレンスへようこそ。
+# personium.io REST API リファレンス  
+REST API リファレンスへようこそ。  
 REST API リファレンスでは、personium.ioが提供するすべてのREST APIに関する技術的な詳細仕様を記述しています。
 <br>
 ### Unit Level API
-Unit Level APIは、Cell群をホストするユニットに属するAPI(Cellの生成や作成したCell群の管理)です。
-これらAPIは原則としてCellから発行されたアクセストークンではアクセスできません。
+Unit Level APIは、Cell群をホストするユニットに属するAPI(Cellの生成や作成したCell群の管理)です。  
+これらAPIは原則としてCellから発行されたアクセストークンではアクセスできません。  
 （ユニットレベルのトークンへの昇格操作を経て利用可能）
 
 Resource Path

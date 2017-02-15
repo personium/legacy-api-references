@@ -1,4 +1,4 @@
-﻿﻿﻿# スキーマ取得（$metadata）
+# スキーマ取得（$metadata）
 ### 概要
 ユーザーデータのスキーマ定義を行うためのスキーマ情報を取得する
 
@@ -22,7 +22,7 @@ GET
 
 |クエリ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|dc_cookie_peer<br>|クッキー認証値<br>|認証時にサーバから返却されたクッキー認証値<br>|×<br>|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br>|
+|p_cookie_peer<br>|クッキー認証値<br>|認証時にサーバから返却されたクッキー認証値<br>|×<br>|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br>|
 
 #### リクエストヘッダ
 ##### 共通リクエストヘッダ
@@ -31,7 +31,7 @@ GET
 |:--|:--|:--|:--|:--|
 |X-HTTP-Method-Override<br>|メソッドオーバーライド機能<br>|任意<br>|×<br>|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用される<br>|
 |X-Override<br>|ヘッダオーバライド機能<br>|${上書きするヘッダ名}:${値}<br>|×<br>|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定する<br>|
-|X-Dc-RequestKey<br>|イベントログに出力するRequestKeyフィールドの値<br>|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字<br>|×<br>|指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応<br>|
+|X-Personium-RequestKey<br>|イベントログに出力するRequestKeyフィールドの値<br>|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字<br>|×<br>|指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応<br>|
 #### リクエストボディ
 なし
 
@@ -47,7 +47,7 @@ GET
 
 |ヘッダ名<br>|概要<br>|備考<br>|
 |:--|:--|:--|
-|X-Dc-Version<br>|APIの実行バージョン<br>|リクエストが処理されたAPIバージョン<br>|
+|X-Personium-Version<br>|APIの実行バージョン<br>|リクエストが処理されたAPIバージョン<br>|
 |Access-Control-Allow-Origin<br>|クロスドメイン通信許可ヘッダ<br>|返却値は"*"固定<br>|
 |Content-Type<br>|返却されるデータの形式<br>| <br>
 |DataServiceVersion<br>|ODataのバージョン情報<br>| <br>
@@ -56,14 +56,14 @@ GET
 ```xml
 <edmx:Edmx Version='1.0' xmlns:edmx='http://schemas.microsoft.com/ado/2007/06/edmx'
 xmlns:d='http://schemas.microsoft.com/ado/2007/08/dataservices' xmlns:m='http://schemas.microsoft.com/ado/2007/08/dataservices/metadata'
-xmlns:dc='urn:x-dc1:xmlns'>
+xmlns:p='urn:x-personium:xmlns'>
   <edmx:DataServices m:DataServiceVersion='1.0'>
     <Schema xmlns='http://schemas.microsoft.com/ado/2006/04/edm' Namespace='ODataSvcSchema'>
       <EntityType Name='EntityType'>
         <Key>
           <PropertyRef Name='Name'/>
         </Key>
-        <Property Name='Name' Type='Edm.String' Nullable='false' dc:Format='regEx(&amp;apos;^[a-zA-Z0-9][a-zA-Z0-9-_]{0,127}$&amp;apos;)'/>
+        <Property Name='Name' Type='Edm.String' Nullable='false' p:Format='regEx(&amp;apos;^[a-zA-Z0-9][a-zA-Z0-9-_]{0,127}$&amp;apos;)'/>
         <Property Name='__published' Type='Edm.DateTime' Nullable='false' DefaultValue='SYSUTCDATETIME()' Precision='3'/>
         <Property Name='__updated' Type='Edm.DateTime' Nullable='false' DefaultValue='SYSUTCDATETIME()' Precision='3'/>
         <NavigationProperty Name='_AssociationEnd' Relationship='ODataSvcSchema.EntityType-AssociationEnd-assoc' FromRole='EntityType-AssociationEnd' ToRole='AssociationEnd-EntityType'/>
@@ -74,9 +74,9 @@ xmlns:dc='urn:x-dc1:xmlns'>
           <PropertyRef Name='Name'/>
           <PropertyRef Name='_EntityType.Name'/>
         </Key>
-        <Property Name='Name' Type='Edm.String' Nullable='false' dc:Format='regEx(&amp;apos;^[a-zA-Z0-9][a-zA-Z0-9-_]{0,127}$&amp;apos;)'/>
-        <Property Name='Multiplicity' Type='Edm.String' Nullable='false' dc:Format='regEx(&amp;apos;0\.\.1|1|\*&amp;apos;)'/>
-        <Property Name='_EntityType.Name' Type='Edm.String' Nullable='false' dc:Format='regEx(&amp;apos;^[a-zA-Z0-9][a-zA-Z0-9-_]{0,127}$&amp;apos;)'/>
+        <Property Name='Name' Type='Edm.String' Nullable='false' p:Format='regEx(&amp;apos;^[a-zA-Z0-9][a-zA-Z0-9-_]{0,127}$&amp;apos;)'/>
+        <Property Name='Multiplicity' Type='Edm.String' Nullable='false' p:Format='regEx(&amp;apos;0\.\.1|1|\*&amp;apos;)'/>
+        <Property Name='_EntityType.Name' Type='Edm.String' Nullable='false' p:Format='regEx(&amp;apos;^[a-zA-Z0-9][a-zA-Z0-9-_]{0,127}$&amp;apos;)'/>
         <Property Name='__published' Type='Edm.DateTime' Nullable='false' DefaultValue='SYSUTCDATETIME()' Precision='3'/>
         <Property Name='__updated' Type='Edm.DateTime' Nullable='false' DefaultValue='SYSUTCDATETIME()' Precision='3'/>
         <NavigationProperty Name='_EntityType' Relationship='ODataSvcSchema.EntityType-AssociationEnd-assoc' FromRole='AssociationEnd-EntityType' ToRole='EntityType-AssociationEnd'/>
@@ -87,14 +87,14 @@ xmlns:dc='urn:x-dc1:xmlns'>
           <PropertyRef Name='Name'/>
           <PropertyRef Name='_EntityType.Name'/>
         </Key>
-        <Property Name='Name' Type='Edm.String' Nullable='false' dc:Format='regEx(&amp;apos;^[a-zA-Z0-9][a-zA-Z0-9-_]{0,127}$&amp;apos;)'/>
-        <Property Name='_EntityType.Name' Type='Edm.String' Nullable='false' dc:Format='regEx(&amp;apos;^[a-zA-Z0-9][a-zA-Z0-9-_]{0,127}$&amp;apos;)'/>
+        <Property Name='Name' Type='Edm.String' Nullable='false' p:Format='regEx(&amp;apos;^[a-zA-Z0-9][a-zA-Z0-9-_]{0,127}$&amp;apos;)'/>
+        <Property Name='_EntityType.Name' Type='Edm.String' Nullable='false' p:Format='regEx(&amp;apos;^[a-zA-Z0-9][a-zA-Z0-9-_]{0,127}$&amp;apos;)'/>
         <Property Name='Type' Type='Edm.String' Nullable='false'/>
         <Property Name='Nullable' Type='Edm.Boolean' Nullable='false' DefaultValue='true'/>
         <Property Name='DefaultValue' Type='Edm.String' Nullable='true'/>
         <Property Name='CollectionKind' Type='Edm.String' Nullable='true' DefaultValue='None'/>
         <Property Name='IsKey' Type='Edm.Boolean' Nullable='false' DefaultValue='false'/>
-        <Property Name='UniqueKey' Type='Edm.String' Nullable='true' dc:Format='regEx(&amp;apos;^[a-zA-Z0-9][a-zA-Z0-9-_]{0,127}$&amp;apos;)'/>
+        <Property Name='UniqueKey' Type='Edm.String' Nullable='true' p:Format='regEx(&amp;apos;^[a-zA-Z0-9][a-zA-Z0-9-_]{0,127}$&amp;apos;)'/>
         <Property Name='__published' Type='Edm.DateTime' Nullable='false' DefaultValue='SYSUTCDATETIME()' Precision='3'/>
         <Property Name='__updated' Type='Edm.DateTime' Nullable='false' DefaultValue='SYSUTCDATETIME()' Precision='3'/>
         <NavigationProperty Name='_EntityType' Relationship='ODataSvcSchema.EntityType-Property-assoc' FromRole='Property-EntityType' ToRole='EntityType-Property'/>
@@ -103,7 +103,7 @@ xmlns:dc='urn:x-dc1:xmlns'>
         <Key>
           <PropertyRef Name='Name'/>
         </Key>
-        <Property Name='Name' Type='Edm.String' Nullable='false' dc:Format='regEx(&amp;apos;^[a-zA-Z0-9][a-zA-Z0-9-_]{0,127}$&amp;apos;)'/>
+        <Property Name='Name' Type='Edm.String' Nullable='false' p:Format='regEx(&amp;apos;^[a-zA-Z0-9][a-zA-Z0-9-_]{0,127}$&amp;apos;)'/>
         <Property Name='__published' Type='Edm.DateTime' Nullable='false' DefaultValue='SYSUTCDATETIME()' Precision='3'/>
         <Property Name='__updated' Type='Edm.DateTime' Nullable='false' DefaultValue='SYSUTCDATETIME()' Precision='3'/>
         <NavigationProperty Name='_ComplexTypeProperty' Relationship='ODataSvcSchema.ComplexType-ComplexTypeProperty-assoc' FromRole='ComplexType-ComplexTypeProperty' ToRole='ComplexTypeProperty-ComplexType'/>
@@ -113,8 +113,8 @@ xmlns:dc='urn:x-dc1:xmlns'>
           <PropertyRef Name='Name'/>
           <PropertyRef Name='_ComplexType.Name'/>
         </Key>
-        <Property Name='Name' Type='Edm.String' Nullable='false' dc:Format='regEx(&amp;apos;^[a-zA-Z0-9][a-zA-Z0-9-_]{0,127}$&amp;apos;)'/>
-        <Property Name='_ComplexType.Name' Type='Edm.String' Nullable='false' dc:Format='regEx(&amp;apos;^[a-zA-Z0-9][a-zA-Z0-9-_]{0,127}$&amp;apos;)'/>
+        <Property Name='Name' Type='Edm.String' Nullable='false' p:Format='regEx(&amp;apos;^[a-zA-Z0-9][a-zA-Z0-9-_]{0,127}$&amp;apos;)'/>
+        <Property Name='_ComplexType.Name' Type='Edm.String' Nullable='false' p:Format='regEx(&amp;apos;^[a-zA-Z0-9][a-zA-Z0-9-_]{0,127}$&amp;apos;)'/>
         <Property Name='Type' Type='Edm.String' Nullable='false'/>
         <Property Name='Nullable' Type='Edm.Boolean' Nullable='false' DefaultValue='true'/>
         <Property Name='DefaultValue' Type='Edm.String' Nullable='true'/>
@@ -175,7 +175,7 @@ xmlns:dc='urn:x-dc1:xmlns'>
 
 <br>
 ### CURLサンプル
-#### CURLコマンド(UNIX)
+
 ```sh
 curl "https://{UnitFQDN}/{CellName}/{BoxName}/odata_colname/$metadata/$metadata" -X GET -i
 ```

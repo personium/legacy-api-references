@@ -1,4 +1,4 @@
-﻿﻿﻿# ULUUT昇格設定
+# ULUUT昇格設定
 ### 概要
 UUT（Unit User Token）昇格設定を変更する
 ### 必要な権限
@@ -36,7 +36,7 @@ PROPPATCH
 |項目名<br>|Namespace<br>|概要<br>|必須<br>|有効値<br>|備考<br>|
 |:--|:--|:--|:--|:--|:--|
 |DAV:<br>|&#160;<br>|XML名前空間設定<br>|○<br>|"DAV:"<br>|&#160;<br>|
-|urn: x-dc1: xmlns<br>|&#160;<br>|XML名前空間設定<br>|○<br>|"Urn: x-dc1: xmlns"<br>|&#160;<br>|
+|urn: x-personium: xmlns<br>|&#160;<br>|XML名前空間設定<br>|○<br>|"Urn: x-personium: xmlns"<br>|&#160;<br>|
 |http://www.w3.com/standards/z39.50/<br>|&#160;<br>|XML名前空間設定<br>|○<br>|"http://www.w3.com/standards/z39.50/"<br>|&#160;<br>|
 |propertyupdate<br>|DAV:<br>|propertyupdate（アクセス制御リスト）のルート<br>|○<br>|<ELEMENT propertyupdate! (Set &#124; remove)><br>|&#160;<br>|
 |set<br>|DAV:<br>|プロパティ設定<br>|×<br>|<! ELEMENT set (prop *)><br>|&#160;<br>|
@@ -66,8 +66,8 @@ PROPPATCH
 
 |ノード名<br>|Namespace<br>|ノードタイプ<br>|概要<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|ownerRepresentativeAccounts &#160;<br>|dc:<br>|要素<br>|昇格設定リストを表し、１つ以上複数のaccount要素をが子となる &#160;&#160;<br>|&#160;<br>|
-|account &#160;<br>|dc:<br>|要素<br>|昇格対象アカウント設定を表し、昇格対象となるアカウント名を記述する &#160;&#160;<br>|&#160;<br>|
+|ownerRepresentativeAccounts &#160;<br>|p:<br>|要素<br>|昇格設定リストを表し、１つ以上複数のaccount要素をが子となる &#160;&#160;<br>|&#160;<br>|
+|account &#160;<br>|p:<br>|要素<br>|昇格対象アカウント設定を表し、昇格対象となるアカウント名を記述する &#160;&#160;<br>|&#160;<br>|
 #### DTD表記
 ```dtd
 <!ELEMENT ownerRepresentativeAccounts (account*)>
@@ -75,10 +75,10 @@ PROPPATCH
 ```
 #### リクエストサンプル
 ```xml
-<D:propertyupdate xmlns:D="DAV:" xmlns:dc="urn:x-dc1:xmlns">
+<D:propertyupdate xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns">
   <D:set>
     <D:prop>
-      <dc:ownerRepresentativeAccounts><dc:account>account1</dc:account><dc:account>account2</dc:account></dc:ownerRepresentativeAccounts>
+      <p:ownerRepresentativeAccounts><p:account>account1</p:account><p:account>account2</p:account></p:ownerRepresentativeAccounts>
     </D:prop>
   </D:set>
 </D:propertyupdate>
@@ -127,10 +127,10 @@ PROPPATCH
         <href>http://localhost:9998/testcell1/box1/patchcol</href>
         <propstat>
             <prop>
-                <Z:Author xmlns:dc="urn:x-dc1:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/">Author1 update</Z:Author>
-                <dc:hoge xmlns:D="DAV:" xmlns:dc="urn:x-dc1:xmlns" xmlns:Z="http://www.w3.com/standards/z39.50/">fuga</dc:hoge>
-                <Z:Author xmlns:dc="urn:x-dc1:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/"/>
-                <dc:hoge xmlns:D="DAV:" xmlns:dc="urn:x-dc1:xmlns" xmlns:Z="http://www.w3.com/standards/z39.50/"/>
+                <Z:Author xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/">Author1 update</Z:Author>
+                <p:hoge xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" xmlns:Z="http://www.w3.com/standards/z39.50/">fuga</p:hoge>
+                <Z:Author xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/"/>
+                <p:hoge xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" xmlns:Z="http://www.w3.com/standards/z39.50/"/>
             </prop>
             <status>HTTP/1.1 200 OK</status>
         </propstat>
@@ -152,8 +152,8 @@ PROPPATCH
 ### CURLサンプル
 ```sh
 curl "https://{UnitFQDN}/cell -X PROPPATCH" -H 'Authorization: Bearer {UnitUserToken}' -d '<?xml version="1.0" encoding="utf-8" ?>
-<D:propertyupdate xmlns:D="DAV:" xmlns:dc="urn:x-dc1:xmlns" xmlns:Z="http://www.w3.com/standards/z39.50/">
-<D:set><D:prop><dc:requireSchemaAuthz>confidential</dc:requireSchemaAuthz></D:prop></D:set></D:propertyupdate>'
+<D:propertyupdate xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" xmlns:Z="http://www.w3.com/standards/z39.50/">
+<D:set><D:prop><p:requireSchemaAuthz>confidential</p:requireSchemaAuthz></D:prop></D:set></D:propertyupdate>'
 ```
 <br>
 <br>

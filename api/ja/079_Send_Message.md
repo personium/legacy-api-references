@@ -1,4 +1,4 @@
-﻿﻿﻿# メッセージ送信
+# メッセージ送信
 ### 概要
 メッセージを送信する
 
@@ -25,7 +25,7 @@ POST
 
 #### リクエストヘッダ
 
-|Header name<br>|Summary<br>|Valid value<br>|Required<br>|Remarks<br>|
+|ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
 |X-HTTP-Method-Override<br>|メソッドオーバーライド機能<br>|任意<br>|×<br>|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用されます。<br>|
 |X-Override<br>|ヘッダオーバライド機能<br>|${上書きするヘッダ名}:${値}<br>|×<br>|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定します。<br>|
@@ -35,7 +35,7 @@ POST
 #### リクエストボディ
 JSON
 
-|Item name<br>|Summary<br>|Valid value<br>|Required<br>|Remarks<br>|
+|項目名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
 |BoxBound<br>|Boxと紐付けるか否か<br>|true / false<br>デフォルト値はflase<br>|×<br>|Boxに結びつける場合に本項目を「true」にしてスキーマ認証したトークンを送る(未実装)<br>|
 |InReplyTo<br>|返信対象のメッセージID<br>|桁数：32<br>null<br>|×<br>|<br>|
@@ -70,40 +70,48 @@ JSON
 
 #### レスポンスヘッダ
 
-|Header name<br>|Summary<br>|Remarks<br>|
+|ヘッダ名<br>|概要<br>|備考<br>|
 |:--|:--|:--|
-|X-Dc-Version<br>|APIの実行バージョン<br>|リクエストが処理されたAPIバージョン<br>|
-|Access-Control-Allow-Origin<br>|クロスドメイン通信許可ヘッダ<br>|返却値は"*"固定<br>|
 |Content-Type<br>|返却されるデータの形式<br>|<br>|
 |Location<br>|作成したリソースへのURL<br>|<br>|
-|ETag<br>|リソースのバージョン情報<br>|<br>|
 |DataServiceVersion<br>|ODataのバージョン<br>|<br>|
+|ETag<br>|リソースのバージョン情報<br>|<br>|
+|Access-Control-Allow-Origin<br>|クロスドメイン通信許可ヘッダ<br>|返却値は"*"固定<br>|
+|X-Personium-Version<br>|APIの実行バージョン<br>|リクエストが処理されたAPIバージョン<br>|
 #### レスポンスボディ
 
-|Item name<br>|Summary<br>|Remarks<br>|
-|:--|:--|:--|
-|d<br>|<br>|<br>|
-|d / results<br>|<br>|<br>|
-|d / results / __published<br>|作成日<br>|<br>|
-|d / results / __updated<br>|更新日<br>|<br>|
-|d / results / __metadata<br>|<br>|<br>|
-|d / results / __metadata / etag<br>|ETag値<br>|<br>|
-|d / results / __metadata / uri<br>|作成したリソースへのURL<br>|<br>|
-|d / results / __metadata / type<br>|SentMessage<br>|<br>|
-|d / results / _Box.Name<br>|関係対象のボックス名<br>|<br>|
-|d / results / InReplyTo<br>|返信対象のメッセージID<br>|UUIDで「hnKXm44TTZCw-bfSEw4f0A」のような22文字の文字列を返却<br>|
-|d / results / To<br>|送信先セルURL<br>|複数Cellに送信した場合はCSV形式となる<br>|
-|d / results / ToRelation<br>|送信対象の関係名<br>|<br>|
-|d / results / Type<br>|メッセージタイプ<br>|メッセージ　：　message<br>関係登録依頼　：　req.relation.build<br>関係削除依頼　：　req.relation.break<br>|
-|d / results / Title<br>|メッセージタイトル<br>|<br>|
-|d / results / Body<br>|メッセージ本文<br>|<br>|
-|d / results / Priority<br>|優先度<br>|(高)1&#65374;5(低)<br>|
-|d / results / RequestRelation<br>|登録依頼するリレーションクラスURL、またはリレーションインスタンスURL<br>|メッセージタイプが関係登録/削除依頼の場合のみ<br>|
-|d / results / RequestRelationTarget<br>|関係を結ぶCellURL<br>|メッセージタイプが関係登録/削除依頼の場合のみ<br>|
-|d / results / Result<br>|送信先Cell毎の送信結果<br>|<br>|
-|d / results / Result / To<br>|送信先CellURL<br>|<br>|
-|d / results / Result / Code<br>|ステータスコード<br>|<br>|
-|d / results / Result / Reason<br>|詳細メッセージ<br>|<br>|
+##### 共通レスポンスボディ
+レスポンスはJSONオブジェクトで、オブジェクト（サブオブジェクト）に定義されるキー(名前)と型、並びに値の対応は以下のとおりです。
+
+|オブジェクト<br>|名前【キー）<br>|型<br>|値<br>|
+|:--|:--|:--|:--|
+|ルート<br>|d<br>|object<br>|オブジェクト{1}<br>|
+|{1}<br>|__count<br>|string<br>|$inlinecountクエリでの取得結果件数<br>|
+|{1}<br>|results<br>|array<br>|オブジェクト{2}の配列<br>|
+|{2}<br>|__metadata<br>|object<br>|オブジェクト{3}<br>|
+|{3}<br>|uri<br>|string<br>|作成したリソースへのURL<br>|
+|{3}<br>|etag<br>|string<br>|Etag値<br>|
+|{2}<br>|__published<br>|string<br>|作成日(UNIX時間)<br>|
+|{2}<br>|__updated<br>|string<br>|更新日(UNIX時間)<br>|
+##### SentMessage固有レスポンスボディ
+|オブジェクト<br>|名前【キー】<br>|型<br>|値<br>|
+|:--|:--|:--|:--|
+|{3}<br>|type<br>|string<br>|CellCtl.ReceivedMessage<br>|
+|{2}<br>|__id<br>|string<br>|受信メッセージID<br>UUIDで「b5d008e9092f489c8d3c574a768afc33」のような32文字の文字列を返却<br>|
+|{2}<br>|InReplyTo<br>|string<br>|受信元メッセージID<br>UUIDで「b5d008e9092f489c8d3c574a768afc33」のような32文字の文字列を返却<br>|
+|{2}<br>|To<br>|string<br>|送信先CellURL<br>|
+|{2}<br>|ToRelation<br>|string<br>|送信対象の関係名<br>|
+|{2}<br>|Type<br>|string<br>|メッセージタイプ<br>メッセージ：message<br>関係登録依頼：req.relation.build<br>関係削除依頼：req.relation.break<br>|
+|{2}<br>|Title<br>|string<br>|メッセージタイトル<br>|
+|{2}<br>|Body<br>|string<br>|メッセージ本文<br>|
+|{2}<br>|Priority<br>|string<br>|優先度<br>(高)1&#65374;5(低)<br>|
+|{2}<br>|RequestRelation<br>|string<br>|登録依頼するリレーションクラスURL、またはリレーションインスタンスURL<br>メッセージタイプが関係登録/削除依頼の場合のみ<br>|
+|{2}<br>|RequestRelationTarget<br>|string<br>|関係を結ぶCellURL<br>メッセージタイプが関係登録/削除依頼の場合のみ<br>|
+|{2}<br>|_Box.Name<br>|string<br>|関係対象のボックス名<br>|
+|{2}<br>|Result<br>|array<br>|送信先Cell毎の送信結果<br>オブジェクト{4}の配列<br>|
+|{4}<br>|To<br>|string<br>|送信先CellURL<br>|
+|{4}<br>|Code<br>|string<br>|ステータスコード<br>|
+|{4}<br>|Reason<br>|string<br>|詳細メッセージ<br>|
 #### エラーメッセージ一覧
 [エラーメッセージ一覧](200_Error_Messages.html)を参照
 
@@ -112,41 +120,31 @@ JSON
 {
   "d": {
     "results": {
-      "__id": "hnKXm44TTZCw-bfSEw4f0A",
-      "__published": "/Date(1349435294656)/",
-      "__updated": "/Date(1349435294656)/",
-      "_Box.Name ": "{BoxName}",
       "__metadata": {
-        "etag": "1-1349435294656",
-        "type": "CellCtl.SentMessage",
-        "uri": "https://{UnitFQDN}/{CellName}/__ctl/SentMessage('hnKXm44TTZCw-bfSEw4f0A')"
+        "uri": "https://{UnitFQDN}/{CellName}/__ctl/SentMessage('3afcc60e35fc49ee9a4e4f6c1ebee426')",
+        "etag": "W/\"1-1486638759524\"",
+        "type": "CellCtl.SentMessage"
       },
-      "InReplyTo": "xnKXmd4TTZCw-bfSEw4f0A",
-      "To": "https://{UnitFQDN}/targetcel_lname",
-      "ToRelation": "",
-      "Type": "req.relation.build",
-      "Title": "友人登録依頼です",
-      "Body": "先日はありがとうごさいました。友人登録承認をお願いいたします。",
+      "__id": "3afcc60e35fc49ee9a4e4f6c1ebee426",
+      "InReplyTo": "xnKXmd4TTZCw-bfSEw4f0AxnKXmd4TTZ",
+      "To": "https://{UnitFQDN}/{CellName}",
+      "ToRelation": null,
+      "Type": "message",
+      "Title": "メッセージサンプルタイトル",
+      "Body": "メッセージサンプル本文です。",
       "Priority": 3,
-      "RequestRelation": "https://{UnitFQDN}/appcell/__relation/__/+:Friend",
-      "RequestRelationTarget": "https://{UnitFQDN}/{CellName}",
+      "RequestRelation": null,
+      "RequestRelationTarget": null,
+      "_Box.Name": null,
       "Result": [
         {
-          "To": "https://{UnitFQDN}/{CellName}-sample1",
-          "Code": "201",
-          "Reason": "Created."
-        },
-        {
-          "To": "https://{UnitFQDN}/{CellName}-sample2",
-          "Code": "404",
-          "Reason": "Cell not found."
-        },
-        {
-          "To": "https://{UnitFQDN}/{CellName}-sample3",
+          "To": "https://{UnitFQDN}/{CellName}/",
           "Code": "201",
           "Reason": "Created."
         }
-      ]
+      ],
+      "__published": "/Date(1486638759524)/",
+      "__updated": "/Date(1486638759524)/"
     }
   }
 }
@@ -154,8 +152,8 @@ JSON
 <br>
 ### CURLサンプル
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__message/send" -X POST -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '{"BoxBound":true,"InReplyTo":"xnKXmd4TTZCw-bfSEw4f0A","To":"https://{UnitFQDN}/target{CellName}", "Relation":"","Type":"req.relation.build","Title":"友人登録依頼です","Body":"先日はありがとうごさいました。友人登録承認をお願いいたします。",
-"Priority":3,"RequestRelation":"https://{UnitFQDN}/appcell/__relation/__/+:Friend","RequestRelationTarget":"https://{UnitFQDN}/{CellName}"}'
+curl "https://{UnitFQDN}/{CellName}/__message/send" -X POST -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '{"BoxBound":false,"InReplyTo":"xnKXmd4TTZCw-bfSEw4f0AxnKXmd4TTZ","To":"https://{UnitFQDN}/{CellName}","Type":"message","Title":"メッセージサンプルタイトル","Body":"メッセージサンプル本文です。",
+"Priority":3}'
 ```
 <br>
 <br>

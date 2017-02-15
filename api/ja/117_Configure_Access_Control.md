@@ -1,4 +1,4 @@
-﻿﻿﻿# アクセス制御設定
+# アクセス制御設定
 ### 概要
 アクセス制御機能を提供する
 
@@ -36,7 +36,7 @@ ACL
 |:--|:--|:--|:--|:--|
 |X-HTTP-Method-Override<br>|メソッドオーバーライド機能<br>|任意<br>|×<br>|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用される<br>|
 |X-Override<br>|ヘッダオーバライド機能<br>|${上書きするヘッダ名}:${値}<br>|×<br>|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定する<br>|
-|X-Dc-RequestKey<br>|イベントログに出力するRequestKeyフィールドの値<br>|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字<br>|×<br>|指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応<br>|
+|X-Personium-RequestKey<br>|イベントログに出力するRequestKeyフィールドの値<br>|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字<br>|×<br>|指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応<br>|
 |Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
 
 #### リクエストボディ
@@ -45,13 +45,13 @@ ACL
 |URI<br>|概要<br>|参考prefix<br>|
 |:--|:--|:--|
 |DAV:<br>|WebDAVの名前空間<br>|D:<br>|
-|urn:x-dc1:xmlns<br>|personium.ioの名前空間<br>|dc:<br>|
+|urn:x-personium:xmlns<br>|personium.ioの名前空間<br>|p:<br>|
 
 ※ 参考prefixは以下表の可読性を高めるためのもので、このprefix文字列の使用を保証するものでも要求するものでもありません。
 
 
-XMLの構造
-ボディはXMLで、以下のスキーマに従っています。
+XMLの構造  
+ボディはXMLで、以下のスキーマに従っています。  
 privilegeタグ配下の権限設定の内容については、acl_model（アクセス制御モデル）を参照。
 
 |ノード名<br>|名前空間<br>|ノードタイプ<br>|概要<br>|備考<br>|
@@ -98,7 +98,7 @@ DTD表記
 <!ELEMENT exec EMPTY>
 ```
 
-名前空間 dc:
+名前空間 p:
 ```dtd
 <!ATTLIST acl requireSchemaAuthz (none or public or confidential) #IMPLIED>
 <!ELEMENT exec EMPTY>   
@@ -112,9 +112,9 @@ DTD表記
 #### リクエストサンプル
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
-<D:acl xmlns:D="DAV:" xmlns:dc="urn:x-dc1:xmlns"
+<D:acl xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns"
        xml:base="https://example.com/test_cell1/__role/box1/"
-       dc:requireSchemaAuthz="public">
+       p:requireSchemaAuthz="public">
     <D:ace>
         <D:principal>
             <D:all/>
@@ -168,12 +168,12 @@ DTD表記
 
 <br>
 ### CURLサンプル
-#### CURLコマンド(UNIX)
+
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/colection_name" -X ACL -i 
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/colection_name" -X ACL -i
 -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d
 '<?xml version="1.0" encoding="utf-8" ?>
- <D:acl xmlns:D="DAV:" xml:base="https://{UnitFQDN}/{CellName}/__role/{BoxName}/"　xmlns:dc="urn:x-dc1:xmlns" dc:requireSchemaAuthz="none">
+ <D:acl xmlns:D="DAV:" xml:base="https://{UnitFQDN}/{CellName}/__role/{BoxName}/"　xmlns:p="urn:x-personium:xmlns" p:requireSchemaAuthz="none">
   <D:ace>
    <D:principal>
     <D:href>doctor</D:href>

@@ -1,4 +1,4 @@
-﻿﻿﻿# プロパティ変更
+# プロパティ変更
 ### 概要
 プロパティを変更する
 
@@ -26,7 +26,7 @@ PROPPATCH
 
 |クエリ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|dc_cookie_peer<br>|クッキー認証値<br>|認証時にサーバから返却されたクッキー認証値<br>|×<br>|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br>|
+|p_cookie_peer<br>|クッキー認証値<br>|認証時にサーバから返却されたクッキー認証値<br>|×<br>|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br>|
 #### リクエストヘッダ
 
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
@@ -41,7 +41,7 @@ PROPPATCH
 |項目名<br>|Namespace<br>|概要<br>|必須<br>|有効値<br>|備考<br>|
 |:--|:--|:--|:--|:--|:--|
 |DAV:<br>|<br>|XML名前空間設定<br>|○<br>|"DAV:"<br>|<br>|
-|urn: x-dc1: xmlns<br>|<br>|XML名前空間設定<br>|○<br>|"Urn: x-dc1: xmlns"<br>|<br>|
+|urn: x-personium: xmlns<br>|<br>|XML名前空間設定<br>|○<br>|"Urn: x-personium: xmlns"<br>|<br>|
 |http://www.w3.com/standards/z39.50/<br>|<br>|XML名前空間設定<br>|○<br>|"Http://www.w3.com/standards/z39.50/"<br>|<br>
 |propertyupdate<br>|DAV:<br>|propertyupdate（アクセス制御リスト）のルート<br>|○<br>|<ELEMENT propertyupdate! (Set | remove)><br>|<br>|
 |set<br>|DAV:<br>|プロパティ設定<br>|×<br>|<! ELEMENT set (prop *)><br>|<br>|
@@ -51,18 +51,18 @@ PROPPATCH
 #### リクエストサンプル
 ```xml
 <D:propertyupdate xmlns:D="DAV:"  
-    xmlns:dc="urn:x-dc1:xmlns"  
+    xmlns:p="urn:x-personium:xmlns"  
     xmlns:Z="http://www.w3.com/standards/z39.50/">
     <D:set>
         <D:prop>
             <Z:Author>Author1 update</Z:Author>
-            <dc:hoge>fuga</dc:hoge>
+            <p:hoge>fuga</p:hoge>
         </D:prop>
     </D:set>
     <D:remove>
         <D:prop>
             <Z:Author/>
-            <dc:hoge/>
+            <p:hoge/>
         </D:prop>
     </D:remove>
 </D:propertyupdate>
@@ -102,14 +102,14 @@ PROPPATCH
 #### レスポンスサンプル
 ```xml
 <multistatus xmlns="DAV:">
-     <response>
-        <href>http://localhost:9998/test_cell1/box1/patchcol</href>
+    <response>
+        <href>https://{UnitFQDN}/{CellName}/</href>
         <propstat>
             <prop>
-                <Z:Author xmlns:dc="urn:x-dc1:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/">Author1 update</Z:Author>
-                <dc:hoge xmlns:D="DAV:" xmlns:dc="urn:x-dc1:xmlns" xmlns:Z="http://www.w3.com/standards/z39.50/">fuga</dc:hoge>
-                <Z:Author xmlns:dc="urn:x-dc1:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/"/>
-                <dc:hoge xmlns:D="DAV:" xmlns:dc="urn:x-dc1:xmlns" xmlns:Z="http://www.w3.com/standards/z39.50/"/>
+                <Z:Author xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/">${author1}</Z:Author>
+                <p:hoge xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/">${hoge}</p:hoge>
+                <Z:Author xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/"/>
+                <p:hoge xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/"/>
             </prop>
             <status>HTTP/1.1 200 OK</status>
         </propstat>
@@ -119,9 +119,9 @@ PROPPATCH
 <br>
 ### CURLサンプル
 ```sh
-curl "https://{UnitFQDN}/cell" -X PROPPATCH -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8" ?> 
-<D:propertyupdate xmlns:D="DAV:" xmlns:dc="urn:x-dc1:xmlns" xmlns:Z="http://www.w3.com/standards/z39.50/"><D:set><D:prop><Z:Author>${author1}</Z:Author>
-<dc:hoge>${hoge}</dc:hoge></D:prop></D:set><D:remove><D:prop><Z:Author/><dc:hoge/></D:prop></D:remove></D:propertyupdate>'
+curl "https://{UnitFQDN}/{CellName}" -X PROPPATCH -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8" ?>
+<D:propertyupdate xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" xmlns:Z="http://www.w3.com/standards/z39.50/"><D:set><D:prop><Z:Author>${author1}</Z:Author>
+<p:hoge>${hoge}</p:hoge></D:prop></D:set><D:remove><D:prop><Z:Author/><p:hoge/></D:prop></D:remove></D:propertyupdate>'
 ```
 <br>
 ###### Copyright 2017    FUJITSU LIMITED

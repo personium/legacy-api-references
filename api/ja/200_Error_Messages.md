@@ -1,10 +1,10 @@
-﻿﻿﻿# エラーメッセージ一覧
+# エラーメッセージ一覧
 
 ### 認証系 API
 |OAUTH エラーコード<br>|メッセージコード<br>|メッセージ<br>|
 |:--|:--|:--|
 |unsupported_grant_type<br>|PR400-AN-0001<br>|Unsupported grant type.<br>|<br>|
-|invalid_request<br>|PR400-AN-0002<br>|Invalid dc_target.<br>|<br>|
+|invalid_request<br>|PR400-AN-0002<br>|Invalid p_target.<br>|<br>|
 |invalid_client<br>|PR400-AN-0003<br>|Failed to parse client secret.<br>|<br>|
 |invalid_client<br>|PR400-AN-0004<br>|Client secret is expired and invalid.<br>|<br>|
 |invalid_client<br>|PR400-AN-0005<br>|Client secret dsig is invalid.<br>|<br>|
@@ -148,7 +148,7 @@
 |500<br>|PR500-SC-0006<br>|Invalid HTTP response was returned from a service.<br>|<br>|
 |400<br>|PR400-AU-0001<br>|Password format is invalid.<br>|<br>|
 |400<br>|PR400-AU-0002<br>|Request parameter is invalid [{0}].<br>|<br>|
-|400<br>|PR400-AU-0003<br>|Dc credential required.<br>|<br>|
+|400<br>|PR400-AU-0003<br>|Personium credential required.<br>|<br>|
 |401<br>|PR401-AU-0001<br>|Authorization required.<br>|<br>|
 |401<br>|PR401-AU-0002<br>|Access token expired.<br>|<br>|
 |401<br>|PR401-AU-0003<br>|Invalid authentication scheme.<br>|<br>|
@@ -173,7 +173,7 @@
 |401<br>|PR401-AZ-0001<br>|User cancel.<br>|<br>|
 |401<br>|PR401-AZ-0002<br>|Token authorization error.<br>|<br>|
 |400<br>|PR400-EV-0001<br>|JSON parse error.<br>|<br>|
-|400<br>|PR400-EV-0002<br>|Request header is invalid [X-Dc-RequestKey].<br>|<br>|
+|400<br>|PR400-EV-0002<br>|Request header is invalid [X-Personium-RequestKey].<br>|<br>|
 |400<br>|PR400-EV-0003<br>|[{0}] is required.<br>|<br>|
 |400<br>|PR400-EV-0004<br>|[{0}] field format error.<br>|<br>|
 |500<br>|PR500-EV-0001<br>|Failed to output http response.<br>|<br>|

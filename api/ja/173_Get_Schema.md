@@ -1,4 +1,4 @@
-﻿﻿﻿# スキーマ取得 ($metadata)
+# スキーマ取得 ($metadata)
 ### 概要
 スキーマ情報を取得する
 ### 必要な権限
@@ -22,9 +22,9 @@ GET
 ###### 共通クエリ
 |クエリ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|dc_cookie_peer<br>|クッキー認証値<br>|認証時にサーバから返却されたクッキー認証値<br>|×<br>|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br>|
+|p_cookie_peer<br>|クッキー認証値<br>|認証時にサーバから返却されたクッキー認証値<br>|×<br>|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br>|
 ###### 個別クエリ
-$formatにatomsvcを指定した場合、SchemaのAtom ServiceDocumentを返却する
+$formatにatomsvcを指定した場合、SchemaのAtom ServiceDocumentを返却する  
 その他は無視する
 #### リクエストヘッダ
 ##### 共通リクエストヘッダ
@@ -32,7 +32,7 @@ $formatにatomsvcを指定した場合、SchemaのAtom ServiceDocumentを返却�
 |:--|:--|:--|:--|:--|
 |X-HTTP-Method-Override<br>|メソッドオーバーライド機能<br>|任意<br>|×<br>|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用される<br>|
 |X-Override<br>|ヘッダオーバライド機能<br>|${上書きするヘッダ名}:${値}<br>|×<br>|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定する<br>|
-|X-Dc-RequestKey<br>|イベントログに出力するRequestKeyフィールドの値<br>|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字<br>|×<br>|指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応<br>|
+|X-Personium-RequestKey<br>|イベントログに出力するRequestKeyフィールドの値<br>|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字<br>|×<br>|指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応<br>|
 ##### 個別リクエストヘッダ
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
@@ -51,7 +51,7 @@ $formatにatomsvcを指定した場合、SchemaのAtom ServiceDocumentを返却�
 ##### 共通レスポンスヘッダ
 |ヘッダ名<br>|概要<br>|備考<br>|
 |:--|:--|:--|
-|X-Dc-Version<br>|APIの実行バージョン<br>|指定がない場合、最新のAPIバージョンが指定される<br>|
+|X-Personium-Version<br>|APIの実行バージョン<br>|指定がない場合、最新のAPIバージョンが指定される<br>|
 |Access-Control-Allow-Origin<br>|クロスドメイン通信許可ヘッダ<br>|返却値は"*"固定<br>|
 ##### スキーマ取得固有レスポンスヘッダ
 |ヘッダ名<br>|概要<br>|備考<br>|
@@ -65,7 +65,7 @@ $formatにatomsvcを指定した場合、SchemaのAtom ServiceDocumentを返却�
 |http://schemas.microsoft.com/ado/2007/06/edmx<br>|edmxの名前空間<br>|edmx:<br>|
 |http://schemas.microsoft.com/ado/2007/08/dataservices<br>|WCF Data Servicesの名前空間<br>|d:<br>|
 |http://schemas.microsoft.com/ado/2007/08/dataservices/metadata<br>|WCF Data Services metadataの名前空間<br>|m:<br>|
-|urn:x-dc1:xmlns<br>|personium.ioの名前空間 <br>|dc:<br>|
+|urn:x-personium:xmlns<br>|personium.ioの名前空間 <br>|p:<br>|
 |http://schemas.microsoft.com/ado/2006/04/edm<br>|schemeの名前空間<br>|-<br>|
 ※ 参考prefixは以下表の可読性を高めるためのもので、このprefix文字列の使用を保証するものでも要求するものでもありません。
 ##### XMLの構造
@@ -142,8 +142,8 @@ $formatにatomsvcを指定した場合、SchemaのAtom ServiceDocumentを返却�
 |Precision<br>|-<br>|属性<br>|プロパティの有効桁数を表す<br>|<br>|
 |Scale<br>|-<br>|属性<br>|プロパティの小数点以下桁数を表す<br>|<br>|
 |CollectionKind<br>|-<br>|属性<br>|プロパティの配列種別を表す<br>|コレクションが配列の場合ture,それ以外はnone<br>|
-|Format<br>|dc:<br>|属性<br>|プロパティの文字フォーマットを表す<br>|<br>|
-|IsDeclared<br>|dc:<br>|属性<br>|静的プロパティか否かを表す<br>|動的プロパティの場合falseで表示,静的プロパティの場合は表示されない<br>|
+|Format<br>|p:<br>|属性<br>|プロパティの文字フォーマットを表す<br>|<br>|
+|IsDeclared<br>|p:<br>|属性<br>|静的プロパティか否かを表す<br>|動的プロパティの場合falseで表示,静的プロパティの場合は表示されない<br>|
 ##### ドキュメンテーション
 未対応
 
@@ -216,7 +216,7 @@ $formatにatomsvcを指定した場合、SchemaのAtom ServiceDocumentを返却�
 <!ATTLIST End Role CDDATA #IMPLIED
               EntitySet CDDATA #REQUIRED>
 ```
-名前空間:dc:
+名前空間:p:
 ```dtd
 <!ATTLIST Property Format CDDATA #IMPLIED>
 ```
@@ -268,14 +268,14 @@ $formatにatomsvcを指定した場合、SchemaのAtom ServiceDocumentを返却�
 ```
 ##### ユーザデータの場合
 ```xml
-<edmx:Edmx Version='1.0' xmlns:edmx='http://schemas.microsoft.com/ado/2007/06/edmx' xmlns:d='http://schemas.microsoft.com/ado/2007/08/dataservices' xmlns:m='http://schemas.microsoft.com/ado/2007/08/dataservices/metadata' xmlns:dc='urn:x-dc1:xmlns'>
+<edmx:Edmx Version='1.0' xmlns:edmx='http://schemas.microsoft.com/ado/2007/06/edmx' xmlns:d='http://schemas.microsoft.com/ado/2007/08/dataservices' xmlns:m='http://schemas.microsoft.com/ado/2007/08/dataservices/metadata' xmlns:p='urn:x-personium:xmlns'>
   <edmx:DataServices m:DataServiceVersion='1.0'>
     <Schema xmlns='http://schemas.microsoft.com/ado/2006/04/edm' Namespace='UserData'>
       <EntityType Name='Sales' OpenType='true'>
         <Key>
           <PropertyRef Name='__id'/>
         </Key>
-        <Property Name='__id' Type='Edm.String' Nullable='false' DefaultValue='UUID()' dc:Format='regEx(&amp;apos;^[a-zA-Z0-9][a-zA-Z0-9-_:]{0,199}$&amp;apos;)'/>
+        <Property Name='__id' Type='Edm.String' Nullable='false' DefaultValue='UUID()' p:Format='regEx(&amp;apos;^[a-zA-Z0-9][a-zA-Z0-9-_:]{0,199}$&amp;apos;)'/>
         <Property Name='__published' Type='Edm.DateTime' Nullable='false' DefaultValue='SYSUTCDATETIME()' Precision='3'/>
         <Property Name='__updated' Type='Edm.DateTime' Nullable='false' DefaultValue='SYSUTCDATETIME()' Precision='3'/>
         <NavigationProperty Name='_SalesDetail' Relationship='UserData.Sales-SalesDetail-assoc' FromRole='Sales:sales2salesDetail' ToRole='SalesDetail:salesDetail2sales'/>
@@ -284,7 +284,7 @@ $formatにatomsvcを指定した場合、SchemaのAtom ServiceDocumentを返却�
         <Key>
           <PropertyRef Name='__id'/>
         </Key>
-        <Property Name='__id' Type='Edm.String' Nullable='false' DefaultValue='UUID()' dc:Format='regEx(&amp;apos;^[a-zA-Z0-9][a-zA-Z0-9-_:]{0,199}$&amp;apos;)'/>
+        <Property Name='__id' Type='Edm.String' Nullable='false' DefaultValue='UUID()' p:Format='regEx(&amp;apos;^[a-zA-Z0-9][a-zA-Z0-9-_:]{0,199}$&amp;apos;)'/>
         <Property Name='__published' Type='Edm.DateTime' Nullable='false' DefaultValue='SYSUTCDATETIME()' Precision='3'/>
         <Property Name='__updated' Type='Edm.DateTime' Nullable='false' DefaultValue='SYSUTCDATETIME()' Precision='3'/>
         <NavigationProperty Name='_Sales' Relationship='UserData.Sales-SalesDetail-assoc' FromRole='SalesDetail:salesDetail2sales' ToRole='Sales:sales2salesDetail'/>
@@ -307,7 +307,7 @@ $formatにatomsvcを指定した場合、SchemaのAtom ServiceDocumentを返却�
 
 <br>
 ### CURLサンプル
-#### CURLコマンド(UNIX)
+
 ```sh
 curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept:application/xml'
 ```

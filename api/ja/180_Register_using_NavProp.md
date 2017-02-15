@@ -1,4 +1,4 @@
-﻿﻿﻿# ユーザデータ_NavProp経由登録
+# ユーザデータ_NavProp経由登録
 ### 概要
 ユーザデータのEntityをNavigation Property経由で作成します。
 ### 必要な権限
@@ -46,7 +46,7 @@ POST
 ##### 共通リクエストクエリ
 |クエリ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|dc_cookie_peer<br>|クッキー認証値<br>|認証時にサーバから返却されたクッキー認証値<br>|×<br>|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br>|
+|p_cookie_peer<br>|クッキー認証値<br>|認証時にサーバから返却されたクッキー認証値<br>|×<br>|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br>|
 #### リクエストヘッダ
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
@@ -137,7 +137,7 @@ POST
 
 <br>
 ### CURLサンプル
-#### CURLコマンド(UNIX)
+
 ```sh
 curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/parent('100-1_20101108-111352092')/child"
 -X POST -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '{"__id": "100-1_20101108-111352093","animalId":"100-1","name": "episode","startedAt": "2010-11-08","abc": "def","ghi":"jkl","mno": "pqr"}'

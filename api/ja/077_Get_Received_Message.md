@@ -1,4 +1,4 @@
-﻿﻿﻿# ReceivedMessage取得
+# ReceivedMessage取得
 ### 概要
 受信メッセージ情報を取得する
 ### 必要な権限
@@ -22,7 +22,7 @@ GET
 
 |クエリ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|dc_cookie_peer<br>|クッキー認証値<br>|認証時にサーバから返却されたクッキー認証値<br>|×<br>|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br>|
+|p_cookie_peer<br>|クッキー認証値<br>|認証時にサーバから返却されたクッキー認証値<br>|×<br>|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br>|
 
 [$select クエリ](194_$Select_Query.html)
 
@@ -48,7 +48,7 @@ GET
 |:--|:--|:--|:--|:--|
 |X-HTTP-Method-Override<br>|メソッドオーバーライド機能<br>|任意<br>|×<br>|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用される<br>|
 |X-Override<br>|ヘッダオーバライド機能<br>|${上書きするヘッダ名}:${値}<br>|×<br>|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定する<br>|
-|X-Dc-RequestKey<br>|イベントログに出力するRequestKeyフィールドの値<br>|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字<br>|×<br>|指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応<br>|
+|X-Personium-RequestKey<br>|イベントログに出力するRequestKeyフィールドの値<br>|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字<br>|×<br>|指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応<br>|
 ##### OData共通リクエストヘッダ
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
@@ -78,17 +78,18 @@ GET
 |ルート<br>|d<br>|object<br>|オブジェクト{1}<br>|
 |{1}<br>|__count<br>|string<br>|$inlinecountクエリでの取得結果件数<br>|
 |{1}<br>|results<br>|array<br>|オブジェクト{2}の配列<br>|
+|{2}<br>|__metadata<br>|object<br>|オブジェクト{3}<br>|
+|{3}<br>|uri<br>|string<br>|作成したリソースへのURL<br>|
+|{3}<br>|etag<br>|string<br>|Etag値<br>|
 |{2}<br>|__published<br>|string<br>|作成日(UNIX時間)<br>|
 |{2}<br>|__updated<br>|string<br>|更新日(UNIX時間)<br>|
-|{2}<br>|__metadata<br>|object<br>|オブジェクト{3}<br>|
-|{3}<br>|etag<br>|string<br>|Etag値<br>|
-|{3}<br>|uri<br>|string<br>|作成したリソースへのURL<br>|
+
 ##### ReceivedMessage固有レスポンスボディ
 |オブジェクト<br>|名前（キー）<br>|型<br>|値<br>|
 |:--|:--|:--|:--|
 |{3}<br>|type<br>|string<br>|CellCtl.ReceivedMessage<br>|
 |{2}<br>|__id<br>|string<br>|受信メッセージID<br>UUIDで「b5d008e9092f489c8d3c574a768afc33」のような32文字の文字列を返却<br>|
-|{2}<br>|_Box.Name<br>|string<br>|関係対象のボックス名<br>|
+|{2}<br>|_Box.Name<br>|string <br>|関係対象のボックス名<br>|
 |{2}<br>|InReplyTo<br>|string<br>|受信元メッセージID<br>UUIDで「b5d008e9092f489c8d3c574a768afc33」のような32文字の文字列を返却<br>|
 |{2}<br>|From<br>|string<br>|受信元セルURL<br>|
 |{2}<br>|MulticastTo<br>|string<br>|受信先セルURL<br>複数セルが送信先の場合にCSV形式でセルのURLを返却<br>|
@@ -107,25 +108,35 @@ GET
 {
   "d": {
     "results": {
-      "__id": "5c06cf76315c4d8095b7faf85f33aec6",
-      "__published": "/Date(1349435294656)/",
-      "__updated": "/Date(1349435294656)/",
-      "_Box.Name ": "{BoxName}",
       "__metadata": {
-        "etag": "1-1349435294656",
-        "type": "CellCtl.ReceivedMessage",
-        "uri": "https://{UnitFQDN}/{CellName}/__ctl/ReceivedMessage('hnKXm44TTZCw-bfSEw4f0A')"
+        "uri": "https://{UnitFQDN}/{CellName}/__ctl/ReceivedMessage('c87b42e10df846a9bee842225d1383fe')",
+        "etag": "W/\"1-1486683974451\"",
+        "type": "CellCtl.ReceivedMessage"
       },
-      "InReplyTo": "d884e0c019c54eaa88046a98147f7920",
-      "From": "https://{UnitFQDN}/my{CellName}",
-      "MulticastTo": "",
-      "Type": "req.relation.build",
-      "Title": "友人登録依頼です",
-      "Body": "先日はありがとうごさいました。友人登録承認をお願いいたします。",
+      "__id": "c87b42e10df846a9bee842225d1383fe",
+      "_Box.Name": "{BoxName}",
+      "InReplyTo": "xnKXmd4TTZCw-bfSEw4f0AxnKXmd4TTZ",
+      "From": "https://{UnitFQDN}/{CellName}/",
+      "MulticastTo": null,
+      "Type": "message",
+      "Title": "メッセージサンプルタイトル",
+      "Body": "メッセ ージサンプル本文です。",
       "Priority": 3,
-      "Status": "none",
-      "RequestRelation": "https://{UnitFQDN}/appcell/__relation/__/+:Friend",
-      "RequestRelationTarget": "https://{UnitFQDN}/{CellName}"  
+      "Status": "unread",
+      "RequestRelation": null,
+      "RequestRelationTarget": null,
+      "__published": "/Date(1486683974451)/",
+      "__updated": "/Date(1486683974451)/",
+      "_Box": {
+        "__deferred": {
+          "uri": "https://{UnitFQDN}/{CellName}/__ctl/ReceivedMessage('c87b42e10df846a9bee842225d1383fe')/_Box"
+        }
+      },
+      "_AccountRead": {
+        "__deferred": {
+          "uri": "https://{UnitFQDN}/{CellName}/__ctl/ReceivedMessage('c87b42e10df846a9bee842225d1383fe')/_AccountRead"
+        }
+      }
     }
   }
 }
@@ -133,9 +144,9 @@ GET
 
 <br>
 ### CURLサンプル
-#### CURLコマンド(UNIX)
+
 ```sh
-curl "https://{UnitFQDN}/__ctl/ReceivedMessage('{MessageID}')" -X GET -i  -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/__ctl/ReceivedMessage('{MessageID}')" -X GET -i  -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
 ```
 <br>
 <br>

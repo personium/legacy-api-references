@@ -1,4 +1,4 @@
-﻿﻿﻿# ログファイル一覧取得
+# ログファイル一覧取得
 ### 概要
 指定されたURL配下のログファイルの一覧を取得する
 ### 必要な権限
@@ -37,14 +37,15 @@ PROPFIND
 #### リクエストクエリ
 |クエリ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|dc_cookie_peer<br>|クッキー認証値<br>|認証時にサーバから返却されたクッキー認証値<br>|×<br>|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br>|
+|p_cookie_peer<br>|クッキー認証値<br>|認証時にサーバから返却されたクッキー認証値<br>|×<br>|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br>|
 #### リクエストヘッダ
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
 |X-HTTP-Method-Override<br>|メソッドオーバーライド機能<br>|任意<br>|×<br>|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用されます。<br>|
 |X-Override<br>|ヘッダオーバライド機能<br>|${上書きするヘッダ名}:${値}<br>|×<br>|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定します。<br>|
-|X-Dc-RequestKey<br>|イベントログに出力するRequestKeyフィールドの値<br>|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字<br>|×<br>|指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応<br>|
+|X-Personium-RequestKey<br>|イベントログに出力するRequestKeyフィールドの値<br>|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字<br>|×<br>|指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応<br>|
 |Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|Depth<br>|取得するリソースの階層<br>|0:対象のリソース自身<br>1:対象のリソースとそれの直下のリソース<br>|○<br>|<br>|
 #### リクエストボディ
 ##### 名前空間
 |URI<br>|概要<br>|備考()prefix<br>|
@@ -80,15 +81,16 @@ PROPFIND
 #### レスポンスヘッダ
 |項目名<br>|概要<br>|備考<br>|
 |:--|:--|:--|
-|X-Dc-Version<br>|APIの実行バージョン<br>|有効なバージョン<br>|
+|Content-Type<br>|Resourceのデータ形式に応じたMimeType<br>|"application/xml"<br>|
 |Access-Control-Allow-Origin<br>|クロスドメイン通信許可ヘッダ<br>|返却値は"*"固定<br>|
-|Content-Type<br>|Resourceのデータ形式に応じたMimeType<br>|"text/csv"|
+|X-Personium-Version<br>|APIの実行バージョン<br>|有効なバージョン|
+
 #### レスポンスボディ
 ##### 名前空間
 |URI<br>|概要<br>|参考Prefix<br>|
 |:--|:--|:--|
 |DAV:<br>|WebDAVの名前空間<br>|D:<br>|
-|urn:x-dc1:xmlns<br>|personium.ioの名前空間<br>|dc:<br>|
+|urn:x-personium:xmlns<br>|personium.ioの名前空間<br>|p:<br>|
 ※ 参考prefixは以下表の可読性を高めるためのもので、このprefix文字列の使用を保証するものでも要求するものでもありません。
 ##### XMLの構造
 ボディはXMLで、以下のスキーマに従っています。
@@ -103,14 +105,14 @@ PROPFIND
 |prop<br>|D:<br>|要素<br>|プロパティ詳細情報を表し、creationdateとresourcetypeとaclとproppatch設定値が子となる<br>|<br>|
 |creationdate<br>|D:<br>|要素<br>|リソース作成時刻<br>|<br>|
 |getcontentlength<br>|D:<br>|要素<br>|リソースのサイズ<br>|リソースがファイルの場合のみ<br>|
-|getcontenttype<br>|dc:<br>|要素<br>|リソースのcontenttype<br>|リソースがファイルの場合のみ<br>|
-|getlastmodified<br>|dc:<br>|要素<br>|リソース更新時刻<br>|<br>|
-|resourcetype<br>|dc:<br>|要素<br>|リソースのタイプを表す。<br>collectionと、odataかserviceのいづれかが子となるか、子は空となる<br>|<br>|
-|collection<br>|dc:<br>|要素<br>|リソースのタイプがコレクションであることを表す<br>|リソースがWebDAVの場合、この要素のみが表示される<br>|
-|odata<br>|dc:<br>|要素<br>|リソースのタイプがODataコレクションであることを表す<br>|ODataコレクションの場合表示<br>|
-|service<br>|dc:<br>|要素<br>|リソースのタイプがサービスコレクションであることを表す<br>|Serviceコレクションの場合表示<br>|
-|acl<br>|dc:<br>|要素<br>|リソースに設定されているACL設定<br>|ACL設定を取得するためには、対象リソースに対するacl-read権限が必要 ACL要素以下の内容については、セルレベルアクセス制御設定APIを参照<br>|
-|base<br>|dc:<br>|要素<br>|ACLのPrivilegeのBaseURL<br>|CellへのPROPFINDの場合、デフォルトボックス（"__"）のリソースURL<br>|
+|getcontenttype<br>|p:<br>|要素<br>|リソースのcontenttype<br>|リソースがファイルの場合のみ<br>|
+|getlastmodified<br>|p:<br>|要素<br>|リソース更新時刻<br>|<br>|
+|resourcetype<br>|p:<br>|要素<br>|リソースのタイプを表す。<br>collectionと、odataかserviceのいづれかが子となるか、子は空となる<br>|<br>|
+|collection<br>|p:<br>|要素<br>|リソースのタイプがコレクションであることを表す<br>|リソースがWebDAVの場合、この要素のみが表示される<br>|
+|odata<br>|p:<br>|要素<br>|リソースのタイプがODataコレクションであることを表す<br>|ODataコレクションの場合表示<br>|
+|service<br>|p:<br>|要素<br>|リソースのタイプがサービスコレクションであることを表す<br>|Serviceコレクションの場合表示<br>|
+|acl<br>|p:<br>|要素<br>|リソースに設定されているACL設定<br>|ACL設定を取得するためには、対象リソースに対するacl-read権限が必要 ACL要素以下の内容については、セルレベルアクセス制御設定APIを参照<br>|
+|base<br>|p:<br>|要素<br>|ACLのPrivilegeのBaseURL<br>|CellへのPROPFINDの場合、デフォルトボックス（"__"）のリソースURL<br>|
 ##### DTD表記
 ###### 名前空間：D:
 ```dtd
@@ -128,7 +130,7 @@ PROPFIND
 <!ELEMENT collection EMPTY>
 <!ELEMENT acl (ace*)>
 ```
-###### 名前空間:dc:
+###### 名前空間:p:
 ```dtd
 <!ELEMENT odata EMPTY>
 <!ELEMENT service EMPTY>
@@ -146,37 +148,11 @@ PROPFIND
         <href>https://{UnitFQDN}/{CellName}/__log/archive</href>
         <propstat>
             <prop>
-                <creationdate>2013-03-27T07:05:04.265+0000</creationdate>
-                <getlastmodified>Mon, 14 May 2012 07:05:04 GMT</getlastmodified>
+                <creationdate>2017-02-03T01:27:31.093+0000</creationdate>
+                <getlastmodified>Fri, 03 Feb 2017 01:27:31 GMT</getlastmodified>
                 <resourcetype>
                     <collection/>
                 </resourcetype>
-            </prop>
-            <status>HTTP/1.1 200 OK</status>
-        </propstat>
-    </response>
-    <response>
-        <href>https://{UnitFQDN}/{CellName}/__log/archive/default.log.1364350331902</href>
-        <propstat>
-            <prop>
-                <creationdate>2013-03-27T02:12:11.265+0000</creationdate>
-                <getcontentlength>0</getcontentlength>
-                <getcontenttype>text/csv</getcontenttype>
-                <getlastmodified>Wed, 27 Mar 2013 02:12:11 GMT</getlastmodified>
-                <resourcetype/>
-            </prop>
-            <status>HTTP/1.1 200 OK</status>
-        </propstat>
-    </response>
-    <response>
-        <href>https://{UnitFQDN}/{CellName}/__log/archive/default.log.1364460341902</href>
-        <propstat>
-            <prop>
-                <creationdate>2013-03-27T08:45:41.265+0000</creationdate>
-                <getcontentlength>0</getcontentlength>
-                <getcontenttype>text/csv</getcontenttype>
-                <getlastmodified>Thu, 28 Mar 2013 08:45:41 GMT</getlastmodified>
-                <resourcetype/>
             </prop>
             <status>HTTP/1.1 200 OK</status>
         </propstat>
@@ -203,9 +179,9 @@ PROPFIND
 
 <br>
 ### CURLサンプル
-#### CURLコマンド(UNIX)
+
 ```sh
-curl "https://{UnitFQDN}/{CellName}ss/__log/archive" -X PROPFIND -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/__log/archive" -X PROPFIND -i -H 'Depth:1' -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
 ```
 <br>
 <br>

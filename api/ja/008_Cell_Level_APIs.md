@@ -1,4 +1,4 @@
-﻿﻿﻿# CellレベルAPI概要
+# CellレベルAPI概要
 CellレベルAPI は、
 * Cellにアクセスする人やアプリケーションを認証するための認証機構
 * ソーシャルグラフを構築するための機能
@@ -17,7 +17,7 @@ CellレベルAPI は、
 |<br>|_$links|[登録](014_Create_Role_$links.html)|[一覧取得](015_List_Role_$links.html)|[更新](016_Update_Role_$links.html)|[削除](017_Delete_Role_$links.html)|
 |<br>|_NavProp経由|[登録](018_Register_Role_Using_NavProp.html)|[取得](019_List_Using_Role_NavProp.html)|<br>|<br>|
 |**Account**|<br>|[登録](020_Create_Account.html)|[取得](022_Search_Account.html)<br>[一覧取得](021_Retrieve_Account.html)|[更新](023_Update_Account.html)|[削除](024_Delete_Account.html)|
-|<br>|_$links|[登録](025_Register_Account_$links.html)|[一覧取得]026_Acquire_Account_$links_List.html)|[更新](027_Update_Account_$links.html)|[削除](028_Delete_Account_$links.html)|
+|<br>|_$links|[登録](025_Register_Account_$links.html)|[一覧取得](026_Acquire_Account_$links_List.html)|[更新](027_Update_Account_$links.html)|[削除](028_Delete_Account_$links.html)|
 |<br>|_NavProp経由|[登録](029_Register_Account_Navigation_Property.html)|[取得](030_Acquire_Account_Navigation_Property.html)|<br>|<br>|
 |**Box**|<br>|[作成](064_Create_Box.html)|[取得](066_Retrieve_Box.html)<br>[一覧取得](065_Search_Box.html)<br>[URL取得](107_Get_Box_URL.html)|[更新](067_Update_Box.html)|[削除](068_Delete_Box.html)|
 |<br>|_$links|[登録](069_Register_Box_$links.html)|[一覧取得](070_List_Box_$links.html)|[更新](071_Update_Box_$links.html)|[削除](072_Delete_Box_$links.html)|

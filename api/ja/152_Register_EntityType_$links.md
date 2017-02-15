@@ -1,4 +1,4 @@
-﻿﻿﻿# EntityType_$links登録
+# EntityType_$links登録
 ### 概要
 EntityTypeの$links情報を登録する
 ### 必要な権限
@@ -57,7 +57,7 @@ POST
 
 <br>
 ### CURLサンプル
-#### CURLコマンド(UNIX)
+
 EntityType
 ```sh
 curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/EntityType(Name='{EntitytypeName}')/$links/_AssociationEnd" -X POST -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -H 'Accept:application/json'

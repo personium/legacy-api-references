@@ -1,10 +1,10 @@
-﻿﻿﻿# Entity一括操作($batch)
+# Entity一括操作($batch)
 ### 概要
 ODataEntityに対して、一覧取得や一件取得、登録、更新、削除といった一括操作を行う
 ### 必要な権限
-* 一覧取得・一件取得
+* 一覧取得・一件取得  
 	read
-* 登録・更新・削除
+* 登録・更新・削除  
 	write
 
 ### 制限事項
@@ -30,7 +30,7 @@ POST
 #### リクエストクエリ
 |クエリ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|dc_cookie_peer<br>|クッキー認証値<br>|認証時にサーバから返却されたクッキー認証値<br>|×<br>|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br>|
+|p_cookie_peer<br>|クッキー認証値<br>|認証時にサーバから返却されたクッキー認証値<br>|×<br>|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br>|
 #### リクエストヘッダ
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
@@ -38,8 +38,8 @@ POST
 |Content-Type<br>|リクエストボディの形式を指定する<br>|multipart / mixed; boundary = {Boundary}<br>|○<br>|省略時は[multipart/mixed]として扱う 　{Boundary}に使用可能な文字種：半角英数大小文字 '()+_,-./:=?<br>未対応<br>|
 #### リクエストボディ
 バッチ処理内容をMIMEのマルチパートデータ形式でリクエストボディに指定する
-バッチ処理の最大処理件数は、1000件まで可能
-バッチ処理には、コンテキスト取得の「クエリーオペレーション」と、コンテキスト登録・更新・削除の「チェンジセット」がある
+バッチ処理の最大処理件数は、1000件まで可能  
+バッチ処理には、コンテキスト取得の「クエリーオペレーション」と、コンテキスト登録・更新・削除の「チェンジセット」がある  
 以下にリクエストパラメータの記述方法を説明する
 ```
 (1)		--{バウンダリー文字列}
@@ -53,9 +53,9 @@ POST
 (3) (4)リクエストをバウンダリー文字列「--{バウンダリー文字列}」で区切ることで、複数指定が可能となる
 (5) 終了バウンダリー文字列「--{バウンダリー文字列}--」を指定する
 ```
-* クエリーオペレーション
-	指定したコンテキストを取得する
-	以下にクエリーオペレーションの記述方法を説明する
+* クエリーオペレーション  
+	指定したコンテキストを取得する  
+	以下にクエリーオペレーションの記述方法を説明する  
 	※「GET」のリクエストクエリは未対応
 
 ```
@@ -74,9 +74,9 @@ POST
 (5) :request_headerにはリクエストヘッダを指定する
 	リクエストヘッダは、指定なし、もしくは1つ以上指定が可能
 ```
-* チェンジセット
-	指定したコンテキストの登録・更新・削除をする
-	登録・更新・削除の処理内容をMIMEのマルチパートデータで指定する
+* チェンジセット  
+	指定したコンテキストの登録・更新・削除をする  
+	登録・更新・削除の処理内容をMIMEのマルチパートデータで指定する  
 	以下にチェンジセットの記述方法を説明する
 
 ```
@@ -302,7 +302,7 @@ DataServiceVersion: 2.0
 
 <br>
 ### CURLサンプル
-#### CURLコマンド(UNIX)
+
 ```sh
 curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$batch" -X POST -i -H 'Content-Type:multipart/mixed; boundary= batch_XAmu9BiJJLBa20sRWIq74jp2UlNAVueztqu' -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d  '--batch_XAmu9BiJJLBa20sRWIq74jp2UlNAVueztqu Content-Type: application/http Content-Transfer-Encoding:binary  GET user('0000') Host: host
   --batch_XAmu9BiJJLBa20sRWIq74jp2UlNAVueztqu Content-Type: multipart/mixed; boundary=changeset_cLzcDEEVPwvvoxS3yJTFTpRauSK_FAQ6mQtyo0aby93-SDP3lAs2A19a2uBb

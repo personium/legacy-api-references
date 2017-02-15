@@ -1,12 +1,12 @@
-﻿﻿﻿# OAuth2_認可エンドポイント(\__authz)
+# OAuth2_認可エンドポイント(\__authz)
 ### 概要
-OAuth2の認可エンドポイントAPI
+OAuth2の認可エンドポイントAPI  
 このAPIは、JSアプリケーション・ネイティブアプリでpersonium.ioを利用する場合のOAuth2の認可エンドポイントである。
 ### 必要な権限
 なし
 ### 制限事項
-リクエストクエリ、リクエストボディの「dc_target」パラメータの指定は未サポート
-* dc_targetを指定した場合、レスポンスヘッダの「Location」の値が4,096文字を超えるため、nginxでエラーとなる。
+リクエストクエリ、リクエストボディの「p_target」パラメータの指定は未サポート
+* p_targetを指定した場合、レスポンスヘッダの「Location」の値が4,096文字を超えるため、nginxでエラーとなる。
 * Internet Explorerでは、URLの最大長が2,048文字に制限されているため、正しくリダイレクトできない。
 
 <br>
@@ -16,7 +16,7 @@ OAuth2の認可エンドポイントAPI
 {CellName}/__authz
 ```
 #### メソッド
-POST : 認証フォーム リクエスト、トークン認証
+POST : 認証フォーム リクエスト、トークン認証  
 GET : 認証フォーム リクエスト
 #### リクエストクエリ
 |項目名<br>|概要<br>|書式<br>|必須<br>|有効値<br>|
@@ -25,8 +25,8 @@ GET : 認証フォーム リクエスト
 |client_id<br>|アプリセル URL<br>|String<br>|○<br>|スキーマ認証元のアプリセルURL<br>|
 |redirect_uri<br>|クライアントのリダイレクトエンドポイントURL<br>|String<br>|○<br>|アプリセルのデフォルトBOX配下に登録されたリダイレクトスクリプトのURL<br>application/x-www-form-urlencodedでフォーマットされたクエリパラメータを含める事ができる<br>フラグメントを含める事はできない<br>有効桁長:512byte<br>|
 |state<br>|リクエストとコールバックの間で状態を維持するために使用するランダムな値<br>|String<br>|×<br>|ランダムな値<br>有効桁長:512byte<br>|
-|dc_target<br>|トランスセルトークンターゲット<br>|String<br>|×<br>|払い出されるトークンを使うセルURL<br>指定した場合トランスセルトークンを払い出す<br>|
-|dc_owner<br>|ULUUT昇格実行クエリ<br>|String<br>|×<br>|trueのみ有効<br>※このクエリを設定した場合、認証情報はCookieで返却されない<br>|
+|p_target<br>|トランスセルトークンターゲット<br>|String<br>|×<br>|払い出されるトークンを使うセルURL<br>指定した場合トランスセルトークンを払い出す<br>|
+|p_owner<br>|ULUUT昇格実行クエリ<br>|String<br>|×<br>|trueのみ有効<br>※このクエリを設定した場合、認証情報はCookieで返却されない<br>|
 |assertion<br>|アクセストークン<br>|String<br>|○<br>|有効なトランスセルトークン<br>引数なしの場合トークン認証にはならない<br>|
 #### リクエストヘッダ
 なし
@@ -61,7 +61,7 @@ GET : 認証フォーム リクエスト
 なし
 #### Request Token Authentication
 ##### ステータスコード
-302
+302  
 ブラウザはredirect_uriにリダイレクトされる。redirect_uriに、「URLパラメータ」で示すフラグメントが格納される。
 ```
 {redirect_uri}#access_token={access_token}&token_type=Bearer&expires_in={expires_in}&state={state}

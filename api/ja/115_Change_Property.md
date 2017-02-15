@@ -1,4 +1,4 @@
-﻿﻿﻿# ファイル設定変更
+# ファイル設定変更
 ### 概要
 プロパティを変更する
 ### 必要な権限
@@ -29,7 +29,7 @@ PROPPATCH
 |:--|:--|:--|:--|:--|
 |X-HTTP-Method-Override<br>|メソッドオーバーライド機能<br>|任意<br>|×<br>|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用される<br>|
 |X-Override<br>|ヘッダオーバライド機能<br>|${上書きするヘッダ名}:${値}<br>|×<br>|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定する<br>|
-|X-Dc-RequestKey<br>|イベントログに出力するRequestKeyフィールドの値<br>|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字<br>|×<br>|指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応<br>|
+|X-Personium-RequestKey<br>|イベントログに出力するRequestKeyフィールドの値<br>|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字<br>|×<br>|指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応<br>|
 ###### 個別リクエストヘッダ
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
@@ -44,7 +44,7 @@ PROPPATCH
 |URI<br>|概要<br>|参考prefix<br>|
 |:--|:--|:--|
 |DAV:<br>|WebDAVの名前空間<br>|D:<br>|
-|urn:x-dc1:xmlns<br>|personium.ioの名前空間<br>|dc:<br>|
+|urn:x-personium:xmlns<br>|personium.ioの名前空間<br>|p:<br>|
 |http://www.w3.com/standards/z39.50/<br>|proppatchの名前空間<br>|Z:<br>|
 ※ 参考prefixは以下表の可読性を高めるためのもので、このprefix文字列の使用を保証するものでも要求するものでもありません。
 ##### XMLの構造
@@ -64,18 +64,18 @@ PROPPATCH
 #### リクエストサンプル
 ```xml
 <D:propertyupdate xmlns:D="DAV:"
-    xmlns:dc="urn:x-dc1:xmlns"
+    xmlns:p="urn:x-personium:xmlns"
     xmlns:Z="http://www.w3.com/standards/z39.50/">
     <D:set>
         <D:prop>
             <Z:Author>Author1 update</Z:Author>
-            <dc:hoge>fuga</dc:hoge>
+            <p:hoge>fuga</p:hoge>
         </D:prop>
     </D:set>
     <D:remove>
         <D:prop>
             <Z:Author/>
-            <dc:hoge/>
+            <p:hoge/>
         </D:prop>
     </D:remove>
 </D:propertyupdate>
@@ -135,10 +135,10 @@ PROPPATCH
         <href>http://localhost:9998/test_cell1/box1/patchcol</href>
         <propstat>
             <prop>
-                <Z:Author xmlns:dc="urn:x-dc1:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/">Author1 update</Z:Author>
-                <dc:hoge xmlns:D="DAV:" xmlns:dc="urn:x-dc1:xmlns" xmlns:Z="http://www.w3.com/standards/z39.50/">fuga</dc:hoge>
-                <Z:Author xmlns:dc="urn:x-dc1:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/"/>
-                <dc:hoge xmlns:D="DAV:" xmlns:dc="urn:x-dc1:xmlns" xmlns:Z="http://www.w3.com/standards/z39.50/"/>
+                <Z:Author xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/">Author1 update</Z:Author>
+                <p:hoge xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" xmlns:Z="http://www.w3.com/standards/z39.50/">fuga</p:hoge>
+                <Z:Author xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/"/>
+                <p:hoge xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" xmlns:Z="http://www.w3.com/standards/z39.50/"/>
             </prop>
             <status>HTTP/1.1 200 OK</status>
         </propstat>
@@ -148,12 +148,12 @@ PROPPATCH
 
 <br>
 ### CURLサンプル
-#### CURLコマンド(UNIX)
+
 ```sh
 curl "https://{UnitFQDN}/cell" -X PROPPATCH -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8" ?>
-<D:propertyupdate xmlns:D="DAV:" xmlns:dc="urn:x-dc1:xmlns" xmlns:Z="http://www.w3.com/standards/z39.50/">
-<D:set><D:prop><Z:Author>${author1}</Z:Author><dc:hoge>${hoge}</dc:hoge></D:prop></D:set><D:remove><D:prop>
-<Z:Author/><dc:hoge/></D:prop></D:remove></D:propertyupdate>'
+<D:propertyupdate xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" xmlns:Z="http://www.w3.com/standards/z39.50/">
+<D:set><D:prop><Z:Author>${author1}</Z:Author><p:hoge>${hoge}</p:hoge></D:prop></D:set><D:remove><D:prop>
+<Z:Author/><p:hoge/></D:prop></D:remove></D:propertyupdate>'
 ```
 <br>
 <br>

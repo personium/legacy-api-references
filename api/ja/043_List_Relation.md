@@ -1,4 +1,4 @@
-﻿﻿﻿# Relation一覧取得
+# Relation一覧取得
 ### 概要
 既存のRelation情報の一覧を取得する
 
@@ -29,7 +29,7 @@ GET
 
 |クエリ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|dc_cookie_peer<br>|クッキー認証値<br>|認証時にサーバから返却されたクッキー認証値<br>|×<br>|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br>|
+|p_cookie_peer<br>|クッキー認証値<br>|認証時にサーバから返却されたクッキー認証値<br>|×<br>|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br>|
 
 [$select クエリ](194_$Select_Query.html)
 
@@ -55,7 +55,7 @@ GET
 |:--|:--|:--|:--|:--|
 |X-HTTP-Method-Override<br>|メソッドオーバーライド機能<br>|任意<br>|×<br>|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用されます。<br>|
 |X-Override<br>|ヘッダオーバライド機能<br>|${上書きするヘッダ名}:${値}<br>|×<br>|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定します。<br>|
-|X-Dc-RequestKey<br>|イベントログに出力するRequestKeyフィールドの値<br>|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字<br>|×<br>&#160;<br>|指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応<br>|
+|X-Personium-RequestKey<br>|イベントログに出力するRequestKeyフィールドの値<br>|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字<br>|×<br>&#160;<br>|指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応<br>|
 #### ODataリクエストヘッダ
 
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
@@ -88,11 +88,11 @@ GET
 |ルート&#160;&#160;<br>|d<br>|object<br>|オブジェクト{1}<br>|
 |{1}<br>|__count<br>|string<br>|$inlinecountクエリでの取得結果件数<br>|
 |{1}<br>|results<br>|array<br>|オブジェクト{2}の配列<br>|
+|{2}<br>|__metadata<br>|object<br>|オブジェクト{3}<br>|
+|{3}<br>|uri<br>|string<br>|作成したリソースへのURL<br>|
+|{3}<br>|etag<br>|string<br>|Etag値<br>|
 |{2}<br>|__published<br>|string<br>|作成日(UNIX時間)<br>|
 |{2}<br>|__updated<br>|string<br>|更新日(UNIX時間)<br>|
-|{2}<br>|__metadata<br>|object<br>|オブジェクト{3}<br>|
-|{3}<br>|etag<br>|string<br>|Etag値<br>|
-|{3}<br>|uri<br>|string<br>|作成したリソースへのURL<br>|
 
 #### Relation固有レスポンスボディ
 
@@ -107,41 +107,78 @@ GET
   "d": {
     "results": [
       {
-        "Name": "testrelation",
-        "_Box.Name": "testbox",
         "__metadata": {
-          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')",
+          "uri":
+          "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')",
+          "etag": "W/\"1-1486538244016\"",
           "type": "CellCtl.Relation"
         },
-        "__published" : "\/Date(1339128525502)\/",
-        "__updated"   : "\/Date(1339128525502)\/",
+        "Name": "{RelationName}",
+        "_Box.Name": "{BoxName}",
+        "__published": "/Date(1486538244016)/",
+        "__updated": "/Date(1486538244016)/",
         "_Box": {
-          "__deferred":
-          {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')"
+          "__deferred": {
+            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_Box"
+          }
+        },
+        "_ExtCell": {
+          "__deferred": {
+            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_ExtCell"
+          }
+        },
+        "_ExtRole": {
+          "__deferred": {
+            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_ExtRole"
+          }
+        },
+        "_Role": {
+          "__deferred": {
+            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_Role"
           }
         }
       },
       {
-        "Name": "RelationName2",
-        "_Box.Name": "{BoxName}",
         "__metadata": {
-          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='RelationName2',_Box.Name='{BoxName}')",
+          "uri":           "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')",
+          "etag": "W/\"1-1486538757303\"",
           "type": "CellCtl.Relation"
         },
-        "__published" : "\/Date(1339128525502)\/",
-        "__updated"   : "\/Date(1339128525502)\/"
+        "Name": "{RelationName}",
+        "_Box.Name": "{BoxName}",
+        "__published": "/Date(1486538757303)/",
+        "__updated": "/Date(1486538757303)/",
+        "_Box": {
+          "__deferred": {
+            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_Box"
+          }
+        },
+        "_ExtCell": {
+          "__deferred": {
+            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_ExtCell"
+          }
+        },
+        "_ExtRole": {
+          "__deferred": {
+            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_ExtRole"
+          }
+        },
+        "_Role": {
+          "__deferred": {
+            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_Role"
+          }
+        }
       }
     ]
   }
-}       
+}
 ```
 #### エラーメッセージ一覧
 [エラーメッセージ一覧](200_Error_Messages.html)を参照
 
 <br>
 ### CURLサンプル
-#### CURLコマンド(UNIX)
+
 ```sh
 curl "https://{UnitFQDN}/{CellName}/__ctl/Relation" -X GET -i  -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
 ```

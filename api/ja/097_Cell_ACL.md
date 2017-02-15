@@ -1,4 +1,4 @@
-﻿﻿﻿# アクセス制御設定
+# アクセス制御設定
 ### 概要
 セルレベルのアクセス制御機能を提供する。
 
@@ -25,7 +25,7 @@ ACL
 
 |クエリ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|dc_cookie_peer<br>|クッキー認証値<br>|認証時にサーバから返却されたクッキー認証値<br>|×<br>|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br>|
+|p_cookie_peer<br>|クッキー認証値<br>|認証時にサーバから返却されたクッキー認証値<br>|×<br>|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br>|
 
 
 
@@ -35,7 +35,7 @@ ACL
 |:--|:--|:--|:--|:--|
 |X-HTTP-Method-Override<br>|メソッドオーバーライド機能<br>|任意<br>|×<br>|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用されます。<br>|
 |X-Override<br>|ヘッダオーバライド機能<br>|${上書きするヘッダ名}:${値}<br>|×<br>|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定します。<br>|
-|X-Dc-RequestKey<br>|イベントログに出力するRequestKeyフィールドの値<br>|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字<br>|×<br>|指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応<br>|
+|X-Personium-RequestKey<br>|イベントログに出力するRequestKeyフィールドの値<br>|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字<br>|×<br>|指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応<br>|
 #### リクエストヘッダ
 
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
@@ -47,7 +47,7 @@ ACL
 |URI<br>|概要<br>|備考 (prefix)<br>|
 |:--|:--|:--|
 |DAV:<br>|WebDAVの名前空間<br>|D:<br>|
-|urn:x-dc1:xmlns<br>|personium.ioの名前空間<br>|dc:<br>|
+|urn:x-personium:xmlns<br>|personium.ioの名前空間<br>|p:<br>|
 ※ 参考prefixは以下表の可読性を高めるためのもので、このprefix文字列の使用を保証するものでも要求するものでもありません。
 
 #### XMLの構造
@@ -64,24 +64,24 @@ privilegeタグ配下の権限設定の内容については、認証モデル�
 |href<br>|D:<br>|要素<br>|権限設定対象ロール表し、ロールリソースURLを入力するテキストノード<br>|権限設定対象ロールのリソースURLを指定する<br>acl要素内のxml:base属性の設定によって、URLを短縮する事が出来る<br>|
 |all<br>|D:<br>|要素<br>|全アクセス主体権限設定<br>|全てのロールや認証されていないアクセス主体（Authorizationヘッダなし）に対してのの設定となります<br>|
 |privilege<br>|D:<br>|要素<br>|権限設定を表し、以下の要素のいづれか一つが子となる<br>|<br>|
-|all<br>|dc:<br>|要素<br>|全権限<br>|<br>
-|auth<br>|dc:<br>|要素<br>|認証系管理API編集・参照権限<br>|<br>
-|auth-read<br>|dc:<br>|要素<br>|認証系管理API参照権限<br>|<br>
-|message<br>|dc:<br>|要素<br>|メッセージ系管理API編集・参照権限<br>|<br>
-|message-read<br>|dc:<br>|要素<br>|メッセージ系管理API参照権限<br>|<br>
-|event<br>|dc:<br>|要素<br>|イベント系管理API編集・参照権限<br>|<br>
-|event-read<br>|dc:<br>|要素<br>|イベント系管理API参照権限<br>|<br>
-|log<br>|dc:<br>|要素<br>|イベントバスのログAPI編集・参照権限<br>|<br>
-|log-read<br>|dc:<br>|要素<br>|イベントバスのログAPI参照権限<br>|<br>
-|social<br>|dc:<br>|要素<br>|関係系管理API編集・参照権限<br>|<br>
-|social-read<br>|dc:<br>|要素<br>|関係系管理API参照権限<br>|<br>
-|box<br>|dc:<br>|要素<br>|ボックス管理API編集・参照権限<br>|<br>
-|box-read<br>|dc:<br>|要素<br>|ボックス管理API参照権限<br>|<br>
-|box-install<br>|dc:<br>|要素<br>|Boxインストール実行権限 ※V1.2.3対応<br>|<br>|
-|box-export<br>|dc:<br>|要素<br>|Boxエクスポート実行権限<br>|未対応(設定不可)<br>|
-|acl<br>|dc:<br>|要素<br>|ACL管理API編集・参照権限<br>|<br>
-|acl-read<br>|dc:<br>|要素<br>|ACL管理API参照権限<br>|<br>
-|propfind<br>|dc:<br>|要素<br>|プロパティ取得API参照権限<br>|<br>
+|all<br>|p:<br>|要素<br>|全権限<br>|<br>
+|auth<br>|p:<br>|要素<br>|認証系管理API編集・参照権限<br>|<br>
+|auth-read<br>|p:<br>|要素<br>|認証系管理API参照権限<br>|<br>
+|message<br>|p:<br>|要素<br>|メッセージ系管理API編集・参照権限<br>|<br>
+|message-read<br>|p:<br>|要素<br>|メッセージ系管理API参照権限<br>|<br>
+|event<br>|p:<br>|要素<br>|イベント系管理API編集・参照権限<br>|<br>
+|event-read<br>|p:<br>|要素<br>|イベント系管理API参照権限<br>|<br>
+|log<br>|p:<br>|要素<br>|イベントバスのログAPI編集・参照権限<br>|<br>
+|log-read<br>|p:<br>|要素<br>|イベントバスのログAPI参照権限<br>|<br>
+|social<br>|p:<br>|要素<br>|関係系管理API編集・参照権限<br>|<br>
+|social-read<br>|p:<br>|要素<br>|関係系管理API参照権限<br>|<br>
+|box<br>|p:<br>|要素<br>|ボックス管理API編集・参照権限<br>|<br>
+|box-read<br>|p:<br>|要素<br>|ボックス管理API参照権限<br>|<br>
+|box-install<br>|p:<br>|要素<br>|Boxインストール実行権限 ※V1.2.3対応<br>|<br>|
+|box-export<br>|p:<br>|要素<br>|Boxエクスポート実行権限<br>|未対応(設定不可)<br>|
+|acl<br>|p:<br>|要素<br>|ACL管理API編集・参照権限<br>|<br>
+|acl-read<br>|p:<br>|要素<br>|ACL管理API参照権限<br>|<br>
+|propfind<br>|p:<br>|要素<br>|プロパティ取得API参照権限<br>|<br>
 
 ##### DTD表記
 名前空間：D:
@@ -102,7 +102,7 @@ privilegeタグ配下の権限設定の内容については、認証モデル�
 <!ATTLIST acl base CDATA #IMPLIED>
 ```
 
-名前空間：dc:
+名前空間：p:
 ```dtd
 <!ELEMENT all EMPTY>
 <!ELEMENT auth EMPTY>
@@ -127,14 +127,14 @@ privilegeタグ配下の権限設定の内容については、認証モデル�
 #### リクエストサンプル
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
-<D:acl xmlns:D="DAV:" xmlns:dc="urn:x-dc1:xmlns" xml:base="https://example.com/testcell1/__role/box1/">
+<D:acl xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" xml:base="https://example.com/testcell1/__role/box1/">
     <D:ace>
         <D:principal>
             <D:all/>
         </D:principal>
         <D:grant>
-           <D:privilege><dc:auth/></D:privilege>
-           <D:privilege><dc:box/></D:privilege>
+           <D:privilege><p:auth/></D:privilege>
+           <D:privilege><p:box/></D:privilege>
         </D:grant>
     </D:ace>
     <D:ace>
@@ -142,7 +142,7 @@ privilegeタグ配下の権限設定の内容については、認証モデル�
             <D:href>role</D:href>
         </D:principal>
         <D:grant>
-            <D:privilege><dc:all/></D:privilege>
+            <D:privilege><p:all/></D:privilege>
         </D:grant>
     </D:ace>
 </D:acl>        
@@ -177,7 +177,7 @@ privilegeタグ配下の権限設定の内容については、認証モデル�
 <br>
 ### CURLサンプル
 ```sh
-curl "https://example.com/cell" -X ACL -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8" ?><D:acl xmlns:D="DAV:" xmlns:dc="urn:x-dc1:xmlns" xml:base="http://localhost:8080/dc1-core/acell1/__role/__/">  <D:ace><D:principal><D:href>doctor</D:href></D:principal><D:grant><D:privilege><dc:box-read/></D:privilege><D:privilege><dc:auth/></D:privilege></D:grant>
+curl "https://{UnitFQDN}/{CellName}" -X ACL -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8" ?><D:acl xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" xml:base="http://{UnitFQDN}/{CellName}/__role/{BoxName}/">  <D:ace><D:principal><D:href>{RoleName}</D:href></D:principal><D:grant><D:privilege><p:box-read/></D:privilege><D:privilege><p:auth/></D:privilege></D:grant>
 </D:ace></D:acl>'
 ```
 <br>

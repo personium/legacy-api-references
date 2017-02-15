@@ -1,15 +1,15 @@
-﻿﻿﻿# barファイル
-barファイルはBoxインストールAPIのリクエストボディとして指定するファイル形式である。
-barファイルは、Box配下に定義するOdata/WebDAV/Serviceの各データを格納しており、ZIPファイル形式でアーカイブされる。
+# barファイル
+barファイルはBoxインストールAPIのリクエストボディとして指定するファイル形式である。  
+barファイルは、Box配下に定義するOdata/WebDAV/Serviceの各データを格納しており、ZIPファイル形式でアーカイブされる。  
 通常は、BoxエクスポートAPI（未実装）にて、personium.ioからアーカイブされたBox配下のデータ定義がエクスポートされる。
 
 ### Specifications
-ファイルフォーマットはZIP形式とし、ZIP64形式も許容する。
+ファイルフォーマットはZIP形式とし、ZIP64形式も許容する。  
 また、ZIPファイルの暗号化は対応しない。
 
 #### Directory Structure
-barファイル内のディレクトリ構成を以下に示す。
-Boxインストール時に「★必須」となっているディレクトリ、及びファイルが存在しない場合は、必須のディレクトリ/ファイルがない旨のエラー（400 Bad Request）を返却する。
+barファイル内のディレクトリ構成を以下に示す。  
+Boxインストール時に「★必須」となっているディレクトリ、及びファイルが存在しない場合は、必須のディレクトリ/ファイルがない旨のエラー（400 Bad Request）を返却する。  
 また、barファイルの構造が下記の順序で作成されていない場合はエラーとなる。
 ```
 bar/
@@ -79,7 +79,7 @@ bar/
 }
 ```
 #### 10_relations.json
-インストール対象とするRelationの情報を記述したファイル
+インストール対象とするRelationの情報を記述したファイル  
 ※「有効値」欄が『&#65293;』となっている項目項目は、Relationのリクエストボディを参照
 
 |項目名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
@@ -99,7 +99,7 @@ bar/
 }
 ```
 #### 20_roles.json
-インストール対象とするRoleの情報を記述したファイル
+インストール対象とするRoleの情報を記述したファイル  
 ※「有効値」欄が『&#65293;』となっている項目は、、Roleのリクエストボディを参照
 
 |項目名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
@@ -118,7 +118,7 @@ bar/
 }
 ```
 #### 30_extroles.json
-インストール対象とするExtRoleの情報を記述したファイル
+インストール対象とするExtRoleの情報を記述したファイル  
 ※「有効値」欄が『&#65293;』となっている項目は、ExtRoleのリクエストボディを参照
 
 |項目名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
@@ -185,9 +185,9 @@ https://{UnitFQDN}/cell1/__role/box/staff → https://{UnitFQDN}/cell1/__role/__
 }
 ```
 #### 90_rootprops.xml
-barファイルにエクスポートする対象のBox配下の全階層に対して、PROPFINDメソッドで取得したXMLデータを示す。
-XMLデータの詳細は、を参照。
-インストール対象BoxのURLは、「dcbox:/」と記述する。
+barファイルにエクスポートする対象のBox配下の全階層に対して、PROPFINDメソッドで取得したXMLデータを示す。  
+XMLデータの詳細は、を参照。  
+インストール対象BoxのURLは、「personium-box:/」と記述する。  
 barファイルのインストール時には、下記サンプルの<prop>配下にある creationdate及び、getlastmodifiedを除いた全てのデータをインストール対象とする。
 * resourcetype: コレクションの種類を設定
 * acl: 権限を設定
@@ -197,13 +197,13 @@ barファイルのインストール時には、下記サンプルの<prop>配�
 ```xml
 <multistatus xmlns="DAV:">
     <response>
-        <href>dcbox:/</href>
+        <href>personium-box:/</href>
         <propstat>
            <prop>
               <resourcetype>
                   <collection/>
               </resourcetype>
-              <acl xml:base="https://{UnitFQDN}/cell/__role/__/" xmlns:dc="urn:x-dc1:xmlns">
+              <acl xml:base="https://{UnitFQDN}/cell/__role/__/" xmlns:p="urn:x-personium:xmlns">
                   <ace>
                       <principal>
                           <href>admin</href>
@@ -219,14 +219,14 @@ barファイルのインストール時には、下記サンプルの<prop>配�
       </propstat>
   </response>
   <response>
-      <href>dcbox:/odata</href>
+      <href>personium-box:/odata</href>
       <propstat>
           <prop>
               <resourcetype>
                   <collection/>
-                  <dc:service xmlns:dc="urn:x-dc1:xmlns"/>
+                  <p:service xmlns:p="urn:x-personium:xmlns"/>
               </resourcetype>
-              <acl xml:base="https://{UnitFQDN}/cell/__role/__/" xmlns:dc="urn:x-dc1:xmlns">
+              <acl xml:base="https://{UnitFQDN}/cell/__role/__/" xmlns:p="urn:x-personium:xmlns">
                   <ace>
                       <principal>
                           <href>user</href>
@@ -248,13 +248,13 @@ barファイルのインストール時には、下記サンプルの<prop>配�
       </propstat>
   </response>
   <response>
-      <href>dcbox:/dav</href>
+      <href>personium-box:/dav</href>
       <propstat>
           <prop>
               <resourcetype>
                   <collection/>
               </resourcetype>
-              <acl xml:base="https://{UnitFQDN}/cell/__role/__/" xmlns:dc="urn:x-dc1:xmlns">
+              <acl xml:base="https://{UnitFQDN}/cell/__role/__/" xmlns:p="urn:x-personium:xmlns">
                   <ace>
                       <principal>
                           <href>user</href>
@@ -276,7 +276,7 @@ barファイルのインストール時には、下記サンプルの<prop>配�
       </propstat>
   </response>
   <response>
-      <href>dcbox:/dav/testdavfile.txt</href>
+      <href>personium-box:/dav/testdavfile.txt</href>
       <propstat>
           <prop>
               <getcontenttype>text/plain</getcontenttype>
@@ -284,36 +284,36 @@ barファイルのインストール時には、下記サンプルの<prop>配�
       </propstat>
   </response>
   <response>
-      <href>dcbox:/service</href>
+      <href>personium-box:/service</href>
       <propstat>
           <prop>
               <resourcetype>
                   <collection/>
-                  <dc:service xmlns:dc="urn:x-dc1:xmlns"/>
+                  <p:service xmlns:p="urn:x-personium:xmlns"/>
               </resourcetype>
-             <acl xml:base="https://{UnitFQDN}/cell/__role/__/" xmlns:dc="urn:x-dc1:xmlns"/>
-              <dc:service language="JavaScript" xmlns:D="DAV:" xmlns:dc="urn:x-dc1:xmlns" \
+             <acl xml:base="https://{UnitFQDN}/cell/__role/__/" xmlns:p="urn:x-personium:xmlns"/>
+              <p:service language="JavaScript" xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" \
               xmlns:Z="http://www.w3.com/standards/z39.50/">
-                  <dc:path name="ehr" src="ehr.js"/>
-                  <dc:path name="ehr_connector" src="ehr_connector.js"/>
-              </dc:service>
+                  <p:path name="ehr" src="ehr.js"/>
+                  <p:path name="ehr_connector" src="ehr_connector.js"/>
+              </p:service>
             </prop>
         </propstat>
     </response>
     <response>
-        <href>dcbox:/service/__src</href>
+        <href>personium-box:/service/__src</href>
         <propstat>
             <prop>
                 <resourcetype>
                     <collection/>
                 </resourcetype>
                 <acl xml:base="https://{UnitFQDN}/cell/__role/__/"\
-                 xmlns:dc="urn:x-dc1:xmlns"/>
+                 xmlns:p="urn:x-personium:xmlns"/>
             </prop>
         </propstat>
     </response>
     <response>
-        <href>dcbox:/service/__src/ehr.js</href>
+        <href>personium-box:/service/__src/ehr.js</href>
         <propstat>
             <prop>
                 <getcontenttype>text/javascript</getcontenttype>
@@ -321,7 +321,7 @@ barファイルのインストール時には、下記サンプルの<prop>配�
         </propstat>
     </response>
     <response>
-        <href>dcbox:/service/__src/ehr_connector.js</href>
+        <href>personium-box:/service/__src/ehr_connector.js</href>
         <propstat>
             <prop>
                 <getcontenttype>text/javascript</getcontenttype>
@@ -335,16 +335,16 @@ barファイルのインストール時には、下記サンプルの<prop>配�
 * 90_data / {EntityType}/1.json
 
 ##### 00_$metadata.xml
-ユーザODataのスキーマ定義を示す。barファイルにエクスポートする時に、Odata用コレクションに対して$metadataにて取得したXMLデータ。
-XMLデータの詳細は、スキーマ取得（$metadata）を参照。
-Boxインストール時には、Schemaタグの配下をインストール対象とする。
+ユーザODataのスキーマ定義を示す。barファイルにエクスポートする時に、Odata用コレクションに対して$metadataにて取得したXMLデータ。  
+XMLデータの詳細は、スキーマ取得（$metadata）を参照。  
+Boxインストール時には、Schemaタグの配下をインストール対象とする。  
 ユーザODataのスキーマ定義が存在しない場合でもファイル自体は存在する。
 
 スキーマ定義がない場合のサンプル
 ```xml
 <Edmx: Edmx Version = '1 .0 'xmlns: edmx =' http://schemas.microsoft.com/ado/2007/06/edmx \
 'xmlns: d =' http://schemas.microsoft.com/ado/2007 / 08/dataservices' xmlns:\
- m = 'http://schemas.microsoft.com/ado/2007/08/dataservices/metadata' xmlns: dc = 'urn: x-dc1: xmlns'>
+ m = 'http://schemas.microsoft.com/ado/2007/08/dataservices/metadata' xmlns: p = 'urn: x-personium: xmlns'>
   <edmx:DataServices m:DataServiceVersion='1.0'>
     <Schema Xmlns='http://schemas.microsoft.com/ado/2006/04/edm' Namespace='UserData'>
       <EntityContainer Name='UserData' m:IsDefaultEntityContainer='true'/>
@@ -427,37 +427,37 @@ bar/90_contents/{Service}/{src.js}に格納されたソースファイルを、�
 ```xml
 <multistatus xmlns="DAV:">
     <response>
-        <href>dcbox:/service</href>
+        <href>personium-box:/service</href>
         <propstat>
             <prop>
                 <resourcetype>
                     <collection/>
-                    <dc:service xmlns:dc="urn:x-dc1:xmlns"/>
+                    <p:service xmlns:p="urn:x-personium:xmlns"/>
                 </resourcetype>
                 <acl xml:base="https://{UnitFQDN}/cell/__role/__/"\
-                xmlns:dc="urn:x-dc1:xmlns"/>
-                <dc:service language="JavaScript" xmlns:D="DAV:" xmlns:dc="urn:x-dc1:xmlns" \
+                xmlns:p="urn:x-personium:xmlns"/>
+                <p:service language="JavaScript" xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" \
                 xmlns:Z="http://www.w3.com/standards/z39.50/">
-                    <dc:path name="ehr" src="ehr.js"/>
-                    <dc:path name="ehr_connector" src="ehr_connector.js"/>
-                </dc:service>
+                    <p:path name="ehr" src="ehr.js"/>
+                    <p:path name="ehr_connector" src="ehr_connector.js"/>
+                </p:service>
             </prop>
         </propstat>
     </response>
     <response>
-        <href>dcbox:/service/__src</href>
+        <href>personium-box:/service/__src</href>
         <propstat>
             <prop>
                 <resourcetype>
                     <collection/>
                 </resourcetype>
                 <acl xml:base="https://{UnitFQDN}/cell/__role/__/"\
-                 xmlns:dc="urn:x-dc1:xmlns"/>
+                 xmlns:p="urn:x-personium:xmlns"/>
             </prop>
         </propstat>
     </response>
     <response>
-        <href>dcbox:/service/__src/ehr.js</href>
+        <href>personium-box:/service/__src/ehr.js</href>
         <propstat>
             <prop>
                 <getcontenttype>text/javascript</getcontenttype>
@@ -465,7 +465,7 @@ bar/90_contents/{Service}/{src.js}に格納されたソースファイルを、�
         </propstat>
     </response>
     <response>
-        <href>dcbox:/service/__src/ehr_connector.js</href>
+        <href>personium-box:/service/__src/ehr_connector.js</href>
         <propstat>
             <prop>
                 <getcontenttype>text/javascript</getcontenttype>

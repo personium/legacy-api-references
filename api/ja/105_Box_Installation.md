@@ -1,7 +1,7 @@
-﻿﻿﻿# Boxインストール
+# Boxインストール
 ### 概要
-barファイルを使って指定されたパスにBoxをインストールする。barファイルフォーマットについては 「barファイル」を参照。
-本APIは非同期通信方式を採用しているため、本APIではBoxインストールを受け付けた後、即復帰する。
+barファイルを使って指定されたパスにBoxをインストールする。barファイルフォーマットについては 「barファイル」を参照。  
+本APIは非同期通信方式を採用しているため、本APIではBoxインストールを受け付けた後、即復帰する。  
 そのため、Boxインストール状況を確認するには、以下のAPIを使用する。
 * Box メタデータ取得 Boxインストールが異常終了した場合は、本APIにてBoxインストール状況を確認することで、エラーとなった原因を参照することができる。以下に、クライアントにおける受付から処理完了までの呼び出し方法を示す。
 
@@ -73,7 +73,7 @@ MKCOL
 
 |クエリ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|dc_cookie_peer<br>|クッキー認証値<br>|認証時にサーバから返却されたクッキー認証値<br>|×<br>|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br>|
+|p_cookie_peer<br>|クッキー認証値<br>|認証時にサーバから返却されたクッキー認証値<br>|×<br>|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br>|
 
 #### リクエストヘッダ
 
@@ -81,7 +81,7 @@ MKCOL
 |:--|:--|:--|:--|:--|
 |X-HTTP-Method-Override<br>|メソッドオーバーライド機能<br>|任意<br>|×<br>|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用されます。<br>|
 |X-Override<br>|ヘッダオーバライド機能<br>|${上書きするヘッダ名}:${値}  override} $: $ {value}<br>|×<br>|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定します。<br>|
-|X-Dc-RequestKey<br>|イベントログに出力するRequestKeyフィールドの値<br>|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字<br>|×<br>|指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応<br>|
+|X-Personium-RequestKey<br>|イベントログに出力するRequestKeyフィールドの値<br>|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字<br>|×<br>|指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応<br>|
 |Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
 |Content-Type<br>|リクエストボディの形式を指定する<br>|application/zip<br>|○<br>| <br>|
 |Content-Length<br>|リクエストボディのサイズを指定する<br>|半角数字<br>|×<br>| <br>|
@@ -105,12 +105,12 @@ barファイルのファイル構成については bar ファイルを参照。
 #### レスポンスヘッダ
 |ヘッダ名<br>|概要<br>|備考<br>|
 |:--|:--|:--|
-|X-Dc-Version<br>|APIの実行バージョン<br>|認証時にサーバから返却されたクッキー認証値<br>|
-|Access-Control-Allow-Origin<br>|クロスドメイン通信許可ヘッダ<br>|返却値は"*"固定<br>|
 |Location<br>|Boxメタデータ取得API用URL<br>| <br>|
+|Access-Control-Allow-Origin<br>|クロスドメイン通信許可ヘッダ<br>|返却値は"*"固定<br>|
+|X-Personium-Version<br>|APIの実行バージョン<br>|認証時にサーバから返却されたクッキー認証値<br>|
 Locationサンプル
 ```
-Location:https://{UnitFQDN}/{CellName}/box
+Location:https://{UnitFQDN}/{CellName}/{BoxName}
 ```
 Boxメタデータ取得API用URLの詳細は、Boxメタデータ取得を参照。
 #### レスポンスボディ
@@ -121,14 +121,14 @@ Boxメタデータ取得API用URLの詳細は、Boxメタデータ取得を参�
 
 #### レスポンスサンプル
 ```
-Location: https://{UnitFQDN}/{CellName}/box
+Location: https://{UnitFQDN}/{CellName}/{BoxName}
 ```
 Boxメタデータ取得API用URLの詳細は、Boxメタデータ取得を参照。
 <br>
-### CURLコマンド(UNIX)
-#### Syntax
+### CURLサンプル
+
 ```sh
-curl "https://{UnitFQDN}/{CellName}/BoxName" -X MKCOL -i -H 'Content-type: application/zip' -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -F '{file_path}; type = application/zip'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}" -X MKCOL -i -H 'Content-type: application/zip' -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' --data-binary @{FileName}
 ```
 <br>
 <br>

@@ -1,7 +1,7 @@
-﻿﻿﻿# ログファイル取得
+# ログファイル取得
 ### 概要
-イベントログを取得する
-ローテートされたログファイルの保持世代数は最大12世代である。
+イベントログを取得する  
+ローテートされたログファイルの保持世代数は最大12世代である。  
 ログファイルのローテート時に最大保持世代数を超えた場合は、最古のログファイルが削除される。
 ### 必要な権限
 log-read
@@ -36,14 +36,14 @@ GET
 #### リクエストクエリ
 |クエリ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|dc_cookie_peer<br>|クッキー認証値<br>|認証時にサーバから返却されたクッキー認証値<br>|×<br>|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br>|
+|p_cookie_peer<br>|クッキー認証値<br>|認証時にサーバから返却されたクッキー認証値<br>|×<br>|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br>|
 #### リクエストヘッダ
 ##### 共通リクエストヘッダ
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
 |X-HTTP-Method-Override<br>|メソッドオーバーライド機能<br>|任意<br>|×<br>|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用される<br>|
 |X-Override<br>|ヘッダオーバライド機能<br>|${上書きするヘッダ名}:${値}<br>|×<br>|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定する<br>|
-|X-Dc-RequestKey<br>|イベントログに出力するRequestKeyフィールドの値<br>|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字<br>|×<br>|指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応<br>|
+|X-Personium-RequestKey<br>|イベントログに出力するRequestKeyフィールドの値<br>|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字<br>|×<br>|指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応<br>|
 |Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
 #### リクエストボディ
 なし
@@ -59,8 +59,8 @@ GET
 |:--|:--|:--|
 |Content-Type<br>|Resourceのデータ形式に応じたMimeType<br>|"text/csv"または"application/zip"<br>|
 #### レスポンスボディ
-currentのログ取得時にログが存在しない場合は、空のレスポンスボディを返却する。
-ローテートのサイズ設定値よりも5MB程度大きなサイズとなる場合がある。
+currentのログ取得時にログが存在しない場合は、空のレスポンスボディを返却する。  
+ローテートのサイズ設定値よりも5MB程度大きなサイズとなる場合がある。  
 出力形式は以下の通り。
 ```
 {dateTime},[{level}],{RequestKey},{name},{schema},{subject},{action},{object},{result}
@@ -69,7 +69,7 @@ currentのログ取得時にログが存在しない場合は、空のレスポ�
 |:--|:--|:--|
 |dateTime<br>|ログ書込み日時（ISO8601 UTC形式）<br>|YYYY-MM-DDTHH:MM:SS.sssZ<br>|
 |level<br>|ログレベル INFO,WARN,ERRORのいずれか<br>|文字列<br>|
-|RequestKey<br>|X-Dc-RequestKeyヘッダで指定された値<br>X-Dc-RequestKeyヘッダ指定がない場合、PCS-${UNIX時間}<br>|文字列<br>|
+|RequestKey<br>|X-Personium-RequestKeyヘッダで指定された値<br>X-Personium-RequestKeyヘッダ指定がない場合、PCS-${UNIX時間}<br>|文字列<br>|
 |name<br>|外部イベント：client<br>内部イベント：server<br>|文字列<br>|
 |schema<br>|受け付けたURLのboxのschema<br>|URL形式<br>|
 |subject<br>|イベントの主体<br>|URL形式<br>|
@@ -99,7 +99,7 @@ currentのログ取得時にログが存在しない場合は、空のレスポ�
 
 <br>
 ### CURLサンプル
-#### CURLコマンド(UNIX)
+
 ```sh
 curl "https://{UnitFQDN}/{CellName}/__log/current/default.log" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'          
 ```

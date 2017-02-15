@@ -1,4 +1,4 @@
-﻿﻿﻿# ユーザデータ_NavProp経由一覧取得
+# ユーザデータ_NavProp経由一覧取得
 ### 概要
 ユーザデータのEntity一覧をNavigation Property経由で取得します。
 ### 必要な権限
@@ -40,7 +40,7 @@ GET
 
 |クエリ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|dc_cookie_peer<br>|クッキー認証値<br>|認証時にサーバから返却されたクッキー認証値<br>|×<br>|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br>|
+|p_cookie_peer<br>|クッキー認証値<br>|認証時にサーバから返却されたクッキー認証値<br>|×<br>|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br>|
 
 [$select クエリ](194_$Select_Query.html)
 
@@ -116,7 +116,7 @@ GET
 	* 10.0等の小数部が0となる値は、整数値として返却する
 * 返却される値について
 	* 登録時の入力値が倍精度以上の精度を持った数である場合、倍精度に丸められてデータ登録を行う
-		* 内部的には浮動小数点数として管理されるが、出力時には情報落ちの起こらない範囲で固定小数点数表現に変換して出力する
+		* 内部的には浮動小数点数として管理されるが、出力時には情報落ちの起こらない範囲で固定小数点数表現に変換して出力する  
 		出力された固定小数点数を入力に用いた場合、その入力数ともとの数との同一性は保証される
 
 #### エラーメッセージ一覧
@@ -130,7 +130,7 @@ GET
                {
                    "__metadata":
                    {
-                       "uri": "http://localhost:8080/dc1-core/test_cell1/{BoxName}1/entyty_set/Sales('test')",
+                       "uri": "http://localhost:8080/persunium-core/test_cell1/{BoxName}1/entyty_set/Sales('test')",
                        "type": "PF-9dqR7RLalymQqQc4wtw.Sales"
                    },
                    "__id": "test",
@@ -140,21 +140,21 @@ GET
                    {
                        "__deferred":
                        {
-                           "uri": "http://localhost:8080/dc1-core/test_cell1/{BoxName}1/entyty_set/Sales('test')/_Product"
+                           "uri": "http://localhost:8080/persunium-core/test_cell1/{BoxName}1/entyty_set/Sales('test')/_Product"
                        }
                    },
                    "_SalesDetail":
                    {
                        "__deferred":
                        {
-                           "uri": "http://localhost:8080/dc1-core/test_cell1/{BoxName}1/entyty_set/Sales('test')/_SalesDetail"
+                           "uri": "http://localhost:8080/persunium-core/test_cell1/{BoxName}1/entyty_set/Sales('test')/_SalesDetail"
                        }
                    },
                    "_Supplier":
                    {
                        "__deferred":
                        {
-                           "uri": "http://localhost:8080/dc1-core/test_cell1/{BoxName}1/entyty_set/Sales('test')/_Supplier"
+                           "uri": "http://localhost:8080/persunium-core/test_cell1/{BoxName}1/entyty_set/Sales('test')/_Supplier"
                        }
                    }
                }
@@ -166,7 +166,7 @@ GET
 
 <br>
 ### CURLサンプル
-#### CURLコマンド(UNIX)
+
 ```sh
 curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/parent('100-1_20101108-111352092')/_child" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
 ```

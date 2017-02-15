@@ -13,7 +13,7 @@ read-properties
 WebDAV制限
 * 未稿
 
-V1.0計での制限
+V1.0系での制限
 * レスポンスボディで返却するプロパティを指定する機能（現状allpropとなる）
 
 <br>
@@ -35,13 +35,13 @@ V1.0計での制限
 PROPFIND
 
 #### リクエストクエリ
-共通リクエストクエリ
+##### 共通リクエストクエリ
 
 |クエリ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer<br>|クッキー認証値<br>|認証時にサーバから返却されたクッキー認証値<br>|×<br>|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br>|
 
-WebDav 共通リクエストクエリ
+##### WebDav 共通リクエストクエリ
 
 なし
 
@@ -53,8 +53,11 @@ WebDav 共通リクエストクエリ
 |X-HTTP-Method-Override<br>|メソッドオーバーライド機能<br>|任意<br>|×<br>|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用される<br>|
 |X-Override<br>|ヘッダオーバライド機能<br>|${上書きするヘッダ名}:${値}<br>|×<br>|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定する<br>|
 |X-Personium-RequestKey<br>|イベントログに出力するRequestKeyフィールドの値<br>|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字<br>|×<br>|指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応<br>|
+###### 個別リクエストヘッダ
+|ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
+|:--|:--|:--|:--|:--|
 |Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
-|Depth<br>|取得するリソースの階層<br>|0:対象のリソース自身 <br>1:対象のリソースとそれの直下のリソース<br>|○<br>| <br>
+|Depth<br>|取得するリソースの階層<br>|0:対象のリソース自身 <br>1:対象のリソースとそれの直下のリソース<br>|○<br>|<br>|
 #### リクエストボディ
 名前空間
 
@@ -83,7 +86,8 @@ DTD表記
 
 #### リクエストサンプル
 ```xml
-<?xml version="1.0" encoding="utf-8"?> <D:propfind xmlns:D="DAV:">
+<?xml version="1.0" encoding="utf-8"?>
+<D:propfind xmlns:D="DAV:">
   <D:allprop/>
 </D:propfind>
 ```
@@ -109,7 +113,6 @@ DTD表記
 |urn:x-personium:xmlns<br>|personium.ioの名前空間<br>|p:<br>|
 
 ※ 参考prefixは以下表の可読性を高めるためのもので、このprefix文字列の使用を保証するものでも要求するものでもありません。
-
 
 
 XMLの構造
@@ -139,7 +142,7 @@ XMLの構造
 
 DTD表記
 
-　名前空間　D:
+名前空間　D:
 ```dtd
 <!ELEMENT multistatus (response*)>
 <!ELEMENT response (href, propstat)>
@@ -153,7 +156,7 @@ DTD表記
 <!ELEMENT getlastmodified (#PCDATA)>
 <!ELEMENT resourcetype ((collection, (odata or service) or EMPTY))>
 <!ELEMENT collection EMPTY>
-<!ELEMENT acl (ace*)>                
+<!ELEMENT acl (ace*)>
 ```
 
 
@@ -161,14 +164,14 @@ DTD表記
 名前空間　p:
 ```dtd
 <!ELEMENT odata EMPTY>
-<!ELEMENT service EMPTY>                
+<!ELEMENT service EMPTY>
 ```
 
 
 
 名前空間　xml:
 ```dtd
-<!ATTLIST acl base CDATA #IMPLIED>          
+<!ATTLIST acl base CDATA #IMPLIED>
 ```
 
 
@@ -178,39 +181,26 @@ DTD表記
 
 |コード<br>|メッセージ<br>|概要<br>|備考<br>|
 |:--|:--|:--|:--|
-|400<br>|Bad Request<br>|リクエストボディの形式が不正 <br>リクエストヘッダの形式が不正<br>Depthヘッダの値が不正<br>| <br>
-|401<br>|Unauthorized<br>|認証トークンが無効<br>| <br>
-|403<br>|Forbidden<br>|アクセス権限が不足している場合<br>| <br>
-|404<br>|Not Found<br>|存在しないリソースを指定<br>| <br>
-|405<br>|Method Not Allowed<br>|許可していないリクエストメソッドを指定<br>| <br>
-|412<br>|Precondition Failed<br>|存在しないバージョンを指定<br>| <br>
+|400<br>|Bad Request<br>|リクエストボディの形式が不正 <br>リクエストヘッダの形式が不正<br>Depthヘッダの値が不正<br>| <br>|
+|401<br>|Unauthorized<br>|認証トークンが無効<br>| <br>|
+|403<br>|Forbidden<br>|アクセス権限が不足している場合<br>| <br>|
+|404<br>|Not Found<br>|存在しないリソースを指定<br>| <br>|
+|405<br>|Method Not Allowed<br>|許可していないリクエストメソッドを指定<br>| <br>|
+|412<br>|Precondition Failed<br>|存在しないバージョンを指定<br>| <br>|
 
 #### レスポンスサンプル
 ```xml
-<?xml version="1.0" encoding="utf-8"?>
 <multistatus xmlns="DAV:">
     <response>
-        <href>https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/col01</href>
+        <href>https://{BoxName}{BoxName}{BoxName}</href>
         <propstat>
             <prop>
-                <creationdate>2012-05-14T15:21:27.140+0900</creationdate>
-                <getlastmodified>Mon, 14 May 2012 07:05:04 GMT</getlastmodified>
+                <creationdate>2017-02-15T01:52:34.635+0000</creationdate>
+                <getlastmodified>Wed, 15 Feb 2017 01:52:34 GMT</getlastmodified>
                 <resourcetype>
                     <collection/>
                 </resourcetype>
-            </prop>
-            <status>HTTP/1.1 200 OK</status>
-        </propstat>
-    </response>
-    <response>
-        <href>https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/col01/index.html</href>
-        <propstat>
-            <prop>
-                <creationdate>2012-05-14T16:05:04.265+0900</creationdate>
-                <getcontentlength>0</getcontentlength>
-                <getcontenttype>text/html</getcontenttype>
-                <getlastmodified>Mon, 14 May 2012 07:05:04 GMT</getlastmodified>
-                <resourcetype/>
+                <acl xmlns:p="urn:x-personium:xmlns"/>
             </prop>
             <status>HTTP/1.1 200 OK</status>
         </propstat>

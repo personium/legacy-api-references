@@ -4,6 +4,8 @@ OAuth2の認可エンドポイントAPI
 このAPIは、JSアプリケーション・ネイティブアプリでpersonium.ioを利用する場合のOAuth2の認可エンドポイントである。
 ### 必要な権限
 なし
+### 前提条件
+このAPIを実行するためには、アプリセルURLをスキーマに持つBoxを事前に作成しておく必要がある。
 ### 制限事項
 リクエストクエリ、リクエストボディの「p_target」パラメータの指定は未サポート
 * p_targetを指定した場合、レスポンスヘッダの「Location」の値が4,096文字を超えるため、nginxでエラーとなる。
@@ -16,8 +18,8 @@ OAuth2の認可エンドポイントAPI
 {CellName}/__authz
 ```
 #### メソッド
-POST : 認証フォーム リクエスト、トークン認証  
 GET : 認証フォーム リクエスト
+POST : 認証フォーム リクエスト、トークン認証  
 #### リクエストクエリ
 |項目名<br>|概要<br>|書式<br>|必須<br>|有効値<br>|
 |:--|:--|:--|:--|:--|
@@ -27,7 +29,9 @@ GET : 認証フォーム リクエスト
 |state<br>|リクエストとコールバックの間で状態を維持するために使用するランダムな値<br>|String<br>|×<br>|ランダムな値<br>有効桁長:512byte<br>|
 |p_target<br>|トランスセルトークンターゲット<br>|String<br>|×<br>|払い出されるトークンを使うセルURL<br>指定した場合トランスセルトークンを払い出す<br>|
 |p_owner<br>|ULUUT昇格実行クエリ<br>|String<br>|×<br>|trueのみ有効<br>※このクエリを設定した場合、認証情報はCookieで返却されない<br>|
-|assertion<br>|アクセストークン<br>|String<br>|○<br>|有効なトランスセルトークン<br>引数なしの場合トークン認証にはならない<br>|
+|assertion<br>|アクセストークン<br>|String<br>|×<br>|有効なトランスセルトークン<br>引数なしの場合トークン認証にはならない<br>|
+|username<br>|ユーザ名<br>|String<br>|×<br>|登録済のユーザ名<br>|
+|password<br>|パスワード<br>|String<br>|×<br>|登録済のパスワード<br>|
 #### リクエストヘッダ
 なし
 #### リクエストボディ
@@ -104,8 +108,13 @@ GET : 認証フォーム リクエスト
 
 <br>
 ### CURLサンプル
+#### GET
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__authz" -X POST -i -d 'response_type=token&client_id=https://{UnitFQDN}/app&redirect_uri=https://{UnitFQDN}/app/__/redirect.html&state=0000000111'
+curl "https://{UnitFQDN}/{CellName}/__authz?response_type=token&redirect_uri=https://{UnitFQDN}/{AppliCellName}/__/redirect.html&client_id=https://{UnitFQDN}/{AppliCellName}" -X GET -i
+```
+#### POST
+```sh
+curl "https://{UnitFQDN}/{CellName}/__authz" -X POST -i -d 'response_type=token&client_id=https://{UnitFQDN}/{AppliCellName}&redirect_uri=https://{UnitFQDN}/{AppliCellName}/__/redirect.html&state=0000000111&username={AccountUserName}&password={AccountUserPass}'
 ```
 <br>
 <br>

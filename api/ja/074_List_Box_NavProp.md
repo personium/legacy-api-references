@@ -87,27 +87,28 @@ GET
 #### レスポンスヘッダ
 |ヘッダ名<br>|概要<br>|備考<br>|
 |:--|:--|:--|
-|X-Personium-Version<br>|APIの実行バージョン<br>|リクエストが処理されたAPIバージョン<br>|
-|Access-Control-Allow-Origin<br>|クロスドメイン通信許可ヘッダ<br>|返却値は"*"固定<br>|
 |Content-Type<br>|返却されるデータの形式<br>|<br>|
 |DataServiceVersion<br>|ODataのバージョン<br>|<br>|
+|Access-Control-Allow-Origin<br>|クロスドメイン通信許可ヘッダ<br>|返却値は"*"固定<br>|
+|X-Personium-Version<br>|APIの実行バージョン<br>|リクエストが処理されたAPIバージョン<br>|
 #### レスポンスボディ
 |オブジェクト<br>|項目名<br>|Data Type<br>|備考<br>|
 |:--|:--|:--|:--|
 |ルート<br>|d<br>|object<br>|オブジェクト{1}<br>|
 |{1}<br>|__count<br>|string<br>|$inlinecountクエリでの取得結果件数<br>|
 |{1}<br>|results<br>|array<br>|オブジェクト{2}の配列<br>|
+|{2}<br>|__metadata<br>|object<br>|オブジェクト{3}<br>|
+|{3}<br>|uri<br>|string<br>|作成したリソースへのURL<br>|
+|{3}<br>|etag<br>|string<br>|Etag値<br>|
 |{2}<br>|__published<br>|string<br>|作成日(UNIX時間)<br>|
 |{2}<br>|__updated<br>|string<br>|更新日(UNIX時間)<br>|
-|{2}<br>|__metadata<br>|object<br>|オブジェクト{3}<br>|
-|{3}<br>|etag<br>|string<br>|Etag値<br>|
-|{3}<br>|uri<br>|string<br>|作成したリソースへのURL<br>|
-##### Boxを取得した場合
+
+##### Relationを取得した場合
 |オブジェクト<br>|項目名<br>|Data Type<br>|備考<br>|
 |:--|:--|:--|:--|
-|{3}<br>|type<br>|string<br>|CellCtl.Box<br>|
-|{2}<br>|Name<br>|string<br>|Box名<br>|
-|{2}<br>|Schema<br>|string<br>|Schema名<br>|
+|{3}<br>|type<br>|string<br>|CellCtl.Relation<br>|
+|{2}<br>|Name<br>|string<br>|Relation名<br>|
+|{2}<br>|_Box.Name<br>|string<br>|関係対象のBox名<br>|
 #### エラーメッセージ一覧
 [エラーメッセージ一覧](200_Error_Messages.html)を参照
 
@@ -115,24 +116,54 @@ GET
 ```json
 {
   "d": {
-    "results": {
-      "Name": "{BoxName}",
-      "__published": "/Date(1349430328880)/",
-      "__updated": "/Date(1349430328880)/",
-      "Schema": null,
-      "__metadata": {
-        "etag": "1-1349430328880",
-        "type": "CellCtl.Box",
-        "uri": "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')"  
+    "results": [
+      {
+        "__metadata": {
+          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')",
+          "etag": "W/\"1-1486700131198\"",
+          "type": "CellCtl.Relation"
+        },
+        "Name": "{RelationName}",
+        "_Box.Name": "{BoxName}",
+        "__published": "/Date(1486700131198)/",
+        "__updated": "/Date(1486700131198)/",
+        "_Box": {
+          "__deferred": {
+            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_Box"
+          }
+        },
+        "_ExtCell": {
+          "__deferred": {
+            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_ExtCell"
+          }
+        },
+        "_ExtRole": {
+          "__deferred": {
+            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_ExtRole"
+          }
+        },
+        "_Role": {
+          "__deferred": {
+            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_Role"
+          }
+        }
       }
-    }
+    ]
   }
 }
 ```
 
 <br>
 ### CURLサンプル
-なし
+```sh
+curl
+"https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_Role" -X POST -i  -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '{"Name":"{RoleName}"}'
+```
+##### Relationを取得する場合
+```sh
+curl "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_Relation" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
+```
+
 <br>
 <br>
 <br>

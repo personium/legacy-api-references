@@ -146,9 +146,9 @@ POST
 <br>
 ### CURLサンプル
 
-##### AccountとRoleのnavigationProperty経由登録
+##### RoleのnavigationProperty経由登録
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Account('{AccountName}')/_Role" -X POST -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '{"Name":"{RoleName}"}'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Role('{RoleName}')/_Role" -X POST -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '{"Name":"{RoleName}"}'
 ```
 <br>
 <br>

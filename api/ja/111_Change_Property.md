@@ -53,13 +53,13 @@ PROPPATCH
 ##### XMLの構造
 |ノード名<br>|名前空間<br>|ノードタイプ<br>|概要<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|propertyupdate<br>|D:<br>|要素<br>|propertyupdateのルートを表し、setとremoveが子となる<br>| <br>
+|propertyupdate<br>|D:<br>|要素<br>|propertyupdateのルートを表し、setとremoveが子となる<br>| <br>|
 |set<br>|D:<br>|要素<br>|プロパティ設定を表し、1つ以上複数のpropが子となる<br>| <br>|
 |remove<br>|D:<br>|要素<br>|プロパティ削除設定を表し、1つ以上複数のpropが子となる<br>| <br>|
 |prop<br>|D:<br>|要素<br>|プロパティ値を表し、1つ以上複数の任意の要素が子となる<br>|set時：子のノード名がキーとなる<br>remove時：子のノードを名キーとして削除を行う<br>|
 ##### DTD表記
 ```dtd
-<!ELEMENT propertyupdate (set, remove)
+<!ELEMENT propertyupdate (set, remove) >
 <!ELEMENT set (prop*) >
 <!ELEMENT remove (prop*) >
 <!ELEMENT prop ANY>
@@ -117,46 +117,42 @@ PROPPATCH
 <!ELEMENT href (#PCDATA)>
 <!ELEMENT propstat (prop, status)>
 <!ELEMENT prop ANY>
-<!ELEMENT status (#PCDATA)                
+<!ELEMENT status (#PCDATA)   
 ```
 #### エラーメッセージ一覧
 [エラーメッセージ一覧](200_Error_Messages.html)を参照
 
 |コード<br>|メッセージ<br>|概要<br>|備考<br>|
 |:--|:--|:--|:--|
-|503<br>|Too many concurrent requests.<br>|更新系の処理が競合している場合<br>| <br>
-|400<br>|Bad Request<br>|リクエストボディの形式が不正<br>リクエストヘッダの形式が不正<br>| <br>
-|401<br>|Unauthorized<br>|認証トークンが無効<br>| <br>
-|403<br>|Forbidden<br>|アクセス権限が不足している場合<br>| <br>
-|404<br>|Not Found<br>|存在しないリソースを指定<br>| <br>
-|405<br>|Method Not Allowed<br>|許可していないリクエストメソッドを指定<br>| <br>
-|412<br>|Precondition Failed<br>|存在しないバージョンを指定<br>| <br>
+|400<br>|Bad Request<br>|リクエストボディの形式が不正<br>リクエストヘッダの形式が不正<br>| <br>|
+|401<br>|Unauthorized<br>|認証トークンが無効<br>| <br>|
+|403<br>|Forbidden<br>|アクセス権限が不足している場合<br>| <br>|
+|404<br>|Not Found<br>|存在しないリソースを指定<br>| <br>|
+|405<br>|Method Not Allowed<br>|許可していないリクエストメソッドを指定<br>| <br>|
+|412<br>|Precondition Failed<br>|存在しないバージョンを指定<br>| <br>|
+|503<br>|Too many concurrent requests.<br>|更新系の処理が競合している場合<br>| <br>|
 #### レスポンスサンプル
 ```xml
 <multistatus xmlns="DAV:">
     <response>
-        <href>http://localhost:9998/test_cell1/{BoxName}1/patchcol</href>
+        <href>https://{CellName}/{BoxName}/{ResourcePath}</href>
         <propstat>
             <prop>
-                <Z:Author xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/">Author1 update</Z:Author>
-                <p:hoge xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" xmlns:Z="http://www.w3.com/standards/z39.50/">fuga</p:hoge>
+                <Z:Author xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/">author1</Z:Author>
+                <p:hoge xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/">foo</p:hoge>
                 <Z:Author xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/"/>
-                <p:hoge xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" xmlns:Z="http://www.w3.com/standards/z39.50/"/>
+                <p:hoge xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/"/>
             </prop>
             <status>HTTP/1.1 200 OK</status>
         </propstat>
     </response>
 </multistatus>
-
 ```
 <br>
 ### CURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/cell' -X PROPPATCH -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8" ?>  <D:propertyupdate xmlns:D="DAV:"
-xmlns:p="urn:x-personium:xmlns" xmlns:Z="http://www.w3.com/standards/z39.50/"><D:set><D:prop>
-<Z:Author>${author1}</Z:Author><p:hoge>${hoge}</p:hoge></D:prop></D:set><D:remove>
-<D:prop><Z:Author/><p:hoge/></D:prop></D:remove></D:propertyupdate>'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ResourcePath}' -X PROPPATCH -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8" ?><D:propertyupdate xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" xmlns:Z="http://www.w3.com/standards/z39.50/"><D:set><D:prop><Z:Author>${author1}</Z:Author><p:hoge>${hoge}</p:hoge></D:prop></D:set><D:remove><D:prop><Z:Author/><p:hoge/></D:prop></D:remove></D:propertyupdate>'
 ```
 <br>
 <br>

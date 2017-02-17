@@ -91,7 +91,7 @@ GET
 |{2}<br>|__id<br>|string<br>|受信メッセージID<br>UUIDで「b5d008e9092f489c8d3c574a768afc33」のような32文字の文字列を返却<br>|
 |{2}<br>|_Box.Name<br>|string <br>|関係対象のボックス名<br>|
 |{2}<br>|InReplyTo<br>|string<br>|受信元メッセージID<br>UUIDで「b5d008e9092f489c8d3c574a768afc33」のような32文字の文字列を返却<br>|
-|{2}<br>|From<br>|string<br>|受信元セルURL<br>|
+|{2}<br>|From<br>|string<br>|送信元セルURL<br>|
 |{2}<br>|MulticastTo<br>|string<br>|受信先セルURL<br>複数セルが送信先の場合にCSV形式でセルのURLを返却<br>|
 |{2}<br>|Type<br>|string<br>|メッセージタイプ<br>メッセージ　：　message<br>関係登録依頼　：　req.relation.build<br>関係削除依頼　：　req.relation.break<br>|
 |{2}<br>|Title<br>|string<br>|メッセージタイトル<br>|

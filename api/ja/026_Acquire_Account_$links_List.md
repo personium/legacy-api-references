@@ -18,7 +18,7 @@ Accountに紐付いたODataリソースを一覧取得する
 <br>
 ### リクエスト
 #### リクエストURL
-Roleと紐付ける場合
+Roleと紐付いている場合
 ```
 /{CellName}/__ctl/Account(Name='{AccountName}')/$links/_Role
 ```
@@ -73,29 +73,41 @@ GET
 #### レスポンスヘッダ
 |ヘッダ名<br>|概要<br>|備考<br>|
 |:--|:--|:--|
-|X-Personium-Version<br>|APIの実行バージョン<br>|リクエストが処理されたAPIバージョン<br>|
-|Access-Control-Allow-Origin<br>|クロスドメイン通信許可ヘッダ<br>|返却値は"*"固定<br>|
 |Content-Type<br>|返却されるデータの形式<br>|&#160;<br>|
 |DataServiceVersion<br>|ODataのバージョン<br>|&#160;<br>|
+|Access-Control-Allow-Origin<br>|クロスドメイン通信許可ヘッダ<br>|返却値は"*"固定<br>|
+|X-Personium-Version<br>|APIの実行バージョン<br>|リクエストが処理されたAPIバージョン<br>|
+
 #### レスポンスボディ
-|項目名<br>|概要<br>|備考<br>|
-|:--|:--|:--|
-|d<br>|&#160;<br>|&#160;<br>|
-|d / results<br>|&#160;<br>|&#160;<br>|
-|d / results / uri<br>|紐付いたODataリソースへのURL<br>|&#160;<br>|
+|オブジェクト<br>|項目名<br>|Data Type<br>|備考<br>|
+|:--|:--|:--|:--|
+|ルート<br>|d<br>|object<br>|オブジェクト{1} &#160;<br>|
+|{1}<br>|results<br>|array<br>|オブジェクト{2}の配列<br>|
+|{2}<br>|uri<br>|string<br>|紐付いているODataリソースへのURL<br>|
 #### エラーメッセージ一覧
 [エラーメッセージ一覧](200_Error_Messages.html)を参照
 
 #### レスポンスサンプル
 ```json
-{"uri":"https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')"}
+{
+  "d": {
+    "results": [
+      {
+        "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')"
+      },
+      {
+        "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name=null)"
+      }
+    ]
+  }
+}
 ```
 
 <br>
 ### CURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Account(Name='{AccountName}')/$links/_Role" -X POST -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '{"uri":"https://{UnitFQDN}/{CellName}/__ctl/Role('{RoleName}')"}'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Account(Name='{AccountName}')/\$links/_Role" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
 ```
 <br>
 <br>

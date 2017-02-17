@@ -22,7 +22,6 @@ write
 #### メソッド
 GET
 #### リクエストクエリ
-###### 共通リクエストクエリ
 |クエリ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer<br>|クッキー認証値<br>|認証時にサーバから返却されたクッキー認証値<br>|×<br>|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br>|
@@ -37,9 +36,6 @@ GET
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
 |Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
-
-|ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
-|:--|:--|:--|:--|:--|
 |If-None-Match<br>|ETagの値を指定する<br>|String<br>以下のフォーマットでETag値を指定する<br>&quot;*&quot;<br>または、<br>"{半角数字}-{半角数字}"<br>|×<br>|例）ETag値「1-1372742704414」を指定する場合<br>　　"1-1372742704414"<br>|
 |Range<br>|リソースの一部を取得する際に範囲を指定する<br>|・データ型：String<br>【前提】<br>範囲指定の開始値は0スタート。取得ファイルのサイズがZ(byte)の場合、終端はZ-1(byte)<br>1.&quot;Range: bytes={半角数字}-{半角数字}&quot;<br>ex) &quot;Range: bytes=10-20&quot;<br>2.&quot;Range: bytes={半角数字}-&quot;<br>→範囲の開始値から取得ファイルの最後まで<br>ex) &quot;Range: bytes=10-&quot;<br>3.&quot;Range: bytes=-{半角数字}&quot;<br>→リソースの終端から指定した分を取得<br>ex) "Range: bytes=-20"<br>|×<br>|・開始値は取得ファイルのサイズより小さい値を指定<br>・指定されたRangeヘッダのフォーマットが不正な場合はRangeヘッダは無視される<br>【制限事項】<br>・マルチパートレスポンスには未対応<br>|
 #### リクエストボディ
@@ -97,7 +93,7 @@ Basic認証エラーの場合は 400 + WWW-Authenticated:Basicヘッダを返却
 ### CURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/test.txt" -X GET -i -H 'If-None-Match:"1-1372742704414"' -H 'Range:bytes=10-20 ' -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}" -X GET -i -H 'If-None-Match:"1-1372742704414"' -H 'Range:bytes=10-20 ' -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
 ```
 <br>
 <br>

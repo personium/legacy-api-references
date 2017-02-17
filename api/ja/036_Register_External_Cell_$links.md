@@ -16,7 +16,7 @@ ExtCellに$linkで指定したODataリソースを紐付ける<br>以下のOData
 <br>
 ### リクエスト
 #### リクエストURL
-##### Correlating with the role
+##### Roleと紐付ける場合
 ```
 /{CellName}/__ctl/ExtCell(Url='{ExtCellName}')/$links/_Role
 ```
@@ -24,7 +24,7 @@ ExtCellに$linkで指定したODataリソースを紐付ける<br>以下のOData
 ```
 /{CellName}/__ctl/ExtCell('{ExtCellName}')/$links/_Role
 ```
-##### Correlating with the relation
+##### Relationと紐付ける場合
 ```
 /{CellName}/__ctl/ExtCell(Url='{ExtCellName}')/$links/_Relation
 ```
@@ -54,10 +54,10 @@ JSON
 
 |項目名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|Url<br>|CellへのURL<br>|桁数：1&#65374;1024<br>URIの形式に従う<br>scheme：http, https<br>トレイリングスラッシュ(URL終端の/)必須<br>|○<br>|<br>|
+|Url<br>|CellへのURL<br>|桁数：1&#65374;1024<br>URIの形式に従う<br>scheme：http, https<br>|○<br>|<br>|
 #### リクエストサンプル
 ```json
-{"uri":"https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')"}
+{"uri":"https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')"}
 ```
 
 <br>
@@ -67,10 +67,9 @@ JSON
 #### レスポンスヘッダ
 |ヘッダ名<br>|概要<br>|備考<br>|
 |:--|:--|:--|
-|X-Personium-Version<br>|APIの実行バージョン<br>|リクエストが処理されたAPIバージョン<br>|
-|Access-Control-Allow-Origin<br>|クロスドメイン通信許可ヘッダ<br>|返却値は"*"固定<br>|
 |DataServiceVersion<br>|ODataのバージョン<br>|<br>|
-|ETag<br>|リソースのバージョン情報<br>|<br>|
+|Access-Control-Allow-Origin<br>|クロスドメイン通信許可ヘッダ<br>|返却値は"*"固定<br>|
+|X-Personium-Version<br>|APIの実行バージョン<br>|リクエストが処理されたAPIバージョン<br>|
 #### レスポンスボディ
 なし
 #### エラーメッセージ一覧
@@ -83,7 +82,7 @@ JSON
 ### CURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{CellName}')/$link/_Role" -X POST -i  -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '{"uri":"https://{UnitFQDN}/{CellName}/__ctl/Role('{RoleName}')/"}'
+curl "https://{UnitFQDN}/{CellName}/__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{ExtCellName}%2F')/\$links/_Relation" -X POST -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d "{\"uri\":\"https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')\"}"
 ```
 <br>
 <br>

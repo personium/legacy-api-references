@@ -52,7 +52,7 @@ POST
 ##### リクエストサンプル
 ```json
 {
-  "Url": "https://{UnitFQDN}/{CellName}/",
+  "Name": "{RoleName}"
 }
 ```
 
@@ -63,30 +63,31 @@ POST
 #### レスポンスヘッダ
 |ヘッダ名<br>|概要<br>|備考<br>|
 |:--|:--|:--|
-|X-Personium-Version<br>|APIの実行バージョン<br>|リクエストが処理されたAPIバージョン<br>|
-|Access-Control-Allow-Origin<br>|クロスドメイン通信許可ヘッダ<br>|返却値は"*"固定<br>|
 |Content-Type<br>|返却されるデータの形式<br>|&#160;<br>|
 |Location<br>|作成したリソースへのURL<br>|&#160;<br>|
-|ETag<br>|リソースのバージョン情報<br>|&#160;<br>|
 |DataServiceVersion<br>|ODataのバージョン<br>|&#160;<br>|
+|ETag<br>|リソースのバージョン情報<br>|&#160;<br>|
+|Access-Control-Allow-Origin<br>|クロスドメイン通信許可ヘッダ<br>|返却値は"*"固定<br>|
+|X-Personium-Version<br>|APIの実行バージョン<br>|リクエストが処理されたAPIバージョン<br>|
 #### レスポンスボディ
 |オブジェクト<br>|項目名<br>|Data Type<br>|備考<br>|
 |:--|:--|:--|:--|
 |ルート&#160;&#160;<br>|d<br>|object<br>|オブジェクト{1}<br>|
 |{1}<br>|__count<br>|string<br>|$inlinecountクエリでの取得結果件数<br>|
 |{1}<br>|results<br>|array<br>|オブジェクト{2}の配列<br>|
+|{2}<br>|__metadata<br>|object<br>|オブジェクト{3}<br>|
+|{3}<br>|uri<br>|string<br>|作成したリソースへのURL<br>|
+|{3}<br>|etag<br>|string<br>|Etag値<br>|
 |{2}<br>|__published<br>|string<br>|作成日(UNIX時間)<br>|
 |{2}<br>|__updated<br>|string<br>|更新日(UNIX時間)<br>|
-|{2}<br>|__metadata<br>|object<br>|オブジェクト{3}<br>|
-|{3}<br>|etag<br>|string<br>|Etag値<br>|
-|{3}<br>|uri<br>|string<br>|作成したリソースへのURL<br>|
+
 ##### ExtCellを登録した場合
 ExtCell固有レスポンスボディ
 
 |オブジェクト<br>|項目名<br>|Data Type<br>|備考<br>|
 |:--|:--|:--|:--|
-|{3}<br>|type<br>|string<br>|CellCtl.ExtCell<br>|
-|{2}<br>|Url<br>|string<br>|対象CellのURL<br>|
+|{3}<br>|type<br>|string<br>|CellCtl.ExtRole<br>|
+|{2}<br>|Name<br>|string<br>|関係対象のRole名<br>|
 #### エラーメッセージ一覧
 [エラーメッセージ一覧](200_Error_Messages.html)を参照
 
@@ -95,13 +96,38 @@ ExtCell固有レスポンスボディ
 {
   "d": {
     "results": {
-      "__published": "/Date(1349353355940)/",
-      "__updated": "/Date(1349353355940)/",
-      "Url": "https://{UnitFQDN}/{CellName}/",
       "__metadata": {
-        "etag": "1-1349353355940",
-        "type": "CellCtl.ExtCell",
-        "uri": "https://{UnitFQDN}/{CellName}/__ctl/ExtCell('https://{UnitFQDN}/{CellName2}')"  
+        "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')",
+        "etag": "W/\"1-1487320623218\"",
+        "type": "CellCtl.Role"
+      },
+      "Name": "{RoleName}",
+      "__published": "/Date(1487320623218)/",
+      "__updated": "/Date(1487320623218)/",
+      "_Box": {
+        "__deferred": {
+          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_Box"
+        }
+      },
+      "_Account": {
+        "__deferred": {
+          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_Account"
+        }
+      },
+      "_ExtCell": {
+        "__deferred": {
+          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_ExtCell"
+        }
+      },
+      "_ExtRole": {
+        "__deferred": {
+          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_ExtRole"
+        }
+      },
+      "_Relation": {
+        "__deferred": {
+          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_Relation"
+        }
       }
     }
   }
@@ -109,7 +135,11 @@ ExtCell固有レスポンスボディ
 ```
 
 ### CURLサンプル
-なし
+##### RoleのnavigationProperty経由登録
+```sh
+curl "https://{UnitFQDN}/{CellName}/__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{ExtCellName}%2F')/_Role" -X POST -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '{ "Name": "{RoleName}"}'
+```
+
 <br>
 <br>
 <br>

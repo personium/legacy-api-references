@@ -1,6 +1,6 @@
 # ComplexType_$links削除
 ### 概要
-ComplexType の$link情報を削除する
+ComplexType の$links情報を削除する
 
 Propertyを削除する際に、使用しているComplexTypeが存在しない場合に限り、ユーザデータの削除が可能。
 

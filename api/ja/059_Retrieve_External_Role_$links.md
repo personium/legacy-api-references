@@ -12,7 +12,7 @@ ExtRoleに紐付いたODataリソースを一覧取得する<br>以下のOData�
 * リクエストヘッダのAcceptは無視される
 * リクエストヘッダのContent-Typeは全てapplication/jsonとして扱う
 * リクエストボディはjson形式のみ受け付ける
-* レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはjson形式とする
+* レスポンスヘッダのContent-Typeはapplication/jsonのみをサポ  ートし、レスポンスボディはjson形式とする
 * $formatクエリオプションは無視される
 
 <br>
@@ -20,22 +20,14 @@ ExtRoleに紐付いたODataリソースを一覧取得する<br>以下のOData�
 #### リクエストURL
 ##### Roleとの$links
 ```
-/{CellName}/__ctl/ExtCell(Url='{url_name}')/$links/_Role
-```
-または、
-```
-/{CellName}/__ctl/ExtCell('{url_name}')/$links/_Role
+/{CellName}/__ctl/ExtRole(ExtRole='{ExtRole}')/$links/_Role
 ```
 ##### Relationとの$links
 ```
-/{CellName}/__ctl/ExtCell(Url='{url_name}')/$links/_Relation
-```
-または、
-```
-/{CellName}/__ctl/ExtCell('{url_name}')/$links/_Relation
+/{CellName}/__ctl/ExtRole(ExtRole='{ExtRole}')/$links/_Relation
 ```
 
-※ {url_name}についてはURLエンコードが必要です。  
+※ {ExtRole}についてはURLエンコードが必要です。  
 ※ \_Box.Nameパラメタを省略した場合は、nullが指定されたものとする
 
 #### メソッド
@@ -90,10 +82,11 @@ GET
 
 |ヘッダ名<br>|概要<br>|備考<br>|
 |:--|:--|:--|
-|X-Personium-Version<br>|APIの実行バージョン<br>|リクエストが処理されたAPIバージョン<br>|
-|Access-Control-Allow-Origin<br>|クロスドメイン通信許可ヘッダ<br>|返却値は"*"固定<br>|
 |Content-Type<br>|返却されるデータの形式<br>|<br>|
 |DataServiceVersion<br>|ODataのバージョン<br>|<br>|
+|Access-Control-Allow-Origin<br>|クロスドメイン通信許可ヘッダ<br>|返却値は"*"固定<br>|
+|X-Personium-Version<br>|APIの実行バージョン<br>|リクエストが処理されたAPIバージョン<br>|
+
 #### レスポンスボディ
 
 |オブジェクト<br>|項目名<br>|Data Type<br>|備考<br>|
@@ -110,15 +103,22 @@ GET
   "d": {
     "results": [
       {
-        "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name=null)"
+        "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')"
       },
       {
-        "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='box1')"
+        "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name=null)"
       }
     ]
   }
 }
 ```
+<br>
+### CURLサンプル
+
+```sh
+curl "https://{UnitFQDN}/{CellName}/__ctl/ExtRole(ExtRole='https%3A%2F%2F{UnitFQDN}%2F{CellName}%2F__role%2F__%2F{ExtRoleName}',_Relation.Name='{RelationName}',_Relation._Box.Name='{BoxName}')/\$links/_Role" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
+```
+
 <br>
 <br>
 <br>

@@ -1,6 +1,6 @@
 # Extcell_$links削除
 ### 概要
-ExtCellとの$link情報を削除する
+ExtCellとの$links情報を削除する
 ### 必要な権限
 なし
 ### 制限事項

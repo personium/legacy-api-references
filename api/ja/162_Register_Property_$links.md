@@ -1,6 +1,6 @@
 # Property_$links登録
 ### 概要
-Propertyに$linkで指定したODataリソースを紐付ける  
+Propertyに$linksで指定したODataリソースを紐付ける  
 以下のODataリソースと紐付けることができる  
 * EntityType
 

@@ -1,6 +1,6 @@
 # Role_$links削除
 ### 概要
-Roleとの$link情報を削除する
+Roleとの$links情報を削除する
 
 ### 必要な権限
 なし

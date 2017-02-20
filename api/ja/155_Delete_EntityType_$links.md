@@ -1,6 +1,6 @@
 # EntityType_$links削除
 ### 概要
-Entity Typeの$link情報を削除する
+Entity Typeの$links情報を削除する
 ### 必要な権限
 alter-schema
 ### 制限事項
@@ -12,7 +12,7 @@ alter-schema
 <br>
 ### リクエスト
 #### リクエストURL
-AssociationEndとの$Links
+AssociationEndとの$links
 ```
 /{CellName}/{BoxName}/{CollectionName}/EntityType('{EntitytypeName}')/$links/_AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntitytypeName}')
 または、

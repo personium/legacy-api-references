@@ -1,6 +1,6 @@
 # ComplexType_$links登録
 ### 概要
-ComplexTypeに$linkで指定したODataリソースを紐付ける  
+ComplexTypeに$linksで指定したODataリソースを紐付ける  
 以下のODataリソースと紐付けることができる
 * Property
 

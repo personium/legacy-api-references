@@ -1,6 +1,6 @@
 # Role_$links更新
 ### 概要
-Roleの$link情報を更新する
+Roleの$links情報を更新する
 
 ### 必要な権限
 なし

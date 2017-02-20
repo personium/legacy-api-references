@@ -1,6 +1,6 @@
 # Role_$links登録
 ### 概要
-Roleに$linkで指定したODataリソースを紐付ける
+Roleに$linksで指定したODataリソースを紐付ける
 * Account
 * ExtCell
 * ExtRole

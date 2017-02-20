@@ -1,9 +1,6 @@
 # ExtRole_$links削除
 ### 概要
-ExtRoleとの$link情報を削除する<br>以下のODataリソースを指定できる
-
-* Relation
-* Role
+ExtRoleに紐付いたRoleの$links情報を削除する
 
 ### 必要な権限
 なし
@@ -18,55 +15,18 @@ ExtRoleとの$link情報を削除する<br>以下のODataリソースを指定�
 <br>
 ### リクエスト
 #### リクエストURL
-##### Roleとの$links
 ```
-/{CellName}/__ctl/ExtCell(Url='{url_name}')/$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')
-```
-または、
-```
-/{CellName}/__ctl/ExtCell(Url='{url_name}')/$links/_Role(Name='{RoleName}')
+/{CellName}/__ctl/ExtRole(ExtRole='{ExtRole}')/$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')
 ```
 または、
 ```
-/{CellName}/__ctl/ExtCell(Url='{url_name}')/$links/_Role('{RoleName}')
+/{CellName}/__ctl/ExtRole(ExtRole='{ExtRole}')/$links/_Role(Name='{RoleName}')
 ```
 または、
 ```
-/{CellName}/__ctl/ExtCell('{url_name}')/$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')
+/{CellName}/__ctl/ExtRole(ExtRole='{ExtRole}')/$links/_Role('{RoleName}')
 ```
-または、
-```
-/{CellName}/__ctl/ExtCell('{url_name}')/$links/_Role(Name='{RoleName}')
-```
-または、
-```
-/{CellName}/__ctl/ExtCell('{url_name}')/$links/_Role('{RoleName}')
-```
-##### Relationとの$links
-```
-/{CellName}/__ctl/ExtCell(Url='{url_name}')/$links/_Relation(Name='{RelationName}',_Box.Name='{BoxName}')
-```
-または、
-```
-/{CellName}/__ctl/ExtCell(Url='{url_name}')/$links/_Relation(Name='{RelationName}')
-```
-または、
-```
-/{CellName}/__ctl/ExtCell(Url='{url_name}')/$links/_Relation('{RelationName}')
-```
-または、
-```
-/{CellName}/__ctl/ExtCell('{url_name}')/$links/_Relation(Name='{RelationName}',_Box.Name='{BoxName}')
-```
-または、
-```
-/{CellName}/__ctl/ExtCell('{url_name}')/$links/_Relation(Name='{RelationName}')
-```
-または、
-```
-/{CellName}/__ctl/ExtCell('{url_name}')/$links/_Relation('{RelationName}')
-```
-※ {url_name}についてはURLエンコードが必要  
+※ {ExtRole}についてはURLエンコードが必要
 ※ \_Box.Nameパラメタを省略した場合は、nullが指定されたものとする
 #### メソッド
 DELETE
@@ -100,9 +60,10 @@ DELETE
 
 |ヘッダ名<br>|概要<br>|備考<br>|
 |:--|:--|:--|
-|X-Personium-Version<br>|APIの実行バージョン<br>|リクエストが処理されたAPIバージョン<br>|
-|Access-Control-Allow-Origin<br>|クロスドメイン通信許可ヘッダ<br>|返却値は"*"固定<br>|
 |DataServiceVersion<br>|ODataのバージョン<br>|&#160;<br>|
+|Access-Control-Allow-Origin<br>|クロスドメイン通信許可ヘッダ<br>|返却値は"*"固定<br>|
+|X-Personium-Version<br>|APIの実行バージョン<br>|リクエストが処理されたAPIバージョン<br>|
+
 #### レスポンスボディ
 なし
 
@@ -114,7 +75,9 @@ DELETE
 
 ### CURLサンプル
 
-なし
+```sh
+curl "https://{UnitFQDN}/{CellName}/__ctl/ExtRole(ExtRole='https%3A%2F%2F{UnitFQDN}%2F{CellName}%2F__role%2F__%2F{ExtRoleName}',_Relation.Name='{RelationName}',_Relation._Box.Name='{BoxName}')/\$links/_Role('{RoleName}')" -X DELETE -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
+```
 <br>
 <br>
 <br>

@@ -38,11 +38,8 @@ PUT
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
 |Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
-
-|ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
-|:--|:--|:--|:--|:--|
 |If-Match<br>|対象ETag値を指定する<br>|ETag値<br>|×<br>|省略時は[*]として扱う<br>|
-|Content-Type<br>|登録・更新ファイルのコンテンツ形式を指定する<br>|String<br>|○<br>|SWF形式で登録・更新する場合<br>Content-Type:application/x-shockwave-flash<br>PDF形式で登録・更新する場合<br>Content-Type:application/pdf<br>JPG形式で登録・更新する場合<br>Content-Type:image/jpeg<br>js形式で登録・更新する場合<br>Content-Type:application/x-javascript<br>|
+|Content-Type<br>|登録・更新ファイルのコンテンツ形式を指定する<br>|String<br>|×<br>|SWF形式で登録・更新する場合<br>Content-Type:application/x-shockwave-flash<br>PDF形式で登録・更新する場合<br>Content-Type:application/pdf<br>JPG形式で登録・更新する場合<br>Content-Type:image/jpeg<br>js形式で登録・更新する場合<br>Content-Type:application/x-javascript<br>|
 #### リクエストボディ
 |概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|
@@ -55,6 +52,7 @@ PUT
 #### ステータスコード
 |コード<br>|メッセージ<br>|概要<br>|
 |:--|:--|:--|
+|201<br>|No Content<br>|登録成功時<br>|
 |204<br>|No Content<br>|更新成功時<br>|
 #### レスポンスヘッダ
 |ヘッダ名<br>|概要<br>|備考<br>|
@@ -83,7 +81,7 @@ PUT
 ### CURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/test.txt' -X PUT -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '【ファイル内容】'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ResourceName}" -X PUT -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '{【ファイル内容】}'
 ```
 <br>
 <br>

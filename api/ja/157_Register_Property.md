@@ -20,7 +20,7 @@ alter-schema
 ### リクエスト
 #### リクエストURL
 ```
-/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/Property
+/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/Property
 ```
 #### メソッド
 POST
@@ -62,7 +62,7 @@ JSON
 |IsKey<br>|主キー設定<br>|true / false<br>デフォルト値は false<br>|×<br>| <br>|
 |UniqueKey<br>|ユニークキー設定<br>|桁数：1&#65374;128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)は指定不可<br>|×<br>| <br>|
 
-##### Valid values &#8203;&#8203;for DefaultValue
+##### Valid values for DefaultValue
 DefaultValueの有効値はTypeの値（型定義）によって異なり、以下の定義となる型の異なる項目についても文字列で定義を行う
 
 |type値<br>|有効値<br>|
@@ -75,8 +75,8 @@ DefaultValueの有効値はTypeの値（型定義）によって異なり、以�
 #### リクエストサンプル
 ```json
 {
-   "Name": "PetName",
-  "_EntityType.Name": "Profile",
+   "Name": "{PropertyName}",
+  "_EntityType.Name": "{EntityTypeName}",
   "Type": "Edm.String",
   "Nullable": true,
   "DefaultValue": null,
@@ -94,15 +94,15 @@ DefaultValueの有効値はTypeの値（型定義）によって異なり、以�
 ##### 共通レスポンスヘッダ
 |ヘッダ名<br>|概要<br>|備考<br>|
 |:--|:--|:--|
-|X-Personium-Version<br>|APIの実行バージョン<br>|リクエストが処理されたAPIバージョン<br>|
 |Access-Control-Allow-Origin<br>|クロスドメイン通信許可ヘッダ<br>|返却値は"*"固定<br>|
+|X-Personium-Version<br>|APIの実行バージョン<br>|リクエストが処理されたAPIバージョン<br>|
 ##### ODataレスポンスヘッダ
 |ヘッダ名<br>|概要<br>|備考<br>|
 |:--|:--|:--|
 |Content-Type<br>|返却されるデータの形式<br>| <br>
 |Location<br>|作成したリソースへのURL<br>| <br>
-|ETag<br>|リソースのバージョン情報<br>| <br>
 |DataServiceVersion<br>|ODataのバージョン<br>| <br>
+|ETag<br>|リソースのバージョン情報<br>| <br>
 #### レスポンスボディ
 ##### 共通レスポンスボディ
 レスポンスはJSONオブジェクトで、オブジェクト（サブオブジェクト）に定義されるキー(名前)と型、並びに値の対応は以下のとおりです。
@@ -112,24 +112,24 @@ DefaultValueの有効値はTypeの値（型定義）によって異なり、以�
 |ルート<br>|d<br>|object<br>|オブジェクト{1}<br>|
 |{1}<br>|__count<br>|string<br>|$inlinecountクエリでの取得結果件数<br>|
 |{1}<br>|results<br>|array<br>|オブジェクト{2}の配列<br>|
+|{2}<br>|__metadata<br>|object<br>|オブジェクト{3}<br>|
+|{3}<br>|uri<br>|string<br>|作成したリソースへのURL<br>|
+|{3}<br>|etag<br>|string<br>|Etag値<br>|
 |{2}<br>|__published<br>|string<br>|作成日(UNIX時間)<br>|
 |{2}<br>|__updated<br>|string<br>|更新日(UNIX時間)<br>|
-|{2}<br>|__metadata<br>|object<br>|オブジェクト{3}<br>|
-|{3}<br>|etag<br>|string<br>|Etag値<br>|
-|{3}<br>|uri<br>|string<br>|作成したリソースへのURL<br>|
 ##### Property固有レスポンスボディ
 |オブジェクト<br>|名前（キー）<br>|型<br>|値<br>|
 |:--|:--|:--|:--|
-|{3}<br>|typeS<br>|string<br>|ODataSvcSchema.AssociationEnd<br>|
+|{3}<br>|type<br>|string<br>|ODataSvcSchema.Property<br>|
 |{2}<br>|Name<br>|string<br>|Property名<br>
 |{2}<br>|_EntityType.Name<br>|string<br>|紐付くEntityType名<br>
 |{2}<br>|Type<br>|string<br>|型定義<br>
 |{2}<br>|Nullable<br>|boolean<br>|Null値許可<br>
-|{2}<br>|IsDeclared<br>|boolean<br>|Declaredかの真偽<br>
 |{2}<br>|DefaultValue<br>|string<br>|デフォルト値<br>
 |{2}<br>|CollectionKind<br>|string<br>|配列種別<br>
 |{2}<br>|IsKey<br>|boolean<br>|主キー設定<br>
 |{2}<br>|UniqueKey<br>|string<br>|ユニークキー設定<br>
+|{2}<br>|IsDeclared<br>|boolean<br>|Declaredかの真偽<br>
 #### エラーメッセージ一覧
 [エラーメッセージ一覧](200_Error_Messages.html)を参照
 #### レスポンスサンプル
@@ -137,26 +137,22 @@ DefaultValueの有効値はTypeの値（型定義）によって異なり、以�
 {
   "d": {
     "results": {
-      "_EntityType": {
-        "__deferred": {
-          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/Property(Name='PetName',_EntityType.Name='Profile')/_EntityType"
-        }
+      "__metadata": {
+        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/Property(Name='{PropertyName}',_EntityType.Name='{EntityTypeName}')",
+        "etag": "W/\"1-1487635336196\"",
+        "type": "ODataSvcSchema.Property"
       },
-      "Name": "PetName",
-      "_EntityType.Name": "Profile",
+      "Name": "{PropertyName}",
+      "_EntityType.Name": "{EntityTypeName}",
       "Type": "Edm.String",
       "Nullable": true,
       "DefaultValue": null,
       "CollectionKind": "None",
       "IsKey": true,
       "UniqueKey": null,
-      "__published": "/Date(1349434504818)/",
-      "__updated": "/Date(1349434504818)/",
-      "__metadata": {
-        "etag": "1-1349434504818",
-        "type": "ODataSvcSchema.Property",
-        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/Property(Name='PetName',_EntityType.Name='Profile')"
-      }
+      "IsDeclared": true,
+      "__published": "/Date(1487635336196)/",
+      "__updated": "/Date(1487635336196)/"
     }
   }
 }
@@ -166,16 +162,7 @@ DefaultValueの有効値はTypeの値（型定義）によって異なり、以�
 ### CURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}$metadata/Property" -X POST -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '{
-  "Name": "PetName",
-  "_EntityType.Name": "Profile",
-  "Type": "Edm.String",
-  "Nullable": true,
-  "DefaultValue": null,
-  "CollectionKind": "None",
-  "IsKey": true,
-  "UniqueKey": null
-}'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata/Property" -X POST -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '{"Name": "{PetName}","_EntityType.Name": "{EntityTypeName}","Type": "Edm.String","Nullable": true,"DefaultValue": null,"CollectionKind": "None","IsKey": true,"UniqueKey": null}'
 ```
 <br>
 <br>

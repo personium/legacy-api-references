@@ -15,7 +15,7 @@ alter-schema
 ### リクエスト
 #### リクエストURL
 ```
-/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/EntityType('{EntityName}')
+/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/EntityType('{EntityName}')
 ```
 #### メソッド
 PUT
@@ -64,7 +64,7 @@ JSON
 
 #### リクエストサンプル
 ```json
-{"Name":"animal"}
+{"Name":"{EntityTypeName}"}
 ```
 
 <br>
@@ -95,7 +95,7 @@ JSON
 ### CURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/EntityType('animal')" -X PUT -i -H 'If-Match: *'' -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '{"Name":"{EntityName}"}'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata/EntityType('{EntityTypeName}')" -X PUT -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '{"Name":"{EntityTypeName}"}'
 ```
 <br>
 <br>

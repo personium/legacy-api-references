@@ -18,7 +18,7 @@ alter-schema
 ### リクエスト
 #### リクエストURL
 ```
-/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/EntityType
+/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/EntityType
 ```
 
 #### メソッド
@@ -78,12 +78,12 @@ JSON
 
 |ヘッダ名<br>|概要<br>|備考<br>|
 |:--|:--|:--|
-|X-Personium-Version<br>|APIの実行バージョン<br>|リクエストが処理されたAPIバージョン<br>|
-|Access-Control-Allow-Origin<br>|クロスドメイン通信許可ヘッダ<br>|返却値は"*"固定<br>|
 |Content-Type<br>|返却されるデータの形式<br>| <br>|
 |Location<br>|作成したリソースへのURL<br>| <br>|
-|ETag<br>|リソースのバージョン情報<br>| <br>|
 |DataServiceVersion<br>|ODataのバージョン<br>| <br>|
+|ETag<br>|リソースのバージョン情報<br>| <br>|
+|Access-Control-Allow-Origin<br>|クロスドメイン通信許可ヘッダ<br>|返却値は"*"固定<br>|
+|X-Personium-Version<br>|APIの実行バージョン<br>|リクエストが処理されたAPIバージョン<br>|
 
 #### レスポンスボディ
 ##### 共通レスポンスボディ
@@ -94,11 +94,11 @@ JSON
 |ルート<br>|d<br>|object<br>|オブジェクト{1}<br>|
 |{1}<br>|__count<br>|string<br>|$inlinecountクエリでの取得結果件数<br>|
 |{1}<br>|results<br>|array<br>|オブジェクト{2}の配列<br>|
+|{2}<br>|__metadata<br>|object<br>|オブジェクト{3}<br>|
+|{3}<br>|uri<br>|string<br>|作成したリソースへのURL<br>|
+|{3}<br>|etag<br>|string<br>|Etag値<br>|
 |{2}<br>|__published<br>|string<br>|作成日(UNIX時間)<br>|
 |{2}<br>|__updated<br>|string<br>|更新日(UNIX時間)<br>|
-|{2}<br>|__metadata<br>|object<br>|オブジェクト{3}<br>|
-|{3}<br>|etag<br>|string<br>|Etag値<br>|
-|{3}<br>|uri<br>|string<br>|作成したリソースへのURL<br>|
 
 ##### EntityType固有レスポンスボディ
 
@@ -115,24 +115,14 @@ JSON
 {
   "d": {
     "results": {
-      "_AssociationEnd": {
-        "__deferred": {
-          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/$metadata/EntityType('{EntitytypeName}')/_AssociationEnd"
-        }
-      },
-      "Name": "entityType",
-      "__published": "/Date(1349434504818)/",
-      "__updated": "/Date(1349434504818)/",
-      "_Property": {
-        "__deferred": {
-          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/$metadata/EntityType('{EntitytypeName}')/_Property"
-        }
-      },
       "__metadata": {
-        "etag": "1-1349434504818",
-        "type": "ODataSvcSchema.EntityType",
-        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/$metadata/EntityType('{EntitytypeName}')"
-      }
+        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/$metadata/EntityType('{EntitytypeName}')",
+        "etag": "W/\"1-1487589344011\"",
+        "type": "ODataSvcSchema.EntityType"
+      },
+      "Name": "{EntitytypeName}",
+      "__published": "/Date(1487589344011)/",
+      "__updated": "/Date(1487589344011)/"
     }
   }
 }
@@ -142,7 +132,7 @@ JSON
 ### CURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/EntityType" -X POST -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '{ "Name": "animal" }'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata/EntityType" -X POST -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '{ "Name": "{EntityTypeName}" }'
 ```
 <br>
 <br>

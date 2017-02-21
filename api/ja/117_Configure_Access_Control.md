@@ -113,7 +113,7 @@ DTD表記
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <D:acl xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns"
-       xml:base="https://example.com/test_cell1/__role/box1/"
+       xml:base="https://{UnitFQDN}/{CellName}/__role/{BoxName}/"
        p:requireSchemaAuthz="public">
     <D:ace>
         <D:principal>
@@ -146,7 +146,7 @@ DTD表記
 
 |ヘッダ名<br>|概要<br>|備考<br>|
 |:--|:--|:--|
-|Content-Type<br>|返却されるデータの形式<br>| <br>|
+|Content-Type<br>|返却されるデータの形式<br>|更新・作成時に失敗した場合のみ返却する<br>|
 #### レスポンスボディ
 なし
 
@@ -155,14 +155,13 @@ DTD表記
 
 |コード<br>|メッセージ<br>|概要<br>|備考<br>|
 |:--|:--|:--|:--|
-|503<br>|Too many concurrent requests.<br>|更新系の処理が競合している場合<br>| <br>|
 |400<br>|Bad Request<br>|リクエストボディの形式が不正 <br>リクエストヘッダの形式が不正<br>Depthヘッダの値が不正<br>| <br>
 |401<br>|Unauthorized<br>|認証トークンが無効<br>| <br>|
 |403<br>|Forbidden<br>|アクセス権限が不足している場合<br>| <br>|
 |404<br>|Not Found<br>|存在しないリソースを指定<br>| <br>|
 |405<br>|Method Not Allowed<br>|許可していないリクエストメソッドを指定<br>| <br>|
 |412<br>|Precondition Failed<br>|存在しないバージョンを指定<br>| <br>|
-
+|503<br>|Too many concurrent requests.<br>|更新系の処理が競合している場合<br>| <br>|
 #### レスポンスサンプル
 なし
 
@@ -170,7 +169,7 @@ DTD表記
 ### CURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/colection_name" -X ACL -i
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}" -X ACL -i
 -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d
 '<?xml version="1.0" encoding="utf-8" ?>
  <D:acl xmlns:D="DAV:" xml:base="https://{UnitFQDN}/{CellName}/__role/{BoxName}/"　xmlns:p="urn:x-personium:xmlns" p:requireSchemaAuthz="none">

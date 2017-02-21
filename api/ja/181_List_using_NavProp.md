@@ -10,13 +10,13 @@ read
 ### リクエスト
 #### リクエストURL
 ```
-/{CellName}/{BoxName}/{OdataCollecitonPath}/{EntitySet}({KeyPredicate})/{{NavigationProperty}}
+/{CellName}/{BoxName}/{ODataCollecitonName}/{EntitySet}({KeyPredicate})/{{NavigationProperty}}
 ```
 |パス<br>|概要<br>|
 |:--|:--|
 |{CellName}<br>|セル名<br>|
 |{BoxName}<br>|ボックス名<br>|
-|{OdataCollecitonPath}<br>|コレクション名<br>|
+|{ODataCollecitonName}<br>|コレクション名<br>|
 |{EntitySet}<br>|EntitySet名<br>|
 |KeyPredicate<br>|EntityのID<br>|
 |{NavigationProperty}<br>|NavigationProperty名<br>|
@@ -168,7 +168,7 @@ GET
 ### CURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/parent('100-1_20101108-111352092')/_child" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/parent('100-1_20101108-111352092')/_child" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
 ```
 <br>
 <br>

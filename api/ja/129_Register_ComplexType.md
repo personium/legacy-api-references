@@ -15,7 +15,7 @@ alter-schema
 ### リクエスト
 #### リクエストURL
 ```
-/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/ComplexType
+/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/ComplexType
 ```
 #### メソッド
 POST
@@ -55,7 +55,7 @@ JSON
 
 |項目名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|Name<br>|Association名<br>|桁数：1&#65374;128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)は指定不可<br>null<br>|○<br>| <br>
+|Name<br>|ComplexType名<br>|桁数：1&#65374;128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)は指定不可<br>null<br>|○<br>| <br>
 
 #### リクエストサンプル
 ```json
@@ -70,17 +70,17 @@ JSON
 
 |ヘッダ名<br>|概要<br>|備考<br>|
 |:--|:--|:--|
-|X-Personium-Version<br>|APIの実行バージョン<br>|リクエストが処理されたAPIバージョン<br>|
 |Access-Control-Allow-Origin<br>|クロスドメイン通信許可ヘッダ<br>|返却値は"*"固定<br>|
+|X-Personium-Version<br>|APIの実行バージョン<br>|リクエストが処理されたAPIバージョン<br>|
 
 ##### ODataレスポンスヘッダ
 
 |ヘッダ名<br>|概要<br>|備考<br>|
 |:--|:--|:--|
 |Content-Type<br>|返却されるデータの形式<br>| <br>
-|Location<br>|作成したリソースへのURL<br>|&#16#160;<br>
-|ETag<br>|リソースのバージョン情報<br>| <br>
+|Location<br>|作成したリソースへのURL<br>|<br>
 |DataServiceVersion<br>|ODataのバージョン<br>| <br>
+|ETag<br>|リソースのバージョン情報<br>| <br>
 
 #### レスポンスボディ
 ##### 共通レスポンスボディ
@@ -92,37 +92,32 @@ JSON
 |ルート<br>|d<br>|object<br>|オブジェクト{1}<br>|
 |{1}<br>|__count<br>|string<br>|$inlinecountクエリでの取得結果件数<br>|
 |{1}<br>|results<br>|array<br>|オブジェクト{2}の配列<br>|
+|{2}<br>|__metadata<br>|object<br>|オブジェクト{3}<br>|
+|{3}<br>|uri<br>|string<br>|作成したリソースへのURL<br>|
+|{3}<br>|etag<br>|string<br>|Etag値<br>|
 |{2}<br>|__published<br>|string<br>|作成日(UNIX時間)<br>|
 |{2}<br>|__updated<br>|string<br>|更新日(UNIX時間)<br>|
-|{2}<br>|__metadata<br>|object<br>|オブジェクト{3}<br>|
-|{3}<br>|etag<br>|string<br>|Etag値<br>|
-|{3}<br>|uri<br>|string<br>|作成したリソースへのURL<br>|
 
 ##### ComplexType固有レスポンスボディ
 
 |オブジェクト<br>|名前（キー）<br>|型<br>|値<br>|
 |:--|:--|:--|:--|
-|{3}<br>|type<br>string<br>|ODataSvcSchema.ComplexType<br>|
-|{2}<br>|Name<br>string<br>|ComplexType名<br>|
+|{3}<br>|type<br>|string<br>|ODataSvcSchema.ComplexType<br>|
+|{2}<br>|Name<br>|string<br>|ComplexType名<br>|
 
 #### レスポンスサンプル
 ```json
 {
-   "d": {
+  "d": {
     "results": {
-      "_Property": {
-        "__deferred": {
-          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/ComplexType('Address')/_Property"
-        }
-      },
-      "Name": "Address",
-      "__published": "/Date(1349434504818)/",
-      "__updated": "/Date(1349434504818)/",
       "__metadata": {
-        "etag": "1-1349434504818",
-        "type": "ODataSvcSchema.ComplexType",
-        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/ComplexType('Address')"
-      }
+        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/ComplexType('{ComplexTypeName}')",
+        "etag": "W/\"1-1487650447372\"",
+        "type": "ODataSvcSchema.ComplexType"
+      },
+      "Name": "{ComplexTypeName}",
+      "__published": "/Date(1487650447372)/",
+      "__updated": "/Date(1487650447372)/"
     }
   }
 }
@@ -145,7 +140,7 @@ JSON
 ### CURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/ComplexType('Address')/$links/_Property" -X POST -i -H  'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'  -d '{"uri":"https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/Property('PostalCode')"}'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata/ComplexType" -X POST -i -H  'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '{"Name": "{ComplexTypeName}"}'
 ```
 <br>
 <br>

@@ -12,7 +12,7 @@ read
 ### リクエスト
 #### リクエストURL
 ```
-/{CellName}/{BoxName}/{odata_colname}/$metadata
+/{CellName}/{BoxName}/{OdataCollectionName}/$metadata
 ```
 #### メソッド
 GET
@@ -47,137 +47,57 @@ GET
 
 |ヘッダ名<br>|概要<br>|備考<br>|
 |:--|:--|:--|
-|X-Personium-Version<br>|APIの実行バージョン<br>|リクエストが処理されたAPIバージョン<br>|
-|Access-Control-Allow-Origin<br>|クロスドメイン通信許可ヘッダ<br>|返却値は"*"固定<br>|
 |Content-Type<br>|返却されるデータの形式<br>| <br>
 |DataServiceVersion<br>|ODataのバージョン情報<br>| <br>
+|Access-Control-Allow-Origin<br>|クロスドメイン通信許可ヘッダ<br>|返却値は"*"固定<br>|
+|X-Personium-Version<br>|APIの実行バージョン<br>|リクエストが処理されたAPIバージョン<br>|
+
 #### レスポンスボディ
-固定で以下を返却する
-```xml
-<edmx:Edmx Version='1.0' xmlns:edmx='http://schemas.microsoft.com/ado/2007/06/edmx'
-xmlns:d='http://schemas.microsoft.com/ado/2007/08/dataservices' xmlns:m='http://schemas.microsoft.com/ado/2007/08/dataservices/metadata'
-xmlns:p='urn:x-personium:xmlns'>
-  <edmx:DataServices m:DataServiceVersion='1.0'>
-    <Schema xmlns='http://schemas.microsoft.com/ado/2006/04/edm' Namespace='ODataSvcSchema'>
-      <EntityType Name='EntityType'>
-        <Key>
-          <PropertyRef Name='Name'/>
-        </Key>
-        <Property Name='Name' Type='Edm.String' Nullable='false' p:Format='regEx(&amp;apos;^[a-zA-Z0-9][a-zA-Z0-9-_]{0,127}$&amp;apos;)'/>
-        <Property Name='__published' Type='Edm.DateTime' Nullable='false' DefaultValue='SYSUTCDATETIME()' Precision='3'/>
-        <Property Name='__updated' Type='Edm.DateTime' Nullable='false' DefaultValue='SYSUTCDATETIME()' Precision='3'/>
-        <NavigationProperty Name='_AssociationEnd' Relationship='ODataSvcSchema.EntityType-AssociationEnd-assoc' FromRole='EntityType-AssociationEnd' ToRole='AssociationEnd-EntityType'/>
-        <NavigationProperty Name='_Property' Relationship='ODataSvcSchema.EntityType-Property-assoc' FromRole='EntityType-Property' ToRole='Property-EntityType'/>
-      </EntityType>
-      <EntityType Name='AssociationEnd'>
-        <Key>
-          <PropertyRef Name='Name'/>
-          <PropertyRef Name='_EntityType.Name'/>
-        </Key>
-        <Property Name='Name' Type='Edm.String' Nullable='false' p:Format='regEx(&amp;apos;^[a-zA-Z0-9][a-zA-Z0-9-_]{0,127}$&amp;apos;)'/>
-        <Property Name='Multiplicity' Type='Edm.String' Nullable='false' p:Format='regEx(&amp;apos;0\.\.1|1|\*&amp;apos;)'/>
-        <Property Name='_EntityType.Name' Type='Edm.String' Nullable='false' p:Format='regEx(&amp;apos;^[a-zA-Z0-9][a-zA-Z0-9-_]{0,127}$&amp;apos;)'/>
-        <Property Name='__published' Type='Edm.DateTime' Nullable='false' DefaultValue='SYSUTCDATETIME()' Precision='3'/>
-        <Property Name='__updated' Type='Edm.DateTime' Nullable='false' DefaultValue='SYSUTCDATETIME()' Precision='3'/>
-        <NavigationProperty Name='_EntityType' Relationship='ODataSvcSchema.EntityType-AssociationEnd-assoc' FromRole='AssociationEnd-EntityType' ToRole='EntityType-AssociationEnd'/>
-        <NavigationProperty Name='_AssociationEnd' Relationship='ODataSvcSchema.AssociationEnd-AssociationEnd-assoc' FromRole='AssociationEnd-AssociationEnd' ToRole='AssociationEnd-AssociationEnd'/>
-      </EntityType>
-      <EntityType Name='Property'>
-        <Key>
-          <PropertyRef Name='Name'/>
-          <PropertyRef Name='_EntityType.Name'/>
-        </Key>
-        <Property Name='Name' Type='Edm.String' Nullable='false' p:Format='regEx(&amp;apos;^[a-zA-Z0-9][a-zA-Z0-9-_]{0,127}$&amp;apos;)'/>
-        <Property Name='_EntityType.Name' Type='Edm.String' Nullable='false' p:Format='regEx(&amp;apos;^[a-zA-Z0-9][a-zA-Z0-9-_]{0,127}$&amp;apos;)'/>
-        <Property Name='Type' Type='Edm.String' Nullable='false'/>
-        <Property Name='Nullable' Type='Edm.Boolean' Nullable='false' DefaultValue='true'/>
-        <Property Name='DefaultValue' Type='Edm.String' Nullable='true'/>
-        <Property Name='CollectionKind' Type='Edm.String' Nullable='true' DefaultValue='None'/>
-        <Property Name='IsKey' Type='Edm.Boolean' Nullable='false' DefaultValue='false'/>
-        <Property Name='UniqueKey' Type='Edm.String' Nullable='true' p:Format='regEx(&amp;apos;^[a-zA-Z0-9][a-zA-Z0-9-_]{0,127}$&amp;apos;)'/>
-        <Property Name='__published' Type='Edm.DateTime' Nullable='false' DefaultValue='SYSUTCDATETIME()' Precision='3'/>
-        <Property Name='__updated' Type='Edm.DateTime' Nullable='false' DefaultValue='SYSUTCDATETIME()' Precision='3'/>
-        <NavigationProperty Name='_EntityType' Relationship='ODataSvcSchema.EntityType-Property-assoc' FromRole='Property-EntityType' ToRole='EntityType-Property'/>
-      </EntityType>
-      <EntityType Name='ComplexType'>
-        <Key>
-          <PropertyRef Name='Name'/>
-        </Key>
-        <Property Name='Name' Type='Edm.String' Nullable='false' p:Format='regEx(&amp;apos;^[a-zA-Z0-9][a-zA-Z0-9-_]{0,127}$&amp;apos;)'/>
-        <Property Name='__published' Type='Edm.DateTime' Nullable='false' DefaultValue='SYSUTCDATETIME()' Precision='3'/>
-        <Property Name='__updated' Type='Edm.DateTime' Nullable='false' DefaultValue='SYSUTCDATETIME()' Precision='3'/>
-        <NavigationProperty Name='_ComplexTypeProperty' Relationship='ODataSvcSchema.ComplexType-ComplexTypeProperty-assoc' FromRole='ComplexType-ComplexTypeProperty' ToRole='ComplexTypeProperty-ComplexType'/>
-      </EntityType>
-      <EntityType Name='ComplexTypeProperty'>
-        <Key>
-          <PropertyRef Name='Name'/>
-          <PropertyRef Name='_ComplexType.Name'/>
-        </Key>
-        <Property Name='Name' Type='Edm.String' Nullable='false' p:Format='regEx(&amp;apos;^[a-zA-Z0-9][a-zA-Z0-9-_]{0,127}$&amp;apos;)'/>
-        <Property Name='_ComplexType.Name' Type='Edm.String' Nullable='false' p:Format='regEx(&amp;apos;^[a-zA-Z0-9][a-zA-Z0-9-_]{0,127}$&amp;apos;)'/>
-        <Property Name='Type' Type='Edm.String' Nullable='false'/>
-        <Property Name='Nullable' Type='Edm.Boolean' Nullable='false' DefaultValue='true'/>
-        <Property Name='DefaultValue' Type='Edm.String' Nullable='true'/>
-        <Property Name='CollectionKind' Type='Edm.String' Nullable='true' DefaultValue='None'/>
-        <Property Name='__published' Type='Edm.DateTime' Nullable='false' DefaultValue='SYSUTCDATETIME()' Precision='3'/>
-        <Property Name='__updated' Type='Edm.DateTime' Nullable='false' DefaultValue='SYSUTCDATETIME()' Precision='3'/>
-        <NavigationProperty Name='_ComplexType' Relationship='ODataSvcSchema.ComplexType-ComplexTypeProperty-assoc' FromRole='ComplexTypeProperty-ComplexType' ToRole='ComplexType-ComplexTypeProperty'/>
-      </EntityType>
-      <Association Name='EntityType-AssociationEnd-assoc'>
-        <End Role='EntityType-AssociationEnd' Type='ODataSvcSchema.EntityType' Multiplicity='0..1'/>
-        <End Role='AssociationEnd-EntityType' Type='ODataSvcSchema.AssociationEnd' Multiplicity='*'/>
-      </Association>
-      <Association Name='AssociationEnd-AssociationEnd-assoc'>
-        <End Role='AssociationEnd-AssociationEnd' Type='ODataSvcSchema.AssociationEnd' Multiplicity='0..1'/>
-        <End Role='AssociationEnd-AssociationEnd' Type='ODataSvcSchema.AssociationEnd' Multiplicity='0..1'/>
-      </Association>
-      <Association Name='EntityType-Property-assoc'>
-        <End Role='EntityType-Property' Type='ODataSvcSchema.EntityType' Multiplicity='1'/>
-        <End Role='Property-EntityType' Type='ODataSvcSchema.Property' Multiplicity='*'/>
-      </Association>
-      <Association Name='ComplexType-ComplexTypeProperty-assoc'>
-        <End Role='ComplexType-ComplexTypeProperty' Type='ODataSvcSchema.ComplexType' Multiplicity='1'/>
-        <End Role='ComplexTypeProperty-ComplexType' Type='ODataSvcSchema.ComplexTypeProperty' Multiplicity='*'/>
-      </Association>
-      <EntityContainer Name='ODataSvcSchema' m:IsDefaultEntityContainer='true'>
-        <EntitySet Name='ComplexType' EntityType='ODataSvcSchema.ComplexType'/>
-        <EntitySet Name='ComplexTypeProperty' EntityType='ODataSvcSchema.ComplexTypeProperty'/>
-        <EntitySet Name='AssociationEnd' EntityType='ODataSvcSchema.AssociationEnd'/>
-        <EntitySet Name='EntityType' EntityType='ODataSvcSchema.EntityType'/>
-        <EntitySet Name='Property' EntityType='ODataSvcSchema.Property'/>
-        <AssociationSet Name='EntityType-AssociationEnd-assoc' Association='ODataSvcSchema.EntityType-AssociationEnd-assoc'>
-          <End Role='EntityType-AssociationEnd' EntitySet='EntityType'/>
-          <End Role='AssociationEnd-EntityType' EntitySet='AssociationEnd'/>
-        </AssociationSet>
-        <AssociationSet Name='AssociationEnd-AssociationEnd-assoc' Association='ODataSvcSchema.AssociationEnd-AssociationEnd-assoc'>
-          <End Role='AssociationEnd-AssociationEnd' EntitySet='AssociationEnd'/>
-          <End Role='AssociationEnd-AssociationEnd' EntitySet='AssociationEnd'/>
-        </AssociationSet>
-        <AssociationSet Name='EntityType-Property-assoc' Association='ODataSvcSchema.EntityType-Property-assoc'>
-          <End Role='EntityType-Property' EntitySet='EntityType'/>
-          <End Role='Property-EntityType' EntitySet='Property'/>
-        </AssociationSet>
-        <AssociationSet Name='ComplexType-ComplexTypeProperty-assoc' Association='ODataSvcSchema.ComplexType-ComplexTypeProperty-assoc'>
-          <End Role='ComplexType-ComplexTypeProperty' EntitySet='ComplexType'/>
-          <End Role='ComplexTypeProperty-ComplexType' EntitySet='ComplexTypeProperty'/>
-        </AssociationSet>
-      </EntityContainer>
-    </Schema>
-  </edmx:DataServices>
-</edmx:Edmx>
-```
+レスポンスサンプル参照
 
 #### エラーメッセージ一覧
 [エラーメッセージ一覧](200_Error_Messages.html)を参照
 
 #### レスポンスサンプル
-なし
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:p="urn:x-personium:xmlns">
+  <edmx:DataServices m:DataServiceVersion="1.0">
+    <Schema xmlns="http://schemas.microsoft.com/ado/2006/04/edm" Namespace="UserData">
+      <ComplexType Name="TestComplexType">
+        <Property Name="TestComplexTypeProperty" Type="Edm.String" Nullable="true"></Property>
+      </ComplexType>
+      <EntityType Name="TestEntity" OpenType="true">
+        <Key>
+          <PropertyRef Name="__id"></PropertyRef>
+        </Key>
+        <Property Name="__id" Type="Edm.String" Nullable="false" DefaultValue="UUID()" p:Format="regEx('^[a-zA-Z0-9][a-zA-Z0-9-_:]{0,199}$')"></Property>
+        <Property Name="__published" Type="Edm.DateTime" Nullable="false" DefaultValue="SYSUTCDATETIME()" Precision="3"></Property>
+        <Property Name="__updated" Type="Edm.DateTime" Nullable="false" DefaultValue="SYSUTCDATETIME()" Precision="3"></Property>
+        <Property Name="TestProperty" Type="Edm.String" Nullable="true"></Property>
+        <NavigationProperty Name="_TestEntity" Relationship="UserData.TestEntity-TestEntity-assoc" FromRole="TestEntity:TestAssociationEndFrom" ToRole="TestEntity:TestAssociationEndTo"></NavigationProperty>
+      </EntityType>
+      <Association Name="TestEntity-TestEntity-assoc">
+        <End Role="TestEntity:TestAssociationEndFrom" Type="UserData.TestEntity" Multiplicity="1"></End>
+        <End Role="TestEntity:TestAssociationEndTo" Type="UserData.TestEntity" Multiplicity="0..1"></End>
+      </Association>
+      <EntityContainer Name="UserData" m:IsDefaultEntityContainer="true">
+        <EntitySet Name="TestEntity" EntityType="UserData.TestEntity"></EntitySet>
+        <AssociationSet Name="TestEntity-TestEntity-assoc" Association="UserData.TestEntity-TestEntity-assoc">
+          <End Role="TestEntity:TestAssociationEndFrom" EntitySet="TestEntity"></End>
+          <End Role="TestEntity:TestAssociationEndTo" EntitySet="TestEntity"></End>
+        </AssociationSet>
+      </EntityContainer>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>```
+
 
 <br>
 ### CURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/odata_colname/$metadata/$metadata" -X GET -i
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollectionName}/\$metadata" -X GET -i -H 'Authorization: Bearer {UnitUserToken}'
 ```
 <br>
 <br>

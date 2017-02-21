@@ -19,15 +19,15 @@ read
 ### リクエスト
 #### リクエストURL
 ```
-/{CellName}/{BoxName}/{OdataCollecitonPath}/{EntitySet}({KeyPredicate})}
+/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}({EntityID})}
 ```
 |パス<br>|概要<br>|
 |:--|:--|
 |{CellName}<br>|セル名<br>|
 |{BoxName}<br>|ボックス名<br>|
-|{OdataCollecitonPath}<br>|コレクション名<br>|
-|{EntitySet}<br>|EntitySet名<br>|
-|KeyPredicate<br>|取得するEntityのID<br>|
+|{ODataCollecitonName}<br>|コレクション名<br>|
+|{EntityTypeName}<br>|EntityType名<br>|
+|{EntityID}<br>|取得するEntityのID<br>|
 #### メソッド
 GET
 #### リクエストクエリ
@@ -67,21 +67,13 @@ GET
 <br>
 ### レスポンス
 #### ステータスコード
-|コード<br>|概要<br>|備考<br>|
-|:--|:--|:--|
-|200<br>|成功<br>| <br>
-|304<br>|Not Modified<br>再取得が必要ない場合<br>| <br>
-|400<br>|リクエストクエリの指定誤り<br>リクエストヘッダの指定誤り<br>| <br>
-|401<br>|認証トークンが無効<br>| <br>|
-|403<br>|アクセス権限が不足している場合<br>| <br>
-|404<br>|存在しないCellを指定した場合<br>存在しないBoxを指定した場合<br>存在しないODataCollectionを指定した場合<br>存在しないEntitySetを指定した場合<br>存在しないEntityを指定した場合<br>クエリで指定した範囲に取得するEntityが存在しない場合<br>| <br>
-|405<br>|許可していないリクエストメソッドを指定<br>| <br>|
-|412<br>|If-None-Matchの指定誤り<br>| <br>|
+200
+
 #### レスポンスヘッダ
 |項目名<br>|概要<br>|備考<br>|
 |:--|:--|:--|
-|DataServiceVersion<br>|返却されるデータの形式<br>|テスト未実施<br>|
-|Content-Type<br>|ODataのバージョン情報<br>|正常にEntityが取得できた場合のみ返却する<br>|
+|Content-Type<br>|返却されるデータの形式<br>|<br>|
+|DataServiceVersion<br>|ODataのバージョン情報<br>|正常にEntityが取得できた場合のみ返却する<br>|
 #### レスポンスボディ
 レスポンスはJSONオブジェクトで、オブジェクト（サブオブジェクト）に定義されるキー(名前)と型、並びに値の対応は以下のとおり
 
@@ -90,13 +82,13 @@ GET
 |ルート<br>|d<br>|object<br>|オブジェクト{1}<br>|
 |{1}<br>|__count<br>|string<br>|$inlinecountクエリでの取得結果件数<br>|
 |{1}<br>|results<br>|array<br>|オブジェクト{2}の配列<br>|
+|{2}<br>|__metadata<br>|object<br>|オブジェクト{3}<br>|
+|{3}<br>|uri<br>|string<br>|作成したリソースへのURL<br>|
+|{3}<br>|etag<br>|string<br>|Etag値<br>|
+|{3}<br>|type<br>|string<br>|UserData.{EntityTypeName}<br>|
+|{2}<br>|__id<br>|string<br>|EntityのID(__id)<br>|
 |{2}<br>|__published<br>|string<br>|作成日(UNIX時間)<br>|
 |{2}<br>|__updated<br>|string<br>|更新日(UNIX時間)<br>|
-|{2}<br>|__metadata<br>|object<br>|オブジェクト{3}<br>|
-|{3}<br>|etag<br>|string<br>|Etag値<br>|
-|{3}<br>|type<br>|string<br>|EntityType名<br>|
-|{3}<br>|uri<br>|string<br>|作成したリソースへのURL<br>|
-|{2}<br>|__id<br>|string<br>|EntityのID(__id)<br>|
 |{2}<br>|_{NP名}<br>|string<br>|オブジェクト{4}<br>Linkが結ばれている場合のみ返却される。{NP名}:NavigationPropert名<br>|
 |{4}<br>|__deferred<br>|object<br>|オブジェクト{5}<br>|
 |{5}<br>|uri<br>|string<br>|関係を結んでいるリソースのuri<br>テスト未実施<br>|
@@ -117,31 +109,39 @@ GET
 
 #### エラーメッセージ一覧
 [エラーメッセージ一覧](200_Error_Messages.html)を参照
+
+|コード<br>|概要<br>|備考<br>|
+|:--|:--|:--|
+|304<br>|Not Modified<br>再取得が必要ない場合<br>| <br>|
+|400<br>|リクエストクエリの指定誤り<br>リクエストヘッダの指定誤り<br>| <br>|
+|401<br>|認証トークンが無効<br>| <br>|
+|403<br>|アクセス権限が不足している場合<br>| <br>|
+|404<br>|存在しないCellを指定した場合<br>存在しないBoxを指定した場合<br>存在しないODataCollectionを指定した場合<br>存在しないEntitySetを指定した場合<br>存在しないEntityを指定した場合<br>クエリで指定した範囲に取得するEntityが存在しない場合<br>| <br>|
+|405<br>|許可していないリクエストメソッドを指定<br>| <br>|
+|412<br>|If-None-Matchの指定誤り<br>| <br>|
+
 #### レスポンスサンプル
 ```json
 {
-    "d": {
-        "results": {
-            "__metadata": {
-                "type": "UserData.Category",
-                "etag":"1-1341540667021",
-                "uri": "UnitFQDN/{CellName}/{BoxName}/{OdataCollecitonPath}/Category('0022b630db5c4aedade200a955e82285')",
-            },
-            "__published": "/Date(1341540667021)/",
-            "__updated": "/Date(1341540667021)/",
-            "__id": "0022b630db5c4aedade200a955e82285",
-            "outcome": "6cbb76424e2d",
-            "episodeType": "care",
-            "endedAt": "",
-            "animalId": "100-1",
-            "startedAt": "2010-11-08",
-            "_Sales": {
-              "__deferred": {
-                "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/Sales('0abc630db5c4aedade200a955e82285')"
-              }
-           }
-        }
+  "d": {
+    "results": {
+      "__metadata": {
+        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')",
+        "etag": "W/\"1-1487662179733\"",
+        "type": "UserData.{EntityTypeName}"
+      },
+      "__id": "{EntityID}",
+      "__published": "/Date(1487662179733)/",
+      "__updated": "/Date(1487662179733)/",
+      "PetName": null,
+      "animalId": "100-1",
+      "endedAt": "",
+      "episodeType": "care",
+      "name": "episode",
+      "outcome": "治療中",
+      "startedAt": "2010-11-08"
     }
+  }
 }
 ```
 
@@ -149,7 +149,7 @@ GET
 ### CURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/entity(%270022b630db5c4aedade200a955e82285%27)" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
 ```
 <br>
 <br>

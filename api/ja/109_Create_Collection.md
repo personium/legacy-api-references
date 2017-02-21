@@ -6,6 +6,7 @@ write
 ### 制限事項
 共通制限
 * なし
+  
 WebDAV制限
 * 未稿
 
@@ -57,8 +58,6 @@ MKCOL
 |prop<br>|D:<br>|要素<br>|プロパティ設定値を表し、resourcetypeが子となる <br>|<br>|
 |resourcetype<br>|D:<br>|要素<br>|リソースタイプ設定を表し、collection・odata・serviceのいずれかが子となる<br>|<br>|
 |collection<br>|D:<br>|要素<br>|WebDAVコレクションを表す<br>|WebDAVコレクション作成時に設定する<br>|
-|odata<br>|p:<br>|要素<br>|ODataコレクションを表す<br>|ODataコレクション作成時に設定する<br>|
-|service<br>|p:<br>|要素<br>|Serviceコレクションを表す<br>|Serviceコレクション作成時に設定する<br>|
 ##### DTD表記
 ###### 名前空間D:
 ```dtd

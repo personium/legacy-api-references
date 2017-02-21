@@ -19,15 +19,15 @@ write
 ### リクエスト
 #### リクエストURL
 ```
-/{CellName}/{BoxName}/{OdataCollecitonPath}/{EntitySet}({KeyPredicate})}
+/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}({EntityID})}
 ```
 |パス<br>|概要<br>|
 |:--|:--|
 |{CellName}<br>|セル名<br>|
 |{BoxName}<br>|ボックス名<br>|
-|{OdataCollecitonPath}<br>|コレクション名<br>|
-|{EntitySet}<br>|EntitySet名<br>|
-|KeyPredicate<br>|削除するEntityのID<br>|
+|{ODataCollecitonName}<br>|コレクション名<br>|
+|{EntityTypeName}<br>|EntityType名<br>|
+|{EntityID}<br>|削除するEntityのID<br>|
 #### メソッド
 DELETE
 #### リクエストクエリ
@@ -60,26 +60,26 @@ DELETE
 <br>
 ### レスポンス
 #### ステータスコード
-|コード<br>|概要<br>|備考<br>|
-|:--|:--|:--|
-|204<br>|成功<br>| <br>
-|400<br>|リクエストヘッダの指定誤り<br>|テスト未実施<br>|
-|401<br>|認証トークンが無効<br>|テスト未実施<br>|
-|403<br>|アクセス権限が不足している場合<br>| <br>
-|404<br>|存在しないCellを指定した場合<br>存在しないBoxを指定した場合<br>存在しないODataCollectionを指定した場合<br>存在しないEntitySetを指定した場合<br>存在しないEntityを指定した場合<br>|テスト未実施<br>|
-|405<br>|許可していないリクエストメソッドを指定<br>|テスト未実施<br>|
-|409<br>|既に同一のIDが作成されている場合<br>|未対応<br>|
-|412<br>|If-Matchの指定誤り<br>| <br>|
+204
 #### レスポンスヘッダ
 |ヘッダ名<br>|概要<br>|備考<br>|
 |:--|:--|:--|
-|Content-Type<br>|返却されるデータの形式<br>|Entityの削除に失敗した場合のみ返却する<br>テスト未実施<br>|
+|Content-Type<br>|返却されるデータの形式<br>|Entityの削除に失敗した場合のみ返却する<br>|
 |DataServiceVersion<br>|ODataのバージョン情報<br>|正常にEntityが削除できた場合のみ返却する<br>|
 #### レスポンスボディ
-正常時：なし  
-エラー時：エラーの詳細情報
+なし  
 #### エラーメッセージ一覧
 [エラーメッセージ一覧](200_Error_Messages.html)を参照
+
+|コード<br>|概要<br>|備考<br>|
+|:--|:--|:--|
+|400<br>|リクエストヘッダの指定誤り<br>|<br>|
+|401<br>|認証トークンが無効<br>|<br>|
+|403<br>|アクセス権限が不足している場合<br>| <br>
+|404<br>|存在しないCellを指定した場合<br>存在しないBoxを指定した場合<br>存在しないODataCollectionを指定した場合<br>存在しないEntitySetを指定した場合<br>存在しないEntityを指定した場合<br>|<br>|
+|405<br>|許可していないリクエストメソッドを指定<br>|<br>|
+|412<br>|If-Matchの指定誤り<br>| <br>|
+
 #### レスポンスサンプル
 なし
 
@@ -87,7 +87,7 @@ DELETE
 ### CURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/entity(%270022b630db5c4aedade200a955e82285%27)" -H 'If-Match:*' -X DELETE -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')" -X DELETE -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
 ```
 <br>
 <br>

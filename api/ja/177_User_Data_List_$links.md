@@ -22,7 +22,7 @@
 #### リクエストURL
 ```
 ユーザデータとの$links
-/{CellName}/{BoxName}/{CollectionName}/{EntitytypeName}('{UsedataId}')/$links/_{EntitytypeName}
+/{CellName}/{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')/$links/_{EntityTypeName}
 ```
 #### メソッド
 GET
@@ -79,12 +79,13 @@ GET
 ##### 共通レスポンスヘッダ
 |ヘッダ名<br>|概要<br>|備考<br>|
 |:--|:--|:--|
-|X-Personium-Version<br>|APIの実行バージョン<br>|リクエストが処理されたAPIバージョン<br>|
 |Access-Control-Allow-Origin<br>|クロスドメイン通信許可ヘッダ<br>|返却値は"*"固定<br>|
+|X-Personium-Version<br>|APIの実行バージョン<br>|リクエストが処理されたAPIバージョン<br>|
+
 ##### ODataレスポンスヘッダ
 |ヘッダ名<br>|概要<br>|備考<br>|
 |:--|:--|:--|
-|Content-Type 返却されるデータの形式<br>| <br>| <br>|
+|Content-Type<br>|返却されるデータの形式<br>| <br>|
 |DataServiceVersion<br>|ODataのバージョン<br>| <br>|
 #### レスポンスボディ
 ##### OData $links レスポンスボディ<br>
@@ -100,13 +101,10 @@ GET
 #### レスポンスサンプル
 ```json
 {
-   "d": {
+  "d": {
     "results": [
       {
-        "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name=null)"
-      },
-      {
-        "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='box1')"
+        "uri": "https://{CellName}/{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')"
       }
     ]
   }
@@ -117,7 +115,7 @@ GET
 ### CURLサンプル
 
 ```sh
-curl "{CellName}/{BoxName}/{CollectionName}/{EntityName}('userid')/$links/_entitylinkname" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
+curl "https://{CellName}/{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')/\$links/_{EntityTypeName}" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
 ```
 <br>
 <br>

@@ -12,41 +12,8 @@ alter-schema
 <br>
 ### リクエスト
 #### リクエストURL
-##### Linking with EntityType
 ```
-AssociationEndとの$links
-/{CellName}/{BoxName}/{CollectionName}/EntityType('{EntitytypeName}')/$links/_AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntitytypeName}')
-または、
-/{CellName}/{BoxName}/{CollectionName}/EntityType('{EntitytypeName}')/$links/_AssociationEnd(Name='{AssociationEndName}')
-または、
-/{CellName}/{BoxName}/{CollectionName}/EntityType('{EntitytypeName}')/$links/_AssociationEnd('{AssociationEndName}')
-```
-##### Linking with AssociationEnd
-```
-EntityTypeとの$links
-/{CellName}/{BoxName}/{CollectionName}/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntitytypeName}')/$links/_EntityType('{EntitytypeName}')
-または、
-/{CellName}/{BoxName}/{CollectionName}/AssociationEnd(Name='{AssociationEndName}'')/$links/_EntityType('{EntitytypeName}')
-または、
-/{CellName}/{BoxName}/{CollectionName}/AssociationEnd('{AssociationEndName}')/$links/_EntityType('{EntitytypeName}')
-AssociationEndとの$links
-/{CellName}/{BoxName}/{CollectionName}/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntitytypeName}')/$links/_AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntitytypeName}')
-または、
-/{CellName}/{BoxName}/{CollectionName}/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntitytypeName}')/$links/_AssociationEnd(Name='{AssociationEndName}')
-または、
-/{CellName}/{BoxName}/{CollectionName}/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntitytypeName}')/$links/_AssociationEnd({AssociationEndName}')
-または、
-/{CellName}/{BoxName}/{CollectionName}/AssociationEnd(Name='{AssociationEndName}')/$links/_AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntitytypeName}')
-または、
-/{CellName}/{BoxName}/{CollectionName}/AssociationEnd(Name='{AssociationEndName}')/$links/_AssociationEnd(Name='{AssociationEndName}')
-または、
-/{CellName}/{BoxName}/{CollectionName}/AssociationEnd(Name='{AssociationEndName}')/$links/_AssociationEnd('{AssociationEndName}')
-または、
-/{CellName}/{BoxName}/{CollectionName}/AssociationEnd('{AssociationEndName}')/$links/_AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntitytypeName}')
-または、
-/{CellName}/{BoxName}/{CollectionName}/AssociationEnd('{AssociationEndName}')/$links/_AssociationEnd(Name='{AssociationEndName}')
-または、
-/{CellName}/{BoxName}/{CollectionName}/AssociationEnd('{AssociationEndName}')/$links/_AssociationEnd('{AssociationEndName}')
+/{CellName}/{BoxName}/{CollectionName}/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')/$links/_AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntitytypeName}')
 ```
 #### メソッド
 DELETE
@@ -80,8 +47,9 @@ DELETE
 ##### 共通レスポンスヘッダ
 |ヘッダ名<br>|概要<br>|備考<br>|
 |:--|:--|:--|
-|X-Personium-Version<br>|APIの実行バージョン<br>|リクエストが処理されたAPIバージョン<br>|
 |Access-Control-Allow-Origin<br>|クロスドメイン通信許可ヘッダ<br>|返却値は"*"固定<br>|
+|X-Personium-Version<br>|APIの実行バージョン<br>|リクエストが処理されたAPIバージョン<br>|
+
 ##### ODataレスポンスヘッダ
 |項目名<br>|概要<br>|備考<br>|
 |:--|:--|:--|
@@ -95,14 +63,8 @@ DELETE
 
 <br>
 ### CURLサンプル
- EntityType
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/$metadata/EntityType(Name='{EntitytypeName}')/$links/_AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntitytypeName}')" -X DELETE -i -H 'If-Match: *' -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
-```
- AssociationEnd
-```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/$metadata/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntitytypeName}')/$links/_AssociationEnd(Name='{AssociationEndName}2',
-_EntityType.Name='{EntitytypeName}2')" -X DELETE -i -H 'If-Match: *' -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/\$metadata/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntitytypeName}')/\$links/_AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntitytypeName}')" -X DELETE -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
 ```
 <br>
 <br>

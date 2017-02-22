@@ -2,7 +2,6 @@
 ### 概要
 AssociationEndに紐付いたODataリソースを一覧取得する  
 以下のODataリソースを指定することができる
-* EntityType
 * AssociationEnd
 
 ### 必要な権限
@@ -17,21 +16,8 @@ AssociationEndに紐付いたODataリソースを一覧取得する
 <br>
 ### リクエスト
 #### リクエストURL
-##### Correlating with the EntityType
-```
-/{CellName}/{BoxName}/{CollectionName}/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntitytypeName}')/$links/_EntityType
-または、
-/{CellName}/{BoxName}/{CollectionName}/AssociationEnd(Name='{AssociationEndName}'')/$links/_EntityType
-または、
-/{CellName}/{BoxName}/{CollectionName}/AssociationEnd('{AssociationEndName}')/$links/_EntityType
-```
-##### Correlating with AssociationEnd
 ```
 /{CellName}/{BoxName}/{CollectionName}/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntitytypeName}')/$links/_AssociationEnd
-または、
-/{CellName}/{BoxName}/{CollectionName}/AssociationEnd(Name='{AssociationEndName}')/$links/_AssociationEnd
-または、
-/{CellName}/{BoxName}/{CollectionName}/AssociationEnd('{AssociationEndName}')/$links/_AssociationEnd
 ```
 #### メソッド
 GET
@@ -95,11 +81,10 @@ GET
 
 |ヘッダ名<br>|概要<br>|備考<br>|
 |:--|:--|:--|
-|X-Personium-Version<br>|APIの実行バージョン<br>|リクエストが処理されたAPIバージョン<br>|
 |Access-Control-Allow-Origin<br>|クロスドメイン通信許可ヘッダ<br>|返却値は"*"固定<br>|
+|X-Personium-Version<br>|APIの実行バージョン<br>|リクエストが処理されたAPIバージョン<br>|
 
 ##### ODataレスポンスヘッダ
-
 |項目名<br>|概要<br>|備考<br>|
 |:--|:--|:--|
 |Content-Type<br>|返却されるデータの形式<br>| <br>|
@@ -114,7 +99,7 @@ GET
 |:--|:--|:--|:--|
 |ルート<br>|d<br>|object<br>|オブジェクト{1}<br>|
 |{1}<br>|results<br>|array<br>|オブジェクト{2}の配列<br>|
-|{2}<br>|_uri<br>|string<br>|紐付いているODataリソースへのURL<br>|
+|{2}<br>|uri<br>|string<br>|紐付いているODataリソースへのURL<br>|
 
 #### エラーメッセージ一覧
 [エラーメッセージ一覧](200_Error_Messages.html)を参照
@@ -122,13 +107,10 @@ GET
 #### レスポンスサンプル
 ```json
 {
-   "d": {
+  "d": {
     "results": [
       {
-        "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name=null)"
-      },
-      {
-        "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='box1')"
+        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/$metadata/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')"
       }
     ]
   }
@@ -136,14 +118,8 @@ GET
 ```
 <br>
 ### CURLサンプル
- EntityType
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/$metadata/EntityType(Name='{EntitytypeName}')/$links/_AssociationEnd" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
-```
-
- AssociationEnd
-```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/$metadata/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntitytypeName}')/$links/_EntityType" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/\$metadata/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')/\$links/_AssociationEnd" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
 ```
 <br>
 <br>

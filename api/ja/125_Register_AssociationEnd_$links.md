@@ -10,13 +10,9 @@ alter-schema
 
 <br>
 ### リクエスト
-#### リクエストURL EntityType
+#### リクエストURL
 ```
-/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/EntityType(Name='{EntitytypeName}')/$links/_AssociationEnd
-```
-#### リクエストURL AssociationEnd
-```
-/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/AssociationEnd(Name='{AssociationEndName}', _EntityType.Name='{EntitytypeName}')/$links/_AssociationEnd
+/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/AssociationEnd(Name='{AssociationEndName}', _EntityType.Name='{EntityTypeName}')/$links/_AssociationEnd
 ```
 #### メソッド
 POST
@@ -38,7 +34,7 @@ POST
 |uri<br>|linkするAssociationEndのuri<br>|存在するAssociationEnd<br>|○<br>| <br>|
 #### リクエストサンプル
 ```json
-{"uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/AssociationEnd(Name='assocName',_EntityType.Name=null)"}
+{"uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')"}
 ```
 <br>
 ### レスポンス
@@ -46,7 +42,7 @@ POST
 
 |コード<br>|概要<br>|備考<br>|
 |:--|:--|:--|
-|204<br>|正常に登録が完了した場合<br>|動作確認済み<br>|
+|204<br>|正常に登録が完了した場合<br>|<br>|
 |400<br>|リクエストボディがJSON形式でなかった場合<br>必須項目が指定されていない場合<br>１：１のAssociationEndを関連付けしようとした場合<br>存在しないNavigationProperty名を指定した場合<br>NavigationPropertyにEntityTypeを指定した場合<br>| <br>|
 |401<br>|認証トークンが無効の場合<br>| <br>|
 |403<br>|アクセス権限が不足している場合<br>| <br>|
@@ -57,7 +53,7 @@ POST
 
 |項目名<br>|概要<br>|備考<br>|
 |:--|:--|:--|
-|DataServiceVersion<br>|ODataProtocolのバージョン情報<br>|正常にAssociationEndが作成できた場合のみ返却する<br>動作確認済み<br>|
+|DataServiceVersion<br>|ODataProtocolのバージョン情報<br>|正常にAssociationEndが作成できた場合のみ返却する<br>|
 #### レスポンスボディ
 特になし
 
@@ -69,16 +65,8 @@ POST
 
 <br>
 ### CURLサンプル
- EntityType
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/EntityType(Name='entitytypeName')/$links/_AssociationEnd" -X POST -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -H 'Accept:application/json' -d '{"uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/AssociationEnd(Name='assocName_link',_EntityType.Name=null)"}'
-```
-
-
- AssociationEnd
-```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/AssociationEnd(Name='assocName2',_EntityType.Name=Entity)/$links/_AssociationEnd" -X POST -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -H 'Accept:application/json'
--d '{"uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/AssociationEnd(Name='assocName_link',_EntityType.Name=Entity2)"}'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')/\$links/_AssociationEnd" -X POST -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -H 'Accept:application/json' -d "{\"uri\": \"https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')\"}"
 ```
 <br>
 <br>

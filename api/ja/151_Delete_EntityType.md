@@ -16,7 +16,7 @@ alter-schema
 ### リクエスト
 #### リクエストURL
 ```
-/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/EntityType('{EntityName}')
+/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/EntityType('{EntityTypeName}')
 ```
 
 #### メソッド
@@ -69,8 +69,8 @@ DELETE
 
 |ヘッダ名<br>|概要<br>|備考<br>|
 |:--|:--|:--|
-|X-Personium-Version<br>|APIの実行バージョン<br>|リクエストが処理されたAPIバージョン<br>|
 |Access-Control-Allow-Origin<br>|クロスドメイン通信許可ヘッダ<br>|返却値は"*"固定<br>|
+|X-Personium-Version<br>|APIの実行バージョン<br>|リクエストが処理されたAPIバージョン<br>|
 
 ##### ODataレスポンスヘッダ
 
@@ -91,7 +91,7 @@ DELETE
 ### CURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/EntityType('animal')" -X DELETE -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonName}/\$metadata/EntityType('{EntityTypeName}')" -X DELETE -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
 ```
 <br>
 <br>

@@ -19,15 +19,15 @@ write
 ### リクエスト
 #### リクエストURL
 ```
-/{CellName}/{BoxName}/{OdataCollecitonPath}/{EntitySet}({KeyPredicate})
+/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}({EntityID})}
 ```
 |パス<br>|概要<br>|
 |:--|:--|
 |{CellName}<br>|セル名<br>|
 |{BoxName}<br>|ボックス名<br>|
-|{OdataCollecitonPath}<br>|コレクション名<br>|
-|{EntitySet}<br>|EntitySet名<br>|
-|KeyPredicate<br>|更新するEntityのID<br>|
+|{ODataCollecitonName}<br>|コレクション名<br>|
+|{EntityTypeName}<br>|EntityType名<br>|
+|{EntityID}<br>|更新するEntityのID<br>|
 #### メソッド
 PUT
 #### リクエストクエリ
@@ -60,9 +60,6 @@ PUT
 スキーマ定義済みのプロパティと動的（スキーマ未定義）プロパティ、合わせて最大で400個のプロパティを設定可能  
 上記にはComplexTypeで定義されているプロパティ数を含む
 
-|項目名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
-|:--|:--|:--|:--|:--|
-|__id<br>|EntityのID<br>|桁数：1&#65374;200<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)と:(半角コロン)<br>,ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)と:(半角コロン)は指定不可<br>|×<br>|指定しない場合ユニークなIDが割り当てられます<br>有効値のチェック未対応<br>|
 ###### スキーマ定義済みのプロパティ
 |項目名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
@@ -88,34 +85,33 @@ PUT
 
 #### リクエストサンプル
 ```json
-{"animalId": "100-1","name": "episode","startedAt": "2010-11-08","episodeType": "care","endedAt": "","outcome": "治療完了"}
+{"animalId": "100-2","name": "episode2","startedAt": "2016-02-21","episodeType": "care2","endedAt": "","outcome": "治療済"}
 ```
 
 <br>
 ### レスポンス
 #### ステータスコード
+204
+#### レスポンスヘッダ
+|ヘッダ名<br>|概要<br>|備考<br>|
+|:--|:--|:--|
+|ETag<br>|リソースのバージョン情報<br>| <br>|
+|DataServiceVersion<br>|ODataのバージョン<br>| <br>|
+#### レスポンスボディ
+なし
+#### エラーメッセージ一覧
+[エラーメッセージ一覧](200_Error_Messages.html)を参照
+
 |コード<br>|概要<br>|備考<br>|
 |:--|:--|:--|
-|204<br>|成功<br>|<br>|
-|400<br>|リクエストクエリの指定誤り<br>|<br>|
-|<br>|リクエストヘッダの指定誤り<br>|<br>|
-|<br>|リクエストボディが有効値でない場合<br>|<br>|
-|<br>|リクエストボディに最大個数より多くユーザデータを指定<br>リクエストボディの__idにnullを指定<br>|<br>|
+|400<br>|リクエストクエリの指定誤り<br>リクエストヘッダの指定誤り<br>リクエストボディが有効値でない場合<br>リクエストボディに最大個数より多くユーザデータを指定した場合<br>リクエストボディの__idにnullを指定した場合<br>|<br>|
 |401<br>|認証トークンが無効<br>|<br>|
 |403<br>|アクセス権限が不足している場合<br>|<br>|
 |404<br>|存在しないCellを指定した場合<br>存在しないBoxを指定した場合<br>存在しないODataCollectionを指定した場合<br>|<br>|
 |405<br>|許可していないリクエストメソッドを指定<br>|<br>|
 |409<br>|既に同一のIDが作成されている場合<br>|<br>|
 |412<br>|If-Matchの指定誤り<br>|<br>|
-#### レスポンスヘッダ
-|ヘッダ名<br>|概要<br>|備考<br>|
-|:--|:--|:--|
-|DataServiceVersion<br>|ODataのバージョン<br>| <br>|
-|ETag<br>|リソースのバージョン情報<br>| <br>|
-#### レスポンスボディ
-なし
-#### エラーメッセージ一覧
-[エラーメッセージ一覧](200_Error_Messages.html)を参照
+
 #### レスポンスサンプル
 なし
 
@@ -123,7 +119,7 @@ PUT
 ### CURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/parent('100-1_20101108-111352093')" -X PUT -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '{"animalId": "100-1","name": "episode","startedAt":"2010-11-08","episodeType": "care","endedAt": "","outcome": "治療中"}'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')" -X PUT -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '{"animalId": "100-2","name": "episode2","startedAt":"2016-02-21","episodeType": "care2","endedAt": "","outcome": "治療済"}'
 ```
 <br>
 <br>

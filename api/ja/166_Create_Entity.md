@@ -19,15 +19,14 @@ write
 ### リクエスト
 #### リクエストURL
 ```
-/{CellName}/{BoxName}/{OdataCollecitonPath}/{EntitySet}
+/{CellName}/{BoxName}/{ODataCollecitonName}/{EntitySet}
 ```
 |パス<br>|概要<br>|
 |:--|:--|
 |{CellName}<br>|セル名<br>|
 |{BoxName}<br>|ボックス名<br>|
-|{OdataCollecitonPath}<br>|コレクション名<br>|
-|{EntitySet}<br>|EntitySet名<br>|
-|{NavigationProperty}<br>|NavigationProperty名<br>|
+|{ODataCollecitonName}<br>|コレクション名<br>|
+|{EntityTypeName}<br>|EntityType名<br>|
 #### メソッド
 POST
 #### リクエストクエリ
@@ -69,8 +68,8 @@ POST
 |データ型<br>|有効値<br>|
 |:--|:--|
 |文字列<br>|桁数：1&#65374;128 :<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>_ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)は指定不可  <br>_published、_updatedは、予約語であるためリクエストボディの指定は不可<br>|
-#####動的プロパティのvalueの有効値
-スキーマ定義済みプロパティのvalueの有効値と同様
+##### 動的プロパティのvalueの有効値
+スキーマ定義済みプロパティのvalueの有効値と同様  
 配列、連想配列は指定不可
 #### リクエストサンプル
 ```json
@@ -86,22 +85,12 @@ POST
 <br>
 ### レスポンス
 #### ステータスコード
-|コード<br>|概要<br>|備考<br>|
-|:--|:--|:--|
-|201<br>|成功<br>| <br>|
-|400<br>|リクエストクエリの指定誤り<br>|テスト未実施<br>|
-||リクエストヘッダの指定誤り<br>|テスト未実施<br>|
-||リクエストボディが有効値でない場合<br>|テスト未実施<br>|
-||リクエストボディに最大個数より多くユーザデータを指定 リクエストボディの__idにnullを指定<br>| <br>|
-|401<br>|認証トークンが無効<br>|テスト未実施<br>|
-|403<br>|アクセス権限が不足している場合<br>| <br>|
-|404<br>|存在しないCellを指定した場合<br>存在しないBoxを指定した場合<br>存在しないODataCollectionを指定した場合<br>|テスト未実施<br>|
-|405<br>|許可していないリクエストメソッドを指定<br>|テスト未実施<br>|
-|409<br>|既に同一のIDが作成されている場合<br>|テスト未実施<br>|
+201
+
 #### レスポンスヘッダ
 |項目名<br>|概要<br>|備考<br>|
 |:--|:--|:--|
-|Content-Type<br>|返却されるデータの形式<br>|テスト未実施<br>|
+|Content-Type<br>|返却されるデータの形式<br>|<br>|
 |Location<br>|作成したEntityのリソースURL<br>|正常にEntityが作成できた場合のみ返却する<br>|
 |DataServiceVersion<br>|ODataのバージョン情報<br>|正常にEntityが作成できた場合のみ返却する<br>|
 |ETag<br>|リソースのバージョン情報<br>|正常にEntityが作成できた場合のみ返却する<br>|
@@ -114,36 +103,49 @@ POST
 |ルート<br>|d<br>|object<br>|オブジェクト{1}<br>|
 |{1}<br>|__count<br>|string<br>|$inlinecountクエリでの取得結果件数<br>|
 |{1}<br>|results<br>|array<br>|オブジェクト{2}の配列<br>|
+|{2}<br>|__metadata<br>|object<br>|オブジェクト{3}<br>|
+|{3}<br>|uri<br>|string<br>|作成したリソースへのURL<br>|
+|{3}<br>|etag<br>|string<br>|Etag値<br>|
+|{3}<br>|type<br>|string<br>|UserData.{EntityTypeName}<br>|
+|{2}<br>|__id<br>|string<br>|EntityのID(__id)<br>|
 |{2}<br>|__published<br>|string<br>|作成日(UNIX時間)<br>|
 |{2}<br>|__updated<br>|string<br>|更新日(UNIX時間)<br>|
-|{2}<br>|__metadata<br>|object<br>|オブジェクト{3}<br>|
-|{3}<br>|etag<br>|string<br>|Etag値<br>|
-|{3}<br>|uri<br>|string<br>|作成したリソースへのURL<br>|
+
 上記以外に登録時に指定した動的なユーザデータを返却
 #### エラーメッセージ一覧
-[エラーメッセージ一覧](200_Error_Messages.html)を参照
+[エラーメッセージ一覧](200_Error_Messages.html)を参照  
+
+|コード<br>|概要<br>|備考<br>|
+|:--|:--|:--|
+|400<br>|リクエストクエリの指定誤り<br>リクエストヘッダの指定誤り<br>リクエストボディが有効値でない場合<br>リクエストボディに最大個数より多くユーザデータを指定した場合<br>リクエストボディの__idにnullを指定した場合<br>|<br>|
+|401<br>|認証トークンが無効<br>|<br>|
+|403<br>|アクセス権限が不足している場合<br>| <br>|
+|404<br>|存在しないCellを指定した場合<br>存在しないBoxを指定した場合<br>存在しないODataCollectionを指定した場合<br>|<br>|
+|405<br>|許可していないリクエストメソッドを指定<br>|<br>|
+|409<br>|既に同一のIDが作成されている場合<br>|<br>|
 
 #### レスポンスサンプル
 ```json
 {
-     "d": {
-        "results": {
-            "name": "episode",
-            "outcome": "6cbb76424e2d",
-            "episodeType": "care",
-            "endedAt": "",
-            "animalId": "100-1",
-            "__published": "/Date(1336546944234)/",
-            "__metadata": {
-                "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/parent(100-1_20101108-111352093)",
-                "etag": "1-de6910ec8b1333b48a4708ededc2942d",
-                "type": "UserData.parent"  
-            },
-            "__id": "100-1_20101108-111352093",
-            "startedAt": "2010-11-08",
-            "__updated": "/Date(1336546944234)/"  
-        }
+  "d": {
+    "results": {
+      "__metadata": {
+        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')",
+        "etag": "W/\"1-1487662179733\"",
+        "type": "UserData.{EntityTypeName}"
+      },
+      "__id": "{EntityID}",
+      "__published": "/Date(1487662179733)/",
+      "__updated": "/Date(1487662179733)/",
+      "PetName": null,
+      "animalId": "100-1",
+      "name": "episode",
+      "startedAt": "2010-11-08",
+      "episodeType": "care",
+      "endedAt": "",
+      "outcome": "治療中"
     }
+  }
 }
 ```
 
@@ -151,9 +153,7 @@ POST
 ### CURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/parent" -X POST -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '{"__id": "100-1_20101108-111352093","animalId":
-"100-1","name": "episode","startedAt": "2010-11-08","episodeType": "care","endedAt":
-"","outcome": "治療中"}'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}" -X POST -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '{"__id": "{EntityID}","animalId": "100-1","name": "episode","startedAt": "2010-11-08","episodeType": "care","endedAt": "","outcome": "治療中"}'
 ```
 <br>
 <br>

@@ -19,13 +19,13 @@ write
 ### リクエスト
 #### リクエストURL
 ```
-/{CellName}/{BoxName}/{OdataCollecitonPath}/{EntitySet}({KeyPredicate})/{{NavigationProperty}}
+/{CellName}/{BoxName}/{ODataCollecitonName}/{EntitySet}({KeyPredicate})/{{NavigationProperty}}
 ```
 |パス<br>|概要<br>|
 |:--|:--|
 |{CellName}<br>|セル名<br>|
 |{BoxName}<br>|ボックス名<br>|
-|{OdataCollecitonPath}<br>|コレクション名<br>|
+|{ODataCollecitonName}<br>|コレクション名<br>|
 |{EntitySet}<br>|EntitySet名<br>|
 |KeyPredicate<br>|EntityのID<br>|
 |{NavigationProperty}<br>|NavigationProperty名<br>|
@@ -119,11 +119,11 @@ POST
         { "__id" : "100-1_20101108-111352093",
           "__metadata" : { "etag" : "1-de6910ec8b1333b48a4708ededc2942d",
                            "type" : "parent",
-                           "uri" : "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/child('100-1_20101108-111352093')"
+                           "uri" : "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/child('100-1_20101108-111352093')"
                          },
           "__published" : "/Date(1336546944234)/",
           "__updated" : "/Date(1336546944234)/",
-          "_child" : { "__deferred" : { "uri" : "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/parent('100-1_20101108-111352092')" } },
+          "_child" : { "__deferred" : { "uri" : "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/parent('100-1_20101108-111352092')" } },
           "abc" : "123",
           "def" : "234",
           "ghi" : "345",
@@ -139,7 +139,7 @@ POST
 ### CURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/parent('100-1_20101108-111352092')/child"
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/parent('100-1_20101108-111352092')/child"
 -X POST -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '{"__id": "100-1_20101108-111352093","animalId":"100-1","name": "episode","startedAt": "2010-11-08","abc": "def","ghi":"jkl","mno": "pqr"}'
 ```
 <br>

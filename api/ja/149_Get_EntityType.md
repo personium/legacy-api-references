@@ -15,7 +15,7 @@ read
 ### リクエスト
 #### リクエストURL
 ```
-/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/EntityType('{EntityName}')
+/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/EntityType('{EntityName}')
 ```
 
 #### メソッド
@@ -54,7 +54,7 @@ GET
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
 |Accept<br>|レスポンスボディの形式を指定する<br>|application / json<br>|×<br>|省略時は[application/json]として扱う<br>|
-|If-None-Match<br>|対象ETag値を指定する<br>|ETag値<br>|○<br>|未対応<br>|
+|If-None-Match<br>|対象ETag値を指定する<br>|ETag値<br>|×<br>|未対応<br>|
 
 #### リクエストボディ
 なし
@@ -77,11 +77,11 @@ GET
 |ルート<br>|d<br>|object<br>|オブジェクト{1}<br>|
 |{1}<br>|__count<br>|string<br>|$inlinecountクエリでの取得結果件数<br>|
 |{1}<br>|results<br>|array<br>|オブジェクト{2}の配列<br>|
+|{2}<br>|__metadata<br>|object<br>|オブジェクト{3}<br>|
+|{3}<br>|uri<br>|string<br>|作成したリソースへのURL<br>|
+|{3}<br>|etag<br>|string<br>|Etag値<br>|
 |{2}<br>|__published<br>|string<br>|作成日(UNIX時間)<br>|
 |{2}<br>|__updated<br>|string<br>|更新日(UNIX時間)<br>|
-|{2}<br>|__metadata<br>|object<br>|オブジェクト{3}<br>|
-|{3}<br>|etag<br>|string<br>|Etag値<br>|
-|{3}<br>|uri<br>|string<br>|作成したリソースへのURL<br>|
 
 ##### EntityType固有レスポンスボディ
 
@@ -96,25 +96,25 @@ GET
 #### レスポンスサンプル
 ```json
 {
-   "d": {
+  "d": {
     "results": {
+      "__metadata": {
+        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonName}/$metadata/EntityType('{EntitytypeName}')",
+        "etag": "W/\"1-1487589344011\"",
+        "type": "ODataSvcSchema.EntityType"
+      },
+      "Name": "{EntitytypeName}",
+      "__published": "/Date(1487589344011)/",
+      "__updated": "/Date(1487589344011)/",
       "_AssociationEnd": {
         "__deferred": {
-          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}$metadata/EntityType('{EntitytypeName}')/_AssociationEnd"
+          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonName}/$metadata/EntityType('{EntitytypeName}')/_AssociationEnd"
         }
       },
-      "Name": "entityType",
-      "__published": "/Date(1349434504818)/",
-      "__updated": "/Date(1349434504818)/",
       "_Property": {
         "__deferred": {
-          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/EntityType('{EntitytypeName}')/_Property"
+          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonName}/$metadata/EntityType('{EntitytypeName}')/_Property"
         }
-      },
-      "__metadata": {
-        "etag": "1-1349434504818",
-        "type": "ODataSvcSchema.EntityType",
-        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/EntityType('{EntitytypeName}')"
       }
     }
   }
@@ -125,7 +125,7 @@ GET
 ### CURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/EntityType('animal')" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonName}/$metadata/EntityType('{EntitytypeName}')" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
 ```
 <br>
 <br>

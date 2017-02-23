@@ -15,7 +15,7 @@ read
 ### リクエスト
 #### リクエストURL
 ```
-/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/ComplexType('{ComplextypeName}')
+/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/ComplexType('{ComplexTypeName}')
 ```
 #### メソッド
 GET
@@ -53,7 +53,7 @@ GET
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
 |Accept  <br>|レスポンスボディの形式を指定する  <br>|application/json<br>|×<br>|省略時は[application/json]として扱う  <br>|
-|If-None-Match<br>|対象ETag値を指定する<br>|ETag値<br>|○<br>|未対応<br>|
+|If-None-Match<br>|対象ETag値を指定する<br>|ETag値<br>|×<br>|未対応<br>|
 
 #### リクエストボディ
 なし
@@ -79,11 +79,11 @@ GET
 |ルート<br>|d<br>|object<br>|オブジェクト{1}<br>|
 |{1}<br>|__count<br>|string<br>|$inlinecountクエリでの取得結果件数<br>|
 |{1}<br>|results<br>|array<br>|オブジェクト{2}の配列<br>|
+|{2}<br>|__metadata<br>|object<br>|オブジェクト{3}<br>|
+|{3}<br>|uri<br>|string<br>|作成したリソースへのURL<br>|
+|{3}<br>|etag<br>|string<br>|Etag値<br>|
 |{2}<br>|__published<br>|string<br>|作成日(UNIX時間)<br>|
 |{2}<br>|__updated<br>|string<br>|更新日(UNIX時間)<br>|
-|{2}<br>|__metadata<br>|object<br>|オブジェクト{3}<br>|
-|{3}<br>|etag<br>|string<br>|Etag値<br>|
-|{3}<br>|uri<br>|string<br>|作成したリソースへのURL<br>|
 
 ##### ComplexType固有レスポンスボディ
 
@@ -97,18 +97,18 @@ GET
 {
   "d": {
     "results": {
-      "_Property": {
-        "__deferred": {
-          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/ComplexType('Address')/_Property"
-        }
-      },
-      "Name": "Address",
-      "__published": "/Date(1349434504818)/",
-      "__updated": "/Date(1349434504818)/",
       "__metadata": {
-        "etag": "1-1349434504818",
-        "type": "ODataSvcSchema.ComplexType",
-        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/ComplexType('Address')"
+        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/ComplexType('{ComplexTypeName}}')",
+        "etag": "W/\"1-1487650447372\"",
+        "type": "ODataSvcSchema.ComplexType"
+      },
+      "Name": "{ComplexTypeName}",
+      "__published": "/Date(1487650447372)/",
+      "__updated": "/Date(1487650447372)/",
+      "_ComplexTypeProperty": {
+        "__deferred": {
+          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/ComplexType('{ComplexTypeName}')/_ComplexTypeProperty"
+        }
       }
     }
   }
@@ -122,7 +122,7 @@ GET
 ### CURLサンプル
 
 ```sh
-curl  "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/ComplexType('{ComplextypeName}')" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata/ComplexType('{ComplexTypeName}')" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
 ```
 <br>
 <br>

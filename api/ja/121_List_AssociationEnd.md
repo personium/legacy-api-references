@@ -15,7 +15,7 @@ read
 ### リクエスト
 #### リクエストURL
 ```
-/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/AssociationEnd
+/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/AssociationEnd
 ```
 #### メソッド
 GET
@@ -87,11 +87,11 @@ GET
 |ルート<br>|d<br>|object<br>|オブジェクト{1}<br>|
 |{1}<br>|__count<br>|string<br>|$inlinecountクエリでの取得結果件数<br>|
 |{1}<br>|results<br>|array<br>|オブジェクト{2}の配列<br>|
+|{2}<br>|__metadata<br>|object<br>|オブジェクト{3}<br>|
+|{3}<br>|uri<br>|string<br>|作成したリソースへのURL<br>|
+|{3}<br>|etag<br>|string<br>|Etag値<br>|
 |{2}<br>|__published<br>|string<br>|作成日(UNIX時間)<br>|
 |{2}<br>|__updated<br>|string<br>|更新日(UNIX時間)<br>|
-|{2}<br>|__metadata<br>|object<br>|オブジェクト{3}<br>|
-|{3}<br>|etag<br>|string<br>|Etag値<br>|
-|{3}<br>|uri<br>|string<br>|作成したリソースへのURL<br>|
 
 ###### AssociationEnd固有レスポンスボディ
 
@@ -111,53 +111,49 @@ GET
 #### レスポンスサンプル
 ```json
 {
-   "d": {
+  "d": {
     "results": [
       {
         "__metadata": {
-          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/$metadata/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntitytypeName}')",
-          "etag": "1-1349435294656",
-          "type": "ODataSvcSchema.AssociationEnd"  
+          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')",
+          "etag": "W/\"2-1487587131996\"",
+          "type": "ODataSvcSchema.AssociationEnd"
         },
         "Name": "{AssociationEndName}",
-        "Multiplicity": "*",
-        "_EntityType.Name": "{EntitytypeName}",
-        "__published": "/Date(1349435294656)/",
-        "__updated": "/Date(1349435294656)/",
+        "Multiplicity": "{Multiplicity}",
+        "_EntityType.Name": "{EntityTypeName}",
+        "__published": "/Date(1487587131996)/",
+        "__updated": "/Date(1487587131996)/",
         "_EntityType": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/$metadata/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntitytypeName}')/_EntityType"
-
+            "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')/_EntityType"
           }
         },
         "_AssociationEnd": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/$metadata/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='entityType_')/_AssociationEnd"
-
+            "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')/_AssociationEnd"
           }
         }
       },
       {
         "__metadata": {
-          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/$metadata/AssociationEnd(Name='{AssociationEndName}2',_EntityType.Name='{EntitytypeName}')",
-          "etag": "1-1349435349927",
-          "type": "ODataSvcSchema.{AssociationEndName}2"  
+          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')",
+          "etag": "W/\"1-1487652733383\"",
+          "type": "ODataSvcSchema.AssociationEnd"
         },
-        "Name": "associationEnd2",
-        "Multiplicity": "*",
-        "_EntityType.Name": "entityType",
-        "__published": "/Date(1349435349927)/",
-        "__updated": "/Date(1349435349927)/",
+        "Name": "{AssociationEndName}",
+        "Multiplicity": "{Multiplicity}",
+        "_EntityType.Name": "{EntityTypeName}",
+        "__published": "/Date(1487652733383)/",
+        "__updated": "/Date(1487652733383)/",
         "_EntityType": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/$metadata/AssociationEnd(Name='associationEnd2',_EntityType.Name='enti{EntitytypeName}')/_EntityType"
-
+            "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')/_EntityType"
           }
         },
         "_AssociationEnd": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/box/col/$metadata/AssociationEnd(Name='associationEnd2',_EntityType.Name='entityType')/_AssociationEnd"
-
+            "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')/_AssociationEnd"
           }
         }
       }
@@ -170,7 +166,7 @@ GET
 ### CURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/AssociationEnd" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata/AssociationEnd" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
 ```
 <br>
 <br>

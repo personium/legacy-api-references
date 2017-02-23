@@ -13,7 +13,7 @@ alter-schema
 ### リクエスト
 #### リクエストURL
 ```
-/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/Property(Name='property_name',_EntityType.Name='{EntitytypeName}')
+/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/Property(Name='{PropertyName}',_EntityType.Name='{EntityTypeNamee}')
 ```
 #### メソッド
 DELETE
@@ -61,7 +61,7 @@ DELETE
 ### CURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/Property(Name='PetName',_EntityType.Name='Profile')" -X DELETE -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata/Property(Name='{PropertyName}',_EntityType.Name='{EntityTypeName}')" -X DELETE -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
 ```
 <br>
 <br>

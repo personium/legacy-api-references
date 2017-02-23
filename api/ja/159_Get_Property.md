@@ -13,7 +13,7 @@ read
 ### リクエスト
 #### リクエストURL
 ```
-/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/Property(Name='property_name',_EntityType.Name='{EntitytypeName}')
+/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/Property(Name='property_name',_EntityType.Name='{EntitytypeName}')
 ```
 #### メソッド
 GET
@@ -66,24 +66,24 @@ GET
 |ルート<br>|d<br>|object<br>|オブジェクト{1}<br>|
 |{1}<br>|__count<br>|string<br>|$inlinecountクエリでの取得結果件数<br>|
 |{1}<br>|results<br>|array<br>|オブジェクト{2}の配列<br>|
+|{2}<br>|__metadata<br>|object<br>|オブジェクト{3}<br>|
+|{3}<br>|uri<br>|string<br>|作成したリソースへのURL<br>|
+|{3}<br>|etag<br>|string<br>|Etag値<br>|
 |{2}<br>|__published<br>|string<br>|作成日(UNIX時間)<br>|
 |{2}<br>|__updated<br>|string<br>|更新日(UNIX時間)<br>|
-|{2}<br>|__metadata<br>|object<br>|オブジェクト{3}<br>|
-|{3}<br>|etag<br>|string<br>|Etag値<br>|
-|{3}<br>|uri<br>|string<br>|作成したリソースへのURL<br>|
 ##### Property固有レスポンスボディ
 |オブジェクト<br>|名前（キー）<br>|型<br>|値<br>|
 |:--|:--|:--|:--|
-|{3}<br>|type<br>|string<br>|ODataSvcSchema.AssociationEnd<br>|
+|{3}<br>|type<br>|string<br>|ODataSvcSchema.Property<br>|
 |{2}<br>|Name<br>|string<br>|Property名<br>|
 |{2}<br>|_EntityType.Name<br>|string<br>|紐付くEntityType名<br>|
 |{2}<br>|Type<br>|string<br>|型定義<br>|
 |{2}<br>|Nullable<br>|boolean<br>|Null値許可<br>|
-|{2}<br>|IsDeclared<br>|boolean<br>|Declaredかの真偽<br>|
 |{2}<br>|DefaultValue<br>|string<br>|デフォルト値<br>|
 |{2}<br>|CollectionKind<br>|string<br>|配列種別<br>|
 |{2}<br>|IsKey<br>|boolean<br>|主キー設定<br>|
 |{2}<br>|UniqueKey<br>|string<br>|ユニークキー設定<br>|
+|{2}<br>|IsDeclared<br>|boolean<br>|Declaredかの真偽<br>|
 #### エラーメッセージ一覧
 [エラーメッセージ一覧](200_Error_Messages.html)を参照
 #### レスポンスサンプル
@@ -91,25 +91,26 @@ GET
 {
   "d": {
     "results": {
-      "_EntityType": {
-        "__deferred": {
-          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/Property(Name='PetName',_EntityType.Name='Profile')/_EntityType"
-        }
+      "__metadata": {
+        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/Property(Name='{PetName}',_EntityType.Name='{EntityTypeName}')",
+        "etag": "W/\"1-1487635336196\"",
+        "type": "ODataSvcSchema.Property"
       },
-      "Name": "PetName",
-      "_EntityType.Name": "Profile",
+      "Name": "{PetName}",
+      "_EntityType.Name": "{EntityTypeName}",
       "Type": "Edm.String",
       "Nullable": true,
       "DefaultValue": null,
       "CollectionKind": "None",
       "IsKey": true,
       "UniqueKey": null,
-      "__published": "/Date(1349434504818)/",
-      "__updated": "/Date(1349434504818)/",
-      "__metadata": {
-        "etag": "1-1349434504818",
-        "type": "ODataSvcSchema.Property",
-        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/Property(Name='PetName',_EntityType.Name='Profile')"
+      "IsDeclared": true,
+      "__published": "/Date(1487635336196)/",
+      "__updated": "/Date(1487635336196)/",
+      "_EntityType": {
+        "__deferred": {
+          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/Property(Name='{PetName}',_EntityType.Name='{EntityTypeName}')/_EntityType"
+        }
       }
     }
   }
@@ -120,7 +121,7 @@ GET
 ### CURLサンプル
 
 ```sh
-curl  "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/Property(Name='PetName',_EntityType.Name='Profile')"
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata/Property(Name='{PetName}',_EntityType.Name='{EntityTypeName}')"
  -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
 ```
 <br>

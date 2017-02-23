@@ -30,7 +30,7 @@ alter-schema
 ### リクエスト
 #### リクエストURL
 ```
-/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/ComplexTypeProperty
+/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/ComplexTypeProperty
 ```
 #### メソッド
 POST
@@ -69,7 +69,7 @@ JSON
 
 |項目名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|Name<br>|EntityType名<br>|桁数：1&#65374;128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)は指定不可<br>null<br>|○<br>| <br>|
+|Name<br>|ComplexTypeProperty名<br>|桁数：1&#65374;128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)は指定不可<br>|○<br>| <br>|
 |_ComplexType.Name<br>|紐付くComplexType名<br>|桁数：1&#65374;128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)は指定不可<br>|○<br>| <br>|
 |Type<br>|型定義<br>|Edm.Boolean / Edm.String / Edm.Single / Edm.Int32 / Edm.DateTime / 登録済みComplexType名<br>|○<br>| <br>|
 |Nullable<br>|Null値許可<br>|true / false<br>デフォルト値は Null<br>|×<br>| <br>|
@@ -89,14 +89,7 @@ DefaultValueの有効値はTypeの値（型定義）によって異なり、以�
 
 #### リクエストサンプル
 ```json
-{
-   "Name": "PostalCode",
-  "_ComplexType.Name": "Address",
-  "Type": "Edm.String",
-  "Nullable": true,
-  "DefaultValue": null,
-  "CollectionKind": "None"  
-}
+{"Name": "{ComplexTypePropertyName}","_ComplexType.Name": "{ComplexTypeName}","Type": "Edm.String","Nullable": true,"DefaultValue": null,"CollectionKind": "None"}
 ```
 <br>
 ### レスポンス
@@ -108,8 +101,8 @@ DefaultValueの有効値はTypeの値（型定義）によって異なり、以�
 
 |ヘッダ名<br>|概要<br>|備考<br>|
 |:--|:--|:--|
-|X-Personium-Version<br>|APIの実行バージョン<br>|リクエストが処理されたAPIバージョン<br>|
 |Access-Control-Allow-Origin<br>|クロスドメイン通信許可ヘッダ<br>|返却値は"*"固定<br>|
+|X-Personium-Version<br>|APIの実行バージョン<br>|リクエストが処理されたAPIバージョン<br>|
 
 ##### ODataレスポンスヘッダ
 
@@ -117,8 +110,8 @@ DefaultValueの有効値はTypeの値（型定義）によって異なり、以�
 |:--|:--|:--|
 |Content-Type<br>|返却されるデータの形式<br>| <br>
 |Location<br>|作成したリソースへのURL<br>| <br>
-|ETag<br>|リソースのバージョン情報<br>| <br>
 |DataServiceVersion<br>|ODataのバージョン<br>| <br>
+|ETag<br>|リソースのバージョン情報<br>| <br>
 
 #### レスポンスボディ
 ##### 共通レスポンスボディ
@@ -130,19 +123,18 @@ DefaultValueの有効値はTypeの値（型定義）によって異なり、以�
 |ルート<br>|d<br>|object<br>|オブジェクト{1}<br>|
 |{1}<br>|__count<br>|string<br>|$inlinecountクエリでの取得結果件数<br>|
 |{1}<br>|results<br>|array<br>|オブジェクト{2}の配列<br>|
+|{2}<br>|__metadata<br>|object<br>|オブジェクト{3}<br>|
+|{3}<br>|uri<br>|string<br>|作成したリソースへのURL<br>|
+|{3}<br>|etag<br>|string<br>|Etag値<br>|
 |{2}<br>|__published<br>|string<br>|作成日(UNIX時間)<br>|
 |{2}<br>|__updated<br>|string<br>|更新日(UNIX時間)<br>|
-|{2}<br>|__metadata<br>|object<br>|オブジェクト{3}<br>|
-|{3}<br>|etag<br>|string<br>|Etag値<br>|
-|{3}<br>|uri<br>|string<br>|作成したリソースへのURL<br>|
 
 ##### Property固有レスポンスボディ
 
 |オブジェクト<br>|名前（キー）<br>|型<br>|値<br>|
 |:--|:--|:--|:--|
-|{3}<br>|type<br>|string<br>|ODataSvcSchema.AssociationEnd<br>|
-|{2}<br>|Name<br>|string<br>|Property名<br>|
-|{2}<br>|_EntityType.Name<br>|string<br>|紐付くEntityType名<br>|
+|{3}<br>|type<br>|string<br>|ODataSvcSchema.ComplexTypeProperty<br>|
+|{2}<br>|Name<br>|string<br>|ComplexTypeProperty名<br>|
 |{2}<br>|Type<br>|string<br>|型定義<br>|
 |{2}<br>|Nullable<br>|boolean<br>|Null値許可<br>|
 |{2}<br>|DefaultValue<br>|string<br>|デフォルト値<br>|
@@ -164,26 +156,21 @@ DefaultValueの有効値はTypeの値（型定義）によって異なり、以�
 #### レスポンスサンプル
 ```json
 {
-   "d": {
+  "d": {
     "results": {
-      "_ComplexType": {
-        "__deferred": {
-          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/ComplexTypeProperty(Name='PostalCode',_ComplexType.Name='Address')/_ComplexType"
-        }
+      "__metadata": {
+        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/ComplexTypeProperty(Name='{ComplexTypePropertyNaem}',_ComplexType.Name='{ComplexTypeName}')",
+        "etag": "W/\"1-1487658277593\"",
+        "type": "ODataSvcSchema.ComplexTypeProperty"
       },
-      "Name": "PostalCode",
-      "_ComplexType.Name": "Address",
+      "Name": "{ComplexTypePropertyNaem}",
+      "_ComplexType.Name": "{ComplexTypeName}",
       "Type": "Edm.String",
       "Nullable": true,
       "DefaultValue": null,
       "CollectionKind": "None",
-      "__published": "/Date(1349434504818)/",
-      "__updated": "/Date(1349434504818)/",
-      "__metadata": {
-        "etag": "1-1349434504818",
-        "type": "ODataSvcSchema.ComplexTypeProperty",
-        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/ComplexTypeProperty(Name='PostalCode',_ComplexType.Name='Address')"
-      }
+      "__published": "/Date(1487658277593)/",
+      "__updated": "/Date(1487658277593)/"
     }
   }
 }
@@ -193,14 +180,7 @@ DefaultValueの有効値はTypeの値（型定義）によって異なり、以�
 ### CURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/ComplexTypeProperty" -X POST -i  -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '{
-  "Name": "PostalCode",
-  "_ComplexType.Name": "Address",
-  "Type": "Edm.String",
-  "Nullable": true,
-  "DefaultValue": null,
-  "CollectionKind": "None"  
-}'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata/ComplexTypeProperty" -X POST -i -H 'Authorization: Bearer personiumio' -H 'Accept: application/json' -d '{"Name": "{ComplexTypePropertyName}","_ComplexType.Name": "{ComplexTypeName}","Type": "Edm.String","Nullable": true,"DefaultValue": null,"CollectionKind": "None"}'
 ```
 <br>
 <br>

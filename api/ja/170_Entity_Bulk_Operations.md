@@ -18,13 +18,13 @@ ODataEntityに対して、一覧取得や一件取得、登録、更新、削除
 ### リクエスト
 #### リクエストURL
 ```
-/{CellName}/{BoxName}/{OdataCollecitonPath}/$batch
+/{CellName}/{BoxName}/{ODataCollecitonName}/$batch
 ```
 |パス<br>|概要<br>|
 |:--|:--|
 |{CellName}<br>|セル名<br>|
 |{BoxName}<br>|ボックス名<br>|
-|{OdataCollecitonPath}<br>|コレクション名<br>|
+|{ODataCollecitonName}<br>|コレクション名<br>|
 #### メソッド
 POST
 #### リクエストクエリ
@@ -222,7 +222,7 @@ If-Match: *
 |Content-Type<br>|返却されるデータの形式<br>|正常に$batch処理ができた場合：multipart/mixed; boundary={Boundary}<br>|
 |DataServiceVersion<br>|ODataのバージョン情報<br>|正常にEntityが作成できた場合のみ返却する<br>|
 #### レスポンスボディ
-サンプル
+サンプル  
 次に示すのは、上記のリクエストパラメータの例を実行した場合のレスポンスの例を示す
 * userの「ID:0000」を取得
 * userを「ID:0000、Name:富士通 太郎」で登録
@@ -304,7 +304,7 @@ DataServiceVersion: 2.0
 ### CURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$batch" -X POST -i -H 'Content-Type:multipart/mixed; boundary= batch_XAmu9BiJJLBa20sRWIq74jp2UlNAVueztqu' -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d  '--batch_XAmu9BiJJLBa20sRWIq74jp2UlNAVueztqu Content-Type: application/http Content-Transfer-Encoding:binary  GET user('0000') Host: host
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$batch" -X POST -i -H 'Content-Type:multipart/mixed; boundary= batch_XAmu9BiJJLBa20sRWIq74jp2UlNAVueztqu' -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d  '--batch_XAmu9BiJJLBa20sRWIq74jp2UlNAVueztqu Content-Type: application/http Content-Transfer-Encoding:binary  GET user('0000') Host: host
   --batch_XAmu9BiJJLBa20sRWIq74jp2UlNAVueztqu Content-Type: multipart/mixed; boundary=changeset_cLzcDEEVPwvvoxS3yJTFTpRauSK_FAQ6mQtyo0aby93-SDP3lAs2A19a2uBb
  Content-Length: 995  --changeset_cLzcDEEVPwvvoxS3yJTFTpRauSK_FAQ6mQtyo0aby93-SDP3lAs2A19a2uBb Content-Type: application/http Content-Transfer-Encoding: binary
   POST user HTTP/1.1 Host:  Connection: close Accept: application/json Content-Type: application/json Content-Length: 38  {"__id":"0000","Name":"田中 太郎"}

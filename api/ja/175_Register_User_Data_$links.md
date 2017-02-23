@@ -24,7 +24,7 @@ No
 #### リクエストURL
 ユーザデータとの$links
 ```
-/{CellName}/{BoxName}/{CollectionName}/{EntitytypeName}('{UsedataId}')/$links/_{EntitytypeName}
+/{CellName}/{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')/$links/_{EntityTypeName}
 ```
 #### メソッド
 POST
@@ -60,7 +60,8 @@ JSON
 |uri<br>|紐付けるODataリソースのURI<br>|桁数：1&#65374;1024<br>URIの形式に従う<br>scheme：http / https / urn<br>|○<br>|<br>|
 #### リクエストサンプル
 ```json
-{"uri":"https://{UnitFQDN}/{CellName}/__ctl/{BoxName}/{CollectionName}/entitytype('id')"}
+{"uri":"https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')"}
+
 ```
 
 <br>
@@ -71,8 +72,9 @@ JSON
 ##### 共通レスポンスヘッダ
 |ヘッダ名<br>|概要<br>|備考<br>|
 |:--|:--|:--|
-|X-Personium-Version<br>|APIの実行バージョン<br>|リクエストが処理されたAPIバージョン<br>|
 |Access-Control-Allow-Origin<br>|クロスドメイン通信許可ヘッダ<br>|返却値は"*"固定<br>|
+|X-Personium-Version<br>|APIの実行バージョン<br>|リクエストが処理されたAPIバージョン<br>|
+
 ##### OData $links レスポンスヘッダ
 |ヘッダ名<br>|概要<br>|備考<br>|
 |:--|:--|:--|
@@ -88,7 +90,7 @@ JSON
 ### CURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/{EntityName}("userid")/$links/_{EntityName}" -X POST -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '{"uri":"https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/{EntityName}('userid')"}'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')/\$links/_{EntityTypeName}" -X POST -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d "{\"uri\":\"https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')\"}"
 ```
 <br>
 <br>

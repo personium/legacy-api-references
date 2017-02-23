@@ -15,7 +15,7 @@ alter-schema
 ### リクエスト
 #### リクエストURL
 ```
-/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/AssociationEnd
+/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/AssociationEnd
 ```
 #### メソッド
 POST
@@ -45,16 +45,16 @@ JSON
 
 |項目名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|Name<br>|Association名<br>|桁数：1&#65374;128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)は指定不可<br>null<br>|○<br>|<br>
+|Name<br>|Association名<br>|桁数：1&#65374;128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)は指定不可<br>|○<br>|<br>
 |Multiplicity<br>|多重度<br>|"0 .. 1" / "1" / "*"<br>|○<br>|<br>|
 |_EntityType.Name<br>|関係対象のEntityType名<br>|桁数：1&#65374;128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)は指定不可<br>説明：EntityType登録APIにて登録済みのEntityType<br>|○<br>|<br>|
 
 #### リクエストサンプル
 ```json
 {
-   "Name": "animal-keeper",
-  "Multiplicity": "0..1",
-  "_EntityType.Name": "animal"  
+   "Name": "{AssociationEndName}",
+  "Multiplicity": "{Multiplicity}",
+  "_EntityType.Name": "{EntityTypeName}"  
 }
 ```
 <br>
@@ -65,15 +65,17 @@ JSON
 ##### 共通レスポンスヘッダ
 |ヘッダ名<br>|概要<br>|備考<br>|
 |:--|:--|:--|
-|X-Personium-Version<br>|APIの実行バージョン<br>|リクエストが処理されたAPIバージョン<br>|
 |Access-Control-Allow-Origin<br>|クロスドメイン通信許可ヘッダ<br>|返却値は"*"固定<br>|
+|X-Personium-Version<br>|APIの実行バージョン<br>|リクエストが処理されたAPIバージョン<br>|
+
 ##### ODataレスポンスヘッダ
 |ヘッダ名<br>|概要<br>|備考<br>|
 |:--|:--|:--|
-|Content-Type<br>|返却されるデータの形式<br>|<br>
-|Location<br>|作成したリソースへのURL<br>|<br>
-|ETag<br>|リソースのバージョン情報<br>|<br>
-|DataServiceVersion<br>|ODataのバージョン<br>|<br>
+|Content-Type<br>|返却されるデータの形式<br>|<br>|
+|Location<br>|作成したリソースへのURL<br>|<br>|
+|DataServiceVersion<br>|ODataのバージョン<br>|<br>|
+|ETag<br>|リソースのバージョン情報<br>|<br>|
+
 #### レスポンスボディ
 ##### 共通レスポンスボディ
 レスポンスはJSONオブジェクトで、オブジェクト（サブオブジェクト）に定義されるキー(名前)と型、並びに値の対応は以下のとおりです。
@@ -83,11 +85,11 @@ JSON
 |ルート<br>|d<br>|object<br>|オブジェクト{1}<br>|
 |{1}<br>|__count<br>|string<br>|$inlinecountクエリでの取得結果件数<br>|
 |{1}<br>|results<br>|array<br>|オブジェクト{2}の配列<br>|
+|{2}<br>|__metadata<br>|object<br>|オブジェクト{3}<br>|
+|{3}<br>|uri<br>|string<br>|作成したリソースへのURL<br>|
+|{3}<br>|etag<br>|string<br>|Etag値<br>|
 |{2}<br>|__published<br>|string<br>|作成日(UNIX時間)<br>|
 |{2}<br>|__updated<br>|string<br>|更新日(UNIX時間)<br>|
-|{2}<br>|__metadata<br>|object<br>|オブジェクト{3}<br>|
-|{3}<br>|etag<br>|string<br>|Etag値<br>|
-|{3}<br>|uri<br>|string<br>|作成したリソースへのURL<br>|
 ##### AssociationEnd個別レスポンスボディ
 |オブジェクト<br>|名前（キー）<br>|型<br>|値<br>|
 |:--|:--|:--|:--|
@@ -98,18 +100,18 @@ JSON
 #### レスポンスサンプル
 ```json
 {
-   "d": {
+  "d": {
     "results": {
-      "Name": "associationEnd",
-      "__published": "/Date(1349435294656)/",
-      "__updated": "/Date(1349435294656)/",
-      "_EntityType.Name": "entityType",
       "__metadata": {
-        "etag": "1-1349435294656",
-        "type": "ODataSvcSchema.AssociationEnd",
-        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/$metadata/AssociationEnd(Name='associationEnd',_EntityType.Name='entityType')"
+        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/$metadata/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')",
+        "etag": "W/\"1-1487652733383\"",
+        "type": "ODataSvcSchema.AssociationEnd"
       },
-      "Multiplicity": "*"  
+      "Name": "{AssociationEndName}",
+      "Multiplicity": "{Multiplicity}",
+      "_EntityType.Name": "{EntityTypeName}",
+      "__published": "/Date(1487652733383)/",
+      "__updated": "/Date(1487652733383)/"
     }
   }
 }
@@ -130,7 +132,7 @@ JSON
 ### CURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/AssociationEnd" -X POST -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '{ "Name": "animal-keeper", "Multiplicity": "0..1", "_EntityType.Name": "animal"}'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata/AssociationEnd" -X POST -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '{ "Name": "{AssociationEndName}", "Multiplicity": "{Multiplicity}", "_EntityType.Name": "{EntityTypeName}"}'
 ```
 <br>
 <br>

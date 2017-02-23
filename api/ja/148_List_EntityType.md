@@ -15,7 +15,7 @@ read
 ### リクエスト
 #### リクエストURL
 ```
-/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/EntityType
+/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/EntityType
 ```
 
 #### メソッド
@@ -86,11 +86,13 @@ GET
 |ルート<br>|d<br>|object<br>|オブジェクト{1}<br>|
 |{1}<br>|__count<br>|string<br>|$inlinecountクエリでの取得結果件数<br>|
 |{1}<br>|results<br>|array<br>|オブジェクト{2}の配列<br>|
+|{2}<br>|__metadata<br>|object<br>|オブジェクト{3}<br>|
+|{3}<br>|uri<br>|string<br>|作成したリソースへのURL<br>|
+|{3}<br>|etag<br>|string<br>|Etag値<br>|
 |{2}<br>|__published<br>|string<br>|作成日(UNIX時間)<br>|
 |{2}<br>|__updated<br>|string<br>|更新日(UNIX時間)<br>|
-|{2}<br>|__metadata<br>|object<br>|オブジェクト{3}<br>|
-|{3}<br>|etag<br>|string<br>|Etag値<br>|
-|{3}<br>|uri<br>|string<br>|作成したリソースへのURL<br>|
+
+
 
 ##### EntityType固有レスポンスボディ
 
@@ -105,45 +107,45 @@ GET
 #### レスポンスサンプル
 ```json
 {
-   "d": {
+  "d": {
     "results": [
       {
         "__metadata": {
-          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/EntityType('{EntitytypeName}')",
-          "etag": "1-1349434504818",
-          "type": "ODataSvcSchema.EntityType"  
+          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/EntityType('{EntitytypeName}')",
+          "etag": "W/\"1-1487586234224\"",
+          "type": "ODataSvcSchema.EntityType"
         },
         "Name": "{EntitytypeName}",
-        "__published": "/Date(1349434504818)/",
-        "__updated": "/Date(1349434504818)/",
+        "__published": "/Date(1487586234224)/",
+        "__updated": "/Date(1487586234224)/",
         "_AssociationEnd": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/EntityType('{EntitytypeName}')/_AssociationEnd"
+            "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/EntityType('{EntitytypeName}')/_AssociationEnd"
           }
         },
         "_Property": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/EntityType('{EntitytypeName}')/_Property"
+            "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/EntityType('{EntitytypeName}')/_Property"
           }
         }
       },
       {
         "__metadata": {
-          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/EntityType('{EntitytypeName}2')",
-          "etag": "1-1349434509722",
-          "type": "ODataSvcSchema.EntityType"  
+          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/EntityType('{EntitytypeName}')",
+          "etag": "W/\"1-1487589344011\"",
+          "type": "ODataSvcSchema.EntityType"
         },
-        "Name": "{EntitytypeName}2",
-        "__published": "/Date(1349434509722)/",
-        "__updated": "/Date(1349434509722)/",
+        "Name": "{EntitytypeName}",
+        "__published": "/Date(1487589344011)/",
+        "__updated": "/Date(1487589344011)/",
         "_AssociationEnd": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/box/col/$metadata/EntityType('{EntitytypeName}2')/_AssociationEnd"
+            "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/EntityType('{EntitytypeName}')/_AssociationEnd"
           }
         },
         "_Property": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/box/col/$metadata/EntityType('entityType2')/_Property"
+            "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/EntityType('{EntitytypeName}')/_Property"
           }
         }
       }
@@ -156,7 +158,7 @@ GET
 ### CURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/EntityType" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonName}/\$metadata/EntityType" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
 ```
 <br>
 <br>

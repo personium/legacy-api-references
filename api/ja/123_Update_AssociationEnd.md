@@ -13,7 +13,7 @@ alter-schema
 ### リクエスト
 #### リクエストURL
 ```
-/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/AssociationEnd('AssociationEnd')
+/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')
 ```
 #### メソッド
 PUT
@@ -47,10 +47,12 @@ JSON
 
 |項目名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|Name<br>|AssociationEnd名<br>|桁数：1&#65374;128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)は指定不可<br>null<br>|○<br>| <br>|
+|Name<br>|AssociationEnd名<br>|桁数：1&#65374;128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)は指定不可<br>|○<br>| <br>|
+|Multiplicity<br>|多重度<br>|"0 .. 1" / "1" / "*"<br>|○<br>|<br>|
+|_EntityType.Name<br>|関係対象のEntityType名<br>|桁数：1&#65374;128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)は指定不可<br>説明：EntityType登録APIにて登録済みのEntityType<br>|○<br>|<br>|
 #### リクエストサンプル
 ```json
-{"Name":"animal"}   
+{"Name":"{AssociationEndName}","Multiplicity":"{Multiplicity}","_EntityType.Name":"{EntityTypeName}"}
 ```
 
 <br>
@@ -80,7 +82,7 @@ JSON
 ### CURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/AssociationEnd('animal')" -X PUT -i  -H 'If-Match: *' -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '{"Name":"AssociationEnd"}'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')" -X PUT -i  -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '{"Name":"{AssociationEndName}","Multiplicity":"{Multiplicity}","_EntityType.Name":"{EntityTypeName}"}'
 ```
 <br>
 <br>

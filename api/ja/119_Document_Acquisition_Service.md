@@ -10,7 +10,7 @@ read
 ### リクエスト
 #### リクエストURL
 ```
-/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata
+/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata
 ```
 #### メソッド
 GET
@@ -42,57 +42,45 @@ GET
 #### レスポンスヘッダ
 |ヘッダ名<br>|概要<br>|備考<br>|
 |:--|:--|:--|
-|X-Personium-Version<br>|APIの実行バージョン<br>|リクエストが処理されたAPIバージョン<br>|
-|Access-Control-Allow-Origin<br>|クロスドメイン通信許可ヘッダ<br>|返却値は"*"固定<br>|
 |Content-Type<br>|返却されるデータの形式<br>| <br>|
 |DataServiceVersion<br>|ODataのバージョン情報<br>| <br>|
+|Access-Control-Allow-Origin<br>|クロスドメイン通信許可ヘッダ<br>|返却値は"*"固定<br>|
+|X-Personium-Version<br>|APIの実行バージョン<br>|リクエストが処理されたAPIバージョン<br>|
+
 #### レスポンスボディ
-固定で以下を返却する
+レスポンスサンプル参照
+#### エラーメッセージ一覧
+[エラーメッセージ一覧](200_Error_Messages.html)を参照
+#### レスポンスサンプル
 ```xml
-<service xmlns='http://www.w3.org/2007/app' xml:base='https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata'
-xmlns:atom='http://www.w3.org/2005/Atom' xmlns:app='http://www.w3.org/2007/app'>
+<?xml version='1.0' encoding='utf-8'?>
+<service xmlns="http://www.w3.org/2007/app" xml:base="https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonName}/$metadata/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:app="http://www.w3.org/2007/app">
   <workspace>
-    <atom:title>
-      Default
-    </atom:title>
-    <collection href='ComplexType'>
-      <atom:title>
-        ComplexType
-      </atom:title>
+    <atom:title>Default </atom:title>
+    <collection href="EntityType">
+      <atom:title>EntityType </atom:title>
     </collection>
-    <collection href='ComplexTypeProperty'>
-      <atom:title>
-        ComplexTypeProperty
-      </atom:title>
+    <collection href="AssociationEnd">
+      <atom:title>AssociationEnd </atom:title>
     </collection>
-    <collection href='AssociationEnd'>
-      <atom:title>
-        AssociationEnd
-      </atom:title>
+    <collection href="ComplexTypeProperty">
+      <atom:title>ComplexTypeProperty </atom:title>
     </collection>
-    <collection href='EntityType'>
-      <atom:title>
-        EntityType
-      </atom:title>
+    <collection href="Property">
+      <atom:title>Property </atom:title>
     </collection>
-    <collection href='Property'>
-      <atom:title>
-        Property
-      </atom:title>
+    <collection href="ComplexType">
+      <atom:title>ComplexType </atom:title>
     </collection>
   </workspace>
 </service>
 ```
-#### エラーメッセージ一覧
-[エラーメッセージ一覧](200_Error_Messages.html)を参照
-#### レスポンスサンプル
-なし
 
 <br>
 ### CURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata' -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/atomsvc+xml'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonName}/\$metadata' -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/atomsvc+xml'
 ```
 <br>
 <br>

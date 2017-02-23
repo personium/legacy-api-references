@@ -36,7 +36,7 @@ $formatにatomsvcを指定した場合、SchemaのAtom ServiceDocumentを返却�
 ##### 個別リクエストヘッダ
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|Accept<br>|返却されるデータの形式<br>|application/atomsvc+xml<br>|×<br>|指定がない場合、ユーザデータスキーマのスキーマ情報取得となる<br>|
+|Accept<br>|返却されるデータの形式<br>|application/atomsvc+xml<br>application/xml<br>|×<br>|指定がない場合、ユーザデータスキーマのスキーマ情報取得となる<br>|
 |Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {認証トークン}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
 #### リクエストボディ
 なし
@@ -51,8 +51,9 @@ $formatにatomsvcを指定した場合、SchemaのAtom ServiceDocumentを返却�
 ##### 共通レスポンスヘッダ
 |ヘッダ名<br>|概要<br>|備考<br>|
 |:--|:--|:--|
-|X-Personium-Version<br>|APIの実行バージョン<br>|指定がない場合、最新のAPIバージョンが指定される<br>|
 |Access-Control-Allow-Origin<br>|クロスドメイン通信許可ヘッダ<br>|返却値は"*"固定<br>|
+|X-Personium-Version<br>|APIの実行バージョン<br>|指定がない場合、最新のAPIバージョンが指定される<br>|
+
 ##### スキーマ取得固有レスポンスヘッダ
 |ヘッダ名<br>|概要<br>|備考<br>|
 |:--|:--|:--|
@@ -232,84 +233,76 @@ $formatにatomsvcを指定した場合、SchemaのAtom ServiceDocumentを返却�
 ##### SchemaのAtom ServiceDocumentの場合
 以下を固定で返却する。
 ```xml
-<service xmlns='http://www.w3.org/2007/app' xml:base='https://{UnitFQDN}/{CellName}/{BoxName}/col/$metadata?$format=atomsvc/'
- xmlns:atom='http://www.w3.org/2005/Atom' xmlns:app='http://www.w3.org/2007/app'>
+<?xml version="1.0" encoding="utf-8"?>
+<service xmlns="http://www.w3.org/2007/app" xml:base="https://demo.personium.io/kouroki/TestBox/TestOData/$metadata/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:app="http://www.w3.org/2007/app">
   <workspace>
-    <atom:title>
-      Default
-    </atom:title>
-    <collection href='ComplexType'>
-      <atom:title>
-        ComplexType
-      </atom:title>
+    <atom:title>Default</atom:title>
+    <collection href="EntityType">
+      <atom:title>EntityType</atom:title>
     </collection>
-    <collection href='ComplexTypeProperty'>
-      <atom:title>
-        ComplexTypeProperty
-      </atom:title>
+    <collection href="AssociationEnd">
+      <atom:title>AssociationEnd</atom:title>
     </collection>
-    <collection href='AssociationEnd'>
-      <atom:title>
-        AssociationEnd
-      </atom:title>
+    <collection href="ComplexTypeProperty">
+      <atom:title>ComplexTypeProperty</atom:title>
     </collection>
-    <collection href='EntityType'>
-      <atom:title>
-        EntityType
-      </atom:title>
+    <collection href="Property">
+      <atom:title>Property</atom:title>
     </collection>
-    <collection href='Property'>
-      <atom:title>
-        Property
-      </atom:title>
+    <collection href="ComplexType">
+      <atom:title>ComplexType</atom:title>
     </collection>
   </workspace>
 </service>
 ```
 ##### ユーザデータの場合
 ```xml
-<edmx:Edmx Version='1.0' xmlns:edmx='http://schemas.microsoft.com/ado/2007/06/edmx' xmlns:d='http://schemas.microsoft.com/ado/2007/08/dataservices' xmlns:m='http://schemas.microsoft.com/ado/2007/08/dataservices/metadata' xmlns:p='urn:x-personium:xmlns'>
-  <edmx:DataServices m:DataServiceVersion='1.0'>
-    <Schema xmlns='http://schemas.microsoft.com/ado/2006/04/edm' Namespace='UserData'>
-      <EntityType Name='Sales' OpenType='true'>
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:p="urn:x-personium:xmlns">
+  <edmx:DataServices m:DataServiceVersion="1.0">
+    <Schema xmlns="http://schemas.microsoft.com/ado/2006/04/edm" Namespace="UserData">
+      <ComplexType Name="Address"></ComplexType>
+      <ComplexType Name="TestComplexType">
+        <Property Name="TestComplexTypeProperty" Type="Edm.String" Nullable="true"></Property>
+      </ComplexType>
+      <EntityType Name="TestEntity" OpenType="true">
         <Key>
-          <PropertyRef Name='__id'/>
+          <PropertyRef Name="__id"></PropertyRef>
         </Key>
-        <Property Name='__id' Type='Edm.String' Nullable='false' DefaultValue='UUID()' p:Format='regEx(&amp;apos;^[a-zA-Z0-9][a-zA-Z0-9-_:]{0,199}$&amp;apos;)'/>
-        <Property Name='__published' Type='Edm.DateTime' Nullable='false' DefaultValue='SYSUTCDATETIME()' Precision='3'/>
-        <Property Name='__updated' Type='Edm.DateTime' Nullable='false' DefaultValue='SYSUTCDATETIME()' Precision='3'/>
-        <NavigationProperty Name='_SalesDetail' Relationship='UserData.Sales-SalesDetail-assoc' FromRole='Sales:sales2salesDetail' ToRole='SalesDetail:salesDetail2sales'/>
+        <Property Name="__id" Type="Edm.String" Nullable="false" DefaultValue="UUID()" p:Format="regEx('^[a-zA-Z0-9][a-zA-Z0-9-_:]{0,199}$')"></Property>
+        <Property Name="__published" Type="Edm.DateTime" Nullable="false" DefaultValue="SYSUTCDATETIME()" Precision="3"></Property>
+        <Property Name="__updated" Type="Edm.DateTime" Nullable="false" DefaultValue="SYSUTCDATETIME()" Precision="3"></Property>
+        <Property Name="TestProperty" Type="Edm.String" Nullable="true"></Property>
+        <NavigationProperty Name="_TestEntity" Relationship="UserData.TestEntity-TestEntity-assoc" FromRole="TestEntity:TestAssociationEndFrom" ToRole="TestEntity:TestAssociationEndTo"></NavigationProperty>
       </EntityType>
-      <EntityType Name='SalesDetail' OpenType='true'>
-        <Key>
-          <PropertyRef Name='__id'/>
-        </Key>
-        <Property Name='__id' Type='Edm.String' Nullable='false' DefaultValue='UUID()' p:Format='regEx(&amp;apos;^[a-zA-Z0-9][a-zA-Z0-9-_:]{0,199}$&amp;apos;)'/>
-        <Property Name='__published' Type='Edm.DateTime' Nullable='false' DefaultValue='SYSUTCDATETIME()' Precision='3'/>
-        <Property Name='__updated' Type='Edm.DateTime' Nullable='false' DefaultValue='SYSUTCDATETIME()' Precision='3'/>
-        <NavigationProperty Name='_Sales' Relationship='UserData.Sales-SalesDetail-assoc' FromRole='SalesDetail:salesDetail2sales' ToRole='Sales:sales2salesDetail'/>
-      </EntityType>
-      <Association Name='Sales-SalesDetail-assoc'>
-        <End Role='Sales:sales2salesDetail' Type='UserData.Sales' Multiplicity='1'/>
-        <End Role='SalesDetail:salesDetail2sales' Type='UserData.SalesDetail' Multiplicity='*'/>
+      <Association Name="TestEntity-TestEntity-assoc">
+        <End Role="TestEntity:TestAssociationEndFrom" Type="UserData.TestEntity" Multiplicity="1"></End>
+        <End Role="TestEntity:TestAssociationEndTo" Type="UserData.TestEntity" Multiplicity="0..1"></End>
       </Association>
-      <EntityContainer Name='UserData' m:IsDefaultEntityContainer='true'>
-        <EntitySet Name='SalesDetail' EntityType='UserData.SalesDetail'/>
-        <AssociationSet Name='Sales-SalesDetail-assoc' Association='UserData.Sales-SalesDetail-assoc'>
-          <End Role='Sales:sales2salesDetail' EntitySet='Sales'/>
-          <End Role='SalesDetail:salesDetail2sales' EntitySet='SalesDetail'/>
+      <EntityContainer Name="UserData" m:IsDefaultEntityContainer="true">
+        <EntitySet Name="TestEntity" EntityType="UserData.TestEntity"></EntitySet>
+        <EntitySet Name="animal" EntityType="UserData.animal"></EntitySet>
+        <EntitySet Name="Profile" EntityType="UserData.Profile"></EntitySet>
+        <AssociationSet Name="TestEntity-TestEntity-assoc" Association="UserData.TestEntity-TestEntity-assoc">
+          <End Role="TestEntity:TestAssociationEndFrom" EntitySet="TestEntity"></End>
+          <End Role="TestEntity:TestAssociationEndTo" EntitySet="TestEntity"></End>
         </AssociationSet>
       </EntityContainer>
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>
+
 ```
 
 <br>
 ### CURLサンプル
-
+##### SchemaのAtom ServiceDocumentの場合
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept:application/xml'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept:application/atomsvc+xml'
+```
+##### ユーザデータの場合
+```sh
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept:application/xml'
 ```
 <br>
 <br>

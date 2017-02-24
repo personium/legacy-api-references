@@ -10,14 +10,14 @@ write
 ### リクエスト
 #### リクエストURL
 ```
-/{CellName}/{BoxName}/{ResourcePath}/{SrcName}
+/{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/__src/{ResourceName}
 ```
 |パス<br>|概要<br>|備考<br>|
 |:--|:--|:--|
 |{CellName}<br>|セル名<br>|<br>
 |{BoxName}<br>|ボックス名<br>|<br>
-|{ResourcePath}<br>|リソースへのパス<br>|有効値 桁数:1&#65374;128<br>使用可能文字種<br>半角英数字、半角ピリオド(.)、半角アンダーバー(_)、半角ハイフン(-)<br>|
-|{SrcName}<br>|サービスソースの名前を指定<br>|有効値(制限) 桁数:1&#65374;128<br>使用可能文字種<br>半角英数字、半角ピリオド(.)、半角アンダーバー(_)、半角ハイフン(-)<br>|
+|{CollectionName}<br>|サービスコレクション名<br>|有効値 桁数:1&#65374;128<br>使用可能文字種<br>半角英数字、半角ピリオド(.)、半角アンダーバー(_)、半角ハイフン(-)<br>|
+|{ResourceName}<br>|リソース名<br>|有効値(制限) 桁数:1&#65374;128<br>使用可能文字種<br>半角英数字、半角ピリオド(.)、半角アンダーバー(_)、半角ハイフン(-)<br>|
 #### メソッド
 DELETE
 #### リクエストクエリ
@@ -73,7 +73,7 @@ DELETE
 ### CURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/svccol/__src/hello.js" -X DELETE -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/__src/{ResourceName}" -X DELETE -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
 ```
 <br>
 <br>

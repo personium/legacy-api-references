@@ -20,15 +20,16 @@ $select={propertyName}
 |Path<br>|概要<br>|
 |:--|:--|
 |{PropertyName}<br>|返却するプロパティ名<br>複数指定する場合はカンマ区切りで指定する<br>|
-#### CURLサンプル
-1.NameとCategoryを返却する
+##### CURLサンプル
+例：Box一覧を取得する際、Nameプロパティのみ返却する場合:
+```sh
+curl "https://{UnitFQDN}/{CellName}/__ctl/Box?\$select=Name" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
 ```
-$select=Name,Category
+例：Box一覧を取得する際、全プロパティを返却する場合:
 ```
-2.すべてのプロパティを返却する
+curl "https://{UnitFQDN}/{CellName}/__ctl/Box?\$select=*" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
 ```
-$select=*
-```
+
 <br>
 <br>
 <br>

@@ -14,7 +14,7 @@ $expandで取得した関連データのソート順は下記の通り。
 ※Multiplicityが"1"の場合は、"0..1"と同様のソート結果となる
 ### リクエストクエリ
 ```
-$expand=_{NavigationPropertyName}
+$expand={NavigationPropertyName}
 ```
 |Path<br>|概要<br>|
 |:--|:--|
@@ -25,9 +25,9 @@ $expand=_{NavigationPropertyName}
 一件取得時のナビゲーションプロパティは10件まで指定可能  
 ※指定可能なナビゲーションプロパティ数を超えた場合は「400 Bad Request」を返却する
 #### CURLサンプル
-Keeperに紐付くAnimal情報を展開して取得する
+ナビゲーションプロパティに紐付く情報を展開して取得する
 ```
-$expand=_Animal
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')?\$expand={NavigationPropertyName}" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
 ```
 ### 制限事項
 * 関連情報の展開は1階層のみ可能

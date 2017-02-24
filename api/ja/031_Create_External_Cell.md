@@ -69,13 +69,14 @@ POST
 |オブジェクト<br>|項目名<br>|Data Type<br>|備考<br>|
 |:--|:--|:--|:--|
 |ルート&#160;<br>|d<br>|object<br>|オブジェクト{1}<br>|
-|{1}<br>|__count<br>|string<br>|$inlinecountクエリでの取得結果件数<br>|
 |{1}<br>|results<br>|array<br>|オブジェクト{2}の配列<br>|
 |{2}<br>|__metadata<br>|object<br>|オブジェクト{3}<br>|
 |{2}<br>|Url<br>|string<br>|対象CellのURL<br>|
 |{3}<br>|etag<br>|string<br>|Etag値<br>|
 |{2}<br>|__published<br>|string<br>|作成日(UNIX時間)<br>|
 |{2}<br>|__updated<br>|string<br>|更新日(UNIX時間)<br>|
+|{1}<br>|__count<br>|string<br>|$inlinecountクエリでの取得結果件数<br>|
+
 #### ExtCell固有レスポンスボディ
 |オブジェクト<br>|項目名<br>|Data Type<br>|備考<br>|
 |:--|:--|:--|:--|

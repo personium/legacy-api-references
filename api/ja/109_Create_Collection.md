@@ -1,12 +1,12 @@
 # コレクション作成
 ### 概要
-WebDAVのコレクションを作成する
+コレクションを作成する
 ### 必要な権限
 write
 ### 制限事項
 共通制限
 * なし
-  
+
 WebDAV制限
 * 未稿
 
@@ -14,22 +14,19 @@ WebDAV制限
 ### リクエスト
 #### リクエストURL
 ```
-/{CellName}/{BoxName}/{ResourcePath}
+/{CellName}/{BoxName}/{CollectionName}
 ```
 |パス<br>|概要<br>|備考<br>|
 |:--|:--|:--|
 |{CellName}<br>|セル名<br>|<br>
 |{BoxName}<br>|ボックス名<br>|<br>
-|{ResourcePath}<br>|リソースへのパス<br>|有効値 桁数:1&#65374;128<br>使用可能文字種<br>半角英数字、半角ピリオド(.)、半角アンダーバー(_)、半角ハイフン(-)<br>|
+|{CollectionName}<br>|コレクション名<br>|有効値 桁数:1&#65374;128<br>使用可能文字種<br>半角英数字、半角ピリオド(.)、半角アンダーバー(_)、半角ハイフン(-)<br>|
 #### メソッド
 MKCOL
 #### リクエストクエリ
-##### 共通リクエストクエリ
 |クエリ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer<br>|クッキー認証値<br>|認証時にサーバから返却されたクッキー認証値<br>|×<br>|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br>|
-##### WebDav 共通リクエストクエリ
-なし
 #### リクエストヘッダ
 ##### 共通リクエストヘッダ
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
@@ -57,7 +54,9 @@ MKCOL
 |set<br>|D:<br>|要素<br>|プロパティ設定を表し、propが子となる <br>|<br>|
 |prop<br>|D:<br>|要素<br>|プロパティ設定値を表し、resourcetypeが子となる <br>|<br>|
 |resourcetype<br>|D:<br>|要素<br>|リソースタイプ設定を表し、collection・odata・serviceのいずれかが子となる<br>|<br>|
-|collection<br>|D:<br>|要素<br>|WebDAVコレクションを表す<br>|WebDAVコレクション作成時に設定する<br>|
+|collection<br>|D:<br>|要素<br>|コレクションを表す<br>|collectionノードのみ指定されている場合WebDAVコレクション作成となる<br>|
+|odata<br>|p:<br>|要素<br>|ODataコレクションを表す<br>|collectionノードとodataノードが指定されている場合ODataコレクション作成となる<br>|
+|service<br>|p:<br>|要素<br>|Serviceコレクションを表す<br>|collectionノードとserviceノードが指定されている場合Serviceコレクション作成となる<br>|
 ##### DTD表記
 ###### 名前空間D:
 ```dtd
@@ -73,6 +72,7 @@ MKCOL
 <!ELEMENT service EMPTY>
 ```
 #### リクエストサンプル
+WebDAVコレクション作成
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <D:mkcol xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns">
@@ -80,6 +80,34 @@ MKCOL
     <D:prop>
       <D:resourcetype>
         <D:collection/>
+      </D:resourcetype>
+    </D:prop>
+  </D:set>
+</D:mkcol>
+```
+ODataコレクション作成
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<D:mkcol xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns">
+  <D:set>
+    <D:prop>
+      <D:resourcetype>
+        <D:collection/>
+        <p:odata/>
+      </D:resourcetype>
+    </D:prop>
+  </D:set>
+</D:mkcol>
+```
+Serviceコレクション作成
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<D:mkcol xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns">
+  <D:set>
+    <D:prop>
+      <D:resourcetype>
+        <D:collection/>
+        <p:service/>
       </D:resourcetype>
     </D:prop>
   </D:set>
@@ -118,9 +146,17 @@ MKCOL
 
 <br>
 ### CURLサンプル
-
+WebDAVコレクション作成
 ```sh
 curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}" -X MKCOL -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8"?><D:mkcol xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns"><D:set><D:prop><D:resourcetype><D:collection/></D:resourcetype></D:prop></D:set></D:mkcol>'
+```
+ODataコレクション作成
+```sh
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}" -X MKCOL -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8"?><D:mkcol xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns"><D:set><D:prop><D:resourcetype><D:collection/><p:odata/></D:resourcetype></D:prop></D:set></D:mkcol>'
+```
+Serviceコレクション作成
+```sh
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}" -X MKCOL -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8"?><D:mkcol xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns"><D:set><D:prop><D:resourcetype><D:collection/><p:service/></D:resourcetype></D:prop></D:set></D:mkcol>'
 ```
 <br>
 <br>

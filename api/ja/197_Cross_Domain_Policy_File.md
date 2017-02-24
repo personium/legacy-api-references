@@ -37,7 +37,7 @@ XML形式
 |:--|:--|
 |/cross-domain-policy/site-control<br>|メタポリシーの許可設定情報。固定で属性値「permitted-cross-domain-policies="all"」を返却する<br>|
 |/cross-domain-policy/allow-access-from<br>|現在のドメインにアクセス可能なドメイン。固定で属性値「domain="*"」を返却する<br>|
-|/cross-domain-policy/allow-http-request-headers-from<br>|現在のドメインに送信可能なヘッダ情報と、ヘッダ送信元ドメイン。固定で属性値「domain="*" headers="*"」を返却する<br>|
+|/cross-domain-policy/allow-http-request-headers-from<br>|現在のドメインに送信可能なヘッダ情報と、ヘッダ送信元ドメイン。固定で属性値「domain="\*" headers="*"」を返却する<br>|
 #### エラーメッセージ一覧
 [エラーメッセージ一覧](200_Error_Messages.html)を参照
 

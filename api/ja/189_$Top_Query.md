@@ -15,9 +15,9 @@ $top={number}
 |:--|:--|:--|:--|
 |{number}<br>|返されるフィードに含まれるエンティティの数を指定する<br>|半角数字の0-10000(デフォルト:25)<br>$expandクエリ指定時は0-100(デフォルト:25)<br>| <br>|
 ##### CURLサンプル
-データ一覧の取得件数を10件に制限する
-```
-$top=10
+例：セルを10件取得する場合:
+```sh
+curl "https://{UnitFQDN}/__ctl/Cell?\$top=10" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
 ```
 ### 制限事項
 * 処理性能を考慮した場合、$skipクエリと併用する

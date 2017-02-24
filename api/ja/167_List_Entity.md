@@ -86,7 +86,6 @@ GET
 |オブジェクト<br>|名前（キー）<br>|型<br>|値<br>|
 |:--|:--|:--|:--|
 |ルート<br>|d<br>|object<br>|オブジェクト{1}<br>|
-|{1}<br>|__count<br>|string<br>|$inlinecountクエリでの取得結果件数<br>|
 |{1}<br>|results<br>|array<br>|オブジェクト{2}の配列<br>|
 |{2}<br>|__metadata<br>|object<br>|オブジェクト{3}<br>|
 |{3}<br>|uri<br>|string<br>|作成したリソースへのURL<br>|
@@ -98,6 +97,8 @@ GET
 |{2}<br>|_{NP名}<br>|string<br>|オブジェクト{4}<br>Linkが結ばれている場合のみ返却される。{NP名}:NavigationPropert名<br>|
 |{4}<br>|__deferred<br>|object<br>|オブジェクト{5}<br>|
 |{5}<br>|uri<br>|string<br>|関係を結んでいるリソースのuri<br>テスト未実施<br>|
+|{1}<br>|__count<br>|string<br>|$inlinecountクエリでの取得結果件数<br>|
+
 上記以外にスキーマ設定した項目、または登録時に指定した動的な項目を返却
 
 ##### 数値の扱い

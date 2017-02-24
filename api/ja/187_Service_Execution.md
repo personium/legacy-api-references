@@ -13,14 +13,14 @@ exec
 ### リクエスト
 #### リクエストURL
 ```
-/{CellName}/{BoxName}/{ResourcePath}/{SrcName}
+/{CellName}/{BoxName}/{CollectionName}/{ServiceName}
 ```
 |パス<br>|概要<br>|備考<br>|
 |:--|:--|:--|
 |{CellName}<br>|セル名<br>| <br>|
 |{BoxName}<br>|ボックス名<br>| <br>|
-|{ResourcePath}<br>|リソースへのパス<br>|有効値 桁数:1&#65374;128<br>使用可能文字種<br>半角英数字、半角ピリオド(.)、半角アンダーバー(_)、半角ハイフン(-)<br>|
-|{SrcName}<br>|サービスソースの名前を指定<br>|有効値(制限) 桁数:1&#65374;128<br>使用可能文字種<br>半角英数字、半角ピリオド(.)、半角アンダーバー(_)、半角ハイフン(-)<br>|
+|{CollectionName}<br>|サービスコレクション名<br>|有効値 桁数:1&#65374;128<br>使用可能文字種<br>半角英数字、半角ピリオド(.)、半角アンダーバー(_)、半角ハイフン(-)<br>|
+|{ServiceName}<br>|登録されたサービスの名前を指定<br>|有効値(制限) 桁数:1&#65374;128<br>使用可能文字種<br>半角英数字、半角ピリオド(.)、半角アンダーバー(_)、半角ハイフン(-)<br>|
 #### メソッド
 GET / POST / PUT / DELETE
 #### リクエストクエリ
@@ -46,7 +46,7 @@ GET / POST / PUT / DELETE
 #### レスポンスヘッダ
 |ヘッダ名<br>|概要<br>|備考<br>|
 |:--|:--|:--|
-|Content-Type<br>|エントリーの削除に失敗した場合のみ返却する<br>|application / json<br>|
+|Content-Type<br>|スクリプトに依存した形式を返却する<br>|text/html<br>|
 #### レスポンスボディ
 スクリプトが実行された場合はスクリプトのレスポンスボディが返却される
 #### エラーメッセージ一覧
@@ -71,7 +71,7 @@ GET / POST / PUT / DELETE
 ### CURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/svccol/hello" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/{ServiceName}" -X GET -i -H "Authorization:Bearer {UnitUserToken}" -H "Accept:application/json"
 ```
 <br>
 <br>

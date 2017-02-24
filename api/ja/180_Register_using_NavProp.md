@@ -19,19 +19,19 @@ write
 ### リクエスト
 #### リクエストURL
 ```
-/{CellName}/{BoxName}/{ODataCollecitonName}/{EntitySet}({KeyPredicate})/{{NavigationProperty}}
+/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')/{NavigationProperty}
 ```
 |パス<br>|概要<br>|
 |:--|:--|
 |{CellName}<br>|セル名<br>|
 |{BoxName}<br>|ボックス名<br>|
 |{ODataCollecitonName}<br>|コレクション名<br>|
-|{EntitySet}<br>|EntitySet名<br>|
-|KeyPredicate<br>|EntityのID<br>|
+|{EntityTypeName}<br>|EntityType名<br>|
+|{EntityID}<br>|EntityのID<br>|
 |{NavigationProperty}<br>|NavigationProperty名<br>|
 指定できるNavigationProperty名は、EntitySetと以下の関連を持つものに限る。  
 
-|From Role<br>|To Role<br>|
+|From<br>|To<br>|
 |:--|:--|
 |0 .. 1<br>|1<br>|
 |0 .. 1<br>|*<br>|
@@ -40,7 +40,6 @@ write
 |*<br>|*<br>|
 #### メソッド
 POST
-
 <br>
 #### リクエストクエリ
 ##### 共通リクエストクエリ
@@ -72,66 +71,67 @@ POST
 <br>
 ### レスポンス
 #### ステータスコード
-|コード<br>|概要<br>|備考<br>|
-|:--|:--|:--|
-|201<br>|成功<br>| <br>|
-|400<br>|リクエストクエリの指定誤り<br>|未対応<br>|
-||リクエストヘッダの指定誤り<br>|未対応<br>|
-||リクエストボディが有効値でない場合<br>|未対応<br>|
-||リクエストボディに最大個数より多くユーザデータを指定<br>| <br>|
-|401<br>|認証トークンが無効<br>| <br>|
-|403<br>|アクセス権限が不足している場合<br>| <br>|
-|404<br>|存在しないCellを指定した場合<br>存在しないBoxを指定した場合<br>存在しないODataCollectionを指定した場合<br>存在しないEntitySetを指定した場合<br>ソースEntitySetと関連の張られていないNavigationProperty名を指定した場合<br>|未対応<br>|
-|405<br>|許可していないリクエストメソッドを指定<br>|未対応<br>|
-|409<br>|既に同一のIDが作成されている場合<br>|未対応<br>|
+201
 #### レスポンスヘッダ
 |項目名<br>|概要<br>|備考<br>|
 |:--|:--|:--|
 |Content-Type<br>|返却されるデータの形式<br>| <br>
 |Location<br>|作成したEntityのリソースURL<br>|正常にEntityが作成できた場合のみ返却する<br>|
 |DataServiceVersion<br>|ODataのバージョン情報<br>|正常にEntityが作成できた場合のみ返却する<br>|
-|ETag<br>|リソースのバージョン情報<br>|正常にEntityが作成できた場合のみ返却する<br>未対応<br>|
+|ETag<br>|リソースのバージョン情報<br>|正常にEntityが作成できた場合のみ返却する<br>|
 #### レスポンスボディ
 レスポンスはJSONオブジェクトで、オブジェクト（サブオブジェクト）に定義されるキー(名前)と型、並びに値の対応は以下のとおり
 
 |オブジェクト<br>|名前（キー）<br>|型<br>|値<br>|
 |:--|:--|:--|:--|
 |ルート<br>|d<br>|object<br>|オブジェクト{1}<br>|
-|{1}<br>|__count<br>|string<br>|$inlinecountクエリでの取得結果件数<br>|
 |{1}<br>|results<br>|array<br>|オブジェクト{2}の配列<br>|
-|{2}<br>|__published<br>|string<br>|作成日(UNIX時間)<br>|
-|{2}<br>|__updated<br>|string<br>|更新日(UNIX時間)<br>|
 |{2}<br>|__metadata<br>|object<br>|オブジェクト{3}<br>|
+|{3}<br>|uri<br>|string<br>|作成したリソースへのURL<br>|
 |{3}<br>|etag<br>|string<br>|Etag値<br>|
 |{3}<br>|type<br>|string<br>|EntityType名<br>|
-|{3}<br>|uri<br>|string<br>|作成したリソースへのURL<br>|
 |{2}<br>|__id<br>|string<br>|EntityのID(__id)<br>|
-|{2}<br>|_{NP名}<br>|string<br>|オブジェクト{4}<br>Linkが結ばれている場合のみ返却される。{NP名}:NavigationPropert名<br>|
+|{2}<br>|__published<br>|string<br>|作成日(UNIX時間)<br>|
+|{2}<br>|__updated<br>|string<br>|更新日(UNIX時間)<br>|
+|{2}<br>|{NP名}<br>|string<br>|オブジェクト{4}<br>Linkが結ばれている場合のみ返却される。{NP名}:NavigationPropert名<br>|
 |{4}<br>|__deferred<br>|object<br>|オブジェクト{5}<br>|
 |{5}<br>|uri<br>|string<br>|関係を結んでいるリソースのuri<br>テスト未実施<br>|
+|{1}<br>|__count<br>|string<br>|$inlinecountクエリでの取得結果件数<br>|
+
 上記以外にスキーマ設定した項目、または登録時に指定した動的な項目を返却
 #### エラーメッセージ一覧
 [エラーメッセージ一覧](200_Error_Messages.html)を参照
+
+|コード<br>|概要<br>|備考<br>|
+|:--|:--|:--|
+|400<br>|リクエストクエリの指定誤り<br>リクエストヘッダの指定誤り<br>リクエストボディが有効値でない場合<br>リクエストボディに最大個数より多くユーザデータを指定<br>|<br>|
+|401<br>|認証トークンが無効<br>| <br>|
+|403<br>|アクセス権限が不足している場合<br>| <br>|
+|404<br>|存在しないCellを指定した場合<br>存在しないBoxを指定した場合<br>存在しないODataCollectionを指定した場合<br>存在しないEntitySetを指定した場合<br>ソースEntitySetと関連の張られていないNavigationProperty名を指定した場合<br>|<br>|
+|405<br>|許可していないリクエストメソッドを指定<br>|<br>|
+|409<br>|既に同一のIDが作成されている場合<br>|<br>|
+
 #### レスポンスサンプル
 ```json
-{ "d" :
-    {"results" :
-        { "__id" : "100-1_20101108-111352093",
-          "__metadata" : { "etag" : "1-de6910ec8b1333b48a4708ededc2942d",
-                           "type" : "parent",
-                           "uri" : "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/child('100-1_20101108-111352093')"
-                         },
-          "__published" : "/Date(1336546944234)/",
-          "__updated" : "/Date(1336546944234)/",
-          "_child" : { "__deferred" : { "uri" : "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/parent('100-1_20101108-111352092')" } },
-          "abc" : "123",
-          "def" : "234",
-          "ghi" : "345",
-          "jkl" : "456",
-          "opq" : "678",
-          "rst" : "789"
+{
+  "d": {
+    "results": {
+      "__metadata": {
+        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('100-1_20101108-111352093')",
+        "etag": "W/\"1-1487929403469\"",
+        "type": "UserData.{EntityTypeName}"
+      },
+      "__id": "100-1_20101108-111352093",
+      "__published": "/Date(1487929403469)/",
+      "__updated": "/Date(1487929403469)/",
+      "PetName": null,
+      "{NavigationPropertyName}": {
+        "__deferred": {
+          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('100-1_20101108-111352093')/{NavigationPropertyName}"
         }
+      }
     }
+  }
 }
 ```
 
@@ -139,8 +139,8 @@ POST
 ### CURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/parent('100-1_20101108-111352092')/child"
--X POST -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '{"__id": "100-1_20101108-111352093","animalId":"100-1","name": "episode","startedAt": "2010-11-08","abc": "def","ghi":"jkl","mno": "pqr"}'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')/{NavigationPropertyName}" -X POST -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '{"__id": "100-1_20101108-111352093"}'
+
 ```
 <br>
 <br>

@@ -10,13 +10,13 @@ write-properties
 ### リクエスト
 #### リクエストURL
 ```
-/{CellName}/{BoxName}/{ResourcePath}
+/{CellName}/{BoxName}/{CollectionName}
 ```
 |パス<br>|概要<br>|備考<br>|
 |:--|:--|:--|
 |{CellName}<br>|セル名<br>| <br>|
 |{BoxName}<br>|ボックス名<br>| <br>|
-|{ResourcePath}<br>|リソースへのパス<br>|有効値 桁数:1&#65374;128<br>使用可能文字種<br>半角英数字、半角ピリオド(.)、半角アンダーバー(_)、半角ハイフン(-)<br>|
+|{CollectionName}<br>|サービスコレクション名<br>|有効値 桁数:1&#65374;128<br>使用可能文字種<br>半角英数字、半角ピリオド(.)、半角アンダーバー(_)、半角ハイフン(-)<br>|
 #### メソッド
 PROPPATCH
 #### リクエストクエリ
@@ -89,10 +89,8 @@ DTD表記
     xmlns:Z="http://www.w3.com/standards/z39.50/">
     <D:set>
         <D:prop>
-          <p:service language="JavaScript" subject="${accountName}">
-            <p:path name="${name1}" src="${src1}"/>
-            <p:path name="${name2}" src="${src2}"/>
-            <p:path name="${name3}" src="${src3}"/>
+          <p:service language="JavaScript">
+            <p:path name="${name}" src="${src}"/>
           </p:service>
         </D:prop>
     </D:set>
@@ -102,9 +100,7 @@ DTD表記
 <br>
 ### レスポンス
 #### ステータスコード
-|コード<br>|メッセージ<br>|概要<br>|
-|:--|:--|:--|
-|207<br>|MULTI_STATUS<br>|成功<br>|
+207
 #### レスポンスヘッダ
 なし
 #### レスポンスボディ
@@ -140,13 +136,11 @@ DTD表記
 ```xml
 <multistatus xmlns="DAV:">
     <response>
-        <href>http://localhost:9998/testcell1/{BoxName}1/patchcol</href>
+        <href>https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}</href>
         <propstat>
             <prop>
-                <p:service language="JavaScript" subject="user" xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" xmlns:Z="http://www.w3.com/standards/z39.50/">
-                    <p:path name="${name1}" src="${src1}"/>
-                    <p:path name="${name2}" src="${src2}"/>
-                    <p:path name="${name3}" src="${src3}"/>
+                <p:service language="JavaScript" xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/">
+                    <p:path name="sample" src="sample.js"/>
                 </p:service>
             </prop>
             <status>HTTP/1.1 200 OK</status>
@@ -161,11 +155,7 @@ DTD表記
 ### CURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/servicecol' -X PROPPATCH -i -H 'Authorization: Bearer {UnitUserToken}' -d '<?xml version="1.0" encoding="utf-8" ?><D:propertyupdate xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns"
-xmlns:Z="http://www.w3.com/standards/z39.50/"><D:set>
-<D:prop><p:service language="JavaScript"　subject="${accountName}"><p:path name="${name1}"
-src="${src1}"/><p:path name="${name2}" src="${src2}"/><p:path
- name="${name3}" src="${src3}"/></p:service></D:prop></D:set></D:propertyupdate>'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}" -X PROPPATCH -i -H "Authorization:Bearer {UnitUserToken}" -H "Accept:application/json" -d "<?xml version=\"1.0\" encoding=\"utf-8\" ?><D:propertyupdate xmlns:D=\"DAV:\" xmlns:p=\"urn:x-personium:xmlns\" xmlns:Z=\"http://www.w3.com/standards/z39.50/\"><D:set><D:prop><p:service language=\"JavaScript\"><p:path name=\"sample\" src=\"sample.js\"/></p:service></D:prop></D:set></D:propertyupdate>"
 ```
 <br>
 <br>

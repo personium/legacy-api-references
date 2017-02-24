@@ -142,7 +142,7 @@ $formatにatomsvcを指定した場合、SchemaのAtom ServiceDocumentを返却�
 |DefaultValue<br>|-<br>|属性<br>|プロパティの既定値を表す<br>|<br>|
 |Precision<br>|-<br>|属性<br>|プロパティの有効桁数を表す<br>|<br>|
 |Scale<br>|-<br>|属性<br>|プロパティの小数点以下桁数を表す<br>|<br>|
-|CollectionKind<br>|-<br>|属性<br>|プロパティの配列種別を表す<br>|コレクションが配列の場合ture,それ以外はnone<br>|
+|CollectionKind<br>|-<br>|属性<br>|プロパティの配列種別を表す<br>|コレクションが配列の場合List,それ以外はNone<br>Noneの場合は表示されない|
 |Format<br>|p:<br>|属性<br>|プロパティの文字フォーマットを表す<br>|<br>|
 |IsDeclared<br>|p:<br>|属性<br>|静的プロパティか否かを表す<br>|動的プロパティの場合falseで表示,静的プロパティの場合は表示されない<br>|
 ##### ドキュメンテーション

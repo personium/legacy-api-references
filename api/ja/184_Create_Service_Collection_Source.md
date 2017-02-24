@@ -13,14 +13,14 @@ write
 ### リクエスト
 #### リクエストURL
 ```
-/{CellName}/{BoxName}/{ResourcePath}/{SrcName}
+/{CellName}/{BoxName}/{CollectionName}/__src/{ResourceName}
 ```
 |パス<br>|概要<br>|備考<br>|
 |:--|:--|:--|
 |{CellName}<br>|セル名<br>|<br>|
 |{BoxName}<br>|ボックス名<br>|<br>|
-|{ResourcePath}<br>|リソースへのパス<br>|有効値 桁数:1&#65374;128<br>使用可能文字種<br>半角英数字、半角ピリオド(.)、半角アンダーバー(_)、半角ハイフン(-)<br>|
-|{SrcName}<br>|サービスソースの名前を指定<br>|有効値(制限) 桁数:1&#65374;128<br>使用可能文字種<br>半角英数字、半角ピリオド(.)、半角アンダーバー(_)、半角ハイフン(-)<br>|
+|{CollectionName}<br>|サービスコレクション名<br>|有効値 桁数:1&#65374;128<br>使用可能文字種<br>半角英数字、半角ピリオド(.)、半角アンダーバー(_)、半角ハイフン(-)<br>|
+|{ResourceName}<br>|リソース名<br>|有効値(制限) 桁数:1&#65374;128<br>使用可能文字種<br>半角英数字、半角ピリオド(.)、半角アンダーバー(_)、半角ハイフン(-)<br>|
 #### メソッド
 PUT
 #### リクエストクエリ
@@ -39,10 +39,7 @@ PUT
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
 |Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
-
-|ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
-|:--|:--|:--|:--|:--|
-|If-Match<br>|リソースのバージョン情報を指定する<br>|String<br>|○<br>|バージョン指定しない場合は*（アスタリスク）<br>|
+|If-Match<br>|リソースのバージョン情報を指定する<br>|String<br>|×<br>|バージョン指定しない場合は*（アスタリスク）<br>|
 |Content-Type<br>|登録・更新ファイルのコンテンツ形式を指定する <br>|String<br>|○<br>|JSでのリソースを形式で登録・更新する場合<br>Content-Type:text/javascript<br>|
 #### リクエストボディ
 |概要<br>|有効値<br>|必須<br>|備考<br>|
@@ -54,9 +51,7 @@ PUT
 <br>
 ### レスポンス
 #### ステータスコード
-|コード<br>|メッセージ<br>|概要<br>|
-|:--|:--|:--|
-|204<br>|No Content<br>|更新成功時<br>|
+204
 #### レスポンスヘッダ
 |ヘッダ名<br>|概要<br>|備考<br>|
 |:--|:--|:--|
@@ -83,7 +78,7 @@ PUT
 ### CURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/svccol/__src/hello.js" -X PUT -i  -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -H 'Content-Type:text/javascript' -d '【ファイル内容】'
+curl "https://{CellName}/{BoxName}/{CollectionName}/__src/{ResourceName}" -X PUT -i  -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -H 'Content-Type:text/javascript' -d '【ファイル内容】'
 ```
 <br>
 <br>

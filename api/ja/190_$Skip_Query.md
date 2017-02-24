@@ -5,10 +5,10 @@ $skipクエリは、コレクションのうち指定した自然数Nの数だ�
 ```
 $skip={number}
 ```
-
+##### CURLサンプル
 例：10セルの取得を省き、11セル目からの情報を取得する場合:
 ```sh
-curl "https://{UnitFQDN}/__ctl/Cell?$skip=10" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/__ctl/Cell?\$skip=10" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
 ```
 <br>
 <br>

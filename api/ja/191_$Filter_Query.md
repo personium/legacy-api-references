@@ -35,6 +35,11 @@
 ※検索文字列にシングルクオートを含めたい場合、シングルクオートを２個「''」記述することでシングルクオートを検索文字列に指定することができる  
 ※$filterに存在しないプロパティ名を指定した場合、検索条件に含めて検索を行う  
 ※\__updated, \__publishedを指定する場合は、UNIX時間（"/Date()"の括弧内の数字）で指定
+##### CURLサンプル
+例：セル名がsampleのセルを取得する場合:
+```sh
+curl "https://{UnitFQDN}/__ctl/Cell?\$filter=Name%20eq%20'sample'" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
+```
 <br>
 <br>
 <br>

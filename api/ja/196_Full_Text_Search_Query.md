@@ -14,11 +14,6 @@ q={SearchKeyword}
 |項目<br>|概要<br>|有効値<br>|備考<br>|
 |:--|:--|:--|:--|
 |{SearchKeyword}<br>|検索文字列を指定する<br>|桁数：1&#65374;255 byte<br>| <br>|
-##### CURLサンプル
-* 「ぽち」というキーワードを含むデータを取得する  
-	q=ぽち
-* 「ぽち」かつ「たま」というキーワードを含むデータを取得する  
-	q=ぽち%20たま
 
 ### 検索対象となる型
 検索対象となるデータ型を以下に示す
@@ -46,6 +41,12 @@ q="ぽち%20たま"
 * 全角文字
 	- 部分一致の検索可
 	- 大文字・小文字の区別は行わない
+
+### CURLサンプル
+例：セル一覧を取得時、sampleというキーワードと一致するセルを取得する場合:
+```sh
+curl "https://{UnitFQDN}/__ctl/Cell?q=sample" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
+```
 <br>
 <br>
 <br>

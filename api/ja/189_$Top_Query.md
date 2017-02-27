@@ -14,7 +14,7 @@ $top={number}
 |Value<br>|概要<br>|有効値<br>|備考<br>|
 |:--|:--|:--|:--|
 |{number}<br>|返されるフィードに含まれるエンティティの数を指定する<br>|半角数字の0-10000(デフォルト:25)<br>$expandクエリ指定時は0-100(デフォルト:25)<br>| <br>|
-##### CURLサンプル
+### CURLサンプル
 例：セルを10件取得する場合:
 ```sh
 curl "https://{UnitFQDN}/__ctl/Cell?\$top=10" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'

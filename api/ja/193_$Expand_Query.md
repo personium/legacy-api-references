@@ -24,7 +24,7 @@ $expand={NavigationPropertyName}
 一覧取得時のナビゲーションプロパティは2件まで指定可能  
 一件取得時のナビゲーションプロパティは10件まで指定可能  
 ※指定可能なナビゲーションプロパティ数を超えた場合は「400 Bad Request」を返却する
-#### CURLサンプル
+### CURLサンプル
 ナビゲーションプロパティに紐付く情報を展開して取得する
 ```
 curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')?\$expand={NavigationPropertyName}" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'

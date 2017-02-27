@@ -31,7 +31,7 @@ CellレベルAPI は、
 |**ExtRole**|<br>|[登録](053_Create_External_Role.html)|[取得](055_Get_External_Role.html)<br>[一覧取得](054_List_External_Role.html)|[更新](056_Update_External_Role.html)|[削除](057_Delete_External_Role.html)|
 |<br>|_$links|[登録](058_Register_External_Role_$links.html)|[一覧取得](059_Retrieve_External_Role_$links.html)|[更新](060_Update_External_Role_$links.html)|[削除](061_Delete_External_Role_$links.html)|
 |<br>|_NavProp経由|[登録](062_Register_Using_Role_NavProp.html)|[取得](063_List_External_Role_NavProp.html)|<br>|<br>|
-|**認証**<br>(/\__auth, /\__authz)|[OAuth2_認可エンドポイント](100_OAuth2_Authorization_Endpoint.html)<br>[OAuth2Token_エンドポイント認証](101_OAuth2_Token_Endpoint.html)|<br>|<br>|<br>|
+|**認証**<br>(/\__auth, /\__authz)|[OAuth2_認可エンドポイント](100_OAuth2_Authorization_Endpoint.html)<br>[OAuth2Token_エンドポイント認証](101_OAuth2_Token_Endpoint.html)|<br>|<br>|<br>|<br>|
 |**アクセス制御**|<br>|[制限設定](097_Cell_ACL.html)|[プロパティ取得](098_Cell_Get_Property.html)|[プロパティ変更](099_Cell_Change_Property.html)|<br>|
 |[イベント](085_Event_Summary.html)|<br>|[イベント受付](086_Event_Reception.html)|[ログファイル取得](093_Retrieve_Log_File.html)<br>[ログファイル一覧取得](092_Retrieve_Log_File_list.html)<br>[ログファイル情報取得](091_Log_File_Information_Acquisition.html)|<br>|[ログファイル削除](094_Delete_Log_File.html)|
 |<br>|イベントログ設定|<br>|取得|更新|<br>|

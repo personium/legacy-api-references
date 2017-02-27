@@ -140,8 +140,7 @@ GET
 ### CURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/SentMessage('{MessageID}')" -X GET -i
--H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/__ctl/SentMessage('{MessageID}')" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
 ```
 <br>
 <br>

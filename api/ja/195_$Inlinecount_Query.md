@@ -7,7 +7,7 @@
 |:--|:--|:--|:--|
 |allpages<br>|取得結果件数を含める  <br>|$inlinecount=allpages<br>| <br>|
 |none<br>|取得結果件数を含めない  <br>|$inlinecount=none<br>| <br>|
-##### CURLサンプル
+### CURLサンプル
 例：セル一覧を取得結果件数を含め取得する場合:
 ```sh
 curl "https://{UnitFQDN}/__ctl/Cell?\$inlinecount=allpages" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'

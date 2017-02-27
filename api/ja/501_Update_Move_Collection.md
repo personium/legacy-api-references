@@ -16,7 +16,7 @@ write
 ```
 /{CellName}/{BoxName}/{CollectionName}/
 または、
-/{CellName}/{BoxName}/{CollectionName}/{ResourcePath}/{to}/{File_name}
+/{CellName}/{BoxName}/{CollectionName}/{FileName}/
 ```
 |パス<br>|概要<br>|備考<br>|
 |:--|:--|:--|
@@ -57,55 +57,43 @@ MOVE
 |:--|:--|:--|
 |201<bar>|Created<bar>|移動または名称変更に成功(作成)<bar>|
 |204<bar>|No Content<bar>|移動または名称変更に成功(上書き)<bar>|
-|400<bar>|Bud Request<bar>|リクエストヘッダの形式が不正<bar>|
-|409<bar>|Conflict<bar>|指定されたコレクション/セルが不正<bar>|
-|412<bar>|Precondition Failed<bar>|上書き禁止が指定されている<bar>|
 #### レスポンスヘッダ
 |ヘッダ名<br>|概要<br>|備考<br>|
 |:--|:--|:--|
-|X-Personium-Version<br>|APIの実行バージョン<br>|リクエストが処理されたAPIバージョン<br>|
-|Access-Control-Allow-Origin<br>|クロスドメイン通信許可ヘッダ<br>|返却値は"*"固定<br>|
-|Content-Type<br>|返却されるデータの形式<br>|テスト未実施<br>|
 |Location<br>|作成したコレクションのリソースURL<br>|正常にコレクションが作成できた場合のみ返却する<br>|
 |ETag<br>|リソースのバージョン情報<br>|正常にコレクションが作成できた場合のみ返却する<br>|
-|DataServiceVersion<br>|OData Version<br>|<br>|
-#### レスポンスボディ
-要求が成功した場合、応答本体は返されない。  
-(マルチステータスを除く)エラーが発生した場合、エラーメッセージが返される。
+|Access-Control-Allow-Origin<br>|クロスドメイン通信許可ヘッダ<br>|返却値は"*"固定<br>|
+|X-Personium-Version<br>|APIの実行バージョン<br>|リクエストが処理されたAPIバージョン<br>|
 
+#### レスポンスボディ
+なし
 #### エラーメッセージ一覧
 [エラーメッセージ一覧](198_エラーメッセージ一覧.html)を参照
+
+|コード<bar>|概要<bar>|備考<bar>|
+|:--|:--|:--|
+|400<bar>|Bud Request<bar>|リクエストヘッダの形式が不正<bar>|
+|409<bar>|Conflict<bar>|指定されたコレクション/セルが不正<bar>|
+|412<bar>|Precondition Failed<bar>|上書き禁止が指定されている<bar>|
+
 #### レスポンスサンプル
-```xml
-HTTP/1.1 207 Multi-Status
-  Content-Type: application/xml; charset="utf-8"
-  Content-Length: xxxx
-
-  <?xml version="1.0" encoding="utf-8" ?>
-  <d:multistatus xmlns:d='DAV:'>
-    <d:response>
-      <d:href>http://www.example.com/othercontainer/C2/</d:href>
-      <d:status>HTTP/1.1 500 Server error</d:status>
-    </d:response>
-  </d:multistatus>
-```
-
+なし
 <br>
 ### CURLサンプル
 
 コレクション名変更(終端の"/"は必須)
 ```sh
-   curl "http://[UnitFQDN]/[{CellName}]/[box_naem]/[{CollectionName}]/[old_name]/" -X MOVE -i -H 'Destination:http://[UnitFQDN]/[cell]/[box]/[collection]/[new_name]/'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OldCollectionName}/" -X MOVE -i -H 'Destination:https://{UnitFQDN}/{CellName}/{BoxName}/{NewCollectionName}/' -H 'Authorization: Bearer {UnitUserToken}'
 ```
 
 ファイル名変更
 ```sh
-   curl  "http://[UnitFQDN]/[{CellName}]/[{BoxName}]/[{CollectionName}]/[dir]/old.txt" -X MOVE -i -H 'Destination:http://[UnitFQDN]/[{CellName}]/[{BoxName}]/[{CollectionName}]/[dir]/new.txt'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/{OldFileName}/" -X MOVE -i -H 'Destination:https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/{NewFileName}' -H 'Authorization: Bearer {UnitUserToken}'
 ```
 
 ファイル移動
 ```sh
-   curl  "http://[UnitFQDN]/[{CellName}]/[{BoxName}]/[{CollectionName}]/[from]/file.txt" -X MOVE -i -H 'Destination:http://[UnitFQDN]/[{CellName}]/[{BoxName}]/[{CollectionName}]/[to]/file.txt'
+curl  "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionNameA}/{FileName}" -X MOVE -i -H 'Destination:https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionNameB}/{FileName}' -H 'Authorization: Bearer {UnitUserToken}'
 ```
 <br>
 <br>

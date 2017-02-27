@@ -29,7 +29,7 @@ Box Level API は、アプリケーション等がデータを操作するため
 |:--|:--|:--|:--|:--|:--|
 |**EntityType**|<br>|[登録](147_Create_EntityType.html)|[取得](149_Get_EntityType.html)<br>[一覧取得](148_List_EntityType.html)|[更新](150_Update_EntityType.html)|[削除](151_Delete_EntityType.html)|
 |<br>|_$links|[登録](152_Register_EntityType_$links.html)|[一覧取得](153_List_EntityType_$links.html)|[更新](154_Update_EntityType_$links.html)|[削除](155_Delete_EntityType_$links.html)|
-|<br>|_NavProp経由|<br>|[一覧取得](155_List_EntityType_Links_Navigation_Property.html)|<br>|<br>|<br>|
+|<br>|_NavProp経由|<br>|[一覧取得](155_List_EntityType_Links_Navigation_Property.html)|<br>|<br>|
 |**AssociationEnd**|<br>|[登録](120_Register_AssociationEnd.html)|[取得](122_Get_AssociationEnd.html)<br>[一覧取得](121_List_AssociationEnd.html)|[更新](123_Update_AssociationEnd.html)|[削除](124_Delete_AssociationEnd.html)|
 |<br>|_$links|[登録](125_Register_AssociationEnd_$links.html)|[一覧取得](126_List_AssociationEnd_$links.html)|<br>|[削除](127_Delete_AssociationEnd_$links.html)|
 |<br>|_NavProp経由|<br>|[一覧取得](128_List_AssociationEnd_Navigation_Property.html)|<br>|<br>|
@@ -57,7 +57,7 @@ personium.ioアプリケーションやCell利用者が作成したサーバサ�
 |<br>|<br>|作成・登録<br>|取得<br>|更新<br>|削除<br>|
 |:--|:--|:--|:--|:--|:--|
 |サービスコレクションソース|<br>|[作成](184_Create_Service_Collection_Source.html)|[取得](185_List_Service_Collection_Source.html)|[設定適用](183_Configure_Service_Collection.html)|[削除](186_Delete_Service_Collection_Source.html)|
-|<br>|[サービス実行](187_Service_Execution.html)<br>|<br>|<br>|<br>|
+|<br>|[サービス実行](187_Service_Execution.html)<br>|<br>|<br>|<br>|<br>|
 <br>
 <br>
 <br>

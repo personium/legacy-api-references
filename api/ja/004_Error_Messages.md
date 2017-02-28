@@ -219,7 +219,7 @@
 |500<br>|PR500-NW-0003<br>|Unexpected value from key={0}, where "{1}" value expected.<br>|<br>|
 |500<br>|PR500-SV-9999<br>|Unknown Exception [{0}] {1}<br>| <br>|
 |500<br>|PR500-AN-0001<br>|Root ca certificate setting error.<br>|<br>|
-|412<br>|-<br>|["{0}","{1}","{2}"…]<br>|利用可能なpersonium.io<br>バージョン番号を返却する<br>|
+|412<br>|-<br>|["{0}","{1}","{2}"…]<br>|利用可能なPersonium<br>バージョン番号を返却する<br>|
 <br>
 <br>
 <br>

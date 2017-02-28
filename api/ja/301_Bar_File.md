@@ -1,7 +1,7 @@
 # barファイル
 barファイルはBoxインストールAPIのリクエストボディとして指定するファイル形式である。  
 barファイルは、Box配下に定義するOdata/WebDAV/Serviceの各データを格納しており、ZIPファイル形式でアーカイブされる。  
-通常は、BoxエクスポートAPI（未実装）にて、personium.ioからアーカイブされたBox配下のデータ定義がエクスポートされる。
+通常は、BoxエクスポートAPI（未実装）にて、PersoniumからアーカイブされたBox配下のデータ定義がエクスポートされる。
 
 ### Specifications
 ファイルフォーマットはZIP形式とし、ZIP64形式も許容する。  

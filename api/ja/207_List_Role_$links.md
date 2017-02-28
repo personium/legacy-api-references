@@ -126,7 +126,7 @@ GET
 |{1}<br>|results<br>|array<br>|オブジェクト{2}の配列<br>|
 |{2}<br>|uri<br>|string<br>|紐付いているODataリソースへのURL<br>|
 #### エラーメッセージ一覧
-[エラーメッセージ一覧](200_Error_Messages.html)を参照
+[エラーメッセージ一覧](004_Error_Messages.html)を参照
 
 #### レスポンスサンプル
 ```json
@@ -145,7 +145,7 @@ GET
 ### CURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/\$links/_Box" -X GET -i -H 'Authorization: Bearer personiumio' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/\$links/_Box" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
 ```
 <br>
 <br>

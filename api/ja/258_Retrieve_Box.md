@@ -82,7 +82,7 @@ GET
 |{2}<br>|Schema&#160;&#160;<br>|string<br>|Schema名 &#160;<br>|
 
 #### エラーメッセージ一覧
-[エラーメッセージ一覧](200_Error_Messages.html)を参照
+[エラーメッセージ一覧](004_Error_Messages.html)を参照
 
 #### レスポンスサンプル
 ```json

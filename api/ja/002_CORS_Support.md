@@ -1,6 +1,6 @@
 # CORS(Cross Origin Resource Sharing)対応
 ### 概要
-personium.ioのすべてのAPIは、一部例外を除き原則CORS(Cross Origin Resource Sharing)での利用を想定しています。  
+PersoniumのすべてのAPIは、一部例外を除き原則CORS(Cross Origin Resource Sharing)での利用を想定しています。  
 具体的には特段例外としての記述が無い場合、全APIエンドポイントがリクエストに応じて以下のレスポンスヘッダを返却します。
 1. Access-Control-Allow-Origin
 2. Access-Control-Allow-Methods
@@ -9,7 +9,7 @@ personium.ioのすべてのAPIは、一部例外を除き原則CORS(Cross Origin
 これにより、JavaScriptなどのウェブブラウザ搭載のスクリプト言語でサーバとのHTTP非同期通信を行うため、XMLHttpRequest Level 2を使用することができます。
 ### Access-Control-Allow-Originレスポンスヘッダの返却
 すべてのAPIにおいて、Access-Control-Allow-Originレスポンスヘッダとして*を返却します。  
-Access-Control-Allow-Originレスポンスヘッダはアクセスを許可しているドメインを返却するものですが、personium.ioは全てのドメインからのアクセスを許可すべくこのような振る舞いをします。  
+Access-Control-Allow-Originレスポンスヘッダはアクセスを許可しているドメインを返却するものですが、Personiumは全てのドメインからのアクセスを許可すべくこのような振る舞いをします。  
 次に示すのは、Access-Control-Allow-Originのレスポンスヘッダの例です。
 ```
 Access-Control-Allow-Origin: *          
@@ -26,7 +26,7 @@ Access-Control-Allow-Methodsレスポンスヘッダの内容は、APIのアク�
 |条件<br>|結果<br>|
 |:--|:--|
 |公開（Authorizationヘッダなしでも読み取り可能）なリソース<br>|そのリソースがサポートするすべてのHTTPメソッドを返します。<br>|
-|非公開（公開でない）リソースへのAuthorizationヘッダなしでのOPTIONSリクエスト  <br>|personium.ioがサポートしうるすべてのHTTPメソッドを返します。<br>|
+|非公開（公開でない）リソースへのAuthorizationヘッダなしでのOPTIONSリクエスト  <br>|PersoniumがサポートしうるすべてのHTTPメソッドを返します。<br>|
 |非公開リソースへの有効な※AuthorizationヘッダつきでのOPTIONSリクエスト<br>|そのリソースがサポートするすべてのHTTPメソッドを返します。<br>|
 ※ Authorizationヘッダつきのリクエストでは、そのヘッダ内容に応じて以下のエラーとなることもあります。
 1. 401: Authorizationヘッダの内容が無効である。

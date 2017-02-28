@@ -108,7 +108,7 @@ GET
 |{1}<br>|results<br>|array<br>|オブジェクト{2}の配列<br>|
 |{2}<br>|uri<br>|string<br>|紐付いているODataリソースへのURL<br>|
 #### エラーメッセージ一覧
-[エラーメッセージ一覧](200_Error_Messages.html)を参照
+[エラーメッセージ一覧](004_Error_Messages.html)を参照
 
 #### レスポンスサンプル
 ```json

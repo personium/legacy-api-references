@@ -76,7 +76,7 @@ PROPFIND
 |項目名<br>|概要<br>|備考<br>|
 |:--|:--|:--|
 |Content-Type<br>|返却されるデータの形式<br>|D:<br>|
-|urn:x-personium:xmlns<br>|personium.ioの名前空間<br>|p:<br>|
+|urn:x-personium:xmlns<br>|Personiumの名前空間<br>|p:<br>|
 
 ※ 参考prefixは以下表の可読性を高めるためのもので、このprefix文字列の使用を保証するものでも要求するものでもありません。
 
@@ -132,7 +132,7 @@ PROPFIND
 ```
 
 #### エラーメッセージ一覧
-[エラーメッセージ一覧](200_Error_Messages.html)を参照
+[エラーメッセージ一覧](004_Error_Messages.html)を参照
 
 |コード<br>|メッセージ<br>|概要<br>|備考<br>|
 |:--|:--|:--|:--|

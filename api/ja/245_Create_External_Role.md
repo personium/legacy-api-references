@@ -88,7 +88,7 @@ POST
 |{2}<br>|_Relation.Name<br>|string<br>|Relation名<br>|
 |{2}<br>|_Relation._Box.Name<br>|string<br>|Relationに紐付くBox名<br>|
 #### エラーメッセージ一覧
-[エラーメッセージ一覧](200_Error_Messages.html)を参照
+[エラーメッセージ一覧](004_Error_Messages.html)を参照
 
 #### レスポンスサンプル
 ```json

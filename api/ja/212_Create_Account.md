@@ -82,7 +82,7 @@ POST
 |{2}<br>|Type<br>|string<br>|初期値:"basic"<br>|
 |{2}<br>|Cell<br>|string<br>|デフォルト：null<br>|
 #### エラーメッセージ一覧
-[エラーメッセージ一覧](200_Error_Messages.html)を参照
+[エラーメッセージ一覧](004_Error_Messages.html)を参照
 
 |コード<br>|メッセージ<br>|概要<br>|備考<br>|
 |:--|:--|:--|:--|

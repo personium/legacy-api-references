@@ -101,7 +101,7 @@ GET
 |{2}<br>|Name&#160;<br>|string<br>|Relation名 &#160;&#160;<br>|
 |{2}<br>|_Box.Name &#160;&#160;<br>|string<br>|関係対象のBox名 &#160;<br>|
 #### エラーメッセージ一覧
-[エラーメッセージ一覧](200_Error_Messages.html)を参照
+[エラーメッセージ一覧](004_Error_Messages.html)を参照
 
 #### レスポンスサンプル
 ```json

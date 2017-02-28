@@ -89,7 +89,7 @@ GET
 |ルート<br>|status<br>|string<br>|以下のいずれかの文字列:  <br>&#183;        "ready"<br>&#183;        "installation in progress"<br>&#183;        "installation failed"<br>|Boxが使用可能な状態を示す<br>Boxインストール処理中を示す<br>Boxインストール完了（異常終了）を示す<br>|
 
 #### エラーメッセージ一覧
-[エラーメッセージ一覧](200_Error_Messages.html)を参照
+[エラーメッセージ一覧](004_Error_Messages.html)を参照
 
 |コード<br>|メッセージ<br>|概要<br>|備考<br>|
 |:--|:--|:--|:--|

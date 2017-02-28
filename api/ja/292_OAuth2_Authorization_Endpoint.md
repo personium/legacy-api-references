@@ -1,7 +1,7 @@
 # OAuth2_認可エンドポイント(\__authz)
 ### 概要
 OAuth2の認可エンドポイントAPI  
-このAPIは、JSアプリケーション・ネイティブアプリでpersonium.ioを利用する場合のOAuth2の認可エンドポイントである。
+このAPIは、JSアプリケーション・ネイティブアプリでPersoniumを利用する場合のOAuth2の認可エンドポイントである。
 ### 必要な権限
 なし
 ### 前提条件
@@ -53,7 +53,7 @@ POST : 認証フォーム リクエスト、トークン認証
 ![レスポンスボディ](image/OAuth2ResponseBody.png "レスポンスボディ")
 
 ##### エラーメッセージ一覧
-[エラーメッセージ一覧](200_Error_Messages.html)を参照
+[エラーメッセージ一覧](004_Error_Messages.html)を参照
 
 |コード<br>|メッセージ<br>|概要<br>|備考<br>|
 |:--|:--|:--|:--|
@@ -85,7 +85,7 @@ POST : 認証フォーム リクエスト、トークン認証
 |error_description<br>|エラーの追加情報<br>|例外メッセージなどを設定する<br>|
 |error_uri<br>|エラーの追加情報のWebページのURI<br>|空文字を返す<br>※今後のエンハンスに備えて設定<br>|
 |state<br>|リクエスト時に設定したstateの値<br>|<br>|
-|code<br>|personium.ioのエラーコード<br>|<br>|
+|code<br>|Personiumのエラーコード<br>|<br>|
 |invalid_request<br>|リクエストで必須パラメータが指定されていない<br>リクエストパラメータの形式が不正<br>アカウントロック中<br>|<br>|
 |unauthorized_client<br>|クライアントが認可されていない<br>ユーザによってキャンセルボタンが押下された<br>|<br>|
 |access_denied<br>|client_idとredirect_uriのセルが異なる<br>トランスセルトークン認証に失敗した場合<br>|<br>|

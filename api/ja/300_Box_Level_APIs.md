@@ -28,29 +28,29 @@ Box Level API は、アプリケーション等がデータを操作するため
 |<br>|<br>|作成・登録<br>|取得<br>|更新<br>|削除<br>|
 |:--|:--|:--|:--|:--|:--|
 |**EntityType**|<br>|[登録](147_Create_EntityType.html)|[取得](149_Get_EntityType.html)<br>[一覧取得](148_List_EntityType.html)|[更新](150_Update_EntityType.html)|[削除](151_Delete_EntityType.html)|
-|<br>|_$links|[登録](152_Register_EntityType_$links.html)|[一覧取得](153_List_EntityType_$links.html)|[更新](154_Update_EntityType_$links.html)|[削除](155_Delete_EntityType_$links.html)|
-|<br>|_NavProp経由|<br>|[一覧取得](155_List_EntityType_Links_Navigation_Property.html)|<br>|<br>|
+|<br>|_$links|登録|一覧取得|更新|削除|
+|<br>|_NavProp経由|<br>|一覧取得|<br>|<br>|
 |**AssociationEnd**|<br>|[登録](120_Register_AssociationEnd.html)|[取得](122_Get_AssociationEnd.html)<br>[一覧取得](121_List_AssociationEnd.html)|[更新](123_Update_AssociationEnd.html)|[削除](124_Delete_AssociationEnd.html)|
 |<br>|_$links|[登録](125_Register_AssociationEnd_$links.html)|[一覧取得](126_List_AssociationEnd_$links.html)|<br>|[削除](127_Delete_AssociationEnd_$links.html)|
 |<br>|_NavProp経由|<br>|[一覧取得](128_List_AssociationEnd_Navigation_Property.html)|<br>|<br>|
 |**ComplexType**|<br>|[登録](129_Register_ComplexType.html)|[取得](131_Get_ComplexType.html)<br>[一覧取得](130_List_ComplexType.html)|[更新](132_Update ComplexType.html)|[削除](133_Delete_ComplexType.html)|
-|<br>|_$links|[登録](134_Register_ComplexType_$links.html)|[一覧取得](135_List_ComplexType_$links.html)|更新|[削除](136_Delete_ComplexType_$links.html)|
-|**Property**|<br>|[登録](157_Register_Property.html)|[取得](159_Get_Property.html)<br>[一覧取得](158_List_Property.html)|[更新](160_Update_Property.html)|[削除](161_Delete_Property.html)|
-|<br>|_$links|[登録](162_Register_Property_$links.html)|[一覧取得](163_List_Property_$links.html)|[更新](164_Update_List_Property_$links.html)|[削除](165_Delete_Property_$links.html)|
-|**ComplexTypeProperty**|<br>|[登録](137_Register_ComplexTypeProperty.html)|[取得](139_Get_ComplexTypeProperty.html)<br>[一覧取得](138_List_ComplexTypeProperty.html)|[更新](140_Update_ComplexTypeProperty.html)|[削除](141_Delete_ComplexTypeProperty.html)|
-|<br>|_$links|[登録](142_Register ComplextTypeProperty $ Links.html)|[一覧取得](144_List_ComplextTypeProperty_$links.html)|[更新](145_Update ComplextTypeProperty $ Links.html)|[削除](146_Delete_ComplextTypeProperty_$links.html)|
+|<br>|_$links|登録|一覧取得|更新|削除|
+|**Property**|<br>|[登録](157_Register_Property.html)|[取得](159_Get_Property.html)<br>[一覧取得](158_List_Property.html)|更新|[削除](161_Delete_Property.html)|
+|<br>|_$links|登録|一覧取得|更新|削除|
+|**ComplexTypeProperty**|<br>|[登録](137_Register_ComplexTypeProperty.html)|[取得](139_Get_ComplexTypeProperty.html)<br>[一覧取得](138_List_ComplexTypeProperty.html)|更新|[削除](141_Delete_ComplexTypeProperty.html)|
+|<br>|_$links|[登録](142_Register ComplextTypeProperty $ Links.html)|一覧取得|[更新](145_Update ComplextTypeProperty $ Links.html)|削除|
 |**Entity**|[一括操作](170_Entity_Bulk_Operations.html)|[作成](166_Create_Entity.html)|[取得](168_Get_Entity.html)<br>[一覧取得](167_List_Entity.html)|[更新](168_Get_Entity.html)<br>[部分更新](171_Partial_Update_Entity.html)|[削除](172_Delete_Entity.html)|
-|（ユーザデータ）|_$links|[登録](175_Register_User_Data_$links.html)|[一覧取得](177_User_Data_List_$links.html)|[更新](178_Update_User_Data_$links.html)|[削除](179_Delete_User_Data_$links.html)|
+|（ユーザデータ）|_$links|[登録](175_Register_User_Data_$links.html)|[一覧取得](177_User_Data_List_$links.html)|更新|[削除](179_Delete_User_Data_$links.html)|
 |（ユーザデータ）|_NavProp経由|[登録](180_Register_using_NavProp.html)|[一覧取得](181_List_using_NavProp.html)|<br>|<br>|
 
 ##### データ操作
-* [スキーマ取得](172_Get_Schema.html)
-* サービスドキュメント取得
+* [スキーマ取得](118_User_Defined_Data_Schema.html)
+* [サービスドキュメント取得](119_Document_Acquisition_Service.html)
 
 <br>
 #### 特別なコレクション: Engine Service コレクション
 ##### [サーバスクリプト(Engine Service Collection)](182_Engine_Service_Collection_APIs.html)
-personium.ioアプリケーションやCell利用者が作成したサーバサイドロジックを登録しこれを走行させることができます。  
+PersoniumアプリケーションやCell利用者が作成したサーバサイドロジックを登録しこれを走行させることができます。  
 はじめに、ユーザロジックをファイルとして登録し、サービスコレクションの設定を行ってパスとの関連付けを行うことで、  
 コレクション配下の任意のパスからのリクエストに対してユーザーロジックを走行させることができます。
 

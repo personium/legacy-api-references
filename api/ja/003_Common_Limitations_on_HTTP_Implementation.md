@@ -1,4 +1,4 @@
-# personium.ioのHTTP実装に関する制限事項
+# PersoniumのHTTP実装に関する制限事項
 
 <br>
 ### リクエスト

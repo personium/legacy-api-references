@@ -84,7 +84,6 @@ POST
 |{2}<br>|Url<br>|string<br>|対象CellのURL<br>|
 #### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.html)を参照
-.html)を参照
 
 |コード<br>|メッセージ<br>|概要<br>|備考<br>|
 |:--|:--|:--|:--|

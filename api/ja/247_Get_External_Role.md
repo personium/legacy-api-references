@@ -29,11 +29,11 @@ GET
 |:--|:--|:--|:--|:--|
 |p_cookie_peer<br>|クッキー認証値<br>|認証時にサーバから返却されたクッキー認証値<br>|×<br>|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br>|
 
-[$select クエリ](194_$Select_Query.html)
+[$select クエリ](406_Select_Query.html)
 
-[$expand クエリ](193_$Expand_Query.html)
+[$expand クエリ](405_Expand_Query.html)
 
-[$format クエリ](192_$Format_Query.html)
+[$format クエリ](404_Format_Query.html)
 
 #### リクエストヘッダ
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|

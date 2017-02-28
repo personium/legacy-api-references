@@ -400,9 +400,6 @@ Boxインストール時には、Schemaタグの配下をインストール対�
 #### 90_data / {EntityType} / {1.json}
 ユーザデータを1件ずつJSON形式で格納する。
 
-|File name<br>|Valid values: {Byte numbers} json<br>|
-|:--|:--|
-
 ```json
 {
     "__id": "{EntityName}",

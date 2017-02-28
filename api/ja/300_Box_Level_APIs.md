@@ -33,7 +33,7 @@ Box Level API は、アプリケーション等がデータを操作するため
 |**AssociationEnd**|<br>|[登録](318_Register_AssociationEnd.html)|[取得](320_Get_AssociationEnd.html)<br>[一覧取得](319_List_AssociationEnd.html)|[更新](321_Update_AssociationEnd.html)|[削除](322_Delete_AssociationEnd.html)|
 |<br>|_$links|[登録](323_Register_AssociationEnd_$links.html)|[一覧取得](324_List_AssociationEnd_$links.html)|<br>|[削除](325_Delete_AssociationEnd_$links.html)|
 |<br>|_NavProp経由|<br>|一覧取得|<br>|<br>|
-|**ComplexType**|<br>|[登録](327_Register_ComplexType.html)|[取得](329_Get_ComplexType.html)<br>[一覧取得](328_List_ComplexType.html)|[更新](330_Update_ComplexType.html)|[削除](331_Delete_ComplexType.html)|
+|**ComplexType**|<br>|[登録](327_Register_ComplexType.html)|[取得](329_Get_ComplexType.html)<br>[一覧取得](328_List_ComplexType.html)|更新|[削除](331_Delete_ComplexType.html)|
 |<br>|_$links|登録|一覧取得|更新|削除|
 |**Property**|<br>|[登録](355_Register_Property.html)|[取得](357_Get_Property.html)<br>[一覧取得](356_List_Property.html)|更新|[削除](359_Delete_Property.html)|
 |<br>|_$links|登録|一覧取得|更新|削除|

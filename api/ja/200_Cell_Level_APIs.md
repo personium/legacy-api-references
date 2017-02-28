@@ -15,7 +15,7 @@ CellレベルAPI は、
 |**Role**|<br>|[登録](201_Create_Role.html)|[取得](203_Search_Role.html)<br>[一覧取得](202_Retrieve_Role.html)|[更新](204_Update_Role.html)|[削除](205_Delete_Role.html)|
 |<br>|_$links|[登録](206_Create_Role_$links.html)|[一覧取得](207_List_Role_$links.html)|更新|[削除](209_Delete_Role_$links.html)|
 |<br>|_NavProp経由|[登録](210_Register_Role_Using_NavProp.html)|[取得](211_List_Using_Role_NavProp.html)|<br>|<br>|
-|**Account**|<br>|[登録](212_Create_Account.html)|[取得](214_Search_Account.html)<br>[一覧取得](213_Retrieve_Account.html)|[更新](215_Update_Account.html)|[削除](216_Delete_Account.html)|
+|**Account**|<br>|[登録](212_Create_Account.html)|[取得](213_Retrieve_Account.html)<br>[一覧取得](214_Search_Account.html)|[更新](215_Update_Account.html)|[削除](216_Delete_Account.html)|
 |<br>|_$links|[登録](217_Register_Account_$links.html)|[一覧取得](218_Acquire_Account_$links_List.html)|更新|[削除](220_Delete_Account_$links.html)|
 |<br>|_NavProp経由|[登録](221_Register_Account_Navigation_Property.html)|[取得](222_Acquire_Account_Navigation_Property.html)|<br>|<br>|
 |**Box**|<br>|[作成](256_Create_Box.html)|[取得](258_Retrieve_Box.html)<br>[一覧取得](257_Search_Box.html)<br>[URL取得](304_Get_Box_URL.html)|[更新](259_Update_Box.html)|[削除](260_Delete_Box.html)|
@@ -23,7 +23,7 @@ CellレベルAPI は、
 |<br>|_NavProp経由|[登録](265_Register_Using_Box_NavProp.html)|[取得](266_List_Box_NavProp.html)|<br>|<br>|
 |**ExtCell**|<br>|[登録](223_Create_External_Cell.html)|[取得](225_Get_External_Cell.html)<br>[一覧取得](224_List_External_Cell.html)|[更新](226_Update_External_Cell.html)|[削除](227_Delete_External_Cell.html)|
 |<br>|_$links|[登録](228_Register_External_Cell_$links.html)|[一覧取得](229_List_External_Cell_$links.html)|更新|[削除](231_Delete_External_Cell_$links.html)|
-|<br>|_NavProp経由|[登録](232_Register_External_Cell_Using_NavProp.html)|[取得](233_List_External_Cell_NavProp.html)|<br>|<br>|
+|<br>|_NavProp経由|[登録](232_Register_External_Cell_Using_NavProp.html)|[一覧取得](233_List_External_Cell_NavProp.html)|<br>|<br>|
 |**Relation**|<br>|[登録](234_Create_Relation.html)|[取得](236_Retrieve_Relation.html)<br>[一覧取得](235_List_Relation.html)|[更新](237_Update_Relation.html)|[削除](238_Delete_Relation.html)|
 |<br>|_$links|[登録](239_Register_Relation_$links.html)|[一覧取得](240_List_Relation_$links.html)|更新|[削除](242_Delete_Relation_$links.html)|
 |<br>|_NavProp経由|[登録](243_Register_Using_Relation_NavProp.html)|[取得](244_List_Using_Relation_NavProp.html)|<br>|<br>|

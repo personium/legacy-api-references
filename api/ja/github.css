@@ -69,13 +69,16 @@ h2 {
   color: black; }
 
 h3 {
-  font-size: 18px; }
+  font-size: 18px;
+  color: green; }
 
 h4 {
-  font-size: 16px; }
+  font-size: 16px;
+  color: green; }
 
 h5 {
-  font-size: 14px; }
+  font-size: 14px;
+  color: green; }
 
 h6 {
   color: #777777;

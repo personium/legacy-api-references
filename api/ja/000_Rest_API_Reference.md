@@ -102,8 +102,7 @@ https://{UnitFQDN}/{CellName}/{BoxName}/{ResourcePath}
 |:--|:--|:--|:--|:--|:--|
 |サービスコレクションソース|<br>|[作成](184_Create_Service_Collection_Source.html)|[取得](185_List_Service_Collection_Source.html)|[設定適用](183_Configure_Service_Collection.html)|[削除](186_Delete_Service_Collection_Source.html)|
 |<br>|[サービス実行](187_Service_Execution.html)<br>|<br>|<br>|<br>|<br>|
-<br>
-### Cell/Box 共通 API
+
 ##### サービスドキュメント取得/スキーマ取得
 |<br>|<br>|作成・登録<br>|取得<br>|更新<br>|削除<br>|
 |:--|:--|:--|:--|:--|:--|
@@ -117,12 +116,12 @@ https://{UnitFQDN}/{CellName}/{BoxName}/{ResourcePath}
 |[$formatクエリ](192_$Format_Query.html)|○|○|<br>|
 |[$expandクエリ](193_$Expand_Query.html)|○|○|<br>|
 |[$selectクエリ](194_$Select_Query.html)|○|○|<br>|
-|[$orderbyクエリ](187_$Orderby_Query.html)|○|<br>|<br>|
-|[$topクエリ](188_$Top_Query.html)|○|<br>|<br>|
-|[$skipクエリ](189_$Skip_Query.html)|○|<br>|<br>|
-|[$filterクエリ](190_$Filter_Query.html)|○|<br>|<br>|
-|[$inlinecount](195_$Inlinecount_Query.html)|○|<br>|<br>|
-|[全文検索(q)クエリ](196_Full_Text_Search_Query.html)|○|<br>|<br>|
+|[$orderbyクエリ](187_$Orderby_Query.html)|○|○|<br>|
+|[$topクエリ](188_$Top_Query.html)|○|○|<br>|
+|[$skipクエリ](189_$Skip_Query.html)|○|○|<br>|
+|[$filterクエリ](190_$Filter_Query.html)|○|○|<br>|
+|[$inlinecount](195_$Inlinecount_Query.html)|○|○|<br>|
+|[全文検索(q)クエリ](196_Full_Text_Search_Query.html)|○|○|<br>|
 <br>
 ### 共通
 #### [エラーメッセージ一覧](200_Error_Messages.html)

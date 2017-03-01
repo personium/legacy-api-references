@@ -47,7 +47,7 @@
 
 
 ###### Box レベル ACL
-[Personium] Box配下のリソース対するACL。詳細はアクセス制御モデル参照。
+[Personium] Box配下のリソース対するACL。詳細は[アクセス制御モデル](AccessControlOverview.htm)参照。
 
 
 ##### <a name="anc_c"> C</a>
@@ -208,7 +208,7 @@ ODataについての詳細は[こちら](http://www.odata.org/)。
 
 ###### Privilege
 [一般] Cell内に定義されたRoleに対し、特定のRoleに紐付けられたBox内部のデータにアクセスする権限。  
-PersoniumではACLの設定によって定義される。詳細はアクセス制御モデル参照。
+PersoniumではACLの設定によって定義される。詳細は[アクセス制御モデル](AccessControlOverview.htm)参照。
 
 
 ##### <a name="anc_q"> Q</a>

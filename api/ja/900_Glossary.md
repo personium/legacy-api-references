@@ -35,7 +35,7 @@
 ###### bar ファイル
 [Personium] box archive ファイルの略称。Boxの構成内容をまとめたアーカイブファイル。  
 フォルダ内の階層構造でWebDAVコレクションの階層構造を表し、その階層毎にファイルを格納することで、WebDAV内に格納するファイルを保持する。
-詳細はbarファイル参照。  
+詳細は[barファイル](301_Bar_File.html)参照。  
 
 
 ###### Box
@@ -43,7 +43,7 @@
 
 
 ###### Box インストール
-[Personium] barファイルを用いて、Boxを作成すること。詳細はBoxインストールAPIを参照。
+[Personium] barファイルを用いて、Boxを作成すること。詳細は[Boxインストール](302_Box_Installation.html)APIを参照。
 
 
 ###### Box レベル ACL
@@ -83,18 +83,18 @@
 
 
 ###### CORS
-[一般] Cross-Origin Resource Sharingの略称。Webページにおいて、JavaScriptが他のドメインに対しXMLHttpRequestを許可すること。CORS対応を参照。  
-（詳細については外部サイトを参照）
+[一般] Cross-Origin Resource Sharingの略称。Webページにおいて、JavaScriptが他のドメインに対しXMLHttpRequestを許可すること。[CORS対応](002_CORS_Support.html)を参照。  
+（詳細については[外部サイト](http://www.w3.org/TR/cors/)を参照）
 
 
 ###### Cross Domain Access Control(クロスドメインアクセス制御)
-[一般] 異なるドメインを持つサーバに対するアクセスの制御行うこと。Personiumでは、XMLHttpRequest Level2に基づいたクロスドメインポリシーファイルによって制御される。
+[一般] 異なるドメインを持つサーバに対するアクセスの制御行うこと。Personiumでは、XMLHttpRequest Level2に基づいた[クロスドメインポリシーファイル](001_Cross_Domain_Policy_File.html)によって制御される。
 
 
 ##### <a name="anc_d"> D
 ##### <a name="anc_e"> E
 ###### Engine Service Collection
-[WebDAV] ユーザーがサーバー側のロジックを新たに登録するための特別なコレクション。詳細はEngineサービスレクションを参照。
+[WebDAV] ユーザーがサーバー側のロジックを新たに登録するための特別なコレクション。詳細は[Engineサービスレクション](379_Engine_Service_Collection_APIs.html)を参照。
 
 
 ###### Entity
@@ -115,15 +115,15 @@
 
 
 ###### Event
-[Personium] Personiumの内部および外部から発生するインスタンス。詳細はイベント概要参照。
+[Personium] Personiumの内部および外部から発生するインスタンス。詳細は[イベント概要](277_Event_Summary.html)参照。
 
 
 ###### EventLog
-[Personium] 外部および内部イベントの発生ログ。ログ取得APIによって取得可能。
+[Personium] 外部および内部イベントの発生ログ。[ログ取得API](285_Retrieve_Log_File.html)によって取得可能。
 
 
 ###### $expand クエリ
-[OData] サポートしているODataクエリの1つ。データ取得リクエストに付加し、指定した関連情報を同時に取得するクエリ。（詳細事項）
+[OData] サポートしているODataクエリの1つ。データ取得リクエストに付加し、指定した関連情報を同時に取得するクエリ。（[詳細事項](405_Expand_Query.html)）
 
 
 ###### External Cell
@@ -136,11 +136,11 @@
 
 ##### <a name="anc_f"> F
 ###### $filter クエリ
-[OData] サポートしているODataクエリの1つ。検索条件を指定しデータを絞り込むクエリ。（詳細事項）
+[OData] サポートしているODataクエリの1つ。検索条件を指定しデータを絞り込むクエリ。（[詳細事項](403_Filter_Query.html)）
 
 
 ###### $format クエリ
-[OData] サポートしているODataクエリの1つ。HTTPレスポンスにおいてメディアタイプを指定するクエリ。（詳細事項）
+[OData] サポートしているODataクエリの1つ。HTTPレスポンスにおいてメディアタイプを指定するクエリ。（[詳細事項](404_Format_Query.html)）
 
 
 ###### UnitFQDN
@@ -149,19 +149,19 @@
 
 
 ###### 全文検索クエリ(Full-Text Search Query)
-[OData] リクエストに「q="検索語"」を付加することで、EntityTypeに含まれている全データを対象とした全文検索を行うクエリ。（詳細事項）
+[OData] リクエストに「q="検索語"」を付加することで、EntityTypeに含まれている全データを対象とした全文検索を行うクエリ。（[詳細事項](408_Full_Text_Search_Query.html)）
 
 
 ##### <a name="anc_g"> G
 ##### <a name="anc_h"> H
 ##### <a name="anc_i"> I
 ###### Implicit Flow
-[OAuth2.0] OAuth2.0で規定された認可付与フローの一つ。 クライアントが (リソースオーナー認可の結果) 認可コードの代わりに直接アクセストークンを受け取る。  
-詳細は外部サイト参照。
+[OAuth2.0] [OAuth2.0](http://tools.ietf.org/pdf/rfc6749.pdf)で規定された認可付与フローの一つ。 クライアントが (リソースオーナー認可の結果) 認可コードの代わりに直接アクセストークンを受け取る。  
+詳細は[外部サイト](http://openid-foundation-japan.github.io/draft-ietf-oauth-v2-draft22.ja.html#grant-implicit)参照。
 
 
 ###### $inlinecount クエリ
-[OData] サポートしているODataクエリの1つ。コレクションにおける、エンティティの数のカウントを表示するクエリ。（詳細事項）
+[OData] サポートしているODataクエリの1つ。コレクションにおける、エンティティの数のカウントを表示するクエリ。（[詳細事項](407_Inlinecount_Query.html)）
 
 
 ##### <a name="anc_j"> J
@@ -190,7 +190,7 @@ AssociationEndの多重度の表記は、2つのEntityTypeの間の関係では�
 ##### <a name="anc_o"> O
 ###### OData
 [一般] Open Data Protocolの略称。コレクション（Boxの中に格納されたのデータ集合）の1つ。HTMLに準拠した標準データアクセスプロトコルであり、データリソースへのCRUDアクセスが可能。  
-ODataについての詳細はこちら。
+ODataについての詳細は[こちら](http://www.odata.org/)。
 
 
 ###### OData Service Collection
@@ -198,7 +198,7 @@ ODataについての詳細はこちら。
 
 
 ###### $orderby クエリ
-[OData] サポートしているODataクエリの1つ。ユーザーが特定した順序でソートされた値を表示する。デフォルトでは昇順。（詳細事項）
+[OData] サポートしているODataクエリの1つ。ユーザーが特定した順序でソートされた値を表示する。デフォルトでは昇順。（[詳細事項](400_Orderby_Query.html)）
 
 
 ##### <a name="anc_p"> P
@@ -270,7 +270,7 @@ ${Cell URL}/\__role/${BoxName}/${RoleName}
 
 
 ###### ROPC
-[OAuth2.0] Resource Owner Password Credentials (リソースオーナーパスワードクレデンシャル)の略称。OAuth2.0において規定された認可プロセスの1つ。詳細は外部サイト参照。
+[OAuth2.0] Resource Owner Password Credentials (リソースオーナーパスワードクレデンシャル)の略称。[OAuth2.0](http://tools.ietf.org/pdf/rfc6749.pdf)において規定された認可プロセスの1つ。詳細は[外部サイト](http://openid-foundation-japan.github.io/draft-ietf-oauth-v2-draft22.ja.html#anchor7)参照。
 
 
 ##### <a name="anc_s"> S
@@ -279,7 +279,7 @@ ${Cell URL}/\__role/${BoxName}/${RoleName}
 
 
 ###### $select クエリ
-[OData] サポートしているODataクエリの1つ。データ取得時に、特定のPropertyのみ指定して取得するクエリ。複数指定も可能。（詳細事項）
+[OData] サポートしているODataクエリの1つ。データ取得時に、特定のPropertyのみ指定して取得するクエリ。複数指定も可能。（[詳細事項](406_Select_Query.html)）
 
 
 ###### SentMessage
@@ -296,7 +296,7 @@ EngineサービスコレクションとODataサービスコレクションがあ
 
 
 ###### $skip クエリ
-[OData] サポートしているODataクエリの1つ。取得したデータのうち、指定した個数の分だけ、表示から除外して抽出するクエリ。（詳細事項）
+[OData] サポートしているODataクエリの1つ。取得したデータのうち、指定した個数の分だけ、表示から除外して抽出するクエリ。（[詳細事項](402_Skip_Query.html)）
 
 
 ##### <a name="anc_t"> T
@@ -313,7 +313,7 @@ Personiumでは以下の種類:があり、発行から1時間で変更される
 
 
 ###### $top クエリ
-[OData] サポートしているODataクエリの1つ。取得したデータの最大記録数を指定しその個数分を返す。抽出データは、セット内の最初から数えられる。（詳細事項）
+[OData] サポートしているODataクエリの1つ。取得したデータの最大記録数を指定しその個数分を返す。抽出データは、セット内の最初から数えられる。（[詳細事項](401_Top_Query.html)）
 
 
 ##### <a name="anc_u"> U
@@ -334,7 +334,7 @@ Personiumでは以下の種類:があり、発行から1時間で変更される
 ###### WebDAV
 [一般] Web-based Distributed Authoring and Versioningの略称。HTTPの拡張であり、Webサーバ内のドキュメントやファイルを異なるユーザで共同で執筆するためのプロトコル。  
 Personiumポータルでは、WebDAVコレクションはファイルやフォルダであり、またCRUDの機能が動作する。  
-WebDAV Resourcesを参照。
+[WebDAV Resources](http://www.webdav.org/)を参照。
 
 
 ##### <a name="anc_x"> X

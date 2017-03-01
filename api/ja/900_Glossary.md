@@ -156,7 +156,7 @@
 ##### <a name="anc_h"> H</a>
 ##### <a name="anc_i"> I</a>
 ###### Implicit Flow
-[OAuth2.0] [OAuth2.0](http://tools.ietf.org/pdf/rfc6749.pdf)で規定された認可付与フローの一つ。 クライアントが (リソースオーナー認可の結果) 認可コードの代わりに直接アクセストークンを受け取る。  
+[OAuth2.0] <a href="http://tools.ietf.org/pdf/rfc6749.pdf">OAuth2.0</a>で規定された認可付与フローの一つ。 クライアントが (リソースオーナー認可の結果) 認可コードの代わりに直接アクセストークンを受け取る。  
 詳細は[外部サイト](http://openid-foundation-japan.github.io/draft-ietf-oauth-v2-draft22.ja.html#grant-implicit)参照。
 
 

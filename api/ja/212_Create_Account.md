@@ -41,7 +41,7 @@ POST
 |Type<br>|アカウントタイプ<br>|basic(ID/PWによる認証)<br>oidc:google(Google OpenID Connectによる認証)<br>または上記２つをスペースで区切る<br>|×<br>|デフォルト：basic<br>|
 |LastAuthenticated<br>|最終認証日時<br>|/Date(【long型の時刻】)/の形式で文字列で指定する<br>　【long型の時刻】の有効値は、-6847804800000(1753-01-01T00:00:00.000Z)&#65374;253402300799999(9999-12-31T23:59:59.999Z)<br>|×<br>|デフォルト：null<br>|
 #### リクエストサンプル
-Basic認証用アカウント
+ID/PW認証用アカウント
 ```json
 {
   "Name": "{AccountName}"
@@ -53,7 +53,7 @@ Google認証用アカウント
   "Name": "{AccountName}","Type":"oidc:google"
 }
 ```
-Basic認証＋Google認証用アカウント
+ID/PW認証＋Google認証用アカウント
 ```json
 {
   "Name": "{AccountName}","Type":"basic oidc:google"
@@ -113,7 +113,7 @@ Basic認証＋Google認証用アカウント
 &#160;
 
 #### レスポンスサンプル
-Basic認証用アカウント
+ID/PW認証用アカウント
 ```json
 {
   "d": {
@@ -153,7 +153,7 @@ Google認証用アカウント
   }
 }
 ```
-Basic認証＋Google認証用アカウント
+ID/PW認証＋Google認証用アカウント
 ```json
 {
   "d": {
@@ -176,7 +176,7 @@ Basic認証＋Google認証用アカウント
 
 <br>
 ### CURLサンプル
-Basic認証用アカウント
+ID/PW認証用アカウント
 ```sh
 curl "https://{UnitFQDN}/{CellName}/__ctl/Account" -X POST -i -H 'X-Personium-Credential:password' -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '{"Name":"{AccountName}"}'
 ```
@@ -184,7 +184,7 @@ Google認証用アカウント
 ```sh
 curl "https://{UnitFQDN}/{CellName}/__ctl/Account" -X POST -i -H 'X-Personium-Credential:password' -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '{"Name":"{AccountName}","Type":"oidc:google"}'
 ```
-Basic認証＋Google認証用アカウント
+ID/PW認証＋Google認証用アカウント
 ```sh
 curl "https://{UnitFQDN}/{CellName}/__ctl/Account" -X POST -i -H 'X-Personium-Credential:password' -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '{"Name":"{AccountName}","Type":"basic oidc:google"}'
 ```

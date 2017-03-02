@@ -31,7 +31,7 @@ Box Level API は、アプリケーション等がデータを操作するため
 |<br>|_$links|登録|一覧取得|更新|削除|
 |<br>|_NavProp経由|<br>|一覧取得|<br>|<br>|
 |**AssociationEnd**|<br>|[登録](318_Register_AssociationEnd.html)|[取得](320_Get_AssociationEnd.html)<br>[一覧取得](319_List_AssociationEnd.html)|[更新](321_Update_AssociationEnd.html)|[削除](322_Delete_AssociationEnd.html)|
-|<br>|_$links|[登録](323_Register_AssociationEnd_$links.html)|[一覧取得](324_List_AssociationEnd_$links.html)|<br>|[削除](325_Delete_AssociationEnd_$links.html)|
+|<br>|_$links|[登録](323_Register_AssociationEnd_links.html)|[一覧取得](324_List_AssociationEnd_links.html)|<br>|[削除](325_Delete_AssociationEnd_links.html)|
 |<br>|_NavProp経由|<br>|一覧取得|<br>|<br>|
 |**ComplexType**|<br>|[登録](327_Register_ComplexType.html)|[取得](329_Get_ComplexType.html)<br>[一覧取得](328_List_ComplexType.html)|更新|[削除](331_Delete_ComplexType.html)|
 |<br>|_$links|登録|一覧取得|更新|削除|
@@ -40,7 +40,7 @@ Box Level API は、アプリケーション等がデータを操作するため
 |**ComplexTypeProperty**|<br>|[登録](336_Register_ComplexTypeProperty.html)|[取得](338_Get_ComplexTypeProperty.html)<br>[一覧取得](337_List_ComplexTypeProperty.html)|更新|[削除](340_Delete_ComplexTypeProperty.html)|
 |<br>|_$links|登録|一覧取得|更新|削除|
 |**Entity**|[一括操作](368_Entity_Bulk_Operations.html)|[作成](364_Create_Entity.html)|[取得](366_Get_Entity.html)<br>[一覧取得](365_List_Entity.html)|[更新](367_Update_Entity.html)<br>[部分更新](369_Partial_Update_Entity.html)|[削除](370_Delete_Entity.html)|
-|（ユーザデータ）|_$links|[登録](373_Register_User_Data_$links.html)|[一覧取得](374_User_Data_List_$links.html)|更新|[削除](376_Delete_User_Data_$links.html)|
+|（ユーザデータ）|_$links|[登録](373_Register_User_Data_links.html)|[一覧取得](374_User_Data_List_links.html)|更新|[削除](376_Delete_User_Data_links.html)|
 |（ユーザデータ）|_NavProp経由|[登録](377_Register_using_NavProp.html)|[一覧取得](378_List_using_NavProp.html)|<br>|<br>|
 
 ##### データ操作

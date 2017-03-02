@@ -46,10 +46,19 @@ PUT
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
 |Name<br>|アカウント名<br>|桁数：1&#65374;128<br>文字種:半角英数字と左記半角記号（-_!$*=^`{&#124;}~.@）<br>ただし、先頭文字に半角記号は指定不可<br>|○<br>|&#160;<br>
+|Type<br>|アカウントタイプ<br>|basic(ID/PWによる認証)<br>oidc:google(Google OpenID Connectによる認証)<br>または上記２つをスペースで区切る<br>説明：省略した場合basicで更新される<br>|×<br>|デフォルト：basic<br>|
+|LastAuthenticated<br>|最終認証日時<br>|/Date(【long型の時刻】)/の形式で文字列で指定する<br>　【long型の時刻】の有効値は、-6847804800000(1753-01-01T00:00:00.000Z)&#65374;253402300799999(9999-12-31T23:59:59.999Z)<br>説明：省略した場合nullで更新される<br>|×<br>|デフォルト：null<br>|
 #### リクエストサンプル
+アカウント名更新
 ```json
 {
   "Name": "{AccountName}"
+}
+```
+アカウント名+アカウントタイプ更新
+```json
+{
+  "Name": "{AccountName}","Type":"oidc:google"
 }
 ```
 <br>
@@ -80,10 +89,15 @@ PUT
 なし
 <br>
 ### CURLサンプル
-
+アカウント名更新
 ```sh
 curl "https://{UnitFQDN}/{CellName}/__ctl/Account('{AccountName}')" -X PUT -i -H 'If-Match: *' -H 'X-Personium-Credential:password' -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '{"Name":"{AccountName}"}'
 ```
+アカウント名+アカウントタイプ更新
+```sh
+curl "https://{UnitFQDN}/{CellName}/__ctl/Account('{AccountName}')" -X PUT -i -H 'If-Match: *' -H 'X-Personium-Credential:password' -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '{"Name":"{AccountName}","Type":"oidc:google"}'
+```
+
 <br>
 <br>
 <br>

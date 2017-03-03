@@ -39,7 +39,7 @@ POST
 |:--|:--|:--|:--|:--|
 |Name<br>|アカウント名<br>|桁数：1&#65374;128<br>文字種:半角英数字と下記半角記号<br>-_!$*=^`{&#124;}~.@<br>ただし、先頭文字に半角記号は指定不可<br>|○<br>|&#160;<br>|
 |Type<br>|アカウントタイプ<br>|basic(ID/PWによる認証)<br>oidc:google(Google OpenID Connectによる認証)<br>または上記２つをスペースで区切る<br>|×<br>|デフォルト：basic<br>|
-|LastAuthenticated<br>|最終認証日時<br>|/Date(【long型の時刻】)/の形式で文字列で指定する<br>　【long型の時刻】の有効値は、-6847804800000(1753-01-01T00:00:00.000Z)&#65374;253402300799999(9999-12-31T23:59:59.999Z)<br>|×<br>|デフォルト：null<br>|
+|LastAuthenticated<br>|最終認証日時<br>|/Date(【long型の時刻】)/の形式で文字列で指定する<br>【long型の時刻】の有効値は、-6847804800000(1753-01-01T00:00:00.000Z)&#65374;253402300799999(9999-12-31T23:59:59.999Z)<br>|×<br>|デフォルト：null<br>|
 #### リクエストサンプル
 ID/PW認証用アカウント
 ```json
@@ -69,12 +69,13 @@ ID/PW認証＋Google認証用アカウント
 
 |ヘッダ名<br>|概要<br>|備考<br>|
 |:--|:--|:--|
-|X-Personium-Version<br>|APIの実行バージョン<br>|リクエストが処理されたAPIバージョン<br>|
-|Access-Control-Allow-Origin<br>|クロスドメイン通信許可ヘッダ<br>|返却値は"*"固定<br>|
 |Content-Type<br>|返却されるデータの形式<br>|&#160;<br>|
 |Location<br>|作成したリソースへのURL<br>|&#160;<br>|
-|ETag<br>|リソースのバージョン情報<br>|&#160;<br>|
 |DataServiceVersion<br>|ODataのバージョン<br>|&#160;<br>|
+|ETag<br>|リソースのバージョン情報<br>|&#160;<br>|
+|Access-Control-Allow-Origin<br>|クロスドメイン通信許可ヘッダ<br>|返却値は"*"固定<br>|
+|X-Personium-Version<br>|APIの実行バージョン<br>|リクエストが処理されたAPIバージョン<br>|
+
 #### レスポンスボディ
 
 |オブジェクト<br>|項目名<br>|型<br>|備考<br>|

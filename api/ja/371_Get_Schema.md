@@ -183,7 +183,7 @@ $formatにatomsvcを指定した場合、SchemaのAtom ServiceDocumentを返却�
                    DefaultValue CDDATA #IMPLIED
                    Precision CDDATA #IMPLIED
                    Scale CDDATA #IMPLIED
-                   CollectionKind (true|none) #IMPLIED>
+                   CollectionKind (List|None) #IMPLIED>
 <!ELEMENT EntityType (Documentation?,Key・Property*・NavigationProperty*)>
 <!ATTLIST EntityType OpenType (true|false) #REQUIRED
                      HasStream CDDATA #IMPLIED

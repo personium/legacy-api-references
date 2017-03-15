@@ -21,7 +21,7 @@ social（関係登録/削除承認のみ必要）
 ### リクエスト
 #### リクエストURL
 ```
-/{CellName}/__message/received/{uuid}
+/{CellName}/__message/received/{MessageID}
 ```
 #### メソッド
 POST
@@ -73,7 +73,7 @@ JSON
 ### CURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__message/received/{uuid}" -X POST -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '{"Command": "approved"}'
+curl "https://{UnitFQDN}/{CellName}/__message/received/{MessageID}" -X POST -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '{"Command": "approved"}'
 ```
 <br>
 <br>

@@ -41,7 +41,7 @@ JSON
 |InReplyTo<br>|返信対象のメッセージID<br>|桁数：32<br>null<br>|×<br>|<br>|
 |To<br>|送信先セルURL<br>|URL形式<br>null<br>|※ 1<br>|複数Cellに送信する場合はCSV形式で指定する<br>※1 ToまたはRelationのどちらかは必須,<br>ToまたはRelationで指定できる送信先セルURLの最大件数は1000件<br>|
 |ToRelation<br>|送信対象の関係名<br>|桁数：1&#65374;128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)と+(プラス)と:(コロン)<br>ただし、先頭文字に_(半角アンダーバー)と:(コロン)は指定不可<br>null<br>|※ 1<br>|※1 ToまたはRelationのどちらかは必須<br>ToまたはRelationで指定できる送信先セルURLの最大件数は1000件<br>|
-|Type<br>|メッセージタイプ<br>|message<br>Req.Relation.Build<br>Req.Relation.Break<br>|×<br>|省略時はmessageとして扱う<br>|
+|Type<br>|メッセージタイプ<br>|message<br>req.relation.build<br>req.relation.break<br>|×<br>|省略時はmessageとして扱う<br>|
 |Title<br>|メッセージタイトル<br>|桁数：256文字以下<br>|×<br>|省略時は空文字として扱う<br>|
 |Body<br>|メッセージ本文<br>|桁数：64Kbyte以下<br>|×<br>|省略時は空文字として扱う<br>|
 |Priority<br>|優先度<br>|1~5<br>|×<br>|省略時は3として扱う<br>|
@@ -53,13 +53,13 @@ JSON
 {
   "BoxBound": true,
   "InReplyTo": "hnKXm44TTZCw-bfSEw4f0A",
-  "To": "https://{UnitFQDN}/target{CellName}",
+  "To": "https://{UnitFQDN}/{TargetCellName}",
   "ToRelation": null,
   "Type": "req.relation.build",
   "Title": "友人登録依頼です",
   "Body": "先日はありがとうごさいました。友人登録承認をお願いいたします。",
   "Priority": 3,
-  "RequestRelation": "https://{UnitFQDN}/appcell/__relation/__/+:Friend",
+  "RequestRelation": "https://{UnitFQDN}/{CellName}/__relation/Relation(Name='{RelationName}',_Box.Name='{BoxName}')",
   "RequestRelationTarget": "https://{UnitFQDN}/{CellName}"
 }
 ```
@@ -153,8 +153,7 @@ JSON
 <br>
 ### CURLサンプル
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__message/send" -X POST -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '{"BoxBound":false,"InReplyTo":"xnKXmd4TTZCw-bfSEw4f0AxnKXmd4TTZ","To":"https://{UnitFQDN}/{CellName}","Type":"message","Title":"メッセージサンプルタイトル","Body":"メッセージサンプル本文です。",
-"Priority":3}'
+curl "https://{UnitFQDN}/{CellName}/__message/send" -X POST -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '{"BoxBound":false,"InReplyTo":"xnKXmd4TTZCw-bfSEw4f0AxnKXmd4TTZ","To":"https://{UnitFQDN}/{CellName}","Type":"message","Title":"メッセージサンプルタイトル","Body":"メッセージサンプル本文です。","Priority":3}'
 ```
 <br>
 <br>

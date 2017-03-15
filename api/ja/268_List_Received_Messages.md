@@ -179,7 +179,7 @@ GET
 ### CURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/__ctl/ReceivedMessage" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/__ctl/ReceivedMessage" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
 ```
 <br>
 <br>

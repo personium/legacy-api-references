@@ -64,7 +64,7 @@ privilegeタグ配下の権限設定の内容については、認証モデル�
 |href<br>|D:<br>|要素<br>|権限設定対象ロール表し、ロールリソースURLを入力するテキストノード<br>|権限設定対象ロールのリソースURLを指定する<br>acl要素内のxml:base属性の設定によって、URLを短縮する事が出来る<br>|
 |all<br>|D:<br>|要素<br>|全アクセス主体権限設定<br>|全てのロールや認証されていないアクセス主体（Authorizationヘッダなし）に対してのの設定となります<br>|
 |privilege<br>|D:<br>|要素<br>|権限設定を表し、以下の要素のいづれか一つが子となる<br>|<br>|
-|all<br>|p:<br>|要素<br>|全権限<br>|<br>
+|root<br>|p:<br>|要素<br>|全権限<br>|<br>
 |auth<br>|p:<br>|要素<br>|認証系管理API編集・参照権限<br>|<br>
 |auth-read<br>|p:<br>|要素<br>|認証系管理API参照権限<br>|<br>
 |message<br>|p:<br>|要素<br>|メッセージ系管理API編集・参照権限<br>|<br>
@@ -93,7 +93,7 @@ privilegeタグ配下の権限設定の内容については、認証モデル�
 <!ELEMENT principal (privilege+)>
 <!ELEMENT href (#PCDATA)>
 <!ELEMENT all EMPTY>
-<!ELEMENT privilege (all or auth or auth-read or message or message-read or event or event-read or social or social-read or box or box-read or acl or acl-read or propfind)>
+<!ELEMENT privilege (root or auth or auth-read or message or message-read or event or event-read or social or social-read or box or box-read or acl or acl-read or propfind)>
 ```
 
 
@@ -104,7 +104,7 @@ privilegeタグ配下の権限設定の内容については、認証モデル�
 
 名前空間：p:
 ```dtd
-<!ELEMENT all EMPTY>
+<!ELEMENT root EMPTY>
 <!ELEMENT auth EMPTY>
 <!ELEMENT auth-read EMPTY>
 <!ELEMENT message EMPTY>
@@ -142,7 +142,7 @@ privilegeタグ配下の権限設定の内容については、認証モデル�
             <D:href>role</D:href>
         </D:principal>
         <D:grant>
-            <D:privilege><p:all/></D:privilege>
+            <D:privilege><p:root/></D:privilege>
         </D:grant>
     </D:ace>
 </D:acl>        
@@ -177,8 +177,7 @@ privilegeタグ配下の権限設定の内容については、認証モデル�
 <br>
 ### CURLサンプル
 ```sh
-curl "https://{UnitFQDN}/{CellName}" -X ACL -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8" ?><D:acl xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" xml:base="http://{UnitFQDN}/{CellName}/__role/{BoxName}/">  <D:ace><D:principal><D:href>{RoleName}</D:href></D:principal><D:grant><D:privilege><p:box-read/></D:privilege><D:privilege><p:auth/></D:privilege></D:grant>
-</D:ace></D:acl>'
+curl "https://{UnitFQDN}/{CellName}" -X ACL -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8" ?><D:acl xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" xml:base="http://{UnitFQDN}/{CellName}/__role/{BoxName}/">  <D:ace><D:principal><D:href>{RoleName}</D:href></D:principal><D:grant><D:privilege><p:box-read/></D:privilege><D:privilege><p:auth/></D:privilege></D:grant></D:ace></D:acl>'
 ```
 <br>
 <br>

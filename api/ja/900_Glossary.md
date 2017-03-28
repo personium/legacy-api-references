@@ -7,28 +7,25 @@
 ##### <a name="anc_a"> A</a>
 ###### ACL
 [一般] Access Control Listの略称。  
-オブジェクトに付与した権限によって、どのユーザがアクセスを許可されているか、どのような制御命令の使用が許可されているかを定義する。  
+オブジェクトに付与するユーザのアクセス権限を列挙したリスト。PersoniumにおいてはCell,Boxに設定することができる。オブジェクトに付与した権限によって、どのユーザがアクセスを許可されているか、どのような制御命令の使用が許可されているかを定義する。  
 （例：Read:読込許可、Write:編集許可、Read/Write:読込/編集許可）
 
 
 ###### Account
-[Personium] 特定のセルに属するユーザを意味する。アカウント名やパスワードといった情報によって保持される。１セルに複数の登録が可能。  
-詳細はセル制御オブジェクト参照。
+[一般] 特定のセルに属するユーザを意味する。アカウント名やパスワードといった情報によって構成される。１セルに複数の登録が可能。  
 
 
 ###### Association
-[OData] 2つ以上のEntityType（RDBにおけるテーブル）間の関係性を示す。1対のAssociationEndとその間の$linksによって定義される。  
-「1対1」「1対多」「多対多」の種類に分けて扱われる。詳細はユーザODataモデル参照。
+[OData] 2つ以上のEntityType（RDBにおけるテーブル）間の関係性を示す。1対のAssociationEndとその間の$linksによって構成される。  
+「1対1」「1対多」「多対多」の種類に分けて扱われる。
 
 
 ###### AssociationEnd
-[OData] AssociationのエンドポイントとなっているEntityTypeを定義する。1対のAssociationEndとその間の$linksによってAssociationが定義される。  
-詳細はユーザODataモデル参照。
+[OData] Associationを構成するエンドポイントとなっているEntityType。1対のAssociationEndとその間の$linksによってAssociationが構成される。  
 
 
 ###### Authentication
 [一般] 認証。Personiumのアカウント認証では、作成済みのアカウント名とパスワードでの認証を行い、トークンを取得する方式を採用している。  
-詳細は、認証モデルを参照。
 
 
 ##### <a name="anc_b"> B</a>
@@ -39,7 +36,7 @@
 
 
 ###### Box
-[Personium] アプリケーションに用いるデータを格納する領域であるが、自身もWebDAVコレクションの一つである。一意の名前とスキーマURLを持つ。Cellは、Box未作成でも初期状態で1つのBox（メインボックス） を持つが、削除は不可。詳細はセル制御オブジェクトを参照。
+[Personium] アプリケーションに用いるデータを格納する領域。自身もWebDAVコレクションの一つである。一意の名前とスキーマURLを持つ。Cellは、Box未作成でも初期状態で1つのBox（メインボックス） を持ち、削除は不可。
 
 
 ###### Box インストール
@@ -52,34 +49,34 @@
 
 ##### <a name="anc_c"> C</a>
 ###### Cell
-[Personium] 「Personium」の別名であり、データやアプリケーション共有の中心となるデータ領域。
+[Personium] データ主体ごとのData Strore。個人で使う場合はPDS(Personal Data Store)となる。Personiumでは、データ主体という概念を人のみでなく組織やモノなどにも拡張したモデル化を行っているため、組織やモノのデータストアとしても使うことが可能。  
+（例、私のCell, あなたのCell, ○○会社のCell, ○○部のCell, 私の車のCell）
+
 
 
 ###### Cell制御オブジェクト
-[Personium] セルが持つ機能を個別に定義する定義体で、Role,   Account, Box, ExtCell, ExtRoleなどがある。セル制御オブジェクト参照。
+[Personium] セルが持つ機能を個別に定義する定義体。Role,   Account, Box, ExtCell, ExtRoleなどがある。
+
+
 ###### Cell レベル ACL
-[Personium] Boxレベルのアクセス権限を除いたCellへのACL。詳細は、認証モデルを参照。
-
-
-###### Cell Manager
-[Personium] セルの管理者のことで、そのセルへのアクセス権限や動作権限を持つ。
+[Personium] Boxレベルのアクセス権限を除いたCellへのACL。Cell制御オブジェクトの操作や配下のBoxに対するアクセス制御を定義する。
 
 
 ###### Cell Profile
-[Personium Portal] Personiumポータル内でセル名、イメージ、 そのセルの情報などを表示する項目。
+[Personium] Personiumセルの情報を格納する定義体。ホームアプリケーション等のアプリケーションでセル名、イメージ、 そのセルの情報などを表示する項目。
 
 
 ###### Collection （コレクション）
-[WebDAV] セルにあるBoxの中に格納されたのデータ集合を表す。「WebDAV」「OData Service Collection」「Engine Service Collection」の3種類がある。
+[Personium] セルにあるBoxの中に格納されたデータ集合。「WebDAV」「OData Service Collection」「Engine Service Collection」の3種類がある。
 
 
 ###### ComplexType
 [OData] 下位属性を伴った属性を持つPropertyのこと。項目名はComplexTypeProperty。  
-（例えば、「住所」をComplexTypeとすると、通り1・通り2・国・郵便番号・都道府県・市区町村などが考えられる。）
+（例えば、「住所」をComplexTypeとすると、通り1・通り2・国・郵便番号・都道府県・市区町村などがComplexTypePropertyとなる。）
 
 
 ###### ComplexTypeProperty
-[OData] ComplexTypeの下位属性の名称。例えば、 ComplexTypeが「住所」の場合、通り1・通り2・国・郵便番号・都道府県・市区町村などが考えられる。
+[OData] ComplexTypeの下位属性の名称。例えば、 ComplexTypeが「住所」の場合、通り1・通り2・国・郵便番号・都道府県・市区町村などがComplexTypePropertyとなる。
 
 
 ###### CORS
@@ -88,30 +85,26 @@
 
 
 ###### Cross Domain Access Control(クロスドメインアクセス制御)
-[一般] 異なるドメインを持つサーバに対するアクセスの制御行うこと。Personiumでは、XMLHttpRequest Level2に基づいた[クロスドメインポリシーファイル](001_Cross_Domain_Policy_File.html)によって制御される。
+[一般] 異なるドメインを持つサーバに対するアクセスの制御を行うこと。Personiumでは、XMLHttpRequest Level2に基づいた[クロスドメインポリシーファイル](001_Cross_Domain_Policy_File.html)によって制御されている。
 
 
 ##### <a name="anc_d"> D</a>
 ##### <a name="anc_e"> E</a>
 ###### Engine Service Collection
-[WebDAV] ユーザーがサーバー側のロジックを新たに登録するための特別なコレクション。詳細は[Engineサービスレクション](379_Engine_Service_Collection_APIs.html)を参照。
+[Personium] ユーザがサーバ側のロジックを新たに登録するための特別なコレクション。詳細は[Engineサービスレクション](379_Engine_Service_Collection_APIs.html)を参照。
 
 
 ###### Entity
-[OData] データの記録構造のことであり、RDBにおけるテーブル1行分に相当する。例えば、名前・住所・性別といった情報の行を表したもの。
+[OData] データの記録構造のことであり、RDBにおけるテーブル1行分に相当する。例えば、名前・住所・性別といった情報に格納された値を表したもの。
 
 
 ###### EntityType
-[OData] データの構造をEntity Data Model(EDM)であらわすための定義体。EntityTypeは、上位概念を表したもの（顧客、注文内容など）
-
-
-###### Environment
-[Personium Portal] Personiumポータル内の用語。管理権限のあるユーザが複数のセルを包括管理する際に括られたセルの集合。Personiumのデータ構造を参照。
+[OData] データの構造をEntity Data Model(EDM)であらわすための定義体。EntityがRDBにおけるテーブル1行分に相当するのに対し、EntityTypeはテーブルの上位概念を表したもの（顧客、注文内容など）
 
 
 ###### ETag
-[Personium] Entity Tagのこと。Webキャッシュの検証に用いる固有の識別子でクライアントの状況に応じたリクエストの送信が可能。  
-コンテンツの更新がない場合において、レスポンスをすべて返す必要がないときにキャッシュの効果的な使用を高め、帯域幅を確保する。
+[Personium] Entity Tagのこと。Webキャッシュの検証に用いる固有の識別子でクライアントの状況に応じたリクエストの送信を可能にする。  
+コンテンツの更新がない場合において、レスポンスをすべて返す必要がないときにキャッシュの効果的な使用を高め、データの転送量を減らすことで帯域幅を確保する。
 
 
 ###### Event
@@ -123,27 +116,27 @@
 
 
 ###### $expand クエリ
-[OData] サポートしているODataクエリの1つ。データ取得リクエストに付加し、指定した関連情報を同時に取得するクエリ。（[詳細事項](405_Expand_Query.html)）
+[OData] PersoniumでサポートしているODataクエリの1つ。データ取得リクエストに付加し、指定した関連情報を同時に取得するクエリ。（[詳細事項](405_Expand_Query.html)）
 
 
 ###### External Cell
-[Personium] 外部セル。セル制御オブジェクトの1つ(ExtCell)。あるセルの外にある他のセル。あらゆるユニットのセルを外部セルとして扱う事ができる。詳細はセル制御オブジェクト参照。
+[Personium] 外部セル。セル制御オブジェクトの1つ(ExtCell)。あるセルの外にある他のセル。あらゆるユニットのセルを外部セルとして扱う事ができる。
 
 
 ###### External Role
-[Personium] 外部ロール。セル制御オブジェクトの1つ(ExtRole)。特定の関係にある外部セルにて、特定の役割（Role）を付与された利用者主体を表す。詳細はセル制御オブジェクト参照。
+[Personium] 外部ロール。セル制御オブジェクトの1つ(ExtRole)。特定の関係にある外部セルにて、特定の役割（Role）を付与された利用者主体を表す。
 
 
 ##### <a name="anc_f"> F</a>
 ###### $filter クエリ
-[OData] サポートしているODataクエリの1つ。検索条件を指定しデータを絞り込むクエリ。（[詳細事項](403_Filter_Query.html)）
+[OData] PersoniumでサポートしているODataクエリの1つ。検索条件を指定しデータを絞り込むクエリ。（[詳細事項](403_Filter_Query.html)）
 
 
 ###### $format クエリ
-[OData] サポートしているODataクエリの1つ。HTTPレスポンスにおいてメディアタイプを指定するクエリ。（[詳細事項](404_Format_Query.html)）
+[OData] PersoniumでサポートしているODataクエリの1つ。HTTPレスポンスにおいてメディアタイプを指定するクエリ。（[詳細事項](404_Format_Query.html)）
 
 
-###### UnitFQDN
+###### FQDN
 [一般] Fully Qualified Domain Name（完全修飾ドメイン名）の略称。  
 インターネット上の特定のコンピュータやホストを一意に定義する完全なドメイン名をあらわす  （例：host-name.domain-name.com）
 
@@ -161,20 +154,20 @@
 
 
 ###### $inlinecount クエリ
-[OData] サポートしているODataクエリの1つ。コレクションにおける、エンティティの数のカウントを表示するクエリ。（[詳細事項](407_Inlinecount_Query.html)）
+[OData] PersoniumでサポートしているODataクエリの1つ。コレクションにおける、エンティティの数のカウントを表示するクエリ。（[詳細事項](407_Inlinecount_Query.html)）
 
 
 ##### <a name="anc_j"> J</a>
 ##### <a name="anc_k"> K</a>
 ##### <a name="anc_l"> L</a>
 ##### <a name="anc_m"> M</a>
-###### Main Box　メインボックス
+###### Main Box　（メインボックス）
 [Personium] セル作成時にデフォルトで作成される、”\__”(アンダーバー2つ)と名づけられたBox。動作は通常のBoxと同様だが、削除は不可。  
 アプリケーションデータを保管する目的以外にも、そのCellの固有情報（json形式を用いる）の格納に使われる。
 
 
 ###### Message
-[Personium] Personiumにおいて、セルの間でメッセージを送受信する機能。ユーザ任意のメッセージの送受信およびセル間の関係性($links)の発行が可能。詳細はメッセージのモデルを参照。
+[Personium] Personiumにおいて、セルの間でメッセージを送受信する機能。ユーザ任意のメッセージの送受信およびセル間の関係性($links)の発行が可能。
 
 
 ###### Multiplicity
@@ -184,30 +177,30 @@ AssociationEndの多重度の表記は、2つのEntityTypeの間の関係では�
 
 ##### <a name="anc_n"> N</a>
 ###### NavigationProperty
-[一般] Entity Data ModelやODataのデータ構造において、Associationの 一方の End から別の End へのナビゲーションを表すProperty。
+[OData] Entity Data ModelやODataのデータ構造において、Associationの 一方の End から別の End へのナビゲーションを表すProperty。
 
 
 ##### <a name="anc_o"> O</a>
 ###### OData
-[一般] Open Data Protocolの略称。コレクション（Boxの中に格納されたのデータ集合）の1つ。HTMLに準拠した標準データアクセスプロトコルであり、データリソースへのCRUDアクセスが可能。  
+[OData] Open Data Protocolの略称。コレクション（Boxの中に格納されたデータ集合）の1つ。HTTPに準拠した標準データアクセスプロトコルであり、データリソースへのCRUDアクセスが可能。  
 ODataについての詳細は[こちら](http://www.odata.org/)。
 
 
 ###### OData Service Collection
-[WebDAV] ユーザーがODataを操作するための特別なコレクション。ユーザODataモデル参照。
+[WebDAV] ユーザーがODataを操作するための特別なコレクション。
 
 
 ###### $orderby クエリ
-[OData] サポートしているODataクエリの1つ。ユーザーが特定した順序でソートされた値を表示する。デフォルトでは昇順。（[詳細事項](400_Orderby_Query.html)）
+[OData] PersoniumでサポートしているODataクエリの1つ。ユーザーが特定した順序でソートされた値を表示する。デフォルトでは昇順。（[詳細事項](400_Orderby_Query.html)）
 
 
 ##### <a name="anc_p"> P</a>
 ###### Property
-[OData] 各EntityTypeの列頭の値。例えば「顧客」というEntityTypeには「ID」「名前」「住所」といったPropertyが考えられる。
+[OData] 各EntityTypeの列頭の値。RDBにおけるテーブルの項目名に相当する。例えば「顧客」というEntityTypeには「ID」「名前」「住所」といったPropertyが考えられる。
 
 
 ###### Privilege
-[一般] Cell内に定義されたRoleに対し、特定のRoleに紐付けられたBox内部のデータにアクセスする権限。  
+[Personium] Cell内に定義されたRoleに対し、特定のRoleに紐付けられたBox内部のデータにアクセスする権限。  
 PersoniumではACLの設定によって定義される。詳細は[アクセス制御モデル](AccessControlOverview.htm)参照。
 
 
@@ -218,25 +211,25 @@ PersoniumではACLの設定によって定義される。詳細は[アクセス�
 
 
 ###### ReceivedMessage
-[Personium] 特定のセルからの、Relation発行リクエストやメッセージを受信する定義体。詳細はメッセージのモデルを参照。
+[Personium] 特定のセルからの、Relation発行リクエストやメッセージを受信する定義体。
 
 
 ###### Refreshトークン
-[Personium] アクセストークンを再発行するために用いるトークン。リフレッシュトークンの有効時間は24時間である。詳細は認証 モデルを参照。
+[OAuth2] アクセストークンを再発行するために用いるトークン。リフレッシュトークンの有効時間は24時間である。
 
 
 ###### Refreshトークン 認証
-[Personium] アクセストークンを再発行するプロセス。詳細は認証 モデルを参照。
+[Personium] アクセストークンを再発行するためのプロセス。
 
 
 ###### Relation
 [Personium] セルとその外部セルとの関係を示す定義体。同じまたは異なるユニットに属している外部セルの間で関係を確立できる。  
-常にセル固有の関係性になるようにBoxに関連づけられる。セル制御オブジェクト参照。
+常にセル固有の関係性になるようにBoxに関連づけられる。
 
 
 ###### Relation クラス URL
 [Personium] アプリケーションと定義される関係リソースへのURL。RelationクラスURL構造は以下の通り:  
-${Schema URL}/\__relation/\__/${RelationName}
+${Schema URL}/\_\_relation/\_\_/${RelationName}
 
 
 ###### Relation インスタンス URL
@@ -246,7 +239,7 @@ ${Cell URL}/\__relation/${BoxName}/${RelationName}
 
 
 ###### RequireSchemaAuthz
-[WebDAV] ACL要素の属性値であり、Boxのスキーマ権限における要求レベルを定義する。
+[Personium] ACL要素の属性値であり、Boxのスキーマ権限における要求レベルを定義する。
 
 
 ###### resourcetype
@@ -254,14 +247,13 @@ ${Cell URL}/\__relation/${BoxName}/${RelationName}
 
 
 ###### Role
-[Personium] セル制御オブジェクトの1つ。すべてのCellに対して定義される「役割」をあらわす。（例：administorator、teacher、student）  
+[Personium] セル制御オブジェクトの1つ。すべてのCellに対して定義される「役割」をあらわす。（例：administrator、teacher、student）  
 どのアカウント(ユーザ)が、そのCellにアクセスすることができるかを指定できるようになるので、Cellのアカウント所有権を規定するアクセス権限の異なった設定を持つことができる。  
-セル制御オブジェクト参照。
 
 
 ###### Role クラス URL
 [Personium] トランスセルトークン内部に蓄積させるためのRoleのURL。RoleクラスURLの構造は以下の通り:  
-${schema URL}/\__role/\__/${RoleName}
+${schema URL}/\_\_role/\_\_/${RoleName}
 
 
 ###### Role インスタンス URL
@@ -270,55 +262,54 @@ ${Cell URL}/\__role/${BoxName}/${RoleName}
 
 
 ###### ROPC
-[OAuth2.0] Resource Owner Password Credentials (リソースオーナーパスワードクレデンシャル)の略称。[OAuth2.0](http://tools.ietf.org/pdf/rfc6749.pdf)において規定された認可プロセスの1つ。詳細は[外部サイト](http://openid-foundation-japan.github.io/draft-ietf-oauth-v2-draft22.ja.html#anchor7)参照。
+[OAuth2.0] Resource Owner Password Credentials (リソースオーナーパスワードクレデンシャル)の略称。[OAuth2.0](http://tools.ietf.org/pdf/rfc6749.pdf)において規定された認可プロセスの1つ。詳細は[外部サイト](http://openid-foundation-japan.github.io/draft-ietf-oauth-v2-draft22.ja.html#anchor7)参照。ID/PWを用いる、Personiumのトークンを取得するための標準的な認証方法。
 
 
 ##### <a name="anc_s"> S</a>
-###### Schema URL　スキーマURL
-[Personium] Personium内に格納されたスキーマを表すURL。
+###### Schema URI　スキーマURI
+[Personium] Personium内に格納されたスキーマを表すURL。定義はCell URLもしくはURIである。
 
 
 ###### $select クエリ
-[OData] サポートしているODataクエリの1つ。データ取得時に、特定のPropertyのみ指定して取得するクエリ。複数指定も可能。（[詳細事項](406_Select_Query.html)）
+[OData] PersoniumでサポートしているODataクエリの1つ。データ取得時に、特定のPropertyのみ指定して取得するクエリ。複数指定も可能。（[詳細事項](406_Select_Query.html)）
 
 
 ###### SentMessage
-[Personium] 目的のセルに対しRelation設定承認を得るためのメッセージや通常のメッセージを送信する定義体。詳細はメッセージのモデルを参照。
+[Personium] 目的のセルに対しRelation設定承認を得るためのメッセージや通常のメッセージを送信する定義体。
 
 
 ###### Service Collection (サービスコレクション)
-[WebDAV] コレクション（Boxの中に格納されたのデータ集合）の1つ。ユーザー定義のサーバーサイドロジックを実行するサービスのコレクション。  
-EngineサービスコレクションとODataサービスコレクションがある。
+[Personium] コレクション（Boxの中に格納されたのデータ集合）の1つ。ユーザ定義のサーバサイドロジックを実行するサービスのコレクション。  
 
 
 ###### Service （サービス）登録
-[WebDAV] コレクションにユーザー定義のサーバーサイドロジックを登録すること。
+[WebDAV] Serviceコレクションにユーザ定義のサーバサイドロジックを登録すること。
 
 
 ###### $skip クエリ
-[OData] サポートしているODataクエリの1つ。取得したデータのうち、指定した個数の分だけ、表示から除外して抽出するクエリ。（[詳細事項](402_Skip_Query.html)）
+[OData] PersoniumでサポートしているODataクエリの1つ。取得したデータのうち、指定した個数の分だけ、表示から除外して抽出するクエリ。（[詳細事項](402_Skip_Query.html)）
 
 
 ##### <a name="anc_t"> T</a>
 ###### Token (トークン)
-[一般] 主にユーザ認証に用いられるランダムな文字列。Personiumでは、格納したデータやリソースにアクセスする際に用いられる。クライアントがリクエストするCURL内に記載して使用する。  
+[一般] 主にユーザ認証に用いられるランダムな文字列。Personiumでは、格納したデータやリソースにアクセスする際に用いられる。クライアントがリクエストするcURL内に記載して使用する。  
 Personiumでは以下の種類:があり、発行から1時間で変更される。  
 (1)セルローカルトークン：認証されたセル内のリソースにアクセスする際に使用  
 (2)トランスセルトークン：他のセルに認証されたセル内のリソースにアクセスする際に使用  
-詳細は認証モデルを参照。
+
 
 
 ###### Token (トークン)認証
-[一般] 認証プロセスの一つ。クライアントがリクエストするCURLのアクセストークンによる認証方法。詳細は認証 モデルを参照。
+[一般] 認証プロセスの一つ。クライアントがリクエストするcURLのアクセストークンによる認証方法。詳細は認証 モデルを参照。
 
 
 ###### $top クエリ
-[OData] サポートしているODataクエリの1つ。取得したデータの最大記録数を指定しその個数分を返す。抽出データは、セット内の最初から数えられる。（[詳細事項](401_Top_Query.html)）
+[OData] PersoniumでサポートしているODataクエリの1つ。取得したデータの最大記録数を指定しその個数分を返す。抽出データは、セット内の最初から数えられる。（[詳細事項](401_Top_Query.html)）
 
 
 ##### <a name="anc_u"> U</a>
 ###### Unit
-[Personium] Personium基盤サーバ内で、1つ以上のセルから構成されるデータ領域。完全修飾ドメイン名（UnitFQDN）を持ち、絶対ドメイン名として参照される。
+[Personium] Personiumサーバ内で、1つ以上のセルから構成されるデータ領域。完全修飾ドメイン名（UnitFQDN）を持ち、絶対ドメイン名として参照される。
 
 
 ###### Unit制御オブジェクト
@@ -326,14 +317,14 @@ Personiumでは以下の種類:があり、発行から1時間で変更される
 
 
 ###### Unit User
-[Personium] ユニットの管理ユーザ。ユニット内部のCRUD（Create/Read/Update/Delete）の権限を持つ。
+[Personium] ユニットの管理ユーザ。主にCellのCRUD（Create/Read/Update/Delete）の権限を持つ。
 
 
 ##### <a name="anc_v"> V</a>
 ##### <a name="anc_w"> W</a>
 ###### WebDAV
-[一般] Web-based Distributed Authoring and Versioningの略称。HTTPの拡張であり、Webサーバ内のドキュメントやファイルを異なるユーザで共同で執筆するためのプロトコル。  
-Personiumポータルでは、WebDAVコレクションはファイルやフォルダであり、またCRUDの機能が動作する。  
+[WebDAV] Web-based Distributed Authoring and Versioningの略称。HTTPの拡張であり、Webサーバ内のドキュメントやファイルを異なるユーザで共同で執筆するためのプロトコル。  
+Personiumでは、WebDAVコレクションはファイルやフォルダであり、またCRUDの機能が動作する。  
 [WebDAV Resources](http://www.webdav.org/)を参照。
 
 

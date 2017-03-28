@@ -37,7 +37,7 @@ JSON
 
 |項目名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|BoxBound<br>|Boxと紐付けるか否か<br>|true / false<br>デフォルト値はflase<br>|×<br>|Boxに結びつける場合に本項目を「true」にしてスキーマ認証したトークンを送る(未実装)<br>|
+|BoxBound<br>|Boxと紐付けるか否か<br>|true / false<br>デフォルト値はfalse<br>|×<br>|Boxに結びつける場合に本項目を「true」にしてスキーマ認証したトークンを送る<br>|
 |InReplyTo<br>|返信対象のメッセージID<br>|桁数：32<br>null<br>|×<br>|<br>|
 |To<br>|送信先セルURL<br>|URL形式<br>null<br>|※ 1<br>|複数Cellに送信する場合はCSV形式で指定する<br>※1 ToまたはRelationのどちらかは必須,<br>ToまたはRelationで指定できる送信先セルURLの最大件数は1000件<br>|
 |ToRelation<br>|送信対象の関係名<br>|桁数：1&#65374;128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)と+(プラス)と:(コロン)<br>ただし、先頭文字に_(半角アンダーバー)と:(コロン)は指定不可<br>null<br>|※ 1<br>|※1 ToまたはRelationのどちらかは必須<br>ToまたはRelationで指定できる送信先セルURLの最大件数は1000件<br>|

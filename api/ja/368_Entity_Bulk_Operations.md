@@ -131,8 +131,8 @@ POST, GET, PUT, DELETE
 #### リクエストサンプル
 次に示すのは、以下の流れでコンテキストを取得・登録・更新・削除する場合のリクエストの例を示す
 * 「ID:0000」を取得
-* 「ID:0000、Name:富士通 太郎」で登録
-* 「ID:0000、familyName:富士通、givenName:太郎」で更新
+* 「ID:0000、Name:田中 太郎」で登録
+* 「ID:0000、familyName:田中、givenName:太郎」で更新
 * 「ID:0000」を取得
 * 「ID:0001、Name:太郎ログ」をNavigationProperty経由で登録
 * 「ID:0001」を削除
@@ -159,7 +159,7 @@ POST /{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}
 Content-Type: application/json
 Content-Length: 41
 
-{"__id":"0000","Name":"富士通 太郎"}
+{"__id":"0000","Name":"田中 太郎"}
 
 --changeset_76c10b01-3eaf-49c2-bdd7-9fe90df24159
 Content-Type: application/http
@@ -170,7 +170,7 @@ Content-Type: application/json
 Content-Length: 87
 If-Match: *
 
-{"__id":"0000","Name":"富士通 太郎","familyName":"富士通 ","givenName":"太郎"}
+{"__id":"0000","Name":"田中 太郎","familyName":"田中 ","givenName":"太郎"}
 
 --changeset_76c10b01-3eaf-49c2-bdd7-9fe90df24159--
 --batch_31e84e14-28b9-4741-903f-b955f2a1b853
@@ -239,8 +239,8 @@ If-Match: *
 #### レスポンスサンプル
 次に示すのは、上記のリクエストパラメータの例を実行した場合のレスポンスの例を示す
 * 「ID:0000」を取得
-* 「ID:0000、Name:富士通 太郎」で登録
-* 「ID:0000、familyName:富士通、givenName:太郎」で更新
+* 「ID:0000、Name:田中 太郎」で登録
+* 「ID:0000、familyName:田中、givenName:太郎」で更新
 * 「ID:0000」を取得
 * 「ID:0001、Name:太郎ログ」をNavigationProperty経由で登録
 * 「ID:0001」を削除
@@ -284,7 +284,7 @@ Location: http://{UnitFQDN}:50280/api/context/xxx-ah,http%253A%252F%252FUnitFQDN
       "__id": "0000",
       "__published": "/Date(1488184348000)/",
       "__updated": "/Date(1488184348000)/",
-      "name": "富士通 太郎"
+      "name": "田中 太郎"
       }
     }
   }
@@ -322,7 +322,7 @@ Content-Type: application/json
       "__id": "0000",
       "__published": "/Date(1370248522812)/",
       "__updated": "/Date(1370248522812)/",
-      "name": "富士通 太郎",
+      "name": "田中 太郎",
       "_log": {
         "__deferred": {
           "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('0000')/_log"

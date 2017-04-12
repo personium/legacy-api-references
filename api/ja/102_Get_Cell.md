@@ -68,7 +68,7 @@ GET
 |DataServiceVersion<br>|ODataのバージョン<br>|&#160;<br>|
 |ETag<br>|リソースのバージョン情報<br>|&#160;<br>|
 |Access-Control-Allow-Origin<br>|クロスドメイン通信許可ヘッダ<br>|返却値は"*"固定<br>|
-|X-Personium-Version<br>|Data Cloud APIの実行バージョン<br>|リクエストが処理されたAPIバージョン<br>|
+|X-Personium-Version<br>|Personium APIの実行バージョン<br>|リクエストが処理されたAPIバージョン<br>|
 #### レスポンスボディ
 ##### 共通レスポンスボディ
 レスポンスはJSONオブジェクトで、オブジェクト（サブオブジェクト）に定義される

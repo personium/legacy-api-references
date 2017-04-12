@@ -82,7 +82,7 @@ GET
 |Content-Type<br>|返却されるデータの形式<br>|&#160;<br>|
 |DataServiceVersion<br>|ODataのバージョン<br>|&#160;<br>|
 |Access-Control-Allow-Origin<br>|クロスドメイン通信許可ヘッダ<br>|返却値は"*"固定<br>|
-|X-Personium-Version<br>|Data Cloud APIの実行バージョン<br>|リクエストが処理されたAPIバージョン<br>|
+|X-Personium-Version<br>|Personium APIの実行バージョン<br>|リクエストが処理されたAPIバージョン<br>|
 #### レスポンスボディ
 共通レスポンスボディ
 

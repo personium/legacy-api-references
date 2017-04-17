@@ -38,7 +38,7 @@ POST
 #### リクエストボディ
 |項目名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|ExtRole<br>|外部ロール名(URL)<br>|桁数：1&#65374;1024<br>URIの形式に従う<br>scheme：http / https / urn<br>Boxに紐付いている場合:/{アプリセル名}/&#95;&#95;role/&#95;&#95;/{Role名}<br>※ただし、BoxにSchema情報が登録されていない場合、Boxに紐付いていないとみなされる<br>Boxに紐付いていない場合:/{Cell名]/&#95;&#95;role/&#95;&#95;/{Role名}<br>|○<br>|<br>|
+|ExtRole<br>|外部ロール名(URL)<br>|桁数：1&#65374;1024<br>URIの形式に従う<br>scheme：http / https / urn<br>Boxに紐付いている場合:/{アプリセル名}/&#95;&#95;role/&#95;&#95;/{Role名}<br>※ただし、BoxにSchema情報が登録されていない場合、Boxに紐付いていないとみなされる<br>Boxに紐付いていない場合:/{Cell名}/&#95;&#95;role/&#95;&#95;/{Role名}<br>|○<br>|<br>|
 |_Relation.Name<br>|関係対象のRelation名<br>|桁数：1&#65374;128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>と+(プラス)と:(コロン)<br>ただし、先頭文字に_(半角アンダーバー):(コロン)は指定不可<br>Relation登録APIにて登録済みのRelation<br>null<br>|○<br>|<br>|
 |_Relation._Box.Name<br>|関係対象のRelationが紐づくBox名<br>|桁数：1&#65374;128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>Relation登録APIにて登録済みのRelationが紐づくBox名<br>null<br>|×<br>|<br>|
 #### リクエストサンプル

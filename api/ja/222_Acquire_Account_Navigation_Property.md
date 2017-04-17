@@ -87,7 +87,7 @@ GET
 |{2}<br>|__updated<br>|string<br>|更新日(UNIX時間)<br>|
 |{1}<br>|__count<br>|string<br>|$inlinecountクエリでの取得結果件数<br>|
 
-##### Rollを取得した場合
+##### Roleを取得した場合
 ##### Role固有レスポンスボディ
 |オブジェクト<br>|項目名<br>|Data Type<br>|備考<br>|
 |:--|:--|:--|:--|

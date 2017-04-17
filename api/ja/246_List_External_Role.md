@@ -1,6 +1,6 @@
 # ExtRole一覧取得
 ### 概要
-既存のExtCell情報を取得する
+既存のExtRole情報の一覧を取得する
 ### 必要な権限
 auth-read
 ### 制限事項

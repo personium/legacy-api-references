@@ -96,7 +96,7 @@ GET
 |{2}<br>|Title<br>|string<br>|メッセージタイトル<br>|
 |{2}<br>|Body<br>|string<br>|メッセージ本文<br>|
 |{2}<br>|Priority<br>|string<br>|優先度<br>(高)1&#65374;5(低)<br>|
-|{2}<br>|RequestRelation<br>|string<br>|登録依頼するリレーションクラスURL、またはリレーションインスタンスURL<br>メッセージタイプが関係登録/削除依頼の場合のみ<br>|
+|{2}<br>|RequestRelation<br>|string<br>|登録依頼するリレーションクラスURL、またはリレーション名<br>メッセージタイプが関係登録/削除依頼の場合のみ<br>|
 |{2}<br>|RequestRelationTarget<br>|string<br>|関係を結ぶCellURL<br>メッセージタイプが関係登録/削除依頼の場合のみ<br>|
 |{2}<br>|Result<br>|array<br>|送信先Cell毎の送信結果<br>オブジェクト{4}の配列<br>|
 |{4}<br>|To<br>|string<br>|送信先CellURL<br>|

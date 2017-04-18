@@ -40,7 +40,7 @@ Personium APIのレスポンス返却時に実行結果をイベントログと�
 ```
 ##### 内部イベントの出力例
 ```
-2013-04-18 14:52:39.778 [thread-pool-1-38888(20)] [ERROR] EventLogger Req_animal-access_1001,server,https://{UnitFQDN}/appCell/,https://{UnitFQDN}/appCell/#staff,POST,/homeClinic/__auth,200
+2013-04-18 14:52:39.778 [thread-pool-1-38888(20)] [ERROR] EventLogger Req_animal-access_1001,server,https://{UnitFQDN}/appCell/,https://{UnitFQDN}/appCell/#staff,POST,/homeClinic/__token,200
 2013-04-18 14:52:39.778 [thread-pool-1-38888(20)] [ERROR] EventLogger Req_animal-access_1001,server,https://{UnitFQDN}/appCell/,https://{UnitFQDN}/appCell/#staff,PROPFIND,/homeClinic/box/col/put_blog,207
 2013-04-18 14:52:39.779 [thread-pool-1-38888(20)] [ERROR] EventLogger Req_animal-access_1001,server,https://{UnitFQDN}/appCell/,https://{UnitFQDN}/appCell/#staff,PUT,/homeClinic/box/col/put_blog,204
 2013-04-18 14:52:39.780 [thread-pool-1-38888(20)] [ERROR] EventLogger Req_animal-access_1001,server,https://{UnitFQDN}/appCell/,https://{UnitFQDN}/appCell/#staff,GET,/homeClinic/box/col/blog_20130418,200

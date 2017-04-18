@@ -81,7 +81,7 @@ DefaultValueの有効値はTypeの値（型定義）によって異なり、以�
 
 |Type Value<br>|有効値<br>|
 |:--|:--|
-|Edm.String<br>|桁数：0&#65374;51200 byte<br>「\」を使用する場合、「\\」で指定する必要がある<br>|
+|Edm.String<br>|桁数：0&#65374;51200 byte<br>「\」を使用する場合、「\\\」で指定する必要がある<br>|
 |Edm.Int32<br>|-2147483648　&#65374;　2147483647<br>|
 |Edm.Single<br>|整数部分の桁数：1&#65374;5桁<br>小数部分の桁数：1&#65374;5桁<br>|
 |Edm.Boolean<br>|true / false<br>|

@@ -186,7 +186,7 @@ https://{UnitFQDN}/cell1/__role/box/staff → https://{UnitFQDN}/cell1/__role/__
 ```
 #### 90_rootprops.xml
 barファイルにエクスポートする対象のBox配下の全階層に対して、PROPFINDメソッドで取得したXMLデータを示す。  
-XMLデータの詳細は、を参照。  
+XMLデータの詳細は、ファイル設定取得（PROPFIND）を参照。  
 インストール対象BoxのURLは、「personium-box:/」と記述する。  
 barファイルのインストール時には、下記サンプルの<prop>配下にある creationdate及び、getlastmodifiedを除いた全てのデータをインストール対象とする。
 * resourcetype: コレクションの種類を設定
@@ -361,9 +361,9 @@ Boxインストール時には、Schemaタグの配下をインストール対�
 |:--|:--|:--|:--|:--|
 |Links<br>|$linksのリスト<br>| <br>|○<br>| <br>
 |Links/FromType<br>|参照元データの種類<br>|&#65293;  <br>|○<br>|nullは不可<br>|
-|Links/FromId<br>|参照元ユーザデータのID<br>|&#65293;(配列形式 ※1)<br>|○<br>|nullは不可<br> （例:{&quot;FromId&quot;:&quot;fujitsu_taro&quot;} ）<br>|
+|Links/FromId<br>|参照元ユーザデータのID<br>|&#65293;(配列形式 ※1)<br>|○<br>|nullは不可<br> （例:{&quot;FromId&quot;:&quot;tanaka_taro&quot;} ）<br>|
 |Links/ToType<br>|参照先データの種類<br>|&#65293;<br>|○<br> <br>|nullは不可<br> <br>|
-|Links/ToId  <br>|参照先ユーザデータのID  <br>|&#65293;(配列形式 ※1)<br>|○<br> <br>|nullは不可<br>（例:{"ToId":"fujitsu_hanako"} ）<br>|
+|Links/ToId  <br>|参照先ユーザデータのID  <br>|&#65293;(配列形式 ※1)<br>|○<br> <br>|nullは不可<br>（例:{"ToId":"tanaka_hanako"} ）<br>|
 ※1 将来的に複合主キーへ対応した場合の対応を考慮して配列形式とする。
 
 ##### サンプル

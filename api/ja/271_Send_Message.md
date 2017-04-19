@@ -45,7 +45,7 @@ JSON
 |Title<br>|メッセージタイトル<br>|桁数：256文字以下<br>|×<br>|省略時は空文字として扱う<br>|
 |Body<br>|メッセージ本文<br>|桁数：64Kbyte以下<br>|×<br>|省略時は空文字として扱う<br>|
 |Priority<br>|優先度<br>|1~5<br>|×<br>|省略時は3として扱う<br>|
-|RequestRelation<br>|登録依頼した関係情報<br>|URL形式<br>null<br>|※ 2<br>|※2 メッセージタイプが関係登録/削除依頼の場合のみ必須<br>登録依頼するリレーションクラスURL、またはリレーション名<br>リレーション名のみ指定時は以下のURLからの相対URLとみなす<br>BoxBoundがtrue：[対象BoxスキーマURL]\__relation/\__/<br>BoxBoundがfalse：[送信先セルURL]\__relation/\__/<br>|
+|RequestRelation<br>|登録依頼した関係情報<br>|URL形式<br>null<br>|※ 2<br>|※2 メッセージタイプが関係登録/削除依頼の場合のみ必須<br>登録依頼するリレーションクラスURL、またはリレーション名<br>リレーション名のみ指定時は以下のURLからの相対URLとみなす<br>BoxBoundがtrue：[対象BoxスキーマURL]\_\_relation/\_\_/<br>BoxBoundがfalse：[送信先セルURL]\_\_relation/\_\_/<br>|
 |RequestRelationTarget<br>|関係を結ぶセルURL<br>|URL形式<br>null<br>|※ 2<br>|※2 メッセージタイプが関係登録/削除依頼の場合のみ必須<br>|
 
 #### リクエストサンプル

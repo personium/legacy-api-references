@@ -94,7 +94,7 @@ currentのログ取得時にログが存在しない場合は、空のレスポ�
 
 内部イベント
 ```
-2013-04-18T14:52:39.778Z,[ERROR],PCS-1364350331902,server,https://{UnitFQDN}/appCell/,https://{UnitFQDN}/appCell/#staff,POST,/homeClinic/__token,200
+2013-04-18T14:52:39.778Z,[ERROR],PCS-1364350331902,server,https://{UnitFQDN}/appCell/,https://{UnitFQDN}/appCell/#staff,POST,/homeClinic/__auth,200
 ```
 
 <br>

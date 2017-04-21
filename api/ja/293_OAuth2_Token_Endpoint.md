@@ -1,4 +1,4 @@
-# OAuth2Token_エンドポイント認証(\__token)
+# OAuth2Token_エンドポイント認証(\__auth)
 ### 概要
 認証の方式は以下の3種類
 
@@ -28,7 +28,7 @@ Basic認証
 リクエスト
 #### リクエストURL
 ```
-{CellName}/__token
+{CellName}/__auth
 ```
 #### メソッド
 POST
@@ -157,23 +157,23 @@ grant_type=refresh_token&refresh_token={token}
 ### CURLサンプル
 ##### パスワード認証
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__token" -X POST -i -d 'grant_type=password&username={username}&password={password}'
+curl "https://{UnitFQDN}/{CellName}/__auth" -X POST -i -d 'grant_type=password&username={username}&password={password}'
 ```
 ##### トークン認証
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__token" -X POST -i -d 'grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&assertion={token}'
+curl "https://{UnitFQDN}/{CellName}/__auth" -X POST -i -d 'grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&assertion={token}'
 ```
 ##### リフレッシュトークン認証
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__token' -X POST -i -d 'grant_type=refresh_token&refresh_token={refresh_token}'
+curl "https://{UnitFQDN}/{CellName}/__auth' -X POST -i -d 'grant_type=refresh_token&refresh_token={refresh_token}'
 ```
 ##### パスワード認証 + スキーマ認証
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__token" -X POST -i -d 'grant_type=password&username={user_name}&password={pass}&client_id=https://{UnitFQDN}/app{CellName}/&client_secret={token_from_app_cell}'
+curl "https://{UnitFQDN}/{CellName}/__auth" -X POST -i -d 'grant_type=password&username={user_name}&password={pass}&client_id=https://{UnitFQDN}/app{CellName}/&client_secret={token_from_app_cell}'
 ```
 ##### トークン認証 + トランスセルトークン認証
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__token" -X POST -i -d 'grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&assertion={SAML_token}&p_target=https://{UnitFQDN}/{CellName}/'
+curl "https://{UnitFQDN}/{CellName}/__auth" -X POST -i -d 'grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&assertion={SAML_token}&p_target=https://{UnitFQDN}/{CellName}/'
 ```
 <br>
 <br>

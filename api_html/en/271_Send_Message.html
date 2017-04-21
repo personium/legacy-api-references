@@ -180,7 +180,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <tr class="even">
 <td align="left">Title<br></td>
 <td align="left">Message Title<br></td>
-<td align="left">Number of digits: 256< characters or less<br></td>
+<td align="left">Number of digits: 256< characters or lessbr></td>
 <td align="left">No<br></td>
 <td align="left">The default is treated as an empty string<br></td>
 </tr>
@@ -203,7 +203,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <td align="left">Information of requested relation to register<br></td>
 <td align="left">URL format<br>null<br></td>
 <td align="left">* 2<br></td>
-<td align="left">*2 Required only if message type is relation registration/deletion request<br>Relation name or relation class URL, the registration request<br>When only the relation name is specified, it is regarded as a relative URL from the following URL<br>BoxBound is true:[target Box schema URL]__relation/__/<br>BoxBound is false:[destination cell URL]__relation/__/<br></td>
+<td align="left">*2 Required only if message type is relation registration/deletion request<br>Relation instance or URL relation class URL, the registration request<br></td>
 </tr>
 <tr class="even">
 <td align="left">RequestRelationTarget<br></td>
@@ -224,7 +224,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <span class="dt">&quot;Title&quot;</span><span class="fu">:</span> <span class="st">&quot;Friend request&quot;</span><span class="fu">,</span>
   <span class="dt">&quot;Body&quot;</span><span class="fu">:</span> <span class="st">&quot;Thank you for the friend approval&quot;</span><span class="fu">,</span>
   <span class="dt">&quot;Priority&quot;</span><span class="fu">:</span> <span class="dv">3</span><span class="fu">,</span>
-  <span class="dt">&quot;RequestRelation&quot;</span><span class="fu">:</span> <span class="st">&quot;https://{UnitFQDN}/{AppCellName}/__relation/__/{RelationName}&quot;</span><span class="fu">,</span>
+  <span class="dt">&quot;RequestRelation&quot;</span><span class="fu">:</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__relation/Relation(Name=&#39;{RelationName}&#39;,_Box.Name=&#39;{BoxName}&#39;)&quot;</span><span class="fu">,</span>
   <span class="dt">&quot;RequestRelationTarget&quot;</span><span class="fu">:</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}&quot;</span>
 <span class="fu">}</span></code></pre></div>
 <p><br></p>
@@ -411,13 +411,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <td align="left">{2}<br></td>
 <td align="left">RequestRelation<br></td>
 <td align="left">string<br></td>
-<td align="left">Relation name or relation class URL, the registration request<br>Message type only if the relationship registration/deletion<br></td>
+<td align="left">Relation instance or URL relation class URL, the registration request<br>>Message type only if the relationship registration/deletionbr></td>
 </tr>
 <tr class="odd">
 <td align="left">{2}<br></td>
 <td align="left">RequestRelationTarget<br></td>
 <td align="left">string<br></td>
-<td align="left">CellURL of relationships<br>Message type only if the relationship registration/deletion<br></td>
+<td align="left">CellURL of relationships<br>>Message type only if the relationship registration/deletionbr></td>
 </tr>
 <tr class="even">
 <td align="left">{2}<br></td>

@@ -353,7 +353,7 @@ Output form is following</p>
 <p>External Events</p>
 <pre><code>2013-02-04T00:50:12.761Z,[INFO ],Req_animal-access_1001,client,https://{UnitFQDN}/{CellName}/,https://{UnitFQDN}/servicemanager/#admin,authSchema,/{CellName}/{BoxName}/service_name/token_keeper,[XXXX2033] Success schema authorization. cellUrl=https://{UnitFQDN}/keeper-d4a57bb26eae481486b07d06487051d1/</code></pre>
 <p>Internal Event</p>
-<pre><code>2013-04-18T14:52:39.778Z,[ERROR],PCS-1364350331902,server,https://{UnitFQDN}/appCell/,https://{UnitFQDN}/appCell/#staff,POST,/homeClinic/__token,200</code></pre>
+<pre><code>2013-04-18T14:52:39.778Z,[ERROR],PCS-1364350331902,server,https://{UnitFQDN}/appCell/,https://{UnitFQDN}/appCell/#staff,POST,/homeClinic/__auth,200</code></pre>
 <p><br></p>
 <h3 id="curl">CURL Command</h3>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__log/current/default.log&quot;</span> -X GET -i -H <span class="st">&#39;Authorization: Bearer {UnitUserToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span>          </code></pre></div>

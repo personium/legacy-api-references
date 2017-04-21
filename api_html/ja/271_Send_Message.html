@@ -203,7 +203,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <td align="left">登録依頼した関係情報<br></td>
 <td align="left">URL形式<br>null<br></td>
 <td align="left">※ 2<br></td>
-<td align="left">※2 メッセージタイプが関係登録/削除依頼の場合のみ必須<br>登録依頼するリレーションクラスURL、またはリレーション名<br>リレーション名のみ指定時は以下のURLからの相対URLとみなす<br>BoxBoundがtrue：[対象BoxスキーマURL]__relation/__/<br>BoxBoundがfalse：[送信先セルURL]__relation/__/<br></td>
+<td align="left">※2 メッセージタイプが関係登録/削除依頼の場合のみ必須<br>登録依頼するリレーションクラスURL、またはリレーションインスタンスURL<br></td>
 </tr>
 <tr class="even">
 <td align="left">RequestRelationTarget<br></td>
@@ -224,7 +224,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <span class="dt">&quot;Title&quot;</span><span class="fu">:</span> <span class="st">&quot;友人登録依頼です&quot;</span><span class="fu">,</span>
   <span class="dt">&quot;Body&quot;</span><span class="fu">:</span> <span class="st">&quot;先日はありがとうごさいました。友人登録承認をお願いいたします。&quot;</span><span class="fu">,</span>
   <span class="dt">&quot;Priority&quot;</span><span class="fu">:</span> <span class="dv">3</span><span class="fu">,</span>
-  <span class="dt">&quot;RequestRelation&quot;</span><span class="fu">:</span> <span class="st">&quot;https://{UnitFQDN}/{AppCellName}/__relation/__/{RelationName}&quot;</span><span class="fu">,</span>
+  <span class="dt">&quot;RequestRelation&quot;</span><span class="fu">:</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__relation/Relation(Name=&#39;{RelationName}&#39;,_Box.Name=&#39;{BoxName}&#39;)&quot;</span><span class="fu">,</span>
   <span class="dt">&quot;RequestRelationTarget&quot;</span><span class="fu">:</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}&quot;</span>
 <span class="fu">}</span></code></pre></div>
 <p><br></p>
@@ -411,7 +411,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <td align="left">{2}<br></td>
 <td align="left">RequestRelation<br></td>
 <td align="left">string<br></td>
-<td align="left">登録依頼するリレーションクラスURL、またはリレーション名<br>メッセージタイプが関係登録/削除依頼の場合のみ<br></td>
+<td align="left">登録依頼するリレーションクラスURL、またはリレーションインスタンスURL<br>メッセージタイプが関係登録/削除依頼の場合のみ<br></td>
 </tr>
 <tr class="odd">
 <td align="left">{2}<br></td>

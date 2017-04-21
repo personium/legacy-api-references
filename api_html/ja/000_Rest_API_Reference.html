@@ -50,7 +50,16 @@ REST API リファレンスでは、Personiumが提供するすべてのREST API
 </tbody>
 </table>
 <p><br></p>
-<h3 id="cell-level-api"><a href="200_Cell_Level_APIs.html">Cell Level API</a></h3>
+<h3 id="cell-level-api">Cell Level API</h3>
+<p>CellレベルAPI は、</p>
+<ul>
+<li>Cellにアクセスする人やアプリケーションを認証するための認証機構</li>
+<li>ソーシャルグラフを構築するための機能</li>
+<li>Boxの生成・管理を行う機能</li>
+<li>メッセージやイベント処理の機能</li>
+<li>これらAPI群に対するアクセス制御を設定する機能</li>
+</ul>
+<p>等から構成されます。これら機能群の多くはRESTベースでリレーショナルデータ操作を行う標準であるODataプロトコルで操作可能な制御オブジェクトという形で実装しています。</p>
 <p>Resource Path</p>
 <pre><code>https://{UnitFQDN}/{CellName}</code></pre>
 <h5 id="cellapi">Cell内部設定API：単体セルモデルにおける設定</h5>
@@ -223,7 +232,7 @@ REST API リファレンスでは、Personiumが提供するすべてのREST API
 <td align="left"><br></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>認証</strong><br>(/__auth, /__authz)</td>
+<td align="left"><strong>認証</strong><br>(__token, __authz)</td>
 <td align="left"><br></td>
 <td align="left"><br></td>
 <td align="left"><br></td>
@@ -265,7 +274,42 @@ REST API リファレンスでは、Personiumが提供するすべてのREST API
 </tbody>
 </table>
 <p><br></p>
-<h3 id="box-level-api"><a href="300_Box_Level_APIs.html">Box Level API</a></h3>
+<h3 id="box-level-api">Box Level API</h3>
+<p>Box Level API は、アプリケーション等がデータを操作するためのAPIで、WebDAVをベースとしたファイルシステム的な考え方のAPI群です。<br />
+通常のファイルシステムと同様にファイルの配置・取得、フォルダ（collection）の作成・管理、ファイルやフォルダの一覧取得、アクセス制御の設定・参照等が可能です。</p>
+<p>また以下の特殊コレクションをサポートしているため、ファイル状のデータのみではなく、様々な形態のデータを扱うことができます。<br />
+これら特殊コレクションはBoxが提供するWebDAV空間上のいかなるパスに作成することもできます。</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">特殊コレクション<br></th>
+<th align="left">用途<br></th>
+<th align="left">備考<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">OData Service Collection<br></td>
+<td align="left">リレーショナルデータ<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">Engine Service Collection<br></td>
+<td align="left">カスタマイズロジックの走行<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">CALDAV Collection<br></td>
+<td align="left">カレンダーデータ<br></td>
+<td align="left">未実装<br></td>
+</tr>
+<tr class="even">
+<td align="left">Link Collection<br></td>
+<td align="left">他のCellや他Boxの特定の領域へのエイリアス<br></td>
+<td align="left">未実装<br></td>
+</tr>
+</tbody>
+</table>
 <p>Resource Path（※一部例外あり）</p>
 <pre><code>https://{UnitFQDN}/{CellName}/{BoxName}
 https://{UnitFQDN}/{CellName}/{BoxName}/{ResourcePath}</code></pre>
@@ -323,6 +367,8 @@ https://{UnitFQDN}/{CellName}/{BoxName}/{ResourcePath}</code></pre>
 </tr>
 </tbody>
 </table>
+<p>※ すべてのファイルやコレクション（特殊コレクションを含む）に対してACL設定(アクセス制御設定)が可能です。<br />
+※ ACL設定 は PROPFINDメソッドで取得できます。</p>
 <h5 id="odata">OData</h5>
 <table>
 <thead>
@@ -458,7 +504,10 @@ https://{UnitFQDN}/{CellName}/{BoxName}/{ResourcePath}</code></pre>
 </tr>
 </tbody>
 </table>
-<h5 id="engine-service-collection"><a href="379_Engine_Service_Collection_APIs.html">サーバスクリプト(Engine Service Collection)</a></h5>
+<h5 id="engine-service-collection">サーバスクリプト(Engine Service Collection)</h5>
+<p>PersoniumアプリケーションやCell利用者が作成したサーバサイドロジックを登録しこれを走行させることができます。<br />
+はじめに、ユーザロジックをファイルとして登録し、サービスコレクションの設定を行ってパスとの関連付けを行うことで、<br />
+コレクション配下の任意のパスからのリクエストに対してユーザーロジックを走行させることができます。</p>
 <table>
 <thead>
 <tr class="header">

@@ -16,7 +16,16 @@ https://{UnitFQDN}/
 |**Cell**|[作成](100_Create_Cell.html)|[一覧取得](101_List_Cell.html)<br>[取得](102_Get_Cell.html)|[更新](103_Update_Cell.html)|[削除](104_Delete_Cell.html)<br>[再帰的削除](105_Cell_Recursive_Delete.html)|<br>|
 |**UUT**|<br>|<br>|<br>|<br>|昇格設定|
 <br>
-### [Cell Level API](200_Cell_Level_APIs.html)
+### Cell Level API
+CellレベルAPI は、
+* Cellにアクセスする人やアプリケーションを認証するための認証機構
+* ソーシャルグラフを構築するための機能
+* Boxの生成・管理を行う機能
+* メッセージやイベント処理の機能
+* これらAPI群に対するアクセス制御を設定する機能
+
+等から構成されます。これら機能群の多くはRESTベースでリレーショナルデータ操作を行う標準であるODataプロトコルで操作可能な制御オブジェクトという形で実装しています。
+
 Resource Path
 ```
 https://{UnitFQDN}/{CellName}
@@ -51,13 +60,26 @@ https://{UnitFQDN}/{CellName}
 |**ExtRole**|[登録](245_Create_External_Role.html)|[取得](247_Get_External_Role.html)<br>[一覧取得](246_List_External_Role.html)|[更新](248_Update_External_Role.html)|[削除](249_Delete_External_Role.html)|<br>|
 |&nbsp;&nbsp;_$links<br>|[登録](250_Register_External_Role_links.html)|[一覧取得](251_Retrieve_External_Role_links.html)|更新|[削除](253_Delete_External_Role_links.html)|<br>|
 |&nbsp;&nbsp;_NavProp経由<br>|[登録](254_Register_Using_Role_NavProp.html)|[取得](255_List_External_Role_NavProp.html)|<br>|<br>|<br>|
-|**認証**<br>(/\__auth, /\__authz)|<br>|<br>|<br>|<br>|[OAuth2_認可エンドポイント](292_OAuth2_Authorization_Endpoint.html)<br>[OAuth2Token_エンドポイント認証](293_OAuth2_Token_Endpoint.html)<br>|
+|**認証**<br>(\_\_token, \_\_authz)|<br>|<br>|<br>|<br>|[OAuth2_認可エンドポイント](292_OAuth2_Authorization_Endpoint.html)<br>[OAuth2Token_エンドポイント認証](293_OAuth2_Token_Endpoint.html)<br>|
 |**アクセス制御**|[制限設定](289_Cell_ACL.html)|[プロパティ取得](290_Cell_Get_Property.html)|[プロパティ変更](291_Cell_Change_Property.html)|<br>|<br>|
 |[イベント](277_Event_Summary.html)|[イベント受付](278_Event_Reception.html)|[ログファイル取得](285_Retrieve_Log_File.html)<br>[ログファイル一覧取得](284_Retrieve_Log_File_list.html)<br>[ログファイル情報取得](283_Log_File_Information_Acquisition.html)|<br>|[ログファイル削除](286_Delete_Log_File.html)|<br>|
 |**メッセージ制御**<br>[送信](271_Send_Message.html)|<br>|[取得](272_Retrieve_Sent_Message.html)<br>[一覧取得](273_List_Sent_Messages.html)|<br>|[削除](274_Delete_Sent_Message.html)|<br>|
 |**メッセージ制御**<br>受信|<br>|[取得](269_Get_Received_Message.html)<br>[一覧取得](268_List_Received_Messages.html)|[状態変更](267_Received_Message_Approval.html)|[削除](270_Delete_an_Incoming_Message.html)|<br>|
 <br>
-### [Box Level API](300_Box_Level_APIs.html)
+### Box Level API
+Box Level API は、アプリケーション等がデータを操作するためのAPIで、WebDAVをベースとしたファイルシステム的な考え方のAPI群です。  
+通常のファイルシステムと同様にファイルの配置・取得、フォルダ（collection）の作成・管理、ファイルやフォルダの一覧取得、アクセス制御の設定・参照等が可能です。
+
+また以下の特殊コレクションをサポートしているため、ファイル状のデータのみではなく、様々な形態のデータを扱うことができます。  
+これら特殊コレクションはBoxが提供するWebDAV空間上のいかなるパスに作成することもできます。
+
+|特殊コレクション<br>|用途<br>|備考<br>|
+|:--|:--|:--|
+|OData Service Collection<br>|リレーショナルデータ<br>|<br>|
+|Engine Service Collection<br>|カスタマイズロジックの走行<br>|<br>|
+|CALDAV Collection<br>|カレンダーデータ<br>|未実装<br>|
+|Link Collection<br>|他のCellや他Boxの特定の領域へのエイリアス<br>|未実装<br>|
+
 Resource Path（※一部例外あり）
 
 ```
@@ -76,6 +98,9 @@ https://{UnitFQDN}/{CellName}/{BoxName}/{ResourcePath}
 |コレクション|[作成](306_Create_Collection.html)|[設定取得](305_Get_Property.html)|[設定変更](308_Change_Property.html)<br>[移動名称変更](309_Update_Move_Collection.html)|[削除](310_Delete_Collection.html)|<br>|
 |ファイル|[登録更新](312_Register_and_Update_WebDAV.html)|[取得](311_Get_WebDav.html)<br>[設定取得](307_Get_Property.html)|[設定変更](313_Change_Property.html)|[削除](314_Delete_WebDAV.html)|<br>|
 |アクセス制御|<br>|<br>|<br>|<br>|[設定](315_Configure_Access_Control.html)<br>|
+
+※ すべてのファイルやコレクション（特殊コレクションを含む）に対してACL設定(アクセス制御設定)が可能です。  
+※ ACL設定 は PROPFINDメソッドで取得できます。
 
 ##### OData
 |<br>|作成・登録<br>|取得<br>|更新<br>|削除<br>|その他<br>|
@@ -97,7 +122,11 @@ https://{UnitFQDN}/{CellName}/{BoxName}/{ResourcePath}
 |&nbsp;&nbsp;_NavProp経由|[登録](377_Register_using_NavProp.html)|[一覧取得](378_List_using_NavProp.html)|<br>|<br>|<br>|
 
 
-##### [サーバスクリプト(Engine Service Collection)](379_Engine_Service_Collection_APIs.html)
+##### サーバスクリプト(Engine Service Collection)
+PersoniumアプリケーションやCell利用者が作成したサーバサイドロジックを登録しこれを走行させることができます。  
+はじめに、ユーザロジックをファイルとして登録し、サービスコレクションの設定を行ってパスとの関連付けを行うことで、  
+コレクション配下の任意のパスからのリクエストに対してユーザーロジックを走行させることができます。
+
 |<br>|作成・登録<br>|取得<br>|更新<br>|削除<br>|その他<br>|
 |:--|:--|:--|:--|:--|:--|
 |サービスコレクションソース|[作成](381_Create_Service_Collection_Source.html)|[取得](382_List_Service_Collection_Source.html)|[設定適用](380_Configure_Service_Collection.html)|[削除](383_Delete_Service_Collection_Source.html)|[サービス実行](384_Service_Execution.html)<br>|

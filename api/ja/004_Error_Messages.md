@@ -132,9 +132,12 @@
 |400<br>|PR400-SM-0001<br>|ToRelation [{0}] does not exist.<br>|<br>|
 |400<br>|PR400-SM-0002<br>|ToRelation [{0}] does not have related ExtCell.<br>|<br>|
 |400<br>|PR400-SM-0003<br>|The maximum number of destinations was exceeded.<br>|<br>|
+|400<br>|PR400-SM-0004<br>|Box corresponding to the schema can not be found from the schema-authenticated token. Schema[{0}].<br>|<br>|
 |500<br>|PR500-SM-0001<br>|Sent Message connection error.<br>|<br>|
 |500<br>|PR500-SM-0002<br>|Sent Message body parse error.<br>|<br>|
 |400<br>|PR400-RM-0001<br>|Requested relation already exists.<br>|<br>|
+|400<br>|PR400-RM-0002<br>|Box corresponding to the schema can not be found. Schema [{0}].<br>|<br>|
+|400<br>|PR400-RM-0003<br>|Box corresponding to the RelationClassURL can not be found. RelationClassURL [{0}].<br>|<br>|
 |409<br>|PR409-RM-0001<br>|Requested relation URL parse error.<br>|<br>|
 |409<br>|PR409-RM-0002<br>|Requested relation [{0}] does not exists.<br>|<br>|
 |409<br>|PR409-RM-0003<br>|Requested relation target URL parse error.<br>|<br>|

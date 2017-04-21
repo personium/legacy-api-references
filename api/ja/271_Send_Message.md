@@ -45,7 +45,7 @@ JSON
 |Title<br>|メッセージタイトル<br>|桁数：256文字以下<br>|×<br>|省略時は空文字として扱う<br>|
 |Body<br>|メッセージ本文<br>|桁数：64Kbyte以下<br>|×<br>|省略時は空文字として扱う<br>|
 |Priority<br>|優先度<br>|1~5<br>|×<br>|省略時は3として扱う<br>|
-|RequestRelation<br>|登録依頼した関係情報<br>|URL形式<br>null<br>|※ 2<br>|※2 メッセージタイプが関係登録/削除依頼の場合のみ必須<br>登録依頼するリレーションクラスURL、またはリレーションインスタンスURL<br>|
+|RequestRelation<br>|登録依頼した関係情報<br>|URL形式<br>null<br>|※ 2<br>|※2 メッセージタイプが関係登録/削除依頼の場合のみ必須<br>登録依頼するリレーションクラスURL、またはリレーション名<br>リレーション名のみ指定時は以下のURLからの相対URLとみなす<br>BoxBoundがtrue：[対象BoxスキーマURL]\_\_relation/\_\_/<br>BoxBoundがfalse：[送信先セルURL]\_\_relation/\_\_/<br>|
 |RequestRelationTarget<br>|関係を結ぶセルURL<br>|URL形式<br>null<br>|※ 2<br>|※2 メッセージタイプが関係登録/削除依頼の場合のみ必須<br>|
 
 #### リクエストサンプル
@@ -59,7 +59,7 @@ JSON
   "Title": "友人登録依頼です",
   "Body": "先日はありがとうごさいました。友人登録承認をお願いいたします。",
   "Priority": 3,
-  "RequestRelation": "https://{UnitFQDN}/{CellName}/__relation/Relation(Name='{RelationName}',_Box.Name='{BoxName}')",
+  "RequestRelation": "https://{UnitFQDN}/{AppCellName}/__relation/__/{RelationName}",
   "RequestRelationTarget": "https://{UnitFQDN}/{CellName}"
 }
 ```
@@ -106,7 +106,7 @@ JSON
 |{2}<br>|Title<br>|string<br>|メッセージタイトル<br>|
 |{2}<br>|Body<br>|string<br>|メッセージ本文<br>|
 |{2}<br>|Priority<br>|string<br>|優先度<br>(高)1&#65374;5(低)<br>|
-|{2}<br>|RequestRelation<br>|string<br>|登録依頼するリレーションクラスURL、またはリレーションインスタンスURL<br>メッセージタイプが関係登録/削除依頼の場合のみ<br>|
+|{2}<br>|RequestRelation<br>|string<br>|登録依頼するリレーションクラスURL、またはリレーション名<br>メッセージタイプが関係登録/削除依頼の場合のみ<br>|
 |{2}<br>|RequestRelationTarget<br>|string<br>|関係を結ぶCellURL<br>メッセージタイプが関係登録/削除依頼の場合のみ<br>|
 |{2}<br>|_Box.Name<br>|string<br>|関係対象のボックス名<br>|
 |{2}<br>|Result<br>|array<br>|送信先Cell毎の送信結果<br>オブジェクト{4}の配列<br>|

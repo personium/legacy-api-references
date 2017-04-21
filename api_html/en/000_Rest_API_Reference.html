@@ -50,7 +50,17 @@ In principle, these APIs cannot be accessed using the access tokens issued from 
 </tbody>
 </table>
 <p><br></p>
-<h3 id="cell-level-api"><a href="200_Cell_Level_APIs.html">Cell Level API</a></h3>
+<h3 id="cell-level-api">Cell Level API</h3>
+<p>Cell Level APIs are</p>
+<ul>
+<li>applicable to all the Cells. These APIs helps in building the authentication mechanism to authenticate who should access</li>
+<li>APIs facilitates other features, such as social graph management and event handling massages.</li>
+<li>Function to generate and manage Box</li>
+<li>Functions of messages and event processing</li>
+<li>A function of setting access control for these API groups</li>
+</ul>
+<p>And so on. Many of these functions are implemented in the form of control objects that can be operated with the OData protocol, which is a standard for performing relational data manipulation based on REST.<br />
+<br></p>
 <p>Resource Path</p>
 <pre><code>https://{UnitFQDN}/{CellName}</code></pre>
 <h5 id="cellapi">Cell internal setting API: setting in single cell model</h5>
@@ -223,7 +233,7 @@ In principle, these APIs cannot be accessed using the access tokens issued from 
 <td align="left"><br></td>
 </tr>
 <tr class="even">
-<td align="left"><strong>Authentication</strong><br>(/__auth, /__authz)</td>
+<td align="left"><strong>Authentication</strong><br>(__token, __authz)</td>
 <td align="left"><br></td>
 <td align="left"><br></td>
 <td align="left"><br></td>
@@ -265,7 +275,43 @@ In principle, these APIs cannot be accessed using the access tokens issued from 
 </tbody>
 </table>
 <p><br></p>
-<h3 id="box-level-api"><a href="300_Box_Level_APIs.html">Box Level API</a></h3>
+<h3 id="box-level-api">Box Level API</h3>
+<p>
+The Box Level API is an API for applications and others to manipulate data, and is a group of APIs based on WebDAV as a file system idea. <br />
+Like ordinary file systems, it is possible to arrange / acquire files, create / manage folders (collection), get list of files and folders, set / refer to access control, etc. </P>
+<P> Also, because it supports the following special collections, it can handle not only file-like data but also various forms of data. <br />
+These special collections can be created in any path on the WebDAV space provided by Box. </P>
+<table>
+<thead>
+<tr class="header">Special collection<br></th>
+<th align="left">
+<th align="left">Use<br></th>
+<th align="left">Notes<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">OData Service Collection<br></td>
+<td align="left">Relational data<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">Engine Service Collection<br></td>
+<td align="left">Run customized logic<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">CALDAV Collection<br></td>
+<td align="left">Calendar data<br></td>
+<td align="left">Unimplemented<br></td>
+</tr>
+<tr class="even">
+<td align="left">Link Collection<br></td>
+<td align="left">Aliases to specific areas of other cells or other Box<br></td>
+<td align="left">Unimplemented<br></td>
+</tr>
+</tbody>
+</table>
 <p>Resource Path (* with certain exceptions)</p>
 <pre><code>https://{UnitFQDN}/{CellName}/{BoxName}
 https://{UnitFQDN}/{CellName}/{BoxName}/{ResourcePath}</code></pre>
@@ -323,6 +369,9 @@ https://{UnitFQDN}/{CellName}/{BoxName}/{ResourcePath}</code></pre>
 </tr>
 </tbody>
 </table>
+<p>
+* ACL setting (access control setting) is possible for all files and collections (including special collections).<br />
+* ACL setting can be acquired with the PROPFIND method.</p>
 <h5 id="odata">OData</h5>
 <table>
 <thead>
@@ -458,7 +507,10 @@ https://{UnitFQDN}/{CellName}/{BoxName}/{ResourcePath}</code></pre>
 </tr>
 </tbody>
 </table>
-<h5 id="engine-service-collection"><a href="379_Engine_Service_Collection_APIs.html">Server Script (Engine Service Collection)</a></h5>
+<h5 id="engine-service-collection">Server Script (Engine Service Collection)</h5>
+<P> You can register Personium application and server side logic created by Cell user and run it. <br />
+First, register the user logic as a file, set the service collection and associate with the path, so that <br />
+You can run the user logic for requests from any path under the collection. </P>
 <table>
 <thead>
 <tr class="header">

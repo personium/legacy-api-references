@@ -92,12 +92,12 @@ GET
 |{2}<br>|InReplyTo<br>|string<br>|受信元メッセージID<br>UUIDで「b5d008e9092f489c8d3c574a768afc33」のような32文字の文字列を返却<br>|
 |{2}<br>|To<br>|string<br>|送信先CellURL<br>|
 |{2}<br>|ToRelation<br>|string<br>|送信対象の関係名<br>|
-|{2}<br>|Type<br>|string<br>|メッセージタイプ<br>メッセージ：message<br>関係登録依頼：req.relation.build<br>関係削除依頼：req.relation.break<br>|
+|{2}<br>|Type<br>|string<br>|メッセージタイプ<br>メッセージ：message<br>関係登録依頼(リレーション)：req.relation.build<br>関係削除依頼(リレーション)：req.relation.break<br>関係登録依頼(ロール)：req.role.grant<br>関係削除依頼(ロール)：req.role.revoke<br>|
 |{2}<br>|Title<br>|string<br>|メッセージタイトル<br>|
 |{2}<br>|Body<br>|string<br>|メッセージ本文<br>|
 |{2}<br>|Priority<br>|string<br>|優先度<br>(高)1&#65374;5(低)<br>|
-|{2}<br>|RequestRelation<br>|string<br>|登録依頼するリレーションクラスURL、またはリレーション名<br>メッセージタイプが関係登録/削除依頼の場合のみ<br>|
-|{2}<br>|RequestRelationTarget<br>|string<br>|関係を結ぶCellURL<br>メッセージタイプが関係登録/削除依頼の場合のみ<br>|
+|{2}<br>|RequestRelation<br>|string<br>|登録依頼するリレーションクラスURL、またはリレーション名、またはロールクラスURL、またはロール名<br>メッセージタイプがmessage以外の場合のみ<br>|
+|{2}<br>|RequestRelationTarget<br>|string<br>|関係を結ぶCellURL<br>メッセージタイプがmessage以外の場合のみ<br>|
 |{2}<br>|Result<br>|array<br>|送信先Cell毎の送信結果<br>オブジェクト{4}の配列<br>|
 |{4}<br>|To<br>|string<br>|送信先CellURL<br>|
 |{4}<br>|Code<br>|string<br>|ステータスコード<br>|

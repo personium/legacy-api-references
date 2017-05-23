@@ -3,9 +3,9 @@
 * メッセージを承認する
 	* 承認するメッセージのTypeがmessageの場合  
 	メッセージの状態を既読/未読に変更する
-	* 承認するメッセージのTypeがreq.relation.buildの場合  
+	* 承認するメッセージのTypeがreq.relation.build/req.role.grantの場合  
 	承認するメッセージのRequestRelation, RequestRelationTargetの値に従い、関係を登録し、メッセージの状態を承認/拒否に変更する
-	* 承認するメッセージのTypeがreq.relation.breakの場合  
+	* 承認するメッセージのTypeがreq.relation.break/req.role.revokeの場合  
 	承認するメッセージのRequestRelation, RequestRelationTargetの値に従い、関係を削除し、メッセージの状態を承認/拒否に変更する
 
 ### 必要な権限
@@ -43,7 +43,7 @@ JSON
 
 |項目名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|Command<br>|メッセージコマンド<br>|Typeがmessageの場合<br>　read: 既読<br>　unread: 未読<br>Typeがreq.relation.build/req.relation.breakの場合<br>　approved: 承認<br>　rejected: 拒否<br>　ただし既にapproved、rejectedに変更済みの場合は承認不可<br>|○<br>|<br>|
+|Command<br>|メッセージコマンド<br>|Typeがmessageの場合<br>　read: 既読<br>　unread: 未読<br>Typeがreq.relation.build/req.relation.break/req.role.grant/req.role.revokeの場合<br>　approved: 承認<br>　rejected: 拒否<br>　ただし既にapproved、rejectedに変更済みの場合は承認不可<br>|○<br>|<br>|
 #### リクエストサンプル
 ```json
 {"Command": "approved"}

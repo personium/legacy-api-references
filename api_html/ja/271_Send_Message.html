@@ -173,7 +173,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <tr class="odd">
 <td align="left">Type<br></td>
 <td align="left">メッセージタイプ<br></td>
-<td align="left">message<br>req.relation.build<br>req.relation.break<br></td>
+<td align="left">message<br>req.relation.build<br>req.relation.break<br>req.role.grant<br>req.role.revoke</td>
 <td align="left">×<br></td>
 <td align="left">省略時はmessageとして扱う<br></td>
 </tr>
@@ -203,14 +203,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <td align="left">登録依頼した関係情報<br></td>
 <td align="left">URL形式<br>null<br></td>
 <td align="left">※ 2<br></td>
-<td align="left">※2 メッセージタイプが関係登録/削除依頼の場合のみ必須<br>登録依頼するリレーションクラスURL、またはリレーション名<br>リレーション名のみ指定時は以下のURLからの相対URLとみなす<br>BoxBoundがtrue：[対象BoxスキーマURL]__relation/__/<br>BoxBoundがfalse：[送信先セルURL]__relation/__/<br></td>
+<td align="left">※2 メッセージタイプがmessage以外の場合必須<br>登録依頼するリレーションクラスURL、またはリレーション名、またはロールクラスURL、またはロール名を指定<br>リレーション名指定時は以下のURLからの相対URLとみなす<br>BoxBoundがtrue：[対象BoxスキーマURL]__relation/__/<br>BoxBoundがfalse：[送信先セルURL]__relation/__/<br>ロール名指定時は以下のURLからの相対URLとみなす<br>BoxBoundがtrue：[対象BoxスキーマURL]__role/__/<br>BoxBoundがfalse：[送信先セルURL]__role/__/<br></td>
 </tr>
 <tr class="even">
 <td align="left">RequestRelationTarget<br></td>
 <td align="left">関係を結ぶセルURL<br></td>
 <td align="left">URL形式<br>null<br></td>
 <td align="left">※ 2<br></td>
-<td align="left">※2 メッセージタイプが関係登録/削除依頼の場合のみ必須<br></td>
+<td align="left">※2 メッセージタイプがmessage以外の場合必須<br></td>
 </tr>
 </tbody>
 </table>
@@ -387,7 +387,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <td align="left">{2}<br></td>
 <td align="left">Type<br></td>
 <td align="left">string<br></td>
-<td align="left">メッセージタイプ<br>メッセージ：message<br>関係登録依頼：req.relation.build<br>関係削除依頼：req.relation.break<br></td>
+<td align="left">メッセージタイプ<br>メッセージ：message<br>関係登録依頼(リレーション)：req.relation.build<br>関係削除依頼(リレーション)：req.relation.break<br>関係登録依頼(ロール)：req.role.grant<br>関係削除依頼(ロール)：req.role.revoke<br></td>
 </tr>
 <tr class="odd">
 <td align="left">{2}<br></td>
@@ -411,13 +411,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <td align="left">{2}<br></td>
 <td align="left">RequestRelation<br></td>
 <td align="left">string<br></td>
-<td align="left">登録依頼するリレーションクラスURL、またはリレーション名<br>メッセージタイプが関係登録/削除依頼の場合のみ<br></td>
+<td align="left">登録依頼するリレーションクラスURL、またはリレーション名、またはロールクラスURL、またはロール名<br>メッセージタイプがmessage以外の場合のみ<br></td>
 </tr>
 <tr class="odd">
 <td align="left">{2}<br></td>
 <td align="left">RequestRelationTarget<br></td>
 <td align="left">string<br></td>
-<td align="left">関係を結ぶCellURL<br>メッセージタイプが関係登録/削除依頼の場合のみ<br></td>
+<td align="left">関係を結ぶCellURL<br>メッセージタイプがmessage以外の場合のみ<br></td>
 </tr>
 <tr class="even">
 <td align="left">{2}<br></td>

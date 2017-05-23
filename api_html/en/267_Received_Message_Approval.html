@@ -52,10 +52,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <liapprove Message
 <ul>
 <li>When the message type to be approved is message<br />
->change message status to read/unread</li>
-<li>When the type of the message to approve is req.relation.build<br />
+change message status to read/unread</li>
+<li>When the type of the message to approve is req.relation.build or req.role.grant<br />
 According to the values of RequestRelation and RequestRelationTarget of the message to be approved, register the relation and change the state of the message to approval/rejection</li>
-<li>When the type of the message to approve is req.relation.break<br />
+<li>When the type of the message to approve is req.relation.break or req.role.revoke<br />
 According to the values of RequestRelation and RequestRelationTarget of the message to be approved, delete the relation and change the state of the message to approval/rejection</li>
 </ul></li>
 </ul>
@@ -189,7 +189,7 @@ social(Requires only relationship registration/deletion approval)</p>
 <tr class="odd">
 <td align="left">Command<br></td>
 <td align="left">Message Command<br></td>
-<td align="left">When Type is message<br> read: read<br> unread: unread<br>When type is req.relation.build or req.relation.break <br> approved: approved <br> rejected: rejected <br>However, if you have already changed to approved or rejected, you can not approve it<br></td>
+<td align="left">When Type is message<br> read: read<br> unread: unread<br>When type is req.relation.build or req.relation.break or req.role.grant or req.role.revoke<br> approved: approved <br> rejected: rejected <br>However, if you have already changed to approved or rejected, you can not approve it<br></td>
 <td align="left">Yes<br></td>
 <td align="left"><br></td>
 </tr>

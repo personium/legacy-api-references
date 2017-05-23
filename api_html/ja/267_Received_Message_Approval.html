@@ -53,9 +53,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <ul>
 <li>承認するメッセージのTypeがmessageの場合<br />
 メッセージの状態を既読/未読に変更する</li>
-<li>承認するメッセージのTypeがreq.relation.buildの場合<br />
+<li>承認するメッセージのTypeがreq.relation.build/req.role.grantの場合<br />
 承認するメッセージのRequestRelation, RequestRelationTargetの値に従い、関係を登録し、メッセージの状態を承認/拒否に変更する</li>
-<li>承認するメッセージのTypeがreq.relation.breakの場合<br />
+<li>承認するメッセージのTypeがreq.relation.break/req.role.revokeの場合<br />
 承認するメッセージのRequestRelation, RequestRelationTargetの値に従い、関係を削除し、メッセージの状態を承認/拒否に変更する</li>
 </ul></li>
 </ul>
@@ -189,7 +189,7 @@ social（関係登録/削除承認のみ必要）</p>
 <tr class="odd">
 <td align="left">Command<br></td>
 <td align="left">メッセージコマンド<br></td>
-<td align="left">Typeがmessageの場合<br>　read: 既読<br>　unread: 未読<br>Typeがreq.relation.build/req.relation.breakの場合<br>　approved: 承認<br>　rejected: 拒否<br>　ただし既にapproved、rejectedに変更済みの場合は承認不可<br></td>
+<td align="left">Typeがmessageの場合<br>　read: 既読<br>　unread: 未読<br>Typeがreq.relation.build/req.relation.break/req.role.grant/req.role.revokeの場合<br>　approved: 承認<br>　rejected: 拒否<br>　ただし既にapproved、rejectedに変更済みの場合は承認不可<br></td>
 <td align="left">○<br></td>
 <td align="left"><br></td>
 </tr>

@@ -41,12 +41,12 @@ JSON
 |InReplyTo<br>|返信対象のメッセージID<br>|桁数：32<br>null<br>|×<br>|<br>|
 |To<br>|送信先セルURL<br>|URL形式<br>null<br>|※ 1<br>|複数Cellに送信する場合はCSV形式で指定する<br>※1 ToまたはRelationのどちらかは必須,<br>ToまたはRelationで指定できる送信先セルURLの最大件数は1000件<br>|
 |ToRelation<br>|送信対象の関係名<br>|桁数：1&#65374;128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)と+(プラス)と:(コロン)<br>ただし、先頭文字に_(半角アンダーバー)と:(コロン)は指定不可<br>null<br>|※ 1<br>|※1 ToまたはRelationのどちらかは必須<br>ToまたはRelationで指定できる送信先セルURLの最大件数は1000件<br>|
-|Type<br>|メッセージタイプ<br>|message<br>req.relation.build<br>req.relation.break<br>|×<br>|省略時はmessageとして扱う<br>|
+|Type<br>|メッセージタイプ<br>|message<br>req.relation.build<br>req.relation.break<br>req.role.grant<br>req.role.revoke|×<br>|省略時はmessageとして扱う<br>|
 |Title<br>|メッセージタイトル<br>|桁数：256文字以下<br>|×<br>|省略時は空文字として扱う<br>|
 |Body<br>|メッセージ本文<br>|桁数：64Kbyte以下<br>|×<br>|省略時は空文字として扱う<br>|
 |Priority<br>|優先度<br>|1~5<br>|×<br>|省略時は3として扱う<br>|
-|RequestRelation<br>|登録依頼した関係情報<br>|URL形式<br>null<br>|※ 2<br>|※2 メッセージタイプが関係登録/削除依頼の場合のみ必須<br>登録依頼するリレーションクラスURL、またはリレーション名<br>リレーション名のみ指定時は以下のURLからの相対URLとみなす<br>BoxBoundがtrue：[対象BoxスキーマURL]\_\_relation/\_\_/<br>BoxBoundがfalse：[送信先セルURL]\_\_relation/\_\_/<br>|
-|RequestRelationTarget<br>|関係を結ぶセルURL<br>|URL形式<br>null<br>|※ 2<br>|※2 メッセージタイプが関係登録/削除依頼の場合のみ必須<br>|
+|RequestRelation<br>|登録依頼した関係情報<br>|URL形式<br>null<br>|※ 2<br>|※2 メッセージタイプがmessage以外の場合必須<br>登録依頼するリレーションクラスURL、またはリレーション名、またはロールクラスURL、またはロール名を指定<br>リレーション名指定時は以下のURLからの相対URLとみなす<br>BoxBoundがtrue：[対象BoxスキーマURL]\_\_relation/\_\_/<br>BoxBoundがfalse：[送信先セルURL]\_\_relation/\_\_/<br>ロール名指定時は以下のURLからの相対URLとみなす<br>BoxBoundがtrue：[対象BoxスキーマURL]\_\_role/\_\_/<br>BoxBoundがfalse：[送信先セルURL]\_\_role/\_\_/<br>|
+|RequestRelationTarget<br>|関係を結ぶセルURL<br>|URL形式<br>null<br>|※ 2<br>|※2 メッセージタイプがmessage以外の場合必須<br>|
 
 #### リクエストサンプル
 ```json
@@ -102,12 +102,12 @@ JSON
 |{2}<br>|InReplyTo<br>|string<br>|受信元メッセージID<br>UUIDで「b5d008e9092f489c8d3c574a768afc33」のような32文字の文字列を返却<br>|
 |{2}<br>|To<br>|string<br>|送信先CellURL<br>|
 |{2}<br>|ToRelation<br>|string<br>|送信対象の関係名<br>|
-|{2}<br>|Type<br>|string<br>|メッセージタイプ<br>メッセージ：message<br>関係登録依頼：req.relation.build<br>関係削除依頼：req.relation.break<br>|
+|{2}<br>|Type<br>|string<br>|メッセージタイプ<br>メッセージ：message<br>関係登録依頼(リレーション)：req.relation.build<br>関係削除依頼(リレーション)：req.relation.break<br>関係登録依頼(ロール)：req.role.grant<br>関係削除依頼(ロール)：req.role.revoke<br>|
 |{2}<br>|Title<br>|string<br>|メッセージタイトル<br>|
 |{2}<br>|Body<br>|string<br>|メッセージ本文<br>|
 |{2}<br>|Priority<br>|string<br>|優先度<br>(高)1&#65374;5(低)<br>|
-|{2}<br>|RequestRelation<br>|string<br>|登録依頼するリレーションクラスURL、またはリレーション名<br>メッセージタイプが関係登録/削除依頼の場合のみ<br>|
-|{2}<br>|RequestRelationTarget<br>|string<br>|関係を結ぶCellURL<br>メッセージタイプが関係登録/削除依頼の場合のみ<br>|
+|{2}<br>|RequestRelation<br>|string<br>|登録依頼するリレーションクラスURL、またはリレーション名、またはロールクラスURL、またはロール名<br>メッセージタイプがmessage以外の場合のみ<br>|
+|{2}<br>|RequestRelationTarget<br>|string<br>|関係を結ぶCellURL<br>メッセージタイプがmessage以外の場合のみ<br>|
 |{2}<br>|_Box.Name<br>|string<br>|関係対象のボックス名<br>|
 |{2}<br>|Result<br>|array<br>|送信先Cell毎の送信結果<br>オブジェクト{4}の配列<br>|
 |{4}<br>|To<br>|string<br>|送信先CellURL<br>|

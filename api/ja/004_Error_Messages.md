@@ -138,11 +138,9 @@
 |400<br>|PR400-RM-0001<br>|Requested relation already exists.<br>|<br>|
 |400<br>|PR400-RM-0002<br>|Box corresponding to the schema can not be found. Schema [{0}].<br>|<br>|
 |400<br>|PR400-RM-0003<br>|Box corresponding to the RelationClassURL can not be found. RelationClassURL [{0}].<br>|<br>|
-|409<br>|PR409-RM-0001<br>|Requested relation URL parse error.<br>|<br>|
-|409<br>|PR409-RM-0002<br>|Requested relation [{0}] does not exists.<br>|<br>|
-|409<br>|PR409-RM-0003<br>|Requested relation target URL parse error.<br>|<br>|
-|409<br>|PR409-RM-0004<br>|Request relation target [{0}] does not exist.<br>|<br>|
-|409<br>|PR409-RM-0005<br>|RequestRelation and RequestRelationTarget is not related. [{0}] - [{1}].<br>|<br>|
+|409<br>|PR409-RM-0002<br>|Requested relation does not exists. Type [{0}]. Keys [{1}].<br>|<br>|
+|409<br>|PR409-RM-0004<br>|Request relation target does not exist. Type [{0}]. Keys [{1}].<br>|<br>|
+|409<br>|PR409-RM-0005<br>|RequestRelation and RequestRelationTarget is not related. [Type [{0}]. Keys[{1}]] - [Type {2}. Keys[{3}]].<br>|<br>|
 |500<br>|PR500-SC-0001<br>|Engine connection error.<br>|<br>|
 |500<br>|PR500-SC-0002<br>|File open error.<br>|<br>|
 |500<br>|PR500-SC-0003<br>|File close error.<br>|<br>|

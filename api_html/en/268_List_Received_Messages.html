@@ -331,7 +331,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <td align="left">{2}<br></td>
 <td align="left">Type<br></td>
 <td align="left">string<br></td>
-<td align="left">Message type<br>message : message<br>relationship registration request: req.relation.build<br>relationship deletion request: req.relation.break<br></td>
+<td align="left">Message type<br>message : message<br>relationship registration request(relation): req.relation.build<br>relationship deletion request(relation): req.relation.break<br>relationship registration request(role): req.role.grant<br>relationship deletion request(role): req.role.revoke<br></td>
 </tr>
 <tr class="even">
 <td align="left">{2}<br></td>
@@ -355,19 +355,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <td align="left">{2}<br></td>
 <td align="left">Status<br></td>
 <td align="left">string<br></td>
-<td align="left">Message Status<br>When Type is message<br> read: read<br> unread: unread<br>When type is req.relation.build or req.relation.break <br> approved: approved <br> rejected: rejected <br> none: none<br></td>
+<td align="left">Message Status<br>When Type is message<br> read: read<br> unread: unread<br>When type is req.relation.build or req.relation.break or req.role.grant or req.role.revoke <br> approved: approved <br> rejected: rejected <br> none: none<br></td>
 </tr>
 <tr class="even">
 <td align="left">{2}<br></td>
 <td align="left">RequestRelation<br></td>
 <td align="left">string<br></td>
-<td align="left">Relation name or relation class URL, the registration request<br>Message type only if the relationship registration/deletion<br></td>
+<td align="left">Relation name or relation class URL or role name or role class URL, the registration request<br>Only when message type is other than message<br></td>
 </tr>
 <tr class="odd">
 <td align="left">{2}<br></td>
 <td align="left">RequestRelationTarget<br></td>
 <td align="left">string<br></td>
-<td align="left">CellURL of relationships<br>Message type only if the relationship registration/deletion<br></td>
+<td align="left">CellURL of relationships<br>Only when message type is other than message<br></td>
 </tr>
 </tbody>
 </table>

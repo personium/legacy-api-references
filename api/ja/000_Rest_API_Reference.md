@@ -39,7 +39,7 @@ https://{UnitFQDN}/{CellName}
 |&nbsp;&nbsp;_$links<br>|[登録](206_Create_Role_links.html)|[一覧取得](207_List_Role_links.html)|更新|[削除](209_Delete_Role_links.html)|
 |&nbsp;&nbsp;_NavProp経由<br>|[登録](210_Register_Role_Using_NavProp.html)|[取得](211_List_Using_Role_NavProp.html)|<br>|<br>|
 |**Account**|[登録](212_Create_Account.html)|[一覧取得](214_Search_Account.html)<br>[取得](213_Retrieve_Account.html)|[更新](215_Update_Account.html)|[削除](216_Delete_Account.html)|
-|&nbsp;&nbsp;_$links<br>|[登録](217_Register_Account_links.html)|[一覧取得](218_Acquire_Account_$links_List.html)|更新|[削除](220_Delete_Account_links.html)|
+|&nbsp;&nbsp;_$links<br>|[登録](217_Register_Account_links.html)|[一覧取得](218_Acquire_Account_links_List.html)|更新|[削除](220_Delete_Account_links.html)|
 |&nbsp;&nbsp;_NavProp経由<br>|[登録](221_Register_Account_Navigation_Property.html)|[取得](222_Acquire_Account_Navigation_Property.html)|<br>|<br>|
 |**Box**|[作成](256_Create_Box.html)|[取得](258_Retrieve_Box.html)<br>[一覧取得](257_Search_Box.html)<br>[URL取得](304_Get_Box_URL.html)|[更新](259_Update_Box.html)|[削除](260_Delete_Box.html)|
 |&nbsp;&nbsp;_$links<br>|[登録](261_Register_Box_links.html)|[一覧取得](262_List_Box_links.html)|更新|[削除](264_Delete_Box_links.html)|

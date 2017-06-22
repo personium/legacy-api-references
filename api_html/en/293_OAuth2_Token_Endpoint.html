@@ -46,7 +46,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <link rel="stylesheet" href="github.css" type="text/css" />
 </head>
 <body>
-<h1 id="oauth2token___token">OAuth2Token_Endpoint authentication(__token)</h1>
+<h1 id="oauth2token___token">OAuth2.0 Token Endpoint(__token)</h1>
 <h3>Overview</h3>
 <p>There are three types of authentication as follows</p>
 <p>Password authentication</p>
@@ -274,7 +274,7 @@ WjzDmvJSLvM9qVuJL1xxP6hSxt64HijoIea0P5R2CVloXJ2HEvEILl7UOtEtjSDdjlvyx9wrosPBhDRU
 </tr>
 <tr class="even">
 <td align="left">client_id<br></td>
-<td align="left"><br></td>
+<td align="left">App cell URL<br></td>
 <td align="left">String<br></td>
 <td align="left">No<br></td>
 <td align="left">Schema Authenticator's source App cell URL<br>When specified with client_secret, it becomes schema authentication<br>At the same time, if the Authorization header also has schema authentication settings, the setting of the Authorization header takes precedence<br></td>
@@ -335,6 +335,20 @@ WjzDmvJSLvM9qVuJL1xxP6hSxt64HijoIea0P5R2CVloXJ2HEvEILl7UOtEtjSDdjlvyx9wrosPBhDRU
 <td align="left">String<br></td>
 <td align="left">No<br></td>
 <td align="left">Where to use the token to be paid (cell URL) If specified, it becomes transcell token authentication<br></td>
+</tr>
+<tr class="even">
+<td align="left">client_id<br></td>
+<td align="left">App cell URL<br></td>
+<td align="left">String<br></td>
+<td align="left">No<br></td>
+<td align="left">Schema Authenticator's source App cell URL<br>When specified with client_secret, it becomes schema authentication<br>At the same time, if the Authorization header also has schema authentication settings, the setting of the Authorization header takes precedence<br></td>
+</tr>
+<tr class="odd">
+<td align="left">client_secret<br></td>
+<td align="left">Token paid out from the application cell<br></td>
+<td align="left">String<br></td>
+<td align="left">No<br></td>
+<td align="left">Set the token that was paid out from the schema authentication source to the value<br>When specified with client_id, it becomes schema authentication<br>At the same time, if the Authorization header also has schema authentication settings, the setting of the Authorization header takes precedence<br></td>
 </tr>
 <tr class="even">
 <td align="left">p_owner<br></td>

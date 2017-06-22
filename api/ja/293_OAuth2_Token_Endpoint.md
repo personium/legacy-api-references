@@ -1,4 +1,4 @@
-# OAuth2Token_エンドポイント認証(\__token)
+# OAuth2.0 トークンエンドポイント(\__token)
 ### 概要
 認証の方式は以下の3種類
 
@@ -105,6 +105,8 @@ grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&assertion={token}
 |grant_type<br>|認証タイプ<br>|String<br>|○<br>|リフレッシュトークン<br>|
 |refresh_token<br>|リフレッシュトークン名<br>|String<br>|○<br>|有効リフレッシュトークン<br>|
 |p_target<br>|トランスセルトークンターゲット<br>|String<br>|×<br>|払い出されるトークンを使う先（セルURL） 指定した場合はトランスセルトークン認証になる<br>|
+|client_id<br>|アプリセルURL<br>|String<br>|×<br>|スキーマ認証元のアプリセルURL<br>client_secretとともに指定した場合スキーマ認証になる<br>同時にAuthorizationヘッダにもスキーマ認証設定がされている場合、Authorizationヘッダの設定が優先される<br>|
+|client_secret<br>|アプリセルから払い出されたトークン<br>|String<br>|×<br>|スキーマ認証元から払い出されたトークンを値に設定する<br>client_idとともに指定した場合スキーマ認証になる<br>同時にAuthorizationヘッダにもスキーマ認証設定がされている場合、Authorizationヘッダの設定が優先される<br>|
 |p_owner<br>|ULUUT昇格実行クエリ<br>|String<br>|×<br>|trueのみ有効<br>|
 |p_cookie<br>|認証クッキー発行オプション<br>指定された場合は認証クッキーを発行する<br>p_targetが指定された場合は、本パラメタの指定は無視する<br>|String<br>|×<br>|trueのみ有効<br>|
 

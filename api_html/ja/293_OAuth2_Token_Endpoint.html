@@ -46,7 +46,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <link rel="stylesheet" href="github.css" type="text/css" />
 </head>
 <body>
-<h1 id="oauth2token___token">OAuth2Token_エンドポイント認証(__token)</h1>
+<h1 id="oauth2.0-__token">OAuth2.0 トークンエンドポイント(__token)</h1>
 <h3>概要</h3>
 <p>認証の方式は以下の3種類</p>
 <p>パスワード認証</p>
@@ -334,6 +334,20 @@ WjzDmvJSLvM9qVuJL1xxP6hSxt64HijoIea0P5R2CVloXJ2HEvEILl7UOtEtjSDdjlvyx9wrosPBhDRU
 <td align="left">String<br></td>
 <td align="left">×<br></td>
 <td align="left">払い出されるトークンを使う先（セルURL） 指定した場合はトランスセルトークン認証になる<br></td>
+</tr>
+<tr class="even">
+<td align="left">client_id<br></td>
+<td align="left">アプリセルURL<br></td>
+<td align="left">String<br></td>
+<td align="left">×<br></td>
+<td align="left">スキーマ認証元のアプリセルURL<br>client_secretとともに指定した場合スキーマ認証になる<br>同時にAuthorizationヘッダにもスキーマ認証設定がされている場合、Authorizationヘッダの設定が優先される<br></td>
+</tr>
+<tr class="odd">
+<td align="left">client_secret<br></td>
+<td align="left">アプリセルから払い出されたトークン<br></td>
+<td align="left">String<br></td>
+<td align="left">×<br></td>
+<td align="left">スキーマ認証元から払い出されたトークンを値に設定する<br>client_idとともに指定した場合スキーマ認証になる<br>同時にAuthorizationヘッダにもスキーマ認証設定がされている場合、Authorizationヘッダの設定が優先される<br></td>
 </tr>
 <tr class="even">
 <td align="left">p_owner<br></td>

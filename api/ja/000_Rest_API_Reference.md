@@ -60,7 +60,7 @@ https://{UnitFQDN}/{CellName}
 |**ExtRole**|[登録](245_Create_External_Role.html)|[取得](247_Get_External_Role.html)<br>[一覧取得](246_List_External_Role.html)|[更新](248_Update_External_Role.html)|[削除](249_Delete_External_Role.html)|<br>|
 |&nbsp;&nbsp;_$links<br>|[登録](250_Register_External_Role_links.html)|[一覧取得](251_Retrieve_External_Role_links.html)|更新|[削除](253_Delete_External_Role_links.html)|<br>|
 |&nbsp;&nbsp;_NavProp経由<br>|[登録](254_Register_Using_Role_NavProp.html)|[取得](255_List_External_Role_NavProp.html)|<br>|<br>|<br>|
-|**認証**<br>(\_\_token, \_\_authz)|<br>|<br>|<br>|<br>|[OAuth2_認可エンドポイント](292_OAuth2_Authorization_Endpoint.html)<br>[OAuth2Token_エンドポイント認証](293_OAuth2_Token_Endpoint.html)<br>|
+|**認証**<br>(\_\_token, \_\_authz)|<br>|<br>|<br>|<br>|[OAuth2.0 認可エンドポイント](292_OAuth2_Authorization_Endpoint.html)<br>[OAuth2.0 トークンエンドポイント](293_OAuth2_Token_Endpoint.html)<br>|
 |**アクセス制御**|[制限設定](289_Cell_ACL.html)|[プロパティ取得](290_Cell_Get_Property.html)|[プロパティ変更](291_Cell_Change_Property.html)|<br>|<br>|
 |[イベント](277_Event_Summary.html)|[イベント受付](278_Event_Reception.html)|[ログファイル取得](285_Retrieve_Log_File.html)<br>[ログファイル一覧取得](284_Retrieve_Log_File_list.html)<br>[ログファイル情報取得](283_Log_File_Information_Acquisition.html)|<br>|[ログファイル削除](286_Delete_Log_File.html)|<br>|
 |**メッセージ制御**<br>[送信](271_Send_Message.html)|<br>|[取得](272_Retrieve_Sent_Message.html)<br>[一覧取得](273_List_Sent_Messages.html)|<br>|[削除](274_Delete_Sent_Message.html)|<br>|

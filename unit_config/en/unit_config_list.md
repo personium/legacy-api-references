@@ -1,4 +1,4 @@
-# Unit setting list
+# Unit configurations
 The unit configuration file is a file that manages the setting of Personium unit.  
 The default setting is defined in the "personium-unit-config-default.properties" file on the GitHub source.  
 Please do not change the default setting.  

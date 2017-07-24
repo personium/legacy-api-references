@@ -157,7 +157,8 @@ GET
       }
     ]
   }
-}```
+}
+```
 
 ### CURLサンプル
 ##### RoleのnavigationProperty経由一覧

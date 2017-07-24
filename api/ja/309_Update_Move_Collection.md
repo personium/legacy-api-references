@@ -20,8 +20,8 @@ write
 ```
 |パス<br>|概要<br>|備考<br>|
 |:--|:--|:--|
-|{CellName}<br>|セル名<br>| <br>
-|{BoxName}<br>|ボックス名<br>| <br>
+|{CellName}<br>|セル名<br>|<br>|
+|{BoxName}<br>|ボックス名<br>|<br>|
 #### メソッド
 MOVE
 #### リクエストクエリ
@@ -53,10 +53,10 @@ MOVE
 <br>
 ### レスポンス
 #### ステータスコード
-|コード<bar>|概要<bar>|備考<bar>|
+|コード<br>|概要<br>|備考<br>|
 |:--|:--|:--|
-|201<bar>|Created<bar>|移動または名称変更に成功(作成)<bar>|
-|204<bar>|No Content<bar>|移動または名称変更に成功(上書き)<bar>|
+|201<br>|Created<br>|移動または名称変更に成功(作成)<br>|
+|204<br>|No Content<br>|移動または名称変更に成功(上書き)<br>|
 #### レスポンスヘッダ
 |ヘッダ名<br>|概要<br>|備考<br>|
 |:--|:--|:--|
@@ -70,11 +70,11 @@ MOVE
 #### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.html)を参照
 
-|コード<bar>|概要<bar>|備考<bar>|
+|コード<br>|概要<br>|備考<br>|
 |:--|:--|:--|
-|400<bar>|Bud Request<bar>|リクエストヘッダの形式が不正<bar>|
-|409<bar>|Conflict<bar>|指定されたコレクション/セルが不正<bar>|
-|412<bar>|Precondition Failed<bar>|上書き禁止が指定されている<bar>|
+|400<br>|Bud Request<br>|リクエストヘッダの形式が不正<br>|
+|409<br>|Conflict<br>|指定されたコレクション/セルが不正<br>|
+|412<br>|Precondition Failed<br>|上書き禁止が指定されている<br>|
 
 #### レスポンスサンプル
 なし

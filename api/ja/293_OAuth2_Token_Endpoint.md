@@ -122,17 +122,17 @@ grant_type=refresh_token&refresh_token={token}
 #### レスポンスヘッダ
 
 |項目名<br>|概要<br>|備考<br>|
-|:--|:--|:--|:--|:--|
+|:--|:--|:--|
 |Content-Type<br>|application / json<br>|<br>|
 |Set-Cookie<br>|クッキー認証情報（p_cookie）<br>|クッキー発行オプション（p_cookie）をリクエスト時に設定した場合のみ<br>|
 #### レスポンスボディ
 
 |項目名<br>|概要<br>|備考<br>|
-|:--|:--|:--|:--|:--|
-|access_token<br>|アクセストークン<br>|<br>
+|:--|:--|:--|
+|access_token<br>|アクセストークン<br>|<br>|
 |refresh_token_expires_in<br>|リフレッシュトークンの有効期限<br>|24時間（86400秒）<br>※p_ownerをリクエスト時に設定した場合、返却されない<br>|
 |refresh_token<br>|リフレッシュトークン<br>|※p_ownerをリクエスト時に設定した場合、返却されない<br>|
-|token_type<br>|Bearer<br>|<br>
+|token_type<br>|Bearer<br>|<br>|
 |expires_in<br>|アクセストークンの有効期限<br>|1時間（3600秒）<br>|
 |p_cookie_peer<br>|クッキー認証値<br>|クッキー認証時に指定する認証値<br>※クッキー発行オプション（p_cookie）をリクエスト時に設定した場合のみ返却する<br>|
 #### レスポンスサンプル
@@ -149,11 +149,11 @@ grant_type=refresh_token&refresh_token={token}
 [エラーメッセージ一覧](004_Error_Messages.html)を参照
 
 |コード<br>|メッセージ<br>|概要<br>|備考<br>|
-|:--|:--|:--|:--|:--|
-|400<br>|Bad Request<br>|リクエストボディの形式が不正<br>リクエストヘッダの形式が不正<br>|<br>
-|401<br>|Unauthorized<br>|認証トークンが無効<br>ユーザ名が無効<br>grant_typeが無効<br>XML署名検証が失敗<br>ULUUT発行候補ではないアカウントへ認証が行われた<br>パスワードが無効<br>トークンの有効期限切れ<br>|<br>
-|404<br>|Not Found<br>|存在しないリソースを指定<br>|<br>
-|405<br>|Method Not Allowed<br>|許可していないリクエストメソッドを指定<br>|<br>
+|:--|:--|:--|:--|
+|400<br>|Bad Request<br>|リクエストボディの形式が不正<br>リクエストヘッダの形式が不正<br>|<br>|
+|401<br>|Unauthorized<br>|認証トークンが無効<br>ユーザ名が無効<br>grant_typeが無効<br>XML署名検証が失敗<br>ULUUT発行候補ではないアカウントへ認証が行われた<br>パスワードが無効<br>トークンの有効期限切れ<br>|<br>|
+|404<br>|Not Found<br>|存在しないリソースを指定<br>|<br>|
+|405<br>|Method Not Allowed<br>|許可していないリクエストメソッドを指定<br>|<br>|
 
 <br>
 ### CURLサンプル

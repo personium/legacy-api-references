@@ -192,7 +192,7 @@ DTD表記
 ```xml
 <multistatus xmlns="DAV:">
     <response>
-        <href>https://{BoxName}{BoxName}{BoxName}</href>
+        <href>https://{UnitFQDN}/{CellName}/{BoxName}</href>
         <propstat>
             <prop>
                 <creationdate>2017-02-15T01:52:34.635+0000</creationdate>

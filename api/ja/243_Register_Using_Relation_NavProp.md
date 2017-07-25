@@ -86,7 +86,7 @@ POST
 |Accept<br>|レスポンスボディの形式を指定する<br>|application / json<br>|×<br>|省略時は[application/json]として扱う<br>|
 #### リクエストボディ
 ##### Boxを登録する場合
-###### Format
+##### Format
 JSON
 
 |項目名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
@@ -94,7 +94,7 @@ JSON
 |Name<br>|Relation名<br>|桁数：1&#65374;128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)と+(プラス)と:(コロン)<br>ただし、先頭文字に_(半角アンダーバー)と:(コロン)は指定不可<br>|○<br>|<br>|
 |_Box.Name<br>|関係対象のBox名<br>|桁数：1&#65374;128<br>文字種：半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)は指定不可<br>説明：Box登録APIにて登録済みのBoxのNameを指定<br>特定のBoxと関連付けない場合はnullを指定<br>|×<br>|<br>|
 
-###### リクエストサンプル
+##### リクエストサンプル
 ```json
 {
   "Name": "{RelationName}",
@@ -138,7 +138,7 @@ JSON
 |{2}<br>|Name<br>|string<br>|Box名<br>|
 |{2}<br>|Schema<br>|string<br>|Schema名<br>|
 
-###### レスポンスサンプル
+##### レスポンスサンプル
 ```json
 {
   "d": {

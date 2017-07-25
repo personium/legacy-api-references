@@ -114,7 +114,7 @@ PROPFIND
 |acl<br>|p:<br>|要素<br>|リソースに設定されているACL設定<br>|ACL設定を取得するためには、対象リソースに対するacl-read権限が必要 ACL要素以下の内容については、[セルレベルアクセス制御設定API](289_Cell_ACL.html)を参照<br>|
 |base<br>|p:<br>|要素<br>|ACLのPrivilegeのBaseURL<br>|CellへのPROPFINDの場合、デフォルトボックス（"__"）のリソースURL<br>|
 ##### DTD表記
-###### 名前空間：D:
+##### 名前空間：D:
 ```dtd
 <!ELEMENT multistatus (response*)>
 <!ELEMENT response (href, propstat)>
@@ -130,12 +130,12 @@ PROPFIND
 <!ELEMENT collection EMPTY>
 <!ELEMENT acl (ace*)>
 ```
-###### 名前空間:p:
+##### 名前空間:p:
 ```dtd
 <!ELEMENT odata EMPTY>
 <!ELEMENT service EMPTY>
 ```
-###### 名前空間：xml:
+##### 名前空間：xml:
 ```dtd
 <!ATTLIST acl base CDATA #IMPLIED>
 ```

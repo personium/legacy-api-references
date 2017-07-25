@@ -110,7 +110,7 @@ PROPPATCH
 |prop<br>|D:<br>|要素<br>|プロパティ設定内容を表す  <br>|リソース設定の結果を以下のように表示する<br>設定成功：設定したキーと値<br>削除成功：削除したキー<br>|
 |status<br>|D:<br>|要素<br>|プロパティ設定ステータスコード<br>|設定成功の場合200(OK)が返る<br>|
 ##### DTD表記
-###### 名前空間 D:
+##### 名前空間 D:
 ```dtd
 <!ELEMENT multistatus (response*)>
 <!ELEMENT response (href, propstat)>

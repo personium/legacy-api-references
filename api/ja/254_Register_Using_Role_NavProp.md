@@ -42,7 +42,7 @@ POST
 |Accept<br>|レスポンスボディの形式を指定する<br>|application / json<br>|×<br>|省略時は[application/json]として扱う<br>|
 #### リクエストボディ
 ##### Roleを登録する場合
-###### Format
+##### Format
 JSON
 
 |項目名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|

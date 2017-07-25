@@ -46,7 +46,7 @@ PROPPATCH
 |ownerRepresentativeAccounts<br>|&#160;<br>|昇格設定<br>|○<br>|<! ELEMENT ownerRepresentativeAccounts (account *)><br>|&#160;<br>|
 |account<br>|&#160;<br>|昇格対象アカウント設定<br>|○<br>|<! ELEMENT account ANY><br>|昇格を認めるアカウント名を値として指定する<br>|
 #### XMLの構造
-###### ボディはXMLで、以下のスキーマに従っています。
+##### ボディはXMLで、以下のスキーマに従っています。
 
 |ノード名<br>|Namespace<br>|ノードタイプ<br>|概要<br>|備考<br>|
 |:--|:--|:--|:--|:--|
@@ -62,7 +62,7 @@ PROPPATCH
 <!ELEMENT prop ANY>
 ```
 #### ULUUT昇格設定固有要素
-###### ボディはXMLで、以下のスキーマに従っています。
+##### ボディはXMLで、以下のスキーマに従っています。
 
 |ノード名<br>|Namespace<br>|ノードタイプ<br>|概要<br>|備考<br>|
 |:--|:--|:--|:--|:--|
@@ -101,7 +101,7 @@ PROPPATCH
 |multistatus<br>|WebDAVの名前空間<br>|D:<br>|
 
 #### XMLの構造
-###### ボディはXMLで、以下のスキーマに従っています。
+##### ボディはXMLで、以下のスキーマに従っています。
 
 |ノード名<br>|Namespace<br>|ノードタイプ<br>|概要<br>|備考<br>|
 |:--|:--|:--|:--|:--|

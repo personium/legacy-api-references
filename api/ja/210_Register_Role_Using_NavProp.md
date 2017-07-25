@@ -117,7 +117,7 @@ POST
 |{1}<br>|__count<br>|string<br>|$inlinecountクエリでの取得結果件数<br>|
 
 ##### Roleを登録した場合
-###### Role固有レスポンスボディ
+##### Role固有レスポンスボディ
 |オブジェクト<br>|項目名<br>|Data Type<br>|備考<br>|
 |:--|:--|:--|:--|
 |{3}<br>|type<br>|string<br>|CellCtl.Role<br>|

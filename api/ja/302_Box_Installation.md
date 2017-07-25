@@ -112,7 +112,7 @@ Locationサンプル
 ```
 Location:https://{UnitFQDN}/{CellName}/{BoxName}
 ```
-Boxメタデータ取得API用URLの詳細は、Boxメタデータ取得を参照。
+Boxメタデータ取得API用URLの詳細は、[Boxメタデータ取得](303_Progress_of_Bar_File_Installation.html)を参照。
 #### レスポンスボディ
 なし
 
@@ -123,7 +123,7 @@ Boxメタデータ取得API用URLの詳細は、Boxメタデータ取得を参�
 ```
 Location: https://{UnitFQDN}/{CellName}/{BoxName}
 ```
-Boxメタデータ取得API用URLの詳細は、Boxメタデータ取得を参照。
+Boxメタデータ取得API用URLの詳細は、[Boxメタデータ取得](303_Progress_of_Bar_File_Installation.html)を参照。
 <br>
 ### CURLサンプル
 

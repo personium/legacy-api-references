@@ -44,7 +44,7 @@
 
 
 ###### Box レベル ACL
-<font size=1>[Personium]</font> Box配下のリソース対するACL。詳細は[アクセス制御モデル](AccessControlOverview.htm)参照。
+<font size=1>[Personium]</font> Box配下のリソース対するACL。詳細は[アクセス制御モデル](../../user_guide/002_Access_Control.html)参照。
 
 
 ##### <a name="anc_c"> C</a>
@@ -201,7 +201,7 @@ ODataについての詳細は[こちら](http://www.odata.org/)。
 
 ###### Privilege
 <font size=1>[Personium]</font> Cell内に定義されたRoleに対し、特定のRoleに紐付けられたBox内部のデータにアクセスする権限。  
-PersoniumではACLの設定によって定義される。詳細は[アクセス制御モデル](AccessControlOverview.htm)参照。
+PersoniumではACLの設定によって定義される。詳細は[アクセス制御モデル](../../user_guide/002_Access_Control.html)参照。
 
 
 ##### <a name="anc_q"> Q</a>
@@ -300,7 +300,7 @@ Personiumでは以下の種類:があり、発行から1時間で変更される
 
 
 ###### Token (トークン)認証
-<font size=1>[一般]</font> 認証プロセスの一つ。クライアントがリクエストするcURLのアクセストークンによる認証方法。詳細は認証 モデルを参照。
+<font size=1>[一般]</font> 認証プロセスの一つ。クライアントがリクエストするcURLのアクセストークンによる認証方法。詳細は[認証モデル](../../user_guide/003_Auth.html)を参照。
 
 
 ###### $top クエリ

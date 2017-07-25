@@ -85,7 +85,7 @@ GET
 |ルート<br>|installed_at<br>|string<br>|Start time (ISO 8610 UTC format)<br>|statusが以下のいずれかの場合は出力しない。<br>&#183;        "Installation in Progress"<br>&#183;        "installation failed"<br>|
 |ルート<br>|started_at<br>|string<br>|Start time (ISO 8610 UTC format)<br>|statusが以下の場合は出力しない。<br>&#183;        "Ready"<br>|
 |ルート<br>|progress<br>|string<br>|Progress rate (for example, "30%")<br>|statusが以下の場合は出力しない。<br>&#183;        "Ready"<br>|
-|ルート<br>|message<br>|object<br>|Object (message format)<br>|statusが以下の場合のみ出力する。<br>&#183;        "Installation failed"<br>詳細は エラーメッセージ一覧を参照<br>|
+|ルート<br>|message<br>|object<br>|Object (message format)<br>|statusが以下の場合のみ出力する。<br>&#183;        "Installation failed"<br>詳細は [エラーメッセージ一覧](004_Error_Messages.html)を参照<br>|
 |ルート<br>|status<br>|string<br>|以下のいずれかの文字列:  <br>&#183;        "ready"<br>&#183;        "installation in progress"<br>&#183;        "installation failed"<br>|Boxが使用可能な状態を示す<br>Boxインストール処理中を示す<br>Boxインストール完了（異常終了）を示す<br>|
 
 #### エラーメッセージ一覧

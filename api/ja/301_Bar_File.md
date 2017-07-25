@@ -186,7 +186,7 @@ https://{UnitFQDN}/cell1/__role/box/staff → https://{UnitFQDN}/cell1/__role/__
 ```
 #### 90_rootprops.xml
 barファイルにエクスポートする対象のBox配下の全階層に対して、PROPFINDメソッドで取得したXMLデータを示す。  
-XMLデータの詳細は、ファイル設定取得（PROPFIND）を参照。  
+XMLデータの詳細は、[ファイル設定取得（PROPFIND）](307_Get_Property.html)を参照。  
 インストール対象BoxのURLは、「personium-box:/」と記述する。  
 barファイルのインストール時には、下記サンプルの<prop>配下にある creationdate及び、getlastmodifiedを除いた全てのデータをインストール対象とする。
 * resourcetype: コレクションの種類を設定
@@ -336,7 +336,7 @@ barファイルのインストール時には、下記サンプルの<prop>配�
 
 ##### 00_$metadata.xml
 ユーザODataのスキーマ定義を示す。barファイルにエクスポートする時に、Odata用コレクションに対して$metadataにて取得したXMLデータ。  
-XMLデータの詳細は、スキーマ取得（$metadata）を参照。  
+XMLデータの詳細は、[スキーマ取得（$metadata）](316_User_Defined_Data_Schema.html)を参照。  
 Boxインストール時には、Schemaタグの配下をインストール対象とする。  
 ユーザODataのスキーマ定義が存在しない場合でもファイル自体は存在する。
 

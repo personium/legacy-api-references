@@ -8,7 +8,7 @@ BoxのURLを取得するために用いるリソースです。スキーマ認�
 * BoxルートACLのrequireSchemaAuthz属性がnoneでない場合（public、confidentialの場合）はスキーマ認証済であること
 * 利用者がBoxルートをread可能であること。（Boxルートが全公開である場合は利用者認証不要）
 
-※ACLのrequireSchemaAuthz属性については、アクセス制御モデル内の「スキーマ権限要求レベル」を参照。
+※ACLのrequireSchemaAuthz属性については、[アクセス制御モデル](../../user_guide/002_Access_Control.html)内の「スキーマ権限要求レベル」を参照。
 
 ### 制限事項
 なし

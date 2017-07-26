@@ -22,7 +22,7 @@ read
 |{CellName}<br>|セル名<br>|
 |{BoxName}<br>|ボックス名<br>|
 |{ODataCollecitonName}<br>|コレクション名<br>|
-|{EntitySet}<br>|EntityType名<br>|
+|{EntityTypeName}<br>|EntityType名<br>|
 #### メソッド
 GET
 #### リクエストクエリ

@@ -20,9 +20,10 @@ event
 <br>
 ### リクエスト
 #### リクエストURL
-|URL<br>|概要<br>|
-|:--|:--|
-|/{CellName}/__event<br>|イベント受付エンドポイント<br>|
+```
+/{CellName}/__event
+```
+
 #### メソッド
 POST
 #### リクエストクエリ

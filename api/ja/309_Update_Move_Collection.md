@@ -15,13 +15,11 @@ write
 #### リクエストURL
 ```
 /{CellName}/{BoxName}/{CollectionName}/
+```
 または、
+```
 /{CellName}/{BoxName}/{CollectionName}/{FileName}/
 ```
-|パス<br>|概要<br>|備考<br>|
-|:--|:--|:--|
-|{CellName}<br>|セル名<br>|<br>|
-|{BoxName}<br>|ボックス名<br>|<br>|
 #### メソッド
 MOVE
 #### リクエストクエリ

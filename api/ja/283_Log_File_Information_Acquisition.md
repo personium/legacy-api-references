@@ -12,28 +12,29 @@ log-read
 * ログファイル名："default.log"（固定）
 * ローテートのデフォルトサイズ設定:：50MB
 * ログの出力レベル："info"（固定）（INFO, WARN, ERRORすべて出力）
+* ローテート時のファイル名は、 default.log.{timestamp} とする。 {timestamp}は、ローテートされたときの時刻で採番される。
 
 <br>
 ### リクエスト
 #### リクエストURL
-最新のログファイル一覧取得
+##### 最新のログファイル一覧取得
 ```
 /{CellName}/__log/current
 ```
 
-最新のログファイル情報取得
+##### 最新のログファイル情報取得
 ```
-/{CellName}/__log/current/{LogName}
+/{CellName}/__log/current/default.log
 ```
 
-ローテートされたログファイル一覧取得
+##### ローテートされたログファイル一覧取得
 ```
 /{CellName}/__log/archive
 ```
 
-ローテートされたログファイル情報取得
+##### ローテートされたログファイル情報取得
 ```
-/{CellName}/__log/archive/{LogName}
+/{CellName}/__log/archive/default.log.{timestamp}
 ```
 
 #### メソッド

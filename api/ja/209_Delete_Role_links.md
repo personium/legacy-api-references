@@ -130,7 +130,9 @@ Roleとの$links情報を削除する
 または、
 ```
 /{CellName}/__ctl/Role('{RoleName}')/$links/_Relation(Name='{RelationName}',_Box.Name='{BoxName}')
-Or,
+```
+または、
+```
 /{CellName}/__ctl/Role('{RoleName}')/$links/_Relation(Name='{RelationName}')
 ```
 または、

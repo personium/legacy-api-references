@@ -19,7 +19,9 @@
 #### リクエストURL
 ```
 /__ctl/Cell(Name='{CellName}')
+```
 または、
+```
 /__ctl/Cell('{CellName}')
 ```
 

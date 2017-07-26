@@ -20,8 +20,8 @@
 
 ### リクエスト
 #### リクエストURL
+##### ユーザデータとの$links
 ```
-ユーザデータとの$links
 /{CellName}/{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')/$links/_{EntityTypeName}
 ```
 #### メソッド

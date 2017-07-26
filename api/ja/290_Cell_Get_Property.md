@@ -19,10 +19,6 @@ V1.0版での制限
 /{CellName}
 ```
 
-|Path<br>|概要<br>|
-|:--|:--|
-|{CellName}<br>|セル名<br>|
-
 #### メソッド
 PROPFIND
 

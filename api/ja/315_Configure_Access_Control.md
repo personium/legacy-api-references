@@ -15,6 +15,9 @@ write-acl
 #### リクエストURL
 ```
 /{CellName}/{BoxName}
+```
+または、
+```
 /{CellName}/{BoxName}/{ResourcePath}
 ```
 

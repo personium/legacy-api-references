@@ -26,10 +26,14 @@ log-read
 <br>
 ### リクエスト
 #### リクエストURL
-|URL<br>|概要<br>|
-|:--|:--|
-|/{CellName}/__log/current/{LogName}<br>|最新のログファイル<br>|
-|/{CellName}/__log/current/{LogName}<br>|ローテートされたログファイル<br>|
+##### 最新のログファイルを取得
+```
+/{CellName}/__log/current/{LogName}
+```
+##### ローテートされたログファイルを取得
+```
+/{CellName}/__log/archive/{LogName}
+```
 ※{LogName}は、ログファイル情報取得API で返却されたファイル名を指定する。
 #### メソッド
 GET

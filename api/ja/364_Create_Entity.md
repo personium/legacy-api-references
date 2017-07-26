@@ -19,7 +19,7 @@ write
 ### リクエスト
 #### リクエストURL
 ```
-/{CellName}/{BoxName}/{ODataCollecitonName}/{EntitySet}
+/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}
 ```
 |パス<br>|概要<br>|
 |:--|:--|

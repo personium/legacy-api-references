@@ -15,10 +15,6 @@
 /{CellName}
 ```
 
-|Path<br>|概要<br>|
-|:--|:--|
-|{CellName}<br>|セル名<br>|
-
 #### メソッド
 PROPPATCH
 

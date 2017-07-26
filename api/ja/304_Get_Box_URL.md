@@ -16,10 +16,9 @@ BoxのURLを取得するために用いるリソースです。スキーマ認�
 <br>
 ### リクエスト
 #### リクエストURL
-
-|URL<br>|概要<br>|
-|:--|:--|
-|/{CellName}/__box<br>|BoxのURLの取得<br>|
+```
+/{CellName}/__box
+```
 #### メソッド
 GET
 

@@ -21,6 +21,9 @@ V1.0系での制限
 #### リクエストURL
 ```
 /{CellName}/{BoxName}
+```
+または、
+```
 /{CellName}/{BoxName}/{ResourcePath}
 ```
 

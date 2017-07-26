@@ -3,11 +3,11 @@
 Accountのパスワードに関する操作を行うAPI
 ##### 自アカウントのパスワード変更
 自アカウントのパスワード変更を行う。  
-※ Account更新APIでもAccountのパスワード変更を行うことができるが、これはセルレベルACLのauth権限が必要で管理目的で利用する。  
+※ Account更新APIでもAccountのパスワード変更を行うことができるが、これはCell Level ACLのauth権限が必要で管理目的で利用する。  
 ※ アカウントに対する変更のため、UnitUserTokenではなく、アカウント認証によるCellLocalTokenが必須となる。
 
 ### 必要な権限
-セルレベルACLのauth権限
+Cell Level ACLのauth権限
 ### 制限事項
 なし
 

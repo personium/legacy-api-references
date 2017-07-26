@@ -3,7 +3,7 @@ REST API リファレンスへようこそ。
 REST API リファレンスでは、Personiumが提供するすべてのREST APIに関する技術的な詳細仕様を記述しています。
 <br>
 ### Unit Level API
-Unit Level APIは、Cell群をホストするユニットに属するAPI(Cellの生成や作成したCell群の管理)です。  
+Unit Level API は、Cell群をホストするユニットに属するAPI(Cellの生成や作成したCell群の管理)です。  
 これらAPIは原則としてCellから発行されたアクセストークンではアクセスできません。  
 （ユニットレベルのトークンへの昇格操作を経て利用可能）
 
@@ -17,7 +17,7 @@ https://{UnitFQDN}/
 |**UUT**|<br>|<br>|<br>|<br>|昇格設定|
 <br>
 ### Cell Level API
-CellレベルAPI は、
+Cell Level API は、
 * Cellにアクセスする人やアプリケーションを認証するための認証機構
 * ソーシャルグラフを構築するための機能
 * Boxの生成・管理を行う機能

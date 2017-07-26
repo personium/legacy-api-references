@@ -1,4 +1,4 @@
-# ユーザデータ_NavProp経由登録
+# Entity_NavProp経由登録
 ### 概要
 ユーザデータのEntityをNavigation Property経由で作成します。
 ### 必要な権限

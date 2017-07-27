@@ -5,16 +5,14 @@ REST API リファレンスでは、Personiumが提供するすべてのREST API
 ### Unit Level API
 Unit Level API は、Cell群をホストするユニットに属するAPI(Cellの生成や作成したCell群の管理)です。  
 これらAPIは原則としてCellから発行されたアクセストークンではアクセスできません。  
-（ユニットレベルのトークンへの昇格操作を経て利用可能）
 
 Resource Path
 ````
 https://{UnitFQDN}/
 ````
-|<br>|作成・登録<br>|取得<br>|更新<br>|削除<br>|その他<br>|
-|:--|:--|:--|:--|:--|:--|
-|**Cell**|[作成](100_Create_Cell.html)|[一覧取得](101_List_Cell.html)<br>[取得](102_Get_Cell.html)|[更新](103_Update_Cell.html)|[削除](104_Delete_Cell.html)<br>[再帰的削除](105_Cell_Recursive_Delete.html)|<br>|
-|**UUT**|<br>|<br>|<br>|<br>|昇格設定|
+|<br>|作成・登録<br>|取得<br>|更新<br>|削除<br>|
+|:--|:--|:--|:--|:--|
+|**Cell**|[作成](100_Create_Cell.html)|[一覧取得](101_List_Cell.html)<br>[取得](102_Get_Cell.html)|[更新](103_Update_Cell.html)|[削除](104_Delete_Cell.html)<br>[再帰的削除](105_Cell_Recursive_Delete.html)|
 <br>
 ### Cell Level API
 Cell Level API は、

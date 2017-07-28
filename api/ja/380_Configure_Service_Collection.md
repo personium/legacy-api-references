@@ -34,7 +34,7 @@ PROPPATCH
 ##### サービスコレクション設定固有リクエストヘッダ
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {AccessToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
 |Content-Type<br>|コンテンツ形式を指定する<br>|application/xml<br>|×<br>| <br>
 |Accept<br>|レスポンスで受け入れ可能なメディアタイプを指定する  <br>|application/xml<br>|×<br>| <br>|
 #### リクエストボディ
@@ -155,7 +155,7 @@ DTD表記
 ### CURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}" -X PROPPATCH -i -H "Authorization:Bearer {UnitUserToken}" -H "Accept:application/json" -d "<?xml version=\"1.0\" encoding=\"utf-8\" ?><D:propertyupdate xmlns:D=\"DAV:\" xmlns:p=\"urn:x-personium:xmlns\" xmlns:Z=\"http://www.w3.com/standards/z39.50/\"><D:set><D:prop><p:service language=\"JavaScript\"><p:path name=\"sample\" src=\"sample.js\"/></p:service></D:prop></D:set></D:propertyupdate>"
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}" -X PROPPATCH -i -H "Authorization:Bearer {AccessToken}" -H "Accept:application/json" -d "<?xml version=\"1.0\" encoding=\"utf-8\" ?><D:propertyupdate xmlns:D=\"DAV:\" xmlns:p=\"urn:x-personium:xmlns\" xmlns:Z=\"http://www.w3.com/standards/z39.50/\"><D:set><D:prop><p:service language=\"JavaScript\"><p:path name=\"sample\" src=\"sample.js\"/></p:service></D:prop></D:set></D:propertyupdate>"
 ```
 <br>
 <br>

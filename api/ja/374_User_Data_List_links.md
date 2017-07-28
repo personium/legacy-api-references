@@ -61,7 +61,7 @@ GET
 ##### OData共通リクエストヘッダ
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {AccessToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
 ##### OData一覧取得リクエストヘッダ
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
@@ -115,7 +115,7 @@ GET
 ### CURLサンプル
 
 ```sh
-curl "https://{CellName}/{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')/\$links/_{EntityTypeName}" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
+curl "https://{CellName}/{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')/\$links/_{EntityTypeName}" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 <br>
 <br>

@@ -43,7 +43,7 @@ DELETE
 
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {AccessToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
 
 ##### OData削除リクエストヘッダ
 
@@ -88,7 +88,7 @@ DELETE
 ### CURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/$metadata/ComplexType('Address')/$links/_Property('PostalCode')" -X DELETE -i -H 'If-Match: *' -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/$metadata/ComplexType('Address')/$links/_Property('PostalCode')" -X DELETE -i -H 'If-Match: *' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 <br>
 <br>

@@ -98,7 +98,7 @@ GET
 ### CURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollectionName}/\$metadata" -X GET -i -H 'Authorization: Bearer {UnitUserToken}'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollectionName}/\$metadata" -X GET -i -H 'Authorization: Bearer {AccessToken}'
 ```
 <br>
 <br>

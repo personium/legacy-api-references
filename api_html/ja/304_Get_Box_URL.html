@@ -143,7 +143,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <tr class="even">
 <td align="left">Authorization<br></td>
 <td align="left">OAuth2.0形式で、認証情報を指定する<br></td>
-<td align="left">Bearer {UnitUserToken}<br></td>
+<td align="left">Bearer {AccessToken}<br></td>
 <td align="left">×<br></td>
 <td align="left">※認証トークンは認証トークン取得APIで取得したトークン<br></td>
 </tr>
@@ -241,9 +241,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><br></p>
 <h3 id="curl">CURLサンプル</h3>
 <h4>スキーマ認証済</h4>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__box&quot;</span> -X GET -i -H <span class="st">&#39;Authorization: Bearer {UnitUserToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__box&quot;</span> -X GET -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span></code></pre></div>
 <h4>スキーマ認証未対応</h4>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__box?schema=https://{UnitFQDN}/{CellName}/&quot;</span> -X GET -i -H <span class="st">&#39;Authorization: Bearer {UnitUserToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__box?schema=https://{UnitFQDN}/{CellName}/&quot;</span> -X GET -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span></code></pre></div>
 <p><br><br />
 <br><br />
 <br></p>

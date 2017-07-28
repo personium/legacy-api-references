@@ -80,7 +80,7 @@ GET
 ### CURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonName}/\$metadata' -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/atomsvc+xml'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonName}/\$metadata' -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/atomsvc+xml'
 ```
 <br>
 <br>

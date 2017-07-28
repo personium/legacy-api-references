@@ -13,7 +13,7 @@ $formatのクエリオプション有効値は下表の通り。
 ### CURLサンプル
 例：セル一覧をJSON形式で取得する場合:
 ```sh
-curl "https://{UnitFQDN}/__ctl/Cell?\$format=json" -X GET -i -H 'Authorization: Bearer {UnitUserToken}'
+curl "https://{UnitFQDN}/__ctl/Cell?\$format=json" -X GET -i -H 'Authorization: Bearer {AccessToken}'
 ```
 
 <br>

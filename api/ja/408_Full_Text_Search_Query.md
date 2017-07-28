@@ -45,7 +45,7 @@ q="ぽち%20たま"
 ### CURLサンプル
 例：セル一覧を取得時、sampleというキーワードと一致するセルを取得する場合:
 ```sh
-curl "https://{UnitFQDN}/__ctl/Cell?q=sample" -X GET -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/__ctl/Cell?q=sample" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 <br>
 <br>

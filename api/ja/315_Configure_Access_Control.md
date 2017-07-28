@@ -40,7 +40,7 @@ ACL
 |X-HTTP-Method-Override<br>|メソッドオーバーライド機能<br>|任意<br>|×<br>|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用される<br>|
 |X-Override<br>|ヘッダオーバライド機能<br>|${上書きするヘッダ名}:${値}<br>|×<br>|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定する<br>|
 |X-Personium-RequestKey<br>|イベントログに出力するRequestKeyフィールドの値<br>|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字<br>|×<br>|指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応<br>|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {AccessToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
 
 #### リクエストボディ
 名前空間
@@ -173,7 +173,7 @@ DTD表記
 
 ```sh
 curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}" -X ACL -i
--H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d
+-H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d
 '<?xml version="1.0" encoding="utf-8" ?>
  <D:acl xmlns:D="DAV:" xml:base="https://{UnitFQDN}/{CellName}/__role/{BoxName}/"　xmlns:p="urn:x-personium:xmlns" p:requireSchemaAuthz="none">
   <D:ace>

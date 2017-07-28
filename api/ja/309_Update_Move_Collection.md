@@ -42,7 +42,7 @@ MOVE
 |Destination<br>|変更先<br>|Absolute URI<br>|○<br>|移動/名前を変更するファイル名を指定する。<br> |
 |Overwrite<br>|上書き<br>|"T" or "F"<br>|×<br>|上書き可("T")、上書き不可("F")を指定する。(初期値は"F")<br>|
 |Depth<br>|移動階層<br>|"infinity"<br>|×<br>|移動するコレクション階層の深さを指定する。(初期値は無限)<br>|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {AccessToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
 #### リクエストボディ
 なし
 #### リクエストサンプル
@@ -81,17 +81,17 @@ MOVE
 
 コレクション名変更(終端の"/"は必須)
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OldCollectionName}/" -X MOVE -i -H 'Destination:https://{UnitFQDN}/{CellName}/{BoxName}/{NewCollectionName}/' -H 'Authorization: Bearer {UnitUserToken}'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OldCollectionName}/" -X MOVE -i -H 'Destination:https://{UnitFQDN}/{CellName}/{BoxName}/{NewCollectionName}/' -H 'Authorization: Bearer {AccessToken}'
 ```
 
 ファイル名変更
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/{OldFileName}/" -X MOVE -i -H 'Destination:https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/{NewFileName}' -H 'Authorization: Bearer {UnitUserToken}'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/{OldFileName}/" -X MOVE -i -H 'Destination:https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/{NewFileName}' -H 'Authorization: Bearer {AccessToken}'
 ```
 
 ファイル移動
 ```sh
-curl  "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionNameA}/{FileName}" -X MOVE -i -H 'Destination:https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionNameB}/{FileName}' -H 'Authorization: Bearer {UnitUserToken}'
+curl  "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionNameA}/{FileName}" -X MOVE -i -H 'Destination:https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionNameB}/{FileName}' -H 'Authorization: Bearer {AccessToken}'
 ```
 <br>
 <br>

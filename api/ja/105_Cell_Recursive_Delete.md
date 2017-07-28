@@ -48,7 +48,7 @@ DELETE
 
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|○<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {AccessToken}<br>|○<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
 |X-Personium-Recursive<br>|一括削除の指定<br>|文字列<br>|○<br>|trueの場合は一括削除APIを実施<br>falseの場合およびヘッダの指定がなかった場合はエラーレスポンスコード412を返却<br>|
 #### リクエストボディ
 なし
@@ -78,7 +78,7 @@ DELETE
 ### CURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/" -X DELETE -i -H 'f-Match: *' -H 'X-Personium-Recursive: true' -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/" -X DELETE -i -H 'f-Match: *' -H 'X-Personium-Recursive: true' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 <br>
 <br>

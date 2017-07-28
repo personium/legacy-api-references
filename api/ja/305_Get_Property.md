@@ -59,7 +59,7 @@ PROPFIND
 ##### 個別リクエストヘッダ
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {AccessToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
 |Depth<br>|取得するリソースの階層<br>|0:対象のリソース自身 <br>1:対象のリソースとそれの直下のリソース<br>|○<br>|<br>|
 #### リクエストボディ
 名前空間
@@ -214,7 +214,7 @@ DTD表記
 ### CURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}" -X PROPFIND -i  -H 'Depth:1' -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8"?><D:propfind xmlns:D="DAV:"><D:allprop/></D:propfind>'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}" -X PROPFIND -i  -H 'Depth:1' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8"?><D:propfind xmlns:D="DAV:"><D:allprop/></D:propfind>'
 ```
 <br>
 <br>

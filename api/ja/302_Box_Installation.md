@@ -82,7 +82,7 @@ MKCOL
 |X-HTTP-Method-Override<br>|メソッドオーバーライド機能<br>|任意<br>|×<br>|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用されます。<br>|
 |X-Override<br>|ヘッダオーバライド機能<br>|${上書きするヘッダ名}:${値}  override} $: $ {value}<br>|×<br>|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定します。<br>|
 |X-Personium-RequestKey<br>|イベントログに出力するRequestKeyフィールドの値<br>|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字<br>|×<br>|指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応<br>|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {AccessToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
 |Content-Type<br>|リクエストボディの形式を指定する<br>|application/zip<br>|○<br>| <br>|
 |Content-Length<br>|リクエストボディのサイズを指定する<br>|半角数字<br>|×<br>| <br>|
 #### リクエストボディ
@@ -128,7 +128,7 @@ Boxメタデータ取得API用URLの詳細は、[Boxメタデータ取得](303_P
 ### CURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}" -X MKCOL -i -H 'Content-type: application/zip' -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' --data-binary @{FileName}
+curl "https://{UnitFQDN}/{CellName}/{BoxName}" -X MKCOL -i -H 'Content-type: application/zip' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' --data-binary @{FileName}
 ```
 <br>
 <br>

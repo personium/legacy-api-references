@@ -71,7 +71,7 @@ GET / POST / PUT / DELETE
 ### CURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/{ServiceName}" -X GET -i -H "Authorization:Bearer {UnitUserToken}" -H "Accept:application/json"
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/{ServiceName}" -X GET -i -H "Authorization:Bearer {AccessToken}" -H "Accept:application/json"
 ```
 <br>
 <br>

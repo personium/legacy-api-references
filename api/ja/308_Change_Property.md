@@ -42,7 +42,7 @@ PROPPATCH
 ##### 個別リクエストヘッダ
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {AccessToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
 
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
@@ -158,7 +158,7 @@ PROPPATCH
 ### CURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ResourcePath}' -X PROPPATCH -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8" ?><D:propertyupdate xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" xmlns:Z="http://www.w3.com/standards/z39.50/"><D:set><D:prop><Z:Author>${author1}</Z:Author><p:hoge>${hoge}</p:hoge></D:prop></D:set><D:remove><D:prop><Z:Author/><p:hoge/></D:prop></D:remove></D:propertyupdate>'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ResourcePath}' -X PROPPATCH -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8" ?><D:propertyupdate xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" xmlns:Z="http://www.w3.com/standards/z39.50/"><D:set><D:prop><Z:Author>${author1}</Z:Author><p:hoge>${hoge}</p:hoge></D:prop></D:set><D:remove><D:prop><Z:Author/><p:hoge/></D:prop></D:remove></D:propertyupdate>'
 ```
 <br>
 <br>

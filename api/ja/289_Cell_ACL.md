@@ -40,7 +40,7 @@ ACL
 
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {AccessToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
 #### リクエストボディ
 #### 名前空間
 
@@ -177,7 +177,7 @@ privilegeタグ配下の権限設定の内容については、[認証モデル]
 <br>
 ### CURLサンプル
 ```sh
-curl "https://{UnitFQDN}/{CellName}" -X ACL -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8" ?><D:acl xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" xml:base="http://{UnitFQDN}/{CellName}/__role/{BoxName}/">  <D:ace><D:principal><D:href>{RoleName}</D:href></D:principal><D:grant><D:privilege><p:box-read/></D:privilege><D:privilege><p:auth/></D:privilege></D:grant></D:ace></D:acl>'
+curl "https://{UnitFQDN}/{CellName}" -X ACL -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8" ?><D:acl xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" xml:base="http://{UnitFQDN}/{CellName}/__role/{BoxName}/">  <D:ace><D:principal><D:href>{RoleName}</D:href></D:principal><D:grant><D:privilege><p:box-read/></D:privilege><D:privilege><p:auth/></D:privilege></D:grant></D:ace></D:acl>'
 ```
 <br>
 <br>

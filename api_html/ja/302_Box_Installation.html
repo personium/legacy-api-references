@@ -252,7 +252,7 @@ returned in&gt; &quot;processing complete&quot;.
 <tr class="even">
 <td align="left">Authorization<br></td>
 <td align="left">OAuth2.0形式で、認証情報を指定する<br></td>
-<td align="left">Bearer {UnitUserToken}<br></td>
+<td align="left">Bearer {AccessToken}<br></td>
 <td align="left">×<br></td>
 <td align="left">※認証トークンは認証トークン取得APIで取得したトークン<br></td>
 </tr>
@@ -360,7 +360,7 @@ returned in&gt; &quot;processing complete&quot;.
 <p>Boxメタデータ取得API用URLの詳細は、<a href="303_Progress_of_Bar_File_Installation.html">Boxメタデータ取得</a>を参照。<br />
 <br></p>
 <h3 id="curl">CURLサンプル</h3>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}&quot;</span> -X MKCOL -i -H <span class="st">&#39;Content-type: application/zip&#39;</span> -H <span class="st">&#39;Authorization: Bearer {UnitUserToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> --data-binary @<span class="dt">{FileName}</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}&quot;</span> -X MKCOL -i -H <span class="st">&#39;Content-type: application/zip&#39;</span> -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> --data-binary @<span class="dt">{FileName}</span></code></pre></div>
 <p><br><br />
 <br><br />
 <br></p>

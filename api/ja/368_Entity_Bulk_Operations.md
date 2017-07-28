@@ -34,7 +34,7 @@ POST
 #### リクエストヘッダ
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {UnitUserToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン テスト未実施<br>|
+|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {AccessToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン テスト未実施<br>|
 |Content-Type<br>|リクエストボディの形式を指定する<br>|multipart / mixed; boundary = {Boundary}<br>|○<br>|省略時は[multipart/mixed]として扱う 　{Boundary}に使用可能な文字種：半角英数大小文字 '()+_,-./:=?<br>未対応<br>|
 #### リクエストボディ
 バッチ処理内容をMIMEのマルチパートデータ形式でリクエストボディに指定する
@@ -367,7 +367,7 @@ DataServiceVersion: 2.0
 
 curlコマンド
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$batch" -X POST -i -H 'Authorization: Bearer {UnitUserToken}' -H 'Content-Type:multipart/mixed; boundary=batch_XAmu9BiJJLBa20sRWIq74jp2UlNAVueztqu' --data-binary @sample.txt
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$batch" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Content-Type:multipart/mixed; boundary=batch_XAmu9BiJJLBa20sRWIq74jp2UlNAVueztqu' --data-binary @sample.txt
 ```
 sample.txt
 ```
@@ -376,7 +376,7 @@ Content-Type: application/http
 Content-Transfer-Encoding:binary
 
 GET /{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')
-Authorization: Bearer {UnitUserToken}
+Authorization: Bearer {AccessToken}
 --batch_XAmu9BiJJLBa20sRWIq74jp2UlNAVueztqu
 Content-Type: multipart/mixed; boundary=changeset_76c10b01-3eaf-49c2-bdd7-9fe90df24159
 Content-Length: 608

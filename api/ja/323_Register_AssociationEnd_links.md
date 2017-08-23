@@ -39,18 +39,8 @@ POST
 <br>
 ### レスポンス
 #### ステータスコード
-
-|コード<br>|概要<br>|備考<br>|
-|:--|:--|:--|
-|204<br>|正常に登録が完了した場合<br>|<br>|
-|400<br>|リクエストボディがJSON形式でなかった場合<br>必須項目が指定されていない場合<br>１：１のAssociationEndを関連付けしようとした場合<br>存在しないNavigationProperty名を指定した場合<br>NavigationPropertyにEntityTypeを指定した場合<br>| <br>|
-|401<br>|認証トークンが無効の場合<br>| <br>|
-|403<br>|アクセス権限が不足している場合<br>| <br>|
-|404<br>|存在しないCellを指定した場合<br>存在しないBoxを指定した場合<br>存在しないODataCollectionを指定した場合<br>存在しないEntityを指定した場合<br>有効値でないリクエストボディの場合<br>| <br>|
-|405<br>|許可していないリクエストメソッドを指定した場合<br>| <br>|
-|409<br>|既にAssociationEndのリンク情報が登録されている場合<br>| <br>|
+204
 #### レスポンスヘッダ
-
 |項目名<br>|概要<br>|備考<br>|
 |:--|:--|:--|
 |DataServiceVersion<br>|ODataProtocolのバージョン情報<br>|正常にAssociationEndが作成できた場合のみ返却する<br>|
@@ -58,7 +48,7 @@ POST
 特になし
 
 #### エラーメッセージ一覧
-なし
+[エラーメッセージ一覧](004_Error_Messages.html)を参照
 
 #### レスポンスサンプル
 なし

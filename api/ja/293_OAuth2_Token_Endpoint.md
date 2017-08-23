@@ -148,14 +148,6 @@ grant_type=refresh_token&refresh_token={token}
 #### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.html)を参照
 
-|コード<br>|メッセージ<br>|概要<br>|備考<br>|
-|:--|:--|:--|:--|
-|400<br>|Bad Request<br>|リクエストボディの形式が不正<br>リクエストヘッダの形式が不正<br>|<br>|
-|401<br>|Unauthorized<br>|認証トークンが無効<br>ユーザ名が無効<br>grant_typeが無効<br>XML署名検証が失敗<br>ULUUT発行候補ではないアカウントへ認証が行われた<br>パスワードが無効<br>トークンの有効期限切れ<br>|<br>|
-|404<br>|Not Found<br>|存在しないリソースを指定<br>|<br>|
-|405<br>|Method Not Allowed<br>|許可していないリクエストメソッドを指定<br>|<br>|
-
-<br>
 ### CURLサンプル
 ##### パスワード認証
 ```sh

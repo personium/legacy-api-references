@@ -165,16 +165,6 @@ privilegeタグ配下の権限設定の内容については、acl_model（[ア�
 #### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.html)を参照
 
-|コード<br>|メッセージ<br>|概要<br>|備考<br>|
-|:--|:--|:--|:--|
-|400<br>|Bad Request<br>|リクエストボディの形式が不正<br>リクエストヘッダの形式が不正<br>|<br>|
-|401<br>|Unauthorized<br>|認証トークンが無効<br>|<br>|
-|403<br>|Forbidden<br>|アクセス権限が不足している場合<br>|<br>|
-|404<br>|Not Found<br>|存在しないリソースを指定<br>|<br>|
-|405<br>|Method Not Allowed<br>|許可していないリクエストメソッドを指定<br>|<br>|
-|412<br>|Precondition Failed<br>|存在しないバージョンを指定<br>|<br>|
-
-<br>
 ### CURLサンプル
 ```sh
 curl "https://{UnitFQDN}/{CellName}" -X ACL -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8" ?><D:acl xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" xml:base="http://{UnitFQDN}/{CellName}/__role/{BoxName}/">  <D:ace><D:principal><D:href>{RoleName}</D:href></D:principal><D:grant><D:privilege><p:box-read/></D:privilege><D:privilege><p:auth/></D:privilege></D:grant></D:ace></D:acl>'

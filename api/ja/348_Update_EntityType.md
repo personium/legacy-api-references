@@ -78,16 +78,6 @@ JSON
 #### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.html)を参照
 
-|コード<br>|メッセージ<br>|概要<br>|
-|:--|:--|:--|
-|400<br>|Bad Request<br>|リクエストボディの形式が不正 <br>リクエストヘッダの形式が不正<br>|
-|401<br>|Unauthorized<br>|認証トークンが無効<br>|
-|403<br>|Forbidden<br>|アクセス権限が不足している場合<br>|
-|404<br>|Not Found<br>|存在しないリソースを指定<br>|
-|405<br>|Method Not Allowed<br>|許可していないリクエストメソッドを指定<br>|
-|409<br>|Conflict<br>|ODataコレクションに同じ"Name"のEntityTypeが存在している場合<br>|
-|412<br>|Precondition Failed<br>|存在しないバージョンを指定<br>|
-
 #### レスポンスサンプル
 なし
 

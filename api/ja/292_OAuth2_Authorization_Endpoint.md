@@ -55,12 +55,6 @@ POST : 認証フォーム リクエスト、トークン認証
 ##### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.html)を参照
 
-|コード<br>|メッセージ<br>|概要<br>|備考<br>|
-|:--|:--|:--|:--|
-|302<br>|Found<br>|認可に失敗<br>__html/errorにリダイレクトする<br>|<br>
-|400<br>|Bad Request<br>|リクエストのパラメータが不正<br>|<br>
-|404<br>|Not Found<br>|存在しないリソースを指定<br>|<br>
-|405<br>|Method Not Allowed<br>|許可していないリクエストメソッドを指定<br>|<br>
 ##### レスポンスサンプル
 なし
 #### Request Token Authentication

@@ -309,60 +309,6 @@ Rangeヘッダで範囲指定した場合、指定した範囲の内容を返却
 また、ステータスコードが206の場合はRangeヘッダで指定した範囲のファイルの内容を返却する</p>
 <h4>エラーメッセージ一覧</h4>
 <p><a href="004_Error_Messages.html">エラーメッセージ一覧</a>を参照</p>
-<table>
-<thead>
-<tr class="header">
-<th align="left">コード<br></th>
-<th align="left">メッセージ<br></th>
-<th align="left">概要<br></th>
-<th align="left">備考<br></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">400<br></td>
-<td align="left">Bad Request<br></td>
-<td align="left">リクエストヘッダの形式が不正<br></td>
-<td align="left">Basic認証エラーの場合、Odataクエリが不正の場合はこれに含む<br></td>
-</tr>
-<tr class="even">
-<td align="left">401<br></td>
-<td align="left">Unauthorized<br></td>
-<td align="left">認証トークンが無効<br></td>
-<td align="left">Basic認証エラーの場合を除く<br></td>
-</tr>
-<tr class="odd">
-<td align="left">403<br></td>
-<td align="left">Forbidden<br></td>
-<td align="left">アクセス権限が不足している場合<br></td>
-<td align="left"><br></td>
-</tr>
-<tr class="even">
-<td align="left">404<br></td>
-<td align="left">Not Found<br></td>
-<td align="left">存在しないリソースを指定<br></td>
-<td align="left"><br></td>
-</tr>
-<tr class="odd">
-<td align="left">405<br></td>
-<td align="left">Method Not Allowed<br></td>
-<td align="left">許可していないリクエストメソッドを指定<br></td>
-<td align="left"><br></td>
-</tr>
-<tr class="even">
-<td align="left">416<br></td>
-<td align="left">Requested Range Not Satisfiable<br></td>
-<td align="left">Rangeヘッダの指定範囲の開始値が取得ファイルサイズより大きい場合<br></td>
-<td align="left"><br></td>
-</tr>
-<tr class="odd">
-<td align="left">503<br></td>
-<td align="left">Service Unavailable<br></td>
-<td align="left">他プロセスがファイルを更新中の場合<br></td>
-<td align="left"><br></td>
-</tr>
-</tbody>
-</table>
 <h4>レスポンスサンプル</h4>
 <p>なし</p>
 <p><br></p>

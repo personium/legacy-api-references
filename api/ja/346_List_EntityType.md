@@ -100,7 +100,7 @@ GET
 |{2}<br>|Name<br>|string<br>|EntityType名<br>|
 
 #### エラーメッセージ一覧
-  [エラーメッセージ一覧](004_Error_Messages.html)を参照
+[エラーメッセージ一覧](004_Error_Messages.html)を参照
 
 #### レスポンスサンプル
 ```json

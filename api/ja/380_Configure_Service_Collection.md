@@ -84,8 +84,8 @@ DTD表記
 ```
 #### リクエストサンプル
 ```xml
-<D:propertyupdate xmlns:D="DAV:"  
-    xmlns:p="urn:x-personium:xmlns"  
+<D:propertyupdate xmlns:D="DAV:"
+    xmlns:p="urn:x-personium:xmlns"
     xmlns:Z="http://www.w3.com/standards/z39.50/">
     <D:set>
         <D:prop>
@@ -151,7 +151,6 @@ DTD表記
 #### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.html)を参照
 
-<br>
 ### CURLサンプル
 
 ```sh

@@ -62,15 +62,6 @@ PUT
 #### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.html)を参照
 
-|コード<br>|メッセージ<br>|概要<br>|備考<br>|
-|:--|:--|:--|:--|
-|400<br>|Bad Request<br>|リクエストボディの形式が不正<br>リクエストヘッダの形式が不正<br>コンテンツタイプの指定がない<br>リクエストボディの指定がない<br>|<br>|
-|401<br>|Unauthorized<br>|認証トークンが無効<br>|<br>|
-|403<br>|Forbidden<br>|アクセス権限が不足している場合<br>|<br>|
-|404<br>|Not Found<br>|存在しないリソースを指定<br>|<br>|
-|405<br>|Method Not Allowed<br>|許可していないリクエストメソッドを指定<br>|<br>|
-|409<br>|Conflict<br>|同一空間内に既に同一のnameのファイルが存在する場合<br>存在しないコレクションの下にリソースを作成<br>|<br>|
-|412<br>|Precondition Failed<br>|If-Matchの指定誤り<br>|<br>|
 #### レスポンスサンプル
 なし
 

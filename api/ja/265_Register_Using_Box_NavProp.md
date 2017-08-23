@@ -103,6 +103,7 @@ JSON
 |{2}<br>|_Box.Name<br>|string<br>|関係対象のBox名<br>|
 #### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.html)を参照
+
 ##### レスポンスサンプル
 ```json
 {

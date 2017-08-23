@@ -71,16 +71,6 @@ JSON
 #### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.html)を参照
 
-|コード<br>|メッセージ<br>|概要<br>|備考<br>|
-|:--|:--|:--|:--|
-|400<br>|Bad Request<br>|リクエストボディの形式が不正<br>|<br>|
-|401<br>|Unauthorized<br>|認証トークンが無効<br>|<br>|
-|403<br>|Forbidden<br>|アクセス権限が不足している場合<br>|<br>|
-|404<br>|Not Found<br>|存在しないリソースを指定<br>|<br>|
-|405<br>|Method Not Allowed<br>|許可していないリクエストメソッドを指定<br>|<br>|
-|500<br>|Internal Server Error<br>|サーバエラー<br>|<br>|
-
-<br>
 ### CURLサンプル
 ```sh
 curl "https://{UnitFQDN}/{CellName}/__event" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"level":"INFO", "action":"authSchema", "object":"/{CellName}/{BoxName}/service_name/token_keeper", "result":"[XXXX2033] Success schema authorization. cellUrl=https://{UnitFQDN}/keeper-d4a57bb26eae481486b07d06487051d1/"}'

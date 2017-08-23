@@ -68,12 +68,6 @@ MOVE
 #### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.html)を参照
 
-|コード<br>|概要<br>|備考<br>|
-|:--|:--|:--|
-|400<br>|Bud Request<br>|リクエストヘッダの形式が不正<br>|
-|409<br>|Conflict<br>|指定されたコレクション/セルが不正<br>|
-|412<br>|Precondition Failed<br>|上書き禁止が指定されている<br>|
-
 #### レスポンスサンプル
 なし
 <br>

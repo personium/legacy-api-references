@@ -67,13 +67,6 @@ Location:https://{UnitFQDN}/{CellName}/{BoxName}
 #### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.html)を参照
 
-|コード<br>|メッセージ<br>|概要<br>|備考<br>|
-|:--|:--|:--|:--|
-|400<br>|Bad Request<br>|リクエストヘッダ、リクエストクエリの形式が不正<br>| <br>|
-|401<br>|Unauthorized<br>|認証トークンが無効<br>| <br>|
-|403<br>|Forbidden<br>|アクセス権限が不足している場合<br>| <br>|
-|404<br>|Not Found<br>|存在しないリソースを指定<br>| <br>
-
 #### レスポンスサンプル
 ```
 Location:https://{UnitFQDN}/{CellName}/{BoxName}

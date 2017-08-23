@@ -77,15 +77,6 @@ Basic認証エラーの場合は 400 + WWW-Authenticated:Basicヘッダを返却
 #### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.html)を参照
 
-|コード<br>|メッセージ<br>|概要<br>|備考<br>|
-|:--|:--|:--|:--|
-|400<br>|Bad Request<br>|リクエストヘッダの形式が不正<br>|Basic認証エラーの場合、Odataクエリが不正の場合はこれに含む<br>|
-|401<br>|Unauthorized<br>|認証トークンが無効<br>|Basic認証エラーの場合を除く<br>|
-|403<br>|Forbidden<br>|アクセス権限が不足している場合<br>|<br>|
-|404<br>|Not Found<br>|存在しないリソースを指定<br>|<br>|
-|405<br>|Method Not Allowed<br>|許可していないリクエストメソッドを指定<br>|<br>|
-|416<br>|Requested Range Not Satisfiable<br>|Rangeヘッダの指定範囲の開始値が取得ファイルサイズより大きい場合<br>|<br>|
-|503<br>|Service Unavailable<br>|他プロセスがファイルを更新中の場合<br>|<br>|
 #### レスポンスサンプル
 なし
 

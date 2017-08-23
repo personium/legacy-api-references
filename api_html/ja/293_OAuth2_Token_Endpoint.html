@@ -449,49 +449,6 @@ WjzDmvJSLvM9qVuJL1xxP6hSxt64HijoIea0P5R2CVloXJ2HEvEILl7UOtEtjSDdjlvyx9wrosPBhDRU
 <span class="fu">}</span></code></pre></div>
 <h4>エラーメッセージ一覧</h4>
 <p><a href="004_Error_Messages.html">エラーメッセージ一覧</a>を参照</p>
-<table>
-<colgroup>
-<col width="5%" />
-<col width="5%" />
-<col width="5%" />
-<col width="5%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left">コード<br></th>
-<th align="left">メッセージ<br></th>
-<th align="left">概要<br></th>
-<th align="left">備考<br></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">400<br></td>
-<td align="left">Bad Request<br></td>
-<td align="left">リクエストボディの形式が不正<br>リクエストヘッダの形式が不正<br></td>
-<td align="left"><br></td>
-</tr>
-<tr class="even">
-<td align="left">401<br></td>
-<td align="left">Unauthorized<br></td>
-<td align="left">認証トークンが無効<br>ユーザ名が無効<br>grant_typeが無効<br>XML署名検証が失敗<br>ULUUT発行候補ではないアカウントへ認証が行われた<br>パスワードが無効<br>トークンの有効期限切れ<br></td>
-<td align="left"><br></td>
-</tr>
-<tr class="odd">
-<td align="left">404<br></td>
-<td align="left">Not Found<br></td>
-<td align="left">存在しないリソースを指定<br></td>
-<td align="left"><br></td>
-</tr>
-<tr class="even">
-<td align="left">405<br></td>
-<td align="left">Method Not Allowed<br></td>
-<td align="left">許可していないリクエストメソッドを指定<br></td>
-<td align="left"><br></td>
-</tr>
-</tbody>
-</table>
-<p><br></p>
 <h3 id="curl">CURLサンプル</h3>
 <h5 id="-1">パスワード認証</h5>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__token&quot;</span> -X POST -i -d <span class="st">&#39;grant_type=password&amp;username={username}&amp;password={password}&#39;</span></code></pre></div>

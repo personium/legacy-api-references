@@ -189,7 +189,7 @@ write</li>
 (3) 空行を指定する
 (4) リクエストメソッド「GET」とパス（:path）を指定する
     :pathにはEntity情報取得対象のパスを指定する
-    詳細は「<a href="366_Get_Entity.html">Entity取得</a>」の「リクエストURI」を参照
+    詳細は「Entity取得」の「リクエストURI」を参照
 (5) :request_headerにはリクエストヘッダを指定する
     リクエストヘッダは、指定なし、もしくは1つ以上指定が可能</code></pre>
 <ul>
@@ -364,47 +364,6 @@ If-Match: *
 <p>レスポンスサンプル参照</p>
 <h4>エラーメッセージ一覧</h4>
 <p><a href="004_Error_Messages.html">エラーメッセージ一覧</a>を参照</p>
-<table>
-<colgroup>
-<col width="5%" />
-<col width="5%" />
-<col width="5%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left">コード<br></th>
-<th align="left">概要<br></th>
-<th align="left">備考<br></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">400<br></td>
-<td align="left">リクエストクエリの指定誤り<br>リクエストヘッダの指定誤り<br></td>
-<td align="left"><br></td>
-</tr>
-<tr class="even">
-<td align="left">401<br></td>
-<td align="left">認証トークンが無効の場合<br></td>
-<td align="left"><br></td>
-</tr>
-<tr class="odd">
-<td align="left">403<br></td>
-<td align="left">アクセス権限が不足している場合<br></td>
-<td align="left"><br></td>
-</tr>
-<tr class="even">
-<td align="left">404<br></td>
-<td align="left">存在しないCellを指定した場合<br>存在しないBoxを指定した場合<br>存在しないODataCollectionを指定した場合<br>存在しないEntitySetを指定した場合<br></td>
-<td align="left"><br></td>
-</tr>
-<tr class="odd">
-<td align="left">405<br></td>
-<td align="left">許可していないリクエストメソッドを指定 した場合<br></td>
-<td align="left"><br></td>
-</tr>
-</tbody>
-</table>
 <h4>レスポンスサンプル</h4>
 <p>次に示すのは、上記のリクエストパラメータの例を実行した場合のレスポンスの例を示す</p>
 <ul>

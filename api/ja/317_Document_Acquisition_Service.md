@@ -51,6 +51,7 @@ GET
 レスポンスサンプル参照
 #### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.html)を参照
+
 #### レスポンスサンプル
 ```xml
 <?xml version='1.0' encoding='utf-8'?>

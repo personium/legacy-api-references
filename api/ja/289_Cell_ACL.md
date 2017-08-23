@@ -52,7 +52,7 @@ ACL
 
 #### XMLの構造
 ボディはXMLで、以下のスキーマに従っています。<br>
-privilegeタグ配下の権限設定の内容については、[認証モデル](../../user_guide/003_Auth.html)を参照。
+privilegeタグ配下の権限設定の内容については、acl_model（[アクセス制御モデル](../../user_guide/002_Access_Control.html)）を参照。
 
 |ノード名<br>|Namespace<br>|ノードタイプ<br>|概要<br>|備考<br>|
 |:--|:--|:--|:--|:--|

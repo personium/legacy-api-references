@@ -63,7 +63,7 @@ DELETE
 なし
 
 <br>
-### CURLサンプル
+### cURLサンプル
 ```sh
 curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/\$metadata/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntitytypeName}')/\$links/_AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntitytypeName}')" -X DELETE -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```

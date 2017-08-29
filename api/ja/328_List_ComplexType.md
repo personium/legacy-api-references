@@ -146,7 +146,7 @@ GET
 #### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.html)を参照
 
-### CURLサンプル
+### cURLサンプル
 
 ```sh
 curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata/ComplexType" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'

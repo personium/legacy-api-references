@@ -87,7 +87,7 @@ JSON
 なし
 
 <br>
-### CURLサンプル
+### cURLサンプル
  EntityType
 ```sh
 curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/EntityType(Name='{EntitytypeName}')/$links/_AssociationEnd" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/AssociationEnd(Name='assocName_link',_EntityType.Name=null)"}'

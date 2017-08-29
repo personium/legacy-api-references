@@ -164,7 +164,7 @@ ID/PW認証＋Google認証用アカウント
 ```
 
 <br>
-### CURLサンプル
+### cURLサンプル
 ID/PW認証用アカウント
 ```sh
 curl "https://{UnitFQDN}/{CellName}/__ctl/Account" -X POST -i -H 'X-Personium-Credential:password' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{AccountName}"}'

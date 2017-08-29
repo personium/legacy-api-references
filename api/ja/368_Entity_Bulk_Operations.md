@@ -355,7 +355,7 @@ DataServiceVersion: 2.0
 ```
 
 <br>
-### CURLサンプル
+### cURLサンプル
 
 curlコマンド
 ```sh

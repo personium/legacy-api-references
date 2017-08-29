@@ -122,7 +122,7 @@ GET
 ```
 
 <br>
-### CURLサンプル
+### cURLサンプル
 
 ```sh
 curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonName}/$metadata/EntityType('{EntitytypeName}')" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'

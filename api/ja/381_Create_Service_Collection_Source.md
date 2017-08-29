@@ -66,7 +66,7 @@ PUT
 なし
 
 <br>
-### CURLサンプル
+### cURLサンプル
 
 ```sh
 curl "https://{CellName}/{BoxName}/{CollectionName}/__src/{ResourceName}" -X PUT -i  -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -H 'Content-Type:text/javascript' -d '【ファイル内容】'

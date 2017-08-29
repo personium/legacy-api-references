@@ -151,7 +151,7 @@ JSON
 }
 ```
 <br>
-### CURLサンプル
+### cURLサンプル
 ```sh
 curl "https://{UnitFQDN}/{CellName}/__message/send" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"BoxBound":false,"InReplyTo":"xnKXmd4TTZCw-bfSEw4f0AxnKXmd4TTZ","To":"https://{UnitFQDN}/{CellName}","Type":"message","Title":"メッセージサンプルタイトル","Body":"メッセージサンプル本文です。","Priority":3}'
 ```

@@ -79,7 +79,7 @@ DELETE
 なし
 
 <br>
-### CURLサンプル
+### cURLサンプル
 
 ```sh
 curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}" -X DELETE -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'

@@ -68,7 +68,7 @@ GET
 なし
 
 <br>
-### CURLサンプル
+### cURLサンプル
 
 ```sh
 curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/__src/{ResourceName}" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'

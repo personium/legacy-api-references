@@ -123,7 +123,7 @@ JSON
 }
 ```
 <br>
-### CURLサンプル
+### cURLサンプル
 ##### Roleを登録する場合
 ```sh
 curl

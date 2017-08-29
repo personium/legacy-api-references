@@ -134,7 +134,7 @@ ExtCell固有レスポンスボディ
 }
 ```
 
-### CURLサンプル
+### cURLサンプル
 ##### RoleのnavigationProperty経由登録
 ```sh
 curl "https://{UnitFQDN}/{CellName}/__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{ExtCellName}%2F')/_Role" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{ "Name": "{RoleName}"}'

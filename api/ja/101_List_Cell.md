@@ -139,7 +139,7 @@ Cell固有レスポンスボディ
 }
 ```
 <br>
-### CURLサンプル
+### cURLサンプル
 
 ```sh
 curl "https://{UnitFQDN}/__ctl/Cell" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'

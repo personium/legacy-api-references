@@ -137,7 +137,7 @@ GET
 ```
 
 <br>
-### CURLサンプル
+### cURLサンプル
 
 ```sh
 curl "https://{UnitFQDN}/{CellName}/__ctl/SentMessage('{MessageID}')" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'

@@ -120,7 +120,7 @@ GET
 ```
 
 <br>
-### CURLサンプル
+### cURLサンプル
 
 ```sh
 curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata/Property(Name='{PetName}',_EntityType.Name='{EntityTypeName}')"

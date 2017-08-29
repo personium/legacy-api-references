@@ -101,7 +101,7 @@ POST : 認証フォーム リクエスト、トークン認証
 ```
 
 <br>
-### CURLサンプル
+### cURLサンプル
 #### GET
 ```sh
 curl "https://{UnitFQDN}/{CellName}/__authz?response_type=token&redirect_uri=https://{UnitFQDN}/{AppliCellName}/__/redirect.html&client_id=https://{UnitFQDN}/{AppliCellName}" -X GET -i

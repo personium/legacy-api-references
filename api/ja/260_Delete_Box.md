@@ -56,7 +56,7 @@ DELETE
 なし
 
 <br>
-### CURLサンプル
+### cURLサンプル
 
 ```sh
 curl "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')" -X DELETE -i  -H 'If-Match: *' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'

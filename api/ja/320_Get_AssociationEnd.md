@@ -123,7 +123,7 @@ GET
 ### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.html)を参照
 
-### CURLサンプル
+### cURLサンプル
 ```sh
 curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/\$metadata/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```

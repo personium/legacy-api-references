@@ -50,7 +50,7 @@ POST
 なし
 
 <br>
-### CURLサンプル
+### cURLサンプル
 
 EntityType
 ```sh

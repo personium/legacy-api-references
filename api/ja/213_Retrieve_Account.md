@@ -108,7 +108,7 @@ GET
 ```
 
 <br>
-### CURLサンプル
+### cURLサンプル
 
 ```sh
 curl "https://{UnitFQDN}/{CellName}/__ctl/Account('{AccountName}')" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'

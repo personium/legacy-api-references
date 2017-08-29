@@ -143,7 +143,7 @@ GET
 #### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.html)を参照
 
-### CURLサンプル
+### cURLサンプル
 
 #### AccountのnavigationProperty経由一覧
 ```sh

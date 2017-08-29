@@ -187,7 +187,7 @@ GET
 [エラーメッセージ一覧](004_Error_Messages.html)を参照
 
 <br>
-### CURLサンプル
+### cURLサンプル
 
 ```sh
 curl "https://{UnitFQDN}/{CellName}/__ctl/Role" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'

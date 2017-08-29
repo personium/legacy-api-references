@@ -145,7 +145,7 @@ GET
 }
 ```
 <br>
-### CURLサンプル
+### cURLサンプル
 
 ##### RoleのnavigationProperty経由一覧
 ```sh

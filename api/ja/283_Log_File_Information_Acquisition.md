@@ -154,7 +154,7 @@ PROPFIND
 </multistatus>
 ```
 <br>
-### CURLサンプル
+### cURLサンプル
 ```sh
 curl "https://{UnitFQDN}/{CellName}/__log/archive" -X PROPFIND -i -H 'Depth:1' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8"?><D:propfind xmlns:D="DAV:"><D:allprop/></D:propfind>'
 ```

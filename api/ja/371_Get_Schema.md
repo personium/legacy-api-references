@@ -290,7 +290,7 @@ $formatにatomsvcを指定した場合、SchemaのAtom ServiceDocumentを返却�
 ```
 
 <br>
-### CURLサンプル
+### cURLサンプル
 ##### SchemaのAtom ServiceDocumentの場合
 ```sh
 curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept:application/atomsvc+xml'

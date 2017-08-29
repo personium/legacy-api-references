@@ -72,7 +72,7 @@ Location:https://{UnitFQDN}/{CellName}/{BoxName}
 Location:https://{UnitFQDN}/{CellName}/{BoxName}
 ```
 <br>
-### CURLサンプル
+### cURLサンプル
 #### スキーマ認証済
 ```sh
 curl "https://{UnitFQDN}/{CellName}/__box" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'

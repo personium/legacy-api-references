@@ -145,7 +145,7 @@ POST
 [エラーメッセージ一覧](004_Error_Messages.html)を参照
 
 <br>
-### CURLサンプル
+### cURLサンプル
 
 ##### RoleのnavigationProperty経由登録
 ```sh

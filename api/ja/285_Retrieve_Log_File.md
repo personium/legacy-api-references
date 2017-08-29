@@ -95,7 +95,7 @@ currentのログ取得時にログが存在しない場合は、空のレスポ�
 ```
 
 <br>
-### CURLサンプル
+### cURLサンプル
 
 ```sh
 curl "https://{UnitFQDN}/{CellName}/__log/current/default.log" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'          

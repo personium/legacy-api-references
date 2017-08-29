@@ -70,7 +70,7 @@ JSON
 なし
 
 <br>
-### CURLサンプル
+### cURLサンプル
 
 ```sh
 curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')" -X PUT -i  -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{AssociationEndName}","Multiplicity":"{Multiplicity}","_EntityType.Name":"{EntityTypeName}"}'

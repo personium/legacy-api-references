@@ -103,7 +103,7 @@ POST
 }
 ```
 <br>
-### CURLサンプル
+### cURLサンプル
 
 ```sh
 curl "https://{UnitFQDN}/{CellName}/__ctl/ExtCell" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'  -d '{"Url":"https://{UnitFQDN}/{CellName}/"}'

@@ -148,7 +148,7 @@ grant_type=refresh_token&refresh_token={token}
 #### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.html)を参照
 
-### CURLサンプル
+### cURLサンプル
 ##### パスワード認証
 ```sh
 curl "https://{UnitFQDN}/{CellName}/__token" -X POST -i -d 'grant_type=password&username={username}&password={password}'

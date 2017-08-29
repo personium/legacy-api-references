@@ -85,7 +85,7 @@ DELETE
 #### レスポンスサンプル
 なし
 <br>
-### CURLサンプル
+### cURLサンプル
 
 ```sh
 curl "https://{UnitFQDN}/{CellName}/__ctl/Account('{AccountName}')/\$links/_Role('{RoleName}')" -X DELETE -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'

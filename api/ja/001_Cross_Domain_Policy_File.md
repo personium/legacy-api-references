@@ -41,7 +41,7 @@ XML形式
 #### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.html)を参照
 
-### CURLサンプル
+### cURLサンプル
 ```sh
 curl "https://{UnitFQDN}/crossdomain.xml" -X GET -i
 ```

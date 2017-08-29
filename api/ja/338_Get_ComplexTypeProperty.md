@@ -127,7 +127,7 @@ GET
 }
 ```
 <br>
-### CURLサンプル
+### cURLサンプル
 
 ```sh
 curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata/ComplexTypeProperty(Name='{ComplexTypePropertyName}',_ComplexType.Name='{ComplexTypeName}')" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'

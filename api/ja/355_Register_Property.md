@@ -161,7 +161,7 @@ DefaultValueの有効値はTypeの値（型定義）によって異なり、以�
 ```
 
 <br>
-### CURLサンプル
+### cURLサンプル
 
 ```sh
 curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata/Property" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name": "{PetName}","_EntityType.Name": "{EntityTypeName}","Type": "Edm.String","Nullable": true,"DefaultValue": null,"CollectionKind": "None","IsKey": true,"UniqueKey": null}'

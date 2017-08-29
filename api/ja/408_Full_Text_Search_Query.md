@@ -42,7 +42,7 @@ q="ぽち%20たま"
 	- 部分一致の検索可
 	- 大文字・小文字の区別は行わない
 
-### CURLサンプル
+### cURLサンプル
 例：セル一覧を取得時、sampleというキーワードと一致するセルを取得する場合:
 ```sh
 curl "https://{UnitFQDN}/__ctl/Cell?q=sample" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'

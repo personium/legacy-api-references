@@ -140,7 +140,7 @@ PROPPATCH
 #### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.html)を参照
 
-### CURLサンプル
+### cURLサンプル
 ```sh
 curl "https://{UnitFQDN}/cell -X PROPPATCH" -H 'Authorization: Bearer {AccessToken}' -d '<?xml version="1.0" encoding="utf-8" ?>
 <D:propertyupdate xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" xmlns:Z="http://www.w3.com/standards/z39.50/">

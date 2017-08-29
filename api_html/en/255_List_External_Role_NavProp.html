@@ -346,7 +346,7 @@ _Relation._Box.Name=&#39;{BoxName}&#39;)/_Relation</code></pre>
   <span class="fu">}</span>
 <span class="fu">}</span></code></pre></div>
 <p><br></p>
-<h3 id="curl">CURL Command</h3>
+<h3 id="curl">cURL Command</h3>
 <h5 id="rolenavigationproperty">Through Role's navigationProperty list</h5>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__ctl/ExtRole(ExtRole=&#39;https%3A%2F%2Fd{UnitFQDN}%2F{CellName}%2F__role%2F__%2F{ExtRoleName}&#39;,_Relation.Name=&#39;{RelationName}&#39;,_Relation._Box.Name=&#39;{BoxName}&#39;)/_Role&quot;</span> -X GET -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span></code></pre></div>
 <p><br><br />

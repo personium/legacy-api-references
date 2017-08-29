@@ -113,7 +113,7 @@ GET
 ```
 
 <br>
-### CURLサンプル
+### cURLサンプル
 
 ```sh
 curl "https://{CellName}/{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')/\$links/_{EntityTypeName}" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'

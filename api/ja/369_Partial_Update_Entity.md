@@ -110,7 +110,7 @@ MERGE
 なし
 
 <br>
-### CURLサンプル
+### cURLサンプル
 
 ```sh
 curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')" -X MERGE -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"name": "episode","outcome": "治療後"}'

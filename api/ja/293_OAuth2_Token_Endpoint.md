@@ -21,11 +21,10 @@
 なし
 
 ### 制限事項
-Basic認証
-未実装
+なし
 
 <br>
-リクエスト
+### リクエスト
 #### リクエストURL
 ```
 {CellName}/__token
@@ -159,7 +158,7 @@ curl "https://{UnitFQDN}/{CellName}/__token" -X POST -i -d 'grant_type=urn:ietf:
 ```
 ##### リフレッシュトークン認証
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__token' -X POST -i -d 'grant_type=refresh_token&refresh_token={refresh_token}'
+curl "https://{UnitFQDN}/{CellName}/__token" -X POST -i -d 'grant_type=refresh_token&refresh_token={refresh_token}'
 ```
 ##### パスワード認証 + スキーマ認証
 ```sh

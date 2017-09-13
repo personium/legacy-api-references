@@ -60,23 +60,12 @@ Boxインストールの状況（インストール結果、進捗率、エラ�
 </ul></li>
 <li>BoxのスキーマURL</li>
 <li>Boxの作成日時</li>
-<li>Boxインストールの処理状況を取得する場合は、以下の点に注意されたい。</li>
-<li>Boxインストールでは、非同期通信方式を採用している。<br />
-そのため、クライアントにおける受付から処理完了までの呼び出しは以下の方法となる。</li>
 </ul>
-<pre><code>Boxインストールの呼び出し例（クライアントでのポーリングを30秒とした場合)
- 1. Boxインストール受付
-    -- MKCOL /{cell}/{box}
- 2. Boxインストール状況確認
-    -- GET /{cell}/{box}  -&gt; &quot;処理中&quot; で返却。
-    -- 0秒ポーリング
- 3. GET /{cell}/{box}  -&gt; &quot;処理完了&quot; で返却。
- ※上記 2. の処理をループして処理完了までポーリングする。</code></pre>
 <h3>必要な権限</h3>
 <p>read</p>
 <h3>制限事項</h3>
 <ul>
-<li>Boxインストール状況が確認可能な有効期限は、Boxインストール完了（異常終了を含む）後72時間まで</li>
+<li>Boxインストール状況が確認可能な有効期限は、Boxインストール完了（異常終了を含む）後personium-unit-config.propertiesで設定されている期限（デフォルト72時間）まで</li>
 <li>Boxインストールに失敗した場合は、EventBusに出力されたログを参照する必要がある</li>
 </ul>
 <p><br></p>
@@ -205,7 +194,7 @@ Boxインストールの状況（インストール結果、進捗率、エラ�
 <tr class="even">
 <td align="left">X-Personium-Version<br></td>
 <td align="left">APIの実行バージョン<br></td>
-<td align="left">認証時にサーバから返却されたクッキー認証値<br></td>
+<td align="left">リクエストが処理されたAPIバージョン<br></td>
 </tr>
 </tbody>
 </table>
@@ -291,7 +280,7 @@ Boxインストールの状況（インストール結果、進捗率、エラ�
   <span class="dt">&quot;status&quot;</span><span class="fu">:</span> <span class="st">&quot;installation in progress&quot;</span>
 <span class="fu">}</span></code></pre></div>
 <p>Boxインストール完了時（異常終了）の場合<br />
-（Boxインストールに失敗後、有効期限(72時間)以内）</p>
+（Boxインストールに失敗後、有効期限以内）</p>
 <div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span>
   <span class="dt">&quot;schema&quot;</span><span class="fu">:</span> <span class="st">&quot;https://example.com/app1/&quot;</span><span class="fu">,</span>
   <span class="dt">&quot;started_at&quot;</span><span class="fu">:</span> <span class="st">&quot;2017-02-13T09:00:00.000Z&quot;</span><span class="fu">,</span>

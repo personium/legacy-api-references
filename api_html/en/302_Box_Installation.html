@@ -55,14 +55,14 @@ Therefore, to check the Box installation status, use the following API.</p>
 <li><a href="303_Progress_of_Bar_File_Installation.html">Box metadata acquisition</a> If Box installation terminates abnormally, you can refer to the cause of the error by checking the Box installation status with this API. Below is a method of calling from acceptance at the client to completion of processing.</li>
 </ul>
 <pre><code>
-1 Box installation reception
-    - MKCOL / {cell} / {box}
-2 Box Installation status check
-    - GET / {cell} / {box} -&gt; return in the &quot;process&quot;.
-    - Polling for 30 seconds
-returned in&gt; &quot;processing complete&quot;.
-3 GET /{cell}/{box}  -&gt; Returned by &quot;processing completion&quot;.
-* It loops the above process 2 and polls until the process is completed.</code></pre>
+Example call of Box installation (when polling on client is set to 30 seconds)
+ 1. Box installation reception
+    -- MKCOL /{cell}/{box}
+ 2. Box Installation status check
+    -- GET /{cell}/{box}  -&gt; Returned &quot;during processing&quot;.
+    -- 30 seconds polling
+ 3. GET /{cell}/{box}  -&gt; Returned by &quot;processing completion&quot;.
+ *It loops the above process 2 and polls until the process is completed.</code></pre>
 <h3>Required Privileges</h3>
 <p>box-install</p>
 <h3>Restrictions</h3>
@@ -184,6 +184,7 @@ In order to use the log file acquisition API, the authority of &quot;log-read&qu
 <pre><code>/{CellName}/{BoxName}</code></pre>
 <h4>Request Method</h4>
 <p>MKCOL</p>
+<h4>Request Query</h4>
 <table>
 <colgroup>
 <col width="5%" />
@@ -347,7 +348,7 @@ For the file structure of the bar file, see the <a href="301_Bar_File.html"> bar
 <tr class="odd">
 <td align="left">X-Personium-Version<br></td>
 <td align="left">API version that the request is processed<br></td>
-<td align="left">The cookie authentication value returned from the server during authentication<br></td>
+<td align="left">Version of the API used to process the request<br></td>
 </tr>
 </tbody>
 </table>

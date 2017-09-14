@@ -7,14 +7,13 @@ barファイルを使って指定されたパスにBoxをインストールす�
 
 ```
 Boxインストールの呼び出し例（クライアントでのポーリングを30秒とした場合)
-1 Boxインストール受付
-    - MKCOL / {cell} / {box}
-2 Boxインストール状況確認
-    - GET / {cell} / {box} -> return in the "process".
-    - 30秒ポーリング
-returned in> "processing complete".
-3 GET /{cell}/{box}  -> "処理完了" で返却。
-※ 上記 2. の処理をループして処理完了までポーリングする。
+ 1. Boxインストール受付
+    -- MKCOL /{Cell}/{Box}
+ 2. Boxインストール状況確認
+    -- GET /{Cell}/{Box}  -> "処理中" で返却。
+    -- 30秒ポーリング
+ 3. GET /{Cell}/{Box}  -> "処理完了" で返却。
+ ※上記 2. の処理をループして処理完了までポーリングする。
 ```
 
 ### 必要な権限
@@ -71,6 +70,8 @@ box-install
 #### メソッド
 MKCOL
 
+#### リクエストクエリ
+
 |クエリ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer<br>|クッキー認証値<br>|認証時にサーバから返却されたクッキー認証値<br>|×<br>|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br>|
@@ -107,7 +108,7 @@ barファイルのファイル構成については [bar ファイル](301_Bar_F
 |:--|:--|:--|
 |Location<br>|Boxメタデータ取得API用URL<br>| <br>|
 |Access-Control-Allow-Origin<br>|クロスドメイン通信許可ヘッダ<br>|返却値は"*"固定<br>|
-|X-Personium-Version<br>|APIの実行バージョン<br>|認証時にサーバから返却されたクッキー認証値<br>|
+|X-Personium-Version<br>|APIの実行バージョン<br>|リクエストが処理されたAPIバージョン<br>|
 Locationサンプル
 ```
 Location:https://{UnitFQDN}/{CellName}/{BoxName}

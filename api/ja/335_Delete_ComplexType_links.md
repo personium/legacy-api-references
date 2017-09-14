@@ -18,7 +18,7 @@ alter-schema
 #### リクエストURL
 ```
 Propertyとの$links
-/{CellName}/{BoxName}/{CollectionName}/$metadata/ComplexType('{ComplextypeName}')/$links/_Property('{Property_name}')
+/{CellName}/{BoxName}/{CollectionName}/$metadata/ComplexType('{ComplextypeName}')/$links/_Property('{PropertyName}')
 ```
 #### メソッド
 DELETE

@@ -16,7 +16,7 @@ write
 ### リクエスト
 #### リクエストURL
 ```
-/{CellName}/{BoxName}/{ResourcePath}
+/{CellName}/{BoxName}/{CollectionName}
 ```
 
 
@@ -24,7 +24,7 @@ write
 |:--|:--|:--|
 |{CellName}<br>|セル名<br>| <br>
 |{BoxName}<br>|ボックス名<br>| <br>
-|{ResourcePath}<br>|リソースへのパス<br>|有効値 桁数:1&#65374;128<br>使用可能文字種<br>半角英数字、半角ピリオド(.)、半角アンダーバー(_)、半角ハイフン(-)<br>|
+|{CollectionName}<br>|コレクション名<br>|有効値 桁数:1&#65374;128<br>使用可能文字種<br>半角英数字、半角ピリオド(.)、半角アンダーバー(_)、半角ハイフン(-)<br>|
 
 #### メソッド
 DELETE

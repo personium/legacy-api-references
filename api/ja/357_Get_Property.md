@@ -13,7 +13,7 @@ read
 ### リクエスト
 #### リクエストURL
 ```
-/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/Property(Name='property_name',_EntityType.Name='{EntitytypeName}')
+/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/Property(Name='property_name',_EntityType.Name='{EntityTypeName}')
 ```
 #### メソッド
 GET

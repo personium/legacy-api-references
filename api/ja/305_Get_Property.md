@@ -24,7 +24,7 @@ V1.0系での制限
 ```
 または、
 ```
-/{CellName}/{BoxName}/{ResourcePath}
+/{CellName}/{BoxName}/{CollectionName}
 ```
 
 
@@ -32,7 +32,7 @@ V1.0系での制限
 |:--|:--|:--|
 |{CellName}<br>|セル名<br>| <br>
 |{BoxName}<br>|ボックス名<br>| <br>
-|{ResourcePath}<br>|リソースへのパス<br>|有効値 桁数:1&#65374;128<br>使用可能文字種<br>半角英数字、半角ピリオド(.)、半角アンダーバー(_)、半角ハイフン(-)<br>|
+|{CollectionName}<br>|コレクション名<br>|有効値 桁数:1&#65374;128<br>使用可能文字種<br>半角英数字、半角ピリオド(.)、半角アンダーバー(_)、半角ハイフン(-)<br>|
 
 #### メソッド
 PROPFIND
@@ -186,7 +186,7 @@ DTD表記
 ```xml
 <multistatus xmlns="DAV:">
     <response>
-        <href>https://{UnitFQDN}/{CellName}/{BoxName}</href>
+        <href>https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}</href>
         <propstat>
             <prop>
                 <creationdate>2017-02-15T01:52:34.635+0000</creationdate>

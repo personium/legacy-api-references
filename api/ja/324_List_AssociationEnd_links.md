@@ -17,7 +17,7 @@ AssociationEndに紐付いたODataリソースを一覧取得する
 ### リクエスト
 #### リクエストURL
 ```
-/{CellName}/{BoxName}/{CollectionName}/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntitytypeName}')/$links/_AssociationEnd
+/{CellName}/{BoxName}/{CollectionName}/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')/$links/_AssociationEnd
 ```
 #### メソッド
 GET

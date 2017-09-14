@@ -10,21 +10,13 @@ write-properties
 ### リクエスト
 #### リクエストURL
 ```
-/{CellName}
-```
-または、
-```
-/{CellName}/{BoxName}
-```
-または、
-```
-/{CellName}/{BoxName}/{ResourcePath}
+/{CellName}/{BoxName}/{CollectionName}
 ```
 |パス<br>|概要<br>|備考<br>|
 |:--|:--|:--|
 |{CellName}<br>|セル名<br>| <br>
 |{BoxName}<br>|ボックス名<br>| <br>
-|{ResourcePath}<br>|リソースへのパス<br>|有効値 桁数:1&#65374;128<br>使用可能文字種<br>半角英数字、半角ピリオド(.)、半角アンダーバー(_)、半角ハイフン(-)<br>|
+|{CollectionName}<br>|コレクション名<br>|有効値 桁数:1&#65374;128<br>使用可能文字種<br>半角英数字、半角ピリオド(.)、半角アンダーバー(_)、半角ハイフン(-)<br>|
 #### メソッド
 PROPPATCH
 #### リクエストクエリ
@@ -132,7 +124,7 @@ PROPPATCH
 ```xml
 <multistatus xmlns="DAV:">
     <response>
-        <href>https://{CellName}/{BoxName}/{ResourcePath}</href>
+        <href>https://{CellName}/{BoxName}/{CollectionName}</href>
         <propstat>
             <prop>
                 <Z:Author xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/">author1</Z:Author>
@@ -149,7 +141,7 @@ PROPPATCH
 ### cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ResourcePath}' -X PROPPATCH -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8" ?><D:propertyupdate xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" xmlns:Z="http://www.w3.com/standards/z39.50/"><D:set><D:prop><Z:Author>${author1}</Z:Author><p:hoge>${hoge}</p:hoge></D:prop></D:set><D:remove><D:prop><Z:Author/><p:hoge/></D:prop></D:remove></D:propertyupdate>'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}' -X PROPPATCH -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8" ?><D:propertyupdate xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" xmlns:Z="http://www.w3.com/standards/z39.50/"><D:set><D:prop><Z:Author>${author1}</Z:Author><p:hoge>${hoge}</p:hoge></D:prop></D:set><D:remove><D:prop><Z:Author/><p:hoge/></D:prop></D:remove></D:propertyupdate>'
 ```
 <br>
 <br>

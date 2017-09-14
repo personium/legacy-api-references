@@ -69,9 +69,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><br></p>
 <h3>リクエスト</h3>
 <h4 id="url">リクエストURL</h4>
-<pre><code>/{CellName}/__ctl/ExtRole(ExtRole=&#39;{extRoleName}&#39;,_Relation.Name=&#39;{RelationName}&#39;,_Relation._Box.Name=&#39;{BoxName}&#39;)</code></pre>
+<pre><code>/{CellName}/__ctl/ExtRole(ExtRole=&#39;{ExtRole_URL}&#39;,_Relation.Name=&#39;{RelationName}&#39;,_Relation._Box.Name=&#39;{BoxName}&#39;)</code></pre>
 <p>または、</p>
-<pre><code>/{CellName}/__ctl/ExtRole(ExtRole=&#39;{extRoleName}&#39;,_Relation.Name=&#39;{RelationName}&#39;)</code></pre>
+<pre><code>/{CellName}/__ctl/ExtRole(ExtRole=&#39;{ExtRole_URL}&#39;,_Relation.Name=&#39;{RelationName}&#39;)</code></pre>
 <p>※ _Relation._Box.Nameパラメタを省略した場合は、nullが指定されたものとする</p>
 <h4>メソッド</h4>
 <p>PUT</p>
@@ -219,7 +219,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span>
   <span class="dt">&quot;ExtRole&quot;</span><span class="fu">:</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__role/__/roletest&quot;</span><span class="fu">,</span>
   <span class="dt">&quot;_Relation.Name&quot;</span><span class="fu">:</span> <span class="st">&quot;{RelationName}&quot;</span><span class="fu">,</span>
-  <span class="dt">&quot;_Relation._Box.Name&quot;</span><span class="fu">:</span> <span class="st">&quot;{BoxName}&quot;</span>  
+  <span class="dt">&quot;_Relation._Box.Name&quot;</span><span class="fu">:</span> <span class="st">&quot;{BoxName}&quot;</span>
 <span class="fu">}</span></code></pre></div>
 <p><br></p>
 <h3>レスポンス</h3>

@@ -19,7 +19,7 @@ write
 ### リクエスト
 #### リクエストURL
 ```
-/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')/{NavigationProperty}
+/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')/{NavigationPropertyName}
 ```
 |パス<br>|概要<br>|
 |:--|:--|
@@ -28,7 +28,7 @@ write
 |{ODataCollecitonName}<br>|コレクション名<br>|
 |{EntityTypeName}<br>|EntityType名<br>|
 |{EntityID}<br>|EntityのID<br>|
-|{NavigationProperty}<br>|NavigationProperty名<br>|
+|{NavigationPropertyName}<br>|NavigationProperty名<br>|
 指定できるNavigationProperty名は、EntitySetと以下の関連を持つものに限る。  
 
 |From<br>|To<br>|

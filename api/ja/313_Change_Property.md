@@ -10,14 +10,6 @@ write-properties
 ### リクエスト
 #### リクエストURL
 ```
-/{CellName}
-```
-または、
-```
-/{CellName}/{BoxName}
-```
-または、
-```
 /{CellName}/{BoxName}/{ResourcePath}
 ```
 |パス<br>|概要<br>|備考<br>|

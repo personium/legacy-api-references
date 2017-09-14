@@ -13,7 +13,7 @@ alter-schema
 ### リクエスト
 #### リクエストURL
 ```
-/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/Prorerty('{Prorerty}')
+/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/Prorerty('{PropertyName}')
 ```
 #### メソッド
 PUT
@@ -71,7 +71,7 @@ JSON
 ### cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/Prorerty('animal')" -X PUT -i -H 'If-Match: *' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{Prorerty}"}'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/Prorerty('animal')" -X PUT -i -H 'If-Match: *' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{PropertyName}"}'
 ```
 <br>
 <br>

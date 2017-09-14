@@ -116,11 +116,11 @@ JSON
   "d": {
     "results": {
       "__metadata": {
-        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/$metadata/EntityType('{EntitytypeName}')",
+        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/$metadata/EntityType('{EntityTypeName}')",
         "etag": "W/\"1-1487589344011\"",
         "type": "ODataSvcSchema.EntityType"
       },
-      "Name": "{EntitytypeName}",
+      "Name": "{EntityTypeName}",
       "__published": "/Date(1487589344011)/",
       "__updated": "/Date(1487589344011)/"
     }

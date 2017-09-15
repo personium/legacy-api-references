@@ -71,7 +71,7 @@ PUT
 ### cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ResourceName}" -X PUT -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{【ファイル内容】}'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ResourcePath}" -X PUT -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{【ファイル内容】}'
 ```
 <br>
 <br>

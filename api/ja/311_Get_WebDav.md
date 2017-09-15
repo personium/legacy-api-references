@@ -84,7 +84,7 @@ Basic認証エラーの場合は 400 + WWW-Authenticated:Basicヘッダを返却
 ### cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}" -X GET -i -H 'If-None-Match:"1-1372742704414"' -H 'Range:bytes=10-20 ' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ResourcePath}" -X GET -i -H 'If-None-Match:"1-1372742704414"' -H 'Range:bytes=10-20 ' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 <br>
 <br>

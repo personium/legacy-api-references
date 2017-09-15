@@ -20,10 +20,6 @@ V1.0系での制限
 ### リクエスト
 #### リクエストURL
 ```
-/{CellName}/{BoxName}
-```
-または、
-```
 /{CellName}/{BoxName}/{ResourcePath}
 ```
 
@@ -186,7 +182,7 @@ DTD表記
 ```xml
 <multistatus xmlns="DAV:">
     <response>
-        <href>https://{UnitFQDN}/{CellName}/{BoxName}</href>
+        <href>https://{UnitFQDN}/{CellName}/{BoxName}/{ResourcePath}</href>
         <propstat>
             <prop>
                 <creationdate>2017-02-15T01:52:34.635+0000</creationdate>
@@ -205,7 +201,7 @@ DTD表記
 ### cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}" -X PROPFIND -i  -H 'Depth:1' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8"?><D:propfind xmlns:D="DAV:"><D:allprop/></D:propfind>'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ResourcePath}" -X PROPFIND -i  -H 'Depth:1' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8"?><D:propfind xmlns:D="DAV:"><D:allprop/></D:propfind>'
 ```
 <br>
 <br>

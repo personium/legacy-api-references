@@ -25,63 +25,63 @@ Relationとの$links情報を削除する
 ```
 ##### Linking with ExtCell
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_ExtCell('{extcell_url}')
+/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_ExtCell('{ExtCell_URL}')
 ```
 または、
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}')/$links/_ExtCell('{extcell_url}')
+/{CellName}/__ctl/Relation(Name='{RelationName}')/$links/_ExtCell('{ExtCell_URL}')
 ```
 または、
 ```
-/{CellName}/__ctl/Relation('{RelationName}')/$links/_ExtCell('{extcell_url}')
+/{CellName}/__ctl/Relation('{RelationName}')/$links/_ExtCell('{ExtCell_URL}')
 ```
 ##### Linking with ExtRole
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_ExtRole(ExtRole='{extrole_url}',_Relation.Name='{RelationName}',_Relation._Box.Name='{BoxName}')
+/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_ExtRole(ExtRole='{ExtRole_URL}',_Relation.Name='{RelationName}',_Relation._Box.Name='{BoxName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}')/$links/_ExtRole(ExtRole='{extrole_url}',_Relation.Name='{RelationName}',_Relation._Box.Name='{BoxName}')
+/{CellName}/__ctl/Relation(Name='{RelationName}')/$links/_ExtRole(ExtRole='{ExtRole_URL}',_Relation.Name='{RelationName}',_Relation._Box.Name='{BoxName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Relation('{RelationName}')/$links/_ExtRole(ExtRole='{extrole_url}',_Relation.Name='{RelationName}',_Relation._Box.Name='{BoxName}')
+/{CellName}/__ctl/Relation('{RelationName}')/$links/_ExtRole(ExtRole='{ExtRole_URL}',_Relation.Name='{RelationName}',_Relation._Box.Name='{BoxName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_ExtRole(ExtRole='{extrole_url}',_Relation.Name='{RelationName}')
+/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_ExtRole(ExtRole='{ExtRole_URL}',_Relation.Name='{RelationName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}')/$links/_ExtRole(ExtRole='{extrole_url}',_Relation.Name='{RelationName}')
+/{CellName}/__ctl/Relation(Name='{RelationName}')/$links/_ExtRole(ExtRole='{ExtRole_URL}',_Relation.Name='{RelationName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Relation('{RelationName}')/$links/_ExtRole(ExtRole='{extrole_url}',_Relation.Name='{RelationName}')
+/{CellName}/__ctl/Relation('{RelationName}')/$links/_ExtRole(ExtRole='{ExtRole_URL}',_Relation.Name='{RelationName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_ExtRole(ExtRole='{extrole_url}')
+/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_ExtRole(ExtRole='{ExtRole_URL}')
 ```
 または、
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}')/$links/_ExtRole(ExtRole='{extrole_url}')
+/{CellName}/__ctl/Relation(Name='{RelationName}')/$links/_ExtRole(ExtRole='{ExtRole_URL}')
 ```
 または、
 ```
-/{CellName}/__ctl/Relation('{RelationName}')/$links/_ExtRole(ExtRole='{extrole_url}')
+/{CellName}/__ctl/Relation('{RelationName}')/$links/_ExtRole(ExtRole='{ExtRole_URL}')
 ```
 または、
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_ExtRole('{extrole_url}')
+/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_ExtRole('{ExtRole_URL}')
 ```
 または、
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}')/$links/_ExtRole('{extrole_url}')
+/{CellName}/__ctl/Relation(Name='{RelationName}')/$links/_ExtRole('{ExtRole_URL}')
 ```
 または、
 ```
-/{CellName}/__ctl/Relation('{RelationName}')/$links/_ExtRole('{extrole_url}')
+/{CellName}/__ctl/Relation('{RelationName}')/$links/_ExtRole('{ExtRole_URL}')
 ```
 ##### Linking with Role
 ```
@@ -160,7 +160,7 @@ DELETE
 ### cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/\$links/_Role(Name='{RelationName}',_Box.Name='{BoxName}')" -X DELETE -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/\$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')" -X DELETE -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 <br>
 <br>

@@ -1,6 +1,6 @@
 # コレクション移動名称変更
 ### 概要
-WebDAVコレクションファイルの移動/名前の変更。  
+WebDAVコレクションの名前の変更及びWebDAVファイルの移動/名前の変更。  
 ※ プロパティの変更は出来ない
 ### 必要な権限
 write
@@ -14,11 +14,7 @@ write
 ### リクエスト
 #### リクエストURL
 ```
-/{CellName}/{BoxName}/{CollectionName}/
-```
-または、
-```
-/{CellName}/{BoxName}/{CollectionName}/{FileName}/
+/{CellName}/{BoxName}/{ResourcePath}/
 ```
 #### メソッド
 MOVE

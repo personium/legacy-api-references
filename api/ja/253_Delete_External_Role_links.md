@@ -16,17 +16,17 @@ ExtRoleに紐付いたRoleの$links情報を削除する
 ### リクエスト
 #### リクエストURL
 ```
-/{CellName}/__ctl/ExtRole(ExtRole='{ExtRole}')/$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')
+/{CellName}/__ctl/ExtRole(ExtRole='{ExtRole_URL}')/$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')
 ```
 または、
 ```
-/{CellName}/__ctl/ExtRole(ExtRole='{ExtRole}')/$links/_Role(Name='{RoleName}')
+/{CellName}/__ctl/ExtRole(ExtRole='{ExtRole_URL}')/$links/_Role(Name='{RoleName}')
 ```
 または、
 ```
-/{CellName}/__ctl/ExtRole(ExtRole='{ExtRole}')/$links/_Role('{RoleName}')
+/{CellName}/__ctl/ExtRole(ExtRole='{ExtRole_URL}')/$links/_Role('{RoleName}')
 ```
-※ {ExtRole}についてはURLエンコードが必要
+※ {ExtRole_URL}についてはURLエンコードが必要
 ※ \_Box.Nameパラメタを省略した場合は、nullが指定されたものとする
 #### メソッド
 DELETE

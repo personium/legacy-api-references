@@ -17,7 +17,7 @@ alter-schema
 #### リクエストURL
 EntityTypeとの$links
 ```
-/{CellName}/{BoxName}/{CollectionName}/$metadata/Property(Name='{Property_name}',_EntityType.Name='{EntitytypeName}')/$links/_EntityType
+/{CellName}/{BoxName}/{CollectionName}/$metadata/Property(Name='{PropertyName}',_EntityType.Name='{EntityTypeName}')/$links/_EntityType
 ```
 #### メソッド
 POST

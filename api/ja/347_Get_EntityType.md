@@ -99,21 +99,21 @@ GET
   "d": {
     "results": {
       "__metadata": {
-        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonName}/$metadata/EntityType('{EntitytypeName}')",
+        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonName}/$metadata/EntityType('{EntityTypeName}')",
         "etag": "W/\"1-1487589344011\"",
         "type": "ODataSvcSchema.EntityType"
       },
-      "Name": "{EntitytypeName}",
+      "Name": "{EntityTypeName}",
       "__published": "/Date(1487589344011)/",
       "__updated": "/Date(1487589344011)/",
       "_AssociationEnd": {
         "__deferred": {
-          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonName}/$metadata/EntityType('{EntitytypeName}')/_AssociationEnd"
+          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonName}/$metadata/EntityType('{EntityTypeName}')/_AssociationEnd"
         }
       },
       "_Property": {
         "__deferred": {
-          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonName}/$metadata/EntityType('{EntitytypeName}')/_Property"
+          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonName}/$metadata/EntityType('{EntityTypeName}')/_Property"
         }
       }
     }
@@ -125,7 +125,7 @@ GET
 ### cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonName}/$metadata/EntityType('{EntitytypeName}')" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonName}/$metadata/EntityType('{EntityTypeName}')" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 <br>
 <br>

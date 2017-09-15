@@ -14,7 +14,7 @@ alter-schema
 #### リクエストURL
 EntityTypeとLinkしている場合
 ```
-/{CellName}/{BoxName}/{CollectionName}/$metadata/Property(Name='{Property_name}',_EntityType.Name='{EntitytypeName}')/$links/_EntityType('{EntitytypeName}')
+/{CellName}/{BoxName}/{CollectionName}/$metadata/Property(Name='{PropertyName}',_EntityType.Name='{EntityTypeName}')/$links/_EntityType('{EntityTypeName}')
 ```
 #### メソッド
 DELETE

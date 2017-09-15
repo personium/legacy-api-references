@@ -22,15 +22,15 @@ Extcellに紐付いたODataリソースを更新する<br>以下のODataリソ�
 #### リクエストURL
 ##### ExtCellとの$links
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_ExtCell('{extcell_url}')
+/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_ExtCell('{ExtCell_URL}')
 ```
 または、
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}')/$links/_ExtCell('{extcell_url}')
+/{CellName}/__ctl/Relation(Name='{RelationName}')/$links/_ExtCell('{ExtCell_URL}')
 ```
 または、
 ```
-/{CellName}/__ctl/Relation('{RelationName}')/$links/_ExtCell('{extcell_url}')
+/{CellName}/__ctl/Relation('{RelationName}')/$links/_ExtCell('{ExtCell_URL}')
 ```
 #### メソッド
 PUT

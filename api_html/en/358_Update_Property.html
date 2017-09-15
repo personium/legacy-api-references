@@ -61,7 +61,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><br></p>
 <h3>Request</h3>
 <h4 id="url">Request URL</h4>
-<pre><code>/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/Prorerty(&#39;{Prorerty}&#39;)</code></pre>
+<pre><code>/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/Prorerty(&#39;{PropertyName}&#39;)</code></pre>
 <h4>Request Method</h4>
 <p>PUT</p>
 <h4>Request Query</h4>
@@ -254,7 +254,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>None</p>
 <p><br></p>
 <h3 id="curl">cURL Command</h3>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/</span><span class="va">$metadata</span><span class="st">/Prorerty(&#39;animal&#39;)&quot;</span> -X PUT -i -H <span class="st">&#39;If-Match: *&#39;</span> -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;{&quot;Name&quot;:&quot;{Prorerty}&quot;}&#39;</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/</span><span class="va">$metadata</span><span class="st">/Prorerty(&#39;animal&#39;)&quot;</span> -X PUT -i -H <span class="st">&#39;If-Match: *&#39;</span> -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;{&quot;Name&quot;:&quot;{PropertyName}&quot;}&#39;</span></code></pre></div>
 <p><br><br />
 <br><br />
 <br></p>

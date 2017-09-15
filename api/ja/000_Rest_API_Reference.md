@@ -156,8 +156,6 @@ PersoniumアプリケーションやCell利用者が作成したサーバサイ�
 #### [CORS対応](002_CORS_Support.html)
 #### [クロスドメインポリシーファイル取得](001_Cross_Domain_Policy_File.html)
 <br>
-##### [用語集](900_Glossary.html)
-<br>
 <br>
 <br>
 ###### Copyright 2017    FUJITSU LIMITED

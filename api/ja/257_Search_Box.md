@@ -44,7 +44,7 @@ GET
 
 [$skip クエリ](402_Skip_Query.html)
 
-[全文検索(q)クエリ](408_Full_Text_Search_Queryhtml)
+[全文検索(q)クエリ](408_Full_Text_Search_Query.html)
 
 #### リクエストヘッダ
 

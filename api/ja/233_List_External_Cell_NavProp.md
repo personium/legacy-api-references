@@ -18,21 +18,21 @@
 #### リクエストURL
 ##### RoleへのnavigationProperty
 ```
-/{CellName}/__ctl/ExtCell(Url='{ExtCell_URL}')/_Role
+/{CellName}/__ctl/ExtCell(Url='{ExtCellURL}')/_Role
 ```
 または、
 ```
-/{CellName}/__ctl/ExtCell('{ExtCell_URL}')/_Role
+/{CellName}/__ctl/ExtCell('{ExtCellURL}')/_Role
 ```
 ##### RelationへのnavigationProperty
 ```
-/{CellName}/__ctl/ExtCell(Url='{ExtCell_URL}')/_Relation
+/{CellName}/__ctl/ExtCell(Url='{ExtCellURL}')/_Relation
 ```
 または、
 ```
-/{CellName}/__ctl/ExtCell('{ExtCell_URL}')/_Relation
+/{CellName}/__ctl/ExtCell('{ExtCellURL}')/_Relation
 ```
-※{ExtCell_URL}についてはURLエンコードが必要
+※{ExtCellURL}についてはURLエンコードが必要
 
 #### メソッド
 GET

@@ -17,15 +17,15 @@ Boxとの$links情報を削除する
 #### リクエストURL
 ##### Roleとの紐付け
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{Schema_URL}')/$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')
+/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{Schema_URL}')/$links/_Role(Name='{RoleName}')
+/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/_Role(Name='{RoleName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{Schema_URL}')/$links/_Role('{RoleName}')
+/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/_Role('{RoleName}')
 ```
 または、
 ```
@@ -53,15 +53,15 @@ Boxとの$links情報を削除する
 ```
 ##### Relationとの紐付け
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{Schema_URL}')/$links/_Relation(Name='{RelationName}',_Box.Name='{BoxName}')
+/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/_Relation(Name='{RelationName}',_Box.Name='{BoxName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{Schema_URL}')/$links/_Relation(Name='{RelationName}')
+/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/_Relation(Name='{RelationName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{Schema_URL}')/$links/_Relation('{RelationName}')
+/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/_Relation('{RelationName}')
 ```
 または、
 ```

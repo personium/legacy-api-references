@@ -15,51 +15,51 @@ ExtCellとの$links情報を削除する
 #### リクエストURL
 ##### Correlating with the role
 ```
-/{CellName}/__ctl/ExtCell(Url='{ExtCell_URL}')/$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')
+/{CellName}/__ctl/ExtCell(Url='{ExtCellURL}')/$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')
 ```
 または、
 ```
-/{CellName}/__ctl/ExtCell(Url='{ExtCell_URL}')/$links/_Role(Name='{RoleName}')
+/{CellName}/__ctl/ExtCell(Url='{ExtCellURL}')/$links/_Role(Name='{RoleName}')
 ```
 または、
 ```
-/{CellName}/__ctl/ExtCell(Url='{ExtCell_URL}')/$links/_Role('{RoleName}')
+/{CellName}/__ctl/ExtCell(Url='{ExtCellURL}')/$links/_Role('{RoleName}')
 ```
 または、
 ```
-/{CellName}/__ctl/ExtCell('{ExtCell_URL}')/$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')
+/{CellName}/__ctl/ExtCell('{ExtCellURL}')/$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')
 ```
 または、
 ```
-/{CellName}/__ctl/ExtCell('{ExtCell_URL}')/$links/_Role(Name='{RoleName}')
+/{CellName}/__ctl/ExtCell('{ExtCellURL}')/$links/_Role(Name='{RoleName}')
 ```
 または、
 ```
-/{CellName}/__ctl/ExtCell('{ExtCell_URL}')/$links/_Role('{RoleName}')
+/{CellName}/__ctl/ExtCell('{ExtCellURL}')/$links/_Role('{RoleName}')
 ```
 ##### Correlating with the relation
 ```
-/{CellName}/__ctl/ExtCell(Url='{ExtCell_URL}')/$links/_Relation(Name='{RelationName}',_Box.Name='{BoxName}')
+/{CellName}/__ctl/ExtCell(Url='{ExtCellURL}')/$links/_Relation(Name='{RelationName}',_Box.Name='{BoxName}')
 ```
 または、
 ```
-/{CellName}/__ctl/ExtCell(Url='{ExtCell_URL}')/$links/_Relation(Name='{RelationName}')
+/{CellName}/__ctl/ExtCell(Url='{ExtCellURL}')/$links/_Relation(Name='{RelationName}')
 ```
 または、
 ```
-/{CellName}/__ctl/ExtCell(Url='{ExtCell_URL}')/$links/_Relation('{RelationName}')
+/{CellName}/__ctl/ExtCell(Url='{ExtCellURL}')/$links/_Relation('{RelationName}')
 ```
 または、
 ```
-/{CellName}/__ctl/ExtCell('{ExtCell_URL}')/$links/_Relation(Name='{RelationName}',_Box.Name='{BoxName}')
+/{CellName}/__ctl/ExtCell('{ExtCellURL}')/$links/_Relation(Name='{RelationName}',_Box.Name='{BoxName}')
 ```
 または、
 ```
-/{CellName}/__ctl/ExtCell('{ExtCell_URL}')/$links/_Relation(Name='{RelationName}')
+/{CellName}/__ctl/ExtCell('{ExtCellURL}')/$links/_Relation(Name='{RelationName}')
 ```
 または、
 ```
-/{CellName}/__ctl/ExtCell('{ExtCell_URL}')/$links/_Relation('{RelationName}')
+/{CellName}/__ctl/ExtCell('{ExtCellURL}')/$links/_Relation('{RelationName}')
 ```
 ※ \_Box.Nameパラメタを省略した場合は、nullが指定されたものとする
 

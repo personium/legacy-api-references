@@ -14,9 +14,9 @@ ExtRoleに$linksで指定したRoleのODataリソースを紐付ける
 ### リクエスト
 #### リクエストURL
 ```
-/{CellName}/__ctl/ExtRole(ExtRole='{ExtRole_URL}')/$links/_Role
+/{CellName}/__ctl/ExtRole(ExtRole='{ExtRoleURL}')/$links/_Role
 ```
-※ {ExtRole_URL}についてはURLエンコードが必要
+※ {ExtRoleURL}についてはURLエンコードが必要
 ※ \_Box.Nameパラメタを省略した場合は、nullが指定されたものとする
 #### メソッド
 POST

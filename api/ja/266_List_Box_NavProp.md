@@ -17,7 +17,7 @@
 #### リクエストURL
 ##### RoleへのnavigationProperty
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}',Schema='schema_url')/_Role
+/{CellName}/__ctl/Box(Name='{BoxName}',Schema='schemaURL')/_Role
 ```
 または、
 ```
@@ -29,7 +29,7 @@
 ```
 ##### RelationへのnavigationProperty
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}',Schema='schema_url')/_Relation
+/{CellName}/__ctl/Box(Name='{BoxName}',Schema='schemaURL')/_Relation
 ```
 または、
 ```

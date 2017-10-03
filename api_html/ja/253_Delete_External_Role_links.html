@@ -62,12 +62,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><br></p>
 <h3>リクエスト</h3>
 <h4 id="url">リクエストURL</h4>
-<pre><code>/{CellName}/__ctl/ExtRole(ExtRole=&#39;{ExtRole_URL}&#39;)/$links/_Role(Name=&#39;{RoleName}&#39;,_Box.Name=&#39;{BoxName}&#39;)</code></pre>
+<pre><code>/{CellName}/__ctl/ExtRole(ExtRole=&#39;{ExtRoleURL}&#39;)/$links/_Role(Name=&#39;{RoleName}&#39;,_Box.Name=&#39;{BoxName}&#39;)</code></pre>
 <p>または、</p>
-<pre><code>/{CellName}/__ctl/ExtRole(ExtRole=&#39;{ExtRole_URL}&#39;)/$links/_Role(Name=&#39;{RoleName}&#39;)</code></pre>
+<pre><code>/{CellName}/__ctl/ExtRole(ExtRole=&#39;{ExtRoleURL}&#39;)/$links/_Role(Name=&#39;{RoleName}&#39;)</code></pre>
 <p>または、</p>
-<pre><code>/{CellName}/__ctl/ExtRole(ExtRole=&#39;{ExtRole_URL}&#39;)/$links/_Role(&#39;{RoleName}&#39;)</code></pre>
-<p>※ {ExtRole_URL}についてはURLエンコードが必要<br />
+<pre><code>/{CellName}/__ctl/ExtRole(ExtRole=&#39;{ExtRoleURL}&#39;)/$links/_Role(&#39;{RoleName}&#39;)</code></pre>
+<p>※ {ExtRoleURL}についてはURLエンコードが必要<br />
 ※ _Box.Nameパラメタを省略した場合は、nullが指定されたものとする</p>
 <h4>メソッド</h4>
 <p>DELETE</p>

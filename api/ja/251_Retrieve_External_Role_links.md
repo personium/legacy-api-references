@@ -20,14 +20,14 @@ ExtRoleに紐付いたODataリソースを一覧取得する<br>以下のOData�
 #### リクエストURL
 ##### Roleとの$links
 ```
-/{CellName}/__ctl/ExtRole(ExtRole='{ExtRole_URL}')/$links/_Role
+/{CellName}/__ctl/ExtRole(ExtRole='{ExtRoleURL}')/$links/_Role
 ```
 ##### Relationとの$links
 ```
-/{CellName}/__ctl/ExtRole(ExtRole='{ExtRole_URL}')/$links/_Relation
+/{CellName}/__ctl/ExtRole(ExtRole='{ExtRoleURL}')/$links/_Relation
 ```
 
-※ {ExtRole_URL}についてはURLエンコードが必要です。  
+※ {ExtRoleURL}についてはURLエンコードが必要です。  
 ※ \_Box.Nameパラメタを省略した場合は、nullが指定されたものとする
 
 #### メソッド

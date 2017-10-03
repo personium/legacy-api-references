@@ -18,19 +18,19 @@ ExtCellに紐付いたODataリソースを一覧取得する<br>以下のOData�
 #### リクエストURL
 ##### Correlating with the role
 ```
-/{CellName}/__ctl/ExtCell(Url='{ExtCell_URL}')/$links/_Role
+/{CellName}/__ctl/ExtCell(Url='{ExtCellURL}')/$links/_Role
 ```
 または、
 ```
-/{CellName}/__ctl/ExtCell('{ExtCell_URL}')/$links/_Role
+/{CellName}/__ctl/ExtCell('{ExtCellURL}')/$links/_Role
 ```
 ##### Correlating with the relation
 ```
-/{CellName}/__ctl/ExtCell(Url='{ExtCell_URL}')/$links/_Relation
+/{CellName}/__ctl/ExtCell(Url='{ExtCellURL}')/$links/_Relation
 ```
 または、
 ```
-/{CellName}/__ctl/ExtCell('{ExtCell_URL}')/$links/_Relation
+/{CellName}/__ctl/ExtCell('{ExtCellURL}')/$links/_Relation
 ```
 ※ \_Box.Nameパラメタを省略した場合は、nullが指定されたものとする
 #### メソッド

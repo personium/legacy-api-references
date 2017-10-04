@@ -45,7 +45,7 @@ PROPPATCH
 |URI<br>|概要<br>|参考prefix<br>|
 |:--|:--|:--|
 |DAV:<br>|WebDAVの名前空間<br>|D:<br>|
-|urn:x-personium:xmlns<br>|Personiumの名前空間<br>|p:<br>|
+|urn:x-Personium:xmlns<br>|Personiumの名前空間<br>|p:<br>|
 |http://www.w3.com/standards/z39.50/<br>|proppatchの名前空間<br>|Z:<br>|
 ※ 参考prefixは以下表の可読性を高めるためのもので、このprefix文字列の使用を保証するものでも要求するものでもありません。
 ##### XMLの構造
@@ -65,7 +65,7 @@ PROPPATCH
 #### リクエストサンプル
 ```xml
 <D:propertyupdate xmlns:D="DAV:"
-    xmlns:p="urn:x-personium:xmlns"
+    xmlns:p="urn:x-Personium:xmlns"
     xmlns:Z="http://www.w3.com/standards/z39.50/">
     <D:set>
         <D:prop>
@@ -127,10 +127,10 @@ PROPPATCH
         <href>https://{CellName}/{BoxName}/{ResourcePath}</href>
         <propstat>
             <prop>
-                <Z:Author xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/">author1</Z:Author>
-                <p:hoge xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/">foo</p:hoge>
-                <Z:Author xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/"/>
-                <p:hoge xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/"/>
+                <Z:Author xmlns:p="urn:x-Personium:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/">author1</Z:Author>
+                <p:hoge xmlns:p="urn:x-Personium:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/">foo</p:hoge>
+                <Z:Author xmlns:p="urn:x-Personium:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/"/>
+                <p:hoge xmlns:p="urn:x-Personium:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/"/>
             </prop>
             <status>HTTP/1.1 200 OK</status>
         </propstat>
@@ -141,7 +141,7 @@ PROPPATCH
 ### cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ResourcePath}' -X PROPPATCH -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8" ?><D:propertyupdate xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" xmlns:Z="http://www.w3.com/standards/z39.50/"><D:set><D:prop><Z:Author>${author1}</Z:Author><p:hoge>${hoge}</p:hoge></D:prop></D:set><D:remove><D:prop><Z:Author/><p:hoge/></D:prop></D:remove></D:propertyupdate>'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ResourcePath}' -X PROPPATCH -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8" ?><D:propertyupdate xmlns:D="DAV:" xmlns:p="urn:x-Personium:xmlns" xmlns:Z="http://www.w3.com/standards/z39.50/"><D:set><D:prop><Z:Author>${author1}</Z:Author><p:hoge>${hoge}</p:hoge></D:prop></D:set><D:remove><D:prop><Z:Author/><p:hoge/></D:prop></D:remove></D:propertyupdate>'
 ```
 <br>
 <br>

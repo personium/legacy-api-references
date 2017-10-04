@@ -113,7 +113,7 @@ DTD表記
 |URI<br>|概要<br>|参考prefix<br>|
 |:--|:--|:--|
 |DAV:<br>|WebDAVの名前空間<br>|D:<br>|
-|urn:x-personium:xmlns<br>|Personiumの名前空間<br>|p:<br>|
+|urn:x-Personium:xmlns<br>|Personiumの名前空間<br>|p:<br>|
 
 ※ 参考prefixは以下表の可読性を高めるためのもので、このprefix文字列の使用を保証するものでも要求するものでもありません。
 
@@ -194,7 +194,7 @@ DTD表記
                 <resourcetype>
                     <collection/>
                 </resourcetype>
-                <acl xmlns:p="urn:x-personium:xmlns"/>
+                <acl xmlns:p="urn:x-Personium:xmlns"/>
             </prop>
             <status>HTTP/1.1 200 OK</status>
         </propstat>

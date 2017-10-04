@@ -223,7 +223,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>currentのログ取得時にログが存在しない場合は、空のレスポンスボディを返却する。<br />
 ローテートのサイズ設定値よりも5MB程度大きなサイズとなる場合がある。<br />
 出力形式は以下の通り。</p>
-<pre><code>{dateTime},[{level}],{RequestKey},{name},{schema},{subject},{action},{object},{result}</code></pre>
+<pre><code>{dateTime},[{level}],{RequestKey},{name},{Schema},{subject},{action},{object},{result}</code></pre>
 <table>
 <colgroup>
 <col width="5%" />
@@ -259,8 +259,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <td align="left">文字列<br></td>
 </tr>
 <tr class="odd">
-<td align="left">schema<br></td>
-<td align="left">受け付けたURLのboxのschema<br></td>
+<td align="left">Schema<br></td>
+<td align="left">受け付けたURLのboxのSchema<br></td>
 <td align="left">URL形式<br></td>
 </tr>
 <tr class="even">
@@ -289,7 +289,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><a href="004_Error_Messages.html">エラーメッセージ一覧</a>を参照</p>
 <h4>レスポンスサンプル</h4>
 <p>外部イベント</p>
-<pre><code>2013-02-04T00:50:12.761Z,[INFO ],Req_animal-access_1001,client,https://{UnitFQDN}/{CellName}/,https://{UnitFQDN}/servicemanager/#admin,authSchema,/{CellName}/{BoxName}/service_name/token_keeper,[XXXX2033] Success schema authorization. cellUrl=https://{UnitFQDN}/keeper-d4a57bb26eae481486b07d06487051d1/</code></pre>
+<pre><code>2013-02-04T00:50:12.761Z,[INFO ],Req_animal-access_1001,client,https://{UnitFQDN}/{CellName}/,https://{UnitFQDN}/servicemanager/#admin,authSchema,/{CellName}/{BoxName}/service_name/token_keeper,[XXXX2033] Success Schema authorization. cellUrl=https://{UnitFQDN}/keeper-d4a57bb26eae481486b07d06487051d1/</code></pre>
 <p>内部イベント</p>
 <pre><code>2013-04-18T14:52:39.778Z,[ERROR],PCS-1364350331902,server,https://{UnitFQDN}/appCell/,https://{UnitFQDN}/appCell/#staff,POST,/homeClinic/__token,200</code></pre>
 <p><br></p>

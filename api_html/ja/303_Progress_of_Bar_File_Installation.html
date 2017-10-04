@@ -221,7 +221,7 @@ Boxインストールの状況（インストール結果、進捗率、エラ�
 <tbody>
 <tr class="odd">
 <td align="left">ルート<br></td>
-<td align="left">schema<br></td>
+<td align="left">Schema<br></td>
 <td align="left">string<br></td>
 <td align="left">Boxが紐づいているスキーマのURL<br></td>
 <td align="left">スキーマなしの場合は null<br></td>
@@ -268,13 +268,13 @@ Boxインストールの状況（インストール結果、進捗率、エラ�
 <h4>レスポンスサンプル</h4>
 <p>Boxの作成後（Boxインストール完了時を含む）</p>
 <div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span>
-  <span class="dt">&quot;schema&quot;</span><span class="fu">:</span> <span class="st">&quot;https://example.com/app1/&quot;</span><span class="fu">,</span>
+  <span class="dt">&quot;Schema&quot;</span><span class="fu">:</span> <span class="st">&quot;https://example.com/app1/&quot;</span><span class="fu">,</span>
   <span class="dt">&quot;installed_at&quot;</span><span class="fu">:</span> <span class="st">&quot;2017-02-13T09:00:00.000Z&quot;</span><span class="fu">,</span>
   <span class="dt">&quot;status&quot;</span><span class="fu">:</span> <span class="st">&quot;ready&quot;</span>
 <span class="fu">}</span></code></pre></div>
 <p>Boxインストール処理中の場合</p>
 <div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span>
-  <span class="dt">&quot;schema&quot;</span><span class="fu">:</span> <span class="st">&quot;https://example.com/app1/&quot;</span><span class="fu">,</span>
+  <span class="dt">&quot;Schema&quot;</span><span class="fu">:</span> <span class="st">&quot;https://example.com/app1/&quot;</span><span class="fu">,</span>
   <span class="dt">&quot;started_at&quot;</span><span class="fu">:</span> <span class="st">&quot;2017-02-13T09:00:00.000Z&quot;</span><span class="fu">,</span>
   <span class="dt">&quot;progress&quot;</span><span class="fu">:</span> <span class="st">&quot;81%&quot;</span><span class="fu">,</span>
   <span class="dt">&quot;status&quot;</span><span class="fu">:</span> <span class="st">&quot;installation in progress&quot;</span>
@@ -282,7 +282,7 @@ Boxインストールの状況（インストール結果、進捗率、エラ�
 <p>Boxインストール完了時（異常終了）の場合<br />
 （Boxインストールに失敗後、有効期限以内）</p>
 <div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span>
-  <span class="dt">&quot;schema&quot;</span><span class="fu">:</span> <span class="st">&quot;https://example.com/app1/&quot;</span><span class="fu">,</span>
+  <span class="dt">&quot;Schema&quot;</span><span class="fu">:</span> <span class="st">&quot;https://example.com/app1/&quot;</span><span class="fu">,</span>
   <span class="dt">&quot;started_at&quot;</span><span class="fu">:</span> <span class="st">&quot;2017-02-13T09:00:00.000Z&quot;</span><span class="fu">,</span>
   <span class="dt">&quot;progress&quot;</span><span class="fu">:</span> <span class="st">&quot;81%&quot;</span><span class="fu">,</span>
   <span class="dt">&quot;message&quot;</span><span class="fu">:</span> <span class="fu">{</span>

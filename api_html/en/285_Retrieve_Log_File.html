@@ -223,7 +223,7 @@ If you exceed the maximum number of generations to hold rotate when the log file
 <p>If there is no log at current log acquisition time, return an empty response body.<br />
 There is a possibility that the rotate size is about 5MB larger than it configured<br />
 Output form is following</p>
-<pre><code>{dateTime},[{level}],{RequestKey},{name},{schema},{subject},{action},{object},{result}</code></pre>
+<pre><code>{dateTime},[{level}],{RequestKey},{name},{Schema},{subject},{action},{object},{result}</code></pre>
 <table>
 <colgroup>
 <col width="5%" />
@@ -259,7 +259,7 @@ Output form is following</p>
 <td align="left">String<br></td>
 </tr>
 <tr class="odd">
-<td align="left">schema<br></td>
+<td align="left">Schema<br></td>
 <td align="left">Schema of box of accepted URL<br></td>
 <td align="left">URL format<br></td>
 </tr>
@@ -289,7 +289,7 @@ Output form is following</p>
 <p>Refer to <a href="004_Error_Messages.html">Error Message List</a></p>
 <h4>Response Sample</h4>
 <p>External Events</p>
-<pre><code>2013-02-04T00:50:12.761Z,[INFO ],Req_animal-access_1001,client,https://{UnitFQDN}/{CellName}/,https://{UnitFQDN}/servicemanager/#admin,authSchema,/{CellName}/{BoxName}/service_name/token_keeper,[XXXX2033] Success schema authorization. cellUrl=https://{UnitFQDN}/keeper-d4a57bb26eae481486b07d06487051d1/</code></pre>
+<pre><code>2013-02-04T00:50:12.761Z,[INFO ],Req_animal-access_1001,client,https://{UnitFQDN}/{CellName}/,https://{UnitFQDN}/servicemanager/#admin,authSchema,/{CellName}/{BoxName}/service_name/token_keeper,[XXXX2033] Success Schema authorization. cellUrl=https://{UnitFQDN}/keeper-d4a57bb26eae481486b07d06487051d1/</code></pre>
 <p>Internal Event</p>
 <pre><code>2013-04-18T14:52:39.778Z,[ERROR],PCS-1364350331902,server,https://{UnitFQDN}/appCell/,https://{UnitFQDN}/appCell/#staff,POST,/homeClinic/__token,200</code></pre>
 <p><br></p>

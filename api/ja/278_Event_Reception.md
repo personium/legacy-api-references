@@ -46,12 +46,12 @@ JSON
 |object<br>|イベントの対象オブジェクト<br>|文字列型<br>桁数：0&#65374;51200 byte<br>|○<br>|<br>|
 |result<br>|イベントの結果<br>|文字列型<br>桁数：0&#65374;51200 byte<br>|○<br>|<br>|
 #### リクエストサンプル
-```json
+```JSON
 {
   "level":"INFO",
   "action":"authSchema",
   "object":"/{CellName}/{BoxName}/service_name/token_keeper",
-  "result":"[XXXX2033] Success schema authorization. cellUrl=https://{UnitFQDN}/keeper-d4a57bb26eae481486b07d06487051d1/"
+  "result":"[XXXX2033] Success Schema authorization. cellUrl=https://{UnitFQDN}/keeper-d4a57bb26eae481486b07d06487051d1/"
 }
 ```
 
@@ -73,7 +73,7 @@ JSON
 
 ### cURLサンプル
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__event" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"level":"INFO", "action":"authSchema", "object":"/{CellName}/{BoxName}/service_name/token_keeper", "result":"[XXXX2033] Success schema authorization. cellUrl=https://{UnitFQDN}/keeper-d4a57bb26eae481486b07d06487051d1/"}'
+curl "https://{UnitFQDN}/{CellName}/__event" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"level":"INFO", "action":"authSchema", "object":"/{CellName}/{BoxName}/service_name/token_keeper", "result":"[XXXX2033] Success Schema authorization. cellUrl=https://{UnitFQDN}/keeper-d4a57bb26eae481486b07d06487051d1/"}'
 ```
 <br>
 <br>

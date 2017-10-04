@@ -7,8 +7,8 @@ read
 
 ### 制限事項
 * リクエストヘッダのContent-Typeは全てapplication/jsonとして扱う
-* リクエストボディはjson形式のみ受け付ける
-* レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはjson形式とする
+* リクエストボディはJSON形式のみ受け付ける
+* レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはJSON形式とする
 * $formatクエリオプションにatom または xmlを指定した場合、エラーとはならないが、レスポンスボディのデータの保証はない
 
 <br>
@@ -93,7 +93,7 @@ GET
 |{2}<br>|Name<br>|string<br>|ComplexType名<br>|
 
 #### レスポンスサンプル
-```json
+```JSON
 {
   "d": {
     "results": {

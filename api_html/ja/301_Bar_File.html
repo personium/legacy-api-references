@@ -61,11 +61,11 @@ Boxインストール時に「★必須」となっているディレクトリ�
  |
  +-- 00_meta/  ★ 必須
  |    |
- |    +-- 00_manifest.json  ★ 必須
- |    +-- 10_relations.json
- |    +-- 20_roles.json
- |    +-- 30_extroles.json
- |    +-- 70_$links.json
+ |    +-- 00_manifest.JSON  ★ 必須
+ |    +-- 10_relations.JSON
+ |    +-- 20_roles.JSON
+ |    +-- 30_extroles.JSON
+ |    +-- 70_$links.JSON
  |    +-- 90_rootprops.xml  ★ 必須
  |
  +-- 90_contents/     ★ 配下のディレクトリ名はコレクション名と同じ
@@ -73,13 +73,13 @@ Boxインストール時に「★必須」となっているディレクトリ�
       +-- {OData}/    ★ rootprops.xmlでODataコレクションの場合、必須
       |    |
       |    +-- 00_$metadata.xml    ★ 必須
-      |    +-- 10_odatarelations.json
+      |    +-- 10_odatarelations.JSON
       |    |
       |    +-- 90_data/
       |         |
       |         +-- {EntityType}/
       |              |
-      |              +-- {1.json}
+      |              +-- {1.JSON}
       |
       +-- {Service}/
       |    |
@@ -101,7 +101,7 @@ Boxインストール時に「★必須」となっているディレクトリ�
 <li>ファイルのフォーマットやファイル名などを変更・削除した場合にバージョンアップする</li>
 </ul>
 <h3 id="file-list">File List</h3>
-<h4 id="manifest.json">00_manifest.json</h4>
+<h4 id="manifest.json">00_manifest.JSON</h4>
 <p>インストールする対象となるBoxの情報を記述したファイル</p>
 <table>
 <colgroup>
@@ -143,7 +143,7 @@ Boxインストール時に「★必須」となっているディレクトリ�
 <td align="left"><br></td>
 </tr>
 <tr class="even">
-<td align="left">schema<br></td>
+<td align="left">Schema<br></td>
 <td align="left">Schema名<br></td>
 <td align="left">桁数：1～1024<br>URIの形式に従う（scheme：http / https / urn）<br>nullは不可<br></td>
 <td align="left">○<br></td>
@@ -156,9 +156,9 @@ Boxインストール時に「★必須」となっているディレクトリ�
   <span class="dt">&quot;bar_version&quot;</span><span class="fu">:</span> <span class="st">&quot;1&quot;</span><span class="fu">,</span>
   <span class="dt">&quot;box_version&quot;</span><span class="fu">:</span> <span class="st">&quot;1&quot;</span><span class="fu">,</span>
   <span class="dt">&quot;DefaultPath&quot;</span><span class="fu">:</span> <span class="st">&quot;{BoxName}&quot;</span><span class="fu">,</span>
-  <span class="dt">&quot;schema&quot;</span><span class="fu">:</span> <span class="st">&quot;http://app1.example.com&quot;</span>
+  <span class="dt">&quot;Schema&quot;</span><span class="fu">:</span> <span class="st">&quot;http://app1.example.com&quot;</span>
 <span class="fu">}</span></code></pre></div>
-<h4 id="relations.json">10_relations.json</h4>
+<h4 id="relations.json">10_relations.JSON</h4>
 <p>インストール対象とするRelationの情報を記述したファイル<br />
 ※「有効値」欄が『－』となっている項目項目は、Relationのリクエストボディを参照</p>
 <table>
@@ -196,7 +196,7 @@ Boxインストール時に「★必須」となっているディレクトリ�
     <span class="fu">}</span>
   <span class="ot">]</span>
 <span class="fu">}</span></code></pre></div>
-<h4 id="roles.json">20_roles.json</h4>
+<h4 id="roles.json">20_roles.JSON</h4>
 <p>インストール対象とするRoleの情報を記述したファイル<br />
 ※「有効値」欄が『－』となっている項目は、、Roleのリクエストボディを参照</p>
 <table>
@@ -234,7 +234,7 @@ Boxインストール時に「★必須」となっているディレクトリ�
     <span class="fu">}</span>
   <span class="ot">]</span>
 <span class="fu">}</span></code></pre></div>
-<h4 id="extroles.json">30_extroles.json</h4>
+<h4 id="extroles.json">30_extroles.JSON</h4>
 <p>インストール対象とするExtRoleの情報を記述したファイル<br />
 ※「有効値」欄が『－』となっている項目は、ExtRoleのリクエストボディを参照</p>
 <table>
@@ -282,7 +282,7 @@ Boxインストール時に「★必須」となっているディレクトリ�
     <span class="fu">}</span>
   <span class="ot">]</span>
 <span class="fu">}</span></code></pre></div>
-<h4 id="links.json">70_$links.json</h4>
+<h4 id="links.json">70_$links.JSON</h4>
 <p>インストール対象とする$linksのデータ関連情報を記述したファイル</p>
 <table>
 <colgroup>
@@ -372,7 +372,7 @@ Boxインストール時に「★必須」となっているディレクトリ�
 <h4 id="rootprops.xml">90_rootprops.xml</h4>
 <p>barファイルにエクスポートする対象のBox配下の全階層に対して、PROPFINDメソッドで取得したXMLデータを示す。<br />
 XMLデータの詳細は、<a href="307_Get_Property.html">ファイル設定取得（PROPFIND）</a>を参照。<br />
-インストール対象BoxのURLは、「personium-box:/」と記述する。<br />
+インストール対象BoxのURLは、「Personium-box:/」と記述する。<br />
 barファイルのインストール時には、下記サンプルの<prop>配下にある creationdate及び、getlastmodifiedを除いた全てのデータをインストール対象とする。</p>
 <ul>
 <li>resourcetype: コレクションの種類を設定</li>
@@ -382,13 +382,13 @@ barファイルのインストール時には、下記サンプルの<prop>配�
 <h5 id="-5">サンプル</h5>
 <div class="sourceCode"><pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;multistatus</span><span class="ot"> xmlns=</span><span class="st">&quot;DAV:&quot;</span><span class="kw">&gt;</span>
     <span class="kw">&lt;response&gt;</span>
-        <span class="kw">&lt;href&gt;</span>personium-box:/<span class="kw">&lt;/href&gt;</span>
+        <span class="kw">&lt;href&gt;</span>Personium-box:/<span class="kw">&lt;/href&gt;</span>
         <span class="kw">&lt;propstat&gt;</span>
            <span class="kw">&lt;prop&gt;</span>
               <span class="kw">&lt;resourcetype&gt;</span>
                   <span class="kw">&lt;collection/&gt;</span>
               <span class="kw">&lt;/resourcetype&gt;</span>
-              <span class="kw">&lt;acl</span><span class="ot"> xml:base=</span><span class="st">&quot;https://{UnitFQDN}/cell/__role/__/&quot;</span><span class="ot"> xmlns:p=</span><span class="st">&quot;urn:x-personium:xmlns&quot;</span><span class="kw">&gt;</span>
+              <span class="kw">&lt;acl</span><span class="ot"> xml:base=</span><span class="st">&quot;https://{UnitFQDN}/cell/__role/__/&quot;</span><span class="ot"> xmlns:p=</span><span class="st">&quot;urn:x-Personium:xmlns&quot;</span><span class="kw">&gt;</span>
                   <span class="kw">&lt;ace&gt;</span>
                       <span class="kw">&lt;principal&gt;</span>
                           <span class="kw">&lt;href&gt;</span>admin<span class="kw">&lt;/href&gt;</span>
@@ -404,14 +404,14 @@ barファイルのインストール時には、下記サンプルの<prop>配�
       <span class="kw">&lt;/propstat&gt;</span>
   <span class="kw">&lt;/response&gt;</span>
   <span class="kw">&lt;response&gt;</span>
-      <span class="kw">&lt;href&gt;</span>personium-box:/odata<span class="kw">&lt;/href&gt;</span>
+      <span class="kw">&lt;href&gt;</span>Personium-box:/odata<span class="kw">&lt;/href&gt;</span>
       <span class="kw">&lt;propstat&gt;</span>
           <span class="kw">&lt;prop&gt;</span>
               <span class="kw">&lt;resourcetype&gt;</span>
                   <span class="kw">&lt;collection/&gt;</span>
-                  <span class="kw">&lt;p:service</span><span class="ot"> xmlns:p=</span><span class="st">&quot;urn:x-personium:xmlns&quot;</span><span class="kw">/&gt;</span>
+                  <span class="kw">&lt;p:service</span><span class="ot"> xmlns:p=</span><span class="st">&quot;urn:x-Personium:xmlns&quot;</span><span class="kw">/&gt;</span>
               <span class="kw">&lt;/resourcetype&gt;</span>
-              <span class="kw">&lt;acl</span><span class="ot"> xml:base=</span><span class="st">&quot;https://{UnitFQDN}/cell/__role/__/&quot;</span><span class="ot"> xmlns:p=</span><span class="st">&quot;urn:x-personium:xmlns&quot;</span><span class="kw">&gt;</span>
+              <span class="kw">&lt;acl</span><span class="ot"> xml:base=</span><span class="st">&quot;https://{UnitFQDN}/cell/__role/__/&quot;</span><span class="ot"> xmlns:p=</span><span class="st">&quot;urn:x-Personium:xmlns&quot;</span><span class="kw">&gt;</span>
                   <span class="kw">&lt;ace&gt;</span>
                       <span class="kw">&lt;principal&gt;</span>
                           <span class="kw">&lt;href&gt;</span>user<span class="kw">&lt;/href&gt;</span>
@@ -433,13 +433,13 @@ barファイルのインストール時には、下記サンプルの<prop>配�
       <span class="kw">&lt;/propstat&gt;</span>
   <span class="kw">&lt;/response&gt;</span>
   <span class="kw">&lt;response&gt;</span>
-      <span class="kw">&lt;href&gt;</span>personium-box:/dav<span class="kw">&lt;/href&gt;</span>
+      <span class="kw">&lt;href&gt;</span>Personium-box:/dav<span class="kw">&lt;/href&gt;</span>
       <span class="kw">&lt;propstat&gt;</span>
           <span class="kw">&lt;prop&gt;</span>
               <span class="kw">&lt;resourcetype&gt;</span>
                   <span class="kw">&lt;collection/&gt;</span>
               <span class="kw">&lt;/resourcetype&gt;</span>
-              <span class="kw">&lt;acl</span><span class="ot"> xml:base=</span><span class="st">&quot;https://{UnitFQDN}/cell/__role/__/&quot;</span><span class="ot"> xmlns:p=</span><span class="st">&quot;urn:x-personium:xmlns&quot;</span><span class="kw">&gt;</span>
+              <span class="kw">&lt;acl</span><span class="ot"> xml:base=</span><span class="st">&quot;https://{UnitFQDN}/cell/__role/__/&quot;</span><span class="ot"> xmlns:p=</span><span class="st">&quot;urn:x-Personium:xmlns&quot;</span><span class="kw">&gt;</span>
                   <span class="kw">&lt;ace&gt;</span>
                       <span class="kw">&lt;principal&gt;</span>
                           <span class="kw">&lt;href&gt;</span>user<span class="kw">&lt;/href&gt;</span>
@@ -461,7 +461,7 @@ barファイルのインストール時には、下記サンプルの<prop>配�
       <span class="kw">&lt;/propstat&gt;</span>
   <span class="kw">&lt;/response&gt;</span>
   <span class="kw">&lt;response&gt;</span>
-      <span class="kw">&lt;href&gt;</span>personium-box:/dav/testdavfile.txt<span class="kw">&lt;/href&gt;</span>
+      <span class="kw">&lt;href&gt;</span>Personium-box:/dav/testdavfile.txt<span class="kw">&lt;/href&gt;</span>
       <span class="kw">&lt;propstat&gt;</span>
           <span class="kw">&lt;prop&gt;</span>
               <span class="kw">&lt;getcontenttype&gt;</span>text/plain<span class="kw">&lt;/getcontenttype&gt;</span>
@@ -469,15 +469,15 @@ barファイルのインストール時には、下記サンプルの<prop>配�
       <span class="kw">&lt;/propstat&gt;</span>
   <span class="kw">&lt;/response&gt;</span>
   <span class="kw">&lt;response&gt;</span>
-      <span class="kw">&lt;href&gt;</span>personium-box:/service<span class="kw">&lt;/href&gt;</span>
+      <span class="kw">&lt;href&gt;</span>Personium-box:/service<span class="kw">&lt;/href&gt;</span>
       <span class="kw">&lt;propstat&gt;</span>
           <span class="kw">&lt;prop&gt;</span>
               <span class="kw">&lt;resourcetype&gt;</span>
                   <span class="kw">&lt;collection/&gt;</span>
-                  <span class="kw">&lt;p:service</span><span class="ot"> xmlns:p=</span><span class="st">&quot;urn:x-personium:xmlns&quot;</span><span class="kw">/&gt;</span>
+                  <span class="kw">&lt;p:service</span><span class="ot"> xmlns:p=</span><span class="st">&quot;urn:x-Personium:xmlns&quot;</span><span class="kw">/&gt;</span>
               <span class="kw">&lt;/resourcetype&gt;</span>
-             <span class="kw">&lt;acl</span><span class="ot"> xml:base=</span><span class="st">&quot;https://{UnitFQDN}/cell/__role/__/&quot;</span><span class="ot"> xmlns:p=</span><span class="st">&quot;urn:x-personium:xmlns&quot;</span><span class="kw">/&gt;</span>
-              <span class="kw">&lt;p:service</span><span class="ot"> language=</span><span class="st">&quot;JavaScript&quot;</span><span class="ot"> xmlns:D=</span><span class="st">&quot;DAV:&quot;</span><span class="ot"> xmlns:p=</span><span class="st">&quot;urn:x-personium:xmlns&quot;</span> <span class="er">\</span>
+             <span class="kw">&lt;acl</span><span class="ot"> xml:base=</span><span class="st">&quot;https://{UnitFQDN}/cell/__role/__/&quot;</span><span class="ot"> xmlns:p=</span><span class="st">&quot;urn:x-Personium:xmlns&quot;</span><span class="kw">/&gt;</span>
+              <span class="kw">&lt;p:service</span><span class="ot"> language=</span><span class="st">&quot;JavaScript&quot;</span><span class="ot"> xmlns:D=</span><span class="st">&quot;DAV:&quot;</span><span class="ot"> xmlns:p=</span><span class="st">&quot;urn:x-Personium:xmlns&quot;</span> <span class="er">\</span>
 <span class="ot">              xmlns:Z=</span><span class="st">&quot;http://www.w3.com/standards/z39.50/&quot;</span><span class="kw">&gt;</span>
                   <span class="kw">&lt;p:path</span><span class="ot"> name=</span><span class="st">&quot;ehr&quot;</span><span class="ot"> src=</span><span class="st">&quot;ehr.js&quot;</span><span class="kw">/&gt;</span>
                   <span class="kw">&lt;p:path</span><span class="ot"> name=</span><span class="st">&quot;ehr_connector&quot;</span><span class="ot"> src=</span><span class="st">&quot;ehr_connector.js&quot;</span><span class="kw">/&gt;</span>
@@ -486,19 +486,19 @@ barファイルのインストール時には、下記サンプルの<prop>配�
         <span class="kw">&lt;/propstat&gt;</span>
     <span class="kw">&lt;/response&gt;</span>
     <span class="kw">&lt;response&gt;</span>
-        <span class="kw">&lt;href&gt;</span>personium-box:/service/__src<span class="kw">&lt;/href&gt;</span>
+        <span class="kw">&lt;href&gt;</span>Personium-box:/service/__src<span class="kw">&lt;/href&gt;</span>
         <span class="kw">&lt;propstat&gt;</span>
             <span class="kw">&lt;prop&gt;</span>
                 <span class="kw">&lt;resourcetype&gt;</span>
                     <span class="kw">&lt;collection/&gt;</span>
                 <span class="kw">&lt;/resourcetype&gt;</span>
                 <span class="kw">&lt;acl</span><span class="ot"> xml:base=</span><span class="st">&quot;https://{UnitFQDN}/cell/__role/__/&quot;</span><span class="er">\</span>
-<span class="ot">                 xmlns:p=</span><span class="st">&quot;urn:x-personium:xmlns&quot;</span><span class="kw">/&gt;</span>
+<span class="ot">                 xmlns:p=</span><span class="st">&quot;urn:x-Personium:xmlns&quot;</span><span class="kw">/&gt;</span>
             <span class="kw">&lt;/prop&gt;</span>
         <span class="kw">&lt;/propstat&gt;</span>
     <span class="kw">&lt;/response&gt;</span>
     <span class="kw">&lt;response&gt;</span>
-        <span class="kw">&lt;href&gt;</span>personium-box:/service/__src/ehr.js<span class="kw">&lt;/href&gt;</span>
+        <span class="kw">&lt;href&gt;</span>Personium-box:/service/__src/ehr.js<span class="kw">&lt;/href&gt;</span>
         <span class="kw">&lt;propstat&gt;</span>
             <span class="kw">&lt;prop&gt;</span>
                 <span class="kw">&lt;getcontenttype&gt;</span>text/javascript<span class="kw">&lt;/getcontenttype&gt;</span>
@@ -506,7 +506,7 @@ barファイルのインストール時には、下記サンプルの<prop>配�
         <span class="kw">&lt;/propstat&gt;</span>
     <span class="kw">&lt;/response&gt;</span>
     <span class="kw">&lt;response&gt;</span>
-        <span class="kw">&lt;href&gt;</span>personium-box:/service/__src/ehr_connector.js<span class="kw">&lt;/href&gt;</span>
+        <span class="kw">&lt;href&gt;</span>Personium-box:/service/__src/ehr_connector.js<span class="kw">&lt;/href&gt;</span>
         <span class="kw">&lt;propstat&gt;</span>
             <span class="kw">&lt;prop&gt;</span>
                 <span class="kw">&lt;getcontenttype&gt;</span>text/javascript<span class="kw">&lt;/getcontenttype&gt;</span>
@@ -517,7 +517,7 @@ barファイルのインストール時には、下記サンプルの<prop>配�
 <h4 id="contentsodata">contents/{OData}/</h4>
 <p>以下のファイルについては、詳細未稿</p>
 <ul>
-<li>90_data / {EntityType}/1.json</li>
+<li>90_data / {EntityType}/1.JSON</li>
 </ul>
 <h5 id="metadata.xml">00_$metadata.xml</h5>
 <p>ユーザODataのスキーマ定義を示す。barファイルにエクスポートする時に、Odata用コレクションに対して$metadataにて取得したXMLデータ。<br />
@@ -525,16 +525,16 @@ XMLデータの詳細は、<a href="316_User_Defined_Data_Schema.html">スキー
 Boxインストール時には、Schemaタグの配下をインストール対象とする。<br />
 ユーザODataのスキーマ定義が存在しない場合でもファイル自体は存在する。</p>
 <p>スキーマ定義がない場合のサンプル</p>
-<div class="sourceCode"><pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;Edmx:</span><span class="ot"> Edmx</span> <span class="er">Version</span> <span class="ot">=</span> <span class="st">&#39;1 .0 &#39;</span><span class="er">xmlns:</span><span class="ot"> edmx</span> <span class="ot">=</span><span class="st">&#39; http://schemas.microsoft.com/ado/2007/06/edmx \</span>
-<span class="st">&#39;</span><span class="er">xmlns:</span><span class="ot"> d</span> <span class="ot">=</span><span class="st">&#39; http://schemas.microsoft.com/ado/2007 / 08/dataservices&#39;</span><span class="ot"> xmlns:</span><span class="er">\</span>
- <span class="er">m</span> <span class="ot">=</span> <span class="st">&#39;http://schemas.microsoft.com/ado/2007/08/dataservices/metadata&#39;</span><span class="ot"> xmlns:</span> <span class="er">p</span> <span class="ot">=</span> <span class="st">&#39;urn: x-personium: xmlns&#39;</span><span class="kw">&gt;</span>
+<div class="sourceCode"><pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;Edmx:</span><span class="ot"> Edmx</span> <span class="er">Version</span> <span class="ot">=</span> <span class="st">&#39;1 .0 &#39;</span><span class="er">xmlns:</span><span class="ot"> edmx</span> <span class="ot">=</span><span class="st">&#39; http://Schemas.microsoft.com/ado/2007/06/edmx \</span>
+<span class="st">&#39;</span><span class="er">xmlns:</span><span class="ot"> d</span> <span class="ot">=</span><span class="st">&#39; http://Schemas.microsoft.com/ado/2007 / 08/dataservices&#39;</span><span class="ot"> xmlns:</span><span class="er">\</span>
+ <span class="er">m</span> <span class="ot">=</span> <span class="st">&#39;http://Schemas.microsoft.com/ado/2007/08/dataservices/metadata&#39;</span><span class="ot"> xmlns:</span> <span class="er">p</span> <span class="ot">=</span> <span class="st">&#39;urn: x-Personium: xmlns&#39;</span><span class="kw">&gt;</span>
   <span class="kw">&lt;edmx:DataServices</span><span class="ot"> m:DataServiceVersion=</span><span class="st">&#39;1.0&#39;</span><span class="kw">&gt;</span>
-    <span class="kw">&lt;Schema</span><span class="ot"> Xmlns=</span><span class="st">&#39;http://schemas.microsoft.com/ado/2006/04/edm&#39;</span><span class="ot"> Namespace=</span><span class="st">&#39;UserData&#39;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;Schema</span><span class="ot"> Xmlns=</span><span class="st">&#39;http://Schemas.microsoft.com/ado/2006/04/edm&#39;</span><span class="ot"> Namespace=</span><span class="st">&#39;UserData&#39;</span><span class="kw">&gt;</span>
       <span class="kw">&lt;EntityContainer</span><span class="ot"> Name=</span><span class="st">&#39;UserData&#39;</span><span class="ot"> m:IsDefaultEntityContainer=</span><span class="st">&#39;true&#39;</span><span class="kw">/&gt;</span>
     <span class="er">&lt;</span>/ Schema&gt;
   <span class="er">&lt;</span>/ Edmx: DataServices&gt;
 <span class="er">&lt;</span>/ Edmx: Edmx&gt;</code></pre></div>
-<h5 id="odatarelations.json">10_odatarelations.json</h5>
+<h5 id="odatarelations.json">10_odatarelations.JSON</h5>
 <p>インストール対象ユーザデータの$linksのデータ関連情報を記述したファイル<br />
 ユーザODataのスキーマレベルでは、00_$metadata.xml にてAssociationEndの関連を定義しているが、本ファイルではユーザデータの実体に対する関連を定義する。</p>
 <table>
@@ -622,7 +622,7 @@ Boxインストール時には、Schemaタグの配下をインストール対�
     <span class="fu">}</span>
   <span class="ot">]</span>
 <span class="fu">}</span></code></pre></div>
-<h4 id="data-entitytype-1.json">90_data / {EntityType} / {1.json}</h4>
+<h4 id="data-entitytype-1.json">90_data / {EntityType} / {1.JSON}</h4>
 <p>ユーザデータを1件ずつJSON形式で格納する。</p>
 <div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span>
     <span class="dt">&quot;__id&quot;</span><span class="fu">:</span> <span class="st">&quot;{EntityName}&quot;</span><span class="fu">,</span>
@@ -644,16 +644,16 @@ Boxインストール時には、Schemaタグの配下をインストール対�
 <p>サービス登録用90_rootprops.xmlのサンプル</p>
 <div class="sourceCode"><pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;multistatus</span><span class="ot"> xmlns=</span><span class="st">&quot;DAV:&quot;</span><span class="kw">&gt;</span>
     <span class="kw">&lt;response&gt;</span>
-        <span class="kw">&lt;href&gt;</span>personium-box:/service<span class="kw">&lt;/href&gt;</span>
+        <span class="kw">&lt;href&gt;</span>Personium-box:/service<span class="kw">&lt;/href&gt;</span>
         <span class="kw">&lt;propstat&gt;</span>
             <span class="kw">&lt;prop&gt;</span>
                 <span class="kw">&lt;resourcetype&gt;</span>
                     <span class="kw">&lt;collection/&gt;</span>
-                    <span class="kw">&lt;p:service</span><span class="ot"> xmlns:p=</span><span class="st">&quot;urn:x-personium:xmlns&quot;</span><span class="kw">/&gt;</span>
+                    <span class="kw">&lt;p:service</span><span class="ot"> xmlns:p=</span><span class="st">&quot;urn:x-Personium:xmlns&quot;</span><span class="kw">/&gt;</span>
                 <span class="kw">&lt;/resourcetype&gt;</span>
                 <span class="kw">&lt;acl</span><span class="ot"> xml:base=</span><span class="st">&quot;https://{UnitFQDN}/cell/__role/__/&quot;</span><span class="er">\</span>
-<span class="ot">                xmlns:p=</span><span class="st">&quot;urn:x-personium:xmlns&quot;</span><span class="kw">/&gt;</span>
-                <span class="kw">&lt;p:service</span><span class="ot"> language=</span><span class="st">&quot;JavaScript&quot;</span><span class="ot"> xmlns:D=</span><span class="st">&quot;DAV:&quot;</span><span class="ot"> xmlns:p=</span><span class="st">&quot;urn:x-personium:xmlns&quot;</span> <span class="er">\</span>
+<span class="ot">                xmlns:p=</span><span class="st">&quot;urn:x-Personium:xmlns&quot;</span><span class="kw">/&gt;</span>
+                <span class="kw">&lt;p:service</span><span class="ot"> language=</span><span class="st">&quot;JavaScript&quot;</span><span class="ot"> xmlns:D=</span><span class="st">&quot;DAV:&quot;</span><span class="ot"> xmlns:p=</span><span class="st">&quot;urn:x-Personium:xmlns&quot;</span> <span class="er">\</span>
 <span class="ot">                xmlns:Z=</span><span class="st">&quot;http://www.w3.com/standards/z39.50/&quot;</span><span class="kw">&gt;</span>
                     <span class="kw">&lt;p:path</span><span class="ot"> name=</span><span class="st">&quot;ehr&quot;</span><span class="ot"> src=</span><span class="st">&quot;ehr.js&quot;</span><span class="kw">/&gt;</span>
                     <span class="kw">&lt;p:path</span><span class="ot"> name=</span><span class="st">&quot;ehr_connector&quot;</span><span class="ot"> src=</span><span class="st">&quot;ehr_connector.js&quot;</span><span class="kw">/&gt;</span>
@@ -662,19 +662,19 @@ Boxインストール時には、Schemaタグの配下をインストール対�
         <span class="kw">&lt;/propstat&gt;</span>
     <span class="kw">&lt;/response&gt;</span>
     <span class="kw">&lt;response&gt;</span>
-        <span class="kw">&lt;href&gt;</span>personium-box:/service/__src<span class="kw">&lt;/href&gt;</span>
+        <span class="kw">&lt;href&gt;</span>Personium-box:/service/__src<span class="kw">&lt;/href&gt;</span>
         <span class="kw">&lt;propstat&gt;</span>
             <span class="kw">&lt;prop&gt;</span>
                 <span class="kw">&lt;resourcetype&gt;</span>
                     <span class="kw">&lt;collection/&gt;</span>
                 <span class="kw">&lt;/resourcetype&gt;</span>
                 <span class="kw">&lt;acl</span><span class="ot"> xml:base=</span><span class="st">&quot;https://{UnitFQDN}/cell/__role/__/&quot;</span><span class="er">\</span>
-<span class="ot">                 xmlns:p=</span><span class="st">&quot;urn:x-personium:xmlns&quot;</span><span class="kw">/&gt;</span>
+<span class="ot">                 xmlns:p=</span><span class="st">&quot;urn:x-Personium:xmlns&quot;</span><span class="kw">/&gt;</span>
             <span class="kw">&lt;/prop&gt;</span>
         <span class="kw">&lt;/propstat&gt;</span>
     <span class="kw">&lt;/response&gt;</span>
     <span class="kw">&lt;response&gt;</span>
-        <span class="kw">&lt;href&gt;</span>personium-box:/service/__src/ehr.js<span class="kw">&lt;/href&gt;</span>
+        <span class="kw">&lt;href&gt;</span>Personium-box:/service/__src/ehr.js<span class="kw">&lt;/href&gt;</span>
         <span class="kw">&lt;propstat&gt;</span>
             <span class="kw">&lt;prop&gt;</span>
                 <span class="kw">&lt;getcontenttype&gt;</span>text/javascript<span class="kw">&lt;/getcontenttype&gt;</span>
@@ -682,7 +682,7 @@ Boxインストール時には、Schemaタグの配下をインストール対�
         <span class="kw">&lt;/propstat&gt;</span>
     <span class="kw">&lt;/response&gt;</span>
     <span class="kw">&lt;response&gt;</span>
-        <span class="kw">&lt;href&gt;</span>personium-box:/service/__src/ehr_connector.js<span class="kw">&lt;/href&gt;</span>
+        <span class="kw">&lt;href&gt;</span>Personium-box:/service/__src/ehr_connector.js<span class="kw">&lt;/href&gt;</span>
         <span class="kw">&lt;propstat&gt;</span>
             <span class="kw">&lt;prop&gt;</span>
                 <span class="kw">&lt;getcontenttype&gt;</span>text/javascript<span class="kw">&lt;/getcontenttype&gt;</span>

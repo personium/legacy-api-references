@@ -59,8 +59,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <ul>
 <li>リクエストヘッダのAcceptは無視される</li>
 <li>リクエストヘッダのContent-Typeは全てapplication/jsonとして扱う</li>
-<li>リクエストボディはjson形式のみ受け付ける</li>
-<li>レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはjson形式とする</li>
+<li>リクエストボディはJSON形式のみ受け付ける</li>
+<li>レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはJSON形式とする</li>
 <li>$formatクエリオプションは無視される</li>
 </ul></li>
 </ul>
@@ -153,14 +153,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <tr class="odd">
 <td align="left">Content-Type<br></td>
 <td align="left">リクエストボディの形式を指定する<br></td>
-<td align="left">application / json<br></td>
+<td align="left">application / JSON<br></td>
 <td align="left">×<br></td>
 <td align="left">省略時は[application/json]として扱う<br></td>
 </tr>
 <tr class="even">
 <td align="left">Accept<br></td>
 <td align="left">レスポンスボディの形式を指定する<br></td>
-<td align="left">application / json<br></td>
+<td align="left">application / JSON<br></td>
 <td align="left">×<br></td>
 <td align="left">省略時は[application/json]として扱う<br></td>
 </tr>
@@ -219,7 +219,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span>
   <span class="dt">&quot;ExtRole&quot;</span><span class="fu">:</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__role/__/roletest&quot;</span><span class="fu">,</span>
   <span class="dt">&quot;_Relation.Name&quot;</span><span class="fu">:</span> <span class="st">&quot;{RelationName}&quot;</span><span class="fu">,</span>
-  <span class="dt">&quot;_Relation._Box.Name&quot;</span><span class="fu">:</span> <span class="st">&quot;{BoxName}&quot;</span>
+  <span class="dt">&quot;_Relation._Box.Name&quot;</span><span class="fu">:</span> <span class="st">&quot;{BoxName}&quot;</span>  
 <span class="fu">}</span></code></pre></div>
 <p><br></p>
 <h3>レスポンス</h3>

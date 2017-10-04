@@ -36,7 +36,7 @@ PROPPATCH
 |項目名<br>|Namespace<br>|概要<br>|必須<br>|有効値<br>|備考<br>|
 |:--|:--|:--|:--|:--|:--|
 |DAV:<br>|&#160;<br>|XML名前空間設定<br>|○<br>|"DAV:"<br>|&#160;<br>|
-|urn: x-personium: xmlns<br>|&#160;<br>|XML名前空間設定<br>|○<br>|"Urn: x-personium: xmlns"<br>|&#160;<br>|
+|urn: x-Personium: xmlns<br>|&#160;<br>|XML名前空間設定<br>|○<br>|"Urn: x-Personium: xmlns"<br>|&#160;<br>|
 |http://www.w3.com/standards/z39.50/<br>|&#160;<br>|XML名前空間設定<br>|○<br>|"http://www.w3.com/standards/z39.50/"<br>|&#160;<br>|
 |propertyupdate<br>|DAV:<br>|propertyupdate（アクセス制御リスト）のルート<br>|○<br>|<ELEMENT propertyupdate! (Set &#124; remove)><br>|&#160;<br>|
 |set<br>|DAV:<br>|プロパティ設定<br>|×<br>|<! ELEMENT set (prop *)><br>|&#160;<br>|
@@ -75,7 +75,7 @@ PROPPATCH
 ```
 #### リクエストサンプル
 ```xml
-<D:propertyupdate xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns">
+<D:propertyupdate xmlns:D="DAV:" xmlns:p="urn:x-Personium:xmlns">
   <D:set>
     <D:prop>
       <p:ownerRepresentativeAccounts><p:account>account1</p:account><p:account>account2</p:account></p:ownerRepresentativeAccounts>
@@ -127,10 +127,10 @@ PROPPATCH
         <href>http://localhost:9998/testcell1/box1/patchcol</href>
         <propstat>
             <prop>
-                <Z:Author xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/">Author1 update</Z:Author>
-                <p:hoge xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" xmlns:Z="http://www.w3.com/standards/z39.50/">fuga</p:hoge>
-                <Z:Author xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/"/>
-                <p:hoge xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" xmlns:Z="http://www.w3.com/standards/z39.50/"/>
+                <Z:Author xmlns:p="urn:x-Personium:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/">Author1 update</Z:Author>
+                <p:hoge xmlns:D="DAV:" xmlns:p="urn:x-Personium:xmlns" xmlns:Z="http://www.w3.com/standards/z39.50/">fuga</p:hoge>
+                <Z:Author xmlns:p="urn:x-Personium:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/"/>
+                <p:hoge xmlns:D="DAV:" xmlns:p="urn:x-Personium:xmlns" xmlns:Z="http://www.w3.com/standards/z39.50/"/>
             </prop>
             <status>HTTP/1.1 200 OK</status>
         </propstat>
@@ -143,7 +143,7 @@ PROPPATCH
 ### cURLサンプル
 ```sh
 curl "https://{UnitFQDN}/cell -X PROPPATCH" -H 'Authorization: Bearer {AccessToken}' -d '<?xml version="1.0" encoding="utf-8" ?>
-<D:propertyupdate xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" xmlns:Z="http://www.w3.com/standards/z39.50/">
+<D:propertyupdate xmlns:D="DAV:" xmlns:p="urn:x-Personium:xmlns" xmlns:Z="http://www.w3.com/standards/z39.50/">
 <D:set><D:prop><p:requireSchemaAuthz>confidential</p:requireSchemaAuthz></D:prop></D:set></D:propertyupdate>'
 ```
 <br>

@@ -4,8 +4,8 @@
 
 ### 制限事項
 * リクエストヘッダのContent-Typeは全てapplication/jsonとして扱う
-* リクエストボディはjson形式のみ受け付ける
-* レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはjson形式とする
+* リクエストボディはJSON形式のみ受け付ける
+* レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはJSON形式とする
 * $formatクエリオプションにatom または xmlを指定した場合、エラーとはならないが、レスポンスボディのデータの保証はない
 * 個別の制限
 	- 関連対象のComplexTypeを使用したEntityTypeのユーザーデータが存在する場合は、Nullableがtrueの場合のみ登録可能
@@ -24,7 +24,7 @@
      - 4階層目：0個
 
 ### 必要な権限
-alter-schema
+alter-Schema
 
 <br>
 ### リクエスト
@@ -88,7 +88,7 @@ DefaultValueの有効値はTypeの値（型定義）によって異なり、以�
 |Edm.DateTime<br>|/Date(【long型の時刻】)/の形式で文字列で指定する<br>　【long型の時刻】の有効値は、-6847804800000(1753-01-01T00:00:00.000Z)&#65374;253402300799999(9999-12-31T23:59:59.999Z)<br>また、予約語として以下を指定可能<br>　SYSUTCDATETIME()：サーバ時間<br>|
 
 #### リクエストサンプル
-```json
+```JSON
 {"Name": "{ComplexTypePropertyName}","_ComplexType.Name": "{ComplexTypeName}","Type": "Edm.String","Nullable": true,"DefaultValue": null,"CollectionKind": "None"}
 ```
 <br>
@@ -144,16 +144,16 @@ DefaultValueの有効値はTypeの値（型定義）によって異なり、以�
 [エラーメッセージ一覧](004_Error_Messages.html)を参照
 
 #### レスポンスサンプル
-```json
+```JSON
 {
   "d": {
     "results": {
       "__metadata": {
-        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/ComplexTypeProperty(Name='{ComplexTypePropertyNaem}',_ComplexType.Name='{ComplexTypeName}')",
+        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/ComplexTypeProperty(Name='{ComplexTypePropertyName}',_ComplexType.Name='{ComplexTypeName}')",
         "etag": "W/\"1-1487658277593\"",
         "type": "ODataSvcSchema.ComplexTypeProperty"
       },
-      "Name": "{ComplexTypePropertyNaem}",
+      "Name": "{ComplexTypePropertyName}",
       "_ComplexType.Name": "{ComplexTypeName}",
       "Type": "Edm.String",
       "Nullable": true,

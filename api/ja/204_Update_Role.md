@@ -7,8 +7,8 @@
 * OData 制限
 	* リクエストヘッダのAcceptは無視される
 	* リクエストヘッダのContent-Typeは全てapplication/jsonとして扱う
-	* リクエストボディはjson形式のみ受け付ける
-	* レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはjson形式とする
+	* リクエストボディはJSON形式のみ受け付ける
+	* レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはJSON形式とする
 	* $formatクエリオプションは無視される
 	* If-None-Matchヘッダは無視
 	* Nameのバリデートチェックは未実施
@@ -51,15 +51,15 @@ PUT
 #### OData登録リクエストヘッダ
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|Content-Type<br>|リクエストボディの形式を指定する<br>|application / json<br>|×<br>|省略時は[application/json]として扱う<br>|
-|Accept<br>|レスポンスボディの形式を指定する<br>|application / json<br>|×<br>|省略時は[application/json]として扱う<br>|
+|Content-Type<br>|リクエストボディの形式を指定する<br>|application / JSON<br>|×<br>|省略時は[application/json]として扱う<br>|
+|Accept<br>|レスポンスボディの形式を指定する<br>|application / JSON<br>|×<br>|省略時は[application/json]として扱う<br>|
 #### リクエストボディ
 |項目名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
 |Name<br>|Role名<br>|桁数：1&#65374;128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)は指定不可<br>|○<br>|&#160;<br>|
 |_Box.Name<br>|関係対象のBox名<br>|桁数：1&#65374;128<br>文字種：半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)は指定不可<br>説明：Box登録APIにて登録済みのBoxのNameを指定<br>特定のBoxと関連付けない場合はnullを指定<br>|×<br>|&#160;<br>|
 #### リクエストサンプル
-```json
+```JSON
 {
   "Name": "{RoleName}",
   "_Box.Name": "{BoxName}"  

@@ -54,8 +54,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h3>Restrictions</h3>
 <ul>
 <li>Always handles Content-Type in the request header as application/json</li>
-<li>Only accepts the request body in the json format</li>
-<li>Only application/json is supported for Content-Type in the request header and the json format for the response body</li>
+<li>Only accepts the request body in the JSON format</li>
+<li>Only application/json is supported for Content-Type in the request header and the JSON format for the response body</li>
 <li>Response body data is not ensured if atom or xml is specified in the $format query option, although it does not result in an error</li>
 <li>User data restrictions
 <ul>
@@ -228,14 +228,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <td align="left">Specifies authentication information in the OAuth 2.0 format<br></td>
 <td align="left">application/json<br></td>
 <td align="left">No<br></td>
-<td align="left">When omitted, treat it as [application / json] <br></td>
+<td align="left">When omitted, treat it as [application / JSON] <br></td>
 </tr>
 <tr class="even">
 <td align="left">Accept<br></td>
 <td align="left">Specifies the response body format<br></td>
 <td align="left">application/json<br></td>
 <td align="left">No<br></td>
-<td align="left">When omitted, treat it as [application / json] <br></td>
+<td align="left">When omitted, treat it as [application / JSON] <br></td>
 </tr>
 <tr class="odd">
 <td align="left">If-Match<br></td>
@@ -248,7 +248,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </table>
 <h4>Request Body</h4>
 <h5>Property</h5>
-<p>Set up schema-defined properties and dynamic (schema undefined) properties, up to 400 properties in total<br />
+<p>Set up Schema-defined properties and dynamic (Schema undefined) properties, up to 400 properties in total<br />
 Contains the number of properties defined by ComplexType in the above</p>
 <h5>Schema defined properties</h5>
 <table>
@@ -278,7 +278,7 @@ Contains the number of properties defined by ComplexType in the above</p>
 </tr>
 </tbody>
 </table>
-<h5 id="value">Valid value of value of schema-defined property</h5>
+<h5 id="value">Valid value of value of Schema-defined property</h5>
 <table>
 <colgroup>
 <col width="5%" />
@@ -313,8 +313,8 @@ Contains the number of properties defined by ComplexType in the above</p>
 </tr>
 </tbody>
 </table>
-<h5>Dynamic (schema undefined) property</h5>
-<p>Set up schema-defined properties and dynamic (schema-undefined) properties, up to 400 properties in total<br />
+<h5>Dynamic (Schema undefined) property</h5>
+<p>Set up Schema-defined properties and dynamic (Schema-undefined) properties, up to 400 properties in total<br />
 Contains the number of properties defined by ComplexType in the above</p>
 <h5 id="key">Valid value of dynamic property's key</h5>
 <table>
@@ -336,10 +336,10 @@ Contains the number of properties defined by ComplexType in the above</p>
 </tbody>
 </table>
 <h5 id="value">Valid value of value of dynamic property</h5>
-<p>Same as valid value of value of schema-defined property<br />
+<p>Same as valid value of value of Schema-defined property<br />
 Array, associative array can not be specified</p>
 <h4>Request Sample</h4>
-<div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span><span class="dt">&quot;animalId&quot;</span><span class="fu">:</span> <span class="st">&quot;100-2&quot;</span><span class="fu">,</span><span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;episode2&quot;</span><span class="fu">,</span><span class="dt">&quot;startedAt&quot;</span><span class="fu">:</span> <span class="st">&quot;2016-02-21&quot;</span><span class="fu">,</span><span class="dt">&quot;episodeType&quot;</span><span class="fu">:</span> <span class="st">&quot;care2&quot;</span><span class="fu">,</span><span class="dt">&quot;endedAt&quot;</span><span class="fu">:</span> <span class="st">&quot;&quot;</span><span class="fu">,</span><span class="dt">&quot;outcome&quot;</span><span class="fu">:</span> <span class="st">&quot;Treated&quot;</span><span class="fu">}</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode JSON"><code class="sourceCode JSON"><span class="fu">{</span><span class="dt">&quot;animalId&quot;</span><span class="fu">:</span> <span class="st">&quot;100-2&quot;</span><span class="fu">,</span><span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;episode2&quot;</span><span class="fu">,</span><span class="dt">&quot;startedAt&quot;</span><span class="fu">:</span> <span class="st">&quot;2016-02-21&quot;</span><span class="fu">,</span><span class="dt">&quot;episodeType&quot;</span><span class="fu">:</span> <span class="st">&quot;care2&quot;</span><span class="fu">,</span><span class="dt">&quot;endedAt&quot;</span><span class="fu">:</span> <span class="st">&quot;&quot;</span><span class="fu">,</span><span class="dt">&quot;outcome&quot;</span><span class="fu">:</span> <span class="st">&quot;Treated&quot;</span><span class="fu">}</span></code></pre></div>
 <p><br></p>
 <h3>Response</h3>
 <h4>Response Code</h4>

@@ -1,7 +1,7 @@
 # BoxURL取得
 ### 概要
 BoxのURLを取得するために用いるリソースです。スキーマ認証を行ったアプリケーションはアクセストークンをつけてこのリソースにアクセスすることでスキーマ認証されたアプリケーションのためのBoxのURLにリダイレクトします。  
-スキーマ認証に対応していないアプリケーションはパラメタでschema urlを与えることで、対応するBoxのURLにリダイレクトします。
+スキーマ認証に対応していないアプリケーションはパラメタでSchema urlを与えることで、対応するBoxのURLにリダイレクトします。
 
 ### 必要な権限
 本リソースのアクセス制御はBoxルートのACLに依存します。以下２点を満たしている必要があります。
@@ -27,7 +27,7 @@ GET
 |クエリ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer<br>|クッキー認証値<br>|認証時にサーバから返却されたクッキー認証値<br>|×<br>|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br>|
-|schema<br>|アプリセルURL<br>|URL形式<br>|×<br>|桁数：1&#65374;1024<br>URIの形式に従う<br>|
+|Schema<br>|アプリセルURL<br>|URL形式<br>|×<br>|桁数：1&#65374;1024<br>URIの形式に従う<br>|
 
 
 #### リクエストヘッダ
@@ -55,7 +55,7 @@ GET
 
 |ヘッダ名<br>|概要<br>|備考<br>|
 |:--|:--|:--|
-|Location<br>|Boxメタデータ取得API用URL<br>|リクエストの指定方法により、以下の値となる<br>schemaクエリを指定<br>schemaクエリで指定されたアプリセルURLに対応するBoxのURL<br>schemaクエリなしで、Authorizationヘッダのみを指定<br>トークンに含まれるスキーマURLに対応するBoxのURL<br>|
+|Location<br>|Boxメタデータ取得API用URL<br>|リクエストの指定方法により、以下の値となる<br>Schemaクエリを指定<br>Schemaクエリで指定されたアプリセルURLに対応するBoxのURL<br>Schemaクエリなしで、Authorizationヘッダのみを指定<br>トークンに含まれるスキーマURLに対応するBoxのURL<br>|
 Locationサンプル
 ```
 Location:https://{UnitFQDN}/{CellName}/{BoxName}
@@ -79,7 +79,7 @@ curl "https://{UnitFQDN}/{CellName}/__box" -X GET -i -H 'Authorization: Bearer {
 ```
 #### スキーマ認証未対応
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__box?schema=https://{UnitFQDN}/{CellName}/" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/__box?Schema=https://{UnitFQDN}/{CellName}/" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 <br>
 <br>

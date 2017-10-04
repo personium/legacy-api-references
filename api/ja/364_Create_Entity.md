@@ -5,8 +5,8 @@
 write
 ### 制限事項
 * リクエストヘッダのContent-Typeは全てapplication/jsonとして扱う
-* リクエストボディはjson形式のみ受け付ける
-* レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはjson形式とする
+* リクエストボディはJSON形式のみ受け付ける
+* レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはJSON形式とする
 * $formatクエリオプションにatom または xmlを指定した場合、エラーとはならないが、レスポンスボディのデータの保証はない
 * ユーザデータ制限事項
 	- Edm.DateTime型のプロパティの有効範囲のチェックが適切に行われない
@@ -40,8 +40,8 @@ POST
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
 |Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {AccessToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
-|Accept<br>|レスポンスボディの形式を指定する<br>|application / json<br>|×<br>|省略時は[application/json]として扱う<br>未対応<br>|
-|Content-Type<br>|リクエストボディの形式を指定する<br>|application / json<br>|×<br>|省略時は[application/json]として扱う <br>未対応<br>|
+|Accept<br>|レスポンスボディの形式を指定する<br>|application / JSON<br>|×<br>|省略時は[application/json]として扱う<br>未対応<br>|
+|Content-Type<br>|リクエストボディの形式を指定する<br>|application / JSON<br>|×<br>|省略時は[application/json]として扱う <br>未対応<br>|
 #### リクエストボディ
 |項目名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
@@ -72,13 +72,13 @@ POST
 スキーマ定義済みプロパティのvalueの有効値と同様  
 配列、連想配列は指定不可
 #### リクエストサンプル
-```json
+```JSON
 {"__id": "100-1_20101108-111352093","animalId": "100-1","name": "episode","startedAt": "2010-11-08","episodeType": "care","endedAt": "","outcome": "治療中"}
 ```
-```json
+```JSON
 {"__id": "100-1_20101108-111352093","animalId": "100-1","name": "episode","update": "SYSUTCDATETIME()"}
 ```
-```json
+```JSON
 {"__id": "100-1_20101108-111352093","animalId": "100-1","name": "episode","update": "\/Date(1350451322147)\/"}
 ```
 
@@ -116,7 +116,7 @@ POST
 [エラーメッセージ一覧](004_Error_Messages.html)を参照  
 
 #### レスポンスサンプル
-```json
+```JSON
 {
   "d": {
     "results": {

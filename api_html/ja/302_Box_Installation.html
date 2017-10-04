@@ -56,11 +56,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 <pre><code>Boxインストールの呼び出し例（クライアントでのポーリングを30秒とした場合)
  1. Boxインストール受付
-    -- MKCOL /{cell}/{box}
+    -- MKCOL /{Cell}/{Box}
  2. Boxインストール状況確認
-    -- GET /{cell}/{box}  -&gt; &quot;処理中&quot; で返却。
+    -- GET /{Cell}/{Box}  -&gt; &quot;処理中&quot; で返却。
     -- 30秒ポーリング
- 3. GET /{cell}/{box}  -&gt; &quot;処理完了&quot; で返却。
+ 3. GET /{Cell}/{Box}  -&gt; &quot;処理完了&quot; で返却。
  ※上記 2. の処理をループして処理完了までポーリングする。</code></pre>
 <h3>必要な権限</h3>
 <p>box-install</p>
@@ -70,7 +70,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>既に同名のBoxが存在する場合は、Boxインストールできない。</li>
 <li>既に同じscheme URLが設定されたBoxが存在する場合は、Boxインストールできない。</li>
 <li>メインボックスへのBoxインストールはできない。</li>
-<li>barファイル：&quot;/bar/00_meta/00_manifest.json&quot; のschemaフィールドにnullは指定できない。</li>
+<li>barファイル：&quot;/bar/00_meta/00_manifest.JSON&quot; のSchemaフィールドにnullは指定できない。</li>
 </ul>
 <h4 id="bar">barファイル制限</h4>
 <ul>

@@ -47,10 +47,10 @@ POST
 
 |項目名<br>|概要<br>|書式<br>|必須<br>|有効値<br>|
 |:--|:--|:--|:--|:--|
-|grant_type<br>|認証タイプ<br>|String<br>|○<br>|password<br>urn:x-personium:oidc:google<br>|
+|grant_type<br>|認証タイプ<br>|String<br>|○<br>|password<br>urn:x-Personium:oidc:google<br>|
 |username<br>|ユーザ名<br>|String<br>|○(grant_type=passwordの場合)<br>|登録済のユーザ名<br>|
 |password<br>|パスワード<br>|String<br>|○(grant_type=passwordの場合)<br>|登録済のパスワード<br>|
-|id_token<br>|トークンID<br>|JSON Web Token<br>|○(grant_type=urn:x-personium:oidc:googleの場合)<br>|JWT Formed ID Token<br>|
+|id_token<br>|トークンID<br>|JSON Web Token<br>|○(grant_type=urn:x-Personium:oidc:googleの場合)<br>|JWT Formed ID Token<br>|
 |p_target<br>|トランスセルトークンターゲット<br>|String<br>|×<br>|払い出されるトークンを使う先（セルURL）<br>指定した場合トランスセルトークン認証になる<br>|
 |client_id<br>|アプリセルURL<br>|String<br>|×<br>|スキーマ認証元のアプリセルURL<br>client_secretとともに指定した場合スキーマ認証になる<br>同時にAuthorizationヘッダにもスキーマ認証設定がされている場合、Authorizationヘッダの設定が優先される<br>|
 |client_secret<br>|アプリセルから払い出されたトークン<br>|String<br>|×<br>|スキーマ認証元から払い出されたトークンを値に設定する<br>client_idとともに指定した場合スキーマ認証になる<br>同時にAuthorizationヘッダにもスキーマ認証設定がされている場合、Authorizationヘッダの設定が優先される<br>|
@@ -79,7 +79,7 @@ WjzDmvJSLvM9qVuJL1xxP6hSxt64HijoIea0P5R2CVloXJ2HEvEILl7UOtEtjSDdjlvyx9wrosPBhDRU
 ```
 OIDC(Open ID Connect(Google))認証
 ```
-grant_type=urn:x-personium:oidc:google&id_token=IDTOKEN
+grant_type=urn:x-Personium:oidc:google&id_token=IDTOKEN
 ```
 
 ##### トークン認証
@@ -122,7 +122,7 @@ grant_type=refresh_token&refresh_token={token}
 
 |項目名<br>|概要<br>|備考<br>|
 |:--|:--|:--|
-|Content-Type<br>|application / json<br>|<br>|
+|Content-Type<br>|application / JSON<br>|<br>|
 |Set-Cookie<br>|クッキー認証情報（p_cookie）<br>|クッキー発行オプション（p_cookie）をリクエスト時に設定した場合のみ<br>|
 #### レスポンスボディ
 
@@ -135,7 +135,7 @@ grant_type=refresh_token&refresh_token={token}
 |expires_in<br>|アクセストークンの有効期限<br>|1時間（3600秒）<br>|
 |p_cookie_peer<br>|クッキー認証値<br>|クッキー認証時に指定する認証値<br>※クッキー発行オプション（p_cookie）をリクエスト時に設定した場合のみ返却する<br>|
 #### レスポンスサンプル
-```json
+```JSON
 {
   "access_token": "AA~osIZ4CZ8cZmxf5NidEueHej_6Lj-ww0c_kJZd4HbHBqFyZ0OZBrS29miYr9Jh19b0o39cTJdH2Va3xSMMbu6Eg",
   "refresh_token_expires_in": 86400,

@@ -2,11 +2,11 @@
 ### 概要
 既存のComplexTypeProperty情報を削除する
 ### 必要な権限
-alter-schema
+alter-Schema
 ### 制限事項
 * リクエストヘッダのContent-Typeは全てapplication/jsonとして扱う
-* リクエストボディはjson形式のみ受け付ける
-* レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはjson形式とする
+* リクエストボディはJSON形式のみ受け付ける
+* レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはJSON形式とする
 * $formatクエリオプションにatom または xmlを指定した場合、エラーとはならないが、レスポンスボディのデータの保証はない
 	- 削除対象に関係性設定が存在する場合、削除は実行されません。
 	- ComplexTypePropertyを削除する場合は、削除対象のComplexTypePropertyを使用しているEntityTypeのユーザデータが存在しない場合のみ削除可能

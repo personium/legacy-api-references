@@ -66,7 +66,7 @@ GET
 
 |オブジェクト<br>|名前(キー)<br>|型<br>|値<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|ルート<br>|schema<br>|string<br>|Boxが紐づいているスキーマのURL<br>|スキーマなしの場合は null<br>|
+|ルート<br>|Schema<br>|string<br>|Boxが紐づいているスキーマのURL<br>|スキーマなしの場合は null<br>|
 |ルート<br>|installed_at<br>|string<br>|Start time (ISO 8610 UTC format)<br>|statusが以下のいずれかの場合は出力しない。<br>&#183;        "Installation in Progress"<br>&#183;        "installation failed"<br>|
 |ルート<br>|started_at<br>|string<br>|Start time (ISO 8610 UTC format)<br>|statusが以下の場合は出力しない。<br>&#183;        "Ready"<br>|
 |ルート<br>|progress<br>|string<br>|Progress rate (for example, "30%")<br>|statusが以下の場合は出力しない。<br>&#183;        "Ready"<br>|
@@ -78,9 +78,9 @@ GET
 
 #### レスポンスサンプル
 Boxの作成後（Boxインストール完了時を含む）
-```json
+```JSON
 {
-  "schema": "https://example.com/app1/",
+  "Schema": "https://example.com/app1/",
   "installed_at": "2017-02-13T09:00:00.000Z",
   "status": "ready"
 }
@@ -89,9 +89,9 @@ Boxの作成後（Boxインストール完了時を含む）
 
 
 Boxインストール処理中の場合
-```json
+```JSON
 {
-  "schema": "https://example.com/app1/",
+  "Schema": "https://example.com/app1/",
   "started_at": "2017-02-13T09:00:00.000Z",
   "progress": "81%",
   "status": "installation in progress"
@@ -102,9 +102,9 @@ Boxインストール処理中の場合
 
 Boxインストール完了時（異常終了）の場合  
 （Boxインストールに失敗後、有効期限以内）
-```json
+```JSON
 {
-  "schema": "https://example.com/app1/",
+  "Schema": "https://example.com/app1/",
   "started_at": "2017-02-13T09:00:00.000Z",
   "progress": "81%",
   "message": {

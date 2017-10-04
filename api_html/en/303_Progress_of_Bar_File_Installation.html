@@ -221,10 +221,10 @@ The correspondence between key (name) and type, and value are as follows.</p>
 <tbody>
 <tr class="odd">
 <td align="left">Root<br></td>
-<td align="left">schema<br></td>
+<td align="left">Schema<br></td>
 <td align="left">string<br></td>
-<td align="left">The URL of the schema to which the Box is attached<br></td>
-<td align="left">Null for no schema<br></td>
+<td align="left">The URL of the Schema to which the Box is attached<br></td>
+<td align="left">Null for no Schema<br></td>
 </tr>
 <tr class="even">
 <td align="left">Root<br></td>
@@ -267,22 +267,22 @@ The correspondence between key (name) and type, and value are as follows.</p>
 <p>Refer to <a href="004_Error_Messages.html">Error Message List</a></p>
 <h4>Response Sample</h4>
 <p>After creating Box (including when Box installation is completed)</p>
-<div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span>
-  <span class="dt">&quot;schema&quot;</span><span class="fu">:</span> <span class="st">&quot;https://example.com/app1/&quot;</span><span class="fu">,</span>
+<div class="sourceCode"><pre class="sourceCode JSON"><code class="sourceCode JSON"><span class="fu">{</span>
+  <span class="dt">&quot;Schema&quot;</span><span class="fu">:</span> <span class="st">&quot;https://example.com/app1/&quot;</span><span class="fu">,</span>
   <span class="dt">&quot;installed_at&quot;</span><span class="fu">:</span> <span class="st">&quot;2017-02-13T09:00:00.000Z&quot;</span><span class="fu">,</span>
   <span class="dt">&quot;status&quot;</span><span class="fu">:</span> <span class="st">&quot;ready&quot;</span>
 <span class="fu">}</span></code></pre></div>
 <p>During Box installation process</p>
-<div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span>
-  <span class="dt">&quot;schema&quot;</span><span class="fu">:</span> <span class="st">&quot;https://example.com/app1/&quot;</span><span class="fu">,</span>
+<div class="sourceCode"><pre class="sourceCode JSON"><code class="sourceCode JSON"><span class="fu">{</span>
+  <span class="dt">&quot;Schema&quot;</span><span class="fu">:</span> <span class="st">&quot;https://example.com/app1/&quot;</span><span class="fu">,</span>
   <span class="dt">&quot;started_at&quot;</span><span class="fu">:</span> <span class="st">&quot;2017-02-13T09:00:00.000Z&quot;</span><span class="fu">,</span>
   <span class="dt">&quot;progress&quot;</span><span class="fu">:</span> <span class="st">&quot;81%&quot;</span><span class="fu">,</span>
   <span class="dt">&quot;status&quot;</span><span class="fu">:</span> <span class="st">&quot;installation in progress&quot;</span>
 <span class="fu">}</span></code></pre></div>
 <p>When Box installation is completed (abnormal termination)<br />
 (After expiration of Box installation, within the expiration date)</p>
-<div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span>
-  <span class="dt">&quot;schema&quot;</span><span class="fu">:</span> <span class="st">&quot;https://example.com/app1/&quot;</span><span class="fu">,</span>
+<div class="sourceCode"><pre class="sourceCode JSON"><code class="sourceCode JSON"><span class="fu">{</span>
+  <span class="dt">&quot;Schema&quot;</span><span class="fu">:</span> <span class="st">&quot;https://example.com/app1/&quot;</span><span class="fu">,</span>
   <span class="dt">&quot;started_at&quot;</span><span class="fu">:</span> <span class="st">&quot;2017-02-13T09:00:00.000Z&quot;</span><span class="fu">,</span>
   <span class="dt">&quot;progress&quot;</span><span class="fu">:</span> <span class="st">&quot;81%&quot;</span><span class="fu">,</span>
   <span class="dt">&quot;message&quot;</span><span class="fu">:</span> <span class="fu">{</span>

@@ -47,7 +47,7 @@ ACL
 |URI<br>|概要<br>|備考 (prefix)<br>|
 |:--|:--|:--|
 |DAV:<br>|WebDAVの名前空間<br>|D:<br>|
-|urn:x-personium:xmlns<br>|Personiumの名前空間<br>|p:<br>|
+|urn:x-Personium:xmlns<br>|Personiumの名前空間<br>|p:<br>|
 ※ 参考prefixは以下表の可読性を高めるためのもので、このprefix文字列の使用を保証するものでも要求するものでもありません。
 
 #### XMLの構造
@@ -127,7 +127,7 @@ privilegeタグ配下の権限設定の内容については、acl_model（[ア�
 #### リクエストサンプル
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
-<D:acl xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" xml:base="https://example.com/testcell1/__role/box1/">
+<D:acl xmlns:D="DAV:" xmlns:p="urn:x-Personium:xmlns" xml:base="https://example.com/testcell1/__role/box1/">
     <D:ace>
         <D:principal>
             <D:all/>
@@ -167,7 +167,7 @@ privilegeタグ配下の権限設定の内容については、acl_model（[ア�
 
 ### cURLサンプル
 ```sh
-curl "https://{UnitFQDN}/{CellName}" -X ACL -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8" ?><D:acl xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" xml:base="http://{UnitFQDN}/{CellName}/__role/{BoxName}/">  <D:ace><D:principal><D:href>{RoleName}</D:href></D:principal><D:grant><D:privilege><p:box-read/></D:privilege><D:privilege><p:auth/></D:privilege></D:grant></D:ace></D:acl>'
+curl "https://{UnitFQDN}/{CellName}" -X ACL -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8" ?><D:acl xmlns:D="DAV:" xmlns:p="urn:x-Personium:xmlns" xml:base="http://{UnitFQDN}/{CellName}/__role/{BoxName}/">  <D:ace><D:principal><D:href>{RoleName}</D:href></D:principal><D:grant><D:privilege><p:box-read/></D:privilege><D:privilege><p:auth/></D:privilege></D:grant></D:ace></D:acl>'
 ```
 <br>
 <br>

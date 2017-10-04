@@ -16,11 +16,11 @@ bar/
  |
  +-- 00_meta/  ★ 必須
  |    |
- |    +-- 00_manifest.json  ★ 必須
- |    +-- 10_relations.json
- |    +-- 20_roles.json
- |    +-- 30_extroles.json
- |    +-- 70_$links.json
+ |    +-- 00_manifest.JSON  ★ 必須
+ |    +-- 10_relations.JSON
+ |    +-- 20_roles.JSON
+ |    +-- 30_extroles.JSON
+ |    +-- 70_$links.JSON
  |    +-- 90_rootprops.xml  ★ 必須
  |
  +-- 90_contents/     ★ 配下のディレクトリ名はコレクション名と同じ
@@ -28,13 +28,13 @@ bar/
       +-- {OData}/    ★ rootprops.xmlでODataコレクションの場合、必須
       |    |
       |    +-- 00_$metadata.xml    ★ 必須
-      |    +-- 10_odatarelations.json
+      |    +-- 10_odatarelations.JSON
       |    |
       |    +-- 90_data/
       |         |
       |         +-- {EntityType}/
       |              |
-      |              +-- {1.json}
+      |              +-- {1.JSON}
       |
       +-- {Service}/
       |    |
@@ -59,7 +59,7 @@ bar/
 * ファイルのフォーマットやファイル名などを変更・削除した場合にバージョンアップする
 
 ### File List
-#### 00_manifest.json
+#### 00_manifest.JSON
 インストールする対象となるBoxの情報を記述したファイル
 
 |項目名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
@@ -67,18 +67,18 @@ bar/
 |bar_version<br>|barファイルのバージョン<br>|有効なバージョン<br>barファイル形式の変更ごとにバージョンが変わる<br>|○<br>|現状は"1"<br>|
 |box_version<br>|Boxのバージョン<br>|有効なバージョン<br>Box形式の変更ごとにバージョンが変わる<br>|○<br>|任意の文字列で良いが"1"を推奨（Box改版機能提供に向けて）<br>|
 |DefaultPath<br>|barファイル内でのBox名<br>|桁数：1&#65374;128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)は指定不可<br>nullは不可<br>|○<br>| <br>|
-|schema<br>|Schema名<br>|桁数：1&#65374;1024<br>URIの形式に従う（scheme：http / https / urn）<br>nullは不可<br>|○<br>| <br>|
+|Schema<br>|Schema名<br>|桁数：1&#65374;1024<br>URIの形式に従う（scheme：http / https / urn）<br>nullは不可<br>|○<br>| <br>|
 
 ##### サンプル
-```json
+```JSON
 {
   "bar_version": "1",
   "box_version": "1",
   "DefaultPath": "{BoxName}",
-  "schema": "http://app1.example.com"
+  "Schema": "http://app1.example.com"
 }
 ```
-#### 10_relations.json
+#### 10_relations.JSON
 インストール対象とするRelationの情報を記述したファイル  
 ※「有効値」欄が『&#65293;』となっている項目項目は、Relationのリクエストボディを参照
 
@@ -89,7 +89,7 @@ bar/
 
 
 ##### サンプル
-```json
+```JSON
 {
   "Relations": [
     {
@@ -98,7 +98,7 @@ bar/
   ]
 }
 ```
-#### 20_roles.json
+#### 20_roles.JSON
 インストール対象とするRoleの情報を記述したファイル  
 ※「有効値」欄が『&#65293;』となっている項目は、、Roleのリクエストボディを参照
 
@@ -108,7 +108,7 @@ bar/
 |Roles/Name<br>|Relation名<br>|-<br>|○<br>| <br>|
 
 ##### サンプル
-```json
+```JSON
 {
   "Roles": [
     {
@@ -117,7 +117,7 @@ bar/
   ]
 }
 ```
-#### 30_extroles.json
+#### 30_extroles.JSON
 インストール対象とするExtRoleの情報を記述したファイル  
 ※「有効値」欄が『&#65293;』となっている項目は、ExtRoleのリクエストボディを参照
 
@@ -131,7 +131,7 @@ bar/
 https://{UnitFQDN}/cell1/__role/box/staff → https://{UnitFQDN}/cell1/__role/__/staff
 
 ##### サンプル
-```json
+```JSON
 {
   "ExtRoles": [
     {
@@ -141,7 +141,7 @@ https://{UnitFQDN}/cell1/__role/box/staff → https://{UnitFQDN}/cell1/__role/__
   ]
 }
 ```
-#### 70_$links.json
+#### 70_$links.JSON
 インストール対象とする$linksのデータ関連情報を記述したファイル
 
 |項目名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
@@ -154,7 +154,7 @@ https://{UnitFQDN}/cell1/__role/box/staff → https://{UnitFQDN}/cell1/__role/__
 ※1 ExtRoleではRelation情報も必要のため、リスト形式とする。ただし、指定するJSONデータのキー名は、&quot;Name&quot; 固定とする。（制限）
 
 ##### サンプル
-```json
+```JSON
 {
   "Links": [
     {
@@ -187,7 +187,7 @@ https://{UnitFQDN}/cell1/__role/box/staff → https://{UnitFQDN}/cell1/__role/__
 #### 90_rootprops.xml
 barファイルにエクスポートする対象のBox配下の全階層に対して、PROPFINDメソッドで取得したXMLデータを示す。  
 XMLデータの詳細は、[ファイル設定取得（PROPFIND）](307_Get_Property.html)を参照。  
-インストール対象BoxのURLは、「personium-box:/」と記述する。  
+インストール対象BoxのURLは、「Personium-box:/」と記述する。  
 barファイルのインストール時には、下記サンプルの<prop>配下にある creationdate及び、getlastmodifiedを除いた全てのデータをインストール対象とする。
 * resourcetype: コレクションの種類を設定
 * acl: 権限を設定
@@ -197,13 +197,13 @@ barファイルのインストール時には、下記サンプルの<prop>配�
 ```xml
 <multistatus xmlns="DAV:">
     <response>
-        <href>personium-box:/</href>
+        <href>Personium-box:/</href>
         <propstat>
            <prop>
               <resourcetype>
                   <collection/>
               </resourcetype>
-              <acl xml:base="https://{UnitFQDN}/cell/__role/__/" xmlns:p="urn:x-personium:xmlns">
+              <acl xml:base="https://{UnitFQDN}/cell/__role/__/" xmlns:p="urn:x-Personium:xmlns">
                   <ace>
                       <principal>
                           <href>admin</href>
@@ -219,14 +219,14 @@ barファイルのインストール時には、下記サンプルの<prop>配�
       </propstat>
   </response>
   <response>
-      <href>personium-box:/odata</href>
+      <href>Personium-box:/odata</href>
       <propstat>
           <prop>
               <resourcetype>
                   <collection/>
-                  <p:service xmlns:p="urn:x-personium:xmlns"/>
+                  <p:service xmlns:p="urn:x-Personium:xmlns"/>
               </resourcetype>
-              <acl xml:base="https://{UnitFQDN}/cell/__role/__/" xmlns:p="urn:x-personium:xmlns">
+              <acl xml:base="https://{UnitFQDN}/cell/__role/__/" xmlns:p="urn:x-Personium:xmlns">
                   <ace>
                       <principal>
                           <href>user</href>
@@ -248,13 +248,13 @@ barファイルのインストール時には、下記サンプルの<prop>配�
       </propstat>
   </response>
   <response>
-      <href>personium-box:/dav</href>
+      <href>Personium-box:/dav</href>
       <propstat>
           <prop>
               <resourcetype>
                   <collection/>
               </resourcetype>
-              <acl xml:base="https://{UnitFQDN}/cell/__role/__/" xmlns:p="urn:x-personium:xmlns">
+              <acl xml:base="https://{UnitFQDN}/cell/__role/__/" xmlns:p="urn:x-Personium:xmlns">
                   <ace>
                       <principal>
                           <href>user</href>
@@ -276,7 +276,7 @@ barファイルのインストール時には、下記サンプルの<prop>配�
       </propstat>
   </response>
   <response>
-      <href>personium-box:/dav/testdavfile.txt</href>
+      <href>Personium-box:/dav/testdavfile.txt</href>
       <propstat>
           <prop>
               <getcontenttype>text/plain</getcontenttype>
@@ -284,15 +284,15 @@ barファイルのインストール時には、下記サンプルの<prop>配�
       </propstat>
   </response>
   <response>
-      <href>personium-box:/service</href>
+      <href>Personium-box:/service</href>
       <propstat>
           <prop>
               <resourcetype>
                   <collection/>
-                  <p:service xmlns:p="urn:x-personium:xmlns"/>
+                  <p:service xmlns:p="urn:x-Personium:xmlns"/>
               </resourcetype>
-             <acl xml:base="https://{UnitFQDN}/cell/__role/__/" xmlns:p="urn:x-personium:xmlns"/>
-              <p:service language="JavaScript" xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" \
+             <acl xml:base="https://{UnitFQDN}/cell/__role/__/" xmlns:p="urn:x-Personium:xmlns"/>
+              <p:service language="JavaScript" xmlns:D="DAV:" xmlns:p="urn:x-Personium:xmlns" \
               xmlns:Z="http://www.w3.com/standards/z39.50/">
                   <p:path name="ehr" src="ehr.js"/>
                   <p:path name="ehr_connector" src="ehr_connector.js"/>
@@ -301,19 +301,19 @@ barファイルのインストール時には、下記サンプルの<prop>配�
         </propstat>
     </response>
     <response>
-        <href>personium-box:/service/__src</href>
+        <href>Personium-box:/service/__src</href>
         <propstat>
             <prop>
                 <resourcetype>
                     <collection/>
                 </resourcetype>
                 <acl xml:base="https://{UnitFQDN}/cell/__role/__/"\
-                 xmlns:p="urn:x-personium:xmlns"/>
+                 xmlns:p="urn:x-Personium:xmlns"/>
             </prop>
         </propstat>
     </response>
     <response>
-        <href>personium-box:/service/__src/ehr.js</href>
+        <href>Personium-box:/service/__src/ehr.js</href>
         <propstat>
             <prop>
                 <getcontenttype>text/javascript</getcontenttype>
@@ -321,7 +321,7 @@ barファイルのインストール時には、下記サンプルの<prop>配�
         </propstat>
     </response>
     <response>
-        <href>personium-box:/service/__src/ehr_connector.js</href>
+        <href>Personium-box:/service/__src/ehr_connector.js</href>
         <propstat>
             <prop>
                 <getcontenttype>text/javascript</getcontenttype>
@@ -332,7 +332,7 @@ barファイルのインストール時には、下記サンプルの<prop>配�
 ```
 #### contents/{OData}/
 以下のファイルについては、詳細未稿
-* 90_data / {EntityType}/1.json
+* 90_data / {EntityType}/1.JSON
 
 ##### 00_$metadata.xml
 ユーザODataのスキーマ定義を示す。barファイルにエクスポートする時に、Odata用コレクションに対して$metadataにて取得したXMLデータ。  
@@ -342,18 +342,18 @@ Boxインストール時には、Schemaタグの配下をインストール対�
 
 スキーマ定義がない場合のサンプル
 ```xml
-<Edmx: Edmx Version = '1 .0 'xmlns: edmx =' http://schemas.microsoft.com/ado/2007/06/edmx \
-'xmlns: d =' http://schemas.microsoft.com/ado/2007 / 08/dataservices' xmlns:\
- m = 'http://schemas.microsoft.com/ado/2007/08/dataservices/metadata' xmlns: p = 'urn: x-personium: xmlns'>
+<Edmx: Edmx Version = '1 .0 'xmlns: edmx =' http://Schemas.microsoft.com/ado/2007/06/edmx \
+'xmlns: d =' http://Schemas.microsoft.com/ado/2007 / 08/dataservices' xmlns:\
+ m = 'http://Schemas.microsoft.com/ado/2007/08/dataservices/metadata' xmlns: p = 'urn: x-Personium: xmlns'>
   <edmx:DataServices m:DataServiceVersion='1.0'>
-    <Schema Xmlns='http://schemas.microsoft.com/ado/2006/04/edm' Namespace='UserData'>
+    <Schema Xmlns='http://Schemas.microsoft.com/ado/2006/04/edm' Namespace='UserData'>
       <EntityContainer Name='UserData' m:IsDefaultEntityContainer='true'/>
     </ Schema>
   </ Edmx: DataServices>
 </ Edmx: Edmx>
 ```
 
-##### 10_odatarelations.json
+##### 10_odatarelations.JSON
 インストール対象ユーザデータの$linksのデータ関連情報を記述したファイル
 ユーザODataのスキーマレベルでは、00_$metadata.xml にてAssociationEndの関連を定義しているが、本ファイルではユーザデータの実体に対する関連を定義する。
 
@@ -367,7 +367,7 @@ Boxインストール時には、Schemaタグの配下をインストール対�
 ※1 将来的に複合主キーへ対応した場合の対応を考慮して配列形式とする。
 
 ##### サンプル
-```json
+```JSON
 {
   "Links": [
     {
@@ -397,10 +397,10 @@ Boxインストール時には、Schemaタグの配下をインストール対�
   ]
 }
 ```
-#### 90_data / {EntityType} / {1.json}
+#### 90_data / {EntityType} / {1.JSON}
 ユーザデータを1件ずつJSON形式で格納する。
 
-```json
+```JSON
 {
     "__id": "{EntityName}",
     "name": "pochi",
@@ -424,16 +424,16 @@ bar/90_contents/{Service}/{src.js}に格納されたソースファイルを、�
 ```xml
 <multistatus xmlns="DAV:">
     <response>
-        <href>personium-box:/service</href>
+        <href>Personium-box:/service</href>
         <propstat>
             <prop>
                 <resourcetype>
                     <collection/>
-                    <p:service xmlns:p="urn:x-personium:xmlns"/>
+                    <p:service xmlns:p="urn:x-Personium:xmlns"/>
                 </resourcetype>
                 <acl xml:base="https://{UnitFQDN}/cell/__role/__/"\
-                xmlns:p="urn:x-personium:xmlns"/>
-                <p:service language="JavaScript" xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" \
+                xmlns:p="urn:x-Personium:xmlns"/>
+                <p:service language="JavaScript" xmlns:D="DAV:" xmlns:p="urn:x-Personium:xmlns" \
                 xmlns:Z="http://www.w3.com/standards/z39.50/">
                     <p:path name="ehr" src="ehr.js"/>
                     <p:path name="ehr_connector" src="ehr_connector.js"/>
@@ -442,19 +442,19 @@ bar/90_contents/{Service}/{src.js}に格納されたソースファイルを、�
         </propstat>
     </response>
     <response>
-        <href>personium-box:/service/__src</href>
+        <href>Personium-box:/service/__src</href>
         <propstat>
             <prop>
                 <resourcetype>
                     <collection/>
                 </resourcetype>
                 <acl xml:base="https://{UnitFQDN}/cell/__role/__/"\
-                 xmlns:p="urn:x-personium:xmlns"/>
+                 xmlns:p="urn:x-Personium:xmlns"/>
             </prop>
         </propstat>
     </response>
     <response>
-        <href>personium-box:/service/__src/ehr.js</href>
+        <href>Personium-box:/service/__src/ehr.js</href>
         <propstat>
             <prop>
                 <getcontenttype>text/javascript</getcontenttype>
@@ -462,7 +462,7 @@ bar/90_contents/{Service}/{src.js}に格納されたソースファイルを、�
         </propstat>
     </response>
     <response>
-        <href>personium-box:/service/__src/ehr_connector.js</href>
+        <href>Personium-box:/service/__src/ehr_connector.js</href>
         <propstat>
             <prop>
                 <getcontenttype>text/javascript</getcontenttype>

@@ -152,7 +152,7 @@ PersoniumアプリケーションやCell利用者が作成したサーバサイ�
 <br>
 ### 共通
 #### [エラーメッセージ一覧](004_Error_Messages.html)
-#### [personiumのHTTP実装に関する制限事項](003_Common_Limitations_on_HTTP_Implementation.html)
+#### [PersoniumのHTTP実装に関する制限事項](003_Common_Limitations_on_HTTP_Implementation.html)
 #### [CORS対応](002_CORS_Support.html)
 #### [クロスドメインポリシーファイル取得](001_Cross_Domain_Policy_File.html)
 <br>

@@ -67,7 +67,7 @@ currentのログ取得時にログが存在しない場合は、空のレスポ�
 ローテートのサイズ設定値よりも5MB程度大きなサイズとなる場合がある。  
 出力形式は以下の通り。
 ```
-{dateTime},[{level}],{RequestKey},{name},{schema},{subject},{action},{object},{result}
+{dateTime},[{level}],{RequestKey},{name},{Schema},{subject},{action},{object},{result}
 ```
 |項目名<br>|概要<br>|備考<br>|
 |:--|:--|:--|
@@ -75,7 +75,7 @@ currentのログ取得時にログが存在しない場合は、空のレスポ�
 |level<br>|ログレベル INFO,WARN,ERRORのいずれか<br>|文字列<br>|
 |RequestKey<br>|X-Personium-RequestKeyヘッダで指定された値<br>X-Personium-RequestKeyヘッダ指定がない場合、PCS-${UNIX時間}<br>|文字列<br>|
 |name<br>|外部イベント：client<br>内部イベント：server<br>|文字列<br>|
-|schema<br>|受け付けたURLのboxのschema<br>|URL形式<br>|
+|Schema<br>|受け付けたURLのboxのSchema<br>|URL形式<br>|
 |subject<br>|イベントの主体<br>|URL形式<br>|
 |action<br>|外部イベント：イベント受付で定義されたaction<br>内部イベント：HTTPメソッド名<br>|文字列<br>|
 |object<br>|外部イベント：イベント受付で定義されたobject<br>内部イベント：リクエストされたリソースパス<br>|文字列<br>|
@@ -86,7 +86,7 @@ currentのログ取得時にログが存在しない場合は、空のレスポ�
 #### レスポンスサンプル
 外部イベント
 ```
-2013-02-04T00:50:12.761Z,[INFO ],Req_animal-access_1001,client,https://{UnitFQDN}/{CellName}/,https://{UnitFQDN}/servicemanager/#admin,authSchema,/{CellName}/{BoxName}/service_name/token_keeper,[XXXX2033] Success schema authorization. cellUrl=https://{UnitFQDN}/keeper-d4a57bb26eae481486b07d06487051d1/
+2013-02-04T00:50:12.761Z,[INFO ],Req_animal-access_1001,client,https://{UnitFQDN}/{CellName}/,https://{UnitFQDN}/servicemanager/#admin,authSchema,/{CellName}/{BoxName}/service_name/token_keeper,[XXXX2033] Success Schema authorization. cellUrl=https://{UnitFQDN}/keeper-d4a57bb26eae481486b07d06487051d1/
 ```
 
 内部イベント

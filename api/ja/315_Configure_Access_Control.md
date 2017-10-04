@@ -48,7 +48,7 @@ ACL
 |URI<br>|概要<br>|参考prefix<br>|
 |:--|:--|:--|
 |DAV:<br>|WebDAVの名前空間<br>|D:<br>|
-|urn:x-personium:xmlns<br>|Personiumの名前空間<br>|p:<br>|
+|urn:x-Personium:xmlns<br>|Personiumの名前空間<br>|p:<br>|
 
 ※ 参考prefixは以下表の可読性を高めるためのもので、このprefix文字列の使用を保証するものでも要求するものでもありません。
 
@@ -115,7 +115,7 @@ DTD表記
 #### リクエストサンプル
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
-<D:acl xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns"
+<D:acl xmlns:D="DAV:" xmlns:p="urn:x-Personium:xmlns"
        xml:base="https://{UnitFQDN}/{CellName}/__role/{BoxName}/"
        p:requireSchemaAuthz="public">
     <D:ace>
@@ -166,7 +166,7 @@ DTD表記
 curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}" -X ACL -i
 -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d
 '<?xml version="1.0" encoding="utf-8" ?>
- <D:acl xmlns:D="DAV:" xml:base="https://{UnitFQDN}/{CellName}/__role/{BoxName}/"　xmlns:p="urn:x-personium:xmlns" p:requireSchemaAuthz="none">
+ <D:acl xmlns:D="DAV:" xml:base="https://{UnitFQDN}/{CellName}/__role/{BoxName}/"　xmlns:p="urn:x-Personium:xmlns" p:requireSchemaAuthz="none">
   <D:ace>
    <D:principal>
     <D:href>doctor</D:href>

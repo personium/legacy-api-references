@@ -54,8 +54,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h3>Restrictions</h3>
 <ul>
 <li>Always handles Content-Type in the request header as application/json</li>
-<li>Only accepts the request body in the json format</li>
-<li>Only application/json is supported for Content-Type in the request header and the json format for the response body</li>
+<li>Only accepts the request body in the JSON format</li>
+<li>Only application/json is supported for Content-Type in the request header and the JSON format for the response body</li>
 <li>Response body data is not ensured if atom or xml is specified in the $format query option, although it does not result in an error</li>
 </ul>
 <p><br></p>
@@ -109,14 +109,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <tr class="even">
 <td align="left">Content-Type<br></td>
 <td align="left">Specifies the request body format<br></td>
-<td align="left">application / json<br></td>
+<td align="left">application / JSON<br></td>
 <td align="left">No<br></td>
 <td align="left">[application/json] by default<br></td>
 </tr>
 <tr class="odd">
 <td align="left">Accept<br></td>
 <td align="left">Specifies the response body format<br></td>
-<td align="left">application / json<br></td>
+<td align="left">application / JSON<br></td>
 <td align="left">No<br></td>
 <td align="left">[application/json] by default<br></td>
 </tr>
@@ -147,7 +147,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <td align="left">Linking with Box, whether possible or not<br></td>
 <td align="left">true / false<br>The default value is false<br></td>
 <td align="left">No<br></td>
-<td align="left">Send a token you have schema authentication is set to true this item when you tie in Box (not implemented)<br></td>
+<td align="left">Send a token you have Schema authentication is set to true this item when you tie in Box (not implemented)<br></td>
 </tr>
 <tr class="even">
 <td align="left">InReplyTo<br></td>
@@ -203,7 +203,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <td align="left">Information of requested relation to register<br></td>
 <td align="left">URL format<br>null<br></td>
 <td align="left">* 2<br></td>
-<td align="left">*2 Required when message type is other than message<br>Relation name or relation class URL or role name or role class URL, the registration request<br>When only the relation name is specified, it is regarded as a relative URL from the following URL<br>BoxBound is true:[target Box schema URL]__relation/__/<br>BoxBound is false:[destination cell URL]__relation/__/<br>When only the role name is specified, it is regarded as a relative URL from the following URL<br>BoxBound is true:[target Box schema URL]__role/__/<br>BoxBound is false:[destination cell URL]__role/__/<br></td>
+<td align="left">*2 Required when message type is other than message<br>Relation name or relation class URL or role name or role class URL, the registration request<br>When only the relation name is specified, it is regarded as a relative URL from the following URL<br>BoxBound is true:[target Box Schema URL]__relation/__/<br>BoxBound is false:[destination cell URL]__relation/__/<br>When only the role name is specified, it is regarded as a relative URL from the following URL<br>BoxBound is true:[target Box Schema URL]__role/__/<br>BoxBound is false:[destination cell URL]__role/__/<br></td>
 </tr>
 <tr class="even">
 <td align="left">RequestRelationTarget<br></td>
@@ -215,7 +215,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tbody>
 </table>
 <h4>Request Sample</h4>
-<div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span>
+<div class="sourceCode"><pre class="sourceCode JSON"><code class="sourceCode JSON"><span class="fu">{</span>
   <span class="dt">&quot;BoxBound&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span>
   <span class="dt">&quot;InReplyTo&quot;</span><span class="fu">:</span> <span class="st">&quot;hnKXm44TTZCw-bfSEw4f0A&quot;</span><span class="fu">,</span>
   <span class="dt">&quot;To&quot;</span><span class="fu">:</span> <span class="st">&quot;https://{UnitFQDN}/{TargetCellName}&quot;</span><span class="fu">,</span>
@@ -454,7 +454,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h4>Error Messages</h4>
 <p>Refer to <a href="004_Error_Messages.html">Error Message List</a></p>
 <h4>Response Sample</h4>
-<div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span>
+<div class="sourceCode"><pre class="sourceCode JSON"><code class="sourceCode JSON"><span class="fu">{</span>
   <span class="dt">&quot;d&quot;</span><span class="fu">:</span> <span class="fu">{</span>
     <span class="dt">&quot;results&quot;</span><span class="fu">:</span> <span class="fu">{</span>
       <span class="dt">&quot;__metadata&quot;</span><span class="fu">:</span> <span class="fu">{</span>

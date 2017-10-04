@@ -122,7 +122,7 @@ grant_type=refresh_token&refresh_token={token}
 
 |項目名<br>|概要<br>|備考<br>|
 |:--|:--|:--|
-|Content-Type<br>|application / JSON<br>|<br>|
+|Content-Type<br>|application/json<br>|<br>|
 |Set-Cookie<br>|クッキー認証情報（p_cookie）<br>|クッキー発行オプション（p_cookie）をリクエスト時に設定した場合のみ<br>|
 #### レスポンスボディ
 

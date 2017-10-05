@@ -72,35 +72,35 @@ You can specify the following OData resources</p>
 <h5 id="linking-with-box">Linking with Box</h5>
 <pre><code>/{CellName}/__ctl/Relation(Name=&#39;{RelationName}&#39;,_Box.Name=&#39;{BoxName}&#39;)/$links/_Box(&#39;{BoxName}&#39;)</code></pre>
 <h5 id="linking-with-extcell">Linking with ExtCell</h5>
-<pre><code>/{CellName}/__ctl/Relation(Name=&#39;{RelationName}&#39;,_Box.Name=&#39;{BoxName}&#39;)/$links/_ExtCell(&#39;{ExtCell_URL}&#39;)</code></pre>
+<pre><code>/{CellName}/__ctl/Relation(Name=&#39;{RelationName}&#39;,_Box.Name=&#39;{BoxName}&#39;)/$links/_ExtCell(&#39;{ExtCellURL}&#39;)</code></pre>
 <p>or </p>
-<pre><code>/{CellName}/__ctl/Relation(Name=&#39;{RelationName}&#39;)/$links/_ExtCell(&#39;{ExtCell_URL}&#39;)</code></pre>
+<pre><code>/{CellName}/__ctl/Relation(Name=&#39;{RelationName}&#39;)/$links/_ExtCell(&#39;{ExtCellURL}&#39;)</code></pre>
 <p>or </p>
-<pre><code>/{CellName}/__ctl/Relation(&#39;{RelationName}&#39;)/$links/_ExtCell(&#39;{ExtCell_URL}&#39;)</code></pre>
+<pre><code>/{CellName}/__ctl/Relation(&#39;{RelationName}&#39;)/$links/_ExtCell(&#39;{ExtCellURL}&#39;)</code></pre>
 <h5 id="linking-with-extrole">Linking with ExtRole</h5>
-<pre><code>/{CellName}/__ctl/Relation(Name=&#39;{RelationName}&#39;,_Box.Name=&#39;{BoxName}&#39;)/$links/_ExtRole(ExtRole=&#39;{ExtRole_URL}&#39;,_Relation.Name=&#39;{RelationName}&#39;,_Relation._Box.Name=&#39;{BoxName}&#39;)</code></pre>
+<pre><code>/{CellName}/__ctl/Relation(Name=&#39;{RelationName}&#39;,_Box.Name=&#39;{BoxName}&#39;)/$links/_ExtRole(ExtRole=&#39;{ExtRoleURL}&#39;,_Relation.Name=&#39;{RelationName}&#39;,_Relation._Box.Name=&#39;{BoxName}&#39;)</code></pre>
 <p>or </p>
-<pre><code>/{CellName}/__ctl/Relation(Name=&#39;{RelationName}&#39;)/$links/_ExtRole(ExtRole=&#39;{ExtRole_URL}&#39;,_Relation.Name=&#39;{RelationName}&#39;,_Relation._Box.Name=&#39;{BoxName}&#39;)</code></pre>
+<pre><code>/{CellName}/__ctl/Relation(Name=&#39;{RelationName}&#39;)/$links/_ExtRole(ExtRole=&#39;{ExtRoleURL}&#39;,_Relation.Name=&#39;{RelationName}&#39;,_Relation._Box.Name=&#39;{BoxName}&#39;)</code></pre>
 <p>or </p>
-<pre><code>/{CellName}/__ctl/Relation(&#39;{RelationName}&#39;)/$links/_ExtRole(ExtRole=&#39;{ExtRole_URL}&#39;,_Relation.Name=&#39;{RelationName}&#39;,_Relation._Box.Name=&#39;{BoxName}&#39;)</code></pre>
+<pre><code>/{CellName}/__ctl/Relation(&#39;{RelationName}&#39;)/$links/_ExtRole(ExtRole=&#39;{ExtRoleURL}&#39;,_Relation.Name=&#39;{RelationName}&#39;,_Relation._Box.Name=&#39;{BoxName}&#39;)</code></pre>
 <p>or </p>
-<pre><code>/{CellName}/__ctl/Relation(Name=&#39;{RelationName}&#39;,_Box.Name=&#39;{BoxName}&#39;)/$links/_ExtRole(ExtRole=&#39;{ExtRole_URL}&#39;,_Relation.Name=&#39;{RelationName}&#39;)</code></pre>
+<pre><code>/{CellName}/__ctl/Relation(Name=&#39;{RelationName}&#39;,_Box.Name=&#39;{BoxName}&#39;)/$links/_ExtRole(ExtRole=&#39;{ExtRoleURL}&#39;,_Relation.Name=&#39;{RelationName}&#39;)</code></pre>
 <p>or </p>
-<pre><code>/{CellName}/__ctl/Relation(Name=&#39;{RelationName}&#39;)/$links/_ExtRole(ExtRole=&#39;{ExtRole_URL}&#39;,_Relation.Name=&#39;{RelationName}&#39;)</code></pre>
+<pre><code>/{CellName}/__ctl/Relation(Name=&#39;{RelationName}&#39;)/$links/_ExtRole(ExtRole=&#39;{ExtRoleURL}&#39;,_Relation.Name=&#39;{RelationName}&#39;)</code></pre>
 <p>or </p>
-<pre><code>/{CellName}/__ctl/Relation(&#39;{RelationName}&#39;)/$links/_ExtRole(ExtRole=&#39;{ExtRole_URL}&#39;,_Relation.Name=&#39;{RelationName}&#39;)</code></pre>
+<pre><code>/{CellName}/__ctl/Relation(&#39;{RelationName}&#39;)/$links/_ExtRole(ExtRole=&#39;{ExtRoleURL}&#39;,_Relation.Name=&#39;{RelationName}&#39;)</code></pre>
 <p>or </p>
-<pre><code>/{CellName}/__ctl/Relation(Name=&#39;{RelationName}&#39;,_Box.Name=&#39;{BoxName}&#39;)/$links/_ExtRole(ExtRole=&#39;{ExtRole_URL}&#39;)</code></pre>
+<pre><code>/{CellName}/__ctl/Relation(Name=&#39;{RelationName}&#39;,_Box.Name=&#39;{BoxName}&#39;)/$links/_ExtRole(ExtRole=&#39;{ExtRoleURL}&#39;)</code></pre>
 <p>or </p>
-<pre><code>/{CellName}/__ctl/Relation(Name=&#39;{RelationName}&#39;)/$links/_ExtRole(ExtRole=&#39;{ExtRole_URL}&#39;)</code></pre>
+<pre><code>/{CellName}/__ctl/Relation(Name=&#39;{RelationName}&#39;)/$links/_ExtRole(ExtRole=&#39;{ExtRoleURL}&#39;)</code></pre>
 <p>or </p>
-<pre><code>/{CellName}/__ctl/Relation(&#39;{RelationName}&#39;)/$links/_ExtRole(ExtRole=&#39;{ExtRole_URL}&#39;)</code></pre>
+<pre><code>/{CellName}/__ctl/Relation(&#39;{RelationName}&#39;)/$links/_ExtRole(ExtRole=&#39;{ExtRoleURL}&#39;)</code></pre>
 <p>or </p>
-<pre><code>/{CellName}/__ctl/Relation(Name=&#39;{RelationName}&#39;,_Box.Name=&#39;{BoxName}&#39;)/$links/_ExtRole(&#39;{ExtRole_URL}&#39;)</code></pre>
+<pre><code>/{CellName}/__ctl/Relation(Name=&#39;{RelationName}&#39;,_Box.Name=&#39;{BoxName}&#39;)/$links/_ExtRole(&#39;{ExtRoleURL}&#39;)</code></pre>
 <p>or </p>
-<pre><code>/{CellName}/__ctl/Relation(Name=&#39;{RelationName}&#39;)/$links/_ExtRole(&#39;{ExtRole_URL}&#39;)</code></pre>
+<pre><code>/{CellName}/__ctl/Relation(Name=&#39;{RelationName}&#39;)/$links/_ExtRole(&#39;{ExtRoleURL}&#39;)</code></pre>
 <p>or </p>
-<pre><code>/{CellName}/__ctl/Relation(&#39;{RelationName}&#39;)/$links/_ExtRole(&#39;{ExtRole_URL}&#39;)</code></pre>
+<pre><code>/{CellName}/__ctl/Relation(&#39;{RelationName}&#39;)/$links/_ExtRole(&#39;{ExtRoleURL}&#39;)</code></pre>
 <h5 id="linking-with-role">Linking with Role</h5>
 <pre><code>/{CellName}/__ctl/Relation(Name=&#39;{RelationName}&#39;,_Box.Name=&#39;{BoxName}&#39;)/$links/_Role(Name=&#39;{RoleName}&#39;,_Box.Name=&#39;{BoxName}&#39;)</code></pre>
 <p>or </p>

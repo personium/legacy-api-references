@@ -18,19 +18,19 @@ ExtCellに$linksで指定したODataリソースを紐付ける<br>以下のODat
 #### リクエストURL
 ##### Roleと紐付ける場合
 ```
-/{CellName}/__ctl/ExtCell(Url='{ExtCell_URL}')/$links/_Role
+/{CellName}/__ctl/ExtCell(Url='{ExtCellURL}')/$links/_Role
 ```
 または、
 ```
-/{CellName}/__ctl/ExtCell('{ExtCell_URL}')/$links/_Role
+/{CellName}/__ctl/ExtCell('{ExtCellURL}')/$links/_Role
 ```
 ##### Relationと紐付ける場合
 ```
-/{CellName}/__ctl/ExtCell(Url='{ExtCell_URL}')/$links/_Relation
+/{CellName}/__ctl/ExtCell(Url='{ExtCellURL}')/$links/_Relation
 ```
 または、
 ```
-/{CellName}/__ctl/ExtCell('{ExtCell_URL}')/$links/_Relation
+/{CellName}/__ctl/ExtCell('{ExtCellURL}')/$links/_Relation
 ```
 ※ \_Box.Nameパラメタを省略した場合は、nullが指定されたものとする
 #### メソッド

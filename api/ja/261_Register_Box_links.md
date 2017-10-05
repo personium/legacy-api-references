@@ -20,7 +20,7 @@ Boxに$linksで指定したODataリソースを紐付ける<Br>以下のODataリ
 #### リクエストURL
 ##### Roleとの紐付け
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{Schema_URL}')/$links/_Role
+/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/_Role
 ```
 または、
 ```
@@ -32,7 +32,7 @@ Boxに$linksで指定したODataリソースを紐付ける<Br>以下のODataリ
 ```
 ##### Relationとの紐付け
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{Schema_URL}')/$links/_Relation
+/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/_Relation
 ```
 または、
 ```

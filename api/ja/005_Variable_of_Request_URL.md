@@ -9,12 +9,12 @@ APIリファレンスのリクエストURLで使われている変数につい�
 |{UnitFQDN}<br>|Personiumが動作しているサーバのFQDN<br>UnitとはPersoniumサーバ内で、複数のCellから構成されるデータ領域を指す<br>|<br>|
 |{CellName}<br>|Cell名<br>Cellとはデータ主体ごとのData Stroreを指す<br>|<br>|
 |{BoxName}<br>|Box名<br>Boxとはアプリケーションに用いるデータを格納する領域を指す<br>|<br>|
-|{Schema_URL}<br>|SchemaのURL<br>SchemaとはPersonium内に格納されたSchemaを指す|<br>|
+|{SchemaURL}<br>|SchemaのURL<br>SchemaとはPersonium内に格納されたSchemaを指す|<br>|
 |{RoleName}<br>|Role名<br>RoleとはすべてのCellに対して定義される「役割」を指す<br>|<br>|
 |{AccountName}<br>|Account名<br>Accountとは特定のCellに属するユーザを指す<br>|<br>|
-|{ExtCell_URL}<br>|ExtCellのURL<br>ExtCell（外部Cell）とはあるCellの外にある他のCellを指す<br>|<br>|
+|{ExtCellURL}<br>|ExtCellのURL<br>ExtCell（外部Cell）とはあるCellの外にある他のCellを指す<br>|<br>|
 |{RelationName}<br>|Relation名<br>RelationとはCellとその外部Cellとの関係を示す定義体を指す<br>|<br>|
-|{ExtRole_URL}<br>|ExtRoleのURL<br>ExtRole（外部Role）とは特定の関係にある外部Cellにて、特定の役割（Role）を付与された利用者主体を指す<br>|<br>|
+|{ExtRoleURL}<br>|ExtRoleのURL<br>ExtRole（外部Role）とは特定の関係にある外部Cellにて、特定の役割（Role）を付与された利用者主体を指す<br>|<br>|
 |{LogName}<br>|ログファイル名<br>|<br>|
 |{MessageID}<br>|MessageのID<br>MessageとはCell間で送受信可能なメッセージを指す<br>|<br>|
 |{CollectionName}<br>|Collection名<br>CollectionとはCellにあるBoxの中に格納されたデータ集合を指す<br>|<br>|

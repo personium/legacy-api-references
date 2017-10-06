@@ -12,7 +12,7 @@
 * 1つのCollectionに対して作成できるEntityTypeは100個まで
 
 ### 必要な権限
-alter-Schema
+alter-schema
 
 <br>
 ### リクエスト

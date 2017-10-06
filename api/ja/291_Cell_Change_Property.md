@@ -37,7 +37,7 @@ PROPPATCH
 |項目名<br>|Namespace<br>|概要<br>|必須<br>|有効値<br>|備考<br>|
 |:--|:--|:--|:--|:--|:--|
 |DAV:<br>|<br>|XML名前空間設定<br>|○<br>|"DAV:"<br>|<br>|
-|urn: x-Personium: xmlns<br>|<br>|XML名前空間設定<br>|○<br>|"Urn: x-Personium: xmlns"<br>|<br>|
+|urn: x-personium: xmlns<br>|<br>|XML名前空間設定<br>|○<br>|"Urn: x-personium: xmlns"<br>|<br>|
 |http://www.w3.com/standards/z39.50/<br>|<br>|XML名前空間設定<br>|○<br>|"Http://www.w3.com/standards/z39.50/"<br>|<br>
 |propertyupdate<br>|DAV:<br>|propertyupdate（アクセス制御リスト）のルート<br>|○<br>|<ELEMENT propertyupdate! (Set | remove)><br>|<br>|
 |set<br>|DAV:<br>|プロパティ設定<br>|×<br>|<! ELEMENT set (prop *)><br>|<br>|
@@ -47,7 +47,7 @@ PROPPATCH
 #### リクエストサンプル
 ```xml
 <D:propertyupdate xmlns:D="DAV:"  
-    xmlns:p="urn:x-Personium:xmlns"  
+    xmlns:p="urn:x-personium:xmlns"  
     xmlns:Z="http://www.w3.com/standards/z39.50/">
     <D:set>
         <D:prop>
@@ -93,10 +93,10 @@ PROPPATCH
         <href>https://{UnitFQDN}/{CellName}/</href>
         <propstat>
             <prop>
-                <Z:Author xmlns:p="urn:x-Personium:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/">${author1}</Z:Author>
-                <p:hoge xmlns:p="urn:x-Personium:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/">${hoge}</p:hoge>
-                <Z:Author xmlns:p="urn:x-Personium:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/"/>
-                <p:hoge xmlns:p="urn:x-Personium:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/"/>
+                <Z:Author xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/">${author1}</Z:Author>
+                <p:hoge xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/">${hoge}</p:hoge>
+                <Z:Author xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/"/>
+                <p:hoge xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/"/>
             </prop>
             <status>HTTP/1.1 200 OK</status>
         </propstat>
@@ -107,7 +107,7 @@ PROPPATCH
 ### cURLサンプル
 ```sh
 curl "https://{UnitFQDN}/{CellName}" -X PROPPATCH -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8" ?>
-<D:propertyupdate xmlns:D="DAV:" xmlns:p="urn:x-Personium:xmlns" xmlns:Z="http://www.w3.com/standards/z39.50/"><D:set><D:prop><Z:Author>${author1}</Z:Author>
+<D:propertyupdate xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" xmlns:Z="http://www.w3.com/standards/z39.50/"><D:set><D:prop><Z:Author>${author1}</Z:Author>
 <p:hoge>${hoge}</p:hoge></D:prop></D:set><D:remove><D:prop><Z:Author/><p:hoge/></D:prop></D:remove></D:propertyupdate>'
 ```
 <br>

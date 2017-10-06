@@ -5,7 +5,7 @@ ComplexType の$link情報を削除する
 Propertyを削除する際に、使用しているComplexTypeが存在しない場合に限り、ユーザデータの削除が可能。
 
 ### 必要な権限
-alter-Schema
+alter-schema
 
 ### 制限事項
 * リクエストヘッダのContent-Typeは全てapplication/jsonとして扱う

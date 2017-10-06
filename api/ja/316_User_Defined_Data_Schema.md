@@ -61,9 +61,9 @@ GET
 #### レスポンスサンプル
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<edmx:Edmx Version="1.0" xmlns:edmx="http://Schemas.microsoft.com/ado/2007/06/edmx" xmlns:d="http://Schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://Schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:p="urn:x-Personium:xmlns">
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:p="urn:x-personium:xmlns">
   <edmx:DataServices m:DataServiceVersion="1.0">
-    <Schema xmlns="http://Schemas.microsoft.com/ado/2006/04/edm" Namespace="UserData">
+    <Schema xmlns="http://schemas.microsoft.com/ado/2006/04/edm" Namespace="UserData">
       <ComplexType Name="TestComplexType">
         <Property Name="TestComplexTypeProperty" Type="Edm.String" Nullable="true"></Property>
       </ComplexType>

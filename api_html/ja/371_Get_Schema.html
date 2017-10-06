@@ -245,27 +245,27 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><a href="http://Schemas.microsoft.com/ado/2007/06/edmx" class="uri">http://Schemas.microsoft.com/ado/2007/06/edmx</a><br></td>
+<td align="left"><a href="http://schemas.microsoft.com/ado/2007/06/edmx" class="uri">http://schemas.microsoft.com/ado/2007/06/edmx</a><br></td>
 <td align="left">edmxの名前空間<br></td>
 <td align="left">edmx:<br></td>
 </tr>
 <tr class="even">
-<td align="left"><a href="http://Schemas.microsoft.com/ado/2007/08/dataservices" class="uri">http://Schemas.microsoft.com/ado/2007/08/dataservices</a><br></td>
+<td align="left"><a href="http://schemas.microsoft.com/ado/2007/08/dataservices" class="uri">http://schemas.microsoft.com/ado/2007/08/dataservices</a><br></td>
 <td align="left">WCF Data Servicesの名前空間<br></td>
 <td align="left">d:<br></td>
 </tr>
 <tr class="odd">
-<td align="left"><a href="http://Schemas.microsoft.com/ado/2007/08/dataservices/metadata" class="uri">http://Schemas.microsoft.com/ado/2007/08/dataservices/metadata</a><br></td>
+<td align="left"><a href="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" class="uri">http://schemas.microsoft.com/ado/2007/08/dataservices/metadata</a><br></td>
 <td align="left">WCF Data Services metadataの名前空間<br></td>
 <td align="left">m:<br></td>
 </tr>
 <tr class="even">
-<td align="left"><a href="urn:x-Personium:xmlns" class="uri">urn:x-Personium:xmlns</a><br></td>
+<td align="left"><a href="urn:x-personium:xmlns" class="uri">urn:x-personium:xmlns</a><br></td>
 <td align="left">Personiumの名前空間 <br></td>
 <td align="left">p:<br></td>
 </tr>
 <tr class="odd">
-<td align="left"><a href="http://Schemas.microsoft.com/ado/2006/04/edm" class="uri">http://Schemas.microsoft.com/ado/2006/04/edm</a><br></td>
+<td align="left"><a href="http://schemas.microsoft.com/ado/2006/04/edm" class="uri">http://schemas.microsoft.com/ado/2006/04/edm</a><br></td>
 <td align="left">schemeの名前空間<br></td>
 <td align="left">-<br></td>
 </tr>
@@ -829,7 +829,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ATTLIST</span> <span class="fu">DataServices</span> <span class="fu">DataServiceVersion</span> <span class="fu">CDDATA</span> <span class="st">&quot;1.0&quot;</span><span class="dt">&gt;</span>
 <span class="dt">&lt;!ATTLIST</span> <span class="fu">FunctionImport</span> <span class="fu">HttpMethod</span> <span class="fu">CDDATA</span> <span class="kw">#IMPLIED</span><span class="dt">&gt;</span>
 <span class="dt">&lt;!ATTLIST</span> <span class="fu">EntityContainer</span> <span class="fu">IsDefaultEntityContainer</span> <span class="fu">CDDATA</span> <span class="st">&quot;true&quot;</span><span class="dt">&gt;</span></code></pre></div>
-<p>名前空間:<a href="http://Schemas.microsoft.com/ado/2006/04/edm" class="uri">http://Schemas.microsoft.com/ado/2006/04/edm</a></p>
+<p>名前空間:<a href="http://schemas.microsoft.com/ado/2006/04/edm" class="uri">http://schemas.microsoft.com/ado/2006/04/edm</a></p>
 <div class="sourceCode"><pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">Schema</span> <span class="dv">(</span><span class="fu">Association</span><span class="fl">*</span><span class="dv">,</span><span class="fu">ComplexType</span><span class="fl">*</span><span class="dv">,</span><span class="fu">EntityType</span><span class="fl">*</span><span class="dv">,</span><span class="fu">EntityContainer</span><span class="fl">*</span><span class="dv">)</span><span class="dt">&gt;</span>
 <span class="dt">&lt;!ATTLIST</span> <span class="fu">Schema</span> <span class="fu">Namespace</span> <span class="fu">CDDATA</span> <span class="kw">#REQUIRED</span><span class="dt">&gt;</span>
 <span class="dt">&lt;!ELEMENT</span> <span class="fu">ComplexType</span> <span class="dv">(</span><span class="fu">Documentation</span><span class="fl">?</span><span class="dv">,</span><span class="fu">Property</span><span class="fl">*</span><span class="dv">)</span><span class="dt">&gt;</span>
@@ -909,9 +909,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="kw">&lt;/service&gt;</span></code></pre></div>
 <h5 id="-1">ユーザデータの場合</h5>
 <div class="sourceCode"><pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;?xml</span> version=&quot;1.0&quot; encoding=&quot;utf-8&quot;<span class="kw">?&gt;</span>
-<span class="kw">&lt;edmx:Edmx</span><span class="ot"> Version=</span><span class="st">&quot;1.0&quot;</span><span class="ot"> xmlns:edmx=</span><span class="st">&quot;http://Schemas.microsoft.com/ado/2007/06/edmx&quot;</span><span class="ot"> xmlns:d=</span><span class="st">&quot;http://Schemas.microsoft.com/ado/2007/08/dataservices&quot;</span><span class="ot"> xmlns:m=</span><span class="st">&quot;http://Schemas.microsoft.com/ado/2007/08/dataservices/metadata&quot;</span><span class="ot"> xmlns:p=</span><span class="st">&quot;urn:x-Personium:xmlns&quot;</span><span class="kw">&gt;</span>
+<span class="kw">&lt;edmx:Edmx</span><span class="ot"> Version=</span><span class="st">&quot;1.0&quot;</span><span class="ot"> xmlns:edmx=</span><span class="st">&quot;http://schemas.microsoft.com/ado/2007/06/edmx&quot;</span><span class="ot"> xmlns:d=</span><span class="st">&quot;http://schemas.microsoft.com/ado/2007/08/dataservices&quot;</span><span class="ot"> xmlns:m=</span><span class="st">&quot;http://schemas.microsoft.com/ado/2007/08/dataservices/metadata&quot;</span><span class="ot"> xmlns:p=</span><span class="st">&quot;urn:x-personium:xmlns&quot;</span><span class="kw">&gt;</span>
   <span class="kw">&lt;edmx:DataServices</span><span class="ot"> m:DataServiceVersion=</span><span class="st">&quot;1.0&quot;</span><span class="kw">&gt;</span>
-    <span class="kw">&lt;Schema</span><span class="ot"> xmlns=</span><span class="st">&quot;http://Schemas.microsoft.com/ado/2006/04/edm&quot;</span><span class="ot"> Namespace=</span><span class="st">&quot;UserData&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;Schema</span><span class="ot"> xmlns=</span><span class="st">&quot;http://schemas.microsoft.com/ado/2006/04/edm&quot;</span><span class="ot"> Namespace=</span><span class="st">&quot;UserData&quot;</span><span class="kw">&gt;</span>
       <span class="kw">&lt;ComplexType</span><span class="ot"> Name=</span><span class="st">&quot;Address&quot;</span><span class="kw">&gt;&lt;/ComplexType&gt;</span>
       <span class="kw">&lt;ComplexType</span><span class="ot"> Name=</span><span class="st">&quot;TestComplexType&quot;</span><span class="kw">&gt;</span>
         <span class="kw">&lt;Property</span><span class="ot"> Name=</span><span class="st">&quot;TestComplexTypeProperty&quot;</span><span class="ot"> Type=</span><span class="st">&quot;Edm.String&quot;</span><span class="ot"> Nullable=</span><span class="st">&quot;true&quot;</span><span class="kw">&gt;&lt;/Property&gt;</span>

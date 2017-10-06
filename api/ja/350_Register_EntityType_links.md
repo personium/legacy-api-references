@@ -2,7 +2,7 @@
 ### 概要
 EntityTypeの$links情報を登録する
 ### 必要な権限
-alter-Schema
+alter-schema
 ### 制限事項
 なし
 <br>

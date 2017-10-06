@@ -49,7 +49,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h1 id="boxurl">BoxURL取得</h1>
 <h3>概要</h3>
 <p>BoxのURLを取得するために用いるリソースです。スキーマ認証を行ったアプリケーションはアクセストークンをつけてこのリソースにアクセスすることでスキーマ認証されたアプリケーションのためのBoxのURLにリダイレクトします。<br />
-スキーマ認証に対応していないアプリケーションはパラメタでSchema urlを与えることで、対応するBoxのURLにリダイレクトします。</p>
+スキーマ認証に対応していないアプリケーションはパラメタでschema urlを与えることで、対応するBoxのURLにリダイレクトします。</p>
 <h3>必要な権限</h3>
 <p>本リソースのアクセス制御はBoxルートのACLに依存します。以下２点を満たしている必要があります。</p>
 <ul>
@@ -92,7 +92,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <td align="left">Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br></td>
 </tr>
 <tr class="even">
-<td align="left">Schema<br></td>
+<td align="left">schema<br></td>
 <td align="left">アプリセルURL<br></td>
 <td align="left">URL形式<br></td>
 <td align="left">×<br></td>
@@ -190,7 +190,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <tr class="odd">
 <td align="left">Location<br></td>
 <td align="left">Boxメタデータ取得API用URL<br></td>
-<td align="left">リクエストの指定方法により、以下の値となる<br>Schemaクエリを指定<br>Schemaクエリで指定されたアプリセルURLに対応するBoxのURL<br>Schemaクエリなしで、Authorizationヘッダのみを指定<br>トークンに含まれるスキーマURLに対応するBoxのURL<br></td>
+<td align="left">リクエストの指定方法により、以下の値となる<br>schemaクエリを指定<br>schemaクエリで指定されたアプリセルURLに対応するBoxのURL<br>schemaクエリなしで、Authorizationヘッダのみを指定<br>トークンに含まれるスキーマURLに対応するBoxのURL<br></td>
 </tr>
 </tbody>
 </table>
@@ -207,7 +207,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h4>スキーマ認証済</h4>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__box&quot;</span> -X GET -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span></code></pre></div>
 <h4>スキーマ認証未対応</h4>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__box?Schema=https://{UnitFQDN}/{CellName}/&quot;</span> -X GET -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__box?schema=https://{UnitFQDN}/{CellName}/&quot;</span> -X GET -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span></code></pre></div>
 <p><br><br />
 <br><br />
 <br></p>

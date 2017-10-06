@@ -132,11 +132,11 @@
 |400<br>|PR400-SM-0001<br>|ToRelation [{0}] does not exist.<br>|<br>|
 |400<br>|PR400-SM-0002<br>|ToRelation [{0}] does not have related ExtCell.<br>|<br>|
 |400<br>|PR400-SM-0003<br>|The maximum number of destinations was exceeded.<br>|<br>|
-|400<br>|PR400-SM-0004<br>|Box corresponding to the Schema can not be found from the Schema-authenticated token. Schema[{0}].<br>|<br>|
+|400<br>|PR400-SM-0004<br>|Box corresponding to the schema can not be found from the schema-authenticated token. Schema[{0}].<br>|<br>|
 |500<br>|PR500-SM-0001<br>|Sent Message connection error.<br>|<br>|
 |500<br>|PR500-SM-0002<br>|Sent Message body parse error.<br>|<br>|
 |400<br>|PR400-RM-0001<br>|Requested relation already exists.<br>|<br>|
-|400<br>|PR400-RM-0002<br>|Box corresponding to the Schema can not be found. Schema [{0}].<br>|<br>|
+|400<br>|PR400-RM-0002<br>|Box corresponding to the schema can not be found. Schema [{0}].<br>|<br>|
 |400<br>|PR400-RM-0003<br>|Box corresponding to the RelationClassURL can not be found. RelationClassURL [{0}].<br>|<br>|
 |409<br>|PR409-RM-0002<br>|Requested relation does not exists. Type [{0}]. Keys [{1}].<br>|<br>|
 |409<br>|PR409-RM-0004<br>|Request relation target does not exist. Type [{0}]. Keys [{1}].<br>|<br>|
@@ -165,8 +165,8 @@
 |403<br>|PR403-AU-0002<br>|Necessary privilege is lacking.<br>|<br>|
 |403<br>|PR403-AU-0003<br>|This resource can not be accessed by the Unit User specified in authorization header.<br>|<br>|
 |403<br>|PR403-AU-0004<br>|Schema authentication is required to access this resource.<br>|<br>|
-|403<br>|PR403-AU-0005<br>|This resource can not be accessed with the Schema that has been authenticated.<br>|<br>|
-|403<br>|PR403-AU-0006<br>|Insufficient Schema authorization level.<br>|<br>|
+|403<br>|PR403-AU-0005<br>|This resource can not be accessed with the schema that has been authenticated.<br>|<br>|
+|403<br>|PR403-AU-0006<br>|Insufficient schema authorization level.<br>|<br>|
 |400<br>|PR400-AZ-0001<br>|Unsupported response_type.<br>|<br>|
 |400<br>|PR400-AZ-0002<br>|Request parameter is invalid [client_id].<br>|<br>|
 |400<br>|PR400-AZ-0003<br>|Request parameter is invalid [redirect_uri].<br>|<br>|

@@ -24,7 +24,7 @@ box-install
 * 既に同名のBoxが存在する場合は、Boxインストールできない。
 * 既に同じscheme URLが設定されたBoxが存在する場合は、Boxインストールできない。
 * メインボックスへのBoxインストールはできない。
-* barファイル："/bar/00_meta/00_manifest.JSON" のSchemaフィールドにnullは指定できない。
+* barファイル："/bar/00_meta/00_manifest.json" のschemaフィールドにnullは指定できない。
 
 #### barファイル制限
 * Boxインストール可能なbarファイルのファイルサイズは以下を上限とする。<br>

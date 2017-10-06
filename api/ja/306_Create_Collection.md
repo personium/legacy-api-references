@@ -43,7 +43,7 @@ MKCOL
 |URI<br>|概要<br>|参考prefix<br>|
 |:--|:--|:--|
 |DAV:<br>|WebDAVの名前空間<br>|D:<br>|
-|urn:x-Personium:xmlns<br>|Personiumの名前空間<br>|p:<br>|
+|urn:x-personium:xmlns<br>|Personiumの名前空間<br>|p:<br>|
 ※ 参考prefixは以下表の可読性を高めるためのもので、このprefix文字列の使用を保証するものでも要求するものでもありません。
 ##### XMLの構造
 ボディはXMLで、以下のスキーマに従っています。
@@ -75,7 +75,7 @@ MKCOL
 WebDAVコレクション作成
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<D:mkcol xmlns:D="DAV:" xmlns:p="urn:x-Personium:xmlns">
+<D:mkcol xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns">
   <D:set>
     <D:prop>
       <D:resourcetype>
@@ -88,7 +88,7 @@ WebDAVコレクション作成
 ODataコレクション作成
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<D:mkcol xmlns:D="DAV:" xmlns:p="urn:x-Personium:xmlns">
+<D:mkcol xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns">
   <D:set>
     <D:prop>
       <D:resourcetype>
@@ -102,7 +102,7 @@ ODataコレクション作成
 Serviceコレクション作成
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<D:mkcol xmlns:D="DAV:" xmlns:p="urn:x-Personium:xmlns">
+<D:mkcol xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns">
   <D:set>
     <D:prop>
       <D:resourcetype>
@@ -140,15 +140,15 @@ Serviceコレクション作成
 ### cURLサンプル
 WebDAVコレクション作成
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}" -X MKCOL -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8"?><D:mkcol xmlns:D="DAV:" xmlns:p="urn:x-Personium:xmlns"><D:set><D:prop><D:resourcetype><D:collection/></D:resourcetype></D:prop></D:set></D:mkcol>'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}" -X MKCOL -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8"?><D:mkcol xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns"><D:set><D:prop><D:resourcetype><D:collection/></D:resourcetype></D:prop></D:set></D:mkcol>'
 ```
 ODataコレクション作成
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}" -X MKCOL -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8"?><D:mkcol xmlns:D="DAV:" xmlns:p="urn:x-Personium:xmlns"><D:set><D:prop><D:resourcetype><D:collection/><p:odata/></D:resourcetype></D:prop></D:set></D:mkcol>'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}" -X MKCOL -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8"?><D:mkcol xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns"><D:set><D:prop><D:resourcetype><D:collection/><p:odata/></D:resourcetype></D:prop></D:set></D:mkcol>'
 ```
 Serviceコレクション作成
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}" -X MKCOL -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8"?><D:mkcol xmlns:D="DAV:" xmlns:p="urn:x-Personium:xmlns"><D:set><D:prop><D:resourcetype><D:collection/><p:service/></D:resourcetype></D:prop></D:set></D:mkcol>'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}" -X MKCOL -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8"?><D:mkcol xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns"><D:set><D:prop><D:resourcetype><D:collection/><p:service/></D:resourcetype></D:prop></D:set></D:mkcol>'
 ```
 <br>
 <br>

@@ -16,11 +16,11 @@ bar/
  |
  +-- 00_meta/  ★ 必須
  |    |
- |    +-- 00_manifest.JSON  ★ 必須
- |    +-- 10_relations.JSON
- |    +-- 20_roles.JSON
- |    +-- 30_extroles.JSON
- |    +-- 70_$links.JSON
+ |    +-- 00_manifest.json  ★ 必須
+ |    +-- 10_relations.json
+ |    +-- 20_roles.json
+ |    +-- 30_extroles.json
+ |    +-- 70_$links.json
  |    +-- 90_rootprops.xml  ★ 必須
  |
  +-- 90_contents/     ★ 配下のディレクトリ名はコレクション名と同じ
@@ -28,13 +28,13 @@ bar/
       +-- {OData}/    ★ rootprops.xmlでODataコレクションの場合、必須
       |    |
       |    +-- 00_$metadata.xml    ★ 必須
-      |    +-- 10_odatarelations.JSON
+      |    +-- 10_odatarelations.json
       |    |
       |    +-- 90_data/
       |         |
       |         +-- {EntityType}/
       |              |
-      |              +-- {1.JSON}
+      |              +-- {1.json}
       |
       +-- {Service}/
       |    |
@@ -59,7 +59,7 @@ bar/
 * ファイルのフォーマットやファイル名などを変更・削除した場合にバージョンアップする
 
 ### File List
-#### 00_manifest.JSON
+#### 00_manifest.json
 インストールする対象となるBoxの情報を記述したファイル
 
 |項目名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
@@ -67,7 +67,7 @@ bar/
 |bar_version<br>|barファイルのバージョン<br>|有効なバージョン<br>barファイル形式の変更ごとにバージョンが変わる<br>|○<br>|現状は"1"<br>|
 |box_version<br>|Boxのバージョン<br>|有効なバージョン<br>Box形式の変更ごとにバージョンが変わる<br>|○<br>|任意の文字列で良いが"1"を推奨（Box改版機能提供に向けて）<br>|
 |DefaultPath<br>|barファイル内でのBox名<br>|桁数：1&#65374;128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)は指定不可<br>nullは不可<br>|○<br>| <br>|
-|Schema<br>|Schema名<br>|桁数：1&#65374;1024<br>URIの形式に従う（scheme：http / https / urn）<br>nullは不可<br>|○<br>| <br>|
+|schema<br>|Schema名<br>|桁数：1&#65374;1024<br>URIの形式に従う（scheme：http / https / urn）<br>nullは不可<br>|○<br>| <br>|
 
 ##### サンプル
 ```JSON
@@ -75,10 +75,10 @@ bar/
   "bar_version": "1",
   "box_version": "1",
   "DefaultPath": "{BoxName}",
-  "Schema": "http://app1.example.com"
+  "schema": "http://app1.example.com"
 }
 ```
-#### 10_relations.JSON
+#### 10_relations.json
 インストール対象とするRelationの情報を記述したファイル  
 ※「有効値」欄が『&#65293;』となっている項目項目は、Relationのリクエストボディを参照
 
@@ -98,7 +98,7 @@ bar/
   ]
 }
 ```
-#### 20_roles.JSON
+#### 20_roles.json
 インストール対象とするRoleの情報を記述したファイル  
 ※「有効値」欄が『&#65293;』となっている項目は、、Roleのリクエストボディを参照
 
@@ -117,7 +117,7 @@ bar/
   ]
 }
 ```
-#### 30_extroles.JSON
+#### 30_extroles.json
 インストール対象とするExtRoleの情報を記述したファイル  
 ※「有効値」欄が『&#65293;』となっている項目は、ExtRoleのリクエストボディを参照
 
@@ -141,7 +141,7 @@ https://{UnitFQDN}/cell1/__role/box/staff → https://{UnitFQDN}/cell1/__role/__
   ]
 }
 ```
-#### 70_$links.JSON
+#### 70_$links.json
 インストール対象とする$linksのデータ関連情報を記述したファイル
 
 |項目名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
@@ -203,7 +203,7 @@ barファイルのインストール時には、下記サンプルの<prop>配�
               <resourcetype>
                   <collection/>
               </resourcetype>
-              <acl xml:base="https://{UnitFQDN}/cell/__role/__/" xmlns:p="urn:x-Personium:xmlns">
+              <acl xml:base="https://{UnitFQDN}/cell/__role/__/" xmlns:p="urn:x-personium:xmlns">
                   <ace>
                       <principal>
                           <href>admin</href>
@@ -224,9 +224,9 @@ barファイルのインストール時には、下記サンプルの<prop>配�
           <prop>
               <resourcetype>
                   <collection/>
-                  <p:service xmlns:p="urn:x-Personium:xmlns"/>
+                  <p:service xmlns:p="urn:x-personium:xmlns"/>
               </resourcetype>
-              <acl xml:base="https://{UnitFQDN}/cell/__role/__/" xmlns:p="urn:x-Personium:xmlns">
+              <acl xml:base="https://{UnitFQDN}/cell/__role/__/" xmlns:p="urn:x-personium:xmlns">
                   <ace>
                       <principal>
                           <href>user</href>
@@ -254,7 +254,7 @@ barファイルのインストール時には、下記サンプルの<prop>配�
               <resourcetype>
                   <collection/>
               </resourcetype>
-              <acl xml:base="https://{UnitFQDN}/cell/__role/__/" xmlns:p="urn:x-Personium:xmlns">
+              <acl xml:base="https://{UnitFQDN}/cell/__role/__/" xmlns:p="urn:x-personium:xmlns">
                   <ace>
                       <principal>
                           <href>user</href>
@@ -289,10 +289,10 @@ barファイルのインストール時には、下記サンプルの<prop>配�
           <prop>
               <resourcetype>
                   <collection/>
-                  <p:service xmlns:p="urn:x-Personium:xmlns"/>
+                  <p:service xmlns:p="urn:x-personium:xmlns"/>
               </resourcetype>
-             <acl xml:base="https://{UnitFQDN}/cell/__role/__/" xmlns:p="urn:x-Personium:xmlns"/>
-              <p:service language="JavaScript" xmlns:D="DAV:" xmlns:p="urn:x-Personium:xmlns" \
+             <acl xml:base="https://{UnitFQDN}/cell/__role/__/" xmlns:p="urn:x-personium:xmlns"/>
+              <p:service language="JavaScript" xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" \
               xmlns:Z="http://www.w3.com/standards/z39.50/">
                   <p:path name="ehr" src="ehr.js"/>
                   <p:path name="ehr_connector" src="ehr_connector.js"/>
@@ -308,7 +308,7 @@ barファイルのインストール時には、下記サンプルの<prop>配�
                     <collection/>
                 </resourcetype>
                 <acl xml:base="https://{UnitFQDN}/cell/__role/__/"\
-                 xmlns:p="urn:x-Personium:xmlns"/>
+                 xmlns:p="urn:x-personium:xmlns"/>
             </prop>
         </propstat>
     </response>
@@ -332,7 +332,7 @@ barファイルのインストール時には、下記サンプルの<prop>配�
 ```
 #### contents/{OData}/
 以下のファイルについては、詳細未稿
-* 90_data / {EntityType}/1.JSON
+* 90_data / {EntityType}/1.json
 
 ##### 00_$metadata.xml
 ユーザODataのスキーマ定義を示す。barファイルにエクスポートする時に、Odata用コレクションに対して$metadataにて取得したXMLデータ。  
@@ -342,18 +342,18 @@ Boxインストール時には、Schemaタグの配下をインストール対�
 
 スキーマ定義がない場合のサンプル
 ```xml
-<Edmx: Edmx Version = '1 .0 'xmlns: edmx =' http://Schemas.microsoft.com/ado/2007/06/edmx \
-'xmlns: d =' http://Schemas.microsoft.com/ado/2007 / 08/dataservices' xmlns:\
- m = 'http://Schemas.microsoft.com/ado/2007/08/dataservices/metadata' xmlns: p = 'urn: x-Personium: xmlns'>
+<Edmx: Edmx Version = '1 .0 'xmlns: edmx =' http://schemas.microsoft.com/ado/2007/06/edmx \
+'xmlns: d =' http://schemas.microsoft.com/ado/2007 / 08/dataservices' xmlns:\
+ m = 'http://schemas.microsoft.com/ado/2007/08/dataservices/metadata' xmlns: p = 'urn: x-personium: xmlns'>
   <edmx:DataServices m:DataServiceVersion='1.0'>
-    <Schema Xmlns='http://Schemas.microsoft.com/ado/2006/04/edm' Namespace='UserData'>
+    <Schema Xmlns='http://schemas.microsoft.com/ado/2006/04/edm' Namespace='UserData'>
       <EntityContainer Name='UserData' m:IsDefaultEntityContainer='true'/>
     </ Schema>
   </ Edmx: DataServices>
 </ Edmx: Edmx>
 ```
 
-##### 10_odatarelations.JSON
+##### 10_odatarelations.json
 インストール対象ユーザデータの$linksのデータ関連情報を記述したファイル
 ユーザODataのスキーマレベルでは、00_$metadata.xml にてAssociationEndの関連を定義しているが、本ファイルではユーザデータの実体に対する関連を定義する。
 
@@ -397,7 +397,7 @@ Boxインストール時には、Schemaタグの配下をインストール対�
   ]
 }
 ```
-#### 90_data / {EntityType} / {1.JSON}
+#### 90_data / {EntityType} / {1.json}
 ユーザデータを1件ずつJSON形式で格納する。
 
 ```JSON
@@ -429,11 +429,11 @@ bar/90_contents/{Service}/{src.js}に格納されたソースファイルを、�
             <prop>
                 <resourcetype>
                     <collection/>
-                    <p:service xmlns:p="urn:x-Personium:xmlns"/>
+                    <p:service xmlns:p="urn:x-personium:xmlns"/>
                 </resourcetype>
                 <acl xml:base="https://{UnitFQDN}/cell/__role/__/"\
-                xmlns:p="urn:x-Personium:xmlns"/>
-                <p:service language="JavaScript" xmlns:D="DAV:" xmlns:p="urn:x-Personium:xmlns" \
+                xmlns:p="urn:x-personium:xmlns"/>
+                <p:service language="JavaScript" xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" \
                 xmlns:Z="http://www.w3.com/standards/z39.50/">
                     <p:path name="ehr" src="ehr.js"/>
                     <p:path name="ehr_connector" src="ehr_connector.js"/>
@@ -449,7 +449,7 @@ bar/90_contents/{Service}/{src.js}に格納されたソースファイルを、�
                     <collection/>
                 </resourcetype>
                 <acl xml:base="https://{UnitFQDN}/cell/__role/__/"\
-                 xmlns:p="urn:x-Personium:xmlns"/>
+                 xmlns:p="urn:x-personium:xmlns"/>
             </prop>
         </propstat>
     </response>

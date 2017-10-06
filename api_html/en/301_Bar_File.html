@@ -56,11 +56,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
  |
  +-- 00_meta/  *Required
  |    |
- |    +-- 00_manifest.JSON  *Required
- |    +-- 10_relations.JSON
- |    +-- 20_roles.JSON
- |    +-- 30_extroles.JSON
- |    +-- 70_$links.JSON
+ |    +-- 00_manifest.json  *Required
+ |    +-- 10_relations.json
+ |    +-- 20_roles.json
+ |    +-- 30_extroles.json
+ |    +-- 70_$links.json
  |    +-- 90_rootprops.xml  *Required
  |
  +-- 90_contents/     *The directory name under the same as the collection name
@@ -68,13 +68,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       +-- {OData}/    *Required for OData collection in rootprops.xml
       |    |
       |    +-- 00_$metadata.xml    *Required
-      |    +-- 10_odatarelations.JSON
+      |    +-- 10_odatarelations.json
       |    |
       |    +-- 90_data/
       |         |
       |         +-- {EntityType}/
       |              |
-      |              +-- {1.JSON}
+      |              +-- {1.json}
       |
       +-- {Service}/
       |    |
@@ -96,7 +96,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Upgraded if the file format or file name is changed or deleted</li>
 </ul>
 <h3 id="file-list">File List</h3>
-<h4 id="manifest.JSON">00_manifest.JSON</h4>
+<h4 id="manifest.json">00_manifest.json</h4>
 <p>The file describing the information of the box to be installed</p>
 <table>
 <colgroup>
@@ -138,9 +138,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <td align="left"><br></td>
 </tr>
 <tr class="even">
-<td align="left">Schema<br></td>
+<td align="left">schema<br></td>
 <td align="left">Schema name<br></td>
-<td align="left">Number of digits: 1 to 1024<br>Conforming to the URI format (Schema: http / https / urn)<br>null is invalid<br></td>
+<td align="left">Number of digits: 1 to 1024<br>Conforming to the URI format (schema: http / https / urn)<br>null is invalid<br></td>
 <td align="left">Yes<br></td>
 <td align="left"><br></td>
 </tr>
@@ -151,9 +151,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <span class="dt">&quot;bar_version&quot;</span><span class="fu">:</span> <span class="st">&quot;1&quot;</span><span class="fu">,</span>
   <span class="dt">&quot;box_version&quot;</span><span class="fu">:</span> <span class="st">&quot;1&quot;</span><span class="fu">,</span>
   <span class="dt">&quot;DefaultPath&quot;</span><span class="fu">:</span> <span class="st">&quot;{BoxName}&quot;</span><span class="fu">,</span>
-  <span class="dt">&quot;Schema&quot;</span><span class="fu">:</span> <span class="st">&quot;http://app1.example.com&quot;</span>
+  <span class="dt">&quot;schema&quot;</span><span class="fu">:</span> <span class="st">&quot;http://app1.example.com&quot;</span>
 <span class="fu">}</span></code></pre></div>
-<h4 id="relations.JSON">10_relations.JSON</h4>
+<h4 id="relations.json">10_relations.json</h4>
 <p>The file describing the information of the relations to be installed<br />* For items whose &quot;Effective Value&quot; column shows &quot;-&quot;, refer to the Relation request body</p>
 <table>
 <thead>
@@ -190,7 +190,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
     <span class="fu">}</span>
   <span class="ot">]</span>
 <span class="fu">}</span></code></pre></div>
-<h4 id="roles.JSON">20_roles.JSON</h4>
+<h4 id="roles.json">20_roles.json</h4>
 <p>The file describing the information of the roles to be installed<br />* For items whose &quot;Effective Value&quot; column shows &quot;-&quot;, refer to the Role request body</p>
 <table>
 <thead>
@@ -227,7 +227,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
     <span class="fu">}</span>
   <span class="ot">]</span>
 <span class="fu">}</span></code></pre></div>
-<h4 id="extroles.JSON">30_extroles.JSON</h4>
+<h4 id="extroles.json">30_extroles.json</h4>
 <p>The file describing the information of the ExtRoles to be installed<br />* For items whose &quot;Effective Value&quot; column shows &quot;-&quot;, refer to the ExtRole request body</p>
 <table>
 <thead>
@@ -273,7 +273,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
     <span class="fu">}</span>
   <span class="ot">]</span>
 <span class="fu">}</span></code></pre></div>
-<h4 id="links.JSON">70_$links.JSON</h4>
+<h4 id="links.json">70_$links.json</h4>
 <p>The file describing the data relation information of the $links to be installed</p>
 <table>
 <colgroup>
@@ -376,7 +376,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
               <span class="kw">&lt;resourcetype&gt;</span>
                   <span class="kw">&lt;collection/&gt;</span>
               <span class="kw">&lt;/resourcetype&gt;</span>
-              <span class="kw">&lt;acl</span><span class="ot"> xml:base=</span><span class="st">&quot;https://{UnitFQDN}/cell/__role/__/&quot;</span><span class="ot"> xmlns:p=</span><span class="st">&quot;urn:x-Personium:xmlns&quot;</span><span class="kw">&gt;</span>
+              <span class="kw">&lt;acl</span><span class="ot"> xml:base=</span><span class="st">&quot;https://{UnitFQDN}/cell/__role/__/&quot;</span><span class="ot"> xmlns:p=</span><span class="st">&quot;urn:x-personium:xmlns&quot;</span><span class="kw">&gt;</span>
                   <span class="kw">&lt;ace&gt;</span>
                       <span class="kw">&lt;principal&gt;</span>
                           <span class="kw">&lt;href&gt;</span>admin<span class="kw">&lt;/href&gt;</span>
@@ -397,9 +397,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <span class="kw">&lt;prop&gt;</span>
               <span class="kw">&lt;resourcetype&gt;</span>
                   <span class="kw">&lt;collection/&gt;</span>
-                  <span class="kw">&lt;p:service</span><span class="ot"> xmlns:p=</span><span class="st">&quot;urn:x-Personium:xmlns&quot;</span><span class="kw">/&gt;</span>
+                  <span class="kw">&lt;p:service</span><span class="ot"> xmlns:p=</span><span class="st">&quot;urn:x-personium:xmlns&quot;</span><span class="kw">/&gt;</span>
               <span class="kw">&lt;/resourcetype&gt;</span>
-              <span class="kw">&lt;acl</span><span class="ot"> xml:base=</span><span class="st">&quot;https://{UnitFQDN}/cell/__role/__/&quot;</span><span class="ot"> xmlns:p=</span><span class="st">&quot;urn:x-Personium:xmlns&quot;</span><span class="kw">&gt;</span>
+              <span class="kw">&lt;acl</span><span class="ot"> xml:base=</span><span class="st">&quot;https://{UnitFQDN}/cell/__role/__/&quot;</span><span class="ot"> xmlns:p=</span><span class="st">&quot;urn:x-personium:xmlns&quot;</span><span class="kw">&gt;</span>
                   <span class="kw">&lt;ace&gt;</span>
                       <span class="kw">&lt;principal&gt;</span>
                           <span class="kw">&lt;href&gt;</span>user<span class="kw">&lt;/href&gt;</span>
@@ -427,7 +427,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
               <span class="kw">&lt;resourcetype&gt;</span>
                   <span class="kw">&lt;collection/&gt;</span>
               <span class="kw">&lt;/resourcetype&gt;</span>
-              <span class="kw">&lt;acl</span><span class="ot"> xml:base=</span><span class="st">&quot;https://{UnitFQDN}/cell/__role/__/&quot;</span><span class="ot"> xmlns:p=</span><span class="st">&quot;urn:x-Personium:xmlns&quot;</span><span class="kw">&gt;</span>
+              <span class="kw">&lt;acl</span><span class="ot"> xml:base=</span><span class="st">&quot;https://{UnitFQDN}/cell/__role/__/&quot;</span><span class="ot"> xmlns:p=</span><span class="st">&quot;urn:x-personium:xmlns&quot;</span><span class="kw">&gt;</span>
                   <span class="kw">&lt;ace&gt;</span>
                       <span class="kw">&lt;principal&gt;</span>
                           <span class="kw">&lt;href&gt;</span>user<span class="kw">&lt;/href&gt;</span>
@@ -462,10 +462,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <span class="kw">&lt;prop&gt;</span>
               <span class="kw">&lt;resourcetype&gt;</span>
                   <span class="kw">&lt;collection/&gt;</span>
-                  <span class="kw">&lt;p:service</span><span class="ot"> xmlns:p=</span><span class="st">&quot;urn:x-Personium:xmlns&quot;</span><span class="kw">/&gt;</span>
+                  <span class="kw">&lt;p:service</span><span class="ot"> xmlns:p=</span><span class="st">&quot;urn:x-personium:xmlns&quot;</span><span class="kw">/&gt;</span>
               <span class="kw">&lt;/resourcetype&gt;</span>
-             <span class="kw">&lt;acl</span><span class="ot"> xml:base=</span><span class="st">&quot;https://{UnitFQDN}/cell/__role/__/&quot;</span><span class="ot"> xmlns:p=</span><span class="st">&quot;urn:x-Personium:xmlns&quot;</span><span class="kw">/&gt;</span>
-              <span class="kw">&lt;p:service</span><span class="ot"> language=</span><span class="st">&quot;JavaScript&quot;</span><span class="ot"> xmlns:D=</span><span class="st">&quot;DAV:&quot;</span><span class="ot"> xmlns:p=</span><span class="st">&quot;urn:x-Personium:xmlns&quot;</span> <span class="er">\</span>
+             <span class="kw">&lt;acl</span><span class="ot"> xml:base=</span><span class="st">&quot;https://{UnitFQDN}/cell/__role/__/&quot;</span><span class="ot"> xmlns:p=</span><span class="st">&quot;urn:x-personium:xmlns&quot;</span><span class="kw">/&gt;</span>
+              <span class="kw">&lt;p:service</span><span class="ot"> language=</span><span class="st">&quot;JavaScript&quot;</span><span class="ot"> xmlns:D=</span><span class="st">&quot;DAV:&quot;</span><span class="ot"> xmlns:p=</span><span class="st">&quot;urn:x-personium:xmlns&quot;</span> <span class="er">\</span>
 <span class="ot">              xmlns:Z=</span><span class="st">&quot;http://www.w3.com/standards/z39.50/&quot;</span><span class="kw">&gt;</span>
                   <span class="kw">&lt;p:path</span><span class="ot"> name=</span><span class="st">&quot;ehr&quot;</span><span class="ot"> src=</span><span class="st">&quot;ehr.js&quot;</span><span class="kw">/&gt;</span>
                   <span class="kw">&lt;p:path</span><span class="ot"> name=</span><span class="st">&quot;ehr_connector&quot;</span><span class="ot"> src=</span><span class="st">&quot;ehr_connector.js&quot;</span><span class="kw">/&gt;</span>
@@ -481,7 +481,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
                     <span class="kw">&lt;collection/&gt;</span>
                 <span class="kw">&lt;/resourcetype&gt;</span>
                 <span class="kw">&lt;acl</span><span class="ot"> xml:base=</span><span class="st">&quot;https://{UnitFQDN}/cell/__role/__/&quot;</span><span class="er">\</span>
-<span class="ot">                 xmlns:p=</span><span class="st">&quot;urn:x-Personium:xmlns&quot;</span><span class="kw">/&gt;</span>
+<span class="ot">                 xmlns:p=</span><span class="st">&quot;urn:x-personium:xmlns&quot;</span><span class="kw">/&gt;</span>
             <span class="kw">&lt;/prop&gt;</span>
         <span class="kw">&lt;/propstat&gt;</span>
     <span class="kw">&lt;/response&gt;</span>
@@ -505,22 +505,22 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h4 id="contentsodata">contents/{OData}/</h4>
 <p>Details not contributed yet for the following files</p>
 <ul>
-<li>90_data / {EntityType}/1.JSON</li>
+<li>90_data / {EntityType}/1.json</li>
 </ul>
 <h5 id="metadata.xml">00_$metadata.xml</h5>
-<p>Shows user OData Schema definitions. This data is the XML data acquired by $metadata for the collection for Odata during the export to the bar file. <br />For details on XML data, refer to <a href="316_User_Defined_Data_Schema.html">Schema acquisition ($metadata)</a>. <br />When the box is installed, the installation targets include the contents under the Schema tag. <br />Even if user OData Schema definitions do not exist, the file itself exists.</p>
-<p>Sample in the case of no Schema definitions</p>
-<div class="sourceCode"><pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;Edmx:</span><span class="ot"> Edmx</span> <span class="er">Version</span> <span class="ot">=</span> <span class="st">&apos;1 .0 &apos;</span><span class="er">xmlns:</span><span class="ot"> edmx</span> <span class="ot">=</span><span class="st">&apos; http://Schemas.microsoft.com/ado/2007/06/edmx \</span>
-<span class="st">&apos;</span><span class="er">xmlns:</span><span class="ot"> d</span> <span class="ot">=</span><span class="st">&apos; http://Schemas.microsoft.com/ado/2007 / 08/dataservices&apos;</span><span class="ot"> xmlns:</span><span class="er">\</span>
- <span class="er">m</span> <span class="ot">=</span> <span class="st">&apos;http://Schemas.microsoft.com/ado/2007/08/dataservices/metadata&apos;</span><span class="ot"> xmlns:</span> <span class="er">p</span> <span class="ot">=</span> <span class="st">&apos;urn: x-Personium: xmlns&apos;</span><span class="kw">&gt;</span>
+<p>Shows user OData schema definitions. This data is the XML data acquired by $metadata for the collection for Odata during the export to the bar file. <br />For details on XML data, refer to <a href="316_User_Defined_Data_Schema.html">schema acquisition ($metadata)</a>. <br />When the box is installed, the installation targets include the contents under the Schema tag. <br />Even if user OData schema definitions do not exist, the file itself exists.</p>
+<p>Sample in the case of no schema definitions</p>
+<div class="sourceCode"><pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;Edmx:</span><span class="ot"> Edmx</span> <span class="er">Version</span> <span class="ot">=</span> <span class="st">&apos;1 .0 &apos;</span><span class="er">xmlns:</span><span class="ot"> edmx</span> <span class="ot">=</span><span class="st">&apos; http://schemas.microsoft.com/ado/2007/06/edmx \</span>
+<span class="st">&apos;</span><span class="er">xmlns:</span><span class="ot"> d</span> <span class="ot">=</span><span class="st">&apos; http://schemas.microsoft.com/ado/2007 / 08/dataservices&apos;</span><span class="ot"> xmlns:</span><span class="er">\</span>
+ <span class="er">m</span> <span class="ot">=</span> <span class="st">&apos;http://schemas.microsoft.com/ado/2007/08/dataservices/metadata&apos;</span><span class="ot"> xmlns:</span> <span class="er">p</span> <span class="ot">=</span> <span class="st">&apos;urn: x-personium: xmlns&apos;</span><span class="kw">&gt;</span>
   <span class="kw">&lt;edmx:DataServices</span><span class="ot"> m:DataServiceVersion=</span><span class="st">&apos;1.0&apos;</span><span class="kw">&gt;</span>
-    <span class="kw">&lt;Schema</span><span class="ot"> Xmlns=</span><span class="st">&apos;http://Schemas.microsoft.com/ado/2006/04/edm&apos;</span><span class="ot"> Namespace=</span><span class="st">&apos;UserData&apos;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;Schema</span><span class="ot"> Xmlns=</span><span class="st">&apos;http://schemas.microsoft.com/ado/2006/04/edm&apos;</span><span class="ot"> Namespace=</span><span class="st">&apos;UserData&apos;</span><span class="kw">&gt;</span>
       <span class="kw">&lt;EntityContainer</span><span class="ot"> Name=</span><span class="st">&apos;UserData&apos;</span><span class="ot"> m:IsDefaultEntityContainer=</span><span class="st">&apos;true&apos;</span><span class="kw">/&gt;</span>
     <span class="er">&lt;</span>/ Schema&gt;
   <span class="er">&lt;</span>/ Edmx: DataServices&gt;
 <span class="er">&lt;</span>/ Edmx: Edmx&gt;</code></pre></div>
-<h5 id="odatarelations.JSON">10_odatarelations.JSON</h5>
-<p>The file describing the data-related information of $links of the user data to be installed<br />At the user OData Schema level, AssociationEnd relations are defined in 00_$metadata.xml, and in this file, relations to actual user data are defined.</p>
+<h5 id="odatarelations.json">10_odatarelations.json</h5>
+<p>The file describing the data-related information of $links of the user data to be installed<br />At the user OData schema level, AssociationEnd relations are defined in 00_$metadata.xml, and in this file, relations to actual user data are defined.</p>
 <table>
 <colgroup>
 <col width="5%" />
@@ -606,7 +606,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
     <span class="fu">}</span>
   <span class="ot">]</span>
 <span class="fu">}</span></code></pre></div>
-<h4 id="data-entitytype-1.JSON">90_data / {EntityType} / {1.JSON}</h4>
+<h4 id="data-entitytype-1.json">90_data / {EntityType} / {1.json}</h4>
 <p>Stores user data in the JSON format one by one.</p>
 <div class="sourceCode"><pre class="sourceCode JSON"><code class="sourceCode JSON"><span class="fu">{</span>
     <span class="dt">&quot;__id&quot;</span><span class="fu">:</span> <span class="st">&quot;{EntityName}&quot;</span><span class="fu">,</span>
@@ -633,11 +633,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <span class="kw">&lt;prop&gt;</span>
                 <span class="kw">&lt;resourcetype&gt;</span>
                     <span class="kw">&lt;collection/&gt;</span>
-                    <span class="kw">&lt;p:service</span><span class="ot"> xmlns:p=</span><span class="st">&quot;urn:x-Personium:xmlns&quot;</span><span class="kw">/&gt;</span>
+                    <span class="kw">&lt;p:service</span><span class="ot"> xmlns:p=</span><span class="st">&quot;urn:x-personium:xmlns&quot;</span><span class="kw">/&gt;</span>
                 <span class="kw">&lt;/resourcetype&gt;</span>
                 <span class="kw">&lt;acl</span><span class="ot"> xml:base=</span><span class="st">&quot;https://{UnitFQDN}/cell/__role/__/&quot;</span><span class="er">\</span>
-<span class="ot">                xmlns:p=</span><span class="st">&quot;urn:x-Personium:xmlns&quot;</span><span class="kw">/&gt;</span>
-                <span class="kw">&lt;p:service</span><span class="ot"> language=</span><span class="st">&quot;JavaScript&quot;</span><span class="ot"> xmlns:D=</span><span class="st">&quot;DAV:&quot;</span><span class="ot"> xmlns:p=</span><span class="st">&quot;urn:x-Personium:xmlns&quot;</span> <span class="er">\</span>
+<span class="ot">                xmlns:p=</span><span class="st">&quot;urn:x-personium:xmlns&quot;</span><span class="kw">/&gt;</span>
+                <span class="kw">&lt;p:service</span><span class="ot"> language=</span><span class="st">&quot;JavaScript&quot;</span><span class="ot"> xmlns:D=</span><span class="st">&quot;DAV:&quot;</span><span class="ot"> xmlns:p=</span><span class="st">&quot;urn:x-personium:xmlns&quot;</span> <span class="er">\</span>
 <span class="ot">                xmlns:Z=</span><span class="st">&quot;http://www.w3.com/standards/z39.50/&quot;</span><span class="kw">&gt;</span>
                     <span class="kw">&lt;p:path</span><span class="ot"> name=</span><span class="st">&quot;ehr&quot;</span><span class="ot"> src=</span><span class="st">&quot;ehr.js&quot;</span><span class="kw">/&gt;</span>
                     <span class="kw">&lt;p:path</span><span class="ot"> name=</span><span class="st">&quot;ehr_connector&quot;</span><span class="ot"> src=</span><span class="st">&quot;ehr_connector.js&quot;</span><span class="kw">/&gt;</span>
@@ -653,7 +653,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
                     <span class="kw">&lt;collection/&gt;</span>
                 <span class="kw">&lt;/resourcetype&gt;</span>
                 <span class="kw">&lt;acl</span><span class="ot"> xml:base=</span><span class="st">&quot;https://{UnitFQDN}/cell/__role/__/&quot;</span><span class="er">\</span>
-<span class="ot">                 xmlns:p=</span><span class="st">&quot;urn:x-Personium:xmlns&quot;</span><span class="kw">/&gt;</span>
+<span class="ot">                 xmlns:p=</span><span class="st">&quot;urn:x-personium:xmlns&quot;</span><span class="kw">/&gt;</span>
             <span class="kw">&lt;/prop&gt;</span>
         <span class="kw">&lt;/propstat&gt;</span>
     <span class="kw">&lt;/response&gt;</span>

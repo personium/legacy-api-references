@@ -182,7 +182,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <td align="left">D:<br></td>
 </tr>
 <tr class="even">
-<td align="left"><a href="urn:x-Personium:xmlns" class="uri">urn:x-Personium:xmlns</a><br></td>
+<td align="left">urn:x-personium:xmlns<br></td>
 <td align="left">Personiumの名前空間<br></td>
 <td align="left">p:<br></td>
 </tr>
@@ -427,7 +427,7 @@ privilegeタグ配下の権限設定の内容については、acl_model（<a hr
 <span class="dt">&lt;!ELEMENT</span> <span class="fu">propfind</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span></code></pre></div>
 <h4>リクエストサンプル</h4>
 <div class="sourceCode"><pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;?xml</span> version=&quot;1.0&quot; encoding=&quot;utf-8&quot; <span class="kw">?&gt;</span>
-<span class="kw">&lt;D:acl</span><span class="ot"> xmlns:D=</span><span class="st">&quot;DAV:&quot;</span><span class="ot"> xmlns:p=</span><span class="st">&quot;urn:x-Personium:xmlns&quot;</span><span class="ot"> xml:base=</span><span class="st">&quot;https://example.com/testcell1/__role/box1/&quot;</span><span class="kw">&gt;</span>
+<span class="kw">&lt;D:acl</span><span class="ot"> xmlns:D=</span><span class="st">&quot;DAV:&quot;</span><span class="ot"> xmlns:p=</span><span class="st">&quot;urn:x-personium:xmlns&quot;</span><span class="ot"> xml:base=</span><span class="st">&quot;https://example.com/testcell1/__role/box1/&quot;</span><span class="kw">&gt;</span>
     <span class="kw">&lt;D:ace&gt;</span>
         <span class="kw">&lt;D:principal&gt;</span>
             <span class="kw">&lt;D:all/&gt;</span>
@@ -487,7 +487,7 @@ privilegeタグ配下の権限設定の内容については、acl_model（<a hr
 <h4>エラーメッセージ一覧</h4>
 <p><a href="004_Error_Messages.html">エラーメッセージ一覧</a>を参照</p>
 <h3 id="curl">cURLサンプル</h3>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}&quot;</span> -X ACL -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;&lt;D:acl xmlns:D=&quot;DAV:&quot; xmlns:p=&quot;urn:x-Personium:xmlns&quot; xml:base=&quot;http://{UnitFQDN}/{CellName}/__role/{BoxName}/&quot;&gt;  &lt;D:ace&gt;&lt;D:principal&gt;&lt;D:href&gt;{RoleName}&lt;/D:href&gt;&lt;/D:principal&gt;&lt;D:grant&gt;&lt;D:privilege&gt;&lt;p:box-read/&gt;&lt;/D:privilege&gt;&lt;D:privilege&gt;&lt;p:auth/&gt;&lt;/D:privilege&gt;&lt;/D:grant&gt;&lt;/D:ace&gt;&lt;/D:acl&gt;&#39;</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}&quot;</span> -X ACL -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;&lt;D:acl xmlns:D=&quot;DAV:&quot; xmlns:p=&quot;urn:x-personium:xmlns&quot; xml:base=&quot;http://{UnitFQDN}/{CellName}/__role/{BoxName}/&quot;&gt;  &lt;D:ace&gt;&lt;D:principal&gt;&lt;D:href&gt;{RoleName}&lt;/D:href&gt;&lt;/D:principal&gt;&lt;D:grant&gt;&lt;D:privilege&gt;&lt;p:box-read/&gt;&lt;/D:privilege&gt;&lt;D:privilege&gt;&lt;p:auth/&gt;&lt;/D:privilege&gt;&lt;/D:grant&gt;&lt;/D:ace&gt;&lt;/D:acl&gt;&#39;</span></code></pre></div>
 <p><br><br />
 <br><br />
 <br></p>

@@ -2,7 +2,7 @@
 ### 概要
 既存のComplexTypeProperty情報を削除する
 ### 必要な権限
-alter-Schema
+alter-schema
 ### 制限事項
 * リクエストヘッダのContent-Typeは全てapplication/jsonとして扱う
 * リクエストボディはJSON形式のみ受け付ける

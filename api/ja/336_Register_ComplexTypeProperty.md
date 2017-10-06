@@ -24,7 +24,7 @@
      - 4階層目：0個
 
 ### 必要な権限
-alter-Schema
+alter-schema
 
 <br>
 ### リクエスト

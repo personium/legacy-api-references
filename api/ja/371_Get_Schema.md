@@ -63,11 +63,11 @@ $formatにatomsvcを指定した場合、SchemaのAtom ServiceDocumentを返却�
 ##### ユーザデータの場合
 |URI<br>|概要<br>|参考prefix<br>|
 |:--|:--|:--|
-|http://Schemas.microsoft.com/ado/2007/06/edmx<br>|edmxの名前空間<br>|edmx:<br>|
-|http://Schemas.microsoft.com/ado/2007/08/dataservices<br>|WCF Data Servicesの名前空間<br>|d:<br>|
-|http://Schemas.microsoft.com/ado/2007/08/dataservices/metadata<br>|WCF Data Services metadataの名前空間<br>|m:<br>|
-|urn:x-Personium:xmlns<br>|Personiumの名前空間 <br>|p:<br>|
-|http://Schemas.microsoft.com/ado/2006/04/edm<br>|schemeの名前空間<br>|-<br>|
+|http://schemas.microsoft.com/ado/2007/06/edmx<br>|edmxの名前空間<br>|edmx:<br>|
+|http://schemas.microsoft.com/ado/2007/08/dataservices<br>|WCF Data Servicesの名前空間<br>|d:<br>|
+|http://schemas.microsoft.com/ado/2007/08/dataservices/metadata<br>|WCF Data Services metadataの名前空間<br>|m:<br>|
+|urn:x-personium:xmlns<br>|Personiumの名前空間 <br>|p:<br>|
+|http://schemas.microsoft.com/ado/2006/04/edm<br>|schemeの名前空間<br>|-<br>|
 ※ 参考prefixは以下表の可読性を高めるためのもので、このprefix文字列の使用を保証するものでも要求するものでもありません。
 ##### XMLの構造
 ボディはXML(edmx)で、以下のスキーマに従っています。
@@ -165,7 +165,7 @@ $formatにatomsvcを指定した場合、SchemaのAtom ServiceDocumentを返却�
 <!ATTLIST FunctionImport HttpMethod CDDATA #IMPLIED>
 <!ATTLIST EntityContainer IsDefaultEntityContainer CDDATA "true">
 ```
-名前空間:http://Schemas.microsoft.com/ado/2006/04/edm
+名前空間:http://schemas.microsoft.com/ado/2006/04/edm
 ```dtd
 <!ELEMENT Schema (Association*,ComplexType*,EntityType*,EntityContainer*)>
 <!ATTLIST Schema Namespace CDDATA #REQUIRED>
@@ -253,9 +253,9 @@ $formatにatomsvcを指定した場合、SchemaのAtom ServiceDocumentを返却�
 ##### ユーザデータの場合
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<edmx:Edmx Version="1.0" xmlns:edmx="http://Schemas.microsoft.com/ado/2007/06/edmx" xmlns:d="http://Schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://Schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:p="urn:x-Personium:xmlns">
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:p="urn:x-personium:xmlns">
   <edmx:DataServices m:DataServiceVersion="1.0">
-    <Schema xmlns="http://Schemas.microsoft.com/ado/2006/04/edm" Namespace="UserData">
+    <Schema xmlns="http://schemas.microsoft.com/ado/2006/04/edm" Namespace="UserData">
       <ComplexType Name="Address"></ComplexType>
       <ComplexType Name="TestComplexType">
         <Property Name="TestComplexTypeProperty" Type="Edm.String" Nullable="true"></Property>

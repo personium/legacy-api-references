@@ -2,7 +2,7 @@
 ### 概要
 ユーザーデータに指定するプロパティを定義する
 ### 必要な権限
-alter-Schema
+alter-schema
 ### 制限事項
 * OData制限
 	- リクエストヘッダのContent-Typeは全てapplication/jsonとして扱う

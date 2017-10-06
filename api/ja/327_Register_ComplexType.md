@@ -3,7 +3,7 @@
 ユーザーデータのプロパティに指定するComplexTypeの型を定義する
 
 ### 必要な権限
-alter-Schema
+alter-schema
 
 ### 制限事項
 * リクエストヘッダのContent-Typeは全てapplication/jsonとして扱う

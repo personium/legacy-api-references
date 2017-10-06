@@ -17,7 +17,11 @@
 #### リクエストURL
 ##### RoleへのnavigationProperty
 ```
+<<<<<<< HEAD
 /{CellName}/__ctl/Box(Name='{BoxName}',Schema='SchemaURL')/_Role
+=======
+/{CellName}/__ctl/Box(Name='{BoxName}',Schema='schemaURL')/_Role
+>>>>>>> remotes/personium/master
 ```
 または、
 ```
@@ -29,7 +33,11 @@
 ```
 ##### RelationへのnavigationProperty
 ```
+<<<<<<< HEAD
 /{CellName}/__ctl/Box(Name='{BoxName}',Schema='SchemaURL')/_Relation
+=======
+/{CellName}/__ctl/Box(Name='{BoxName}',Schema='schemaURL')/_Relation
+>>>>>>> remotes/personium/master
 ```
 または、
 ```

@@ -122,7 +122,7 @@ grant_type=refresh_token&refresh_token={token}
 
 |項目名<br>|概要<br>|備考<br>|
 |:--|:--|:--|
-|Content-Type<br>|application / json<br>|<br>|
+|Content-Type<br>|application/json<br>|<br>|
 |Set-Cookie<br>|クッキー認証情報（p_cookie）<br>|クッキー発行オプション（p_cookie）をリクエスト時に設定した場合のみ<br>|
 #### レスポンスボディ
 
@@ -135,7 +135,7 @@ grant_type=refresh_token&refresh_token={token}
 |expires_in<br>|アクセストークンの有効期限<br>|1時間（3600秒）<br>|
 |p_cookie_peer<br>|クッキー認証値<br>|クッキー認証時に指定する認証値<br>※クッキー発行オプション（p_cookie）をリクエスト時に設定した場合のみ返却する<br>|
 #### レスポンスサンプル
-```json
+```JSON
 {
   "access_token": "AA~osIZ4CZ8cZmxf5NidEueHej_6Lj-ww0c_kJZd4HbHBqFyZ0OZBrS29miYr9Jh19b0o39cTJdH2Va3xSMMbu6Eg",
   "refresh_token_expires_in": 86400,

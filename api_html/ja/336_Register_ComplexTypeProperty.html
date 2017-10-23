@@ -52,8 +52,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h3>制限事項</h3>
 <ul>
 <li>リクエストヘッダのContent-Typeは全てapplication/jsonとして扱う</li>
-<li>リクエストボディはjson形式のみ受け付ける</li>
-<li>レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはjson形式とする</li>
+<li>リクエストボディはJSON形式のみ受け付ける</li>
+<li>レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはJSON形式とする</li>
 <li>$formatクエリオプションにatom または xmlを指定した場合、エラーとはならないが、レスポンスボディのデータの保証はない</li>
 <li>個別の制限
 <ul>
@@ -498,11 +498,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <span class="dt">&quot;d&quot;</span><span class="fu">:</span> <span class="fu">{</span>
     <span class="dt">&quot;results&quot;</span><span class="fu">:</span> <span class="fu">{</span>
       <span class="dt">&quot;__metadata&quot;</span><span class="fu">:</span> <span class="fu">{</span>
-        <span class="dt">&quot;uri&quot;</span><span class="fu">:</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/ComplexTypeProperty(Name=&#39;{ComplexTypePropertyNaem}&#39;,_ComplexType.Name=&#39;{ComplexTypeName}&#39;)&quot;</span><span class="fu">,</span>
+        <span class="dt">&quot;uri&quot;</span><span class="fu">:</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/ComplexTypeProperty(Name=&#39;{ComplexTypePropertyName}&#39;,_ComplexType.Name=&#39;{ComplexTypeName}&#39;)&quot;</span><span class="fu">,</span>
         <span class="dt">&quot;etag&quot;</span><span class="fu">:</span> <span class="st">&quot;W/</span><span class="ch">\&quot;</span><span class="st">1-1487658277593</span><span class="ch">\&quot;</span><span class="st">&quot;</span><span class="fu">,</span>
         <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;ODataSvcSchema.ComplexTypeProperty&quot;</span>
       <span class="fu">},</span>
-      <span class="dt">&quot;Name&quot;</span><span class="fu">:</span> <span class="st">&quot;{ComplexTypePropertyNaem}&quot;</span><span class="fu">,</span>
+      <span class="dt">&quot;Name&quot;</span><span class="fu">:</span> <span class="st">&quot;{ComplexTypePropertyName}&quot;</span><span class="fu">,</span>
       <span class="dt">&quot;_ComplexType.Name&quot;</span><span class="fu">:</span> <span class="st">&quot;{ComplexTypeName}&quot;</span><span class="fu">,</span>
       <span class="dt">&quot;Type&quot;</span><span class="fu">:</span> <span class="st">&quot;Edm.String&quot;</span><span class="fu">,</span>
       <span class="dt">&quot;Nullable&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span>

@@ -54,8 +54,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h3>Restrictions</h3>
 <ul>
 <li>Always handles Content-Type in the request header as application/json</li>
-<li>Only accepts the request body in the json format</li>
-<li>Only application/json is supported for Content-Type in the request header and the json format for the response body</li>
+<li>Only accepts the request body in the JSON format</li>
+<li>Only application/json is supported for Content-Type in the request header and the JSON format for the response body</li>
 <li>Response body data is not ensured if atom or xml is specified in the $format query option, although it does not result in an error</li>
 <li>User data restrictions
 <ul>
@@ -196,14 +196,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <tr class="even">
 <td align="left">Accept<br></td>
 <td align="left">Specifies the response body format<br></td>
-<td align="left">application / json<br></td>
+<td align="left">application/json<br></td>
 <td align="left">No<br></td>
 <td align="left">[application/json] by default<br>Not compatible<br></td>
 </tr>
 <tr class="odd">
 <td align="left">Content-Type<br></td>
 <td align="left">Specifies the request body format<br></td>
-<td align="left">application / json<br></td>
+<td align="left">application/json<br></td>
 <td align="left">No<br></td>
 <td align="left">[application/json] by default<br>Not compatible<br></td>
 </tr>
@@ -248,7 +248,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul>
 <h4>Request Sample</h4>
-<div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span><span class="dt">&quot;__id&quot;</span><span class="fu">:</span> <span class="st">&quot;100-1_20101108-111352093&quot;</span><span class="fu">,</span><span class="dt">&quot;animalId&quot;</span><span class="fu">:</span> <span class="st">&quot;100-1&quot;</span><span class="fu">,</span><span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;episode&quot;</span><span class="fu">,</span><span class="dt">&quot;startedAt&quot;</span><span class="fu">:</span> <span class="st">&quot;2010-11-08&quot;</span><span class="fu">,</span><span class="dt">&quot;episodeType&quot;</span><span class="fu">:</span> <span class="st">&quot;care&quot;</span><span class="fu">,</span><span class="dt">&quot;endedAt&quot;</span><span class="fu">:</span> <span class="st">&quot;&quot;</span><span class="fu">,</span><span class="dt">&quot;outcome&quot;</span><span class="fu">:</span> <span class="st">&quot;During treatment&quot;</span><span class="fu">}</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode JSON"><code class="sourceCode JSON"><span class="fu">{</span><span class="dt">&quot;__id&quot;</span><span class="fu">:</span> <span class="st">&quot;100-1_20101108-111352093&quot;</span><span class="fu">,</span><span class="dt">&quot;animalId&quot;</span><span class="fu">:</span> <span class="st">&quot;100-1&quot;</span><span class="fu">,</span><span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;episode&quot;</span><span class="fu">,</span><span class="dt">&quot;startedAt&quot;</span><span class="fu">:</span> <span class="st">&quot;2010-11-08&quot;</span><span class="fu">,</span><span class="dt">&quot;episodeType&quot;</span><span class="fu">:</span> <span class="st">&quot;care&quot;</span><span class="fu">,</span><span class="dt">&quot;endedAt&quot;</span><span class="fu">:</span> <span class="st">&quot;&quot;</span><span class="fu">,</span><span class="dt">&quot;outcome&quot;</span><span class="fu">:</span> <span class="st">&quot;During treatment&quot;</span><span class="fu">}</span></code></pre></div>
 <p><br></p>
 <h3>Response</h3>
 <h4>Response Code</h4>
@@ -387,7 +387,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h4>Error Messages</h4>
 <p>Refer to <a href="004_Error_Messages.html">Error Message List</a></p>
 <h4>Response Sample</h4>
-<div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span>
+<div class="sourceCode"><pre class="sourceCode JSON"><code class="sourceCode JSON"><span class="fu">{</span>
   <span class="dt">&quot;d&quot;</span><span class="fu">:</span> <span class="fu">{</span>
     <span class="dt">&quot;results&quot;</span><span class="fu">:</span> <span class="fu">{</span>
       <span class="dt">&quot;__metadata&quot;</span><span class="fu">:</span> <span class="fu">{</span>

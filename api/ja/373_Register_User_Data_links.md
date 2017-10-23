@@ -8,8 +8,8 @@
 No
 ### 制限事項
 * リクエストヘッダのContent-Typeは全てapplication/jsonとして扱う
-* リクエストボディはjson形式のみ受け付ける
-* レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはjson形式とする
+* リクエストボディはJSON形式のみ受け付ける
+* レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはJSON形式とする
 * $formatクエリオプションにatom または xmlを指定した場合、エラーとはならないが、レスポンスボディのデータの保証はない
 
 ### ユーザデータ制限事項
@@ -59,7 +59,7 @@ JSON
 |:--|:--|:--|:--|:--|
 |uri<br>|紐付けるODataリソースのURI<br>|桁数：1&#65374;1024<br>URIの形式に従う<br>scheme：http / https / urn<br>|○<br>|<br>|
 #### リクエストサンプル
-```json
+```JSON
 {"uri":"https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')"}
 
 ```

@@ -6,8 +6,8 @@ InMessageに紐付くBox,Accountがある場合は409となり削除は行わな
 message
 ### 制限事項
 * リクエストヘッダのContent-Typeは全てapplication/jsonとして扱う
-* リクエストボディはjson形式のみ受け付ける
-* レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはjson形式とする
+* リクエストボディはJSON形式のみ受け付ける
+* レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはJSON形式とする
 * $formatクエリオプションにatom または xmlを指定した場合、エラーとはならないが、レスポンスボディのデータの保証はない
 
 <br>

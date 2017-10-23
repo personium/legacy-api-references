@@ -119,7 +119,7 @@ GET
 [エラーメッセージ一覧](004_Error_Messages.html)を参照
 
 #### レスポンスサンプル
-```json
+```JSON
 {
   "d": {
     "results": [

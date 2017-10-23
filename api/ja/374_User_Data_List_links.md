@@ -8,8 +8,8 @@
 未稿
 ### 制限事項
 * リクエストヘッダのContent-Typeは全てapplication/jsonとして扱う
-* リクエストボディはjson形式のみ受け付ける
-* レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはjson形式とする
+* リクエストボディはJSON形式のみ受け付ける
+* レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはJSON形式とする
 * $formatクエリオプションにatom または xmlを指定した場合、エラーとはならないが、レスポンスボディのデータの保証はない
 * ユーザデータ制限事項
 	- Edm.DateTime型のプロパティの有効範囲のチェックが適切に行われない
@@ -100,7 +100,7 @@ GET
 [エラーメッセージ一覧](004_Error_Messages.html)を参照
 
 #### レスポンスサンプル
-```json
+```JSON
 {
   "d": {
     "results": [

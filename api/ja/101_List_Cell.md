@@ -10,8 +10,8 @@
 	- なし
 * OData制限
 	- リクエストヘッダのContent-Typeは全てapplication/jsonとして扱う
-	- リクエストボディはjson形式のみ受け付ける
-	- レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはjson形式とする
+	- リクエストボディはJSON形式のみ受け付ける
+	- レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはJSON形式とする
 	- $formatクエリオプションにatom または xmlを指定した場合、エラーとはならないが、レスポンスボディのデータの保証はない
 
 <br>
@@ -65,7 +65,7 @@ GET
 
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|Accept<br>|レスポンスボディの形式を指定する<br>|application / json<br>|×<br>|省略時は[application/json]として扱う<br>|
+|Accept<br>|レスポンスボディの形式を指定する<br>|application/json<br>|×<br>|省略時は[application/json]として扱う<br>|
 #### リクエストボディ
 なし
 
@@ -110,7 +110,7 @@ Cell固有レスポンスボディ
 [エラーメッセージ一覧](004_Error_Messages.html)を参照
 
 #### レスポンスサンプル
-```json
+```JSON
 {
   "d": {
     "results": [

@@ -5,7 +5,7 @@
 read
 ### 制限事項
 * レスポンスボディの正常系はXML形式とし、レスポンスヘッダのContent-Typeはapplication/xmlとする
-* レスポンスボディの異常系はjson形式とし、レスポンスヘッダのContent-Typeはapplication/jsonとする
+* レスポンスボディの異常系はJSON形式とし、レスポンスヘッダのContent-Typeはapplication/jsonとする
 * $formatがatomsvcまたはAcceptヘッダがapplication/atomsvc+xmlの場合、SchemaのAtom ServiceDocumentを返却する
 * $formatがatomsvcでなく、Acceptヘッダがapplication/atomsvc+xmlでない場合は、ユーザデータのEDMXを返却する
 * ComplexTypeおよび、Documentationタグは対応していないため返却しない

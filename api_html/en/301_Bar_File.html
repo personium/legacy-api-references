@@ -147,7 +147,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tbody>
 </table>
 <h5>Samples</h5>
-<div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span>
+<div class="sourceCode"><pre class="sourceCode JSON"><code class="sourceCode JSON"><span class="fu">{</span>
   <span class="dt">&quot;bar_version&quot;</span><span class="fu">:</span> <span class="st">&quot;1&quot;</span><span class="fu">,</span>
   <span class="dt">&quot;box_version&quot;</span><span class="fu">:</span> <span class="st">&quot;1&quot;</span><span class="fu">,</span>
   <span class="dt">&quot;DefaultPath&quot;</span><span class="fu">:</span> <span class="st">&quot;{BoxName}&quot;</span><span class="fu">,</span>
@@ -183,7 +183,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tbody>
 </table>
 <h5 id="-1">Samples</h5>
-<div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span>
+<div class="sourceCode"><pre class="sourceCode JSON"><code class="sourceCode JSON"><span class="fu">{</span>
   <span class="dt">&quot;Relations&quot;</span><span class="fu">:</span> <span class="ot">[</span>
     <span class="fu">{</span>
       <span class="dt">&quot;Name&quot;</span><span class="fu">:</span> <span class="st">&quot;relation1&quot;</span>
@@ -220,7 +220,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tbody>
 </table>
 <h5 id="-2">Samples</h5>
-<div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span>
+<div class="sourceCode"><pre class="sourceCode JSON"><code class="sourceCode JSON"><span class="fu">{</span>
   <span class="dt">&quot;Roles&quot;</span><span class="fu">:</span> <span class="ot">[</span>
     <span class="fu">{</span>
       <span class="dt">&quot;Name&quot;</span><span class="fu">:</span> <span class="st">&quot;role1&quot;</span>
@@ -265,7 +265,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </table>
 <p>(*1) Converted to the role class URL during export<br /> <a href="https://%7BUnitFQDN%7D/cell1/__role/box/staff" class="uri">https://{UnitFQDN}/cell1/__role/box/staff</a> -&gt; <a href="https://%7BUnitFQDN%7D/cell1/__role/__/staff" class="uri">https://{UnitFQDN}/cell1/__role/__/staff</a></p>
 <h5 id="-3">Samples</h5>
-<div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span>
+<div class="sourceCode"><pre class="sourceCode JSON"><code class="sourceCode JSON"><span class="fu">{</span>
   <span class="dt">&quot;ExtRoles&quot;</span><span class="fu">:</span> <span class="ot">[</span>
     <span class="fu">{</span>
       <span class="dt">&quot;ExtRole&quot;</span><span class="fu">:</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__role/__/role2&quot;</span><span class="fu">,</span>
@@ -332,7 +332,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </table>
 <p>*1 The list format is applied for ExtRoles because relation information is also required. However, the key name of the specified JSON data is fixed to &quot;Name&quot;. (Restriction)</p>
 <h5 id="-4">Samples</h5>
-<div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span>
+<div class="sourceCode"><pre class="sourceCode JSON"><code class="sourceCode JSON"><span class="fu">{</span>
   <span class="dt">&quot;Links&quot;</span><span class="fu">:</span> <span class="ot">[</span>
     <span class="fu">{</span>
       <span class="dt">&quot;FromType&quot;</span><span class="fu">:</span> <span class="st">&quot;Relation&quot;</span><span class="fu">,</span>
@@ -361,7 +361,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <span class="ot">]</span>
 <span class="fu">}</span></code></pre></div>
 <h4 id="rootprops.xml">90_rootprops.xml</h4>
-<p>Shows the XML data acquired with the PROPFIND method for all hierarchical levels under the box to be export to the bar file. <br />For details on XML data, refer to <a href="307_Get_Property.html">get file setting API(PROPFIND)</a>. <br />The URL of the box to be installed is described as &quot;personium-box:/&quot;. <br />When the bar file is installed, the installation targets include all data<prop>excluding creationdate and astmodified under the following sample.</p>
+<p>Shows the XML data acquired with the PROPFIND method for all hierarchical levels under the box to be export to the bar file. <br />For details on XML data, refer to <a href="307_Get_Property.html">get file setting API(PROPFIND)</a>. <br />The URL of the box to be installed is described as &quot;Personium-box:/&quot;. <br />When the bar file is installed, the installation targets include all data<prop>excluding creationdate and astmodified under the following sample.</p>
 <ul>
 <li>resourcetype: Sets the collection type</li>
 <li>acl: Sets privileges</li>
@@ -370,7 +370,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h5 id="-5">Samples</h5>
 <div class="sourceCode"><pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;multistatus</span><span class="ot"> xmlns=</span><span class="st">&quot;DAV:&quot;</span><span class="kw">&gt;</span>
     <span class="kw">&lt;response&gt;</span>
-        <span class="kw">&lt;href&gt;</span>personium-box:/<span class="kw">&lt;/href&gt;</span>
+        <span class="kw">&lt;href&gt;</span>Personium-box:/<span class="kw">&lt;/href&gt;</span>
         <span class="kw">&lt;propstat&gt;</span>
            <span class="kw">&lt;prop&gt;</span>
               <span class="kw">&lt;resourcetype&gt;</span>
@@ -392,7 +392,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <span class="kw">&lt;/propstat&gt;</span>
   <span class="kw">&lt;/response&gt;</span>
   <span class="kw">&lt;response&gt;</span>
-      <span class="kw">&lt;href&gt;</span>personium-box:/odata<span class="kw">&lt;/href&gt;</span>
+      <span class="kw">&lt;href&gt;</span>Personium-box:/odata<span class="kw">&lt;/href&gt;</span>
       <span class="kw">&lt;propstat&gt;</span>
           <span class="kw">&lt;prop&gt;</span>
               <span class="kw">&lt;resourcetype&gt;</span>
@@ -421,7 +421,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <span class="kw">&lt;/propstat&gt;</span>
   <span class="kw">&lt;/response&gt;</span>
   <span class="kw">&lt;response&gt;</span>
-      <span class="kw">&lt;href&gt;</span>personium-box:/dav<span class="kw">&lt;/href&gt;</span>
+      <span class="kw">&lt;href&gt;</span>Personium-box:/dav<span class="kw">&lt;/href&gt;</span>
       <span class="kw">&lt;propstat&gt;</span>
           <span class="kw">&lt;prop&gt;</span>
               <span class="kw">&lt;resourcetype&gt;</span>
@@ -449,7 +449,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <span class="kw">&lt;/propstat&gt;</span>
   <span class="kw">&lt;/response&gt;</span>
   <span class="kw">&lt;response&gt;</span>
-      <span class="kw">&lt;href&gt;</span>personium-box:/dav/testdavfile.txt<span class="kw">&lt;/href&gt;</span>
+      <span class="kw">&lt;href&gt;</span>Personium-box:/dav/testdavfile.txt<span class="kw">&lt;/href&gt;</span>
       <span class="kw">&lt;propstat&gt;</span>
           <span class="kw">&lt;prop&gt;</span>
               <span class="kw">&lt;getcontenttype&gt;</span>text/plain<span class="kw">&lt;/getcontenttype&gt;</span>
@@ -457,7 +457,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <span class="kw">&lt;/propstat&gt;</span>
   <span class="kw">&lt;/response&gt;</span>
   <span class="kw">&lt;response&gt;</span>
-      <span class="kw">&lt;href&gt;</span>personium-box:/service<span class="kw">&lt;/href&gt;</span>
+      <span class="kw">&lt;href&gt;</span>Personium-box:/service<span class="kw">&lt;/href&gt;</span>
       <span class="kw">&lt;propstat&gt;</span>
           <span class="kw">&lt;prop&gt;</span>
               <span class="kw">&lt;resourcetype&gt;</span>
@@ -474,7 +474,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
         <span class="kw">&lt;/propstat&gt;</span>
     <span class="kw">&lt;/response&gt;</span>
     <span class="kw">&lt;response&gt;</span>
-        <span class="kw">&lt;href&gt;</span>personium-box:/service/__src<span class="kw">&lt;/href&gt;</span>
+        <span class="kw">&lt;href&gt;</span>Personium-box:/service/__src<span class="kw">&lt;/href&gt;</span>
         <span class="kw">&lt;propstat&gt;</span>
             <span class="kw">&lt;prop&gt;</span>
                 <span class="kw">&lt;resourcetype&gt;</span>
@@ -486,7 +486,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
         <span class="kw">&lt;/propstat&gt;</span>
     <span class="kw">&lt;/response&gt;</span>
     <span class="kw">&lt;response&gt;</span>
-        <span class="kw">&lt;href&gt;</span>personium-box:/service/__src/ehr.js<span class="kw">&lt;/href&gt;</span>
+        <span class="kw">&lt;href&gt;</span>Personium-box:/service/__src/ehr.js<span class="kw">&lt;/href&gt;</span>
         <span class="kw">&lt;propstat&gt;</span>
             <span class="kw">&lt;prop&gt;</span>
                 <span class="kw">&lt;getcontenttype&gt;</span>text/javascript<span class="kw">&lt;/getcontenttype&gt;</span>
@@ -494,7 +494,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
         <span class="kw">&lt;/propstat&gt;</span>
     <span class="kw">&lt;/response&gt;</span>
     <span class="kw">&lt;response&gt;</span>
-        <span class="kw">&lt;href&gt;</span>personium-box:/service/__src/ehr_connector.js<span class="kw">&lt;/href&gt;</span>
+        <span class="kw">&lt;href&gt;</span>Personium-box:/service/__src/ehr_connector.js<span class="kw">&lt;/href&gt;</span>
         <span class="kw">&lt;propstat&gt;</span>
             <span class="kw">&lt;prop&gt;</span>
                 <span class="kw">&lt;getcontenttype&gt;</span>text/javascript<span class="kw">&lt;/getcontenttype&gt;</span>
@@ -578,7 +578,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </table>
 <p>*1 The array format is applied in consideration of the future support for composite primary keys.</p>
 <h5 id="-6">Samples</h5>
-<div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span>
+<div class="sourceCode"><pre class="sourceCode JSON"><code class="sourceCode JSON"><span class="fu">{</span>
   <span class="dt">&quot;Links&quot;</span><span class="fu">:</span> <span class="ot">[</span>
     <span class="fu">{</span>
       <span class="dt">&quot;FromType&quot;</span><span class="fu">:</span> <span class="st">&quot;Keeper&quot;</span><span class="fu">,</span>
@@ -608,7 +608,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="fu">}</span></code></pre></div>
 <h4 id="data-entitytype-1.json">90_data / {EntityType} / {1.json}</h4>
 <p>Stores user data in the JSON format one by one.</p>
-<div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span>
+<div class="sourceCode"><pre class="sourceCode JSON"><code class="sourceCode JSON"><span class="fu">{</span>
     <span class="dt">&quot;__id&quot;</span><span class="fu">:</span> <span class="st">&quot;{EntityName}&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;pochi&quot;</span><span class="fu">,</span>
     <span class="dt">&quot;address&quot;</span><span class="fu">:</span> <span class="fu">{</span>
@@ -628,7 +628,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Sample of 90_rootprops.xml for service registration</p>
 <div class="sourceCode"><pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;multistatus</span><span class="ot"> xmlns=</span><span class="st">&quot;DAV:&quot;</span><span class="kw">&gt;</span>
     <span class="kw">&lt;response&gt;</span>
-        <span class="kw">&lt;href&gt;</span>personium-box:/service<span class="kw">&lt;/href&gt;</span>
+        <span class="kw">&lt;href&gt;</span>Personium-box:/service<span class="kw">&lt;/href&gt;</span>
         <span class="kw">&lt;propstat&gt;</span>
             <span class="kw">&lt;prop&gt;</span>
                 <span class="kw">&lt;resourcetype&gt;</span>
@@ -646,7 +646,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
         <span class="kw">&lt;/propstat&gt;</span>
     <span class="kw">&lt;/response&gt;</span>
     <span class="kw">&lt;response&gt;</span>
-        <span class="kw">&lt;href&gt;</span>personium-box:/service/__src<span class="kw">&lt;/href&gt;</span>
+        <span class="kw">&lt;href&gt;</span>Personium-box:/service/__src<span class="kw">&lt;/href&gt;</span>
         <span class="kw">&lt;propstat&gt;</span>
             <span class="kw">&lt;prop&gt;</span>
                 <span class="kw">&lt;resourcetype&gt;</span>
@@ -658,7 +658,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
         <span class="kw">&lt;/propstat&gt;</span>
     <span class="kw">&lt;/response&gt;</span>
     <span class="kw">&lt;response&gt;</span>
-        <span class="kw">&lt;href&gt;</span>personium-box:/service/__src/ehr.js<span class="kw">&lt;/href&gt;</span>
+        <span class="kw">&lt;href&gt;</span>Personium-box:/service/__src/ehr.js<span class="kw">&lt;/href&gt;</span>
         <span class="kw">&lt;propstat&gt;</span>
             <span class="kw">&lt;prop&gt;</span>
                 <span class="kw">&lt;getcontenttype&gt;</span>text/javascript<span class="kw">&lt;/getcontenttype&gt;</span>
@@ -666,7 +666,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
         <span class="kw">&lt;/propstat&gt;</span>
     <span class="kw">&lt;/response&gt;</span>
     <span class="kw">&lt;response&gt;</span>
-        <span class="kw">&lt;href&gt;</span>personium-box:/service/__src/ehr_connector.js<span class="kw">&lt;/href&gt;</span>
+        <span class="kw">&lt;href&gt;</span>Personium-box:/service/__src/ehr_connector.js<span class="kw">&lt;/href&gt;</span>
         <span class="kw">&lt;propstat&gt;</span>
             <span class="kw">&lt;prop&gt;</span>
                 <span class="kw">&lt;getcontenttype&gt;</span>text/javascript<span class="kw">&lt;/getcontenttype&gt;</span>

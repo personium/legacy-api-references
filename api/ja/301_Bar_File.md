@@ -70,7 +70,7 @@ bar/
 |schema<br>|Schema名<br>|桁数：1&#65374;1024<br>URIの形式に従う（scheme：http / https / urn）<br>nullは不可<br>|○<br>| <br>|
 
 ##### サンプル
-```json
+```JSON
 {
   "bar_version": "1",
   "box_version": "1",
@@ -89,7 +89,7 @@ bar/
 
 
 ##### サンプル
-```json
+```JSON
 {
   "Relations": [
     {
@@ -108,7 +108,7 @@ bar/
 |Roles/Name<br>|Relation名<br>|-<br>|○<br>| <br>|
 
 ##### サンプル
-```json
+```JSON
 {
   "Roles": [
     {
@@ -131,7 +131,7 @@ bar/
 https://{UnitFQDN}/cell1/__role/box/staff → https://{UnitFQDN}/cell1/__role/__/staff
 
 ##### サンプル
-```json
+```JSON
 {
   "ExtRoles": [
     {
@@ -154,7 +154,7 @@ https://{UnitFQDN}/cell1/__role/box/staff → https://{UnitFQDN}/cell1/__role/__
 ※1 ExtRoleではRelation情報も必要のため、リスト形式とする。ただし、指定するJSONデータのキー名は、&quot;Name&quot; 固定とする。（制限）
 
 ##### サンプル
-```json
+```JSON
 {
   "Links": [
     {
@@ -187,7 +187,7 @@ https://{UnitFQDN}/cell1/__role/box/staff → https://{UnitFQDN}/cell1/__role/__
 #### 90_rootprops.xml
 barファイルにエクスポートする対象のBox配下の全階層に対して、PROPFINDメソッドで取得したXMLデータを示す。  
 XMLデータの詳細は、[ファイル設定取得（PROPFIND）](307_Get_Property.html)を参照。  
-インストール対象BoxのURLは、「personium-box:/」と記述する。  
+インストール対象BoxのURLは、「Personium-box:/」と記述する。  
 barファイルのインストール時には、下記サンプルの<prop>配下にある creationdate及び、getlastmodifiedを除いた全てのデータをインストール対象とする。
 * resourcetype: コレクションの種類を設定
 * acl: 権限を設定
@@ -197,7 +197,7 @@ barファイルのインストール時には、下記サンプルの<prop>配�
 ```xml
 <multistatus xmlns="DAV:">
     <response>
-        <href>personium-box:/</href>
+        <href>Personium-box:/</href>
         <propstat>
            <prop>
               <resourcetype>
@@ -219,7 +219,7 @@ barファイルのインストール時には、下記サンプルの<prop>配�
       </propstat>
   </response>
   <response>
-      <href>personium-box:/odata</href>
+      <href>Personium-box:/odata</href>
       <propstat>
           <prop>
               <resourcetype>
@@ -248,7 +248,7 @@ barファイルのインストール時には、下記サンプルの<prop>配�
       </propstat>
   </response>
   <response>
-      <href>personium-box:/dav</href>
+      <href>Personium-box:/dav</href>
       <propstat>
           <prop>
               <resourcetype>
@@ -276,7 +276,7 @@ barファイルのインストール時には、下記サンプルの<prop>配�
       </propstat>
   </response>
   <response>
-      <href>personium-box:/dav/testdavfile.txt</href>
+      <href>Personium-box:/dav/testdavfile.txt</href>
       <propstat>
           <prop>
               <getcontenttype>text/plain</getcontenttype>
@@ -284,7 +284,7 @@ barファイルのインストール時には、下記サンプルの<prop>配�
       </propstat>
   </response>
   <response>
-      <href>personium-box:/service</href>
+      <href>Personium-box:/service</href>
       <propstat>
           <prop>
               <resourcetype>
@@ -301,7 +301,7 @@ barファイルのインストール時には、下記サンプルの<prop>配�
         </propstat>
     </response>
     <response>
-        <href>personium-box:/service/__src</href>
+        <href>Personium-box:/service/__src</href>
         <propstat>
             <prop>
                 <resourcetype>
@@ -313,7 +313,7 @@ barファイルのインストール時には、下記サンプルの<prop>配�
         </propstat>
     </response>
     <response>
-        <href>personium-box:/service/__src/ehr.js</href>
+        <href>Personium-box:/service/__src/ehr.js</href>
         <propstat>
             <prop>
                 <getcontenttype>text/javascript</getcontenttype>
@@ -321,7 +321,7 @@ barファイルのインストール時には、下記サンプルの<prop>配�
         </propstat>
     </response>
     <response>
-        <href>personium-box:/service/__src/ehr_connector.js</href>
+        <href>Personium-box:/service/__src/ehr_connector.js</href>
         <propstat>
             <prop>
                 <getcontenttype>text/javascript</getcontenttype>
@@ -367,7 +367,7 @@ Boxインストール時には、Schemaタグの配下をインストール対�
 ※1 将来的に複合主キーへ対応した場合の対応を考慮して配列形式とする。
 
 ##### サンプル
-```json
+```JSON
 {
   "Links": [
     {
@@ -400,7 +400,7 @@ Boxインストール時には、Schemaタグの配下をインストール対�
 #### 90_data / {EntityType} / {1.json}
 ユーザデータを1件ずつJSON形式で格納する。
 
-```json
+```JSON
 {
     "__id": "{EntityName}",
     "name": "pochi",
@@ -424,7 +424,7 @@ bar/90_contents/{Service}/{src.js}に格納されたソースファイルを、�
 ```xml
 <multistatus xmlns="DAV:">
     <response>
-        <href>personium-box:/service</href>
+        <href>Personium-box:/service</href>
         <propstat>
             <prop>
                 <resourcetype>
@@ -442,7 +442,7 @@ bar/90_contents/{Service}/{src.js}に格納されたソースファイルを、�
         </propstat>
     </response>
     <response>
-        <href>personium-box:/service/__src</href>
+        <href>Personium-box:/service/__src</href>
         <propstat>
             <prop>
                 <resourcetype>
@@ -454,7 +454,7 @@ bar/90_contents/{Service}/{src.js}に格納されたソースファイルを、�
         </propstat>
     </response>
     <response>
-        <href>personium-box:/service/__src/ehr.js</href>
+        <href>Personium-box:/service/__src/ehr.js</href>
         <propstat>
             <prop>
                 <getcontenttype>text/javascript</getcontenttype>
@@ -462,7 +462,7 @@ bar/90_contents/{Service}/{src.js}に格納されたソースファイルを、�
         </propstat>
     </response>
     <response>
-        <href>personium-box:/service/__src/ehr_connector.js</href>
+        <href>Personium-box:/service/__src/ehr_connector.js</href>
         <propstat>
             <prop>
                 <getcontenttype>text/javascript</getcontenttype>

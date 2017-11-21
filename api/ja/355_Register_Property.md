@@ -6,8 +6,8 @@ alter-schema
 ### 制限事項
 * OData制限
 	- リクエストヘッダのContent-Typeは全てapplication/jsonとして扱う
-	- リクエストボディはjson形式のみ受け付ける
-	- レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはjson形式とする
+	- リクエストボディはJSON形式のみ受け付ける
+	- レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはJSON形式とする
 	- $formatクエリオプションにatom または xmlを指定した場合、エラーとはならないが、レスポンスボディのデータの保証はない
 * 個別の制限
 	- 関連対象のEntityTypeを使用したユーザーデータが存在する場合は、Nullableがtrueの場合のみ登録可能
@@ -45,8 +45,8 @@ POST
 ##### OData登録リクエストヘッダ
 |ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
 |:--|:--|:--|:--|:--|
-|Content-Type<br>|リクエストボディの形式を指定する<br>|application / json<br>|×<br>|省略時は[application/json]として扱う<br>|
-|Accept<br>|レスポンスボディの形式を指定する<br>|application / json<br>|×<br>|省略時は[application/json]として扱う<br>|
+|Content-Type<br>|リクエストボディの形式を指定する<br>|application/json<br>|×<br>|省略時は[application/json]として扱う<br>|
+|Accept<br>|レスポンスボディの形式を指定する<br>|application/json<br>|×<br>|省略時は[application/json]として扱う<br>|
 #### リクエストボディ
 ##### Format
 JSON
@@ -73,7 +73,7 @@ DefaultValueの有効値はTypeの値（型定義）によって異なり、以�
 |Edm.Boolean<br>|true / false<br>|
 |Edm.DateTime<br>|/Date(【long型の時刻】)/の形式で文字列で指定する<br>　【long型の時刻】の有効値は、-6847804800000(1753-01-01T00:00:00.000Z)&#65374;253402300799999(9999-12-31T23:59:59.999Z)<br>また、予約語として以下を指定可能<br>　SYSUTCDATETIME()：サーバ時間<br>|
 #### リクエストサンプル
-```json
+```JSON
 {
    "Name": "{PropertyName}",
   "_EntityType.Name": "{EntityTypeName}",
@@ -135,7 +135,7 @@ DefaultValueの有効値はTypeの値（型定義）によって異なり、以�
 [エラーメッセージ一覧](004_Error_Messages.html)を参照
 
 #### レスポンスサンプル
-```json
+```JSON
 {
   "d": {
     "results": {

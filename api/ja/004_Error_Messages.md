@@ -35,7 +35,7 @@
 |400<br>|PR400-OD-0003<br>|OData $filter Parse Error.<br>|<br>|
 |400<br>|PR400-OD-0004<br>|OData EntityKey Parse error.<br>|<br>|
 |400<br>|PR400-OD-0005<br>|$format value [{0}] is invalid.<br>|<br>|
-|400<br>|PR400-OD-0006<br>|[{0}] field format error.<br>|<br>|
+|400<br>|PR400-OD-0006<br>|request body format error. field [{0}]<br>|<br>|
 |400<br>|PR400-OD-0007<br>|[{0}]<br>|<br>|
 |400<br>|PR400-OD-0008<br>|No such association.<br>|<br>|
 |400<br>|PR400-OD-0009<br>|[{0}] is required.<br>|<br>|
@@ -118,11 +118,12 @@
 |403<br>|PR403-DV-0003<br>|Cannot delete collection if it has any child resources.<br>|<br>|
 |403<br>|PR403-DV-0004<br>|Resource name is invalid [{0}].<br>|<br>|
 |403<br>|PR403-DV-0005<br>|Destination header value [{0}] equals request URL.<br>|<br>|
-|404<br>|PR404-DV-0001<br>|Resource not found.<br>|<br>|
+|404<br>|PR404-DV-0001<br>|Resource not found. [{0}].<br>|<br>|
 |404<br>|PR404-DV-0002<br>|Box not found at [{0}].<br>|<br>|
 |404<br>|PR404-DV-0003<br>|Cell not found.<br>|<br>|
 |405<br>|PR405-DV-0001<br>|Method not allowed. MKCOL can only be executed on a deleted/non-existent resource.<br>|<br>|
 |409<br>|PR409-DV-0001<br>|intermediate collection [{0}] should be created first.<br>|<br>|
+|409<br>|PR409-DV-0002<br>|File [{0}] already exists.<br>|<br>|
 |412<br>|PR412-DV-0001<br>|ETag does not match.<br>|<br>|
 |412<br>|PR412-DV-0002<br>|Overwrite header is "F" and the destination URL is already mapped to a resource.<br>|<br>|
 |416<br>|PR416-DV-0001<br>|Requested range not satisfiable.<br>|<br>|
@@ -193,12 +194,22 @@
 |503<br>|PR503-SV-0004<br>|Service is under maintenance [restoring].<br>|<br>|
 |503<br>|PR503-SV-0005<br>|Operation is prohibited as one or more disks are almost full.<br>|<br>|
 |503<br>|PR503-SV-0006<br>|Server connection error. (Datastore)<br>|<br>|
+|400<br>|PR400-MC-0001<br>|[{0}] does not exist in the snapshot file.<br>|<br>|
+|404<br>|PR404-MC-0001<br>|URI is not recognized.<br>|<br>|
 |405<br>|PR405-MC-0001<br>|Method not allowed.<br>|<br>|
 |408<br>|PR408-MC-0001<br>|Request timeout in server.<br>|<br>|
 |409<br>|PR409-MC-0001<br>|Cell to be deleted is being accessed by other requests.<br>|<br>|
 |412<br>|PR412-MC-0001<br>|Precondition failed [Header: {0}].<br>|<br>|
 |501<br>|PR501-MC-0001<br>|Method not implemented.<br>|<br>|
 |501<br>|PR501-MC-0002<br>|Not implemented. [{0}].<br>|<br>|
+|400<br>|PR400-CM-0001<br>|Required key [{0}] missing.<br>|<br>|
+|400<br>|PR400-CM-0002<br>|Field [{0}] format error. Must be [{1}].<br>|<br>|
+|400<br>|PR400-CM-0003<br>|Unknown key [{0}] specified.<br>|<br>|
+|400<br>|PR400-CM-0004<br>|JSON parse error. [{0}].<br>|<br>|
+|409<br>|PR409-CM-0001<br>|Cell status is [import failed]. Only Unit Level's APIs, CellImport and GetToken are executable.<br>|<br>|
+|409<br>|PR409-CM-0002<br>|Because [{0}] is being executed, writing to cell can not be done.<br>|<br>|
+|500<br>|PR500-CM-0001<br>|Failed to load the request body for some reason.<br>|<br>|
+|500<br>|PR500-CM-0002<br>|Files I/O error caused [{0}] to fail.<br>|<br>|
 |400<br>|PR400-BI-0001<br>|Request header is not defined or invalid [{0}].<br>|<br>|
 |400<br>|PR400-BI-0002<br>|Bar file size too large [{0}B].<br>|<br>|
 |400<br>|PR400-BI-0003<br>|Bar file entry size too large [{0}, {1}B].<br>|<br>|
@@ -211,12 +222,8 @@
 |405<br>|PR405-BI-0001<br>|Install target box is already registered [{0}].<br>|<br>|
 |500<br>|PR500-BI-0001<br>|Failed to output http response.<br>|<br>|
 |500<br>|PR500-NW-0000<br>|Network error. {0}<br>|<br>|
-|500<br>|PR500-NW-0000<br>|Network error. {0}<br>|<br>|
-|500<br>|PR500-NW-0001<br>|HTTP {0} request to {1} failed. Response code : {2}.<br>|<br>|
 |500<br>|PR500-NW-0001<br>|HTTP {0} request to {1} failed. Response code : {2}.<br>|<br>|
 |500<br>|PR500-NW-0002<br>|Unexpected response from {0}, where {1} expected.<br>|<br>|
-|500<br>|PR500-NW-0002<br>|Unexpected response from {0}, where {1} expected.<br>|<br>|
-|500<br>|PR500-NW-0003<br>|Unexpected value from key={0}, where "{1}" value expected.<br>|<br>|
 |500<br>|PR500-NW-0003<br>|Unexpected value from key={0}, where "{1}" value expected.<br>|<br>|
 |500<br>|PR500-SV-9999<br>|Unknown Exception [{0}] {1}<br>| <br>|
 |500<br>|PR500-AN-0001<br>|Root ca certificate setting error.<br>|<br>|

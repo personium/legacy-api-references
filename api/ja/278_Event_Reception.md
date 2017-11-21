@@ -46,7 +46,7 @@ JSON
 |object<br>|イベントの対象オブジェクト<br>|文字列型<br>桁数：0&#65374;51200 byte<br>|○<br>|<br>|
 |result<br>|イベントの結果<br>|文字列型<br>桁数：0&#65374;51200 byte<br>|○<br>|<br>|
 #### リクエストサンプル
-```json
+```JSON
 {
   "level":"INFO",
   "action":"authSchema",

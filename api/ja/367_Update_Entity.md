@@ -5,8 +5,8 @@
 write
 ### 制限事項
 * リクエストヘッダのContent-Typeは全てapplication/jsonとして扱う
-* リクエストボディはjson形式のみ受け付ける
-* レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはjson形式とする
+* リクエストボディはJSON形式のみ受け付ける
+* レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはJSON形式とする
 * $formatクエリオプションにatom または xmlを指定した場合、エラーとはならないが、レスポンスボディのデータの保証はない
 * ユーザデータ制限事項
 	- Edm.DateTime型のプロパティの有効範囲のチェックが適切に行われない
@@ -84,7 +84,7 @@ PUT
 配列、連想配列は指定不可
 
 #### リクエストサンプル
-```json
+```JSON
 {"animalId": "100-2","name": "episode2","startedAt": "2016-02-21","episodeType": "care2","endedAt": "","outcome": "治療済"}
 ```
 

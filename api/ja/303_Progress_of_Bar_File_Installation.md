@@ -78,7 +78,7 @@ GET
 
 #### レスポンスサンプル
 Boxの作成後（Boxインストール完了時を含む）
-```json
+```JSON
 {
   "schema": "https://example.com/app1/",
   "installed_at": "2017-02-13T09:00:00.000Z",
@@ -89,7 +89,7 @@ Boxの作成後（Boxインストール完了時を含む）
 
 
 Boxインストール処理中の場合
-```json
+```JSON
 {
   "schema": "https://example.com/app1/",
   "started_at": "2017-02-13T09:00:00.000Z",
@@ -102,7 +102,7 @@ Boxインストール処理中の場合
 
 Boxインストール完了時（異常終了）の場合  
 （Boxインストールに失敗後、有効期限以内）
-```json
+```JSON
 {
   "schema": "https://example.com/app1/",
   "started_at": "2017-02-13T09:00:00.000Z",

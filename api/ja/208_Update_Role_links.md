@@ -8,8 +8,8 @@ Roleの$link情報を更新する
 ### 制限事項
 * リクエストヘッダのAcceptは無視される
 * リクエストヘッダのContent-Typeは全てapplication/jsonとして扱う
-* リクエストボディはjson形式のみ受け付ける
-* レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはjson形式とする
+* リクエストボディはJSON形式のみ受け付ける
+* レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはJSON形式とする
 * $formatクエリオプションは無視される
 
 <br>
@@ -168,7 +168,7 @@ JSON
 |uri<br>|紐付けるODataリソースのURI<br>|桁数：1&#65374;1024<br>URIの形式に従う<br>scheme：http / https / urn<br>|○<br>|&#160;<br>|
 
 #### リクエストサンプル
-```json
+```JSON
 {"uri":"https://{UnitFQDN}/Cell/__ctl/Box('{BoxName}')"}
 ```
 <br>

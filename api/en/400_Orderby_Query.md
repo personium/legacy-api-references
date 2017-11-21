@@ -1,0 +1,51 @@
+# \$orderby  Query
+
+### Overview
+
+Use the \$orderby query to sort search results when retrieving lists<br>
+\*If you specify a property name that does not exist in \$orderby, ignore the specified item
+
+### Request Query
+
+```
+$orderby={propertyName} {option}, ...
+```
+
+\*{propertyName} {option} can be specified in comma-separated list
+
+| Path<br>           | Overview<br>                                                                   |
+|:-- |:-- |
+| {PropertyName}<br> | Property name to specify as the sort key<br>                                   |
+| {Option}<br>       | Sort method<br>asc:ascending order<br>desc:descending order<br>default:asc<br> |
+
+### cURL Command
+
+Example: To obtain cell information in descending order of cell name:
+
+```sh
+curl "https://{UnitFQDN}/__ctl/Cell?\$orderby=Name%20desc" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+```
+
+### Operation details
+
+* Sort order for null values<br>
+    When ascending order is specified, null is sorted so that it becomes the end of the sorting result when both descending order is specified.<br>
+    *However, if you are using the minor version 0.19.9, sort according to the following rules.
+* Sort for string type
+
+    * asc<br>
+        Null -> string
+    * desc<br>
+        String -> null
+
+* Numeric
+
+    * asc<br>
+        Negative number -> null -> 0 -> None -> Positive number
+    * desc<br>
+        Positive number -> null -> 0 -> none -> Pegative number
+
+* If you specify a property name that does not exist in $orderby, ignore the specified item
+* If an array type property name is specified in $orderby, 400 error is returned<br><br><br><br><br><br>
+
+###### Copyright 2017 FUJITSU LIMITED

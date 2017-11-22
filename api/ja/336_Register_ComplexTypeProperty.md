@@ -71,7 +71,7 @@ JSON
 |:--|:--|:--|:--|:--|
 |Name<br>|ComplexTypeProperty名<br>|桁数：1&#65374;128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)は指定不可<br>|○<br>| <br>|
 |_ComplexType.Name<br>|紐付くComplexType名<br>|桁数：1&#65374;128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)は指定不可<br>|○<br>| <br>|
-|Type<br>|型定義<br>|Edm.Boolean / Edm.String / Edm.Single / Edm.Int32 / Edm.DateTime / 登録済みComplexType名<br>|○<br>| <br>|
+|Type<br>|型定義<br>|Edm.Boolean / Edm.String / Edm.Int32 / Edm.Single / Edm.Double / Edm.DateTime / 登録済みComplexType名<br>|○<br>| <br>|
 |Nullable<br>|Null値許可<br>|true / false<br>デフォルト値は Null<br>|×<br>| <br>|
 |DefaultValue<br>|デフォルト値<br>|下記表を参照<br>デフォルト値は Null<br>|×<br>| <br>|
 |CollectionKind<br>|配列種別<br>|None / List<br>デフォルト値は "None"<br>|×<br>| <br>|
@@ -81,10 +81,11 @@ DefaultValueの有効値はTypeの値（型定義）によって異なり、以�
 
 |Type Value<br>|有効値<br>|
 |:--|:--|
+|Edm.Boolean<br>|true / false<br>|
 |Edm.String<br>|桁数：0&#65374;51200 byte<br>「\」を使用する場合、「\\\」で指定する必要がある<br>|
 |Edm.Int32<br>|-2147483648　&#65374;　2147483647<br>|
 |Edm.Single<br>|整数部分の桁数：1&#65374;5桁<br>小数部分の桁数：1&#65374;5桁<br>|
-|Edm.Boolean<br>|true / false<br>|
+|Edm.Double<br>|15 桁の有効桁数を持つ浮動小数点数を表します。<br>|
 |Edm.DateTime<br>|/Date(【long型の時刻】)/の形式で文字列で指定する<br>　【long型の時刻】の有効値は、-6847804800000(1753-01-01T00:00:00.000Z)&#65374;253402300799999(9999-12-31T23:59:59.999Z)<br>また、予約語として以下を指定可能<br>　SYSUTCDATETIME()：サーバ時間<br>|
 
 #### リクエストサンプル

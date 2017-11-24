@@ -44,7 +44,6 @@ PROPPATCH
 |:--|:--|:--|
 |DAV:<br>|WebDAVの名前空間<br>|D:<br>|
 |urn:x-personium:xmlns<br>|Personium APIの名前空間<br>|p:<br>|
-|http://www.w3.com/standards/z39.50/<br>|proppatchの名前空間<br>|Z:<br>|
 ※ 参考prefixは以下表の可読性を高めるためのもので、このprefix文字列の使用を保証するものでも要求するものでもありません。
 
 
@@ -86,7 +85,6 @@ DTD表記
 ```xml
 <D:propertyupdate xmlns:D="DAV:"
     xmlns:p="urn:x-personium:xmlns"
-    xmlns:Z="http://www.w3.com/standards/z39.50/">
     <D:set>
         <D:prop>
           <p:service language="JavaScript">
@@ -139,7 +137,7 @@ DTD表記
         <href>https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}</href>
         <propstat>
             <prop>
-                <p:service language="JavaScript" xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/">
+                <p:service language="JavaScript" xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:">
                     <p:path name="sample" src="sample.js"/>
                 </p:service>
             </prop>
@@ -154,7 +152,7 @@ DTD表記
 ### cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}" -X PROPPATCH -i -H "Authorization:Bearer {AccessToken}" -H "Accept:application/json" -d "<?xml version=\"1.0\" encoding=\"utf-8\" ?><D:propertyupdate xmlns:D=\"DAV:\" xmlns:p=\"urn:x-personium:xmlns\" xmlns:Z=\"http://www.w3.com/standards/z39.50/\"><D:set><D:prop><p:service language=\"JavaScript\"><p:path name=\"sample\" src=\"sample.js\"/></p:service></D:prop></D:set></D:propertyupdate>"
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}" -X PROPPATCH -i -H "Authorization:Bearer {AccessToken}" -H "Accept:application/json" -d "<?xml version=\"1.0\" encoding=\"utf-8\" ?><D:propertyupdate xmlns:D=\"DAV:\" xmlns:p=\"urn:x-personium:xmlns\"><D:set><D:prop><p:service language=\"JavaScript\"><p:path name=\"sample\" src=\"sample.js\"/></p:service></D:prop></D:set></D:propertyupdate>"
 ```
 <br>
 <br>

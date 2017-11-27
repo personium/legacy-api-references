@@ -23,6 +23,8 @@ root
 
 * None
 
+<br>
+
 ### Request
 
 #### Request URL
@@ -37,18 +39,18 @@ GET
 
 #### Request Query
 
-| Query Name    |   Overview                    |   Effective Value                                                                |   Required |   Notes                                                                                                                |
-|:-- |:-- |:-- |:-- |:-- |
-| p_cookie_peer |   Cookie Authentication Value |   The cookie authentication value returned from the server during authentication |   No       |   Valid only if no Authorization header specified  Specify this when cookie authentication information is to be used   |
+|Query Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|:--|:--|:--|:--|:--|
+|p_cookie_peer<br>|Cookie Authentication Value<br>|The cookie authentication value returned from the server during authentication<br>|No<br>|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used<br>|
 
 #### Request Header
-PCS-\${UNIXtime} by default  Supported in V 1.1.7 and later  
+PCS-\${UNIXtime} by default<br>Supported in V 1.1.7 and later<br>
 
-| Header Name            |   Overview                                                     |   Effective Value                                                                                      |   Required |   Notes                                                                                                     |
-|:-- |:-- |:-- |:-- |:-- |
-| X-Override             |   Header override function                                     |   ${OverwrittenHeaderName}:${Value} override} $: $ {value}                                             |   No       |   Overwrite normal HTTP header value. To overwrite multiple headers, specify multiple X-Override headers.   |
-| X-Personium-RequestKey |   RequestKey field value output in the event log               |   Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")  Maximum of 128 characters |   No       |                                                                                                             |
-| Authorization          |   Specifies authentication information in the OAuth 2.0 format |   Bearer {AccessToken}                                                                                 |   No       |   * Authentication tokens are the tokens acquired using the Authentication Token Acquisition API            |
+|Header Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|:--|:--|:--|:--|:--|
+|X-Override<br>|Header override function<br>|${OverwrittenHeaderName}:${Value} override} $: $ {value}<br>|No<br>|Overwrite normal HTTP header value. To overwrite multiple headers, specify multiple X-Override headers.<br>|
+|X-Personium-RequestKey<br>|RequestKey field value output in the event log<br>|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters<br>|No<br>||
+|Authorization<br>|Specifies authentication information in the OAuth 2.0 format<br>|Bearer {AccessToken}<br>|No<br>|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API<br>|
 
 #### Request Body
 
@@ -58,34 +60,36 @@ None
 
 None
 
+<br>
+
 ### Response
 
 #### Response Code
 
-| Code |   Message |   Overview   |   Notes                                        |
-|:-- |:-- |:-- |:-- |
-| 200  |   OK      |   On success |   Cell import status refers to response body   |
+|Code<br>|Message<br>|Overview<br>|Notes<br>|
+|:--|:--|:--|:--|
+|200<br>|OK<br>|On success<br>|Cell import status refers to response body<br>|
 
 #### Response Header
 
-| Header Name                 |   Overview                                     |   Notes                                            |
-|:-- |:-- |:-- |
-| Access-Control-Allow-Origin |   Cross domain communication permission header |   Return value fixed to "*"                        |
-| X-Personium-Version         |   API version that the request is processed    |   Version of the API used to process the request   |
-| Content-Type                |   Format of data to be returned                |                                                    |
+|Header Name<br>|Overview<br>|Notes<br>|
+|:--|:--|:--|
+|Access-Control-Allow-Origin<br>|Cross domain communication permission header<br>|Return value fixed to "*"<br>|
+|X-Personium-Version<br>|API version that the request is processed<br>|Version of the API used to process the request<br>|
+|Content-Type<br>|Format of data to be returned<br>|<br>|
 
 #### Response Body
 
-Response is JSON format and is defined as an object (subobject).  
+Response is JSON format and is defined as an object (subobject).<br>
 The correspondence between key (name) and type, and value are as follows.
 
-| Object |   Key              |   Type   |   Value                                                                               |   Notes                                                                                                                                                    |
-|:-- |:-- |:-- |:-- |:-- |
-| Root   |   status           |   string |   One of the following strings:   "ready"  "importation in progress"  "import failed" |   "ready":Cell import acceptance available  "importation in progress":Cell import processing in progress  "import failed":Cell Import Abnormal termination |
-| Root   |   started_at       |   string |   Start time (ISO 8610 UTC format)                                                    |   Do not output when status is below.  "ready"                                                                                                             |
-| Root   |   progress         |   string |   Progress rate (for example, "30%")                                                  |   Do not output when status is below.  "ready"                                                                                                             |
-| Root   |   importation_name |   string |   Import file name (excluding extension)                                              |   Do not output when status is below.  "ready"                                                                                                             |
-| Root   |   message          |   object |   Object (message format)                                                             |   Output only when status is below.  "import failed"  See [ Error Messages ](004_Error_Messages.html) for details                                          |
+|Object<br>|Key<br>|Type<br>|Value<br>|Notes<br>|
+|:--|:--|:--|:--|:--|
+|Root<br>|status<br>|string<br>|One of the following strings: <br>"ready"<br>"importation in progress"<br>"import failed"<br>|"ready":Cell import acceptance available<br>"importation in progress":Cell import processing in progress<br>"import failed":Cell Import Abnormal termination|
+|Root<br>|started_at<br>|string<br>|Start time (ISO 8610 UTC format)<br>|Do not output when status is below.<br>"ready"<br>|
+|Root<br>|progress<br>|string<br>|Progress rate (for example, "30%")<br>|Do not output when status is below.<br>"ready"<br>|
+|Root<br>|importation_name<br>|string<br>|Import file name (excluding extension)<br>|Do not output when status is below.<br>"ready"<br>|
+|Root<br>|message<br>|object<br>|Object (message format)<br>|Output only when status is below.<br>"import failed"<br>See [ Error Messages ](004_Error_Messages.html) for details<br>|
 
 #### Error Messages
 
@@ -130,10 +134,14 @@ Cell Import Abnormal termination
 }
 ```
 
+<br>
+
 ### cURL Sample
 
 ```sh
 curl "https://{UnitFQDN}/{CellName}/__import" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
+
+<br><br><br><br><br>
 
 ###### Copyright 2017 FUJITSU LIMITED

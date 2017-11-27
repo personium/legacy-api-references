@@ -38,10 +38,10 @@ None
 
 #### Request Header
 
-| Header Name<br>            | Overview<br>                                                     | Effective Value<br>         | Required<br> | Notes<br>                                                                                                                   |
-|:-- |:-- |:-- |:-- |:-- |
-| Authorization<br>          | Specifies authentication information in the OAuth 2.0 format<br> | Bearer {CellLocalToken}<br> | Yes<br>      | The authentication token is a cell local token acquired by the authentication token acquisition API<br>                     |
-| X-Personium-Credential<br> | Password after change<br>                                        | String<br>                  | Yes<br>      | Number of character:6 - 92<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br> |
+|Header Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|:--|:--|:--|:--|:--|
+|Authorization<br>|Specifies authentication information in the OAuth 2.0 format<br>|Bearer {CellLocalToken}<br>|Yes<br>|The authentication token is a cell local token acquired by the authentication token acquisition API<br>|
+|X-Personium-Credential<br>|Password after change<br>|String<br>|Yes<br>|Number of character:6 - 92<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>|
 
 #### Request Body
 

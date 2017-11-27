@@ -15,22 +15,22 @@ Including complex type data, all values are searched
 q={SearchKeyword}
 ```
 
-| Item<br>            | Overview<br>              | Effective Value<br>              | Notes<br> |
-|:-- |:-- |:-- |:-- |
-| {SearchKeyword}<br> | Specify search string<br> | Number of digits: 1-255 byte<br> | <br>      |
+|Item<br>|Overview<br>|Effective Value<br>|Notes<br>|
+|:--|:--|:--|:--|
+|{SearchKeyword}<br>|Specify search string<br>|Number of digits: 1-255 byte<br>|<br>|
 
 ### Type to be searched
 
 The data types to be searched are shown below
 
-| Data type<br>    | Search target<br> | Notes<br>                 |
-|:-- |:-- |:-- |
-| Edm.String<br>   | Yes<br>           | <br>                      |
-| Edm.Boolean<br>  | Yes<br>           | <br>                      |
-| Edm.Single<br>   | Yes<br>           | <br>                      |
-| Edm.Int32<br>    | Yes<br>           | <br>                      |
-| Edm.Double<br>   | Yes<br>           | Dynamic property only<br> |
-| Edm.DateTime<br> | No<br>            | <br>                      |
+|Data type<br>|Search target<br>|Notes<br>|
+|:--|:--|:--|
+|Edm.String<br>|Yes<br>|<br>|
+|Edm.Boolean<br>|Yes<br>|<br>|
+|Edm.Single<br>|Yes<br>|<br>|
+|Edm.Int32<br>|Yes<br>|<br>|
+|Edm.Double<br>|Yes<br>|Dynamic property only<br>|
+|Edm.DateTime<br>|No<br>|<br>|
 
 ### Search Specification
 

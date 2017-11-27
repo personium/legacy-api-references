@@ -7,10 +7,10 @@ If omitted, do not include the number of acquisition results in response
 
 ### Effective Value
 
-| Value<br>    | Overview<br>                                         | Example<br>               | Notes<br> |
-|:-- |:-- |:-- |:-- |
-| allpages<br> | Include number of results obtained<br>               | $inlinecount=allpages<br> | <br>      |
-| none<br>     | Do not include the number of acquisition results<br> | $inlinecount=none<br>     | <br>      |
+|Value<br>|Overview<br>|Example<br>|Notes<br>|
+|:--|:--|:--|:--|
+|allpages<br>|Include number of results obtained<br>|$inlinecount=allpages<br>|<br>|
+|none<br>|Do not include the number of acquisition results<br>|$inlinecount=none<br>|<br>|
 
 ### cURL Command
 

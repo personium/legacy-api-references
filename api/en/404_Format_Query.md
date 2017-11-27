@@ -7,13 +7,13 @@ Query options for \$format Valid values are shown in the table below.
 
 ### Request Query
 
-| $format Option<br>                                                                   | Format of response data<br>        |
-|:-- |:-- |
-| atom<br>                                                                             | application/atom+xml<br>           |
-| xml<br>                                                                              | application/xml<br>                |
-| JSON<br>                                                                             | application/json<br>               |
-| Other IANA-defined content formats<br>                                               | IANA definition content format<br> |
-| A service-specific value representing a format unique to a certain OData service<br> | IANA definition content format<br> |
+|$format Option<br>|Format of response data<br>|
+|:--|:--|
+|atom<br>|application/atom+xml<br>|
+|xml<br>|application/xml<br>|
+|JSON<br>|application/json<br>|
+|Other IANA-defined content formats<br>|IANA definition content format<br>|
+|A service-specific value representing a format unique to a certain OData service<br>|IANA definition content format<br>|
 
 ### cURL Command
 

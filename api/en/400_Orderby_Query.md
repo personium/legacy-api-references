@@ -13,10 +13,10 @@ $orderby={propertyName} {option}, ...
 
 \*{propertyName} {option} can be specified in comma-separated list
 
-| Path<br>           | Overview<br>                                                                   |
-|:-- |:-- |
-| {PropertyName}<br> | Property name to specify as the sort key<br>                                   |
-| {Option}<br>       | Sort method<br>asc:ascending order<br>desc:descending order<br>default:asc<br> |
+|Path<br>|Overview<br>|
+|:--|:--|
+|{PropertyName}<br>|Property name to specify as the sort key<br>|
+|{Option}<br>|Sort method<br>asc:ascending order<br>desc:descending order<br>default:asc<br>|
 
 ### cURL Command
 

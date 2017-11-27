@@ -15,9 +15,9 @@ Because the data obtained by the \$top query is not sorted, you need to specify 
 $top={number}
 ```
 
-| Value<br>    | Overview<br>                                                     | Effective Value<br>                                                                                  | Notes<br> |
-|:-- |:-- |:-- |:-- |
-| {number}<br> | Specify the number of entities included in the returned feed<br> | Half size numeric 0-10000 (default: 25) <br> $expand 0-100 (default: 25) when query is specified<br> | <br>      |
+|Value<br>|Overview<br>|Effective Value<br>|Notes<br>|
+|:--|:--|:--|:--|
+|{number}<br>|Specify the number of entities included in the returned feed<br>|Half size numeric 0-10000 (default: 25) <br> $expand 0-100 (default: 25) when query is specified<br>|<br>|
 
 ### cURL Command
 

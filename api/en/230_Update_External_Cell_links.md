@@ -1,4 +1,4 @@
-# Extcell \$links update
+# Extcell $links update
 
 ### Overview
 
@@ -27,19 +27,19 @@ None
 
 #### Request URL
 
-##### \$links with ExtCell
+##### $links with ExtCell
 
 ```
 /{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_ExtCell('{ExtCellURL}')
 ```
 
-or 
+or
 
 ```
 /{CellName}/__ctl/Relation(Name='{RelationName}')/$links/_ExtCell('{ExtCellURL}')
 ```
 
-or 
+or
 
 ```
 /{CellName}/__ctl/Relation('{RelationName}')/$links/_ExtCell('{ExtCellURL}')
@@ -51,21 +51,21 @@ PUT
 
 #### Request Query
 
-| Query Name<br>    | Overview<br>                    | Effective Value<br>                                                                | Required<br> | Notes<br>                                                                                                                |
-|:-- |:-- |:-- |:-- |:-- |
-| p_cookie_peer<br> | Cookie Authentication Value<br> | The cookie authentication value returned from the server during authentication<br> | No<br>       | Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used<br> |
+|Query Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|:--|:--|:--|:--|:--|
+|p_cookie_peer<br>|Cookie Authentication Value<br>|The cookie authentication value returned from the server during authentication<br>|No<br>|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used<br>|
 
 #### Request Header
 
-| Header Name<br>            | Overview<br>                                                     | Effective Value<br>                                                                                        | Required<br> | Notes<br>                                                                                                         |
-|:-- |:-- |:-- |:-- |:-- |
-| X-HTTP-Method-Override<br> | Method override function<br>                                     | User-defined<br>                                                                                           | No<br>       | If you specify this value when requesting with the POST method, the specified value will be used as a method.<br> |
-| X-Override<br>             | Header override function<br>                                     | ${OverwrittenHeaderName}:${Value} override} $: $ {value}<br>                                               | No<br>       | Overwrite normal HTTP header value. To overwrite multiple headers, specify multiple X-Override headers.<br>       |
-| X-Personium-RequestKey<br> | RequestKey field value output in the event log<br>               | Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters<br> | No<br>       | PCS-${UNIXtime} by default<br>Supported in V 1.1.7 and later<br>                                                  |
-| Authorization<br>          | Specifies authentication information in the OAuth 2.0 format<br> | Bearer {AccessToken}<br>                                                                                   | No<br>       | * Authentication tokens are the tokens acquired using the Authentication Token Acquisition API<br>                |
-| Contents-Type<br>          | Specifies the request body format<br>                            | application/json<br>                                                                                       | No<br>       | [application/json] by default<br>                                                                                 |
-| Accept<br>                 | Specifies the response body format<br>                           | application/json<br>                                                                                       | No<br>       | [application/json] by default<br>                                                                                 |
-| If-Match<br>               | Specifies the target ETag value<br>                              | ETag value<br>                                                                                             | No<br>       | [*] by default<br>                                                                                                |
+|Header Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|:--|:--|:--|:--|:--|
+|X-HTTP-Method-Override<br>|Method override function<br>|User-defined<br>|No<br>|If you specify this value when requesting with the POST method, the specified value will be used as a method.<br>|
+|X-Override<br>|Header override function<br>|${OverwrittenHeaderName}:${Value} override} $: $ {value}<br>|No<br>|Overwrite normal HTTP header value. To overwrite multiple headers, specify multiple X-Override headers.<br>|
+|X-Personium-RequestKey<br>|RequestKey field value output in the event log<br>|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters<br>|No<br>|PCS-${UNIXtime} by default<br>Supported in V 1.1.7 and later<br>|
+|Authorization<br>|Specifies authentication information in the OAuth 2.0 format<br>|Bearer {AccessToken}<br>|No<br>|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API<br>|
+|Contents-Type<br>|Specifies the request body format<br>|application/json<br>|No<br>|[application/json] by default<br>|
+|Accept<br>|Specifies the response body format<br>|application/json<br>|No<br>|[application/json] by default<br>|
+|If-Match<br>|Specifies the target ETag value<br>|ETag value<br>|No<br>|[*] by default<br>|
 
 #### Request Body
 
@@ -75,9 +75,9 @@ JSON
 
 #### Description
 
-| Item Name<br> | Overview<br>    | Effective Value<br>                                                                                                   | Required<br> | Notes<br> |
-|:-- |:-- |:-- |:-- |:-- |
-| Url<br>       | URL to Cell<br> | Number of digits: 1-1024<br>Follow URI format<br>scheme:http, https<br>Trailing slash (URL terminated /) Required<br> | Yes<br>      | <br>      |
+|Item Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|:--|:--|:--|:--|:--|
+|Url<br>|URL to Cell<br>|Number of digits: 1-1024<br>Follow URI format<br>scheme:http, https<br>Trailing slash (URL terminated /) Required<br>|Yes<br>|<br>|
 
 #### Request Sample
 
@@ -95,19 +95,19 @@ JSON
 
 #### Response Header
 
-| Header Name<br>                 | Overview<br>                                     | Notes<br>                                          |
-|:-- |:-- |:-- |
-| X-Personium-Version<br>         | API version that the request is processed<br>    | Version of the API used to process the request<br> |
-| Access-Control-Allow-Origin<br> | Cross domain communication permission header<br> | Return value fixed to "*"<br>                      |
-| Content-Type<br>                | Format of data to be returned<br>                | <br>                                               |
-| DataServiceVersion<br>          | OData version<br>                                | <br>                                               |
+|Header Name<br>|Overview<br>|Notes<br>|
+|:--|:--|:--|
+|X-Personium-Version<br>|API version that the request is processed<br>|Version of the API used to process the request<br>|
+|Access-Control-Allow-Origin<br>|Cross domain communication permission header<br>|Return value fixed to "*"<br>|
+|Content-Type<br>|Format of data to be returned<br>|<br>|
+|DataServiceVersion<br>|OData version<br>|<br>|
 
 #### OData Response Header
 
-| Header Name<br>        | Overview<br>                     | Notes<br> |
-|:-- |:-- |:-- |
-| DataServiceVersion<br> | OData version<br>                | <br>      |
-| ETag<br>               | Resource version information<br> | <br>      |
+|Header Name<br>|Overview<br>|Notes<br>|
+|:--|:--|:--|
+|DataServiceVersion<br>|OData version<br>|<br>|
+|ETag<br>|Resource version information<br>|<br>|
 
 #### Response Body
 

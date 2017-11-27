@@ -23,9 +23,9 @@ $select={propertyName}
 
 \*When omitted, it is \$select = *
 
-| Path<br>           | Overview<br>                                                                               |
-|:-- |:-- |
-| {PropertyName}<br> | Property name to return<br>To specify more than one, specify it with a comma separator<br> |
+|Path<br>|Overview<br>|
+|:--|:--|
+|{PropertyName}<br>|Property name to return<br>To specify more than one, specify it with a comma separator<br>|
 
 ### cURL Command
 

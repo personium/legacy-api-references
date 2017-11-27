@@ -30,11 +30,11 @@ Perform a batch operation such as list acquisition, single acquisition, registra
 /{CellName}/{BoxName}/{ODataCollecitonName}/$batch
 ```
 
-| Path<br>                  | Overview<br>        |
-|:-- |:-- |
-| {CellName}<br>            | Cell Name<br>       |
-| {BoxName}<br>             | Box Name<br>        |
-| {ODataCollecitonName}<br> | Collection Name<br> |
+|Path<br>|Overview<br>|
+|:--|:--|
+|{CellName}<br>|Cell Name<br>|
+|{BoxName}<br>|Box Name<br>|
+|{ODataCollecitonName}<br>|Collection Name<br>|
 
 #### Request Method
 
@@ -42,16 +42,16 @@ POST
 
 #### Request Query
 
-| Query Name<br>    | Overview<br>                    | Effective Value<br>                                                                | Required<br> | Notes<br>                                                                                                                |
-|:-- |:-- |:-- |:-- |:-- |
-| p_cookie_peer<br> | Cookie Authentication Value<br> | The cookie authentication value returned from the server during authentication<br> | No<br>       | Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used<br> |
+|Query Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|:--|:--|:--|:--|:--|
+|p_cookie_peer<br>|Cookie Authentication Value<br>|The cookie authentication value returned from the server during authentication<br>|No<br>|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used<br>|
 
 #### Request Header
 
-| Header Name<br>   | Overview<br>                                                     | Effective Value<br>                          | Required<br> | Notes<br>                                                                                                                                         |
-|:-- |:-- |:-- |:-- |:-- |
-| Authorization<br> | Specifies authentication information in the OAuth 2.0 format<br> | Bearer {AccessToken}<br>                     | No<br>       | *The authentication token is a token acquired by the authentication token acquisition API Not tested<br>                                          |
-| Content-Type<br>  | Specifies the request body format<br>                            | multipart / mixed; boundary = {Boundary}<br> | Yes<br>      | When omitted, treat it as [multipart/mixed]  Characters that can be used for {Boundary}: alphabetic lower case '()+_,-./:=?<br>Not compatible<br> |
+|Header Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|:--|:--|:--|:--|:--|
+|Authorization<br>|Specifies authentication information in the OAuth 2.0 format<br>|Bearer {AccessToken}<br>|No<br>|*The authentication token is a token acquired by the authentication token acquisition API Not tested<br>|
+|Content-Type<br>|Specifies the request body format<br>|multipart / mixed; boundary = {Boundary}<br>|Yes<br>|When omitted, treat it as [multipart/mixed]  Characters that can be used for {Boundary}: alphabetic lower case '()+_,-./:=?<br>Not compatible<br>|
 
 #### Request Body
 
@@ -255,10 +255,10 @@ If-Match: *
 
 #### Response Header
 
-| Header Name<br>        | Overview<br>                      | Notes<br>                                                                            |
-|:-- |:-- |:-- |
-| Content-Type<br>       | Format of data to be returned<br> | When $ batch processing succeeded normally: multipart/mixed; boundary={Boundary}<br> |
-| DataServiceVersion<br> | OData version information<br>     | Return only when Entity can be created successfully<br>                              |
+|Header Name<br>|Overview<br>|Notes<br>|
+|:--|:--|:--|
+|Content-Type<br>|Format of data to be returned<br>|When $ batch processing succeeded normally: multipart/mixed; boundary={Boundary}<br>|
+|DataServiceVersion<br>|OData version information<br>|Return only when Entity can be created successfully<br>|
 
 #### Response Body
 

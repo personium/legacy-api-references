@@ -25,7 +25,7 @@ auth
 /{CellName}/__ctl/Account(Name='{AccountName}')
 ```
 
-or 
+or
 
 ```
 /{CellName}/__ctl/Account('{AccountName}')
@@ -37,30 +37,30 @@ PUT
 
 #### Request Query
 
-| Query Name<br>    | Overview<br>                    | Effective Value<br>                                                                | Required<br> | Notes<br>                                                                                                                |
-|:-- |:-- |:-- |:-- |:-- |
-| p_cookie_peer<br> | Cookie Authentication Value<br> | The cookie authentication value returned from the server during authentication<br> | No<br>       | Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used<br> |
+|Query Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|:--|:--|:--|:--|:--|
+|p_cookie_peer<br>|Cookie Authentication Value<br>|The cookie authentication value returned from the server during authentication<br>|No<br>|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used<br>|
 
 #### Request Header
 
-| Header Name<br>            | Overview<br>                                                     | Effective Value<br>                                                                                        | Required<br> | Notes<br>                                                                                                                   |
-|:-- |:-- |:-- |:-- |:-- |
-| X-HTTP-Method-Override<br> | Method override function<br>                                     | User-defined<br>                                                                                           | No<br>       | If you specify this value when requesting with the POST method, the specified value will be used as a method.<br>           |
-| X-Override<br>             | Header override function<br>                                     | ${OverwrittenHeaderName}:${Value}<br>                                                                      | No<br>       | Overwrite normal HTTP header value. To overwrite multiple headers, specify multiple X-Override headers.<br>                 |
-| X-Personium-RequestKey<br> | RequestKey field value output in the event log<br>               | Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters<br> | No<br>       | PCS-${UNIXtime} by default<br>Supported in V 1.1.7 and later<br>                                                            |
-| Authorization<br>          | Specifies authentication information in the OAuth 2.0 format<br> | Bearer {AccessToken}<br>                                                                                   | No<br>       | * Authentication tokens are the tokens acquired using the Authentication Token Acquisition API<br>                          |
-| Content-Type<br>           | Specifies the request body format<br>                            | application/json<br>                                                                                       | No<br>       | [application/json] by default<br>                                                                                           |
-| Accept<br>                 | Specifies the response body format<br>                           | application/json<br>                                                                                       | No<br>       | [application/json] by default<br>                                                                                           |
-| If-Match<br>               | Specifies the target ETag value<br>                              | ETag value<br>                                                                                             | Yes<br>      | <br>                                                                                                                        |
-| X-Personium-Credential<br> | Password<br>                                                     | String<br>                                                                                                 | No<br>       | Number of character:6 - 92<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br> |
+|Header Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|:--|:--|:--|:--|:--|
+|X-HTTP-Method-Override<br>|Method override function<br>|User-defined<br>|No<br>|If you specify this value when requesting with the POST method, the specified value will be used as a method.<br>|
+|X-Override<br>|Header override function<br>|${OverwrittenHeaderName}:${Value}<br>|No<br>|Overwrite normal HTTP header value. To overwrite multiple headers, specify multiple X-Override headers.<br>|
+|X-Personium-RequestKey<br>|RequestKey field value output in the event log<br>|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters<br>|No<br>|PCS-${UNIXtime} by default<br>Supported in V 1.1.7 and later<br>|
+|Authorization<br>|Specifies authentication information in the OAuth 2.0 format<br>|Bearer {AccessToken}<br>|No<br>|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API<br>|
+|Content-Type<br>|Specifies the request body format<br>|application/json<br>|No<br>|[application/json] by default<br>|
+|Accept<br>|Specifies the response body format<br>|application/json<br>|No<br>|[application/json] by default<br>|
+|If-Match<br>|Specifies the target ETag value<br>|ETag value<br>|Yes<br>|<br>|
+|X-Personium-Credential<br>|Password<br>|String<br>|No<br>|Number of character:6 - 92<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>|
 
 #### Request Body
 
-| Header Name<br>       | Overview<br>                 | Effective Value<br>                                                                                                                                                                                                                                                 | Required<br> | Notes<br>          |
-|:-- |:-- |:-- |:-- |:-- |
-| Name<br>              | Account Name<br>             | Number of digits: 1 - 128<br>Character type: Half size alphanumeric characters and following half-width symbol (-_!$*=^`{|}~.@) <br>However, the first character can not be specified as the first character<br>                                                    | Yes<br>      | <br>               |
-| Type<br>              | Account Type<br>             | basic(ID/PW authentication)<br>oidc:google(Google OpenID Connect authentication)                                                                                                                                                                                    | No<br>       | default: basic<br> |
-| LastAuthenticated<br> | last authentication date<br> | It is specified as a character string in the format of Date ([time of long type])<br>The valid value of [time of long type] is -6847804800000(1753-01-01T00:00:00.000Z)-253402300799999(9999-12-31T23:59:59.999Z)<br>Description: Updated with null if omitted <br> | No<br>       | default: null<br>  |
+|Header Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|:--|:--|:--|:--|:--|
+|Name<br>|Account Name<br>|Number of digits: 1 - 128<br>Character type: Half size alphanumeric characters and following half-width symbol (-_!$*=^`{&#124;}~.@) <br>However, the first character can not be specified as the first character<br>|Yes<br>|<br>|
+|Type<br>|Account Type<br>|basic(ID/PW authentication)<br>oidc:google(Google OpenID Connect authentication)<br>or divide upper case by space character<br>Description: If omitted, it is updated with basic<br>|No<br>|default: basic<br>|
+|LastAuthenticated<br>|last authentication date<br>|It is specified as a character string in the format of Date ([time of long type])<br>The valid value of [time of long type] is -6847804800000(1753-01-01T00:00:00.000Z)-253402300799999(9999-12-31T23:59:59.999Z)<br>Description: Updated with null if omitted <br>|No<br>|default: null<br>|
 
 #### Request Sample
 

@@ -30,11 +30,11 @@ or
 /{CellName}/{BoxName}/{ResourcePath}
 ```
 
-| Path<br>           | Overview<br>         | Notes<br>                                                                                                                         |
-|:-- |:-- |:-- |
-| {CellName}<br>     | Cell Name<br>        | <br>                                                                                                                              |
-| {BoxName}<br>      | Box Name<br>         | <br>                                                                                                                              |
-| {ResourcePath}<br> | Path to resource<br> | Valid values Number of digits:1-128<br>Usable character types<br>alphanumeric character, period(.), under score(_), hyphen(-)<br> |
+|Path<br>|Overview<br>|Notes<br>|
+|:--|:--|:--|
+|{CellName}<br>|Cell Name<br>|<br>|
+|{BoxName}<br>|Box Name<br>|<br>|
+|{ResourcePath}<br>|Path to resource<br>|Valid values Number of digits:1-128<br>Usable character types<br>alphanumeric character, period(.), under score(_), hyphen(-)<br>|
 
 #### Request Method
 
@@ -46,21 +46,21 @@ None
 
 #### Request Header
 
-| Header Name<br>            | Overview<br>                                                     | Effective Value<br>                                                                                        | Required<br> | Notes<br>                                                                                                                    |
-|:-- |:-- |:-- |:-- |:-- |
-| X-HTTP-Method-Override<br> | Method override function<br>                                     | User-defined<br>                                                                                           | No<br>       | Specifying this value in a request with the POST method indicates that the specified value is used as the method<br>         |
-| X-Override<br>             | Header override function<br>                                     | ${OverwrittenHeaderName}:${Value}<br>                                                                      | No<br>       | The normal HTTP header value is overwritten. Specify multiple X-Override headers for the overwriting of multiple headers<br> |
-| X-Personium-RequestKey<br> | RequestKey field value output in the event log<br>               | Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters<br> | No<br>       | Supported in V 1.1.7 and later<br>                                                                                           |
-| Authorization<br>          | Specifies authentication information in the OAuth 2.0 format<br> | Bearer {AccessToken}<br>                                                                                   | No<br>       | * Authentication tokens are the tokens acquired using the Authentication Token Acquisition API<br>                           |
+|Header Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|:--|:--|:--|:--|:--|
+|X-HTTP-Method-Override<br>|Method override function<br>|User-defined<br>|No<br>|Specifying this value in a request with the POST method indicates that the specified value is used as the method<br>|
+|X-Override<br>|Header override function<br>|${OverwrittenHeaderName}:${Value}<br>|No<br>|The normal HTTP header value is overwritten. Specify multiple X-Override headers for the overwriting of multiple headers<br>|
+|X-Personium-RequestKey<br>|RequestKey field value output in the event log<br>|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters<br>|No<br>|Supported in V 1.1.7 and later<br>|
+|Authorization<br>|Specifies authentication information in the OAuth 2.0 format<br>|Bearer {AccessToken}<br>|No<br>|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API<br>|
 
 #### Request Body
 
 Namespace
 
-| URI<br>                   | Overview<br>            | Reference prefix<br> |
-|:-- |:-- |:-- |
-| DAV:<br>                  | WebDAV Namespace<br>    | D:<br>               |
-| urn:x-personium:xmlns<br> | Personium namespace<br> | p:<br>               |
+|URI<br>|Overview<br>|Reference prefix<br>|
+|:--|:--|:--|
+|DAV:<br>|WebDAV Namespace<br>|D:<br>|
+|urn:x-personium:xmlns<br>|Personium namespace<br>|p:<br>|
 
 \* Reference The prefixes are for making it easier to read the following table, but the use of these prefix strings is not ensured or requested.
 
@@ -68,25 +68,25 @@ Structure of XML<br>
 The body is XML and follows the following schema.<br>
 See acl\_model ([access control model](../../user_guide/002_Access_Control.html)) for the contents of privilege setting under the privilege tag.
 
-| Node name<br>        | Namespace<br> | Node type<br>  | Overview<br>                                                                                                                                 | Notes<br>                                                                                                                                            |
-|:-- |:-- |:-- |:-- |:-- |
-| acl<br>              | D:<br>        | Element<br>    | Denotes the root of the ACL (Access Control List); one or more ace nodes will be its child<br>                                               | <br>                                                                                                                                                 |
-| base<br>             | xml:<br>      | Attributes<br> | Href Represents the base of the URL described in the tag and sets an arbitrary value as the attribute value. This attribute is optional.<br> | <br>                                                                                                                                                 |
-| ace<br>              | D:<br>        | Element<br>    | Denotes the privilege configuration target; href or all will be its child<br>                                                                | "invert", "deny", "protected", and "inherited" are not supported in V 1.1 systems<br>                                                                |
-| principal<br>        | D:<br>        | Element<br>    | Denotes the privilege configuration target; href or all will be its child<br>                                                                | <br>                                                                                                                                                 |
-| grant<br>            | D:<br>        | Element<br>    | Denotes the privilege grant setting; one or more privilege nodes will be its child node<br>                                                  | <br>                                                                                                                                                 |
-| href<br>             | D:<br>        | Element<br>    | Denotes the privilege configuration target role and is the text node to input the role resource URL<br>                                      | Specify resource URL of privilege setting target role >It is possible to shorten the URL using the xml:base attribute setting in the acl element<br> |
-| all<br>              | D:<br>        | Element<br>    | All access entity privilege setting<br>                                                                                                      | <br>                                                                                                                                                 |
-| privilege<br>        | D:<br>        | Element<br>    | Denotes the privilege setting; one of the following elements will be its child<br>                                                           | <br>                                                                                                                                                 |
-| read<br>             | D:<br>        | Element<br>    | Reference authority<br>                                                                                                                      | <br>                                                                                                                                                 |
-| write<br>            | D:<br>        | Element<br>    | Edit permission<br>                                                                                                                          | <br>                                                                                                                                                 |
-| read-properties<br>  | D:<br>        | Element<br>    | Property reference authority<br>                                                                                                             | <br>                                                                                                                                                 |
-| write-properties<br> | D:<br>        | Element<br>    | Edit property authority<br>                                                                                                                  | <br>                                                                                                                                                 |
-| read-acl<br>         | D:<br>        | Element<br>    | ACL setting reference authority<br>                                                                                                          | <br>                                                                                                                                                 |
-| write-acl<br>        | D:<br>        | Element<br>    | ACL setting edit permission<br>                                                                                                              | <br>                                                                                                                                                 |
-| bind<br>             | D:<br>        | Element<br>    | Unpublished<br>                                                                                                                              | V1.1 series, V1.2 series not supported<br>                                                                                                           |
-| unbind<br>           | D:<br>        | Element<br>    | Unpublished<br>                                                                                                                              | V1.1 series, V1.2 series not supported<br>                                                                                                           |
-| exec<br>             | D:<br>        | Element<br>    | Service execution authority<br>                                                                                                              | <br>                                                                                                                                                 |
+|Node name<br>|Namespace<br>|Node type<br>|Overview<br>|Notes<br>|
+|:--|:--|:--|:--|:--|
+|acl<br>|D:<br>|Element<br>|Denotes the root of the ACL (Access Control List); one or more ace nodes will be its child<br>|<br>|
+|base<br>|xml:<br>|Attributes<br>|Href Represents the base of the URL described in the tag and sets an arbitrary value as the attribute value. This attribute is optional.<br>|<br>|
+|ace<br>|D:<br>|Element<br>|Denotes the privilege configuration target; href or all will be its child<br>|"invert", "deny", "protected", and "inherited" are not supported in V 1.1 systems<br>|
+|principal<br>|D:<br>|Element<br>|Denotes the privilege configuration target; href or all will be its child<br>|<br>|
+|grant<br>|D:<br>|Element<br>|Denotes the privilege grant setting; one or more privilege nodes will be its child node<br>|<br>|
+|href<br>|D:<br>|Element<br>|Denotes the privilege configuration target role and is the text node to input the role resource URL<br>|Specify resource URL of privilege setting target role >It is possible to shorten the URL using the xml:base attribute setting in the acl element<br>|
+|all<br>|D:<br>|Element<br>|All access entity privilege setting<br>|<br>|
+|privilege<br>|D:<br>|Element<br>|Denotes the privilege setting; one of the following elements will be its child<br>|<br>|
+|read<br>|D:<br>|Element<br>|Reference authority<br>|<br>|
+|write<br>|D:<br>|Element<br>|Edit permission<br>|<br>|
+|read-properties<br>|D:<br>|Element<br>|Property reference authority<br>|<br>|
+|write-properties<br>|D:<br>|Element<br>|Edit property authority<br>|<br>|
+|read-acl<br>|D:<br>|Element<br>|ACL setting reference authority<br>|<br>|
+|write-acl<br>|D:<br>|Element<br>|ACL setting edit permission<br>|<br>|
+|bind<br>|D:<br>|Element<br>|Unpublished<br>|V1.1 series, V1.2 series not supported<br>|
+|unbind<br>|D:<br>|Element<br>|Unpublished<br>|V1.1 series, V1.2 series not supported<br>|
+|exec<br>|D:<br>|Element<br>|Service execution authority<br>|<br>|
 
 DTD notation
 
@@ -157,15 +157,15 @@ namespace xml:
 
 #### Response Code
 
-| Code<br> | Message<br> | Overview<br> |
-|:-- |:-- |:-- |
-| 200<br>  | OK<br>      | Success<br>  |
+|Code<br>|Message<br>|Overview<br>|
+|:--|:--|:--|
+|200<br>|OK<br>|Success<br>|
 
 #### Response Header
 
-| Header Name<br>  | Overview<br>                      | Notes<br>                                                           |
-|:-- |:-- |:-- |
-| Content-Type<br> | Format of data to be returned<br> | Only when it failed at the time of update / creation, return it<br> |
+|Header Name<br>|Overview<br>|Notes<br>|
+|:--|:--|:--|
+|Content-Type<br>|Format of data to be returned<br>|Only when it failed at the time of update / creation, return it<br>|
 
 #### Response Body
 

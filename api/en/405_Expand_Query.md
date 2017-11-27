@@ -7,12 +7,12 @@ The expansion of related information at the time of list acquisition is expanded
 Deployment of related information at the time of acquiring one case will expand up to 10000 cases.<br>
 The sort order of related data acquired by \$expand is as follows.
 
-| Relation<br>      | Sort conditions<br>                                                                     | order<br>            |
-|:-- |:-- |:-- |
-| 0 .. 1:0 .. 1<br> | Entity creation date and time of the navigation property to be expanded<br>             | Descending order<br> |
-| 0 .. 1: *<br>     | Entity creation date and time of the navigation property to be expanded<br>             | Descending order<br> |
-| *: 0 .. 1<br>     | Entity creation date and time of the navigation property to be expanded<br>             | Descending order<br> |
-| _:_ <br>          | Link information creation date and time with the navigation property to be expanded<br> | Descending order<br> |
+|Relation<br>|Sort conditions<br>|order<br>|
+|:--|:--|:--|
+|0 .. 1:0 .. 1<br>|Entity creation date and time of the navigation property to be expanded<br>|Descending order<br>|
+|0 .. 1: *<br>|Entity creation date and time of the navigation property to be expanded<br>|Descending order<br>|
+|*: 0 .. 1<br>|Entity creation date and time of the navigation property to be expanded<br>|Descending order<br>|
+|_:_ <br>|Link information creation date and time with the navigation property to be expanded<br>|Descending order<br>|
 
 \*When Multiplicity is & quot;1", the sort result is the same as "0..1".
 
@@ -22,9 +22,9 @@ The sort order of related data acquired by \$expand is as follows.
 $expand={NavigationPropertyName}
 ```
 
-| Path<br>                     | Overview<br>                                                                                          |
-|:-- |:-- |
-| {NavigationPropertyName}<br> | Navigation property name to expand<br>To specify more than one, specify it with a comma separator<br> |
+|Path<br>|Overview<br>|
+|:--|:--|
+|{NavigationPropertyName}<br>|Navigation property name to expand<br>To specify more than one, specify it with a comma separator<br>|
 
 \*If you specify a NavigationProperty name that does not exist in \$expand, return "400 Bad Request"
 

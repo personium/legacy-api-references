@@ -66,7 +66,6 @@ Namespace
 |:--|:--|:--|
 |DAV:<br>|WebDAV Namespace<br>|D:<br>|
 |urn:x-personium:xmlns<br>|Personium API namespace<br>|p:<br>|
-|http://www.w3.com/standards/z39.50/<br>|proppatch namespace<br>|Z:<br>|
 
 \* Reference The prefixes are for making it easier to read the following table, but the use of these prefix strings is not ensured or requested.
 
@@ -115,8 +114,7 @@ DTD notation
 
 ```xml
 <D:propertyupdate xmlns:D="DAV:"
-    xmlns:p="urn:x-personium:xmlns"
-    xmlns:Z="http://www.w3.com/standards/z39.50/">
+    xmlns:p="urn:x-personium:xmlns">
     <D:set>
         <D:prop>
           <p:service language="JavaScript">
@@ -180,7 +178,7 @@ DTD notation
         <href>https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}</href>
         <propstat>
             <prop>
-                <p:service language="JavaScript" xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/">
+                <p:service language="JavaScript" xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:">
                     <p:path name="sample" src="sample.js"/>
                 </p:service>
             </prop>
@@ -197,7 +195,7 @@ Refer to [Error Message List](004_Error_Messages.html)
 ### cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}" -X PROPPATCH -i -H "Authorization:Bearer {AccessToken}" -H "Accept:application/json" -d "<?xml version=\"1.0\" encoding=\"utf-8\" ?><D:propertyupdate xmlns:D=\"DAV:\" xmlns:p=\"urn:x-personium:xmlns\" xmlns:Z=\"http://www.w3.com/standards/z39.50/\"><D:set><D:prop><p:service language=\"JavaScript\"><p:path name=\"sample\" src=\"sample.js\"/></p:service></D:prop></D:set></D:propertyupdate>"
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}" -X PROPPATCH -i -H "Authorization:Bearer {AccessToken}" -H "Accept:application/json" -d "<?xml version=\"1.0\" encoding=\"utf-8\" ?><D:propertyupdate xmlns:D=\"DAV:\" xmlns:p=\"urn:x-personium:xmlns\"><D:set><D:prop><p:service language=\"JavaScript\"><p:path name=\"sample\" src=\"sample.js\"/></p:service></D:prop></D:set></D:propertyupdate>"
 ```
 
 <br><br><br><br><br>

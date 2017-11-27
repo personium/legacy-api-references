@@ -48,7 +48,6 @@ PROPPATCH
 |:--|:--|:--|:--|:--|:--|
 |DAV:<br>|<br>|XML namespace setting<br>|Yes<br>|"DAV:"<br>|<br>|
 |urn: x-personium: xmlns<br>|<br>|XML namespace setting<br>|Yes<br>|"Urn: x-personium: xmlns"<br>|<br>|
-|http://www.w3.com/standards/z39.50/<br>|<br>|XML namespace setting<br>|Yes<br>|"Http://www.w3.com/standards/z39.50/"<br>|<br>|
 |propertyupdate<br>|DAV:<br>|propertyupdate (Access Control List) root<br>|Yes<br>|<ELEMENT propertyupdate! (Set &#124; remove)><br>|<br>|
 |set<br>|DAV:<br>|set property<br>|No<br>|<! ELEMENT set (prop *)><br>|<br>|
 |remove<br>|DAV:<br>|remove property<br>|No<br>|<! ELEMENT set (prop *)><br>|<br>|
@@ -59,17 +58,14 @@ PROPPATCH
 
 ```xml
 <D:propertyupdate xmlns:D="DAV:"
-    xmlns:p="urn:x-personium:xmlns"
-    xmlns:Z="http://www.w3.com/standards/z39.50/">
+    xmlns:p="urn:x-personium:xmlns">
     <D:set>
         <D:prop>
-            <Z:Author>Author1 update</Z:Author>
             <p:hoge>fuga</p:hoge>
         </D:prop>
     </D:set>
     <D:remove>
         <D:prop>
-            <Z:Author/>
             <p:hoge/>
         </D:prop>
     </D:remove>
@@ -113,10 +109,8 @@ Refer to [Error Message List](004_Error_Messages.html)
         <href>https://{UnitFQDN}/{CellName}/</href>
         <propstat>
             <prop>
-                <Z:Author xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/">${author1}</Z:Author>
-                <p:hoge xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/">${hoge}</p:hoge>
-                <Z:Author xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/"/>
-                <p:hoge xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/"/>
+                <p:hoge xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:">${hoge}</p:hoge>
+                <p:hoge xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:"/>
             </prop>
             <status>HTTP/1.1 200 OK</status>
         </propstat>
@@ -130,8 +124,8 @@ Refer to [Error Message List](004_Error_Messages.html)
 
 ```sh
 curl "https://{UnitFQDN}/{CellName}" -X PROPPATCH -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8" ?>
-<D:propertyupdate xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" xmlns:Z="http://www.w3.com/standards/z39.50/"><D:set><D:prop><Z:Author>${author1}</Z:Author>
-<p:hoge>${hoge}</p:hoge></D:prop></D:set><D:remove><D:prop><Z:Author/><p:hoge/></D:prop></D:remove></D:propertyupdate>'
+<D:propertyupdate xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns"><D:set><D:prop>
+<p:hoge>${hoge}</p:hoge></D:prop></D:set><D:remove><D:prop><p:hoge/></D:prop></D:remove></D:propertyupdate>'
 ```
 
 <br>

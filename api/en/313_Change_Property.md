@@ -81,7 +81,6 @@ PROPPATCH
 |:--|:--|:--|
 |DAV:<br>|WebDAV Namespace<br>|D:<br>|
 |urn:x-personium:xmlns<br>|Personium namespace<br>|p:<br>|
-|http://www.w3.com/standards/z39.50/<br>|The name space of proppatch<br>|Z:<br>|
 
 \* Reference The prefixes are for making it easier to read the following table, but the use of these prefix strings is not ensured or requested.
 
@@ -107,17 +106,14 @@ PROPPATCH
 
 ```xml
 <D:propertyupdate xmlns:D="DAV:"
-    xmlns:p="urn:x-personium:xmlns"
-    xmlns:Z="http://www.w3.com/standards/z39.50/">
+    xmlns:p="urn:x-personium:xmlns">
     <D:set>
         <D:prop>
-            <Z:Author>Author1 update</Z:Author>
             <p:hoge>fuga</p:hoge>
         </D:prop>
     </D:set>
     <D:remove>
         <D:prop>
-            <Z:Author/>
             <p:hoge/>
         </D:prop>
     </D:remove>
@@ -186,10 +182,8 @@ Refer to [Error Message List](004_Error_Messages.html)
         <href>https://{CellName}/{BoxName}/{ResourcePath}</href>
         <propstat>
             <prop>
-                <Z:Author xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/">author1</Z:Author>
-                <p:hoge xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/">foo</p:hoge>
-                <Z:Author xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/"/>
-                <p:hoge xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/"/>
+                <p:hoge xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:">foo</p:hoge>
+                <p:hoge xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:"/>
             </prop>
             <status>HTTP/1.1 200 OK</status>
         </propstat>
@@ -202,7 +196,7 @@ Refer to [Error Message List](004_Error_Messages.html)
 ### cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ResourcePath}' -X PROPPATCH -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8" ?><D:propertyupdate xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" xmlns:Z="http://www.w3.com/standards/z39.50/"><D:set><D:prop><Z:Author>${author1}</Z:Author><p:hoge>${hoge}</p:hoge></D:prop></D:set><D:remove><D:prop><Z:Author/><p:hoge/></D:prop></D:remove></D:propertyupdate>'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ResourcePath}' -X PROPPATCH -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8" ?><D:propertyupdate xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns"><D:set><D:prop><p:hoge>${hoge}</p:hoge></D:prop></D:set><D:remove><D:prop><p:hoge/></D:prop></D:remove></D:propertyupdate>'
 ```
 
 <br><br><br><br><br>

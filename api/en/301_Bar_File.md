@@ -303,8 +303,7 @@ Shows the XML data acquired with the PROPFIND method for all hierarchical levels
                   <p:service xmlns:p="urn:x-personium:xmlns"/>
               </resourcetype>
              <acl xml:base="https://{UnitFQDN}/cell/__role/__/" xmlns:p="urn:x-personium:xmlns"/>
-              <p:service language="JavaScript" xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" \
-              xmlns:Z="http://www.w3.com/standards/z39.50/">
+              <p:service language="JavaScript" xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns">
                   <p:path name="ehr" src="ehr.js"/>
                   <p:path name="ehr_connector" src="ehr_connector.js"/>
               </p:service>
@@ -454,8 +453,7 @@ Sample of 90\_rootprops.xml for service registration
                 </resourcetype>
                 <acl xml:base="https://{UnitFQDN}/cell/__role/__/"\
                 xmlns:p="urn:x-personium:xmlns"/>
-                <p:service language="JavaScript" xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" \
-                xmlns:Z="http://www.w3.com/standards/z39.50/">
+                <p:service language="JavaScript" xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns">
                     <p:path name="ehr" src="ehr.js"/>
                     <p:path name="ehr_connector" src="ehr_connector.js"/>
                 </p:service>

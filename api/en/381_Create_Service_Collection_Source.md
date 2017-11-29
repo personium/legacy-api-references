@@ -11,11 +11,9 @@ write
 ### Restrictions
 
 * General Restrictions
-
     * None
 
 * WebDAV Restrictions
-
     * Unpublished
 
 <br>

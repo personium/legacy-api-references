@@ -2,8 +2,8 @@
 
 ### Overview
 
-Install the Box in the specified path using the bar file.For the bar file format, see "[ bar file ](301_Bar_File.html)".<br>
-Since this API employs the asynchronous communication method, this API immediately restores after accepting Box installation.<br>
+Install the Box in the specified path using the bar file.For the bar file format, see "[ bar file ](301_Bar_File.html)".  
+Since this API employs the asynchronous communication method, this API immediately restores after accepting Box installation.  
 Therefore, to check the Box installation status, use the following API.
 
 * [Box metadata acquisition](303_Progress_of_Bar_File_Installation.html) If Box installation terminates abnormally, you can refer to the cause of the error by checking the Box installation status with this API. Below is a method of calling from acceptance at the client to completion of processing.
@@ -34,18 +34,15 @@ box-install
 
 #### bar file limit
 
-* The file size of the Box installable bar file is limited to the following.<br><br>
+* The file size of the Box installable bar file is limited to the following.<br>
     When exceeding the upper limit value, you can not install Box.
-
-    * File size of bar file:100MB
-    * Before compression file size of entry in bar file:10MB
-
+    * File size of bar file: 100MB
+    * Before compression file size of entry in bar file: 10MB
 * Each entry is stored in the bar file in the order defined in the bar file.
 
 #### Box installation log detailed limit
 
-* The details of log of Box installation is output to EventBus of Cell to which Box installation target Box belongs. following *1
-
+* The details of log of Box installation is output to EventBus of Cell to which Box installation target Box belongs. following \*1
     * Therefore, when referring to log details, refer to using the log file acquisition API.
     * In order to use the log file acquisition API, the authority of "log-read" is necessary.
     * Because event logs other than Box installation also mix, it is necessary to filter by the "RequestKey" field value.

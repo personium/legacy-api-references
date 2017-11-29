@@ -4,14 +4,12 @@
 
 Get the metadata of Box. The metadata includes the following information.
 
-* Box status<br><br>
+* Box status<br>
     Box installation status (installation result, progress rate, error message, etc.)
 * There are the following three types of states of Box
-
     * Box available
     * Box installation process in progress
     * Box installation process terminated abnormally
-
 * Box Schema URL
 * Box creation date and time
 
@@ -80,7 +78,7 @@ None
 
 #### Response Body
 
-Response is JSON format, defined in object (subobject).<br>
+Response is JSON format, defined in object (subobject).  
 The correspondence between key (name) and type, and value are as follows.
 
 |Object<br>|Name(Key)<br>|Type<br>|Value<br>|Notes<br>|
@@ -119,7 +117,7 @@ During Box installation process
 }
 ```
 
-When Box installation is completed (abnormal termination)<br>
+When Box installation is completed (abnormal termination)  
 (After expiration of Box installation, within the expiration date)
 
 ```JSON

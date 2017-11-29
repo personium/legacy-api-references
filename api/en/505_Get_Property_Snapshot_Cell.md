@@ -22,7 +22,7 @@ root
 /{CellName}/__snapshot
 ```
 
-or 
+or
 
 ```
 /{CellName}/__snapshot/{FileName}
@@ -131,7 +131,7 @@ The body is XML and follows the following schema.
 |resourcetype<br>|D:<br>|Element<br>|Represents the type of the resource. <br>If collection is a child or child is empty<br>|<br>|
 |collection<br>|D:<br>|Element<br>|Represents that the type of resource is a collection<br>|Displays, if resource is collection<br>|
 |acl<br>|D:<br>|Element<br>|ACL setting set for resource<br>|ACL Element See the [ Cell Level Access Control Settings API ](289_Cell_ACL.html) for content below<br>|
-|base<br>|xml:<br>|attribute<br>|ACL Privilege BaseURL<br>|When PROPFIND to Cell, default box ("__") resource URLbr>|
+|base<br>|xml:<br>|attribute<br>|ACL Privilege BaseURL<br>|When PROPFIND to Cell, default box ("__") resource URL<br>|
 
 DTD notation
 

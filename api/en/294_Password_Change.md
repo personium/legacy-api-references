@@ -6,8 +6,8 @@ An API that performs operations on the account's password
 
 ##### Change password of own account
 
-Change password of your account.<br>
-\* The Account update API can also change the password of the Account, but this requires the auth authority of the cell level ACL and uses it for management purposes.<br>
+Change password of your account.  
+\* The Account update API can also change the password of the Account, but this requires the auth authority of the cell level ACL and uses it for management purposes.  
 \* Because of changes to the account, CellLocalToken by account authentication is mandatory, not UnitUserToken.
 
 ### Required Privileges

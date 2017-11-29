@@ -1,8 +1,8 @@
-# AssociationEnd \$links remove
+# AssociationEnd $links remove
 
 ### Overview
 
-Delete \$links information of AssociationEnd
+Delete $links information of AssociationEnd
 
 ### Required Privileges
 

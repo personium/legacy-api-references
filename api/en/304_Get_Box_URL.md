@@ -2,7 +2,7 @@
 
 ### Overview
 
-It is a resource used to obtain the URL of Box. The application that performed the schema authentication redirects to the Box URL for the schema - authenticated application by accessing this resource with an access token. <br>
+It is a resource used to obtain the URL of Box. The application that performed the schema authentication redirects to the Box URL for the schema - authenticated application by accessing this resource with an access token.  
 An application that does not support schema authentication redirects to the URL of the corresponding Box by giving schema url as a parameter.
 
 ### Required Privileges

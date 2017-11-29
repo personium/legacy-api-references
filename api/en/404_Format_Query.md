@@ -1,9 +1,9 @@
-# \$format Query
+# $format Query
 
 ### Overview
 
-When a \$format query is specified, the response is returned with the media type specified by the query option.<br>
-Query options for \$format Valid values are shown in the table below.
+When a $format query is specified, the response is returned with the media type specified by the query option.  
+Query options for $format Valid values are shown in the table below.
 
 ### Request Query
 

@@ -1,12 +1,12 @@
-# Full-text Search (q)  Query
+# Full-text Search (q) Query
 
 ### Overview
 
-Use full-text search (q) query when specifying full-text search keyword when acquiring list<br>
+Use full-text search (q) query when specifying full-text search keyword when acquiring list  
 Including complex type data, all values are searched
 
-\*URL encoding required for query specification<br>
-\*When specifying \_\_updated, \_published values, specify them by UNIX time(a number in parenthesis of "/Date()")<br>
+\*URL encoding required for query specification  
+\*When specifying \_\_updated, \_published values, specify them by UNIX time(a number in parenthesis of "/Date()")  
 \*Items in \_metadata are not subject to search
 
 ### Request Query
@@ -35,7 +35,6 @@ The data types to be searched are shown below
 ### Search Specification
 
 * Half space blank
-
     * Treat as delimiter
     * "(Double quote), it is not treated as one word
     * Example) The following specification searches for data including the keywords "Pochi" and "Tama"
@@ -46,12 +45,10 @@ The data types to be searched are shown below
         ```
 
 * Half size alphanumeric characters
-
     * Can not search for partial matches within keywords
     * Not distinguish between capital letters and small letters
 
 * Double-byte character
-
     * Searchable for partial matches
     * Not distinguish between capital letters and small letters
 

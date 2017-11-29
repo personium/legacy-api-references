@@ -64,8 +64,8 @@ Namespace
 
 \* Reference The prefixes are for making it easier to read the following table, but the use of these prefix strings is not ensured or requested.
 
-Structure of XML<br>
-The body is XML and follows the following schema.<br>
+Structure of XML  
+The body is XML and follows the following schema.  
 See acl\_model ([access control model](../../user_guide/002_Access_Control.html)) for the contents of privilege setting under the privilege tag.
 
 |Node name<br>|Namespace<br>|Node type<br>|Overview<br>|Notes<br>|
@@ -75,7 +75,7 @@ See acl\_model ([access control model](../../user_guide/002_Access_Control.html)
 |ace<br>|D:<br>|Element<br>|Denotes the privilege configuration target; href or all will be its child<br>|"invert", "deny", "protected", and "inherited" are not supported in V 1.1 systems<br>|
 |principal<br>|D:<br>|Element<br>|Denotes the privilege configuration target; href or all will be its child<br>|<br>|
 |grant<br>|D:<br>|Element<br>|Denotes the privilege grant setting; one or more privilege nodes will be its child node<br>|<br>|
-|href<br>|D:<br>|Element<br>|Denotes the privilege configuration target role and is the text node to input the role resource URL<br>|Specify resource URL of privilege setting target role >It is possible to shorten the URL using the xml:base attribute setting in the acl element<br>|
+|href<br>|D:<br>|Element<br>|Denotes the privilege configuration target role and is the text node to input the role resource URL<br>|Specify resource URL of privilege setting target role<br>It is possible to shorten the URL using the xml:base attribute setting in the acl element<br>|
 |all<br>|D:<br>|Element<br>|All access entity privilege setting<br>|<br>|
 |privilege<br>|D:<br>|Element<br>|Denotes the privilege setting; one of the following elements will be its child<br>|<br>|
 |read<br>|D:<br>|Element<br>|Reference authority<br>|<br>|

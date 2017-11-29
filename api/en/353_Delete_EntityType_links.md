@@ -1,8 +1,8 @@
-# EntityType \$links remove
+# EntityType $links remove
 
 ### Overview
 
-Delete Entity Type \$links information
+Delete Entity Type $links information
 
 ### Required Privileges
 
@@ -21,7 +21,7 @@ alter-schema
 
 #### Request URL
 
-\$links with AssociationEnd
+$links with AssociationEnd
 
 ```
 /{CellName}/{BoxName}/{CollectionName}/EntityType('{EntityTypeName}')/$links/_AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')

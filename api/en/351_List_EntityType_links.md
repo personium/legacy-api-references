@@ -1,8 +1,8 @@
-# Get EntityType \$links list
+# Get EntityType $links list
 
 ### Overview
 
-List OData resources associated with EntityType<br>
+List OData resources associated with EntityType  
 You can specify the following OData resources
 
 * AssociationEnd
@@ -24,7 +24,7 @@ Unpublished
 
 #### Request URL
 
-\$links with AssociationEnd
+$links with AssociationEnd
 
 ```
 /{CellName}/{BoxName}/{CollectionName}/EntityType('{EntityTypeName}')/$links/_AssociationEnd
@@ -116,7 +116,7 @@ None
 
 #### Response Body
 
-##### OData \$links Response body
+##### OData $links Response body
 
 The response is a JSON object, the correspondence between the key (name) and type defined in the object (subobject) and the value are as follows
 

@@ -1,8 +1,8 @@
-# EntityType \$links Registration
+# EntityType $links Registration
 
 ### Overview
 
-Register \$links information of EntityType
+Register $links information of EntityType
 
 ### Required Privileges
 

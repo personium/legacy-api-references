@@ -9,7 +9,6 @@ Password authentication
 * Acquires a cell local token that is valid only in the cell of the token issuing source by account authentication.
 * Account is locked for 1 second if authentication fails
 * When an authentication request for the corresponding account is executed during locking
-
     * An authentication error is returned irrespective of the validity of the user name and password
     * Account is extended lock for 1 second from re-authentication request time
 

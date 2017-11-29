@@ -1,8 +1,8 @@
-# AssociationEnd \$links List Acquisition
+# AssociationEnd $links List Acquisition
 
 ### Overview
 
-Obtain a list of OData resources associated with AssociationEnd<br>
+Obtain a list of OData resources associated with AssociationEnd  
 You can specify the following OData resources
 
 * AssociationEnd
@@ -112,7 +112,7 @@ None
 
 #### Response Body
 
-##### OData \$links Response body
+##### OData $links Response body
 
 The response is a JSON object, the correspondence between the key (name) and type defined in the object (subobject) and the value are as follows
 

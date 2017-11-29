@@ -15,11 +15,10 @@ write
 * Only application/json is supported for Content-Type in the request header and the JSON format for the response body
 * Response body data is not ensured if atom or xml is specified in the $format query option, although it does not result in an error
 * User data restrictions
-
     * Property scope of Edm.DateTime type is not properly checked
     * Array of Edm.DateTime type is not supported
     * If SYSUTCDATETIME () is specified as the property of Edm.DateTime type, the set system time may be different
-    * *When setting in request body and setting with DefaultValue (__published, __ updated is the latter timing)
+    * \*When setting in request body and setting with DefaultValue (\_\_published, \_\_ updated is the latter timing)
     * For EntityType, you can create up to 400 DynamicProperty / DeclaredProperty / ComplexTypeProperty
 
 <br>
@@ -71,7 +70,7 @@ None
 
 ##### Property
 
-Set up schema-defined properties and dynamic (schema-undefined) properties, up to 400 properties in total<br>
+Set up schema-defined properties and dynamic (schema-undefined) properties, up to 400 properties in total  
 Contains the number of properties defined by ComplexType in the above
 
 ##### Schema-defined properties
@@ -84,7 +83,7 @@ Contains the number of properties defined by ComplexType in the above
 
 |Data type<br>|Effective Value<br>|
 |:--|:--|
-|String<br>|Number of digits: 0-51200 byte<br>Character type: When a control code is used as a value of a character string, return it in an escaped state at the time of acquisition<br>When "\" is used, it must be specified with "\\"<br>When an integer value, a decimal value, a boolean value, or a date type value is set in a property of a character string type, it is converted into a character string type and registered<br>|
+|String<br>|Number of digits: 0-51200 byte<br>Character type: When a control code is used as a value of a character string, return it in an escaped state at the time of acquisition<br>When "\\" is used, it must be specified with "\\\\"<br>When an integer value, a decimal value, a boolean value, or a date type value is set in a property of a character string type, it is converted into a character string type and registered<br>|
 |Integer value<br>|-2147483648 - 2147483647<br>|
 |Decimal point<br>|Number of digits in integer part: 1-5 digits<br>Number of digits in decimal part: 1-5 digits<br>|
 |Boolean value<br>|true / false / null(treat null as false)<br>|
@@ -92,18 +91,18 @@ Contains the number of properties defined by ComplexType in the above
 
 #### Dynamic (schema undefined) property
 
-Set up schema-defined properties and dynamic (schema-undefined) properties, up to 400 properties in total<br>
+Set up schema-defined properties and dynamic (schema-undefined) properties, up to 400 properties in total  
 Contains the number of properties defined by ComplexType in the above
 
 ##### Valid value of dynamic property's key
 
 |Data type<br>|Effective Value<br>|
 |:--|:--|
-|String<br>|Number of digits: 1-128 :<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>_However, - (hyphen) and _ (underscore)_  can not be specified as the first character <br>_published, _updated is a reserved word, so it is not possible to specify the request body<br>|
+|String<br>|Number of digits: 1-128 :<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, - (hyphen) and \_ (underscore) can not be specified as the first character <br>_published, _updated is a reserved word, so it is not possible to specify the request body<br>|
 
 ##### Valid value of value of dynamic property
 
-Same as valid value of value of schema-defined property<br>
+Same as valid value of value of schema-defined property  
 Array, associative array can not be specified
 
 #### Request Sample

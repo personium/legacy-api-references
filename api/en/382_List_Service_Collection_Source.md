@@ -11,11 +11,9 @@ read
 ### Restrictions
 
 * General Restrictions
-
     * None
 
 * WebDAV Restrictions
-
     * Unpublished<br><br>
 
 ### Request

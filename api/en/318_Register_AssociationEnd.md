@@ -15,7 +15,6 @@ alter-schema
 * Only application/json is supported for Content-Type in the request header and the JSON format for the response body
 * Response body data is not ensured if atom or xml is specified in the $format query option, although it does not result in an error
 * AssociationEnd restriction
-
     * When AssociationEnd specifies"1"in Multiplicity, it operates as "0..1".
 
 <br>
@@ -69,9 +68,9 @@ JSON
 
 |Item Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
 |:--|:--|:--|:--|:--|
-|Name<br>|AssociationName<br>|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("_")<br>|Yes<br>|<br>|
+|Name<br>|AssociationName<br>|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("\_")<br>|Yes<br>|<br>|
 |Multiplicity<br>|Multiplicity<br>|"0 .. 1" / "1" / "*"<br>|Yes<br>|<br>|
-|_EntityType.Name<br>|EntityType name of relation target<br>|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("_")<br>Explanation: Registered EntityType by EntityType registration API<br>|Yes<br>|<br>|
+|_EntityType.Name<br>|EntityType name of relation target<br>|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("\_")<br>Explanation: Registered EntityType by EntityType registration API<br>|Yes<br>|<br>|
 
 #### Request Sample
 

@@ -5,11 +5,9 @@
 Get Cell Import status. The Cell import state includes the following information.
 
 * Cell import status
-
     * Cell import acceptance available
     * Cell import processing in progress
     * Cell Import Abnormal termination
-
 * Import start date and time
 * Progress rate
 * Import file name
@@ -44,7 +42,6 @@ GET
 |p_cookie_peer<br>|Cookie Authentication Value<br>|The cookie authentication value returned from the server during authentication<br>|No<br>|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used<br>|
 
 #### Request Header
-PCS-\${UNIXtime} by default<br>Supported in V 1.1.7 and later<br>
 
 |Header Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
 |:--|:--|:--|:--|:--|
@@ -80,7 +77,7 @@ None
 
 #### Response Body
 
-Response is JSON format and is defined as an object (subobject).<br>
+Response is JSON format and is defined as an object (subobject).  
 The correspondence between key (name) and type, and value are as follows.
 
 |Object<br>|Key<br>|Type<br>|Value<br>|Notes<br>|

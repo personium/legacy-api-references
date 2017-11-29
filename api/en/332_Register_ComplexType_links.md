@@ -1,8 +1,8 @@
-# ComplexType \$links registered
+# ComplexType $links registered
 
 ### Overview
 
-Link OData resource specified by \$links to ComplexType<br>
+Link OData resource specified by $links to ComplexType  
 Get a list of OData resources linked with following
 
 * Property

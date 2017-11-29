@@ -2,7 +2,7 @@
 
 ### Overview
 
-Delete existing ComplexType information<br>
+Delete existing ComplexType information  
 It can not be deleted if it is used as Type of Property or ComplexTypeProperty
 
 ### Required Privileges

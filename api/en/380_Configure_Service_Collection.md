@@ -69,7 +69,7 @@ Namespace
 
 \* Reference The prefixes are for making it easier to read the following table, but the use of these prefix strings is not ensured or requested.
 
-Structure of XML<br>
+Structure of XML  
 The body is XML and follows the following schema.
 
 |Node name<br>|Namespace<br>|Node type<br>|Overview<br>|Notes<br>|
@@ -147,7 +147,7 @@ Namespace
 
 \* Reference The prefixes are for making it easier to read the following table, but the use of these prefix strings is not ensured or requested.
 
-Structure of XML<br>
+Structure of XML  
 The body is XML and follows the following schema.
 
 |Node name<br>|Namespace<br>|Node type<br>|Overview<br>|Notes<br>|

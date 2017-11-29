@@ -1,4 +1,4 @@
-# EntityType \$links updated
+# EntityType $links updated
 
 in preparation
 

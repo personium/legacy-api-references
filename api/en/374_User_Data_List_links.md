@@ -1,8 +1,8 @@
-# Entity \$links list acquisition
+# Entity $links list acquisition
 
 ### Overview
 
-A list of OData resources associated with Entity of user data is obtained.<br>
+A list of OData resources associated with Entity of user data is obtained.  
 You can specify the following OData resources
 
 * User data
@@ -18,18 +18,17 @@ Unpublished
 * Only application/json is supported for Content-Type in the request header and the JSON format for the response body
 * Response body data is not ensured if atom or xml is specified in the $format query option, although it does not result in an error
 * User data restrictions
-
     * Property scope of Edm.DateTime type is not properly checked
     * Array of Edm.DateTime type is not supported
     * If SYSUTCDATETIME () is specified as the property of Edm.DateTime type, the set system time may be different
-    * When setting in request body and setting with DefaultValue (__published, __ updated is the latter timing)
+    * When setting in request body and setting with DefaultValue (\_\_published, \_\_ updated is the latter timing)
     * For EntityType, you can create up to 400 DynamicProperty / DeclaredProperty / ComplexTypeProperty
 
 ### Request
 
 #### Request URL
 
-##### \$links with user data
+##### $links with user data
 
 ```
 /{CellName}/{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')/$links/_{EntityTypeName}
@@ -121,7 +120,7 @@ None
 
 #### Response Body
 
-##### OData \$links Response body<br>
+##### OData $links Response body<br>
 
 The response is a JSON object, the correspondence between the key (name) and type defined in the object (subobject) and the value are as follows
 

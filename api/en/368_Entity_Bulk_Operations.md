@@ -1,4 +1,4 @@
-# Entity collective operation(\$batch)
+# Entity collective operation($batch)
 
 ### Overview
 
@@ -6,15 +6,14 @@ Perform a batch operation such as list acquisition, single acquisition, registra
 
 ### Required Privileges
 
-* Acquire list / Acquire one case<br>
+* Acquire list / Acquire one case  
     read
-* Register / Update / Delete<br>
+* Register / Update / Delete  
     write
 
 ### Restrictions
 
 * $batch Restriction
-
     * "GET" request query is not supported
     * When list acquisition is executed, return 10 cases at random
     * "GET" via NavigationProperty is not supported
@@ -55,9 +54,9 @@ POST
 
 #### Request Body
 
-Specify batch process content as request body in MIME multipart data format<br>
-Up to 1,000 batch processes can be handled at maximum<br>
-Batch processing includes "query operation" for context acquisition and "change set" for context registration, update, and deletion<br>
+Specify batch process content as request body in MIME multipart data format  
+Up to 1,000 batch processes can be handled at maximum  
+Batch processing includes "query operation" for context acquisition and "change set" for context registration, update, and deletion  
 Describe how to describe request parameters below
 
 ```
@@ -73,10 +72,10 @@ Describe how to describe request parameters below
 (5) Specify the termination boundary string "- {Boundary string}"
 ```
 
-* Query Operation<br>
-    Retrieve the specified context<br>
-    The description method of the query operation will be explained below<br>
-    *"GET" request query is not supported
+* Query Operation  
+    Retrieve the specified context  
+    The description method of the query operation will be explained below  
+    \*"GET" request query is not supported
 
 ```
 (1)     Content-Type: application/http
@@ -95,9 +94,9 @@ Describe how to describe request parameters below
     Request header can be specified without specification, or one or more can be specified
 ```
 
-* Change Set<br>
-    Register / Update / Delete the specified context<br>
-    Specify processing contents of registration, pdate and deletion with MIME multipart data<br>
+* Change Set  
+    Register / Update / Delete the specified context  
+    Specify processing contents of registration, pdate and deletion with MIME multipart data  
     Describe how to describe the change set below
 
 ```
@@ -138,9 +137,9 @@ Describe how to describe request parameters below
 #### Request Path
 
 * { EntitySet name}
-* { EntitySet name}('{__id}')
-* { EntitySet name}('{__id}')/{NavigationProperty name}
-* { EntitySet name}('{__id}')/$links/{NavigationProperty name}
+* { EntitySet name}('{\_\_id}')
+* { EntitySet name}('{\_\_id}')/{NavigationProperty name}
+* { EntitySet name}('{\_\_id}')/$links/{NavigationProperty name}
 
 #### Request Method
 

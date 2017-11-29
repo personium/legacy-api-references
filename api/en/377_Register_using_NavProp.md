@@ -15,11 +15,10 @@ write
 * Only application/json is supported for Content-Type in the request header and the JSON format for the response body
 * Response body data is not ensured if atom or xml is specified in the $format query option, although it does not result in an error
 * User data restrictions
-
     * Property scope of Edm.DateTime type is not properly checked
     * Array of Edm.DateTime type is not supported
     * If SYSUTCDATETIME () is specified as the property of Edm.DateTime type, the set system time may be different
-    * When setting in request body and setting with DefaultValue (__published, __ updated is the latter timing)
+    * When setting in request body and setting with DefaultValue (\_\_published, \_\_ updated is the latter timing)
     * For EntityType, you can create up to 400 DynamicProperty / DeclaredProperty / ComplexTypeProperty
 
 <br>
@@ -77,13 +76,12 @@ POST<br><br>
 |:--|:--|:--|:--|:--|
 |__id<br>|EntityID<br>|Number of digits: 1-200<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>|No<br>|If not specified a unique ID will be assigned<br>Valid value check unimplemented<br>|
 
-* _It is possible to register dynamic user data in addition to _id
-
+* \_It is possible to register dynamic user data in addition to \_id
     * Only character string can be set
     * If a numeric value, boolean value, null is specified, it is treated as a character string
     * Can not specify Hash value
     * Up to 400 user data can be specified
-    * _published, _updated is a reserved word, so it is not possible to specify the request body
+    * \_published, \_updated is a reserved word, so it is not possible to specify the request body
 
 #### Request Sample
 

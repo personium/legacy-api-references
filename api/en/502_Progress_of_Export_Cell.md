@@ -5,10 +5,8 @@
 Get the status of Cell export. The Cell export state includes the following information.
 
 * Cell export status
-
     * Cell export acceptance accepted
     * Cell export in progress
-
 * Export start date and time
 * Progress rate
 * Export file name
@@ -77,7 +75,7 @@ None
 
 #### Response Body
 
-Response is JSON format and is defined as an object (subobject).<br>
+Response is JSON format and is defined as an object (subobject).  
 The correspondence between key (name) and type, and value are as follows.
 
 |Object<br>|Key<br>|Type<br>|Value<br>|Notes<br>|

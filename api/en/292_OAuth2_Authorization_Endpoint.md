@@ -2,8 +2,8 @@
 
 ### Overview
 
-OAuth2 Authorization Endpoint<br>
-This API is the OAuth2 authorization endpoint, for utilizing the Personium on JS application and native application\\.
+OAuth2 Authorization Endpoint  
+This API is the OAuth2 authorization endpoint, for utilizing the Personium on JS application and native application.
 
 ### Required Privileges
 
@@ -11,7 +11,7 @@ None
 
 ### Precondition
 
-In order to execute this API, it is necessary to prepare in advance Box which has the application cell URL in the schema\\.
+In order to execute this API, it is necessary to prepare in advance Box which has the application cell URL in the schema.
 
 ### Restrictions
 
@@ -32,7 +32,7 @@ Request query, specification of "p\_target" parameter of request body is not sup
 
 #### Request Method
 
-GET : Authentication form request<br>
+GET : Authentication form request  
 POST : Authentication form request, Authentication Token
 
 #### Request Query
@@ -93,7 +93,7 @@ None
 
 ##### Response Code
 
-302<br>
+302  
 The browser is redirected to redirect\_uri. A fragment indicated by "URL parameter" is stored in redirect\_uri.
 
 ```
@@ -129,7 +129,7 @@ The browser is redirected to redirect\_uri. A fragment indicated by "URL paramet
 
 ##### Parameter Check Error
 
-The browser is redirected to redirect\_uri.<br><br>
+The browser is redirected to redirect\_uri.<br>
 "Redirect\_uri is not in URL format" "cell in client\_id and redirect\_uri is different" "Authorization processing failure"
 
 ```

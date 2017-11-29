@@ -67,7 +67,7 @@ The file describing the information of the box to be installed
 |:--|:--|:--|:--|:--|
 |bar_version<br>|bar file version<br>|Valid version<br>Revised every time the bar file format is changed<br>|Yes<br>|Currently "1"<br>|
 |box_version<br>|Box version<br>|Valid version<br>Revised every time the box format is changed<br>|Yes<br>|Any string can be specified but "1" is recommended (for the provision of the box revision function)<br>|
-|DefaultPath<br>|Box name in the bar file<br>|Number of digits: 1 to 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("_")<br>null is invalid<br>|Yes<br>|<br>|
+|DefaultPath<br>|Box name in the bar file<br>|Number of digits: 1 to 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("\_")<br>null is invalid<br>|Yes<br>|<br>|
 |schema<br>|Schema name<br>|Number of digits: 1 to 1024<br>Conforming to the URI format (schema: http / https / urn)<br>null is invalid<br>|Yes<br>|<br>|
 
 ##### Samples
@@ -150,7 +150,7 @@ The file describing the information of the ExtRoles to be installed<br>\* For it
 
 #### 70\_$links.json
 
-The file describing the data relation information of the \$links to be installed
+The file describing the data relation information of the $links to be installed
 
 |Item Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
 |:--|:--|:--|:--|:--|
@@ -197,7 +197,7 @@ The file describing the data relation information of the \$links to be installed
 
 #### 90\_rootprops.xml
 
-Shows the XML data acquired with the PROPFIND method for all hierarchical levels under the box to be export to the bar file. <br>For details on XML data, refer to [get file setting API(PROPFIND)](307_Get_Property.html). <br>The URL of the box to be installed is described as "Personium-box:/". <br>When the bar file is installed, the installation targets include all data
+Shows the XML data acquired with the PROPFIND method for all hierarchical levels under the box to be export to the bar file. <br>For details on XML data, refer to [get file setting API(PROPFIND)](307_Get_Property.html). <br>The URL of the box to be installed is described as "Personium-box:/". <br>When the bar file is installed, the installation targets include all data excluding creationdate and astmodified under the following sample.
 
 * resourcetype: Sets the collection type
 * acl: Sets privileges
@@ -347,9 +347,9 @@ Details not contributed yet for the following files
 
 * 90_data / {EntityType}/1.json
 
-##### 00\_\$metadata.xml
+##### 00\_$metadata.xml
 
-Shows user OData schema definitions. This data is the XML data acquired by \$metadata for the collection for Odata during the export to the bar file. <br>For details on XML data, refer to [schema acquisition (\$metadata)](316_User_Defined_Data_Schema.html). <br>When the box is installed, the installation targets include the contents under the Schema tag. <br>Even if user OData schema definitions do not exist, the file itself exists.
+Shows user OData schema definitions. This data is the XML data acquired by $metadata for the collection for Odata during the export to the bar file. <br>For details on XML data, refer to [schema acquisition ($metadata)](316_User_Defined_Data_Schema.html). <br>When the box is installed, the installation targets include the contents under the Schema tag. <br>Even if user OData schema definitions do not exist, the file itself exists.
 
 Sample in the case of no schema definitions
 
@@ -367,7 +367,7 @@ Sample in the case of no schema definitions
 
 ##### 10\_odatarelations.json
 
-The file describing the data-related information of \$links of the user data to be installed<br>At the user OData schema level, AssociationEnd relations are defined in 00\_\$metadata.xml, and in this file, relations to actual user data are defined.
+The file describing the data-related information of $links of the user data to be installed<br>At the user OData schema level, AssociationEnd relations are defined in 00\_$metadata.xml, and in this file, relations to actual user data are defined.
 
 |Item Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
 |:--|:--|:--|:--|:--|

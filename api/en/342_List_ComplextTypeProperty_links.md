@@ -1,4 +1,4 @@
-# ComplexTypeProperty \$links List Acquisition
+# ComplexTypeProperty $links List Acquisition
 
 in preparation
 

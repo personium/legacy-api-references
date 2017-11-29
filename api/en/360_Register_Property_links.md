@@ -1,8 +1,8 @@
-# Property \$links registered
+# Property $links registered
 
 ### Overview
 
-Link Property to OData resource specified by \$links<br>
+Link Property to OData resource specified by $links  
 Get a list of OData resources linked with following
 
 * EntityType
@@ -24,7 +24,7 @@ alter-schema
 
 #### Request URL
 
-\$links with EntityType
+$links with EntityType
 
 ```
 /{CellName}/{BoxName}/{CollectionName}/$metadata/Property(Name='{PropertyName}',_EntityType.Name='{EntityTypeName}')/$links/_EntityType

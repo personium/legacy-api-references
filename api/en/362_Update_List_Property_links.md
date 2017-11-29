@@ -1,4 +1,4 @@
-# Property \$links updated
+# Property $links updated
 
 in preparation
 

@@ -1,8 +1,8 @@
-# Entity \$links Registration
+# Entity $links Registration
 
 ### Overview
 
-Link OData resource specified by \$links to the Entity of the user data.<br>
+Link OData resource specified by $links to the Entity of the user data.  
 It can be linked with the following OData resources.
 
 * User data
@@ -23,7 +23,7 @@ No
 * Property scope of Edm.DateTime type is not properly checked
 * Array of Edm.DateTime type is not supported
 * If SYSUTCDATETIME () is specified as the property of Edm.DateTime type, the set system time may be different
-* When setting in request body and setting with DefaultValue (__published, __ updated is the latter timing)
+* When setting in request body and setting with DefaultValue (\_\_published, \_\_ updated is the latter timing)
 * For EntityType, you can create up to 400 DynamicProperty / DeclaredProperty / ComplexTypeProperty
 
 <br>
@@ -32,7 +32,7 @@ No
 
 #### Request URL
 
-\$links with user data
+$links with user data
 
 ```
 /{CellName}/{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')/$links/_{EntityTypeName}
@@ -110,7 +110,7 @@ JSON
 |Access-Control-Allow-Origin<br>|Cross domain communication permission header<br>|Return value fixed to "*"<br>|
 |X-Personium-Version<br>|API version that the request is processed<br>|Version of the API used to process the request<br>|
 
-##### OData \$links Response Header
+##### OData $links Response Header
 
 |Header Name<br>|Overview<br>|Notes<br>|
 |:--|:--|:--|

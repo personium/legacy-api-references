@@ -1,8 +1,8 @@
-# ComplexType \$links deleted
+# ComplexType $links deleted
 
 ### Overview
 
-Delete \$links information of ComplexType
+Delete $links information of ComplexType
 
 When deleting Property, it is possible to delete user data only when there is no ComplexType in use.
 

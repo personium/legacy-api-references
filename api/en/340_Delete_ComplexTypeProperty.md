@@ -14,17 +14,16 @@ alter-schema
 * Only accepts the request body in the JSON format
 * Only application/json is supported for Content-Type in the request header and the JSON format for the response body
 * If atom or xml is specified as the $format query option, it will not be an error, but there is no guarantee of the data of the response body
-
     * Deletion will not be executed if the relationship setting exists in the deletion target.
     * When deleting ComplexTypeProperty, it can be deleted only when the user data of the EntityType using the ComplexTypeProperty to be deleted does not exist
 
         ```
         Example)
         EntityTypeA
-|
+           |
            + PropertyA Type-String
            + PropertyB Type-ComplexTypeA
-|
+              |
               + ComplexTypePropertyA
         When deleting ComplexTypeProperty A, it is possible only when EntityTypeA data does not exist
         ```

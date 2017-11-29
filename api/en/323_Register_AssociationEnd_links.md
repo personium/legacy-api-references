@@ -1,4 +1,4 @@
-# AssociationEnd \$links Registration
+# AssociationEnd $links Registration
 
 ### Overview
 
@@ -65,7 +65,7 @@ None
 
 #### Response Body
 
-None/p>
+None
 
 #### Error Messages
 

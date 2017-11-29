@@ -1,8 +1,8 @@
-# Entity \$links deleted
+# Entity $links deleted
 
 ### Overview
 
-Delete \$links information with Entity of user data
+Delete $links information with Entity of user data
 
 ### Required Privileges
 
@@ -21,7 +21,7 @@ None
 
 #### Request URL
 
-##### \$links with user data
+##### $links with user data
 
 ```
 /{CellName}/{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')/$links/_{EntityTypeName}('{EntityID}')
@@ -94,7 +94,7 @@ None<br><br>
 |Access-Control-Allow-Origin<br>|Cross domain communication permission header<br>|Return value fixed to "*"<br>|
 |X-Personium-Version<br>|API version that the request is processed<br>|Version of the API used to process the request<br>|
 
-##### OData \$links Response Header
+##### OData $links Response Header
 
 |Header Name<br>|Overview<br>|Notes<br>|
 |:--|:--|:--|

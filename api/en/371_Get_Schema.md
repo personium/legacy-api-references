@@ -1,4 +1,4 @@
-# Schema acquisition (\$metadata)
+# Schema acquisition ($metadata)
 
 ### Overview
 
@@ -40,7 +40,7 @@ GET
 
 ##### Individual Query
 
-If atomsvc is specified for \$format, return Schema's Atom ServiceDocument<br>
+If atomsvc is specified for $format, return Schema's Atom ServiceDocument  
 Ignore others
 
 #### Request Header

@@ -1,8 +1,8 @@
-# Property \$links list acquisition
+# Property $links list acquisition
 
 ### Overview
 
-Obtain a list of OData resources associated with Property<br>
+Obtain a list of OData resources associated with Property  
 You can specify the following OData resources
 
 * EntityType
@@ -24,7 +24,7 @@ Unpublished
 
 #### Request URL
 
-\$links with EntityType
+$links with EntityType
 
 ```
 /{CellName}/{BoxName}/{CollectionName}/$metadata/Property(Name='{PropertyName}',_EntityType.Name='{EntityTypeName}')/$links/_EntityType
@@ -116,7 +116,7 @@ None
 
 #### Response Body
 
-##### OData \$links Response body
+##### OData $links Response body
 
 The response is a JSON object, the correspondence between the key (name) and type defined in the object (subobject) and the value are as follows
 

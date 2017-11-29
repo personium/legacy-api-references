@@ -11,11 +11,10 @@ read
 ### Restrictions
 
 * User data restrictions
-
     * Property scope of Edm.DateTime type is not properly checked
     * Array of Edm.DateTime type is not supported
     * If SYSUTCDATETIME () is specified as the property of Edm.DateTime type, the set system time may be different
-    * When setting in request body and setting with DefaultValue (__published, __ updated is the latter timing)
+    * When setting in request body and setting with DefaultValue (\_\_published, \_\_ updated is the latter timing)
     * For EntityType, you can create up to 400 DynamicProperty / DeclaredProperty / ComplexTypeProperty
 
 <br>
@@ -138,7 +137,6 @@ Return items that were schema-set other than the above, or dynamic items specifi
 ##### Decimal value (Edm.Single type)
 
 * The handling when acquiring UserOData in JSON format is as follows
-
     * The value that the decimal part such as 10.0 becomes 0 is returned as an integer value
 
 ##### Numerical value (Edm.Double type)
@@ -146,14 +144,10 @@ Return items that were schema-set other than the above, or dynamic items specifi
 \*Double type handling in Personium follows the Java Double specification
 
 * The handling when acquiring UserOData in JSON format is as follows
-
     * The value that the decimal part such as 10.0 becomes 0 is returned as an integer value
-
 * About the value to be returned
-
     * When the input value at the time of registration is a number having accuracy of double precision or more, data is registered by being rounded to double precision
-
-        * Internally, it is managed as a floating point number, but at the time of output, it converts it to fixed point number representation within the range where no information drop occurs and outputs it<br><br>
+        * Internally, it is managed as a floating point number, but at the time of output, it converts it to fixed point number representation within the range where no information drop occurs and outputs it<br>
             When output fixed-point number is used for input, the same number of inputs and original number is guaranteed
 
 #### Error Messages

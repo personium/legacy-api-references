@@ -2,8 +2,8 @@
 
 ### Overview
 
-Acquire specific WebDav information<br>
-Depending on the ETag value specified in the If-None-Match header, the contents to be returned are different<br>
+Acquire specific WebDav information  
+Depending on the ETag value specified in the If-None-Match header, the contents to be returned are different  
 When specifying the range with the Range header, return the contents of the specified range
 
 ### Required Privileges
@@ -72,7 +72,7 @@ None
 
 #### Response Code
 
-* If the If-None-Match header is not specified in the request, or if the ETag value of the If-None-Match header does not match the ETag of the resource stored in the WebDav in the request<br>
+* If the If-None-Match header is not specified in the request, or if the ETag value of the If-None-Match header does not match the ETag of the resource stored in the WebDav in the request  
     (Including cases where the format of the specified ETag value is invalid)
 * If the Range header is not specified in the request, or if the start value specified in the Range header in the request is larger than the termination value
 
@@ -105,8 +105,8 @@ In case of basic authentication error, return 400 + WWW-Authenticated: Basic hea
 
 #### Response Body
 
-Return the contents of the file<br>
-However, if the status code is 304, the response body is not returned<br>
+Return the contents of the file  
+However, if the status code is 304, the response body is not returned  
 If the status code is 206, the contents of the file specified in the Range header are returned
 
 #### Error Messages

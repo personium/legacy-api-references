@@ -2,7 +2,7 @@
 
 ### Overview
 
-Move / rename WebDAV collection file.<br>
+Move / rename WebDAV collection file.  
 \* You can not change properties
 
 ### Required Privileges

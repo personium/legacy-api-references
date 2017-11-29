@@ -1,4 +1,4 @@
-# Get ComplexType \$links list
+# Get ComplexType $links list
 
 ### Overview
 
@@ -25,7 +25,7 @@ Unpublished
 
 #### Request URL
 
-\$links with Property
+$links with Property
 
 ```
 /{CellName}/{BoxName}/{CollectionName}/$metadata/ComplexType('{ComplextypeName}')/$links/_Property
@@ -117,7 +117,7 @@ None
 
 #### Response Body
 
-##### OData \$links Response body
+##### OData $links Response body
 
 The response is a JSON object, the correspondence between the key (name) and type defined in the object (subobject) and the value are as follows
 

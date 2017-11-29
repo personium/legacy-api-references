@@ -1,8 +1,8 @@
-# \$filter Query
+# $filter Query
 
 ### Overview
 
-Use the \$filter query to specify the search condition when retrieving the list
+Use the $filter query to specify the search condition when retrieving the list
 
 ### Operator Support
 
@@ -33,12 +33,12 @@ Convert keywords specified for search to string type and search
 
 #### Edm.Int32
 
-An integer value or null can be specified<br>
+An integer value or null can be specified  
 If an integer value is specified as a string type, it is searched by converting it to a numeric type
 
 #### Edm.Single
 
-It can specify integer, fractional value or null<br>
+It can specify integer, fractional value or null  
 If it is a string type integer, if decimal value is specified convert it to decimal value and search
 
 #### Edm.Boolean
@@ -47,10 +47,10 @@ Only boolean values or null can be specified
 
 ### Notices
 
-\*URL encoding required for query specification<br>
-\*Valid values of the property to be searched are half-size alphanumeric characters, - (hyphen), \_ (underscore) valid.<br>
-\*If you want to include a single quote in the search string, you can specify a single quote as a search string by describing two single quotes"''"<br>
-\*If a property name that does not exist in \$ filter is specified, it is searched with it included in the search condition<br>
+\*URL encoding required for query specification  
+\*Valid values of the property to be searched are half-size alphanumeric characters, - (hyphen), \_ (underscore) valid.  
+\*If you want to include a single quote in the search string, you can specify a single quote as a search string by describing two single quotes"''"  
+\*If a property name that does not exist in $ filter is specified, it is searched with it included in the search condition  
 \*When \_\_updated, \_\_published is specified, it is specified by UNIX time (a number in parenthesis of "/Date()")
 
 ### cURL Command

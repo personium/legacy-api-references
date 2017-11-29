@@ -1,8 +1,8 @@
-# Property \$links deleted
+# Property $links deleted
 
 ### Overview
 
-Delete Property of \$link
+Delete Property of $link
 
 ### Required Privileges
 

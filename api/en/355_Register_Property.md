@@ -82,14 +82,14 @@ JSON
 
 |Item Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
 |:--|:--|:--|:--|:--|
-|Name<br>|Property Name<br>|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("_")<br>|Yes<br>|<br>|
-|_EntityType.Name<br>|EntityType name to be attached<br>|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("_")<br>|Yes<br>|<br>|
+|Name<br>|Property Name<br>|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("\_")<br>|Yes<br>|<br>|
+|_EntityType.Name<br>|EntityType name to be attached<br>|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("\_")<br>|Yes<br>|<br>|
 |Type<br>|Type definition<br>|Edm.Boolean / Edm.String / Edm.Int32 / Edm.Single / Edm.Double / Edm.DateTime / Registered ComplexType name<br>|Yes<br>|<br>|
 |Nullable<br>|Null value authorization<br>|true / false<br>The default value is true<br>|No<br>|<br>|
 |DefaultValue<br>|Default value<br>|Refer to the following table<br>The default value is Null<br>|No<br>|<br>|
 |CollectionKind<br>|Array type<br>|None / List<br>The default value is "None"<br>|No<br>|<br>|
 |IsKey<br>|Primary key setting<br>|true / false<br>The default value is false<br>|No<br>|<br>|
-|UniqueKey<br>|Unique key setting<br>|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("_")<br>|No<br>|<br>|
+|UniqueKey<br>|Unique key setting<br>|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("\_")<br>|No<br>|<br>|
 
 ##### Valid values for DefaultValue
 
@@ -98,7 +98,7 @@ Valid values of DefaultValue differ depending on Type value (type definition), a
 |Type value<br>|Effective Value<br>|
 |:--|:--|
 |Edm.Boolean<br>|true / false<br>|
-|Edm.String<br>|Number of digits: 0-51200 byte<br>When "\" is used, it must be specified with "\\"<br>|
+|Edm.String<br>|Number of digits: 0-51200 byte<br>When "\\" is used, it must be specified with "\\\\"<br>|
 |Edm.Int32<br>|-2147483648 - 2147483647<br>|
 |Edm.Single<br>|Number of digits in integer part: 1-5 digits<br>Number of digits in decimal part: 1-5 digits<br>|
 |Edm.Double<br>|Represents a floating point number with 15 digits precision.|

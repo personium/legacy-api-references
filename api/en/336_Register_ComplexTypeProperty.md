@@ -84,8 +84,8 @@ JSON
 
 |Item Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
 |:--|:--|:--|:--|:--|
-|Name<br>|ComplexTypeProperty name<br>|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("_")<br>|Yes<br>|<br>|
-|_ComplexType.Name<br>|ComplexType name attached<br>|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("_")<br>|Yes<br>|<br>|
+|Name<br>|ComplexTypeProperty name<br>|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("\_")<br>|Yes<br>|<br>|
+|_ComplexType.Name<br>|ComplexType name attached<br>|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("\_")<br>|Yes<br>|<br>|
 |Type<br>|Type definition<br>|Edm.Boolean / Edm.String / Edm.Int32 / Edm.Single / Edm.Double / Edm.DateTime / Registered ComplexType name<br>|Yes<br>|<br>|
 |Nullable<br>|Null value authorization<br>|true / false<br>The default value is Null<br>|No<br>|<br>|
 |DefaultValue<br>|Default value<br>|See the table below<br>The default value is Null<br>|No<br>|<br>|
@@ -98,7 +98,7 @@ Valid values of DefaultValue differ depending on Type value (type definition), a
 |Type Value<br>|Effective Value<br>|
 |:--|:--|
 |Edm.Boolean<br>|true / false<br>|
-|Edm.String<br>|Number of digits: 0-51200 byte<br>When "\" is used, it must be specified with "\\"<br>|
+|Edm.String<br>|Number of digits: 0-51200 byte<br>When "\\" is used, it must be specified with "\\\\"<br>|
 |Edm.Int32<br>|-2147483648 - 2147483647<br>|
 |Edm.Single<br>|Number of digits in integer part: 1-5 digits<br>Number of digits in decimal part: 1-5 digits<br>|
 |Edm.Double<br>|Represents a floating point number with 15 digits precision.|

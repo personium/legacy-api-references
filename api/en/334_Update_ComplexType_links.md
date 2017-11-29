@@ -1,4 +1,4 @@
-# ComplexType \$links updated
+# ComplexType $links updated
 
 in preparation
 

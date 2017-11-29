@@ -1,18 +1,18 @@
-# \$select  Query
+# $select  Query
 
 ### Overview
 
-When specifying the property to return, use the \$ select query<br>
-If omitted, return all the acquired properties<br>
-However, the following properties are always returned without specifying them in \$select
+When specifying the property to return, use the $ select query  
+If omitted, return all the acquired properties  
+However, the following properties are always returned without specifying them in $select
 
-* __id
-* __published
-* __updated
-* __metadata
+* \_\_id
+* \_\_published
+* \_\_updated
+* \_\_metadata
 
-\*If you specify a property name that does not exist in \$select, ignore the specified item<br>
-\*If the value of the Dynamic property specified by \$select is NULL, you can not get the property value<br>
+\*If you specify a property name that does not exist in $select, ignore the specified item  
+\*If the value of the Dynamic property specified by $select is NULL, you can not get the property value  
 \*Specify the property name without enclosing it with "'" (single quote)
 
 ### Request Query
@@ -21,11 +21,11 @@ However, the following properties are always returned without specifying them in
 $select={propertyName}
 ```
 
-\*When omitted, it is \$select = *
+\*When omitted, it is $select = *
 
-| Path<br>           | Overview<br>                                                                               |
-|:-- |:-- |
-| {PropertyName}<br> | Property name to return<br>To specify more than one, specify it with a comma separator<br> |
+|Path<br>|Overview<br>|
+|:--|:--|
+|{PropertyName}<br>|Property name to return<br>To specify more than one, specify it with a comma separator<br>|
 
 ### cURL Command
 

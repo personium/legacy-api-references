@@ -1,4 +1,4 @@
-# ComplexTypeProperty \$links Registration
+# ComplexTypeProperty $links Registration
 
 in preparation
 

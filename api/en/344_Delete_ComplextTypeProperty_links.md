@@ -1,4 +1,4 @@
-# Delete ComplexTypeProperty \$links
+# Delete ComplexTypeProperty $links
 
 in preparation
 

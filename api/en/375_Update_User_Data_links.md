@@ -1,4 +1,4 @@
-# Entity \$links Update
+# Entity $links Update
 
 in preparation
 

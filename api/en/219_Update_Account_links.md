@@ -1,4 +1,4 @@
-# Account \$links Update
+# Account $links Update
 
 in preparation
 

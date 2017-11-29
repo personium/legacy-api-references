@@ -6,8 +6,8 @@ An API that performs operations on the account's password
 
 ##### Change password of own account
 
-Change password of your account.<br>
-\* The Account update API can also change the password of the Account, but this requires the auth authority of the cell level ACL and uses it for management purposes.<br>
+Change password of your account.  
+\* The Account update API can also change the password of the Account, but this requires the auth authority of the cell level ACL and uses it for management purposes.  
 \* Because of changes to the account, CellLocalToken by account authentication is mandatory, not UnitUserToken.
 
 ### Required Privileges
@@ -38,10 +38,10 @@ None
 
 #### Request Header
 
-| Header Name<br>            | Overview<br>                                                     | Effective Value<br>         | Required<br> | Notes<br>                                                                                                                   |
-|:-- |:-- |:-- |:-- |:-- |
-| Authorization<br>          | Specifies authentication information in the OAuth 2.0 format<br> | Bearer {CellLocalToken}<br> | Yes<br>      | The authentication token is a cell local token acquired by the authentication token acquisition API<br>                     |
-| X-Personium-Credential<br> | Password after change<br>                                        | String<br>                  | Yes<br>      | Number of character:6 - 92<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br> |
+|Header Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|:--|:--|:--|:--|:--|
+|Authorization<br>|Specifies authentication information in the OAuth 2.0 format<br>|Bearer {CellLocalToken}<br>|Yes<br>|The authentication token is a cell local token acquired by the authentication token acquisition API<br>|
+|X-Personium-Credential<br>|Password after change<br>|String<br>|Yes<br>|Number of character:6 - 92<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>|
 
 #### Request Body
 

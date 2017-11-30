@@ -1,4 +1,4 @@
-# EDMX Acquire(\$metadata)
+# EDMX Acquire($metadata)
 
 in preparation
 

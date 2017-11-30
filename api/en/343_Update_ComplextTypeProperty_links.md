@@ -1,4 +1,4 @@
-# ComplexTypeProperty \$links updated
+# ComplexTypeProperty $links updated
 
 in preparation
 

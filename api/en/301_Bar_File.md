@@ -63,12 +63,12 @@ The bar file is upgraded if the data structure is changed in response to enhance
 
 The file describing the information of the box to be installed
 
-| Item Name<br>   | Overview<br>                 | Effective Value<br>                                                                                                                                                                                                                    | Required<br> | Notes<br>                                                                                               |
-|:-- |:-- |:-- |:-- |:-- |
-| bar_version<br> | bar file version<br>         | Valid version<br>Revised every time the bar file format is changed<br>                                                                                                                                                                 | Yes<br>      | Currently "1"<br>                                                                                       |
-| box_version<br> | Box version<br>              | Valid version<br>Revised every time the box format is changed<br>                                                                                                                                                                      | Yes<br>      | Any string can be specified but "1" is recommended (for the provision of the box revision function)<br> |
-| DefaultPath<br> | Box name in the bar file<br> | Number of digits: 1 to 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("_")<br>null is invalid<br> | Yes<br>      | <br>                                                                                                    |
-| schema<br>      | Schema name<br>              | Number of digits: 1 to 1024<br>Conforming to the URI format (schema: http / https / urn)<br>null is invalid<br>                                                                                                                        | Yes<br>      | <br>                                                                                                    |
+|Item Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|:--|:--|:--|:--|:--|
+|bar_version<br>|bar file version<br>|Valid version<br>Revised every time the bar file format is changed<br>|Yes<br>|Currently "1"<br>|
+|box_version<br>|Box version<br>|Valid version<br>Revised every time the box format is changed<br>|Yes<br>|Any string can be specified but "1" is recommended (for the provision of the box revision function)<br>|
+|DefaultPath<br>|Box name in the bar file<br>|Number of digits: 1 to 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("\_")<br>null is invalid<br>|Yes<br>|<br>|
+|schema<br>|Schema name<br>|Number of digits: 1 to 1024<br>Conforming to the URI format (schema: http / https / urn)<br>null is invalid<br>|Yes<br>|<br>|
 
 ##### Samples
 
@@ -85,10 +85,10 @@ The file describing the information of the box to be installed
 
 The file describing the information of the relations to be installed<br>\* For items whose "Effective Value" column shows "-", refer to the Relation request body
 
-| Item Name<br>      | Overview<br>      | Effective Value<br> | Required<br> | Notes<br> |
-|:-- |:-- |:-- |:-- |:-- |
-| Relations <br>     | Relation list<br> | <br>                | Yes<br>      | <br>      |
-| Relations/Name<br> | Relation name<br> | -<br>               | Yes<br>      | <br>      |
+|Item Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|:--|:--|:--|:--|:--|
+|Relations <br>|Relation list<br>|<br>|Yes<br>|<br>|
+|Relations/Name<br>|Relation name<br>|-<br>|Yes<br>|<br>|
 
 ##### Samples
 
@@ -106,10 +106,10 @@ The file describing the information of the relations to be installed<br>\* For i
 
 The file describing the information of the roles to be installed<br>\* For items whose "Effective Value" column shows "-", refer to the Role request body
 
-| Item Name<br>  | Overview<br>      | Effective Value<br> | Required<br> | Notes<br> |
-|:-- |:-- |:-- |:-- |:-- |
-| Roles <br>     | Relation list<br> | <br>                | Yes<br>      | <br>      |
-| Roles/Name<br> | Relation name<br> | -<br>               | Yes<br>      | <br>      |
+|Item Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|:--|:--|:--|:--|:--|
+|Roles <br>|Relation list<br>|<br>|Yes<br>|<br>|
+|Roles/Name<br>|Relation name<br>|-<br>|Yes<br>|<br>|
 
 ##### Samples
 
@@ -127,11 +127,11 @@ The file describing the information of the roles to be installed<br>\* For items
 
 The file describing the information of the ExtRoles to be installed<br>\* For items whose "Effective Value" column shows "-", refer to the ExtRole request body
 
-| Item Name<br>               | Overview<br>                       | Effective Value<br> | Required<br> | Notes<br>              |
-|:-- |:-- |:-- |:-- |:-- |
-| ExtRoles<br>                | ExtRole list<br>                   | <br>                | Yes<br>      | <br>                   |
-| ExtRoles/ExtRole<br>        | Reference destination role URI<br> | -<br>               | Yes<br>      | null is invalid *1<br> |
-| ExtRoles/_Relation.Name<br> | Relation name<br>                  | -<br>               | Yes<br>      | null is invalid<br>    |
+|Item Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|:--|:--|:--|:--|:--|
+|ExtRoles<br>|ExtRole list<br>|<br>|Yes<br>|<br>|
+|ExtRoles/ExtRole<br>|Reference destination role URI<br>|-<br>|Yes<br>|null is invalid *1<br>|
+|ExtRoles/_Relation.Name<br>|Relation name<br>|-<br>|Yes<br>|null is invalid<br>|
 
 (*1) Converted to the role class URL during export<br>[https://{UnitFQDN}/cell1/\_\_role/box/staff](https://%7BUnitFQDN%7D/cell1/__role/box/staff) -> [https://{UnitFQDN}/cell1/\_\_role/\_\_/staff](https://%7BUnitFQDN%7D/cell1/__role/__/staff)
 
@@ -148,17 +148,17 @@ The file describing the information of the ExtRoles to be installed<br>\* For it
 }
 ```
 
-#### 70\_\$links.json
+#### 70\_$links.json
 
-The file describing the data relation information of the \$links to be installed
+The file describing the data relation information of the $links to be installed
 
-| Item Name<br>      | Overview<br>                        | Effective Value<br>                    | Required<br> | Notes<br>                                                |
-|:-- |:-- |:-- |:-- |:-- |
-| Links<br>          | $links list<br>                     | <br>                                   | Yes<br>      | <br>                                                     |
-| Links/FromType<br> | Reference source data type<br>      | "Relation"<br>"Role"<br>"ExtRole" <br> | Yes<br>      | null is invalid<br>                                      |
-| Links/FromName<br> | Reference source data name<br>      | - (Array format *1)<br>                | Yes<br>      | null is invalid<br> (Example: {"Name":"relation1"}])<br> |
-| Links/ToType<br>   | Reference destination data type<br> | "Relation"<br>"Role"<br>"ExtRole"<br>  | Yes<br><br>  | null is invalid<br><br>                                  |
-| Links/ToName<br>   | Reference destination data name<br> | - (Array format *1)<br>                | Yes<br><br>  | null is invalid<br> (Example: {"Name":"role"}])<br>      |
+|Item Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|:--|:--|:--|:--|:--|
+|Links<br>|$links list<br>|<br>|Yes<br>|<br>|
+|Links/FromType<br>|Reference source data type<br>|"Relation"<br>"Role"<br>"ExtRole" <br>|Yes<br>|null is invalid<br>|
+|Links/FromName<br>|Reference source data name<br>|- (Array format *1)<br>|Yes<br>|null is invalid<br> (Example: {"Name":"relation1"}])<br>|
+|Links/ToType<br>|Reference destination data type<br>|"Relation"<br>"Role"<br>"ExtRole"<br>|Yes<br><br>|null is invalid<br><br>|
+|Links/ToName<br>|Reference destination data name<br>|- (Array format *1)<br>|Yes<br><br>|null is invalid<br> (Example: {"Name":"role"}])<br>|
 
 \*1 The list format is applied for ExtRoles because relation information is also required. However, the key name of the specified JSON data is fixed to "Name". (Restriction)
 
@@ -197,7 +197,7 @@ The file describing the data relation information of the \$links to be installed
 
 #### 90\_rootprops.xml
 
-Shows the XML data acquired with the PROPFIND method for all hierarchical levels under the box to be export to the bar file. <br>For details on XML data, refer to [get file setting API(PROPFIND)](307_Get_Property.html). <br>The URL of the box to be installed is described as "Personium-box:/". <br>When the bar file is installed, the installation targets include all data
+Shows the XML data acquired with the PROPFIND method for all hierarchical levels under the box to be export to the bar file. <br>For details on XML data, refer to [get file setting API(PROPFIND)](307_Get_Property.html). <br>The URL of the box to be installed is described as "Personium-box:/". <br>When the bar file is installed, the installation targets include all data excluding creationdate and astmodified under the following sample.
 
 * resourcetype: Sets the collection type
 * acl: Sets privileges
@@ -303,8 +303,7 @@ Shows the XML data acquired with the PROPFIND method for all hierarchical levels
                   <p:service xmlns:p="urn:x-personium:xmlns"/>
               </resourcetype>
              <acl xml:base="https://{UnitFQDN}/cell/__role/__/" xmlns:p="urn:x-personium:xmlns"/>
-              <p:service language="JavaScript" xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" \
-              xmlns:Z="http://www.w3.com/standards/z39.50/">
+              <p:service language="JavaScript" xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns">
                   <p:path name="ehr" src="ehr.js"/>
                   <p:path name="ehr_connector" src="ehr_connector.js"/>
               </p:service>
@@ -348,9 +347,9 @@ Details not contributed yet for the following files
 
 * 90_data / {EntityType}/1.json
 
-##### 00\_\$metadata.xml
+##### 00\_$metadata.xml
 
-Shows user OData schema definitions. This data is the XML data acquired by \$metadata for the collection for Odata during the export to the bar file. <br>For details on XML data, refer to [schema acquisition (\$metadata)](316_User_Defined_Data_Schema.html). <br>When the box is installed, the installation targets include the contents under the Schema tag. <br>Even if user OData schema definitions do not exist, the file itself exists.
+Shows user OData schema definitions. This data is the XML data acquired by $metadata for the collection for Odata during the export to the bar file. <br>For details on XML data, refer to [schema acquisition ($metadata)](316_User_Defined_Data_Schema.html). <br>When the box is installed, the installation targets include the contents under the Schema tag. <br>Even if user OData schema definitions do not exist, the file itself exists.
 
 Sample in the case of no schema definitions
 
@@ -368,15 +367,15 @@ Sample in the case of no schema definitions
 
 ##### 10\_odatarelations.json
 
-The file describing the data-related information of \$links of the user data to be installed<br>At the user OData schema level, AssociationEnd relations are defined in 00\_\$metadata.xml, and in this file, relations to actual user data are defined.
+The file describing the data-related information of $links of the user data to be installed<br>At the user OData schema level, AssociationEnd relations are defined in 00\_$metadata.xml, and in this file, relations to actual user data are defined.
 
-| Item Name<br>      | Overview<br>                            | Effective Value<br>     | Required<br> | Notes<br>                                                    |
-|:-- |:-- |:-- |:-- |:-- |
-| Links<br>          | $links list<br>                         | <br>                    | Yes<br>      | <br>                                                         |
-| Links/FromType<br> | Reference source data type<br>          | - <br>                  | Yes<br>      | null is invalid<br>                                          |
-| Links/FromId<br>   | Reference source user data ID<br>       | - (Array format *1)<br> | Yes<br>      | null is invalid<br> (Example: {"FromId":"fujitsu_taro"})<br> |
-| Links/ToType<br>   | Reference destination data type<br>     | -<br>                   | Yes<br><br>  | null is invalid<br><br>                                      |
-| Links/ToId <br>    | Reference destination user data ID <br> | - (Array format *1)<br> | Yes<br><br>  | null is invalid<br> (Example: {"ToId":"fujitsu_hanako"})<br> |
+|Item Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|:--|:--|:--|:--|:--|
+|Links<br>|$links list<br>|<br>|Yes<br>|<br>|
+|Links/FromType<br>|Reference source data type<br>|- <br>|Yes<br>|null is invalid<br>|
+|Links/FromId<br>|Reference source user data ID<br>|- (Array format *1)<br>|Yes<br>|null is invalid<br> (Example: {"FromId":"fujitsu_taro"})<br>|
+|Links/ToType<br>|Reference destination data type<br>|-<br>|Yes<br><br>|null is invalid<br><br>|
+|Links/ToId <br>|Reference destination user data ID <br>|- (Array format *1)<br>|Yes<br><br>|null is invalid<br> (Example: {"ToId":"fujitsu_hanako"})<br>|
 
 \*1 The array format is applied in consideration of the future support for composite primary keys.
 
@@ -454,8 +453,7 @@ Sample of 90\_rootprops.xml for service registration
                 </resourcetype>
                 <acl xml:base="https://{UnitFQDN}/cell/__role/__/"\
                 xmlns:p="urn:x-personium:xmlns"/>
-                <p:service language="JavaScript" xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" \
-                xmlns:Z="http://www.w3.com/standards/z39.50/">
+                <p:service language="JavaScript" xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns">
                     <p:path name="ehr" src="ehr.js"/>
                     <p:path name="ehr_connector" src="ehr_connector.js"/>
                 </p:service>

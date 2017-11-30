@@ -1,8 +1,8 @@
-# \$skip  Query
+# $skip Query
 
 ### Overview
 
-The \$skip query is used to acquire information from the N + 1 th subject by omitting the number of natural numbers N specified in the collection.<br>
+The $skip query is used to acquire information from the N + 1 th subject by omitting the number of natural numbers N specified in the collection.  
 It is described with the following notation.
 
 ```

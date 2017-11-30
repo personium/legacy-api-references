@@ -33,25 +33,25 @@ GET
 
 The following query parameters are available
 
-| Query Name<br>    | Overview<br>                    | Effective Value<br>                                                                | Required<br> | Notes<br>                                                                                                                |
-|:-- |:-- |:-- |:-- |:-- |
-| p_cookie_peer<br> | Cookie Authentication Value<br> | The cookie authentication value returned from the server during authentication<br> | No<br>       | Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used<br> |
+|Query Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|:--|:--|:--|:--|:--|
+|p_cookie_peer<br>|Cookie Authentication Value<br>|The cookie authentication value returned from the server during authentication<br>|No<br>|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used<br>|
 
-[\$select  Query](406_Select_Query.html)
+[$select  Query](406_Select_Query.html)
 
-[\$expand  Query](405_Expand_Query.html)
+[$expand  Query](405_Expand_Query.html)
 
-[\$format  Query](404_Format_Query.html)
+[$format  Query](404_Format_Query.html)
 
-[\$filter  Query](403_Filter_Query.html)
+[$filter  Query](403_Filter_Query.html)
 
-[\$inlinecount  Query](407_Inlinecount_Query.html)
+[$inlinecount  Query](407_Inlinecount_Query.html)
 
-[\$orderby  Query](400_Orderby_Query.html)
+[$orderby  Query](400_Orderby_Query.html)
 
-[\$top  Query](401_Top_Query.html)
+[$top  Query](401_Top_Query.html)
 
-[\$skip  Query](402_Skip_Query.html)
+[$skip  Query](402_Skip_Query.html)
 
 [Full-text Search (q) Query](408_Full_Text_Search_Query.html)
 
@@ -59,23 +59,23 @@ The following query parameters are available
 
 ##### Common Request Header
 
-| Header Name<br>            | Overview<br>                                       | Effective Value<br>                                                                                        | Required<br> | Notes<br>                                                                                                                    |
-|:-- |:-- |:-- |:-- |:-- |
-| X-HTTP-Method-Override<br> | Method override function<br>                       | User-defined<br>                                                                                           | No<br>       | Specifying this value in a request with the POST method indicates that the specified value is used as the method<br>         |
-| X-Override<br>             | Header override function<br>                       | ${OverwrittenHeaderName}:${Value}<br>                                                                      | No<br>       | The normal HTTP header value is overwritten. Specify multiple X-Override headers for the overwriting of multiple headers<br> |
-| X-Personium-RequestKey<br> | RequestKey field value output in the event log<br> | Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters<br> | No<br>       | Supported in V 1.1.7 and later<br>                                                                                           |
+|Header Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|:--|:--|:--|:--|:--|
+|X-HTTP-Method-Override<br>|Method override function<br>|User-defined<br>|No<br>|Specifying this value in a request with the POST method indicates that the specified value is used as the method<br>|
+|X-Override<br>|Header override function<br>|${OverwrittenHeaderName}:${Value}<br>|No<br>|The normal HTTP header value is overwritten. Specify multiple X-Override headers for the overwriting of multiple headers<br>|
+|X-Personium-RequestKey<br>|RequestKey field value output in the event log<br>|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters<br>|No<br>|Supported in V 1.1.7 and later<br>|
 
 ##### OData Common Request Header
 
-| Header Name<br>   | Overview<br>                                                     | Effective Value<br>      | Required<br> | Notes<br>                                                                                          |
-|:-- |:-- |:-- |:-- |:-- |
-| Authorization<br> | Specifies authentication information in the OAuth 2.0 format<br> | Bearer {AccessToken}<br> | No<br>       | * Authentication tokens are the tokens acquired using the Authentication Token Acquisition API<br> |
+|Header Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|:--|:--|:--|:--|:--|
+|Authorization<br>|Specifies authentication information in the OAuth 2.0 format<br>|Bearer {AccessToken}<br>|No<br>|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API<br>|
 
 ##### OData Acquire List Request Header
 
-| Header Name<br> | Overview<br>                           | Effective Value<br>  | Required<br> | Notes<br>                         |
-|:-- |:-- |:-- |:-- |:-- |
-| Accept<br>      | Specifies the response body format<br> | application/json<br> | No<br>       | [application/json] by default<br> |
+|Header Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|:--|:--|:--|:--|:--|
+|Accept<br>|Specifies the response body format<br>|application/json<br>|No<br>|[application/json] by default<br>|
 
 #### Request Body
 
@@ -103,25 +103,25 @@ None
 
 The response is a JSON object, the correspondence between the key (name) and type defined in the object (subobject) and the value are as follows
 
-| Object<br> | Name(Key)<br>   | Type<br>   | Value<br>                                       |
-|:-- |:-- |:-- |:-- |
-| Root<br>   | d<br>           | object<br> | Object{1}<br>                                   |
-| {1}<br>    | results<br>     | array<br>  | Array object {2}<br>                            |
-| {2}<br>    | __metadata<br>  | object<br> | Object{3}<br>                                   |
-| {3}<br>    | uri<br>         | string<br> | URL to the resource that was created<br>        |
-| {3}<br>    | etag<br>        | string<br> | Etag value<br>                                  |
-| {2}<br>    | __published<br> | string<br> | Creation date (UNIX time)<br>                   |
-| {2}<br>    | __updated<br>   | string<br> | Update date (UNIX time)<br>                     |
-| {1}<br>    | __count<br>     | string<br> | Get number of results in $inlinecount query<br> |
+|Object<br>|Name(Key)<br>|Type<br>|Value<br>|
+|:--|:--|:--|:--|
+|Root<br>|d<br>|object<br>|Object{1}<br>|
+|{1}<br>|results<br>|array<br>|Array object {2}<br>|
+|{2}<br>|__metadata<br>|object<br>|Object{3}<br>|
+|{3}<br>|uri<br>|string<br>|URL to the resource that was created<br>|
+|{3}<br>|etag<br>|string<br>|Etag value<br>|
+|{2}<br>|__published<br>|string<br>|Creation date (UNIX time)<br>|
+|{2}<br>|__updated<br>|string<br>|Update date (UNIX time)<br>|
+|{1}<br>|__count<br>|string<br>|Get number of results in $inlinecount query<br>|
 
 ##### AssociationEnd unique response body
 
-| Object<br> | Name(Key)<br>        | Type<br>   | Value<br>                              |
-|:-- |:-- |:-- |:-- |
-| {3}<br>    | type<br>             | string<br> | ODataSvcSchema.AssociationEnd<br>      |
-| {2}<br>    | Name<br>             | string<br> | AssociationEndName<br>                 |
-| {2}<br>    | Multiplicity<br>     | string<br> | Multiplicity<br>                       |
-| {2}<br>    | _EntityType.Name<br> | string<br> | EntityType name of relation target<br> |
+|Object<br>|Name(Key)<br>|Type<br>|Value<br>|
+|:--|:--|:--|:--|
+|{3}<br>|type<br>|string<br>|ODataSvcSchema.AssociationEnd<br>|
+|{2}<br>|Name<br>|string<br>|AssociationEndName<br>|
+|{2}<br>|Multiplicity<br>|string<br>|Multiplicity<br>|
+|{2}<br>|_EntityType.Name<br>|string<br>|EntityType name of relation target<br>|
 
 #### Response Sample
 

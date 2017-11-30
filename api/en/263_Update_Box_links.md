@@ -1,4 +1,4 @@
-# Box\_\$links update
+# Box\_$links update
 
 in preparation
 

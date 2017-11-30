@@ -6,9 +6,9 @@
 
 #### URL
 
-Maximum Length: 50KByte<br>
-\*URL Size = header size + (URL path size * 2) + (query size * 3) <br>
->limit) IE7, 8 Many reference the browser is about 1Mbyte 2048byte, IE9 is other 5120byte,
+Maximum Length: 50KByte  
+\*URL Size = header size + (URL path size * 2) + (query size * 3)  
+\*limit) IE7, 8 Many reference the browser is about 1Mbyte 2048byte, IE9 is other 5120byte,
 
 #### Request Header
 
@@ -38,11 +38,11 @@ Time of 60 seconds from the start of the request, the server until you have rece
 
 #### Response Header
 
-| Header Name<br>       | Description<br>                                                               |
-|:-- |:-- |
-| Transfer-Encoding<br> | It always respond with chunked<br>                                            |
-| Content-Encoding<br>  | If set to a valid value Accept-Encoding request header contains the value<br> |
-| Date<br>              | It returns the UTC time that the request has been accepted<br>                |
+|Header Name<br>|Description<br>|
+|:--|:--|
+|Transfer-Encoding<br>|It always respond with chunked<br>|
+|Content-Encoding<br>|If set to a valid value Accept-Encoding request header contains the value<br>|
+|Date<br>|It returns the UTC time that the request has been accepted<br>|
 
 #### Response Body
 

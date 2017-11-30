@@ -38,7 +38,6 @@ PROPPATCH
 |:--|:--|:--|:--|:--|:--|
 |DAV:<br>|<br>|XML名前空間設定<br>|○<br>|"DAV:"<br>|<br>|
 |urn: x-personium: xmlns<br>|<br>|XML名前空間設定<br>|○<br>|"Urn: x-personium: xmlns"<br>|<br>|
-|http://www.w3.com/standards/z39.50/<br>|<br>|XML名前空間設定<br>|○<br>|"Http://www.w3.com/standards/z39.50/"<br>|<br>
 |propertyupdate<br>|DAV:<br>|propertyupdate（アクセス制御リスト）のルート<br>|○<br>|<ELEMENT propertyupdate! (Set | remove)><br>|<br>|
 |set<br>|DAV:<br>|プロパティ設定<br>|×<br>|<! ELEMENT set (prop *)><br>|<br>|
 |remove<br>|DAV:<br>|プロパティ削除<br>|×<br>|<! ELEMENT set (prop *)><br>|<br>|
@@ -47,17 +46,14 @@ PROPPATCH
 #### リクエストサンプル
 ```xml
 <D:propertyupdate xmlns:D="DAV:"  
-    xmlns:p="urn:x-personium:xmlns"  
-    xmlns:Z="http://www.w3.com/standards/z39.50/">
+    xmlns:p="urn:x-personium:xmlns">
     <D:set>
         <D:prop>
-            <Z:Author>Author1 update</Z:Author>
             <p:hoge>fuga</p:hoge>
         </D:prop>
     </D:set>
     <D:remove>
         <D:prop>
-            <Z:Author/>
             <p:hoge/>
         </D:prop>
     </D:remove>
@@ -93,10 +89,8 @@ PROPPATCH
         <href>https://{UnitFQDN}/{CellName}/</href>
         <propstat>
             <prop>
-                <Z:Author xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/">${author1}</Z:Author>
-                <p:hoge xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/">${hoge}</p:hoge>
-                <Z:Author xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/"/>
-                <p:hoge xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/"/>
+                <p:hoge xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:">${hoge}</p:hoge>
+                <p:hoge xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:"/>
             </prop>
             <status>HTTP/1.1 200 OK</status>
         </propstat>
@@ -107,8 +101,8 @@ PROPPATCH
 ### cURLサンプル
 ```sh
 curl "https://{UnitFQDN}/{CellName}" -X PROPPATCH -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8" ?>
-<D:propertyupdate xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" xmlns:Z="http://www.w3.com/standards/z39.50/"><D:set><D:prop><Z:Author>${author1}</Z:Author>
-<p:hoge>${hoge}</p:hoge></D:prop></D:set><D:remove><D:prop><Z:Author/><p:hoge/></D:prop></D:remove></D:propertyupdate>'
+<D:propertyupdate xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns"><D:set><D:prop>
+<p:hoge>${hoge}</p:hoge></D:prop></D:set><D:remove><D:prop><p:hoge/></D:prop></D:remove></D:propertyupdate>'
 ```
 <br>
 ###### Copyright 2017    FUJITSU LIMITED

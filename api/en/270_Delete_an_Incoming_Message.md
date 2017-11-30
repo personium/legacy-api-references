@@ -3,7 +3,6 @@
 ### Overview
 
 delete existed Received Messages  
-If there is a Box, Account associated with InMessage, it will be 409 and no deletion will be done
 
 ### Required Privileges
 

@@ -1,7 +1,6 @@
 # ReceivedMessage削除
 ### 概要
 存在する受信メッセージを削除する  
-InMessageに紐付くBox,Accountがある場合は409となり削除は行わない
 ### 必要な権限
 message
 ### 制限事項

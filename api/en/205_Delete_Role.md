@@ -15,7 +15,6 @@ Delete existing Role information
     * Only accepts the request body in the JSON format
     * Only application/json is supported for Content-Type in the request header and the JSON format for the response body
     * $formatQuery options ignored
-    * Deletion will not be executed if the relationship setting exists in the deletion target.
 
 ### Required Privileges
 

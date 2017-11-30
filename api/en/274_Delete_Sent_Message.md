@@ -3,7 +3,6 @@
 ### Overview
 
 delete existed SentMessages  
-If there is a Box, Account associated with SentMessage, it will be 409 and no deletion will be done
 
 ### Required Privileges
 

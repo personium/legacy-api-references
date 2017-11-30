@@ -84,7 +84,7 @@ DTD表記
 #### リクエストサンプル
 ```xml
 <D:propertyupdate xmlns:D="DAV:"
-    xmlns:p="urn:x-personium:xmlns"
+    xmlns:p="urn:x-personium:xmlns">
     <D:set>
         <D:prop>
           <p:service language="JavaScript">

@@ -64,7 +64,7 @@ Common Request Query
 
 #### Structure of XML
 
-The body is XML and follows the following schema.<br>
+The body is XML and follows the following schema.  
 For details on the privilege settings within the privilege tag, please refer to the acl\_model ([Access Control Model](../../user_guide/002_Access_Control.html)).
 
 |Node name|Namespace|Node type|Overview|Notes|

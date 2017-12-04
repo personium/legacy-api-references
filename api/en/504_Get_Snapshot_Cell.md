@@ -77,7 +77,7 @@ None
 
 #### Response Body
 
-Return the contents of the file<br>
+Return the contents of the file  
 However, when the status code is 304, the response body is not returned
 
 #### Error Messages

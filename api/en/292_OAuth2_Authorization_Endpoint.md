@@ -127,7 +127,7 @@ The browser is redirected to redirect\_uri. A fragment indicated by "URL paramet
 
 ##### Parameter Check Error
 
-The browser is redirected to redirect\_uri.<br>
+The browser is redirected to redirect\_uri.  
 "Redirect\_uri is not in URL format" "cell in client\_id and redirect\_uri is different" "Authorization processing failure"
 
 ```

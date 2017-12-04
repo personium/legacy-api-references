@@ -27,7 +27,7 @@ Only unit user
 
 ### Restrictions
 
-None  
+None
 
 ### Request
 
@@ -94,7 +94,7 @@ Refer to [Error Message List](004_Error_Messages.html)
 
 #### Response Sample
 
-None  
+None
 
 ### cURL Command
 

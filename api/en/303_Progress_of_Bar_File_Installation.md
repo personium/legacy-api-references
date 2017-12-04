@@ -4,7 +4,7 @@
 
 Get the metadata of Box. The metadata includes the following information.
 
-* Box status<br>
+* Box status  
     Box installation status (installation result, progress rate, error message, etc.)
 * There are the following three types of states of Box
     * Box available

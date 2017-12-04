@@ -30,6 +30,6 @@ curl "https://{UnitFQDN}/__ctl/Cell?\$top=10" -X GET -i -H 'Authorization: Beare
 ### Restrictions
 
 * Considering processing performance, use with the $skip query  
-    In this case, the recommended value of the $top query is 50 or less<br>
+    In this case, the recommended value of the $top query is 50 or less
 
 ###### Copyright 2017 FUJITSU LIMITED

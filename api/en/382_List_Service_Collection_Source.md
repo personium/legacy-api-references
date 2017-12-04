@@ -14,7 +14,7 @@ read
     * None
 
 * WebDAV Restrictions
-    * Unpublished<br>
+    * Unpublished
 
 ### Request
 

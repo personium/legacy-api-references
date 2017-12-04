@@ -34,7 +34,7 @@ box-install
 
 #### bar file limit
 
-* The file size of the Box installable bar file is limited to the following.<br>
+* The file size of the Box installable bar file is limited to the following.  
     When exceeding the upper limit value, you can not install Box.
     * File size of bar file: 100MB
     * Before compression file size of entry in bar file: 10MB
@@ -154,7 +154,7 @@ Refer to [Error Message List](004_Error_Messages.html)
 Location: https://{UnitFQDN}/{CellName}/{BoxName}
 ```
 
-For details of URL for [Box metadata acquisition API](303_Progress_of_Bar_File_Installation.html), see Box metadata acquisition.<br>
+For details of URL for [Box metadata acquisition API](303_Progress_of_Bar_File_Installation.html), see Box metadata acquisition.
 
 ### cURL Command
 

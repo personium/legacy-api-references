@@ -119,7 +119,7 @@ None
 
 #### Response Body
 
-##### OData $links Response body<br>
+##### OData $links Response body
 
 The response is a JSON object, the correspondence between the key (name) and type defined in the object (subobject) and the value are as follows
 

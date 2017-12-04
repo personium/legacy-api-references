@@ -45,6 +45,6 @@ curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeN
 ### Restrictions
 
 * Expansion of related information can be done in one level only
-* Add \_\_count as an item in the related information list (not supported) to indicate whether the expanded related information has returned all cases<br>
+* Add \_\_count as an item in the related information list (not supported) to indicate whether the expanded related information has returned all cases
 
 ###### Copyright 2017 FUJITSU LIMITED

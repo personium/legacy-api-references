@@ -51,7 +51,7 @@ NavigationProperty name that can be specified is limited to those having the fol
 
 #### Request Method
 
-POST<br>
+POST
 
 #### Request Query
 

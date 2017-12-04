@@ -42,6 +42,6 @@ curl "https://{UnitFQDN}/__ctl/Cell?\$orderby=Name%20desc" -X GET -i -H 'Authori
     * desc  
         Positive number -> null -> 0 -> none -> Pegative number
 * If you specify a property name that does not exist in $orderby, ignore the specified item
-* If an array type property name is specified in $orderby, 400 error is returned<br>
+* If an array type property name is specified in $orderby, 400 error is returned
 
 ###### Copyright 2017 FUJITSU LIMITED

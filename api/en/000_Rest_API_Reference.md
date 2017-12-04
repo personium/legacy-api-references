@@ -1,7 +1,7 @@
 # Personium REST API Reference
 
 Welcome to the Personium REST API Reference.  
-The REST API Reference describes technical detailed specifications related to all of the REST APIs provided by Personium.  
+The REST API Reference describes technical detailed specifications related to all of the REST APIs provided by Personium.
 
 ### Unit Level API
 
@@ -31,7 +31,7 @@ Cell Level API
 *  Function of event processing
 *  Function to export / import Cell
 
-And so on. Many of these functions are implemented in the form of control objects that can be operated with the OData protocol, which is a standard for performing relational data manipulation based on REST.  
+And so on. Many of these functions are implemented in the form of control objects that can be operated with the OData protocol, which is a standard for performing relational data manipulation based on REST.
 
 Resource Path
 

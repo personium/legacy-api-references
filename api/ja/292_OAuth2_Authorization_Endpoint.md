@@ -89,7 +89,7 @@ POST : 認証フォーム リクエスト、トークン認証
 |User ID or password is incorrect.|パスワード認証に失敗した場合||
 |Since the Expiration Date of the authentication passed,<br>You must be authorized again.|Cookie認証に失敗した場合||
 ##### Parameter Check Error
-ブラウザはredirect_uriにリダイレクトされる。<br>
+ブラウザはredirect_uriにリダイレクトされる。  
 「redirect_uriがURL形式ではない」「client_idとredirect_uriのセルが異なる」「認可処理失敗」
 ```
 {redirect_uri}?code={code}

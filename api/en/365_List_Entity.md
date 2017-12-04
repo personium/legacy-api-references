@@ -145,7 +145,7 @@ Return items that were schema-set other than the above, or dynamic items specifi
     * The value that the decimal part such as 10.0 becomes 0 is returned as an integer value
 * About the value to be returned
     * When the input value at the time of registration is a number having accuracy of double precision or more, data is registered by being rounded to double precision
-        * Internally, it is managed as a floating point number, but at the time of output, it converts it to fixed point number representation within the range where no information drop occurs and outputs it<br>
+        * Internally, it is managed as a floating point number, but at the time of output, it converts it to fixed point number representation within the range where no information drop occurs and outputs it  
             When output fixed-point number is used for input, the same number of inputs and original number is guaranteed
 
 #### Error Messages

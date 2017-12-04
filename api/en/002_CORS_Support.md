@@ -62,6 +62,6 @@ Access-Control-Allow-Origin: sample
 
 ### Reference
 
-http://www.w3.org/TR/cors/  
+http://www.w3.org/TR/cors/
 
 ###### Copyright 2017 FUJITSU LIMITED

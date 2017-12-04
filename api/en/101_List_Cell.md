@@ -86,7 +86,7 @@ None
 
 #### Request Sample
 
-None  
+None
 
 ### Response
 

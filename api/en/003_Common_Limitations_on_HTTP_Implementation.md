@@ -52,6 +52,6 @@ Support to chunked request
 
 ##### Content-Encoding
 
-If you set the value of a valid request Accept-Encoding header is compressed and encoded in the form of its body.  
+If you set the value of a valid request Accept-Encoding header is compressed and encoded in the form of its body.
 
 ###### Copyright 2017 FUJITSU LIMITED

@@ -18,7 +18,6 @@ Access control of this resource depends on ACL of Box route. It is necessary to 
 
 None
 
-<br>
 
 ### Request
 
@@ -34,19 +33,19 @@ GET
 
 #### Request Query
 
-|Query Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|p_cookie_peer<br>|Cookie Authentication Value<br>|The cookie authentication value returned from the server during authentication<br>|No<br>|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used<br>|
-|schema<br>|App cell URL<br>|URL format<br>|No<br>|Number of digits: 1-1024<br>Follow URI format<br>|
+|p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
+|schema|App cell URL|URL format|No|Number of digits: 1-1024<br>Follow URI format|
 
 #### Request Header
 
-|Header Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|X-HTTP-Method-Override<br>|Method override function<br>|User-defined<br>|No<br>|If you specify this value when requesting with the POST method, the specified value will be used as a method.<br>|
-|X-Override<br>|Header override function<br>|${OverwrittenHeaderName}:${Value} override} $: $ {value}<br>|No<br>|Overwrite normal HTTP header value. To overwrite multiple headers, specify multiple X-Override headers.<br>|
-|X-Personium-RequestKey<br>|RequestKey field value output in the event log<br>|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters<br>|No<br>|Supported in V 1.1.7 and later<br>|
-|Authorization<br>|Specifies authentication information in the OAuth 2.0 format<br>|Bearer {AccessToken}<br>|No<br>|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API<br>|
+|X-HTTP-Method-Override|Method override function|User-defined|No|If you specify this value when requesting with the POST method, the specified value will be used as a method.|
+|X-Override|Header override function|${OverwrittenHeaderName}:${Value} override} $: $ {value}|No|Overwrite normal HTTP header value. To overwrite multiple headers, specify multiple X-Override headers.|
+|X-Personium-RequestKey|RequestKey field value output in the event log|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters|No|Supported in V 1.1.7 and later|
+|Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
 
 #### Request Body
 
@@ -56,21 +55,20 @@ None
 
 None
 
-<br>
 
 ### Response
 
 #### Response Code
 
-|Code<br>|Message<br>|Overview<br>|
+|Code|Message|Overview|
 |:--|:--|:--|
-|200<br>|FOUND<br>|Acquisition success<br>|
+|200|FOUND|Acquisition success|
 
 #### Response Header
 
-|Header Name<br>|Overview<br>|Notes<br>|
+|Header Name|Overview|Notes|
 |:--|:--|:--|
-|Location<br>|URL for Box metadata acquisition API<br>|Depending on the request specification method, the following values are obtained<br>Specify schema query<br>chema Box URL corresponding to the app cell URL specified in the query<br>Specify only Authorization header without schema query<br>Box URL corresponding to the schema URL included in the token<br>|
+|Location|URL for Box metadata acquisition API|Depending on the request specification method, the following values are obtained<br>Specify schema query<br>chema Box URL corresponding to the app cell URL specified in the query<br>Specify only Authorization header without schema query<br>Box URL corresponding to the schema URL included in the token|
 
 Location sample
 
@@ -92,7 +90,6 @@ Refer to [Error Message List](004_Error_Messages.html)
 Location:https://{UnitFQDN}/{CellName}/{BoxName}
 ```
 
-<br>
 
 ### cURL Command
 
@@ -108,6 +105,5 @@ curl "https://{UnitFQDN}/{CellName}/__box" -X GET -i -H 'Authorization: Bearer {
 curl "https://{UnitFQDN}/{CellName}/__box?schema=https://{UnitFQDN}/{CellName}/" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 
-<br><br><br><br><br>
 
 ###### Copyright 2017 FUJITSU LIMITED

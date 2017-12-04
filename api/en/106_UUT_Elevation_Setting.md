@@ -20,9 +20,9 @@ Unpublished
 /{CellName}
 ```
 
-|Path<br>|Overview<br>|
+|Path|Overview|
 |:--|:--|
-|{CellName}<br>|Cell Name<br>|
+|{CellName}|Cell Name|
 
 #### Request Method
 
@@ -34,39 +34,39 @@ None
 
 #### Request Header
 
-|Header Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|X-HTTP-Method-Override<br>|Method override function<br>|User-defined<br>|No<br>|If you specify this value when requesting with the POST method, the specified value will be used as a method.<br>|
-|X-Override<br>|Header override function<br>|${OverwrittenHeaderName}:${Value}<br>|No<br>|Overwrite normal HTTP header value. To overwrite multiple headers, specify multiple X-Override headers.<br>|
-|Authorization<br>|Specifies authentication information in the OAuth 2.0 format<br>|Bearer {AccessToken}<br>|No<br>|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API<br>|
-|Content-Type<br>|Specify content format<br>|application / xml<br>|No<br>|<br>|
-|Accept<br>|Specify acceptable media types in response<br>|application / xml<br>|No<br>|<br>|
+|X-HTTP-Method-Override|Method override function|User-defined|No|If you specify this value when requesting with the POST method, the specified value will be used as a method.|
+|X-Override|Header override function|${OverwrittenHeaderName}:${Value}|No|Overwrite normal HTTP header value. To overwrite multiple headers, specify multiple X-Override headers.|
+|Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
+|Content-Type|Specify content format|application / xml|No||
+|Accept|Specify acceptable media types in response|application / xml|No||
 
 #### Request Body
 
-|Item Name<br>|Namespace<br>|Overview<br>|Required<br>|Effective Value<br>|Notes<br>|
+|Item Name|Namespace|Overview|Required|Effective Value|Notes|
 |:--|:--|:--|:--|:--|:--|
-|DAV:<br>|<br>|XML namespace setting<br>|Yes<br>|"DAV:"<br>|<br>|
-|urn: x-personium: xmlns<br>|<br>|XML namespace setting<br>|Yes<br>|"Urn: x-personium: xmlns"<br>|<br>|
-|http://www.w3.com/standards/z39.50/<br>|<br>|XML namespace setting<br>|Yes<br>|"http://www.w3.com/standards/z39.50/"<br>|<br>|
-|propertyupdate<br>|DAV:<br>|propertyupdate (Access Control List) root<br>|Yes<br>||<br>|
-|set<br>|DAV:<br>|set property<br>|No<br>|<! ELEMENT set (prop *)><br>|<br>|
-|remove<br>|DAV:<br>|remove property<br>|No<br>|<! ELEMENT set (prop *)><br>|<br>|
-|prop<br>|DAV:<br>|remove property value<br>|No<br>|<! ELEMENT prop ANY><br>|Delete using the XML tag specified as ANY as a key<br>|
-|prop<br>|DAV:<br>|set property value<br>|No<br>|<! ELEMENT prop ANY><br>|The XML tag specified as ANY is the key<br>|
-|ownerRepresentativeAccounts<br>|<br>|Upgrade setting<br>|Yes<br>|<! ELEMENT ownerRepresentativeAccounts (account *)><br>|<br>|
-|account<br>|<br>|Account setting for upgrade<br>|Yes<br>|<! ELEMENT account ANY><br>|Specify an account name that allows upgrade as a value<br>|
+|DAV:||XML namespace setting|Yes|"DAV:"||
+|urn: x-personium: xmlns||XML namespace setting|Yes|"Urn: x-personium: xmlns"||
+|http://www.w3.com/standards/z39.50/||XML namespace setting|Yes|"http://www.w3.com/standards/z39.50/"||
+|propertyupdate|DAV:|propertyupdate (Access Control List) root|Yes|||
+|set|DAV:|set property|No|<! ELEMENT set (prop *)>||
+|remove|DAV:|remove property|No|<! ELEMENT set (prop *)>||
+|prop|DAV:|remove property value|No|<! ELEMENT prop ANY>|Delete using the XML tag specified as ANY as a key|
+|prop|DAV:|set property value|No|<! ELEMENT prop ANY>|The XML tag specified as ANY is the key|
+|ownerRepresentativeAccounts||Upgrade setting|Yes|<! ELEMENT ownerRepresentativeAccounts (account *)>||
+|account||Account setting for upgrade|Yes|<! ELEMENT account ANY>|Specify an account name that allows upgrade as a value|
 
 #### Structure of XML
 
 ##### The body is XML and follows the following schema.
 
-|Node name<br>|Namespace<br>|Node type<br>|Overview<br>|Notes<br>|
+|Node name|Namespace|Node type|Overview|Notes|
 |:--|:--|:--|:--|:--|
-|propertyupdate<br>|D:<br>|Element<br>|It represents the root of propertyupdate, and set and remove are children <br>|<br>|
-|set<br>|D:<br>|Element<br>|Represents a property setting, and one or more props are children <br>|<br>|
-|remove<br>|D:<br>|Element<br>|Represents a property deletion setting, and one or more props are children<br>|<br>|
-|prop<br>|D:<br>|Element<br>|Represents a property value, and one or more arbitrary elements are children<br>|When set: Child node name is key<br>When remove: Delete with child node name as key<br>|
+|propertyupdate|D:|Element|It represents the root of propertyupdate, and set and remove are children||
+|set|D:|Element|Represents a property setting, and one or more props are children||
+|remove|D:|Element|Represents a property deletion setting, and one or more props are children||
+|prop|D:|Element|Represents a property value, and one or more arbitrary elements are children|When set: Child node name is key<br>When remove: Delete with child node name as key|
 
 #### DTD notation
 
@@ -81,10 +81,10 @@ None
 
 ##### The body is XML and follows the following schema.
 
-|Node name<br>|Namespace<br>|Node type<br>|Overview<br>|Notes<br>|
+|Node name|Namespace|Node type|Overview|Notes|
 |:--|:--|:--|:--|:--|
-|ownerRepresentativeAccounts <br>|p:<br>|Element<br>|Represents an elevation setting list, one or more account elements are children<br>|<br>|
-|account <br>|p:<br>|Element<br>|Describe account setting for promotion and describe account name to be promoted <br>|<br>|
+|ownerRepresentativeAccounts|p:|Element|Represents an elevation setting list, one or more account elements are children||
+|account|p:|Element|Describe account setting for promotion and describe account name to be promoted||
 
 #### DTD notation
 
@@ -105,15 +105,14 @@ None
 </D:propertyupdate>
 ```
 
-<br>
 
 ### Response
 
 #### Response Code
 
-|Code<br>|Message<br>|Overview<br>|
+|Code|Message|Overview|
 |:--|:--|:--|
-|207<br>|MULTI_STATUS<br>|Success<br>|
+|207|MULTI_STATUS|Success|
 
 #### Response Header
 
@@ -123,22 +122,22 @@ Unpublished
 
 Namespace
 
-|URI<br>|Overview<br>|Notes (prefix)<br>|
+|URI|Overview|Notes (prefix)|
 |:--|:--|:--|
-|multistatus<br>|WebDAV Namespace<br>|D:<br>|
+|multistatus|WebDAV Namespace|D:|
 
 #### Structure of XML
 
 ##### The body is XML and follows the following schema.
 
-|Node name<br>|Namespace<br>|Node type<br>|Overview<br>|Notes<br>|
+|Node name|Namespace|Node type|Overview|Notes|
 |:--|:--|:--|:--|:--|
-|multistatus <br>|D:<br>|Element<br>|Represents the route of multistatus and one or more responses are children<br>|<br>|
-|response <br>|D:<br>|Element<br>|Represents the contents of multistatus, and href and propstat are children<br>|<br>|
-|href<br>|D:<br>|Element<br>|URL of the resource that executed PROPPATCH<br>|<br>|
-|propstat <br>|D:<br>|Element<br>|Represents property setting result, prop and status are children<br>|<br>|
-|prop<br>|D:<br>|Element<br>|Represents property setting contents<br>|Display the result of resource setting as follows Setting Successful: Set key and value Deleted Successful: Deleted key<br>|
-|status<br>|D:<br>|Element<br>|Property setting status code<br>|In the case of setting success 200 (OK) is returned<br>|
+|multistatus|D:|Element|Represents the route of multistatus and one or more responses are children||
+|response|D:|Element|Represents the contents of multistatus, and href and propstat are children||
+|href|D:|Element|URL of the resource that executed PROPPATCH||
+|propstat|D:|Element|Represents property setting result, prop and status are children||
+|prop|D:|Element|Represents property setting contents|Display the result of resource setting as follows Setting Successful: Set key and value Deleted Successful: Deleted key|
+|status|D:|Element|Property setting status code|In the case of setting success 200 (OK) is returned|
 
 #### DTD notation
 
@@ -182,6 +181,5 @@ curl "https://{UnitFQDN}/cell -X PROPPATCH" -H 'Authorization: Bearer {AccessTok
 <D:set><D:prop><p:requireSchemaAuthz>confidential</p:requireSchemaAuthz></D:prop></D:set></D:propertyupdate>'
 ```
 
-<br><br><br><br><br>
 
 ###### Copyright 2017 FUJITSU LIMITED

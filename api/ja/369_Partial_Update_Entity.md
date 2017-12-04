@@ -15,68 +15,68 @@ write
       - リクエストボディでの設定時とDefaultValueでの設定時（\__published、\__updatedは後者のタイミング）
 	- 1つのEntityTypeに対して作成出来るのは、DynamicProperty・DeclaredProperty・ComplexTypeProperty合わせて400個まで
 
-<br>
+
 ### リクエスト
 #### リクエストURL
 ```
 /{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}({EntityID})}
 ```
-|パス<br>|概要<br>|
+|パス|概要|
 |:--|:--|
-|{CellName}<br>|セル名<br>|
-|{BoxName}<br>|ボックス名<br>|
-|{ODataCollecitonName}<br>|コレクション名<br>|
-|{EntityTypeName}<br>|EntityType名<br>|
-|{EntityID}<br>|更新するEntityのID<br>|
+|{CellName}|セル名|
+|{BoxName}|ボックス名|
+|{ODataCollecitonName}|コレクション名|
+|{EntityTypeName}|EntityType名|
+|{EntityID}|更新するEntityのID|
 #### メソッド
 MERGE
 #### リクエストクエリ
 ##### 共通リクエストクエリ
-|クエリ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
+|クエリ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|p_cookie_peer<br>|クッキー認証値<br>|認証時にサーバから返却されたクッキー認証値<br>|×<br>|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br>|
+|p_cookie_peer|クッキー認証値|認証時にサーバから返却されたクッキー認証値|×|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する|
 #### リクエストヘッダ
 ##### 共通リクエストヘッダ
-|ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
+|ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|X-Personium-Version<br>|APIの実行バージョン<br>|有効なバージョン<br>|×<br>|指定がない場合、最新のAPIバージョンが指定される<br>|
-|X-HTTP-Method-Override<br>|メソッドオーバーライド機能<br>|任意<br>|×<br>|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用される<br>|
-|X-Override<br>|ヘッダオーバライド機能<br>|${上書きするヘッダ名}:${値}<br>|×<br>|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定する<br>|
-|X-Personium-RequestKey<br>|イベントログに出力するRequestKeyフィールドの値<br>|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字<br>|×<br>|指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応<br>|
+|X-Personium-Version|APIの実行バージョン|有効なバージョン|×|指定がない場合、最新のAPIバージョンが指定される|
+|X-HTTP-Method-Override|メソッドオーバーライド機能|任意|×|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用される|
+|X-Override|ヘッダオーバライド機能|${上書きするヘッダ名}:${値}|×|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定する|
+|X-Personium-RequestKey|イベントログに出力するRequestKeyフィールドの値|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字|×|指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応|
 ##### OData共通リクエストヘッダ
-|ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
+|ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {AccessToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
 ##### OData更新リクエストヘッダ
-|ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
+|ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|Contents-Type<br>|OAuth2.0形式で、認証情報を指定する<br>|application/json<br>|×<br>|省略時は[application/json]として扱う  <br>|
-|Accept<br>|レスポンスボディの形式を指定する<br>|application/json<br>|×<br>|省略時は[application/json]として扱う  <br>|
-|If-Match<br>|対象ETag値を指定する<br>|ETag値<br>|×<br>|省略時は[*]として扱う<br>|
+|Contents-Type|OAuth2.0形式で、認証情報を指定する|application/json|×|省略時は[application/json]として扱う|
+|Accept|レスポンスボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
+|If-Match|対象ETag値を指定する|ETag値|×|省略時は[*]として扱う|
 #### リクエストボディ
 ##### プロパティ
 スキーマ定義済みのプロパティと動的（スキーマ未定義）プロパティ、合わせて最大で400個のプロパティを設定可能  
 上記にはComplexTypeで定義されているプロパティ数を含む
 
 ##### スキーマ定義済みのプロパティ
-|項目名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
+|項目名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|EntityTypeに紐づくProperty<br>|ユーザ定義項目<br>|デフォルト値 PropertyのDefaultValueに基づく<br>|PropertyのNullableに基づく<br>|<br>|
+|EntityTypeに紐づくProperty|ユーザ定義項目|デフォルト値 PropertyのDefaultValueに基づく|PropertyのNullableに基づく||
 <!--##### スキーマ定義済みプロパティのvalueの有効値-->
 ##### 動的（スキーマ未定義）プロパティ
-|データ型<br>|有効値<br>|
+|データ型|有効値|
 |:--|:--|
-|文字列<br>|桁数：0&#65374;51200 byte<br>文字種: 文字列の値に制御コードを使用した場合、取得時にエスケープした状態で返却する<br>「\」を使用する場合、「\\\」で指定する必要がある<br>文字列型のプロパティに整数値、小数値、真偽値、日付型の値を設定した場合、文字列型に変換して登録される<br>|
-|整数値<br>|-2147483648 &#65374; 2147483647<br>|
-|小数値<br>|整数部分の桁数：1&#65374;5桁<br>小数部分の桁数：1&#65374;5桁<br>|
-|真偽値<br>|true / false / null(nullを指定した場合はfalseとして扱う)<br>|
-|日付<br>|/Date(【long型の時刻】)/の形式で文字列で指定する<br>【long型の時刻】の有効値は、-6847804800000(1753-01-01T00:00:00.000Z)&#65374;253402300799999(9999-12-31T23:59:59.999Z)<br>また、予約語として以下を指定可能<br>SYSUTCDATETIME()：サーバ時間<br>|
+|文字列|桁数：0&#65374;51200 byte<br>文字種: 文字列の値に制御コードを使用した場合、取得時にエスケープした状態で返却する<br>「\」を使用する場合、「\\\」で指定する必要がある<br>文字列型のプロパティに整数値、小数値、真偽値、日付型の値を設定した場合、文字列型に変換して登録される|
+|整数値|-2147483648 &#65374; 2147483647|
+|小数値|整数部分の桁数：1&#65374;5桁<br>小数部分の桁数：1&#65374;5桁|
+|真偽値|true / false / null(nullを指定した場合はfalseとして扱う)|
+|日付|/Date(【long型の時刻】)/の形式で文字列で指定する<br>【long型の時刻】の有効値は、-6847804800000(1753-01-01T00:00:00.000Z)&#65374;253402300799999(9999-12-31T23:59:59.999Z)<br>また、予約語として以下を指定可能<br>SYSUTCDATETIME()：サーバ時間|
 スキーマ定義を行わなくても動的にプロパティを設定することが可能  
 登録可能なデータ型は「文字列」「数値」「真偽値」「null」のみ設定可能
 ##### 動的プロパティのkeyの有効値
-|データ型<br>|有効値<br>|
+|データ型|有効値|
 |:--|:--|
-|文字列<br>|桁数：1&#65374;128 :<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>_ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)は指定不可  <br>_published、_updatedは、予約語であるためリクエストボディの指定は不可<br>|
+|文字列|桁数：1&#65374;128 :<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>_ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)は指定不可  <br>_published、_updatedは、予約語であるためリクエストボディの指定は不可|
 ##### 動的プロパティのvalueの有効値
 スキーマ定義済みプロパティのvalueの有効値と同様  
 配列、連想配列は指定不可
@@ -91,16 +91,16 @@ MERGE
 #### リクエストサンプル
 なし
 
-<br>
+
 ### レスポンス
 #### ステータスコード
 204
 #### レスポンスヘッダ
 ##### ODataレスポンスヘッダ
-|ヘッダ名<br>|概要<br>|備考<br>|
+|ヘッダ名|概要|備考|
 |:--|:--|:--|
-|ETag<br>|リソースのバージョン情報<br>| <br>|
-|DataServiceVersion<br>|ODataのバージョン<br>| <br>|
+|ETag|リソースのバージョン情報||
+|DataServiceVersion|ODataのバージョン||
 #### レスポンスボディ
 なし
 #### エラーメッセージ一覧
@@ -109,13 +109,11 @@ MERGE
 #### レスポンスサンプル
 なし
 
-<br>
+
 ### cURLサンプル
 
 ```sh
 curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')" -X MERGE -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"name": "episode","outcome": "治療後"}'
 ```
-<br>
-<br>
-<br>
-###### Copyright 2017    FUJITSU LIMITED
+
+###### Copyright 2017 FUJITSU LIMITED

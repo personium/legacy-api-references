@@ -19,7 +19,6 @@ Perform a batch operation such as list acquisition, single acquisition, registra
     * "GET" via NavigationProperty is not supported
     * $links "PUT" "GET" "DELETE" is not supported (returns 501)
 
-<br>
 
 ### Request
 
@@ -29,11 +28,11 @@ Perform a batch operation such as list acquisition, single acquisition, registra
 /{CellName}/{BoxName}/{ODataCollecitonName}/$batch
 ```
 
-|Path<br>|Overview<br>|
+|Path|Overview|
 |:--|:--|
-|{CellName}<br>|Cell Name<br>|
-|{BoxName}<br>|Box Name<br>|
-|{ODataCollecitonName}<br>|Collection Name<br>|
+|{CellName}|Cell Name|
+|{BoxName}|Box Name|
+|{ODataCollecitonName}|Collection Name|
 
 #### Request Method
 
@@ -41,16 +40,16 @@ POST
 
 #### Request Query
 
-|Query Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|p_cookie_peer<br>|Cookie Authentication Value<br>|The cookie authentication value returned from the server during authentication<br>|No<br>|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used<br>|
+|p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
 #### Request Header
 
-|Header Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|Specifies authentication information in the OAuth 2.0 format<br>|Bearer {AccessToken}<br>|No<br>|*The authentication token is a token acquired by the authentication token acquisition API Not tested<br>|
-|Content-Type<br>|Specifies the request body format<br>|multipart / mixed; boundary = {Boundary}<br>|Yes<br>|When omitted, treat it as [multipart/mixed]  Characters that can be used for {Boundary}: alphabetic lower case '()+_,-./:=?<br>Not compatible<br>|
+|Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|*The authentication token is a token acquired by the authentication token acquisition API Not tested|
+|Content-Type|Specifies the request body format|multipart / mixed; boundary = {Boundary}|Yes|When omitted, treat it as [multipart/mixed]  Characters that can be used for {Boundary}: alphabetic lower case '()+_,-./:=?<br>Not compatible|
 
 #### Request Body
 
@@ -244,7 +243,6 @@ If-Match: *
 --batch_31e84e14-28b9-4741-903f-b955f2a1b853--
 ```
 
-<br>
 
 ### Response
 
@@ -254,10 +252,10 @@ If-Match: *
 
 #### Response Header
 
-|Header Name<br>|Overview<br>|Notes<br>|
+|Header Name|Overview|Notes|
 |:--|:--|:--|
-|Content-Type<br>|Format of data to be returned<br>|When $ batch processing succeeded normally: multipart/mixed; boundary={Boundary}<br>|
-|DataServiceVersion<br>|OData version information<br>|Return only when Entity can be created successfully<br>|
+|Content-Type|Format of data to be returned|When $ batch processing succeeded normally: multipart/mixed; boundary={Boundary}|
+|DataServiceVersion|OData version information|Return only when Entity can be created successfully|
 
 #### Response Body
 
@@ -395,7 +393,6 @@ DataServiceVersion: 2.0
 --batch_AI6AVj7wPaHhKrBkYqBmA78weSj3u848CuX--
 ```
 
-<br>
 
 ### cURL Command
 
@@ -432,6 +429,5 @@ Content-Length: 41
 --batch_XAmu9BiJJLBa20sRWIq74jp2UlNAVueztqu--
 ```
 
-<br><br><br><br><br>
 
 ###### Copyright 2017 FUJITSU LIMITED

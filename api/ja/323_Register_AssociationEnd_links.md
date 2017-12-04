@@ -8,7 +8,7 @@ alter-schema
 ### 制限事項
 なし
 
-<br>
+
 ### リクエスト
 #### リクエストURL
 ```
@@ -22,28 +22,28 @@ POST
 
 #### リクエストヘッダ
 
-|ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
+|ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {AccessToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
-|Accept<br>|レスポンスボディの形式を指定する<br>|application/json<br>|×<br>|省略時は[application/json]として扱う<br>|
+|Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
+|Accept|レスポンスボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
 
 #### リクエストボディ
 
-|項目名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
+|項目名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|uri<br>|linkするAssociationEndのuri<br>|存在するAssociationEnd<br>|○<br>| <br>|
+|uri|linkするAssociationEndのuri|存在するAssociationEnd|○||
 #### リクエストサンプル
 ```JSON
 {"uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')"}
 ```
-<br>
+
 ### レスポンス
 #### ステータスコード
 204
 #### レスポンスヘッダ
-|項目名<br>|概要<br>|備考<br>|
+|項目名|概要|備考|
 |:--|:--|:--|
-|DataServiceVersion<br>|ODataProtocolのバージョン情報<br>|正常にAssociationEndが作成できた場合のみ返却する<br>|
+|DataServiceVersion|ODataProtocolのバージョン情報|正常にAssociationEndが作成できた場合のみ返却する|
 #### レスポンスボディ
 特になし
 
@@ -53,12 +53,10 @@ POST
 #### レスポンスサンプル
 なし
 
-<br>
+
 ### cURLサンプル
 ```sh
 curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')/\$links/_AssociationEnd" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -H 'Accept:application/json' -d "{\"uri\": \"https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')\"}"
 ```
-<br>
-<br>
-<br>
-###### Copyright 2017    FUJITSU LIMITED
+
+###### Copyright 2017 FUJITSU LIMITED

@@ -14,28 +14,28 @@ ODataEntityに対して、一覧取得や一件取得、登録、更新、削除
 	- NavigationProperty経由の「GET」は、未対応
 	- $linksの「PUT」「GET」「DELETE」は、未対応(501を返却)
 
-<br>
+
 ### リクエスト
 #### リクエストURL
 ```
 /{CellName}/{BoxName}/{ODataCollecitonName}/$batch
 ```
-|パス<br>|概要<br>|
+|パス|概要|
 |:--|:--|
-|{CellName}<br>|セル名<br>|
-|{BoxName}<br>|ボックス名<br>|
-|{ODataCollecitonName}<br>|コレクション名<br>|
+|{CellName}|セル名|
+|{BoxName}|ボックス名|
+|{ODataCollecitonName}|コレクション名|
 #### メソッド
 POST
 #### リクエストクエリ
-|クエリ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
+|クエリ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|p_cookie_peer<br>|クッキー認証値<br>|認証時にサーバから返却されたクッキー認証値<br>|×<br>|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br>|
+|p_cookie_peer|クッキー認証値|認証時にサーバから返却されたクッキー認証値|×|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する|
 #### リクエストヘッダ
-|ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
+|ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {AccessToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン テスト未実施<br>|
-|Content-Type<br>|リクエストボディの形式を指定する<br>|multipart / mixed; boundary = {Boundary}<br>|○<br>|省略時は[multipart/mixed]として扱う 　{Boundary}に使用可能な文字種：半角英数大小文字 '()+_,-./:=?<br>未対応<br>|
+|Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン テスト未実施|
+|Content-Type|リクエストボディの形式を指定する|multipart / mixed; boundary = {Boundary}|○|省略時は[multipart/mixed]として扱う 　{Boundary}に使用可能な文字種：半角英数大小文字 '()+_,-./:=?<br>未対応|
 #### リクエストボディ
 バッチ処理内容をMIMEのマルチパートデータ形式でリクエストボディに指定する
 バッチ処理の最大処理件数は、1000件まで可能  
@@ -213,15 +213,15 @@ If-Match: *
 --batch_31e84e14-28b9-4741-903f-b955f2a1b853--
 ```
 
-<br>
+
 ### レスポンス
 #### ステータスコード
 202
 #### レスポンスヘッダ
-|ヘッダ名<br>|概要<br>|備考<br>|
+|ヘッダ名|概要|備考|
 |:--|:--|:--|
-|Content-Type<br>|返却されるデータの形式<br>|正常に$batch処理ができた場合：multipart/mixed; boundary={Boundary}<br>|
-|DataServiceVersion<br>|ODataのバージョン情報<br>|正常にEntityが作成できた場合のみ返却する<br>|
+|Content-Type|返却されるデータの形式|正常に$batch処理ができた場合：multipart/mixed; boundary={Boundary}|
+|DataServiceVersion|ODataのバージョン情報|正常にEntityが作成できた場合のみ返却する|
 #### レスポンスボディ
 レスポンスサンプル参照
 
@@ -354,7 +354,7 @@ DataServiceVersion: 2.0
 --batch_AI6AVj7wPaHhKrBkYqBmA78weSj3u848CuX--
 ```
 
-<br>
+
 ### cURLサンプル
 
 curlコマンド
@@ -386,7 +386,5 @@ Content-Length: 41
 --changeset_76c10b01-3eaf-49c2-bdd7-9fe90df24159--
 --batch_XAmu9BiJJLBa20sRWIq74jp2UlNAVueztqu--
 ```
-<br>
-<br>
-<br>
-###### Copyright 2017    FUJITSU LIMITED
+
+###### Copyright 2017 FUJITSU LIMITED

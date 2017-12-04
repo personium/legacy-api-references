@@ -55,25 +55,24 @@ box-install
 
 ##### \*1 Box installation log detailed format
 
-|State<br>|"action"<br>|"object"<br>|"result"<br>|
+|State|"action"|"object"|"result"|
 |:--|:--|:--|:--|
-|Box installation reception<br>|"MKCOL"<br>|BoxURL<br>|Response Code|
-|Box installation process in progress<br>|Processing code<br>|Entry path in bar file<br>|A message corresponding to the processing code|
-|Box Installation Complete<br>|Processing code<br>|BoxURL<br>|A message corresponding to the processing code|
+|Box installation reception|"MKCOL"|BoxURL|Response Code|
+|Box installation process in progress|Processing code|Entry path in bar file|A message corresponding to the processing code|
+|Box Installation Complete|Processing code|BoxURL|A message corresponding to the processing code|
 
 ##### Processing code
 
-|Processing code<br>|Message<br>|Description<br>|
+|Processing code|Message|Description|
 |:--|:--|:--|
-|PL-BI-0000<br>|bar install completed<br>|Box installation complete (normal termination)<br>|
-|PL-BI-0001<br>|bar install failed ({cause})<br>|Box installation complete (abnormal termination)<br>|
-|PL-BI-1000<br>|bar install started<br>|Box installation start<br>|
-|PL-BI-1001<br>|install started<br>|Bar file entry start installation<br>|
-|PL-BI-1003<br>|install completed<br>|Bar file entry installation completed (normal termination)<br>|
-|PL-BI-1004<br>|install failed ({cause})<br>|Bar file entry installation completed (abnormal termination)<br>|
-|PL-BI-1005<br>|Unknown Error ({cause})<br>|Internal error<br>|
+|PL-BI-0000|bar install completed|Box installation complete (normal termination)|
+|PL-BI-0001|bar install failed ({cause})|Box installation complete (abnormal termination)|
+|PL-BI-1000|bar install started|Box installation start|
+|PL-BI-1001|install started|Bar file entry start installation|
+|PL-BI-1003|install completed|Bar file entry installation completed (normal termination)|
+|PL-BI-1004|install failed ({cause})|Bar file entry installation completed (abnormal termination)|
+|PL-BI-1005|Unknown Error ({cause})|Internal error|
 
-<br>
 
 ### Request
 
@@ -89,26 +88,26 @@ MKCOL
 
 #### Request Query
 
-|Query Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|p_cookie_peer<br>|Cookie Authentication Value<br>|The cookie authentication value returned from the server during authentication<br>|No<br>|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used<br>|
+|p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
 #### Request Header
 
-|Header Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|X-HTTP-Method-Override<br>|Method override function<br>|User-defined<br>|No<br>|If you specify this value when requesting with the POST method, the specified value will be used as a method.<br>|
-|X-Override<br>|Header override function<br>|${OverwrittenHeaderName}:${Value} override} $: $ {value}<br>|No<br>|Overwrite normal HTTP header value. To overwrite multiple headers, specify multiple X-Override headers.<br>|
-|X-Personium-RequestKey<br>|RequestKey field value output in the event log<br>|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters<br>|No<br>|Supported in V 1.1.7 and later<br>|
-|Authorization<br>|Specifies authentication information in the OAuth 2.0 format<br>|Bearer {AccessToken}<br>|No<br>|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API<br>|
-|Content-Type<br>|Specifies the request body format<br>|application/zip<br>|Yes<br>|<br>|
-|Content-Length<br>|Specify the size of the request body<br>|Half-width number<br>|No<br>|<br>|
+|X-HTTP-Method-Override|Method override function|User-defined|No|If you specify this value when requesting with the POST method, the specified value will be used as a method.|
+|X-Override|Header override function|${OverwrittenHeaderName}:${Value} override} $: $ {value}|No|Overwrite normal HTTP header value. To overwrite multiple headers, specify multiple X-Override headers.|
+|X-Personium-RequestKey|RequestKey field value output in the event log|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters|No|Supported in V 1.1.7 and later|
+|Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
+|Content-Type|Specifies the request body format|application/zip|Yes||
+|Content-Length|Specify the size of the request body|Half-width number|No||
 
 #### Request Body
 
-|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|
-|Specify the bar file to install as binary in the request body<br>|Format specified in the Content-Type header<br>|Yes<br>|bar file: Zip file format<br>|
+|Specify the bar file to install as binary in the request body|Format specified in the Content-Type header|Yes|bar file: Zip file format|
 
 For the file structure of the bar file, see the [ bar file ](301_Bar_File.html).
 
@@ -116,23 +115,22 @@ For the file structure of the bar file, see the [ bar file ](301_Bar_File.html).
 
 None
 
-<br>
 
 ### Response
 
 #### Response Code
 
-|Code<br>|Message<br>|Overview<br>|Notes<br>|
+|Code|Message|Overview|Notes|
 |:--|:--|:--|:--|
-|202<br>|Accepted<br>|Process acceptance success<br>|<br>|
+|202|Accepted|Process acceptance success||
 
 #### Response Header
 
-|Header Name<br>|Overview<br>|Notes<br>|
+|Header Name|Overview|Notes|
 |:--|:--|:--|
-|Location<br>|URL for Box metadata acquisition API<br>|<br>|
-|Access-Control-Allow-Origin<br>|Cross domain communication permission header<br>|Return value fixed to "*"<br>|
-|X-Personium-Version<br>|API version that the request is processed<br>|Version of the API used to process the request<br>|
+|Location|URL for Box metadata acquisition API||
+|Access-Control-Allow-Origin|Cross domain communication permission header|Return value fixed to "*"|
+|X-Personium-Version|API version that the request is processed|Version of the API used to process the request|
 
 Location sample
 
@@ -156,7 +154,7 @@ Refer to [Error Message List](004_Error_Messages.html)
 Location: https://{UnitFQDN}/{CellName}/{BoxName}
 ```
 
-For details of URL for [Box metadata acquisition API](303_Progress_of_Bar_File_Installation.html), see Box metadata acquisition.<br><br>
+For details of URL for [Box metadata acquisition API](303_Progress_of_Bar_File_Installation.html), see Box metadata acquisition.<br>
 
 ### cURL Command
 
@@ -164,6 +162,5 @@ For details of URL for [Box metadata acquisition API](303_Progress_of_Bar_File_I
 curl "https://{UnitFQDN}/{CellName}/{BoxName}" -X MKCOL -i -H 'Content-type: application/zip' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' --data-binary @{FileName}
 ```
 
-<br><br><br><br><br>
 
 ###### Copyright 2017 FUJITSU LIMITED

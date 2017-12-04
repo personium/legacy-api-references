@@ -23,7 +23,7 @@
 ### 制限事項
 なし
 
-<br>
+
 ### リクエスト
 #### リクエストURL
 ```
@@ -34,28 +34,28 @@ POST
 
 #### リクエストクエリ
 
-|クエリ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
+|クエリ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|p_cookie_peer<br>|クッキー認証値<br>|認証時にサーバから返却されたクッキー認証値<br>|×<br>|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br>|
+|p_cookie_peer|クッキー認証値|認証時にサーバから返却されたクッキー認証値|×|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する|
 #### リクエストヘッダ
 
-|項目名<br>|概要<br>|書式<br>|必須<br>|有効値<br>|
+|項目名|概要|書式|必須|有効値|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Basic {String}<br>|×<br>|{{スキーマ認証元のアプリセルURL}:{スキーマ認証元から払い出されたトークン}}をBase64Encodeした値を指定した場合、スキーマ認証になる<br>上記設定時、リクエストボディにclient_idとclient_secretの設定がある場合、Authorizationヘッダの設定が優先される<br>|
+|Authorization|OAuth2.0形式で、認証情報を指定する|Basic {String}|×|{{スキーマ認証元のアプリセルURL}:{スキーマ認証元から払い出されたトークン}}をBase64Encodeした値を指定した場合、スキーマ認証になる<br>上記設定時、リクエストボディにclient_idとclient_secretの設定がある場合、Authorizationヘッダの設定が優先される|
 #### リクエストボディ
 ##### パスワード認証
 
-|項目名<br>|概要<br>|書式<br>|必須<br>|有効値<br>|
+|項目名|概要|書式|必須|有効値|
 |:--|:--|:--|:--|:--|
-|grant_type<br>|認証タイプ<br>|String<br>|○<br>|password<br>urn:x-personium:oidc:google<br>|
-|username<br>|ユーザ名<br>|String<br>|○(grant_type=passwordの場合)<br>|登録済のユーザ名<br>|
-|password<br>|パスワード<br>|String<br>|○(grant_type=passwordの場合)<br>|登録済のパスワード<br>|
-|id_token<br>|トークンID<br>|JSON Web Token<br>|○(grant_type=urn:x-personium:oidc:googleの場合)<br>|JWT Formed ID Token<br>|
-|p_target<br>|トランスセルトークンターゲット<br>|String<br>|×<br>|払い出されるトークンを使う先（セルURL）<br>指定した場合トランスセルトークン認証になる<br>|
-|client_id<br>|アプリセルURL<br>|String<br>|×<br>|スキーマ認証元のアプリセルURL<br>client_secretとともに指定した場合スキーマ認証になる<br>同時にAuthorizationヘッダにもスキーマ認証設定がされている場合、Authorizationヘッダの設定が優先される<br>|
-|client_secret<br>|アプリセルから払い出されたトークン<br>|String<br>|×<br>|スキーマ認証元から払い出されたトークンを値に設定する<br>client_idとともに指定した場合スキーマ認証になる<br>同時にAuthorizationヘッダにもスキーマ認証設定がされている場合、Authorizationヘッダの設定が優先される<br>|
-|p_owner<br>|ULUUT昇格実行クエリ<br>|String<br>|×<br>|trueのみ有効<br>|
-|p_cookie<br>|認証クッキー発行オプション<br>指定された場合は認証クッキーを発行する<br>p_targetが指定された場合は、本パラメタの指定は無視する<br>|String<br>|×<br>|trueのみ有効<br>|
+|grant_type|認証タイプ|String|○|password<br>urn:x-personium:oidc:google|
+|username|ユーザ名|String|○(grant_type=passwordの場合)|登録済のユーザ名|
+|password|パスワード|String|○(grant_type=passwordの場合)|登録済のパスワード|
+|id_token|トークンID|JSON Web Token|○(grant_type=urn:x-personium:oidc:googleの場合)|JWT Formed ID Token|
+|p_target|トランスセルトークンターゲット|String|×|払い出されるトークンを使う先（セルURL）<br>指定した場合トランスセルトークン認証になる|
+|client_id|アプリセルURL|String|×|スキーマ認証元のアプリセルURL<br>client_secretとともに指定した場合スキーマ認証になる<br>同時にAuthorizationヘッダにもスキーマ認証設定がされている場合、Authorizationヘッダの設定が優先される|
+|client_secret|アプリセルから払い出されたトークン|String|×|スキーマ認証元から払い出されたトークンを値に設定する<br>client_idとともに指定した場合スキーマ認証になる<br>同時にAuthorizationヘッダにもスキーマ認証設定がされている場合、Authorizationヘッダの設定が優先される|
+|p_owner|ULUUT昇格実行クエリ|String|×|trueのみ有効|
+|p_cookie|認証クッキー発行オプション<br>指定された場合は認証クッキーを発行する<br>p_targetが指定された場合は、本パラメタの指定は無視する|String|×|trueのみ有効|
 #### リクエストサンプル
 パスワード認証
 ```
@@ -84,14 +84,14 @@ grant_type=urn:x-personium:oidc:google&id_token=IDTOKEN
 
 ##### トークン認証
 
-|項目名<br>|概要<br>|書式<br>|必須<br>|有効値<br>|
+|項目名|概要|書式|必須|有効値|
 |:--|:--|:--|:--|:--|
-|grant_type<br>|認証タイプ<br>|String<br>|○<br>|urn: ietf: params: oauth: grant-type: saml2-bearer<br>|
-|assertion<br>|アクセストークン<br>|String<br>|○<br>|有効なトークン<br>|
-|p_target<br>|トランスセルトークンターゲット<br>|String<br>|×<br>|払い出されるトークンを使う先（セルURL）<br>指定した場合トランスセルトークンになる<br>|
-|client_id<br>|アプリセルURL<br>|String<br>|×<br>|スキーマ認証元のアプリセルURL<br>client_secretとともに指定した場合スキーマ認証になる<br>同時にAuthorizationヘッダにもスキーマ認証設定がされている場合、Authorizationヘッダの設定が優先される<br>|
-|client_secret<br>|アプリセルから払い出されたトークン<br>|String<br>|×<br>|スキーマ認証元から払い出されたトークンを値に設定する<br>client_idとともに指定した場合スキーマ認証になる<br>同時にAuthorizationヘッダにもスキーマ認証設定がされている場合、Authorizationヘッダの設定が優先される<br>|
-|p_cookie<br>|認証クッキー発行オプション<br>指定された場合は認証クッキーを発行する<br>p_targetが指定された場合は、本パラメタの指定は無視する<br>|String<br>|×<br>|trueのみ有効<br>|
+|grant_type|認証タイプ|String|○|urn: ietf: params: oauth: grant-type: saml2-bearer|
+|assertion|アクセストークン|String|○|有効なトークン|
+|p_target|トランスセルトークンターゲット|String|×|払い出されるトークンを使う先（セルURL）<br>指定した場合トランスセルトークンになる|
+|client_id|アプリセルURL|String|×|スキーマ認証元のアプリセルURL<br>client_secretとともに指定した場合スキーマ認証になる<br>同時にAuthorizationヘッダにもスキーマ認証設定がされている場合、Authorizationヘッダの設定が優先される|
+|client_secret|アプリセルから払い出されたトークン|String|×|スキーマ認証元から払い出されたトークンを値に設定する<br>client_idとともに指定した場合スキーマ認証になる<br>同時にAuthorizationヘッダにもスキーマ認証設定がされている場合、Authorizationヘッダの設定が優先される|
+|p_cookie|認証クッキー発行オプション<br>指定された場合は認証クッキーを発行する<br>p_targetが指定された場合は、本パラメタの指定は無視する|String|×|trueのみ有効|
 
 ```
 grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&assertion={token}
@@ -99,41 +99,41 @@ grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&assertion={token}
 
 ##### リフレッシュトークン認証
 
-|項目名<br>|概要<br>|書式<br>|必須<br>|有効値<br>|
+|項目名|概要|書式|必須|有効値|
 |:--|:--|:--|:--|:--|
-|grant_type<br>|認証タイプ<br>|String<br>|○<br>|リフレッシュトークン<br>|
-|refresh_token<br>|リフレッシュトークン名<br>|String<br>|○<br>|有効リフレッシュトークン<br>|
-|p_target<br>|トランスセルトークンターゲット<br>|String<br>|×<br>|払い出されるトークンを使う先（セルURL） 指定した場合はトランスセルトークン認証になる<br>|
-|client_id<br>|アプリセルURL<br>|String<br>|×<br>|スキーマ認証元のアプリセルURL<br>client_secretとともに指定した場合スキーマ認証になる<br>同時にAuthorizationヘッダにもスキーマ認証設定がされている場合、Authorizationヘッダの設定が優先される<br>|
-|client_secret<br>|アプリセルから払い出されたトークン<br>|String<br>|×<br>|スキーマ認証元から払い出されたトークンを値に設定する<br>client_idとともに指定した場合スキーマ認証になる<br>同時にAuthorizationヘッダにもスキーマ認証設定がされている場合、Authorizationヘッダの設定が優先される<br>|
-|p_owner<br>|ULUUT昇格実行クエリ<br>|String<br>|×<br>|trueのみ有効<br>|
-|p_cookie<br>|認証クッキー発行オプション<br>指定された場合は認証クッキーを発行する<br>p_targetが指定された場合は、本パラメタの指定は無視する<br>|String<br>|×<br>|trueのみ有効<br>|
+|grant_type|認証タイプ|String|○|リフレッシュトークン|
+|refresh_token|リフレッシュトークン名|String|○|有効リフレッシュトークン|
+|p_target|トランスセルトークンターゲット|String|×|払い出されるトークンを使う先（セルURL） 指定した場合はトランスセルトークン認証になる|
+|client_id|アプリセルURL|String|×|スキーマ認証元のアプリセルURL<br>client_secretとともに指定した場合スキーマ認証になる<br>同時にAuthorizationヘッダにもスキーマ認証設定がされている場合、Authorizationヘッダの設定が優先される|
+|client_secret|アプリセルから払い出されたトークン|String|×|スキーマ認証元から払い出されたトークンを値に設定する<br>client_idとともに指定した場合スキーマ認証になる<br>同時にAuthorizationヘッダにもスキーマ認証設定がされている場合、Authorizationヘッダの設定が優先される|
+|p_owner|ULUUT昇格実行クエリ|String|×|trueのみ有効|
+|p_cookie|認証クッキー発行オプション<br>指定された場合は認証クッキーを発行する<br>p_targetが指定された場合は、本パラメタの指定は無視する|String|×|trueのみ有効|
 
 ```
 grant_type=refresh_token&refresh_token={token}
 ```
 
-<br>
+
 ### レスポンス
 #### ステータスコード
 200
 
 #### レスポンスヘッダ
 
-|項目名<br>|概要<br>|備考<br>|
+|項目名|概要|備考|
 |:--|:--|:--|
-|Content-Type<br>|application/json<br>|<br>|
-|Set-Cookie<br>|クッキー認証情報（p_cookie）<br>|クッキー発行オプション（p_cookie）をリクエスト時に設定した場合のみ<br>|
+|Content-Type|application/json||
+|Set-Cookie|クッキー認証情報（p_cookie）|クッキー発行オプション（p_cookie）をリクエスト時に設定した場合のみ|
 #### レスポンスボディ
 
-|項目名<br>|概要<br>|備考<br>|
+|項目名|概要|備考|
 |:--|:--|:--|
-|access_token<br>|アクセストークン<br>|<br>|
-|refresh_token_expires_in<br>|リフレッシュトークンの有効期限<br>|24時間（86400秒）<br>※p_ownerをリクエスト時に設定した場合、返却されない<br>|
-|refresh_token<br>|リフレッシュトークン<br>|※p_ownerをリクエスト時に設定した場合、返却されない<br>|
-|token_type<br>|Bearer<br>|<br>|
-|expires_in<br>|アクセストークンの有効期限<br>|1時間（3600秒）<br>|
-|p_cookie_peer<br>|クッキー認証値<br>|クッキー認証時に指定する認証値<br>※クッキー発行オプション（p_cookie）をリクエスト時に設定した場合のみ返却する<br>|
+|access_token|アクセストークン||
+|refresh_token_expires_in|リフレッシュトークンの有効期限|24時間（86400秒）<br>※p_ownerをリクエスト時に設定した場合、返却されない|
+|refresh_token|リフレッシュトークン|※p_ownerをリクエスト時に設定した場合、返却されない|
+|token_type|Bearer||
+|expires_in|アクセストークンの有効期限|1時間（3600秒）|
+|p_cookie_peer|クッキー認証値|クッキー認証時に指定する認証値<br>※クッキー発行オプション（p_cookie）をリクエスト時に設定した場合のみ返却する|
 #### レスポンスサンプル
 ```JSON
 {
@@ -168,7 +168,5 @@ curl "https://{UnitFQDN}/{CellName}/__token" -X POST -i -d 'grant_type=password&
 ```sh
 curl "https://{UnitFQDN}/{CellName}/__token" -X POST -i -d 'grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&assertion={SAML_token}&p_target=https://{UnitFQDN}/{CellName}/'
 ```
-<br>
-<br>
-<br>
-###### Copyright 2017    FUJITSU LIMITED
+
+###### Copyright 2017 FUJITSU LIMITED

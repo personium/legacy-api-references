@@ -17,7 +17,6 @@ read
     * When setting in request body and setting with DefaultValue (\_\_published, \_\_ updated is the latter timing)
     * For EntityType, you can create up to 400 DynamicProperty / DeclaredProperty / ComplexTypeProperty
 
-<br>
 
 ### Request
 
@@ -27,12 +26,12 @@ read
 /{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}
 ```
 
-|Path<br>|Overview<br>|
+|Path|Overview|
 |:--|:--|
-|{CellName}<br>|Cell Name<br>|
-|{BoxName}<br>|Box Name<br>|
-|{ODataCollecitonName}<br>|Collection Name<br>|
-|{EntityTypeName}<br>|EntityType name<br>|
+|{CellName}|Cell Name|
+|{BoxName}|Box Name|
+|{ODataCollecitonName}|Collection Name|
+|{EntityTypeName}|EntityType name|
 
 #### Request Method
 
@@ -42,9 +41,9 @@ GET
 
 The following query parameters are available
 
-|Query Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|p_cookie_peer<br>|Cookie Authentication Value<br>|The cookie authentication value returned from the server during authentication<br>|No<br>|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used<br>|
+|p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
 [$select  Query](406_Select_Query.html)
 
@@ -68,24 +67,24 @@ The following query parameters are available
 
 ##### Common Request Header
 
-|Header Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|X-HTTP-Method-Override<br>|Method override function<br>|User-defined<br>|No<br>|Specifying this value in a request with the POST method indicates that the specified value is used as the method<br>|
-|X-Override<br>|Header override function<br>|${OverwrittenHeaderName}:${Value}<br>|No<br>|The normal HTTP header value is overwritten. Specify multiple X-Override headers for the overwriting of multiple headers<br>|
-|X-Personium-RequestKey<br>|RequestKey field value output in the event log<br>|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters<br>|No<br>|Supported in V 1.1.7 and later<br>|
+|X-HTTP-Method-Override|Method override function|User-defined|No|Specifying this value in a request with the POST method indicates that the specified value is used as the method|
+|X-Override|Header override function|${OverwrittenHeaderName}:${Value}|No|The normal HTTP header value is overwritten. Specify multiple X-Override headers for the overwriting of multiple headers|
+|X-Personium-RequestKey|RequestKey field value output in the event log|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters|No|Supported in V 1.1.7 and later|
 
 ##### OData Common Request Header
 
-|Header Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|Specifies authentication information in the OAuth 2.0 format<br>|Bearer {AccessToken}<br>|No<br>|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API<br>|
+|Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
 
 ##### OData Request Header
 
-|Header Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|Accept <br>|Specify the format of the response body <br>|application/json<br>|No<br>|When omitted, treat it as [application/json] <br>|
-|If-None-Match<br>|Specify the value of ETag, if there is no change, 304, if it is changed return the latest resource<br>|<br>|No<br>|Specified when acquiring Entity not matching ETag<br>Not compatible<br>|
+|Accept|Specify the format of the response body|application/json|No|When omitted, treat it as [application/json]|
+|If-None-Match|Specify the value of ETag, if there is no change, 304, if it is changed return the latest resource||No|Specified when acquiring Entity not matching ETag<br>Not compatible|
 
 #### Request Body
 
@@ -95,7 +94,6 @@ None
 
 None
 
-<br>
 
 ### Response
 
@@ -105,30 +103,30 @@ None
 
 #### Response Header
 
-|Header Name<br>|Overview<br>|Notes<br>|
+|Header Name|Overview|Notes|
 |:--|:--|:--|
-|Content-Type<br>|Format of data to be returned<br>|<br>|
-|DataServiceVersion<br>|Version information of ODataProtocol<br>|Return only when user data can be normally acquired<br>|
+|Content-Type|Format of data to be returned||
+|DataServiceVersion|Version information of ODataProtocol|Return only when user data can be normally acquired|
 
 #### Response Body
 
 The response is a JSON object, the correspondence between the key (name) and type defined in the object (subobject) and the value are as follows
 
-|Object<br>|Name(Key)<br>|Type<br>|Value<br>|
+|Object|Name(Key)|Type|Value|
 |:--|:--|:--|:--|
-|Root<br>|d<br>|object<br>|Object{1}<br>|
-|{1}<br>|results<br>|array<br>|Array object {2}<br>|
-|{2}<br>|__metadata<br>|object<br>|Object{3}<br>|
-|{3}<br>|uri<br>|string<br>|URL to the resource that was created<br>|
-|{3}<br>|etag<br>|string<br>|Etag value<br>|
-|{3}<br>|type<br>|string<br>|UserData.{EntityTypeName}<br>|
-|{2}<br>|__id<br>|string<br>|EntityID(__id)<br>|
-|{2}<br>|__published<br>|string<br>|Creation date (UNIX time)<br>|
-|{2}<br>|__updated<br>|string<br>|Update date (UNIX time)<br>|
-|{2}<br>|_{NP name}<br>|string<br>|Object{4}<br>It is returned only when Link is connected. {NP name}: NavigationPropert name<br>|
-|{4}<br>|__deferred<br>|object<br>|Object{5}<br>|
-|{5}<br>|uri<br>|string<br>|uri of the resource that has the relationship<br>Not tested<br>|
-|{1}<br>|__count<br>|string<br>|Get number of results in $inlinecount query<br>|
+|Root|d|object|Object{1}|
+|{1}|results|array|Array object {2}|
+|{2}|__metadata|object|Object{3}|
+|{3}|uri|string|URL to the resource that was created|
+|{3}|etag|string|Etag value|
+|{3}|type|string|UserData.{EntityTypeName}|
+|{2}|__id|string|EntityID(__id)|
+|{2}|__published|string|Creation date (UNIX time)|
+|{2}|__updated|string|Update date (UNIX time)|
+|{2}|_{NP name}|string|Object{4}<br>It is returned only when Link is connected. {NP name}: NavigationPropert name|
+|{4}|__deferred|object|Object{5}|
+|{5}|uri|string|uri of the resource that has the relationship<br>Not tested|
+|{1}|__count|string|Get number of results in $inlinecount query|
 
 Return items that were schema-set other than the above, or dynamic items specified at registration
 
@@ -193,7 +191,6 @@ Refer to [Error Message List](004_Error_Messages.html)
 }
 ```
 
-<br>
 
 ### cURL Command
 
@@ -201,6 +198,5 @@ Refer to [Error Message List](004_Error_Messages.html)
 curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 
-<br><br><br><br><br>
 
 ###### Copyright 2017 FUJITSU LIMITED

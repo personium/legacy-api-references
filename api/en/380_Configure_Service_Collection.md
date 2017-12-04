@@ -12,7 +12,6 @@ Unpublished
 
 write-properties
 
-<br>
 
 ### Request
 
@@ -22,11 +21,11 @@ write-properties
 /{CellName}/{BoxName}/{CollectionName}
 ```
 
-|Path<br>|Overview<br>|Notes<br>|
+|Path|Overview|Notes|
 |:--|:--|:--|
-|{CellName}<br>|Cell Name<br>|<br>|
-|{BoxName}<br>|Box Name<br>|<br>|
-|{CollectionName}<br>|Service Collection Name<br>|Valid values <br>Number of digits:1-128<br>Usable character types<br>alphanumeric character, period(.), under score(_), hyphen(-)<br>|
+|{CellName}|Cell Name||
+|{BoxName}|Box Name||
+|{CollectionName}|Service Collection Name|Valid values <br>Number of digits:1-128<br>Usable character types<br>alphanumeric character, period(.), under score(_), hyphen(-)|
 
 #### Request Method
 
@@ -36,48 +35,48 @@ PROPPATCH
 
 ##### Common Request Query
 
-|Query Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|p_cookie_peer<br>|Cookie Authentication Value<br>|The cookie authentication value returned from the server during authentication<br>|No<br>|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used<br>|
+|p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
 #### Request Header
 
 ##### Common Request Header
 
-|Header Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|X-HTTP-Method-Override<br>|Method override function<br>|User-defined<br>|No<br>|If you specify this value when requesting with the POST method, the specified value will be used as a method.<br>|
-|X-Override<br>|Header override function<br>|${OverwrittenHeaderName}:${Value}<br>|No<br>|Overwrite normal HTTP header value. To overwrite multiple headers, specify multiple X-Override headers.<br>|
-|X-Personium-RequestKey<br>|RequestKey field value output in the event log<br>|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters<br>|No<br>|Supported in V 1.1.7 and later<br>|
+|X-HTTP-Method-Override|Method override function|User-defined|No|If you specify this value when requesting with the POST method, the specified value will be used as a method.|
+|X-Override|Header override function|${OverwrittenHeaderName}:${Value}|No|Overwrite normal HTTP header value. To overwrite multiple headers, specify multiple X-Override headers.|
+|X-Personium-RequestKey|RequestKey field value output in the event log|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters|No|Supported in V 1.1.7 and later|
 
 ##### Service Collection Settings Specific Request Header
 
-|Header Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|Specifies authentication information in the OAuth 2.0 format<br>|Bearer {AccessToken}<br>|No<br>|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API<br>|
-|Content-Type<br>|Specify content format<br>|application/xml<br>|No<br>|<br>|
-|Accept<br>|Specify acceptable media types in response<br>|application/xml<br>|No<br>|<br>|
+|Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
+|Content-Type|Specify content format|application/xml|No||
+|Accept|Specify acceptable media types in response|application/xml|No||
 
 #### Request Body
 
 Namespace
 
-|URI<br>|Overview<br>|reference prefix<br>|
+|URI|Overview|reference prefix|
 |:--|:--|:--|
-|DAV:<br>|WebDAV Namespace<br>|D:<br>|
-|urn:x-personium:xmlns<br>|Personium API namespace<br>|p:<br>|
+|DAV:|WebDAV Namespace|D:|
+|urn:x-personium:xmlns|Personium API namespace|p:|
 
 \* Reference The prefixes are for making it easier to read the following table, but the use of these prefix strings is not ensured or requested.
 
 Structure of XML  
 The body is XML and follows the following schema.
 
-|Node name<br>|Namespace<br>|Node type<br>|Overview<br>|Notes<br>|
+|Node name|Namespace|Node type|Overview|Notes|
 |:--|:--|:--|:--|:--|
-|propertyupdate<br>|D:<br>|Element<br>|It represents the root of propertyupdate, and set and remove are children<br>|<br>|
-|set<br>|D:<br>|Element<br>|Represents a property setting, and one or more props are children<br>|<br>|
-|remove<br>|D:<br>|Element<br>|Represents a property deletion setting, and one or more props are children<br>|<br>|
-|prop<br>|D:<br>|Element<br>|Represents a property value, and one or more arbitrary elements are children<br>|When set: Child node name is key<br>When remove: Delete with child node name as key<br>|
+|propertyupdate|D:|Element|It represents the root of propertyupdate, and set and remove are children||
+|set|D:|Element|Represents a property setting, and one or more props are children||
+|remove|D:|Element|Represents a property deletion setting, and one or more props are children||
+|prop|D:|Element|Represents a property value, and one or more arbitrary elements are children|When set: Child node name is key<br>When remove: Delete with child node name as key|
 
 DTD notation
 
@@ -90,14 +89,14 @@ DTD notation
 
 #### Service collection setting specific definition
 
-|Node name<br>|Namespace<br>|Node type<br>|Overview<br>|Notes<br>|
+|Node name|Namespace|Node type|Overview|Notes|
 |:--|:--|:--|:--|:--|
-|service <br>|p:<br>|element<br>|It represents a service setting, and one or more multiple path elements are children<br>|<br>|
-|language <br>|p:<br>|Attributes<br>|It represents the service source language setting, and "JavaScript" is fixed as attribute value<br>|<br>|
-|subject <br>|p:<br>|Attributes<br>|It represents the service subject setting and sets the Account name registered in the cell belonging to as the attribute value<br>|Execute with the Role privilege attached to the Account in which the Personium API in the logic is set up<br>|
-|path <br>|p:<br>|Element<br>|Represents a service collection setting.<br>|<br>|
-|name <br>|p:<br>|Attributes<br>|Represents a service call name and an arbitrary character as an attribute value<br>|This setting value becomes the "__src/" path name immediately under the request URL when the service is executed.<br>|
-|src<br>|p:<br>|Attributes<br>|Represents the service source file name, and sets the file name deployed under __src as the attribute value<br>|<br>|
+|service|p:|element|It represents a service setting, and one or more multiple path elements are children||
+|language|p:|Attributes|It represents the service source language setting, and "JavaScript" is fixed as attribute value||
+|subject|p:|Attributes|It represents the service subject setting and sets the Account name registered in the cell belonging to as the attribute value|Execute with the Role privilege attached to the Account in which the Personium API in the logic is set up|
+|path|p:|Element|Represents a service collection setting.||
+|name|p:|Attributes|Represents a service call name and an arbitrary character as an attribute value|This setting value becomes the "__src/" path name immediately under the request URL when the service is executed.|
+|src|p:|Attributes|Represents the service source file name, and sets the file name deployed under __src as the attribute value||
 
 DTD notation
 
@@ -125,7 +124,6 @@ DTD notation
 </D:propertyupdate>
 ```
 
-<br>
 
 ### Response
 
@@ -141,23 +139,23 @@ None
 
 Namespace
 
-|URI<br>|Overview<br>|reference prefix<br>|
+|URI|Overview|reference prefix|
 |:--|:--|:--|
-|DAV:<br>|WebDAV Namespace<br>|D:<br>|
+|DAV:|WebDAV Namespace|D:|
 
 \* Reference The prefixes are for making it easier to read the following table, but the use of these prefix strings is not ensured or requested.
 
 Structure of XML  
 The body is XML and follows the following schema.
 
-|Node name<br>|Namespace<br>|Node type<br>|Overview<br>|Notes<br>|
+|Node name|Namespace|Node type|Overview|Notes|
 |:--|:--|:--|:--|:--|
-|multistatus <br>|D:<br>|Element<br>|Represents the route of multistatus and one or more responses are children<br>|<br>|
-|response<br>|D:<br>|Element<br>|Represents the contents of multistatus, and href and propstat are children<br>|<br>|
-|href<br>|D:<br>|Element<br>|URL of the resource that executed PROPPATCH<br>|<br>|
-|propstat <br>|D:<br>|Element<br>|Represents property setting result, prop and status are children<br>|<br>|
-|prop <br>|D:<br>|Element<br>|Represents property setting contents<br>|Display the result of resource setting as follows<br>Successful setting: set key and value<br>Deleted Successful: Deleted key<br>|
-|status<br>|D:<br>|Element<br>|Property setting status code<br>|In the case of setting success 200 (OK) is returned<br>|
+|multistatus|D:|Element|Represents the route of multistatus and one or more responses are children||
+|response|D:|Element|Represents the contents of multistatus, and href and propstat are children||
+|href|D:|Element|URL of the resource that executed PROPPATCH||
+|propstat|D:|Element|Represents property setting result, prop and status are children||
+|prop|D:|Element|Represents property setting contents|Display the result of resource setting as follows<br>Successful setting: set key and value<br>Deleted Successful: Deleted key|
+|status|D:|Element|Property setting status code|In the case of setting success 200 (OK) is returned|
 
 DTD notation
 
@@ -198,6 +196,5 @@ Refer to [Error Message List](004_Error_Messages.html)
 curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}" -X PROPPATCH -i -H "Authorization:Bearer {AccessToken}" -H "Accept:application/json" -d "<?xml version=\"1.0\" encoding=\"utf-8\" ?><D:propertyupdate xmlns:D=\"DAV:\" xmlns:p=\"urn:x-personium:xmlns\"><D:set><D:prop><p:service language=\"JavaScript\"><p:path name=\"sample\" src=\"sample.js\"/></p:service></D:prop></D:set></D:propertyupdate>"
 ```
 
-<br><br><br><br><br>
 
 ###### Copyright 2017 FUJITSU LIMITED

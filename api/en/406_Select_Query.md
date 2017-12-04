@@ -23,9 +23,9 @@ $select={propertyName}
 
 \*When omitted, it is $select = *
 
-|Path<br>|Overview<br>|
+|Path|Overview|
 |:--|:--|
-|{PropertyName}<br>|Property name to return<br>To specify more than one, specify it with a comma separator<br>|
+|{PropertyName}|Property name to return<br>To specify more than one, specify it with a comma separator|
 
 ### cURL Command
 
@@ -41,6 +41,5 @@ Example: When returning all the properties when acquiring the Box list:
 curl "https://{UnitFQDN}/{CellName}/__ctl/Box?\$select=*" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 
-<br><br><br><br><br>
 
 ###### Copyright 2017 FUJITSU LIMITED

@@ -19,7 +19,6 @@ root
 
 * None
 
-<br>
 
 ### Request
 
@@ -35,17 +34,17 @@ GET
 
 #### Request Query
 
-|Query Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|p_cookie_peer<br>|Cookie Authentication Value<br>|The cookie authentication value returned from the server during authentication<br>|No<br>|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used<br>|
+|p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
 #### Request Header
 
-|Header Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|X-Override<br>|Header override function<br>|${OverwrittenHeaderName}:${Value} override} $: $ {value}<br>|No<br>|Overwrite normal HTTP header value. To overwrite multiple headers, specify multiple X-Override headers.<br>|
-|X-Personium-RequestKey<br>|RequestKey field value output in the event log<br>|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters<br>|No<br>|Supported in V 1.1.7 and later<br>|
-|Authorization<br>|Specifies authentication information in the OAuth 2.0 format<br>|Bearer {AccessToken}<br>|No<br>|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API<br>|
+|X-Override|Header override function|${OverwrittenHeaderName}:${Value} override} $: $ {value}|No|Overwrite normal HTTP header value. To overwrite multiple headers, specify multiple X-Override headers.|
+|X-Personium-RequestKey|RequestKey field value output in the event log|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters|No|Supported in V 1.1.7 and later|
+|Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
 
 #### Request Body
 
@@ -55,35 +54,34 @@ None
 
 None
 
-<br>
 
 ### Response
 
 #### Response Code
 
-|Code<br>|Message<br>|Overview<br>|Notes<br>|
+|Code|Message|Overview|Notes|
 |:--|:--|:--|:--|
-|200<br>|OK<br>|On success<br>|Cell Export status refers to response body<br>|
+|200|OK|On success|Cell Export status refers to response body|
 
 #### Response Header
 
-|Header Name<br>|Overview<br>|Notes<br>|
+|Header Name|Overview|Notes|
 |:--|:--|:--|
-|Access-Control-Allow-Origin<br>|Cross domain communication permission header<br>|Return value fixed to "*"<br>|
-|X-Personium-Version<br>|API version that the request is processed<br>|Version of the API used to process the request<br>|
-|Content-Type<br>|Format of data to be returned<br>|<br>|
+|Access-Control-Allow-Origin|Cross domain communication permission header|Return value fixed to "*"|
+|X-Personium-Version|API version that the request is processed|Version of the API used to process the request|
+|Content-Type|Format of data to be returned||
 
 #### Response Body
 
 Response is JSON format and is defined as an object (subobject).  
 The correspondence between key (name) and type, and value are as follows.
 
-|Object<br>|Key<br>|Type<br>|Value<br>|Notes<br>|
+|Object|Key|Type|Value|Notes|
 |:--|:--|:--|:--|:--|
-|Root<br>|status<br>|string<br>|One of the following strings: <br>"ready"<br>"exportation in progress"<br>|"ready":Cell export acceptance accepted<br>"exportation in progress":Cell export in progress<br>|
-|Root<br>|started_at<br>|string<br>|Start time (ISO 8610 UTC format)<br>|Do not output when status is below.<br>"ready"<br>|
-|Root<br>|progress<br>|string<br>|Progress rate (for example, "30%")<br>|Do not output when status is below.<br>"ready"<br>|
-|Root<br>|exportation_name<br>|string<br>|Export file name (excluding extension)<br>|Do not output when status is below.<br>"ready"<br>|
+|Root|status|string|One of the following strings: <br>"ready"<br>"exportation in progress"|"ready":Cell export acceptance accepted<br>"exportation in progress":Cell export in progress|
+|Root|started_at|string|Start time (ISO 8610 UTC format)|Do not output when status is below.<br>"ready"|
+|Root|progress|string|Progress rate (for example, "30%")|Do not output when status is below.<br>"ready"|
+|Root|exportation_name|string|Export file name (excluding extension)|Do not output when status is below.<br>"ready"|
 
 #### Error Messages
 
@@ -110,7 +108,6 @@ Cell export processing in progress
 }
 ```
 
-<br>
 
 ### cURL Sample
 
@@ -118,6 +115,5 @@ Cell export processing in progress
 curl "https://{UnitFQDN}/{CellName}/__export" -X GET -i -H 'Authorization: Bearer {AccessToken}'
 ```
 
-<br><br><br><br><br>
 
 ###### Copyright 2017 FUJITSU LIMITED

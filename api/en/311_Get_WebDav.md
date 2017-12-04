@@ -14,7 +14,6 @@ read
 
 Unpublished
 
-<br>
 
 ### Request
 
@@ -24,11 +23,11 @@ Unpublished
 /{CellName}/{BoxName}/{ResourcePath}
 ```
 
-|Path<br>|Overview<br>|Notes<br>|
+|Path|Overview|Notes|
 |:--|:--|:--|
-|{CellName}<br>|Cell Name<br>|<br>|
-|{BoxName}<br>|Box Name<br>|<br>|
-|{ResourcePath}<br>|Path to resource<br>|Valid values Number of digits:1-128<br>Usable character types<br>alphanumeric character, period(.), under score(_), hyphen(-)<br>|
+|{CellName}|Cell Name||
+|{BoxName}|Box Name||
+|{ResourcePath}|Path to resource|Valid values Number of digits:1-128<br>Usable character types<br>alphanumeric character, period(.), under score(_), hyphen(-)|
 
 #### Request Method
 
@@ -36,27 +35,27 @@ GET
 
 #### Request Query
 
-|Query Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|p_cookie_peer<br>|Cookie Authentication Value<br>|The cookie authentication value returned from the server during authentication<br>|No<br>|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used<br>|
+|p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
 #### Request Header
 
 ##### Common Request Header
 
-|Header Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|X-HTTP-Method-Override<br>|Method override function<br>|User-defined<br>|No<br>|If you specify this value when requesting with the POST method, the specified value will be used as a method.<br>|
-|X-Override<br>|Header override function<br>|${OverwrittenHeaderName}:${Value}<br>|No<br>|Overwrite normal HTTP header value. To overwrite multiple headers, specify multiple X-Override headers.<br>|
-|X-Personium-RequestKey<br>|RequestKey field value output in the event log<br>|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters<br>|No<br>|Supported in V 1.1.7 and later<br>|
+|X-HTTP-Method-Override|Method override function|User-defined|No|If you specify this value when requesting with the POST method, the specified value will be used as a method.|
+|X-Override|Header override function|${OverwrittenHeaderName}:${Value}|No|Overwrite normal HTTP header value. To overwrite multiple headers, specify multiple X-Override headers.|
+|X-Personium-RequestKey|RequestKey field value output in the event log|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters|No|Supported in V 1.1.7 and later|
 
 ##### Individual Request Header
 
-|Header Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|Specifies authentication information in the OAuth 2.0 format<br>|Bearer {AccessToken}<br>|No<br>|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API<br>|
-|If-None-Match<br>|Specify the value of ETag<br>|String<br>Specify the ETag value in the following format<br>"*"<br>or <br>"{Half-width number}-{Half-width number}"<br>|No<br>|Example) When specifying the ETag value "1-1372742704414"<br> "1-1372742704414"<br>|
-|Range<br>|Specify a range when acquiring a part of a resource<br>|-Data type:String<br>[Assumption]<br>Start value of range specification starts at 0.When the size of the acquired file is Z (byte), the termination is Z-1 (byte)<br>1."Range: bytes={Half-width number}-{Half-width number}"<br>ex) "Range: bytes=10-20"<br>2."Range: bytes={Half-width number}-"<br> -> From the range start value to the end of the acquired file<br>ex) "Range: bytes=10-"<br>3."Range: bytes=-{Half-width number}"<br> -> Retrieve the specified minute from the end of the resource<br>ex) "Range: bytes=-20"<br>|No<br>|-Specify a start value smaller than the size of the acquired file<br>-When the format of the specified Range header is incorrect, the Range header is ignored<br>[Limitations]<br>-Not supported for multi-part response<br>|
+|Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
+|If-None-Match|Specify the value of ETag|String<br>Specify the ETag value in the following format<br>"*"<br>or <br>"{Half-width number}-{Half-width number}"|No|Example) When specifying the ETag value "1-1372742704414"<br> "1-1372742704414"|
+|Range|Specify a range when acquiring a part of a resource|-Data type:String<br>[Assumption]<br>Start value of range specification starts at 0.When the size of the acquired file is Z (byte), the termination is Z-1 (byte)<br>1."Range: bytes={Half-width number}-{Half-width number}"<br>ex) "Range: bytes=10-20"<br>2."Range: bytes={Half-width number}-"<br> -> From the range start value to the end of the acquired file<br>ex) "Range: bytes=10-"<br>3."Range: bytes=-{Half-width number}"<br> -> Retrieve the specified minute from the end of the resource<br>ex) "Range: bytes=-20"|No|-Specify a start value smaller than the size of the acquired file<br>-When the format of the specified Range header is incorrect, the Range header is ignored<br>[Limitations]<br>-Not supported for multi-part response|
 
 #### Request Body
 
@@ -66,7 +65,6 @@ None
 
 None
 
-<br>
 
 ### Response
 
@@ -76,30 +74,30 @@ None
     (Including cases where the format of the specified ETag value is invalid)
 * If the Range header is not specified in the request, or if the start value specified in the Range header in the request is larger than the termination value
 
-|Code<br>|Message<br>|Overview<br>|
+|Code|Message|Overview|
 |:--|:--|:--|
-|200<br>|OK<br>|Successful acquisition<br>|
+|200|OK|Successful acquisition|
 
 * When valid in the Range header of the request
 
-|Code<br>|Message<br>|Overview<br>|
+|Code|Message|Overview|
 |:--|:--|:--|
-|206<br>|Partial Content<br>|Partial acquisition success<br>|
+|206|Partial Content|Partial acquisition success|
 
 * If the ETag value of the If-None-Match header in the request matches the ETag of the resource stored in WebDav
 
-|Code<br>|Message<br>|Overview<br>|
+|Code|Message|Overview|
 |:--|:--|:--|
-|304<br>|Not Modified<br>|The document has not been updated<br>|
+|304|Not Modified|The document has not been updated|
 
 #### Response Header
 
-|Header Name<br>|Overview<br>|Notes<br>|
+|Header Name|Overview|Notes|
 |:--|:--|:--|
-|Content-Type<br>|Content-Type of resource<br>|Return only for status code 200<br>|
-|ETag<br>|Resource version information<br>|<br>|
-|Accept-Ranges<br>|Indicates acceptance of byte range (range) request to resource<br>|<br>|
-|Content-Range<br>|Indicates where the entity body corresponds to the part specified by the byte range request<br>|<br>|
+|Content-Type|Content-Type of resource|Return only for status code 200|
+|ETag|Resource version information||
+|Accept-Ranges|Indicates acceptance of byte range (range) request to resource||
+|Content-Range|Indicates where the entity body corresponds to the part specified by the byte range request||
 
 In case of basic authentication error, return 400 + WWW-Authenticated: Basic header
 
@@ -117,7 +115,6 @@ Refer to [Error Message List](004_Error_Messages.html)
 
 None
 
-<br>
 
 ### cURL Command
 
@@ -125,6 +122,5 @@ None
 curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}" -X GET -i -H 'If-None-Match:"1-1372742704414"' -H 'Range:bytes=10-20 ' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 
-<br><br><br><br><br>
 
 ###### Copyright 2017 FUJITSU LIMITED

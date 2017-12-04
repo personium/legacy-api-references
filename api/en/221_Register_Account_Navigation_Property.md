@@ -15,7 +15,6 @@ write
 * Only application/json is supported for Content-Type in the request header and the JSON format for the response body
 * Response body data is not ensured if atom or xml is specified in the $format query option, although it does not result in an error
 
-<br>
 
 ### Request
 
@@ -39,28 +38,28 @@ POST
 
 #### Request Query
 
-|Query Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|p_cookie_peer<br>|Cookie Authentication Value<br>|The cookie authentication value returned from the server during authentication<br>|No<br>|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used<br>|
+|p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
 #### Request Header
 
-|Header Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|X-HTTP-Method-Override<br>|Method override function<br>|User-defined<br>|No<br>|If you specify this value when requesting with the POST method, the specified value will be used as a method.<br>|
-|X-Override<br>|Header override function<br>|${OverwrittenHeaderName}:${Value}<br>|No<br>|Overwrite normal HTTP header value. To overwrite multiple headers, specify multiple X-Override headers.<br>|
-|X-Personium-RequestKey<br>|RequestKey field value output in the event log<br>|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters<br>|No<br>|PCS-${UNIXtime} by default<br>Supported in V 1.1.7 and later<br>|
-|Authorization<br>|Specifies authentication information in the OAuth 2.0 format<br>|Bearer {AccessToken}<br>|No<br>|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API<br>|
-|Content-Type<br>|Specifies the request body format<br>|application/json<br>|No<br>|[application/json] by default<br>|
-|Accept<br>|Specifies the response body format<br>|application/json<br>|No<br>|[application/json] by default<br>|
+|X-HTTP-Method-Override|Method override function|User-defined|No|If you specify this value when requesting with the POST method, the specified value will be used as a method.|
+|X-Override|Header override function|${OverwrittenHeaderName}:${Value}|No|Overwrite normal HTTP header value. To overwrite multiple headers, specify multiple X-Override headers.|
+|X-Personium-RequestKey|RequestKey field value output in the event log|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters|No|PCS-${UNIXtime} by default<br>Supported in V 1.1.7 and later|
+|Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
+|Content-Type|Specifies the request body format|application/json|No|[application/json] by default|
+|Accept|Specifies the response body format|application/json|No|[application/json] by default|
 
 #### Request Body
 
 When registering Role
 
-|Item Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|Item Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|Name|Account Name|Character type: Half size alphanumeric characters and following half-width symbol (-_!$*=^`{&#124;}~.@) <br>However, the first character can not be specified as the first character|Yes|<br>|
+|Name|Account Name|Character type: Half size alphanumeric characters and following half-width symbol (-_!$*=^`{&#124;}~.@) <br>However, the first character can not be specified as the first character|Yes||
 
 #### Request Sample
 
@@ -70,7 +69,6 @@ When registering Role
 }
 ```
 
-<br>
 
 ### Response
 
@@ -80,40 +78,40 @@ When registering Role
 
 #### Response Header
 
-|Item Name<br>|Overview<br>|Notes<br>|
+|Item Name|Overview|Notes|
 |:--|:--|:--|
-|X-Personium-Version<br>|API version that the request is processed<br>|Version of the API used to process the request<br>|
-|Access-Control-Allow-Origin<br>|Cross domain communication permission header<br>|Return value fixed to "*"<br>|
-|Content-Type<br>|Format of data to be returned<br>|<br>|
-|Location<br>|URL to the resource that was created<br>|<br>|
-|ETag<br>|Resource version information<br>|<br>|
-|DataServiceVersion<br>|OData version<br>|<br>|
+|X-Personium-Version|API version that the request is processed|Version of the API used to process the request|
+|Access-Control-Allow-Origin|Cross domain communication permission header|Return value fixed to "*"|
+|Content-Type|Format of data to be returned||
+|Location|URL to the resource that was created||
+|ETag|Resource version information||
+|DataServiceVersion|OData version||
 
 #### Response Body
 
-|Item Name<br>|Overview<br>|Notes<br>|
+|Item Name|Overview|Notes|
 |:--|:--|:--|
-|d<br>|<br>|<br>|
-|d / results<br>|<br>|<br>|
-|d / results / __published<br>|Created date<br>|<br>|
-|d / results / __updated<br>|Updated date<br>|<br>|
-|d / results / __metadata<br>|<br>|<br>|
-|d / results / __metadata / etag<br>|ETag value<br>|<br>|
-|d / results / __metadata / uri<br>|URL to the resource that was created<br>|<br>|
-|d / results / __metadata / type<br>|EntityType<br>|<br>|
-|d / results / Name<br>|Role Name<br>|<br>|
-|d / results / _Box.Name<br>|Box name to be related<br>|<br>|
+|d|||
+|d / results|||
+|d / results / __published|Created date||
+|d / results / __updated|Updated date||
+|d / results / __metadata|||
+|d / results / __metadata / etag|ETag value||
+|d / results / __metadata / uri|URL to the resource that was created||
+|d / results / __metadata / type|EntityType||
+|d / results / Name|Role Name||
+|d / results / _Box.Name|Box name to be related||
 
 ##### When registered Account
 
 Account specific response body
 
-|Object<br>|Item Name<br>|Data Type<br>|Notes<br>|
+|Object|Item Name|Data Type|Notes|
 |:--|:--|:--|:--|
-|{2}<br>|Name<br>|string<br>|Account name<br>|
-|{2}<br>|Cell<br>|string<br>|null<br>|
-|{2}<br>|Type<br>|string<br>|basic<br>|
-|{3}<br>|Type<br>|string<br>|CellCtl.Account<br>|
+|{2}|Name|string|Account name|
+|{2}|Cell|string|null|
+|{2}|Type|string|basic|
+|{3}|Type|string|CellCtl.Account|
 
 #### Response Sample
 
@@ -148,6 +146,5 @@ Refer to [Error Message List](004_Error_Messages.html)
 curl "https://{UnitFQDN}/{CellName}/__ctl/Account('acount_name')/_Role" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{RoleName}"}'
 ```
 
-<br><br><br><br><br>
 
 ###### Copyright 2017 FUJITSU LIMITED

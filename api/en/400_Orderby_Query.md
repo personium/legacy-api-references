@@ -13,10 +13,10 @@ $orderby={propertyName} {option}, ...
 
 \*{propertyName} {option} can be specified in comma-separated list
 
-|Path<br>|Overview<br>|
+|Path|Overview|
 |:--|:--|
-|{PropertyName}<br>|Property name to specify as the sort key<br>|
-|{Option}<br>|Sort method<br>asc:ascending order<br>desc:descending order<br>default:asc<br>|
+|{PropertyName}|Property name to specify as the sort key|
+|{Option}|Sort method<br>asc:ascending order<br>desc:descending order<br>default:asc|
 
 ### cURL Command
 
@@ -42,6 +42,6 @@ curl "https://{UnitFQDN}/__ctl/Cell?\$orderby=Name%20desc" -X GET -i -H 'Authori
     * desc  
         Positive number -> null -> 0 -> none -> Pegative number
 * If you specify a property name that does not exist in $orderby, ignore the specified item
-* If an array type property name is specified in $orderby, 400 error is returned<br><br><br><br><br><br>
+* If an array type property name is specified in $orderby, 400 error is returned<br>
 
 ###### Copyright 2017 FUJITSU LIMITED

@@ -8,67 +8,67 @@ read
 ### 制限事項
 未稿
 
-<br>
+
 ### リクエスト
 #### リクエストURL
 ```
 /{CellName}/{BoxName}/{ResourcePath}
 ```
-|パス<br>|概要<br>|備考<br>|
+|パス|概要|備考|
 |:--|:--|:--|
-|{CellName}<br>|セル名<br>|<br>|
-|{BoxName}<br>|ボックス名<br>|<br>|
-|{ResourcePath}<br>|リソースへのパス<br>|有効値 桁数:1&#65374;128<br>使用可能文字種<br>半角英数字、半角ピリオド(.)、半角アンダーバー(_)、半角ハイフン(-)<br>|
+|{CellName}|セル名||
+|{BoxName}|ボックス名||
+|{ResourcePath}|リソースへのパス|有効値 桁数:1&#65374;128<br>使用可能文字種<br>半角英数字、半角ピリオド(.)、半角アンダーバー(_)、半角ハイフン(-)|
 #### メソッド
 GET
 #### リクエストクエリ
-|クエリ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
+|クエリ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|p_cookie_peer<br>|クッキー認証値<br>|認証時にサーバから返却されたクッキー認証値<br>|×<br>|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br>|
+|p_cookie_peer|クッキー認証値|認証時にサーバから返却されたクッキー認証値|×|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する|
 #### リクエストヘッダ
 ##### 共通リクエストヘッダ
-|ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
+|ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|X-HTTP-Method-Override<br>|メソッドオーバーライド機能<br>|任意<br>|×<br>|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用されます。<br>|
-|X-Override<br>|ヘッダオーバライド機能<br>|${上書きするヘッダ名}:${値}<br>|×<br>|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定します。<br>|
-|X-Personium-RequestKey<br>|イベントログに出力するRequestKeyフィールドの値<br>|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字<br>|×<br>|指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応<br>|
+|X-HTTP-Method-Override|メソッドオーバーライド機能|任意|×|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用されます。|
+|X-Override|ヘッダオーバライド機能|${上書きするヘッダ名}:${値}|×|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定します。|
+|X-Personium-RequestKey|イベントログに出力するRequestKeyフィールドの値|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字|×|指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応|
 ##### 個別リクエストヘッダ
-|ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
+|ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {AccessToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
-|If-None-Match<br>|ETagの値を指定する<br>|String<br>以下のフォーマットでETag値を指定する<br>&quot;*&quot;<br>または、<br>"{半角数字}-{半角数字}"<br>|×<br>|例）ETag値「1-1372742704414」を指定する場合<br>　　"1-1372742704414"<br>|
-|Range<br>|リソースの一部を取得する際に範囲を指定する<br>|・データ型：String<br>【前提】<br>範囲指定の開始値は0スタート。取得ファイルのサイズがZ(byte)の場合、終端はZ-1(byte)<br>1.&quot;Range: bytes={半角数字}-{半角数字}&quot;<br>ex) &quot;Range: bytes=10-20&quot;<br>2.&quot;Range: bytes={半角数字}-&quot;<br>→範囲の開始値から取得ファイルの最後まで<br>ex) &quot;Range: bytes=10-&quot;<br>3.&quot;Range: bytes=-{半角数字}&quot;<br>→リソースの終端から指定した分を取得<br>ex) "Range: bytes=-20"<br>|×<br>|・開始値は取得ファイルのサイズより小さい値を指定<br>・指定されたRangeヘッダのフォーマットが不正な場合はRangeヘッダは無視される<br>【制限事項】<br>・マルチパートレスポンスには未対応<br>|
+|Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
+|If-None-Match|ETagの値を指定する|String<br>以下のフォーマットでETag値を指定する<br>&quot;*&quot;<br>または、<br>"{半角数字}-{半角数字}"|×|例）ETag値「1-1372742704414」を指定する場合<br>　　"1-1372742704414"|
+|Range|リソースの一部を取得する際に範囲を指定する|・データ型：String<br>【前提】<br>範囲指定の開始値は0スタート。取得ファイルのサイズがZ(byte)の場合、終端はZ-1(byte)<br>1.&quot;Range: bytes={半角数字}-{半角数字}&quot;<br>ex) &quot;Range: bytes=10-20&quot;<br>2.&quot;Range: bytes={半角数字}-&quot;<br>→範囲の開始値から取得ファイルの最後まで<br>ex) &quot;Range: bytes=10-&quot;<br>3.&quot;Range: bytes=-{半角数字}&quot;<br>→リソースの終端から指定した分を取得<br>ex) "Range: bytes=-20"|×|・開始値は取得ファイルのサイズより小さい値を指定<br>・指定されたRangeヘッダのフォーマットが不正な場合はRangeヘッダは無視される<br>【制限事項】<br>・マルチパートレスポンスには未対応|
 #### リクエストボディ
 なし
 #### リクエストサンプル
 なし
 
-<br>
+
 ### レスポンス
 #### ステータスコード
 * リクエストでIf-None-Matchヘッダが指定されていない場合、またはリクエストでIf-None-MatchヘッダのETag値がWebDavに保存されているリソースのETagと一致しない場合<br>（指定されたETag値のフォーマットが不正な場合を含む）
 * リクエストでRangeヘッダが指定されていない場合、またはリクエストでRangeヘッダで指定される開始値が終端値よりも大きい場合
 
-|コード<br>|メッセージ<br>|概要<br>|
+|コード|メッセージ|概要|
 |:--|:--|:--|
-|200<br>|OK<br>|取得成功時<br>|
+|200|OK|取得成功時|
 * リクエストのRangeヘッダで有効である場合
 
-|コード<br>|メッセージ<br>|概要<br>|
+|コード|メッセージ|概要|
 |:--|:--|:--|
-|206<br>|Partial Content<br>|部分取得成功時<br>|
+|206|Partial Content|部分取得成功時|
 * リクエストでIf-None-MatchヘッダのETag値がWebDavに保存されているリソースのETagと一致する場合
 
-|コード<br>|メッセージ<br>|概要<br>|
+|コード|メッセージ|概要|
 |:--|:--|:--|
-|304<br>|Not Modified<br>|ドキュメントが更新されていない<br>|
+|304|Not Modified|ドキュメントが更新されていない|
 #### レスポンスヘッダ
-|ヘッダ名<br>|概要<br>|備考<br>|
+|ヘッダ名|概要|備考|
 |:--|:--|:--|
-|Content-Type<br>|リソースのContent-Type<br>|ステータスコード200の場合のみ返却する<br>|
-|ETag<br>|リソースのバージョン情報<br>|<br>|
-|Accept-Ranges<br>|リソースへのバイトレンジ(範囲)リクエストの受け入れを示す<br>|<br>|
-|Content-Range<br>|バイトレンジリクエストで指定した分がエンティティボディ全体のうちどこに当たるものかを示す<br>|<br>|
+|Content-Type|リソースのContent-Type|ステータスコード200の場合のみ返却する|
+|ETag|リソースのバージョン情報||
+|Accept-Ranges|リソースへのバイトレンジ(範囲)リクエストの受け入れを示す||
+|Content-Range|バイトレンジリクエストで指定した分がエンティティボディ全体のうちどこに当たるものかを示す||
 Basic認証エラーの場合は 400 + WWW-Authenticated:Basicヘッダを返却する
 #### レスポンスボディ
 ファイルの内容を返却する  
@@ -80,13 +80,11 @@ Basic認証エラーの場合は 400 + WWW-Authenticated:Basicヘッダを返却
 #### レスポンスサンプル
 なし
 
-<br>
+
 ### cURLサンプル
 
 ```sh
 curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ResourcePath}" -X GET -i -H 'If-None-Match:"1-1372742704414"' -H 'Range:bytes=10-20 ' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
-<br>
-<br>
-<br>
-###### Copyright 2017    FUJITSU LIMITED
+
+###### Copyright 2017 FUJITSU LIMITED

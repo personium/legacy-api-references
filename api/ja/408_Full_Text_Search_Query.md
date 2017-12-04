@@ -11,21 +11,21 @@
 ```
 q={SearchKeyword}
 ```
-|項目<br>|概要<br>|有効値<br>|備考<br>|
+|項目|概要|有効値|備考|
 |:--|:--|:--|:--|
-|{SearchKeyword}<br>|検索文字列を指定する<br>|桁数：1&#65374;255 byte<br>| <br>|
+|{SearchKeyword}|検索文字列を指定する|桁数：1&#65374;255 byte||
 
 ### 検索対象となる型
 検索対象となるデータ型を以下に示す
 
-|データ型<br>|検索対象<br>|備考<br>|
+|データ型|検索対象|備考|
 |:--|:--|:--|
-|Edm.String<br>|○<br>| <br>|
-|Edm.Boolean<br>|○<br>| <br>|
-|Edm.Single<br>|○<br>| <br>|
-|Edm.Int32<br>|○<br>| <br>|
-|Edm.Double<br>|○<br>|動的プロパティのみ<br>|
-|Edm.DateTime<br>|×<br>| <br>|
+|Edm.String|○||
+|Edm.Boolean|○||
+|Edm.Single|○||
+|Edm.Int32|○||
+|Edm.Double|○|動的プロパティのみ|
+|Edm.DateTime|×||
 ### 検索の仕様
 * 半角空白
 	- 区切り文字として扱う
@@ -47,8 +47,6 @@ q="ぽち%20たま"
 ```sh
 curl "https://{UnitFQDN}/__ctl/Cell?q=sample" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
-<br>
-<br>
-<br>
 
-###### Copyright 2017    FUJITSU LIMITED
+
+###### Copyright 2017 FUJITSU LIMITED

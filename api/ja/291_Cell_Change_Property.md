@@ -8,7 +8,7 @@
 ### 制限事項
 未稿
 
-<br>
+
 ### リクエスト
 #### リクエストURL
 ```
@@ -20,29 +20,29 @@ PROPPATCH
 
 #### リクエストクエリ
 
-|クエリ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
+|クエリ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|p_cookie_peer<br>|クッキー認証値<br>|認証時にサーバから返却されたクッキー認証値<br>|×<br>|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br>|
+|p_cookie_peer|クッキー認証値|認証時にサーバから返却されたクッキー認証値|×|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する|
 #### リクエストヘッダ
 
-|ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
+|ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|X-HTTP-Method-Override<br>|メソッドオーバーライド機能<br>|任意<br>|×<br>|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用されます。<br>|
-|X-Override<br>|ヘッダオーバライド機能<br>|${上書きするヘッダ名}:${値}<br>|×<br>|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定します。<br>|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {AccessToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
-|Content-Type<br>|コンテンツ形式を指定する<br>|application / xml<br>|×<br>|<br>|
-|Accept<br>|レスポンスで受け入れ可能なメディアタイプを指定する<br>|application / xml<br>|×<br>|<br>|
+|X-HTTP-Method-Override|メソッドオーバーライド機能|任意|×|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用されます。|
+|X-Override|ヘッダオーバライド機能|${上書きするヘッダ名}:${値}|×|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定します。|
+|Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
+|Content-Type|コンテンツ形式を指定する|application / xml|×||
+|Accept|レスポンスで受け入れ可能なメディアタイプを指定する|application / xml|×||
 #### リクエストボディ
 
-|項目名<br>|Namespace<br>|概要<br>|必須<br>|有効値<br>|備考<br>|
+|項目名|Namespace|概要|必須|有効値|備考|
 |:--|:--|:--|:--|:--|:--|
-|DAV:<br>|<br>|XML名前空間設定<br>|○<br>|"DAV:"<br>|<br>|
-|urn: x-personium: xmlns<br>|<br>|XML名前空間設定<br>|○<br>|"Urn: x-personium: xmlns"<br>|<br>|
-|propertyupdate<br>|DAV:<br>|propertyupdate（アクセス制御リスト）のルート<br>|○<br>|<ELEMENT propertyupdate! (Set | remove)><br>|<br>|
-|set<br>|DAV:<br>|プロパティ設定<br>|×<br>|<! ELEMENT set (prop *)><br>|<br>|
-|remove<br>|DAV:<br>|プロパティ削除<br>|×<br>|<! ELEMENT set (prop *)><br>|<br>|
-|prop<br>|DAV:<br>|プロパティ削除値<br>|×<br>|<! ELEMENT prop ANY><br>|ANYに指定したXMLがタグをキーとして削除を行う<br>|
-|prop<br>|DAV:<br>|プロパティ設定値<br>|×<br>|<! ELEMENT prop ANY><br>|ANYに指定したXMLタグがキーとなる<br>|
+|DAV:||XML名前空間設定|○|"DAV:"||
+|urn: x-personium: xmlns||XML名前空間設定|○|"Urn: x-personium: xmlns"||
+|propertyupdate|DAV:|propertyupdate（アクセス制御リスト）のルート|○|<ELEMENT propertyupdate! (Set | remove)>||
+|set|DAV:|プロパティ設定|×|<! ELEMENT set (prop *)>||
+|remove|DAV:|プロパティ削除|×|<! ELEMENT set (prop *)>||
+|prop|DAV:|プロパティ削除値|×|<! ELEMENT prop ANY>|ANYに指定したXMLがタグをキーとして削除を行う|
+|prop|DAV:|プロパティ設定値|×|<! ELEMENT prop ANY>|ANYに指定したXMLタグがキーとなる|
 #### リクエストサンプル
 ```xml
 <D:propertyupdate xmlns:D="DAV:"  
@@ -59,26 +59,26 @@ PROPPATCH
     </D:remove>
 </D:propertyupdate>
 ```
-<br>
+
 ### レスポンス
 #### ステータスコード
-|コード<br>|メッセージ<br>|概要<br>|
+|コード|メッセージ|概要|
 |:--|:--|:--|
-|207<br>|MULTI_STATUS<br>|成功<br>|
+|207|MULTI_STATUS|成功|
 
 #### レスポンスヘッダ
 なし
 
 #### レスポンスボディ
 
-|項目名<br>|Namespace<br>|概要<br>|備考<br>|
+|項目名|Namespace|概要|備考|
 |:--|:--|:--|:--|
-|multistatus<br>|DAV:<br>|レスポンスボディのルート<br>|<! ELEMENT multistatus (response *)><br>|
-|response<br>|DAV:<br>|responseのルート<br>|<! ELEMENT response (href, propstat)><br>|
-|href<br>|DAV:<br>|PROPPATCHを実行したリソースのURL<br>|PROPPATCHを実行したリソースのURL<br>|
-|propstat<br>|DAV:<br>|プロパティ設定結果<br>|<! ELEMENT propstat (prop, status)><br>|
-|prop<br>|DAV:<br>|プロパティ設定内容<br>|リソース設定の結果を以下のように表示する<br>設定成功：設定したキーと値<br>削除成功：削除したキー<br>|
-|status<br>|DAV:<br>|プロパティ設定ステータスコード<br>|設定成功の場合200(OK)が返る<br>|
+|multistatus|DAV:|レスポンスボディのルート|<! ELEMENT multistatus (response *)>|
+|response|DAV:|responseのルート|<! ELEMENT response (href, propstat)>|
+|href|DAV:|PROPPATCHを実行したリソースのURL|PROPPATCHを実行したリソースのURL|
+|propstat|DAV:|プロパティ設定結果|<! ELEMENT propstat (prop, status)>|
+|prop|DAV:|プロパティ設定内容|リソース設定の結果を以下のように表示する<br>設定成功：設定したキーと値<br>削除成功：削除したキー|
+|status|DAV:|プロパティ設定ステータスコード|設定成功の場合200(OK)が返る|
 #### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.html)を参照
 
@@ -97,12 +97,12 @@ PROPPATCH
     </response>
 </multistatus>
 ```
-<br>
+
 ### cURLサンプル
 ```sh
 curl "https://{UnitFQDN}/{CellName}" -X PROPPATCH -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8" ?>
 <D:propertyupdate xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns"><D:set><D:prop>
 <p:hoge>${hoge}</p:hoge></D:prop></D:set><D:remove><D:prop><p:hoge/></D:prop></D:remove></D:propertyupdate>'
 ```
-<br>
-###### Copyright 2017    FUJITSU LIMITED
+
+###### Copyright 2017 FUJITSU LIMITED

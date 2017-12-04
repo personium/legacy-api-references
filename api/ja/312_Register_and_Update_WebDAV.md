@@ -9,56 +9,56 @@ write
 #### WebDAV制限
 未稿
 
-<br>
+
 ### リクエスト
 #### リクエストURL
 ```
 /{CellName}/{BoxName}/{ResourcePath}
 ```
-|パス<br>|概要<br>|備考<br>|
+|パス|概要|備考|
 |:--|:--|:--|
-|{CellName}<br>|セル名<br>|<br>|
-|{BoxName}<br>|ボックス名<br>|<br>|
-|{ResourcePath}<br>|リソースへのパス<br>|有効値 桁数:1&#65374;128<br>使用可能文字種<br>半角英数字、半角ピリオド(.)、半角アンダーバー(_)、半角ハイフン(-)<br>|
+|{CellName}|セル名||
+|{BoxName}|ボックス名||
+|{ResourcePath}|リソースへのパス|有効値 桁数:1&#65374;128<br>使用可能文字種<br>半角英数字、半角ピリオド(.)、半角アンダーバー(_)、半角ハイフン(-)|
 #### メソッド
 PUT
 #### リクエストクエリ
 ##### 共通リクエストクエリ
-|クエリ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
+|クエリ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|p_cookie_peer<br>|クッキー認証値<br>|認証時にサーバから返却されたクッキー認証値<br>|×<br>|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br>|
+|p_cookie_peer|クッキー認証値|認証時にサーバから返却されたクッキー認証値|×|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する|
 #### リクエストヘッダ
 ##### 共通リクエストヘッダ
-|ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
+|ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|X-HTTP-Method-Override<br>|メソッドオーバーライド機能<br>|任意<br>|×<br>|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用される<br>|
-|X-Override<br>|ヘッダオーバライド機能<br>|${上書きするヘッダ名}:${値}<br>|×<br>|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定する<br>|
-|X-Personium-RequestKey<br>|イベントログに出力するRequestKeyフィールドの値<br>|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字<br>|×<br>|指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応<br>|
+|X-HTTP-Method-Override|メソッドオーバーライド機能|任意|×|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用される|
+|X-Override|ヘッダオーバライド機能|${上書きするヘッダ名}:${値}|×|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定する|
+|X-Personium-RequestKey|イベントログに出力するRequestKeyフィールドの値|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字|×|指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応|
 ##### 個別リクエストヘッダ
-|ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
+|ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {AccessToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
-|If-Match<br>|対象ETag値を指定する<br>|ETag値<br>|×<br>|省略時は[*]として扱う<br>|
-|Content-Type<br>|登録・更新ファイルのコンテンツ形式を指定する<br>|String<br>|×<br>|SWF形式で登録・更新する場合<br>Content-Type:application/x-shockwave-flash<br>PDF形式で登録・更新する場合<br>Content-Type:application/pdf<br>JPG形式で登録・更新する場合<br>Content-Type:image/jpeg<br>js形式で登録・更新する場合<br>Content-Type:application/x-javascript<br>|
+|Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
+|If-Match|対象ETag値を指定する|ETag値|×|省略時は[*]として扱う|
+|Content-Type|登録・更新ファイルのコンテンツ形式を指定する|String|×|SWF形式で登録・更新する場合<br>Content-Type:application/x-shockwave-flash<br>PDF形式で登録・更新する場合<br>Content-Type:application/pdf<br>JPG形式で登録・更新する場合<br>Content-Type:image/jpeg<br>js形式で登録・更新する場合<br>Content-Type:application/x-javascript|
 #### リクエストボディ
-|概要<br>|有効値<br>|必須<br>|備考<br>|
+|概要|有効値|必須|備考|
 |:--|:--|:--|:--|
-|登録・更新するコンテキスト情報をバイナリでリクエストボディに指定する<br>|Content-Typeヘッダで指定した方式<br>|○<br>|<br>|
+|登録・更新するコンテキスト情報をバイナリでリクエストボディに指定する|Content-Typeヘッダで指定した方式|○||
 #### リクエストサンプル
 なし
 
-<br>
+
 ### レスポンス
 #### ステータスコード
-|コード<br>|メッセージ<br>|概要<br>|
+|コード|メッセージ|概要|
 |:--|:--|:--|
-|201<br>|Created<br>|登録成功時<br>|
-|204<br>|No Content<br>|更新成功時<br>|
+|201|Created|登録成功時|
+|204|No Content|更新成功時|
 #### レスポンスヘッダ
-|ヘッダ名<br>|概要<br>|備考<br>|
+|ヘッダ名|概要|備考|
 |:--|:--|:--|
-|Content-Type<br>|返却されるデータの形式<br>|更新・作成時に失敗した場合のみ返却する<br>|
-|ETag<br>|リソースのバージョン情報<br>|<br>|
+|Content-Type|返却されるデータの形式|更新・作成時に失敗した場合のみ返却する|
+|ETag|リソースのバージョン情報||
 #### レスポンスボディ
 更新・作成時に失敗した場合のみ返却する
 #### エラーメッセージ一覧
@@ -67,13 +67,11 @@ PUT
 #### レスポンスサンプル
 なし
 
-<br>
+
 ### cURLサンプル
 
 ```sh
 curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ResourcePath}" -X PUT -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{【ファイル内容】}'
 ```
-<br>
-<br>
-<br>
-###### Copyright 2017    FUJITSU LIMITED
+
+###### Copyright 2017 FUJITSU LIMITED

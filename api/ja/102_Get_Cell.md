@@ -14,7 +14,7 @@
 	* レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはJSON形式とする
 	* $formatクエリオプションにatom または xmlを指定した場合、エラーとはならないが、レスポンスボディのデータの保証はない
 
-<br>
+
 ### リクエスト
 #### リクエストURL
 ```
@@ -28,9 +28,9 @@
 #### メソッド
 GET
 #### リクエストクエリ
-|クエリ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
+|クエリ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|p_cookie_peer<br>|クッキー認証値<br>|認証時にサーバから返却されたクッキー認証値<br>|×<br>|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br>|_
+|p_cookie_peer|クッキー認証値|認証時にサーバから返却されたクッキー認証値|×|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する|_
 
 [$select クエリ](406_Select_Query.html)
 
@@ -40,57 +40,57 @@ GET
 
 #### リクエストヘッダ
 ##### 共通リクエストヘッダ
-|ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
+|ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|X-HTTP-Method-Override<br>|メソッドオーバーライド機能<br>|任意<br>|×<br>|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用される<br>|
-|X-Override<br>|ヘッダオーバライド機能<br>|${上書きするヘッダ名}:${値}<br>|×<br>|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定する<br>|
-|X-Personium-RequestKey<br>|イベントログに出力するRequestKeyフィールドの値<br>|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字<br>|×<br>|指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応<br>|
+|X-HTTP-Method-Override|メソッドオーバーライド機能|任意|×|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用される|
+|X-Override|ヘッダオーバライド機能|${上書きするヘッダ名}:${値}|×|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定する|
+|X-Personium-RequestKey|イベントログに出力するRequestKeyフィールドの値|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字|×|指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応|
 ##### OData共通リクエストヘッダ
-|ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
+|ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {AccessToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
 ##### OData取得リクエストヘッダ
-|ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
+|ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|Accept<br>|レスポンスボディの形式を指定する<br>|application/json<br>|×<br>|省略時は[application/json]として扱う<br>|
-|If-None-Match<br>|対象ETag値を指定する<br>|ETag値<br>|○<br>|未対応<br>|
+|Accept|レスポンスボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
+|If-None-Match|対象ETag値を指定する|ETag値|○|未対応|
 #### リクエストボディ
 なし
 #### リクエストサンプル
 なし
 
-<br>
+
 ### レスポンス
 #### ステータスコード
 200
 #### レスポンスヘッダ
-|ヘッダ名<br>|概要<br>|備考<br>|
+|ヘッダ名|概要|備考|
 |:--|:--|:--|
-|Content-Type<br>|返却されるデータの形式<br>|&#160;<br>|
-|DataServiceVersion<br>|ODataのバージョン<br>|&#160;<br>|
-|ETag<br>|リソースのバージョン情報<br>|&#160;<br>|
-|Access-Control-Allow-Origin<br>|クロスドメイン通信許可ヘッダ<br>|返却値は"*"固定<br>|
-|X-Personium-Version<br>|Personium APIの実行バージョン<br>|リクエストが処理されたAPIバージョン<br>|
+|Content-Type|返却されるデータの形式||
+|DataServiceVersion|ODataのバージョン||
+|ETag|リソースのバージョン情報||
+|Access-Control-Allow-Origin|クロスドメイン通信許可ヘッダ|返却値は"*"固定|
+|X-Personium-Version|Personium APIの実行バージョン|リクエストが処理されたAPIバージョン|
 #### レスポンスボディ
 ##### 共通レスポンスボディ
 レスポンスはJSONオブジェクトで、オブジェクト（サブオブジェクト）に定義される
 
-|オブジェクト<br>|名前（キー）<br>|型<br>|値<br>|
+|オブジェクト|名前（キー）|型|値|
 |:--|:--|:--|:--|
-|ルート<br>|d<br>|object<br>|オブジェクト{1}<br>|
-|{1}<br>|results<br>|array<br>|オブジェクト{2}の配列<br>|
-|{2}<br>|__metadata<br>|object<br>|オブジェクト{3}<br>|
-|{3}<br>|uri<br>|string<br>|作成したリソースへのURL<br>|
-|{3}<br>|etag<br>|string<br>|Etag値<br>|
-|{2}<br>|__published<br>|string<br>|作成日(UNIX時間)<br>|
-|{2}<br>|__updated<br>|string<br>|更新日(UNIX時間)<br>|
-|{1}<br>|__count<br>|string<br>|$inlinecountクエリでの取得結果件数<br>|
+|ルート|d|object|オブジェクト{1}|
+|{1}|results|array|オブジェクト{2}の配列|
+|{2}|__metadata|object|オブジェクト{3}|
+|{3}|uri|string|作成したリソースへのURL|
+|{3}|etag|string|Etag値|
+|{2}|__published|string|作成日(UNIX時間)|
+|{2}|__updated|string|更新日(UNIX時間)|
+|{1}|__count|string|$inlinecountクエリでの取得結果件数|
 
 ##### Cell固有レスポンスボディ
-|オブジェクト<br>|名前（キー）<br>|型<br>|値<br>|
+|オブジェクト|名前（キー）|型|値|
 |:--|:--|:--|:--|
-|{3}<br>|type<br>|string<br>|UnitCtl.Cell &#160;<br>|
-|{2}<br>|Name<br>|string<br>|Cellの名称<br>|
+|{3}|type|string|UnitCtl.Cell|
+|{2}|Name|string|Cellの名称|
 
 #### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.html)を参照
@@ -113,13 +113,11 @@ GET
 }
 ```
 
-<br>
+
 ### cURLサンプル
 
 ```sh
 curl "https://{UnitFQDN}/__ctl/Cell('{CellName}')" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
-<br>
-<br>
-<br>
-###### Copyright 2017    FUJITSU LIMITED
+
+###### Copyright 2017 FUJITSU LIMITED

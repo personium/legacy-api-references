@@ -13,44 +13,43 @@ Boxインストール時に「★必須」となっているディレクトリ�
 また、barファイルの構造が下記の順序で作成されていない場合はエラーとなる。
 ```
 bar/
- |
+|
  +-- 00_meta/  ★ 必須
- |    |
- |    +-- 00_manifest.json  ★ 必須
- |    +-- 10_relations.json
- |    +-- 20_roles.json
- |    +-- 30_extroles.json
- |    +-- 70_$links.json
- |    +-- 90_rootprops.xml  ★ 必須
- |
+|  |
+|    +-- 00_manifest.json  ★ 必須
+|    +-- 10_relations.json
+|    +-- 20_roles.json
+|    +-- 30_extroles.json
+|    +-- 70_$links.json
+|    +-- 90_rootprops.xml  ★ 必須
+|
  +-- 90_contents/     ★ 配下のディレクトリ名はコレクション名と同じ
-      |
+    |
       +-- {OData}/    ★ rootprops.xmlでODataコレクションの場合、必須
-      |    |
-      |    +-- 00_$metadata.xml    ★ 必須
-      |    +-- 10_odatarelations.json
-      |    |
-      |    +-- 90_data/
-      |         |
-      |         +-- {EntityType}/
-      |              |
-      |              +-- {1.json}
-      |
+    |  |
+    |    +-- 00_$metadata.xml    ★ 必須
+    |    +-- 10_odatarelations.json
+    |  |
+    |    +-- 90_data/
+    |       |
+    |         +-- {EntityType}/
+    |            |
+    |              +-- {1.json}
+    |
       +-- {Service}/
-      |    |
-      |    +-- {src.js}
-      |
+    |  |
+    |    +-- {src.js}
+    |
       +-- {dir1}/
-           |
+         |
            +-- {dir1-1}/
-                |
+              |
                 +-- {userdata1-2.jpg}
-                |
+              |
                 +-- {dir2}/
-                     |
+                   |
                      +-- [userdata1-2.jpg}
 ```
-
 
 
 #### Bar File Version Control
@@ -62,12 +61,12 @@ bar/
 #### 00_manifest.json
 インストールする対象となるBoxの情報を記述したファイル
 
-|項目名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
+|項目名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|bar_version<br>|barファイルのバージョン<br>|有効なバージョン<br>barファイル形式の変更ごとにバージョンが変わる<br>|○<br>|現状は"1"<br>|
-|box_version<br>|Boxのバージョン<br>|有効なバージョン<br>Box形式の変更ごとにバージョンが変わる<br>|○<br>|任意の文字列で良いが"1"を推奨（Box改版機能提供に向けて）<br>|
-|DefaultPath<br>|barファイル内でのBox名<br>|桁数：1&#65374;128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)は指定不可<br>nullは不可<br>|○<br>| <br>|
-|schema<br>|Schema名<br>|桁数：1&#65374;1024<br>URIの形式に従う（scheme：http / https / urn）<br>nullは不可<br>|○<br>| <br>|
+|bar_version|barファイルのバージョン|有効なバージョン<br>barファイル形式の変更ごとにバージョンが変わる|○|現状は"1"|
+|box_version|Boxのバージョン|有効なバージョン<br>Box形式の変更ごとにバージョンが変わる|○|任意の文字列で良いが"1"を推奨（Box改版機能提供に向けて）|
+|DefaultPath|barファイル内でのBox名|桁数：1&#65374;128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)は指定不可<br>nullは不可|○||
+|schema|Schema名|桁数：1&#65374;1024<br>URIの形式に従う（scheme：http / https / urn）<br>nullは不可|○||
 
 ##### サンプル
 ```JSON
@@ -82,10 +81,10 @@ bar/
 インストール対象とするRelationの情報を記述したファイル  
 ※「有効値」欄が『&#65293;』となっている項目項目は、Relationのリクエストボディを参照
 
-|項目名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
+|項目名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|Relations  <br>|Relationのリスト<br>| <br>|○<br>| <br>
-|Relations/Name<br>|Relation名<br>|-<br>|○<br>| <br>|
+|Relations|Relationのリスト||○||
+|Relations/Name|Relation名|-|○||
 
 
 ##### サンプル
@@ -102,10 +101,10 @@ bar/
 インストール対象とするRoleの情報を記述したファイル  
 ※「有効値」欄が『&#65293;』となっている項目は、、Roleのリクエストボディを参照
 
-|項目名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
+|項目名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|Roles   <br>|Relationのリスト<br>| <br>|○<br>| <br>
-|Roles/Name<br>|Relation名<br>|-<br>|○<br>| <br>|
+|Roles|Relationのリスト||○||
+|Roles/Name|Relation名|-|○||
 
 ##### サンプル
 ```JSON
@@ -121,11 +120,11 @@ bar/
 インストール対象とするExtRoleの情報を記述したファイル  
 ※「有効値」欄が『&#65293;』となっている項目は、ExtRoleのリクエストボディを参照
 
-|項目名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
+|項目名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|ExtRoles<br>|ExtRoleのリスト<br>| <br>|○<br>| <br>
-|ExtRoles/ExtRole<br>|参照先RoleのURI<br>|&#65293;<br>|○<br>|nullは不可 ※1<br>|
-|ExtRoles/_Relation.Name<br>|Relation名<br>|&#65293;<br>|○<br>|nullは不可<br>|
+|ExtRoles|ExtRoleのリスト||○||
+|ExtRoles/ExtRole|参照先RoleのURI|&#65293;|○|nullは不可 ※1|
+|ExtRoles/_Relation.Name|Relation名|&#65293;|○|nullは不可|
 
 (※ 1) エクスポート時にロールクラスURLへ変換
 https://{UnitFQDN}/cell1/__role/box/staff → https://{UnitFQDN}/cell1/__role/__/staff
@@ -144,13 +143,13 @@ https://{UnitFQDN}/cell1/__role/box/staff → https://{UnitFQDN}/cell1/__role/__
 #### 70_$links.json
 インストール対象とする$linksのデータ関連情報を記述したファイル
 
-|項目名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
+|項目名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|Links<br>|$linksのリスト<br>| <br>|○<br>| <br>
-|Links/FromType<br>|参照元データの種類<br>|"Relation"<br>"Role"<br>&quot;ExtRole&quot;  <br>|○<br>|nullは不可<br>|
-|Links/FromName<br>|参照元データの名前<br>|&#65293;(配列形式 ※1)<br>|○<br>|nullは不可<br> （例:{&quot;Name&quot;:&quot;relation1&quot;}]）<br>|
-|Links/ToType<br>|参照先データの種類<br>|"Relation"<br>"Role"<br>"ExtRole"<br>|○<br> <br>|nullは不可<br> <br>|
-|Links/ToName<br>|参照先データの名前<br>|&#65293;(配列形式 ※1)<br>|○<br> <br>|nullは不可<br>（例:{"Name":"role"}]）<br>|
+|Links|$linksのリスト||○||
+|Links/FromType|参照元データの種類|"Relation"<br>"Role"<br>&quot;ExtRole&quot;|○|nullは不可|
+|Links/FromName|参照元データの名前|&#65293;(配列形式 ※1)|○|nullは不可<br> （例:{&quot;Name&quot;:&quot;relation1&quot;}]）|
+|Links/ToType|参照先データの種類|"Relation"<br>"Role"<br>"ExtRole"|○|nullは不可|
+|Links/ToName|参照先データの名前|&#65293;(配列形式 ※1)|○|nullは不可<br>（例:{"Name":"role"}]）|
 ※1 ExtRoleではRelation情報も必要のため、リスト形式とする。ただし、指定するJSONデータのキー名は、&quot;Name&quot; 固定とする。（制限）
 
 ##### サンプル
@@ -356,13 +355,13 @@ Boxインストール時には、Schemaタグの配下をインストール対�
 インストール対象ユーザデータの$linksのデータ関連情報を記述したファイル
 ユーザODataのスキーマレベルでは、00_$metadata.xml にてAssociationEndの関連を定義しているが、本ファイルではユーザデータの実体に対する関連を定義する。
 
-|項目名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
+|項目名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|Links<br>|$linksのリスト<br>| <br>|○<br>| <br>
-|Links/FromType<br>|参照元データの種類<br>|&#65293;  <br>|○<br>|nullは不可<br>|
-|Links/FromId<br>|参照元ユーザデータのID<br>|&#65293;(配列形式 ※1)<br>|○<br>|nullは不可<br> （例:{&quot;FromId&quot;:&quot;tanaka_taro&quot;} ）<br>|
-|Links/ToType<br>|参照先データの種類<br>|&#65293;<br>|○<br> <br>|nullは不可<br> <br>|
-|Links/ToId  <br>|参照先ユーザデータのID  <br>|&#65293;(配列形式 ※1)<br>|○<br> <br>|nullは不可<br>（例:{"ToId":"tanaka_hanako"} ）<br>|
+|Links|$linksのリスト||○||
+|Links/FromType|参照元データの種類|&#65293;|○|nullは不可|
+|Links/FromId|参照元ユーザデータのID|&#65293;(配列形式 ※1)|○|nullは不可<br> （例:{&quot;FromId&quot;:&quot;tanaka_taro&quot;} ）|
+|Links/ToType|参照先データの種類|&#65293;|○|nullは不可|
+|Links/ToId|参照先ユーザデータのID|&#65293;(配列形式 ※1)|○|nullは不可<br>（例:{"ToId":"tanaka_hanako"} ）|
 ※1 将来的に複合主キーへ対応した場合の対応を考慮して配列形式とする。
 
 ##### サンプル
@@ -469,7 +468,5 @@ bar/90_contents/{Service}/{src.js}に格納されたソースファイルを、�
     </response>
 </multistatus>
 ```
-<br>
-<br>
-<br>
-###### Copyright 2017    FUJITSU LIMITED
+
+###### Copyright 2017 FUJITSU LIMITED

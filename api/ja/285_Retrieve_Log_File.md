@@ -17,13 +17,13 @@ log-read
 * ログの出力レベルは"info"固定（INFO, WARN, ERRORすべて出力）とする
 * ローテート時のファイル名は、 default.log.{Timestamp} とする。 {Timestamp}は、ローテートされたときの時刻で採番される。
 
-|アクション<br>|アーカイブされたログファイル<br>|説明<br>|備考<br>|
+|アクション|アーカイブされたログファイル|説明|備考|
 |:--|:--|:--|:--|
-|First Rotation<br>|archive/<br>default.log.1402910774659<br>|<br>新規にローテートされたファイル<br>|<br>2014-06-16 18:26:14 +0900<br>|
-|2nd Rotation<br>|archive/<br>default.log.1402910774659<br>default.log.1403910784659<br>|<br>前回ローテートされたファイル<br>新規にローテートされたファイル<br>|<br>2014-06-16 18:26:14 +0900<br>2014-06-28 08:13:04 +0900<br>|
-|3rd Rotation<br>|archive/<br>default.log.1402910774659<br>default.log.1403910784659<br>default.log.1403910784659<br>|<br>前々回にローテートされたファイル<br>前回ローテートされたファイル<br>新規にローテートされたファイル<br>|<br>2014-06-16 18:26:14 +0900<br>2014-06-28 08:13:04 +0900<br>2014-07-09 21:59:44 +0900<br>|
+|First Rotation|archive/<br>default.log.1402910774659|<br>新規にローテートされたファイル|<br>2014-06-16 18:26:14 +0900|
+|2nd Rotation|archive/<br>default.log.1402910774659<br>default.log.1403910784659|<br>前回ローテートされたファイル<br>新規にローテートされたファイル|<br>2014-06-16 18:26:14 +0900<br>2014-06-28 08:13:04 +0900|
+|3rd Rotation|archive/<br>default.log.1402910774659<br>default.log.1403910784659<br>default.log.1403910784659|<br>前々回にローテートされたファイル<br>前回ローテートされたファイル<br>新規にローテートされたファイル|<br>2014-06-16 18:26:14 +0900<br>2014-06-28 08:13:04 +0900<br>2014-07-09 21:59:44 +0900|
 
-<br>
+
 ### リクエスト
 #### リクエストURL
 ##### 最新のログファイルを取得
@@ -38,30 +38,30 @@ log-read
 #### メソッド
 GET
 #### リクエストクエリ
-|クエリ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
+|クエリ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|p_cookie_peer<br>|クッキー認証値<br>|認証時にサーバから返却されたクッキー認証値<br>|×<br>|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br>|
+|p_cookie_peer|クッキー認証値|認証時にサーバから返却されたクッキー認証値|×|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する|
 #### リクエストヘッダ
 ##### 共通リクエストヘッダ
-|ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
+|ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|X-HTTP-Method-Override<br>|メソッドオーバーライド機能<br>|任意<br>|×<br>|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用される<br>|
-|X-Override<br>|ヘッダオーバライド機能<br>|${上書きするヘッダ名}:${値}<br>|×<br>|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定する<br>|
-|X-Personium-RequestKey<br>|イベントログに出力するRequestKeyフィールドの値<br>|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字<br>|×<br>|指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応<br>|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {AccessToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|X-HTTP-Method-Override|メソッドオーバーライド機能|任意|×|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用される|
+|X-Override|ヘッダオーバライド機能|${上書きするヘッダ名}:${値}|×|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定する|
+|X-Personium-RequestKey|イベントログに出力するRequestKeyフィールドの値|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字|×|指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応|
+|Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
 #### リクエストボディ
 なし
 #### リクエストサンプル
 なし
 
-<br>
+
 ### レスポンス
 #### ステータスコード
 200
 #### レスポンスヘッダ
-|ヘッダ名<br>|概要<br>|備考<br>|
+|ヘッダ名|概要|備考|
 |:--|:--|:--|
-|Content-Type<br>|Resourceのデータ形式に応じたMimeType<br>|"text/csv"または"application/zip"<br>|
+|Content-Type|Resourceのデータ形式に応じたMimeType|"text/csv"または"application/zip"|
 #### レスポンスボディ
 currentのログ取得時にログが存在しない場合は、空のレスポンスボディを返却する。  
 ローテートのサイズ設定値よりも5MB程度大きなサイズとなる場合がある。  
@@ -69,17 +69,17 @@ currentのログ取得時にログが存在しない場合は、空のレスポ�
 ```
 {dateTime},[{level}],{RequestKey},{name},{schema},{subject},{action},{object},{result}
 ```
-|項目名<br>|概要<br>|備考<br>|
+|項目名|概要|備考|
 |:--|:--|:--|
-|dateTime<br>|ログ書込み日時（ISO8601 UTC形式）<br>|YYYY-MM-DDTHH:MM:SS.sssZ<br>|
-|level<br>|ログレベル INFO,WARN,ERRORのいずれか<br>|文字列<br>|
-|RequestKey<br>|X-Personium-RequestKeyヘッダで指定された値<br>X-Personium-RequestKeyヘッダ指定がない場合、PCS-${UNIX時間}<br>|文字列<br>|
-|name<br>|外部イベント：client<br>内部イベント：server<br>|文字列<br>|
-|schema<br>|受け付けたURLのboxのschema<br>|URL形式<br>|
-|subject<br>|イベントの主体<br>|URL形式<br>|
-|action<br>|外部イベント：イベント受付で定義されたaction<br>内部イベント：HTTPメソッド名<br>|文字列<br>|
-|object<br>|外部イベント：イベント受付で定義されたobject<br>内部イベント：リクエストされたリソースパス<br>|文字列<br>|
-|result<br>|外部イベント：イベント受付で定義されたresult<br>内部イベント：HTTPステータスコード<br>|文字列<br>|
+|dateTime|ログ書込み日時（ISO8601 UTC形式）|YYYY-MM-DDTHH:MM:SS.sssZ|
+|level|ログレベル INFO,WARN,ERRORのいずれか|文字列|
+|RequestKey|X-Personium-RequestKeyヘッダで指定された値<br>X-Personium-RequestKeyヘッダ指定がない場合、PCS-${UNIX時間}|文字列|
+|name|外部イベント：client<br>内部イベント：server|文字列|
+|schema|受け付けたURLのboxのschema|URL形式|
+|subject|イベントの主体|URL形式|
+|action|外部イベント：イベント受付で定義されたaction<br>内部イベント：HTTPメソッド名|文字列|
+|object|外部イベント：イベント受付で定義されたobject<br>内部イベント：リクエストされたリソースパス|文字列|
+|result|外部イベント：イベント受付で定義されたresult<br>内部イベント：HTTPステータスコード|文字列|
 #### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.html)を参照
 
@@ -94,13 +94,11 @@ currentのログ取得時にログが存在しない場合は、空のレスポ�
 2013-04-18T14:52:39.778Z,[ERROR],PCS-1364350331902,server,https://{UnitFQDN}/appCell/,https://{UnitFQDN}/appCell/#staff,POST,/homeClinic/__token,200
 ```
 
-<br>
+
 ### cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__log/current/default.log" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'          
+curl "https://{UnitFQDN}/{CellName}/__log/current/default.log" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
-<br>
-<br>
-<br>
-###### Copyright 2017    FUJITSU LIMITED
+
+###### Copyright 2017 FUJITSU LIMITED

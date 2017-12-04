@@ -12,7 +12,6 @@ alter-schema
 
 None
 
-<br>
 
 ### Request
 
@@ -32,16 +31,16 @@ None
 
 #### Request Header
 
-|Header Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|Specifies authentication information in the OAuth 2.0 format<br>|Bearer {AccessToken}<br>|No<br>|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API<br>|
-|Accept<br>|Specifies the response body format<br>|application/json<br>|No<br>|[application/json] by default<br>|
+|Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
+|Accept|Specifies the response body format|application/json|No|[application/json] by default|
 
 #### Request Body
 
-|Item Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|Item Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|uri<br>|Link to AssociationEnd uri<br>|Present AssociationEnd<br>|Yes<br>|<br>|
+|uri|Link to AssociationEnd uri|Present AssociationEnd|Yes||
 
 #### Request Sample
 
@@ -49,7 +48,6 @@ None
 {"uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')"}
 ```
 
-<br>
 
 ### Response
 
@@ -59,9 +57,9 @@ None
 
 #### Response Header
 
-|Item Name<br>|Overview<br>|Notes<br>|
+|Item Name|Overview|Notes|
 |:--|:--|:--|
-|DataServiceVersion<br>|Version information of ODataProtocol<br>|Return only when AssociationEnd can be created successfully<br>|
+|DataServiceVersion|Version information of ODataProtocol|Return only when AssociationEnd can be created successfully|
 
 #### Response Body
 
@@ -75,7 +73,6 @@ Refer to [Error Message List](004_Error_Messages.html)
 
 None
 
-<br>
 
 ### cURL Command
 
@@ -83,6 +80,5 @@ None
 curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')/\$links/_AssociationEnd" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -H 'Accept:application/json' -d "{\"uri\": \"https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')\"}"
 ```
 
-<br><br><br><br><br>
 
 ###### Copyright 2017 FUJITSU LIMITED

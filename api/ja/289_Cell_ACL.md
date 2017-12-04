@@ -11,7 +11,7 @@ ACL設定を行うと、既存のACL設定を上書きされる形で更新さ�
 	- ACL設定を打ち消す機能（deny）
 	- ACLで設定出来るprivilegeの一覧取得
 
-<br>
+
 ### リクエスト
 #### リクエストURL
 ```
@@ -23,65 +23,64 @@ ACL
 #### リクエストクエリ
 共通リクエストクエリ
 
-|クエリ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
+|クエリ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|p_cookie_peer<br>|クッキー認証値<br>|認証時にサーバから返却されたクッキー認証値<br>|×<br>|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br>|
-
+|p_cookie_peer|クッキー認証値|認証時にサーバから返却されたクッキー認証値|×|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する|
 
 
 #### 共通リクエストヘッダ
 
-|ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
+|ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|X-HTTP-Method-Override<br>|メソッドオーバーライド機能<br>|任意<br>|×<br>|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用されます。<br>|
-|X-Override<br>|ヘッダオーバライド機能<br>|${上書きするヘッダ名}:${値}<br>|×<br>|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定します。<br>|
-|X-Personium-RequestKey<br>|イベントログに出力するRequestKeyフィールドの値<br>|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字<br>|×<br>|指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応<br>|
+|X-HTTP-Method-Override|メソッドオーバーライド機能|任意|×|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用されます。|
+|X-Override|ヘッダオーバライド機能|${上書きするヘッダ名}:${値}|×|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定します。|
+|X-Personium-RequestKey|イベントログに出力するRequestKeyフィールドの値|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字|×|指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応|
 #### リクエストヘッダ
 
-|ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
+|ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {AccessToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
 #### リクエストボディ
 #### 名前空間
 
-|URI<br>|概要<br>|備考 (prefix)<br>|
+|URI|概要|備考 (prefix)|
 |:--|:--|:--|
-|DAV:<br>|WebDAVの名前空間<br>|D:<br>|
-|urn:x-personium:xmlns<br>|Personiumの名前空間<br>|p:<br>|
+|DAV:|WebDAVの名前空間|D:|
+|urn:x-personium:xmlns|Personiumの名前空間|p:|
 ※ 参考prefixは以下表の可読性を高めるためのもので、このprefix文字列の使用を保証するものでも要求するものでもありません。
 
 #### XMLの構造
 ボディはXMLで、以下のスキーマに従っています。<br>
 privilegeタグ配下の権限設定の内容については、acl_model（[アクセス制御モデル](../../user_guide/002_Access_Control.html)）を参照。
 
-|ノード名<br>|Namespace<br>|ノードタイプ<br>|概要<br>|備考<br>|
+|ノード名|Namespace|ノードタイプ|概要|備考|
 |:--|:--|:--|:--|:--|
-|acl<br>|D:<br>|要素<br>|ACL（アクセス制御リスト）のルートを表し、1つ以上複数のaceが子となる<br>|<br>|
-|base<br>|D:<br>|要素<br>|hrefタグ内に記述するURLの基底を表し、任意の値を属性値とする。<br>|<br>|
-|ace<br>|D:<br>|要素<br>|ACE（アクセス制御エレメント）を表し、principalとgrantが一対で子となる<br>|「invert」「deny」「protected」「inherited」はV1.1系未対応<br>|
-|principal<br>|D:<br>|要素<br>|権限設定対象を表し、hrefまたはallが子となる<br>|<br>|
-|grant<br>|D:<br>|要素<br>|権限付与設定を表し、1つ以上複数のprivilegeが子となる<br>|<br>|
-|href<br>|D:<br>|要素<br>|権限設定対象ロール表し、ロールリソースURLを入力するテキストノード<br>|権限設定対象ロールのリソースURLを指定する<br>acl要素内のxml:base属性の設定によって、URLを短縮する事が出来る<br>|
-|all<br>|D:<br>|要素<br>|全アクセス主体権限設定<br>|全てのロールや認証されていないアクセス主体（Authorizationヘッダなし）に対してのの設定となります<br>|
-|privilege<br>|D:<br>|要素<br>|権限設定を表し、以下の要素のいづれか一つが子となる<br>|<br>|
-|root<br>|p:<br>|要素<br>|全権限<br>|<br>
-|auth<br>|p:<br>|要素<br>|認証系管理API編集・参照権限<br>|<br>
-|auth-read<br>|p:<br>|要素<br>|認証系管理API参照権限<br>|<br>
-|message<br>|p:<br>|要素<br>|メッセージ系管理API編集・参照権限<br>|<br>
-|message-read<br>|p:<br>|要素<br>|メッセージ系管理API参照権限<br>|<br>
-|event<br>|p:<br>|要素<br>|イベント系管理API編集・参照権限<br>|<br>
-|event-read<br>|p:<br>|要素<br>|イベント系管理API参照権限<br>|<br>
-|log<br>|p:<br>|要素<br>|イベントバスのログAPI編集・参照権限<br>|<br>
-|log-read<br>|p:<br>|要素<br>|イベントバスのログAPI参照権限<br>|<br>
-|social<br>|p:<br>|要素<br>|関係系管理API編集・参照権限<br>|<br>
-|social-read<br>|p:<br>|要素<br>|関係系管理API参照権限<br>|<br>
-|box<br>|p:<br>|要素<br>|ボックス管理API編集・参照権限<br>|<br>
-|box-read<br>|p:<br>|要素<br>|ボックス管理API参照権限<br>|<br>
-|box-install<br>|p:<br>|要素<br>|Boxインストール実行権限 ※V1.2.3対応<br>|<br>|
-|box-export<br>|p:<br>|要素<br>|Boxエクスポート実行権限<br>|未対応(設定不可)<br>|
-|acl<br>|p:<br>|要素<br>|ACL管理API編集・参照権限<br>|<br>
-|acl-read<br>|p:<br>|要素<br>|ACL管理API参照権限<br>|<br>
-|propfind<br>|p:<br>|要素<br>|プロパティ取得API参照権限<br>|<br>
+|acl|D:|要素|ACL（アクセス制御リスト）のルートを表し、1つ以上複数のaceが子となる||
+|base|D:|要素|hrefタグ内に記述するURLの基底を表し、任意の値を属性値とする。||
+|ace|D:|要素|ACE（アクセス制御エレメント）を表し、principalとgrantが一対で子となる|「invert」「deny」「protected」「inherited」はV1.1系未対応|
+|principal|D:|要素|権限設定対象を表し、hrefまたはallが子となる||
+|grant|D:|要素|権限付与設定を表し、1つ以上複数のprivilegeが子となる||
+|href|D:|要素|権限設定対象ロール表し、ロールリソースURLを入力するテキストノード|権限設定対象ロールのリソースURLを指定する<br>acl要素内のxml:base属性の設定によって、URLを短縮する事が出来る|
+|all|D:|要素|全アクセス主体権限設定|全てのロールや認証されていないアクセス主体（Authorizationヘッダなし）に対してのの設定となります|
+|privilege|D:|要素|権限設定を表し、以下の要素のいづれか一つが子となる||
+|root|p:|要素|全権限||
+|auth|p:|要素|認証系管理API編集・参照権限||
+|auth-read|p:|要素|認証系管理API参照権限||
+|message|p:|要素|メッセージ系管理API編集・参照権限||
+|message-read|p:|要素|メッセージ系管理API参照権限||
+|event|p:|要素|イベント系管理API編集・参照権限||
+|event-read|p:|要素|イベント系管理API参照権限||
+|log|p:|要素|イベントバスのログAPI編集・参照権限||
+|log-read|p:|要素|イベントバスのログAPI参照権限||
+|social|p:|要素|関係系管理API編集・参照権限||
+|social-read|p:|要素|関係系管理API参照権限||
+|box|p:|要素|ボックス管理API編集・参照権限||
+|box-read|p:|要素|ボックス管理API参照権限||
+|box-install|p:|要素|Boxインストール実行権限 ※V1.2.3対応||
+|box-export|p:|要素|Boxエクスポート実行権限|未対応(設定不可)|
+|acl|p:|要素|ACL管理API編集・参照権限||
+|acl-read|p:|要素|ACL管理API参照権限||
+|propfind|p:|要素|プロパティ取得API参照権限||
 
 ##### DTD表記
 名前空間：D:
@@ -145,20 +144,20 @@ privilegeタグ配下の権限設定の内容については、acl_model（[ア�
             <D:privilege><p:root/></D:privilege>
         </D:grant>
     </D:ace>
-</D:acl>        
+</D:acl>
 ```
-<br>
+
 ### レスポンス
 #### ステータスコード
 
-|コード<br>|メッセージ<br>|概要<br>|
+|コード|メッセージ|概要|
 |:--|:--|:--|
-|200<br>|OK<br>|成功<br>|
+|200|OK|成功|
 #### レスポンスヘッダ
 
-|項目名<br>|概要<br>|備考<br>|
+|項目名|概要|備考|
 |:--|:--|:--|
-|Content-Type<br>|返却されるデータの形式<br>|<br>|
+|Content-Type|返却されるデータの形式||
 #### レスポンスボディ
 なし
 
@@ -169,7 +168,5 @@ privilegeタグ配下の権限設定の内容については、acl_model（[ア�
 ```sh
 curl "https://{UnitFQDN}/{CellName}" -X ACL -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8" ?><D:acl xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" xml:base="http://{UnitFQDN}/{CellName}/__role/{BoxName}/">  <D:ace><D:principal><D:href>{RoleName}</D:href></D:principal><D:grant><D:privilege><p:box-read/></D:privilege><D:privilege><p:auth/></D:privilege></D:grant></D:ace></D:acl>'
 ```
-<br>
-<br>
-<br>
-###### Copyright 2017    FUJITSU LIMITED
+
+###### Copyright 2017 FUJITSU LIMITED

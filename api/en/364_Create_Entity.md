@@ -21,7 +21,6 @@ write
     * \*When setting in request body and setting with DefaultValue (\_\_published, \_\_ updated is the latter timing)
     * For EntityType, you can create up to 400 DynamicProperty / DeclaredProperty / ComplexTypeProperty
 
-<br>
 
 ### Request
 
@@ -31,12 +30,12 @@ write
 /{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}
 ```
 
-|Path<br>|Overview<br>|
+|Path|Overview|
 |:--|:--|
-|{CellName}<br>|Cell Name<br>|
-|{BoxName}<br>|Box Name<br>|
-|{ODataCollecitonName}<br>|Collection Name<br>|
-|{EntityTypeName}<br>|EntityType name<br>|
+|{CellName}|Cell Name|
+|{BoxName}|Box Name|
+|{ODataCollecitonName}|Collection Name|
+|{EntityTypeName}|EntityType name|
 
 #### Request Method
 
@@ -46,9 +45,9 @@ POST
 
 ##### Common Request Query
 
-|Query Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|p_cookie_peer<br>|Cookie Authentication Value<br>|The cookie authentication value returned from the server during authentication<br>|No<br>|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used<br>|
+|p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
 ##### OData Common Request Query
 
@@ -56,17 +55,17 @@ None
 
 #### Request Header
 
-|Header Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|Specifies authentication information in the OAuth 2.0 format<br>|Bearer {AccessToken}<br>|No<br>|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API<br>|
-|Accept<br>|Specifies the response body format<br>|application/json<br>|No<br>|[application/json] by default<br>Not compatible<br>|
-|Content-Type<br>|Specifies the request body format<br>|application/json<br>|No<br>|When omitted, treat it as [application/json] <br>Not compatible<br>|
+|Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
+|Accept|Specifies the response body format|application/json|No|[application/json] by default<br>Not compatible|
+|Content-Type|Specifies the request body format|application/json|No|When omitted, treat it as [application/json] <br>Not compatible|
 
 #### Request Body
 
-|Item Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|Item Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|__id<br>|EntityID<br>|Number of digits: 1-200<br>Character type: Half size alphanumeric characters - (hyphen) and _ (underscore): (colon)<br> *However, - (hyphen), _ (underscore) and: (colon) can not be specified as the first character<br>|No<br>|If not specified a unique ID will be assigned<br>Valid value check not supported<br>|
+|__id|EntityID|Number of digits: 1-200<br>Character type: Half size alphanumeric characters - (hyphen) and _ (underscore): (colon)<br> *However, - (hyphen), _ (underscore) and: (colon) can not be specified as the first character|No|If not specified a unique ID will be assigned<br>Valid value check not supported|
 
 ##### Property
 
@@ -75,19 +74,19 @@ Contains the number of properties defined by ComplexType in the above
 
 ##### Schema-defined properties
 
-|Item Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|Item Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|Property associated with EntityType<br>|User defined item <br>|Based on DefaultValue of default value Property<br>|Based on Property Nullable<br>|<br>|
+|Property associated with EntityType|User defined item|Based on DefaultValue of default value Property|Based on Property Nullable||
 
 ##### Valid value of value of schema-defined property
 
-|Data type<br>|Effective Value<br>|
+|Data type|Effective Value|
 |:--|:--|
-|String<br>|Number of digits: 0-51200 byte<br>Character type: When a control code is used as a value of a character string, return it in an escaped state at the time of acquisition<br>When "\\" is used, it must be specified with "\\\\"<br>When an integer value, a decimal value, a boolean value, or a date type value is set in a property of a character string type, it is converted into a character string type and registered<br>|
-|Integer value<br>|-2147483648 - 2147483647<br>|
-|Decimal point<br>|Number of digits in integer part: 1-5 digits<br>Number of digits in decimal part: 1-5 digits<br>|
-|Boolean value<br>|true / false / null(treat null as false)<br>|
-|Date<br>|It is specified as a character string in the format of Date ([time of long type])<br>The valid value of [time of long type] is -6847804800000(1753-01-01T00:00:00.000Z)-253402300799999(9999-12-31T23:59:59.999Z)<br>In addition, you can specify the following as reserved words<br>SYSUTCDATETIME (): server time<br>|
+|String|Number of digits: 0-51200 byte<br>Character type: When a control code is used as a value of a character string, return it in an escaped state at the time of acquisition<br>When "\\" is used, it must be specified with "\\\\"<br>When an integer value, a decimal value, a boolean value, or a date type value is set in a property of a character string type, it is converted into a character string type and registered|
+|Integer value|-2147483648 - 2147483647|
+|Decimal point|Number of digits in integer part: 1-5 digits<br>Number of digits in decimal part: 1-5 digits|
+|Boolean value|true / false / null(treat null as false)|
+|Date|It is specified as a character string in the format of Date ([time of long type])<br>The valid value of [time of long type] is -6847804800000(1753-01-01T00:00:00.000Z)-253402300799999(9999-12-31T23:59:59.999Z)<br>In addition, you can specify the following as reserved words<br>SYSUTCDATETIME (): server time|
 
 #### Dynamic (schema undefined) property
 
@@ -96,9 +95,9 @@ Contains the number of properties defined by ComplexType in the above
 
 ##### Valid value of dynamic property's key
 
-|Data type<br>|Effective Value<br>|
+|Data type|Effective Value|
 |:--|:--|
-|String<br>|Number of digits: 1-128 :<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, - (hyphen) and \_ (underscore) can not be specified as the first character <br>_published, _updated is a reserved word, so it is not possible to specify the request body<br>|
+|String|Number of digits: 1-128 :<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, - (hyphen) and \_ (underscore) can not be specified as the first character <br>_published, _updated is a reserved word, so it is not possible to specify the request body|
 
 ##### Valid value of value of dynamic property
 
@@ -119,7 +118,6 @@ Array, associative array can not be specified
 {"__id": "100-1_20101108-111352093","animalId": "100-1","name": "episode","update": "\/Date(1350451322147)\/"}
 ```
 
-<br>
 
 ### Response
 
@@ -129,12 +127,12 @@ Array, associative array can not be specified
 
 #### Response Header
 
-|Item Name<br>|Overview<br>|Notes<br>|
+|Item Name|Overview|Notes|
 |:--|:--|:--|
-|Content-Type<br>|Format of data to be returned<br>|<br>|
-|Location<br>|Resource URL of created Entity<br>|Return only when Entity can be created successfully<br>|
-|DataServiceVersion<br>|OData version information<br>|Return only when Entity can be created successfully<br>|
-|ETag<br>|Resource version information<br>|Return only when Entity can be created successfully<br>|
+|Content-Type|Format of data to be returned||
+|Location|Resource URL of created Entity|Return only when Entity can be created successfully|
+|DataServiceVersion|OData version information|Return only when Entity can be created successfully|
+|ETag|Resource version information|Return only when Entity can be created successfully|
 
 #### Response Body
 
@@ -142,18 +140,18 @@ Array, associative array can not be specified
 
 The response is a JSON object, the correspondence between the key (name) and type defined in the object (subobject) and the value are as follows
 
-|Object<br>|Name(Key)<br>|Type<br>|Value<br>|
+|Object|Name(Key)|Type|Value|
 |:--|:--|:--|:--|
-|Root<br>|d<br>|object<br>|Object{1}<br>|
-|{1}<br>|results<br>|array<br>|Array object {2}<br>|
-|{2}<br>|__metadata<br>|object<br>|Object{3}<br>|
-|{3}<br>|uri<br>|string<br>|URL to the resource that was created<br>|
-|{3}<br>|etag<br>|string<br>|Etag value<br>|
-|{3}<br>|type<br>|string<br>|UserData.{EntityTypeName}<br>|
-|{2}<br>|__id<br>|string<br>|EntityID(__id)<br>|
-|{2}<br>|__published<br>|string<br>|Creation date (UNIX time)<br>|
-|{2}<br>|__updated<br>|string<br>|Update date (UNIX time)<br>|
-|{1}<br>|__count<br>|string<br>|Get number of results in $inlinecount query<br>|
+|Root|d|object|Object{1}|
+|{1}|results|array|Array object {2}|
+|{2}|__metadata|object|Object{3}|
+|{3}|uri|string|URL to the resource that was created|
+|{3}|etag|string|Etag value|
+|{3}|type|string|UserData.{EntityTypeName}|
+|{2}|__id|string|EntityID(__id)|
+|{2}|__published|string|Creation date (UNIX time)|
+|{2}|__updated|string|Update date (UNIX time)|
+|{1}|__count|string|Get number of results in $inlinecount query|
 
 In addition to the above, return dynamic user data specified at the time of registration
 
@@ -187,7 +185,6 @@ Refer to [Error Message List](004_Error_Messages.html)
 }
 ```
 
-<br>
 
 ### cURL Command
 
@@ -195,6 +192,5 @@ Refer to [Error Message List](004_Error_Messages.html)
 curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"__id": "{EntityID}","animalId": "100-1","name": "episode","startedAt": "2010-11-08","episodeType": "care","endedAt": "","outcome": "During treatment"}'
 ```
 
-<br><br><br><br><br>
 
 ###### Copyright 2017 FUJITSU LIMITED

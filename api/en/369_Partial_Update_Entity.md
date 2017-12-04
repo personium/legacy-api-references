@@ -21,7 +21,6 @@ write
     * When setting in request body and setting with DefaultValue (\_\_published, \_\_ updated is the latter timing)
     * For EntityType, you can create up to 400 DynamicProperty / DeclaredProperty / ComplexTypeProperty
 
-<br>
 
 ### Request
 
@@ -31,13 +30,13 @@ write
 /{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}({EntityID})}
 ```
 
-|Path<br>|Overview<br>|
+|Path|Overview|
 |:--|:--|
-|{CellName}<br>|Cell Name<br>|
-|{BoxName}<br>|Box Name<br>|
-|{ODataCollecitonName}<br>|Collection Name<br>|
-|{EntityTypeName}<br>|EntityType name<br>|
-|{EntityID}<br>|ID of Entity to update<br>|
+|{CellName}|Cell Name|
+|{BoxName}|Box Name|
+|{ODataCollecitonName}|Collection Name|
+|{EntityTypeName}|EntityType name|
+|{EntityID}|ID of Entity to update|
 
 #### Request Method
 
@@ -47,34 +46,34 @@ MERGE
 
 ##### Common Request Query
 
-|Query Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|p_cookie_peer<br>|Cookie Authentication Value<br>|The cookie authentication value returned from the server during authentication<br>|No<br>|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used<br>|
+|p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
 #### Request Header
 
 ##### Common Request Header
 
-|Header Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|X-Personium-Version<br>|API version that the request is processed<br>|Valid version<br>|No<br>|If not specified, the latest API version is specified<br>|
-|X-HTTP-Method-Override<br>|Method override function<br>|User-defined<br>|No<br>|Specifying this value in a request with the POST method indicates that the specified value is used as the method<br>|
-|X-Override<br>|Header override function<br>|${OverwrittenHeaderName}:${Value}<br>|No<br>|The normal HTTP header value is overwritten. Specify multiple X-Override headers for the overwriting of multiple headers<br>|
-|X-Personium-RequestKey<br>|RequestKey field value output in the event log<br>|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters<br>|No<br>|Supported in V 1.1.7 and later<br>|
+|X-Personium-Version|API version that the request is processed|Valid version|No|If not specified, the latest API version is specified|
+|X-HTTP-Method-Override|Method override function|User-defined|No|Specifying this value in a request with the POST method indicates that the specified value is used as the method|
+|X-Override|Header override function|${OverwrittenHeaderName}:${Value}|No|The normal HTTP header value is overwritten. Specify multiple X-Override headers for the overwriting of multiple headers|
+|X-Personium-RequestKey|RequestKey field value output in the event log|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters|No|Supported in V 1.1.7 and later|
 
 ##### OData Common Request Header
 
-|Header Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|Specifies authentication information in the OAuth 2.0 format<br>|Bearer {AccessToken}<br>|No<br>|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API<br>|
+|Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
 
 ##### OData Update Request Header
 
-|Header Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|Contents-Type<br>|Specifies authentication information in the OAuth 2.0 format<br>|application/json<br>|No<br>|When omitted, treat it as [application/json] <br>|
-|Accept<br>|Specifies the response body format<br>|application/json<br>|No<br>|When omitted, treat it as [application/json] <br>|
-|If-Match<br>|Specifies the target ETag value<br>|ETag value<br>|No<br>|[*] by default<br>|
+|Contents-Type|Specifies authentication information in the OAuth 2.0 format|application/json|No|When omitted, treat it as [application/json]|
+|Accept|Specifies the response body format|application/json|No|When omitted, treat it as [application/json]|
+|If-Match|Specifies the target ETag value|ETag value|No|[*] by default|
 
 #### Request Body
 
@@ -85,28 +84,28 @@ Contains the number of properties defined by ComplexType in the above
 
 ##### Schema-defined properties
 
-|Item Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|Item Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|Property associated with EntityType<br>|User defined item<br>|Based on DefaultValue of default value Property<br>|Based on Property Nullable<br>|<br>|
+|Property associated with EntityType|User defined item|Based on DefaultValue of default value Property|Based on Property Nullable||
 
 ##### Dynamic (schema undefined) property
 
-|Data type<br>|Effective Value<br>|
+|Data type|Effective Value|
 |:--|:--|
-|String<br>|Number of digits: 0-51200 byte<br>Character type: When a control code is used as a value of a character string, return it in an escaped state at the time of acquisition<br>When "\\" is used, it must be specified with "\\\\"<br>When an integer value, a decimal value, a boolean value, or a date type value is set in a property of a character string type, it is converted into a character string type and registered<br>|
-|Integer value<br>|-2147483648 - 2147483647<br>|
-|Decimal point<br>|Number of digits in integer part: 1-5 digits<br>Number of digits in decimal part: 1-5 digits<br>|
-|Boolean value<br>|true / false / null(treat null as false)<br>|
-|Date<br>|It is specified as a character string in the format of Date ([time of long type])<br>The valid value of [time of long type] is -6847804800000(1753-01-01T00:00:00.000Z)-253402300799999(9999-12-31T23:59:59.999Z)<br>In addition, you can specify the following as reserved words<br>SYSUTCDATETIME (): server time<br>|
+|String|Number of digits: 0-51200 byte<br>Character type: When a control code is used as a value of a character string, return it in an escaped state at the time of acquisition<br>When "\\" is used, it must be specified with "\\\\"<br>When an integer value, a decimal value, a boolean value, or a date type value is set in a property of a character string type, it is converted into a character string type and registered|
+|Integer value|-2147483648 - 2147483647|
+|Decimal point|Number of digits in integer part: 1-5 digits<br>Number of digits in decimal part: 1-5 digits|
+|Boolean value|true / false / null(treat null as false)|
+|Date|It is specified as a character string in the format of Date ([time of long type])<br>The valid value of [time of long type] is -6847804800000(1753-01-01T00:00:00.000Z)-253402300799999(9999-12-31T23:59:59.999Z)<br>In addition, you can specify the following as reserved words<br>SYSUTCDATETIME (): server time|
 
 It is possible to set properties dynamically without defining schema  
 You can only register "character string" "number" "boolean" "null"
 
 ##### Valid value of dynamic property's key
 
-|Data type<br>|Effective Value<br>|
+|Data type|Effective Value|
 |:--|:--|
-|String<br>|Number of digits: 1-128 :<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, - (hyphen) and _(underscore) can not be specified as the first character <br>_published, _updated is a reserved word, so it is not possible to specify the request body<br>|
+|String|Number of digits: 1-128 :<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, - (hyphen) and _(underscore) can not be specified as the first character <br>_published, _updated is a reserved word, so it is not possible to specify the request body|
 
 ##### Valid value of value of dynamic property
 
@@ -126,7 +125,6 @@ Array, associative array can not be specified
 
 None
 
-<br>
 
 ### Response
 
@@ -138,10 +136,10 @@ None
 
 ##### OData Response Header
 
-|Header Name<br>|Overview<br>|Notes<br>|
+|Header Name|Overview|Notes|
 |:--|:--|:--|
-|ETag<br>|Resource version information<br>|<br>|
-|DataServiceVersion<br>|OData version<br>|<br>|
+|ETag|Resource version information||
+|DataServiceVersion|OData version||
 
 #### Response Body
 
@@ -155,7 +153,6 @@ Refer to [Error Message List](004_Error_Messages.html)
 
 None
 
-<br>
 
 ### cURL Command
 
@@ -163,6 +160,5 @@ None
 curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')" -X MERGE -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"name": "episode","outcome": "After treatment"}'
 ```
 
-<br><br><br><br><br>
 
 ###### Copyright 2017 FUJITSU LIMITED

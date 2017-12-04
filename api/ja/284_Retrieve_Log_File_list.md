@@ -15,13 +15,13 @@ log-read
 * ログの出力レベルは"info"固定（INFO, WARN, ERRORすべて出力）とする
 * ローテート時のファイル名は、 default.log.{Timestamp} とする。 {Timestamp}は、ローテートされたときの時刻で採番される。
 
-|アクション<br>|アーカイブされたログファイル<br>|説明<br>|備考<br>|
+|アクション|アーカイブされたログファイル|説明|備考|
 |:--|:--|:--|:--|
-|First Rotation<br>|archive/<br>default.log.1402910774659<br>|<br>新規にローテートされたファイル<br>|<br>2014-06-16 18:26:14 +0900<br>|
-|2nd Rotation<br>|archive/<br>default.log.1402910774659<br>default.log.1403910784659<br>|<br>前回ローテートされたファイル<br>新規にローテートされたファイル<br>|<br>2014-06-16 18:26:14 +0900<br>2014-06-28 08:13:04 +0900<br>|
-|3rd Rotation<br>|archive/<br>default.log.1402910774659<br>default.log.1403910784659<br>default.log.1403910784659<br>|<br>前々回にローテートされたファイル<br>前回ローテートされたファイル<br>新規にローテートされたファイル<br>|<br>2014-06-16 18:26:14 +0900<br>2014-06-28 08:13:04 +0900<br>2014-07-09 21:59:44 +0900<br>|
+|First Rotation|archive/<br>default.log.1402910774659|<br>新規にローテートされたファイル|<br>2014-06-16 18:26:14 +0900|
+|2nd Rotation|archive/<br>default.log.1402910774659<br>default.log.1403910784659|<br>前回ローテートされたファイル<br>新規にローテートされたファイル|<br>2014-06-16 18:26:14 +0900<br>2014-06-28 08:13:04 +0900|
+|3rd Rotation|archive/<br>default.log.1402910774659<br>default.log.1403910784659<br>default.log.1403910784659|<br>前々回にローテートされたファイル<br>前回ローテートされたファイル<br>新規にローテートされたファイル|<br>2014-06-16 18:26:14 +0900<br>2014-06-28 08:13:04 +0900<br>2014-07-09 21:59:44 +0900|
 
-<br>
+
 ### リクエスト
 #### リクエストURL
 ##### 最新のログファイルの一覧を取得
@@ -35,30 +35,30 @@ log-read
 #### メソッド
 PROPFIND
 #### リクエストクエリ
-|クエリ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
+|クエリ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|p_cookie_peer<br>|クッキー認証値<br>|認証時にサーバから返却されたクッキー認証値<br>|×<br>|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br>|
+|p_cookie_peer|クッキー認証値|認証時にサーバから返却されたクッキー認証値|×|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する|
 #### リクエストヘッダ
-|ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
+|ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|X-HTTP-Method-Override<br>|メソッドオーバーライド機能<br>|任意<br>|×<br>|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用されます。<br>|
-|X-Override<br>|ヘッダオーバライド機能<br>|${上書きするヘッダ名}:${値}<br>|×<br>|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定します。<br>|
-|X-Personium-RequestKey<br>|イベントログに出力するRequestKeyフィールドの値<br>|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字<br>|×<br>|指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応<br>|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {AccessToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
-|Depth<br>|取得するリソースの階層<br>|0:対象のリソース自身<br>1:対象のリソースとそれの直下のリソース<br>|○<br>|<br>|
+|X-HTTP-Method-Override|メソッドオーバーライド機能|任意|×|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用されます。|
+|X-Override|ヘッダオーバライド機能|${上書きするヘッダ名}:${値}|×|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定します。|
+|X-Personium-RequestKey|イベントログに出力するRequestKeyフィールドの値|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字|×|指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応|
+|Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
+|Depth|取得するリソースの階層|0:対象のリソース自身<br>1:対象のリソースとそれの直下のリソース|○||
 #### リクエストボディ
 ##### 名前空間
-|URI<br>|概要<br>|備考()prefix<br>|
+|URI|概要|備考()prefix|
 |:--|:--|:--|
-|DAV:<br>|WebDAVの名前空間<br>|D:<br>|
+|DAV:|WebDAVの名前空間|D:|
 ※ 参考prefixは以下表の可読性を高めるためのもので、このprefix文字列の使用を保証するものでも要求するものでもありません。
 ##### XMLの構造
 ボディはXMLで、以下のスキーマに従っています。
 
-|ノード名<br>|Namespace<br>|ノードタイプ<br>|概要<br>|備考<br>|
+|ノード名|Namespace|ノードタイプ|概要|備考|
 |:--|:--|:--|:--|:--|
-|propfind<br>|D:<br>|要素<br>|propfindのルート要素を表し、allpropが子となる。<br>|<br>|
-|allprop<br>|D:<br>|要素<br>|全プロパティを取得設定を表す<br>|allprop・・・すべてのプロパティを取得する<br>リクエストボディが空の場合も、allpropとして扱う<br>allprop以外の要素はv1.2系、v1.1系未対応<br>|
+|propfind|D:|要素|propfindのルート要素を表し、allpropが子となる。||
+|allprop|D:|要素|全プロパティを取得設定を表す|allprop・・・すべてのプロパティを取得する<br>リクエストボディが空の場合も、allpropとして扱う<br>allprop以外の要素はv1.2系、v1.1系未対応|
 ##### DTD表記
 ```dtd
 <!ELEMENT propfind (allprop) >
@@ -72,47 +72,47 @@ PROPFIND
 </D:propfind>
 ```
 
-<br>
+
 ### レスポンス
 #### ステータスコード
-|コード<br>|メッセージ<br>|概要<br>|
+|コード|メッセージ|概要|
 |:--|:--|:--|
-|207<br>|Multi-Status<br>|取得成功時<br>|
+|207|Multi-Status|取得成功時|
 #### レスポンスヘッダ
-|項目名<br>|概要<br>|備考<br>|
+|項目名|概要|備考|
 |:--|:--|:--|
-|Content-Type<br>|Resourceのデータ形式に応じたMimeType<br>|"application/xml"<br>|
-|Access-Control-Allow-Origin<br>|クロスドメイン通信許可ヘッダ<br>|返却値は"*"固定<br>|
-|X-Personium-Version<br>|APIの実行バージョン<br>|有効なバージョン|
+|Content-Type|Resourceのデータ形式に応じたMimeType|"application/xml"|
+|Access-Control-Allow-Origin|クロスドメイン通信許可ヘッダ|返却値は"*"固定|
+|X-Personium-Version|APIの実行バージョン|有効なバージョン|
 
 #### レスポンスボディ
 ##### 名前空間
-|URI<br>|概要<br>|参考Prefix<br>|
+|URI|概要|参考Prefix|
 |:--|:--|:--|
-|DAV:<br>|WebDAVの名前空間<br>|D:<br>|
-|urn:x-personium:xmlns<br>|Personiumの名前空間<br>|p:<br>|
+|DAV:|WebDAVの名前空間|D:|
+|urn:x-personium:xmlns|Personiumの名前空間|p:|
 ※ 参考prefixは以下表の可読性を高めるためのもので、このprefix文字列の使用を保証するものでも要求するものでもありません。
 ##### XMLの構造
 ボディはXMLで、以下のスキーマに従っています。
 
-|ノード名<br>|Namespace<br>|ノードタイプ<br>|概要<br>|備考<br>|
+|ノード名|Namespace|ノードタイプ|概要|備考|
 |:--|:--|:--|:--|:--|
-|multistatus<br>|D:<br>|要素<br>|multistatusのルートを表し、1つ以上複数のresponseが子となる<br>|<br>|
-|response<br>|D:<br>|要素<br>|リソース取得のレスポンスを表し、hrefとpropstatが子となる<br>|<br>|
-|href<br>|D:<br>|要素<br>|リソースのurl<br>|<br>|
-|propstat<br>|D:<br>|要素<br>|リソースのプロパティ情報を表し、statusとpropが子となる<br>|<br>|
-|status<br>|D:<br>|要素<br>|リソース取得のレスポンスコードを表す<br>|<br>|
-|prop<br>|D:<br>|要素<br>|プロパティ詳細情報を表し、creationdateとresourcetypeとaclとproppatch設定値が子となる<br>|<br>|
-|creationdate<br>|D:<br>|要素<br>|リソース作成時刻<br>|<br>|
-|getcontentlength<br>|D:<br>|要素<br>|リソースのサイズ<br>|リソースがファイルの場合のみ<br>|
-|getcontenttype<br>|p:<br>|要素<br>|リソースのcontenttype<br>|リソースがファイルの場合のみ<br>|
-|getlastmodified<br>|p:<br>|要素<br>|リソース更新時刻<br>|<br>|
-|resourcetype<br>|p:<br>|要素<br>|リソースのタイプを表す。<br>collectionと、odataかserviceのいづれかが子となるか、子は空となる<br>|<br>|
-|collection<br>|p:<br>|要素<br>|リソースのタイプがコレクションであることを表す<br>|リソースがWebDAVの場合、この要素のみが表示される<br>|
-|odata<br>|p:<br>|要素<br>|リソースのタイプがODataコレクションであることを表す<br>|ODataコレクションの場合表示<br>|
-|service<br>|p:<br>|要素<br>|リソースのタイプがサービスコレクションであることを表す<br>|Serviceコレクションの場合表示<br>|
-|acl<br>|p:<br>|要素<br>|リソースに設定されているACL設定<br>|ACL設定を取得するためには、対象リソースに対するacl-read権限が必要 ACL要素以下の内容については、[Cell Level アクセス制御設定API](289_Cell_ACL.html)を参照<br>|
-|base<br>|p:<br>|要素<br>|ACLのPrivilegeのBaseURL<br>|CellへのPROPFINDの場合、デフォルトボックス（"__"）のリソースURL<br>|
+|multistatus|D:|要素|multistatusのルートを表し、1つ以上複数のresponseが子となる||
+|response|D:|要素|リソース取得のレスポンスを表し、hrefとpropstatが子となる||
+|href|D:|要素|リソースのurl||
+|propstat|D:|要素|リソースのプロパティ情報を表し、statusとpropが子となる||
+|status|D:|要素|リソース取得のレスポンスコードを表す||
+|prop|D:|要素|プロパティ詳細情報を表し、creationdateとresourcetypeとaclとproppatch設定値が子となる||
+|creationdate|D:|要素|リソース作成時刻||
+|getcontentlength|D:|要素|リソースのサイズ|リソースがファイルの場合のみ|
+|getcontenttype|p:|要素|リソースのcontenttype|リソースがファイルの場合のみ|
+|getlastmodified|p:|要素|リソース更新時刻||
+|resourcetype|p:|要素|リソースのタイプを表す。<br>collectionと、odataかserviceのいづれかが子となるか、子は空となる||
+|collection|p:|要素|リソースのタイプがコレクションであることを表す|リソースがWebDAVの場合、この要素のみが表示される|
+|odata|p:|要素|リソースのタイプがODataコレクションであることを表す|ODataコレクションの場合表示|
+|service|p:|要素|リソースのタイプがサービスコレクションであることを表す|Serviceコレクションの場合表示|
+|acl|p:|要素|リソースに設定されているACL設定|ACL設定を取得するためには、対象リソースに対するacl-read権限が必要 ACL要素以下の内容については、[Cell Level アクセス制御設定API](289_Cell_ACL.html)を参照|
+|base|p:|要素|ACLのPrivilegeのBaseURL|CellへのPROPFINDの場合、デフォルトボックス（"__"）のリソースURL|
 ##### DTD表記
 ##### 名前空間：D:
 ```dtd
@@ -162,10 +162,10 @@ PROPFIND
 なお、ログファイルのローテート時にファイルのZIP圧縮有無を指定可能とする予定（ログ設定更新API）
 この際、ログファイルの圧縮有無によって、href要素のファイル名と、getcontenttype要素のMimeTypeが切り替わる
 
-|ZIP圧縮有無<br>|href要素のファイル名(例)<br>|getcontenttypeの値<br>|備考<br>|
+|ZIP圧縮有無|href要素のファイル名(例)|getcontenttypeの値|備考|
 |:--|:--|:--|:--|
-|圧縮なし<br>|default.log.1364460341902<br>|text/csv<br>|ローテートなしの場合も同様<br>|
-|圧縮あり<br>|default.log.1364460341902.zip<br>|application/zip<br>|<br>|
+|圧縮なし|default.log.1364460341902|text/csv|ローテートなしの場合も同様|
+|圧縮あり|default.log.1364460341902.zip|application/zip||
 #### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.html)を参照
 
@@ -174,7 +174,5 @@ PROPFIND
 ```sh
 curl "https://{UnitFQDN}/{CellName}/__log/archive" -X PROPFIND -i -H 'Depth:1' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
-<br>
-<br>
-<br>
-###### Copyright 2017    FUJITSU LIMITED
+
+###### Copyright 2017 FUJITSU LIMITED

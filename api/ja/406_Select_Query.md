@@ -17,9 +17,9 @@ $select={propertyName}
 ```
 ※省略時は $select=* となる
 
-|Path<br>|概要<br>|
+|Path|概要|
 |:--|:--|
-|{PropertyName}<br>|返却するプロパティ名<br>複数指定する場合はカンマ区切りで指定する<br>|
+|{PropertyName}|返却するプロパティ名<br>複数指定する場合はカンマ区切りで指定する|
 ### cURLサンプル
 例：Box一覧を取得する際、Nameプロパティのみ返却する場合:
 ```sh
@@ -30,8 +30,5 @@ curl "https://{UnitFQDN}/{CellName}/__ctl/Box?\$select=Name" -X GET -i -H 'Autho
 curl "https://{UnitFQDN}/{CellName}/__ctl/Box?\$select=*" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 
-<br>
-<br>
-<br>
 
-###### Copyright 2017    FUJITSU LIMITED
+###### Copyright 2017 FUJITSU LIMITED

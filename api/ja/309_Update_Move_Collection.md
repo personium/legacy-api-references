@@ -10,7 +10,7 @@ write
 #### WebDAV制限
 未稿
 
-<br>
+
 ### リクエスト
 #### リクエストURL
 ```
@@ -20,44 +20,44 @@ write
 MOVE
 #### リクエストクエリ
 ##### 共通リクエストクエリ
-|クエリ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
+|クエリ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|p_cookie_peer<br>|クッキー認証値<br>|認証時にサーバから返却されたクッキー認証値<br>|×<br>|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br>|
+|p_cookie_peer|クッキー認証値|認証時にサーバから返却されたクッキー認証値|×|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する|
 ##### WebDav 共通リクエストクエリ
 なし
 #### リクエストヘッダ
 ##### 共通リクエストヘッダ
-|ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
+|ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|X-HTTP-Method-Override<br>|メソッドオーバーライド機能<br>|任意<br>|×<br>|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用される<br>|
-|X-Override<br>|ヘッダオーバライド機能<br>|${上書きするヘッダ名}:${値}<br>|×<br>|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定する<br>|
-|X-Personium-RequestKey<br>|イベントログに出力するRequestKeyフィールドの値<br>|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字<br>|×<br>|指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応<br>|
+|X-HTTP-Method-Override|メソッドオーバーライド機能|任意|×|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用される|
+|X-Override|ヘッダオーバライド機能|${上書きするヘッダ名}:${値}|×|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定する|
+|X-Personium-RequestKey|イベントログに出力するRequestKeyフィールドの値|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字|×|指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応|
 ##### 個別リクエストヘッダ
-|ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
+|ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|Destination<br>|変更先<br>|Absolute URI<br>|○<br>|移動/名前を変更するファイル名を指定する。<br> |
-|Overwrite<br>|上書き<br>|"T" or "F"<br>|×<br>|上書き可("T")、上書き不可("F")を指定する。(初期値は"F")<br>|
-|Depth<br>|移動階層<br>|"infinity"<br>|×<br>|移動するコレクション階層の深さを指定する。(初期値は無限)<br>|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {AccessToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|Destination|変更先|Absolute URI|○|移動/名前を変更するファイル名を指定する。|
+|Overwrite|上書き|"T" or "F"|×|上書き可("T")、上書き不可("F")を指定する。(初期値は"F")|
+|Depth|移動階層|"infinity"|×|移動するコレクション階層の深さを指定する。(初期値は無限)|
+|Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
 #### リクエストボディ
 なし
 #### リクエストサンプル
 なし
 
-<br>
+
 ### レスポンス
 #### ステータスコード
-|コード<br>|概要<br>|備考<br>|
+|コード|概要|備考|
 |:--|:--|:--|
-|201<br>|Created<br>|移動または名称変更に成功(作成)<br>|
-|204<br>|No Content<br>|移動または名称変更に成功(上書き)<br>|
+|201|Created|移動または名称変更に成功(作成)|
+|204|No Content|移動または名称変更に成功(上書き)|
 #### レスポンスヘッダ
-|ヘッダ名<br>|概要<br>|備考<br>|
+|ヘッダ名|概要|備考|
 |:--|:--|:--|
-|Location<br>|作成したコレクションのリソースURL<br>|正常にコレクションが作成できた場合のみ返却する<br>|
-|ETag<br>|リソースのバージョン情報<br>|正常にコレクションが作成できた場合のみ返却する<br>|
-|Access-Control-Allow-Origin<br>|クロスドメイン通信許可ヘッダ<br>|返却値は"*"固定<br>|
-|X-Personium-Version<br>|APIの実行バージョン<br>|リクエストが処理されたAPIバージョン<br>|
+|Location|作成したコレクションのリソースURL|正常にコレクションが作成できた場合のみ返却する|
+|ETag|リソースのバージョン情報|正常にコレクションが作成できた場合のみ返却する|
+|Access-Control-Allow-Origin|クロスドメイン通信許可ヘッダ|返却値は"*"固定|
+|X-Personium-Version|APIの実行バージョン|リクエストが処理されたAPIバージョン|
 
 #### レスポンスボディ
 なし
@@ -66,7 +66,7 @@ MOVE
 
 #### レスポンスサンプル
 なし
-<br>
+
 ### cURLサンプル
 
 コレクション名変更(終端の"/"は必須)
@@ -83,7 +83,5 @@ curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/{OldFileName}/" -
 ```sh
 curl  "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionNameA}/{FileName}" -X MOVE -i -H 'Destination:https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionNameB}/{FileName}' -H 'Authorization: Bearer {AccessToken}'
 ```
-<br>
-<br>
-<br>
-###### Copyright 2017    FUJITSU LIMITED
+
+###### Copyright 2017 FUJITSU LIMITED

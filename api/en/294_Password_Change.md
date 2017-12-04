@@ -18,7 +18,6 @@ Auth authority of cell-level ACL
 
 None
 
-<br>
 
 ### Request
 
@@ -38,10 +37,10 @@ None
 
 #### Request Header
 
-|Header Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|Specifies authentication information in the OAuth 2.0 format<br>|Bearer {CellLocalToken}<br>|Yes<br>|The authentication token is a cell local token acquired by the authentication token acquisition API<br>|
-|X-Personium-Credential<br>|Password after change<br>|String<br>|Yes<br>|Number of character:6 - 92<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>|
+|Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {CellLocalToken}|Yes|The authentication token is a cell local token acquired by the authentication token acquisition API|
+|X-Personium-Credential|Password after change|String|Yes|Number of character:6 - 92<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")|
 
 #### Request Body
 
@@ -51,7 +50,6 @@ None
 
 None
 
-<br>
 
 ### Response
 
@@ -75,7 +73,6 @@ Refer to [Error Message List](004_Error_Messages.html)
 
 None
 
-<br>
 
 ### cURL Command
 
@@ -83,6 +80,5 @@ None
 curl "https://{UnitFQDN}/{CellName}/__mypassword" -X PUT -i -H 'X-Personium-Credential: change_password' -H 'Authorization: Bearer {CellLocalToken}' -H 'Accept: application/json'
 ```
 
-<br><br><br><br><br>
 
 ###### Copyright 2017 FUJITSU LIMITED

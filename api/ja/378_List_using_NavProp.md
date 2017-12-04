@@ -6,41 +6,41 @@ read
 ### 制限事項
 なし
 
-<br>
+
 ### リクエスト
 #### リクエストURL
 ```
 /{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')/{NavigationPropertyName}
 ```
-|パス<br>|概要<br>|
+|パス|概要|
 |:--|:--|
-|{CellName}<br>|セル名<br>|
-|{BoxName}<br>|ボックス名<br>|
-|{ODataCollecitonName}<br>|コレクション名<br>|
-|{EntityTypeName}<br>|EntityTypeName名<br>|
-|{EntityID}<br>|EntityのID<br>|
-|{NavigationPropertyName}<br>|NavigationProperty名<br>|
+|{CellName}|セル名|
+|{BoxName}|ボックス名|
+|{ODataCollecitonName}|コレクション名|
+|{EntityTypeName}|EntityTypeName名|
+|{EntityID}|EntityのID|
+|{NavigationPropertyName}|NavigationProperty名|
 指定できるNavigationProperty名は、EntitySetと以下の関連を持つものに限る。
 
-|From<br>|To<br>|
+|From|To|
 |:--|:--|
-|0 .. 1<br>|0 .. 1<br>|
-|0 .. 1<br>|1<br>|
-|0 .. 1<br>|*<br>|
-|1<br>|0 .. 1<br>|
-|1<br>|1<br>|
-|1<br>|*<br>|
-|*<br>|0 .. 1<br>|
-|*<br>|1<br>|
-|*<br>|*<br>|
+|0 .. 1|0 .. 1|
+|0 .. 1|1|
+|0 .. 1|*|
+|1|0 .. 1|
+|1|1|
+|1|*|
+|*|0 .. 1|
+|*|1|
+|*|*|
 #### メソッド
 GET
 #### リクエストクエリ
 以下のクエリパラメタが利用可能です。
 
-|クエリ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
+|クエリ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|p_cookie_peer<br>|クッキー認証値<br>|認証時にサーバから返却されたクッキー認証値<br>|×<br>|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br>|
+|p_cookie_peer|クッキー認証値|認証時にサーバから返却されたクッキー認証値|×|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する|
 
 [$select クエリ](406_Select_Query.html)
 
@@ -61,42 +61,42 @@ GET
 [全文検索(q)クエリ](408_Full_Text_Search_Query.html)
 
 #### リクエストヘッダ
-|ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
+|ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {AccessToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
-|Accept<br>|レスポンスボディの形式を指定する<br>|application/json<br>|×<br>|省略時は[application/json]として扱う<br>|
+|Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
+|Accept|レスポンスボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
 #### リクエストボディ
 なし
 #### リクエストサンプル
 なし
 
-<br>
+
 ### レスポンス
 #### ステータスコード
 200
 #### レスポンスヘッダ
-|項目名<br>|概要<br>|備考<br>|
+|項目名|概要|備考|
 |:--|:--|:--|
-|Content-Type<br>|返却されるデータの形式<br>|<br>|
-|DataServiceVersion<br>|ODataのバージョン情報<br>|正常にEntityが作成できた場合のみ返却する<br>|
+|Content-Type|返却されるデータの形式||
+|DataServiceVersion|ODataのバージョン情報|正常にEntityが作成できた場合のみ返却する|
 #### レスポンスボディ
 レスポンスはJSONオブジェクトで、オブジェクト（サブオブジェクト）に定義されるキー(名前)と型、並びに値の対応は以下のとおり
 
-|オブジェクト<br>|名前（キー）<br>|型<br>|値<br>|
+|オブジェクト|名前（キー）|型|値|
 |:--|:--|:--|:--|
-|ルート<br>|d<br>|object<br>|オブジェクト{1}<br>|
-|{1}<br>|results<br>|array<br>|オブジェクト{2}の配列<br>|
-|{2}<br>|__metadata<br>|object<br>|オブジェクト{3}<br>|
-|{3}<br>|uri<br>|string<br>|作成したリソースへのURL<br>|
-|{3}<br>|etag<br>|string<br>|Etag値<br>|
-|{3}<br>|type<br>|string<br>|EntityType名<br>|
-|{2}<br>|__id<br>|string<br>|EntityのID(__id)<br>|
-|{2}<br>|__published<br>|string<br>|作成日(UNIX時間)<br>|
-|{2}<br>|__updated<br>|string<br>|更新日(UNIX時間)<br>|
-|{2}<br>|{NP名}<br>|string<br>|オブジェクト{4}<br>Linkが結ばれている場合のみ返却される。{NP名}:NavigationPropert名<br>|
-|{4}<br>|__deferred<br>|object<br>|オブジェクト{5}<br>|
-|{5}<br>|uri<br>|string<br>|関係を結んでいるリソースのuri<br>|
-|{1}<br>|__count<br>|string<br>|$inlinecountクエリでの取得結果件数<br>|
+|ルート|d|object|オブジェクト{1}|
+|{1}|results|array|オブジェクト{2}の配列|
+|{2}|__metadata|object|オブジェクト{3}|
+|{3}|uri|string|作成したリソースへのURL|
+|{3}|etag|string|Etag値|
+|{3}|type|string|EntityType名|
+|{2}|__id|string|EntityのID(__id)|
+|{2}|__published|string|作成日(UNIX時間)|
+|{2}|__updated|string|更新日(UNIX時間)|
+|{2}|{NP名}|string|オブジェクト{4}<br>Linkが結ばれている場合のみ返却される。{NP名}:NavigationPropert名|
+|{4}|__deferred|object|オブジェクト{5}|
+|{5}|uri|string|関係を結んでいるリソースのuri|
+|{1}|__count|string|$inlinecountクエリでの取得結果件数|
 
 上記以外にスキーマ設定した項目、または登録時に指定した動的な項目を返却
 ##### 数値の扱い
@@ -143,13 +143,11 @@ GET
 
 ```
 
-<br>
+
 ### cURLサンプル
 
 ```sh
 curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')/{NavigationPropertyName}" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
-<br>
-<br>
-<br>
-###### Copyright 2017    FUJITSU LIMITED
+
+###### Copyright 2017 FUJITSU LIMITED

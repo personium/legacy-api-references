@@ -18,7 +18,7 @@ The Access-Control-Allow-Origin header when set as \* indicates that a resource 
 Following is an example of the Access-Control-Allow-Origin response header.
 
 ```
-Access-Control-Allow-Origin: *          
+Access-Control-Allow-Origin: *
 ```
 
 ### Response to the pre-flight requests from the browser
@@ -33,11 +33,11 @@ Following is the response of the pref. right requests from the browser, when you
 When you issue the request of the OPTIONS method in the API of all, it returns the Access-Control-Allow-Methods response header.  
 Contents of the Access-Control-Allow-Methods Responsive header will change as follows depending on the contents of the Authorization header and access control settings of the API.
 
-|Condition<br>|Result<br>|
+|Condition|Result|
 |:--|:--|
-|The resources (read possible without Authorization header published)<br>|It returns all the HTTP methods that the resource supports.<br>|
-|Private (non-public) OPTIONS request without the Authorization header to the resource<br>|It returns all the HTTP methods that the Personium can support.<br>|
-|OPTIONS request to the private resources of a valid * Authorization header with<br>|It returns all the HTTP methods that the resource supports.<br>|
+|The resources (read possible without Authorization header published)|It returns all the HTTP methods that the resource supports.|
+|Private (non-public) OPTIONS request without the Authorization header to the resource|It returns all the HTTP methods that the Personium can support.|
+|OPTIONS request to the private resources of a valid * Authorization header with|It returns all the HTTP methods that the resource supports.|
 
 The request Authorization header, can sometimes generate following errors depending on the contents of the header.
 
@@ -62,6 +62,6 @@ Access-Control-Allow-Origin: sample
 
 ### Reference
 
-http://www.w3.org/TR/cors/<br><br><br><br><br><br>
+http://www.w3.org/TR/cors/
 
 ###### Copyright 2017 FUJITSU LIMITED

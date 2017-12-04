@@ -16,7 +16,6 @@ exec
 * WebDAV Restrictions
     * Unpublished
 
-<br>
 
 ### Request
 
@@ -26,12 +25,12 @@ exec
 /{CellName}/{BoxName}/{CollectionName}/{ServiceName}
 ```
 
-|Path<br>|Overview<br>|Notes<br>|
+|Path|Overview|Notes|
 |:--|:--|:--|
-|{CellName}<br>|Cell Name<br>|<br>|
-|{BoxName}<br>|Box Name<br>|<br>|
-|{CollectionName}<br>|Service Collection Name<br>|Valid values <br>Number of digits:1-128<br>Usable character types<br>alphanumeric character, period(.), under score(_), hyphen(-)<br>|
-|{ServiceName}<br>|Specify the name of the registered service<br>|Valid values(limit) <br>Number of digits:1-128<br>Usable character types<br>alphanumeric character, period(.), under score(_), hyphen(-)<br>|
+|{CellName}|Cell Name||
+|{BoxName}|Box Name||
+|{CollectionName}|Service Collection Name|Valid values <br>Number of digits:1-128<br>Usable character types<br>alphanumeric character, period(.), under score(_), hyphen(-)|
+|{ServiceName}|Specify the name of the registered service|Valid values(limit) <br>Number of digits:1-128<br>Usable character types<br>alphanumeric character, period(.), under score(_), hyphen(-)|
 
 #### Request Method
 
@@ -39,19 +38,19 @@ GET / POST / PUT / DELETE
 
 #### Request Query
 
-|Query Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|p_cookie_peer<br>|Cookie Authentication Value<br>|The cookie authentication value returned from the server during authentication<br>|No<br>|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used<br>|
+|p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
 #### Request Header
 
 ##### Common Request Header
 
-|Header Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|X-HTTP-Method-Override<br>|Method override function<br>|User-defined<br>|No<br>|Specifying this value in a request with the POST method indicates that the specified value is used as the method<br>|
-|X-Override<br>|Header override function<br>|${OverwrittenHeaderName}:${Value}<br>|No<br>|The normal HTTP header value is overwritten. Specify multiple X-Override headers for the overwriting of multiple headers<br>|
-|X-Personium-RequestKey<br>|RequestKey field value output in the event log<br>|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters<br>|No<br>|Supported in V 1.1.7 and later<br>|
+|X-HTTP-Method-Override|Method override function|User-defined|No|Specifying this value in a request with the POST method indicates that the specified value is used as the method|
+|X-Override|Header override function|${OverwrittenHeaderName}:${Value}|No|The normal HTTP header value is overwritten. Specify multiple X-Override headers for the overwriting of multiple headers|
+|X-Personium-RequestKey|RequestKey field value output in the event log|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters|No|Supported in V 1.1.7 and later|
 
 #### Request Body
 
@@ -61,7 +60,6 @@ None
 
 None
 
-<br>
 
 ### Response
 
@@ -71,9 +69,9 @@ When the script is executed, the response code of the script is returned
 
 #### Response Header
 
-|Header Name<br>|Overview<br>|Notes<br>|
+|Header Name|Overview|Notes|
 |:--|:--|:--|
-|Content-Type<br>|Return script-dependent format<br>|text/html<br>|
+|Content-Type|Return script-dependent format|text/html|
 
 #### Response Body
 
@@ -87,7 +85,6 @@ Refer to [Error Message List](004_Error_Messages.html)
 
 None
 
-<br>
 
 ### cURL Command
 
@@ -95,6 +92,5 @@ None
 curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/{ServiceName}" -X GET -i -H "Authorization:Bearer {AccessToken}" -H "Accept:application/json"
 ```
 
-<br><br><br><br><br>
 
 ###### Copyright 2017 FUJITSU LIMITED

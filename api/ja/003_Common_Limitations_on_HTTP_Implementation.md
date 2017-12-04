@@ -1,6 +1,6 @@
 # PersoniumのHTTP実装に関する制限事項
 
-<br>
+
 ### リクエスト
 #### URL
 最大サイズ: 50KByte
@@ -18,21 +18,19 @@ gzip のリクエストに対応予定ですが未対応です。
 #### Time-out
 60秒（リクエスト開始から、サーバがリクエストをすべて受領し終わるまでの時間）
 
-<br>
+
 ### レスポンス
 #### レスポンスヘッダ
-|ヘッダ名<br>|説明<br>|
+|ヘッダ名|説明|
 |:--|:--|
-|Transfer-Encoding<br>|常にchunkedでレスポンスします<br>|
-|Content-Encoding<br>|リクエストヘッダで有効なAccept-Encoding値を設定された場合、その値が入ります<br>|
-|Date<br>|リクエストを受け付けたUTC時刻を返却します<br>|
+|Transfer-Encoding|常にchunkedでレスポンスします|
+|Content-Encoding|リクエストヘッダで有効なAccept-Encoding値を設定された場合、その値が入ります|
+|Date|リクエストを受け付けたUTC時刻を返却します|
 #### レスポンスボディ
 ##### Size Limit
 ##### Transfer-Encoding
 原則chunked でレスポンスを行う。
 ##### Content-Encoding
 リクエストヘッダで有効なAccept-Encoding値を設定された場合は、ボディはその形式で圧縮エンコードされます。
-<br>
-<br>
-<br>
-###### Copyright 2017    FUJITSU LIMITED
+
+###### Copyright 2017 FUJITSU LIMITED

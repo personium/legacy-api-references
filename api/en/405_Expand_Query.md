@@ -7,12 +7,12 @@ The expansion of related information at the time of list acquisition is expanded
 Deployment of related information at the time of acquiring one case will expand up to 10000 cases.  
 The sort order of related data acquired by $expand is as follows.
 
-|Relation<br>|Sort conditions<br>|order<br>|
+|Relation|Sort conditions|order|
 |:--|:--|:--|
-|0 .. 1:0 .. 1<br>|Entity creation date and time of the navigation property to be expanded<br>|Descending order<br>|
-|0 .. 1: *<br>|Entity creation date and time of the navigation property to be expanded<br>|Descending order<br>|
-|*: 0 .. 1<br>|Entity creation date and time of the navigation property to be expanded<br>|Descending order<br>|
-|*: *<br>|Link information creation date and time with the navigation property to be expanded<br>|Descending order<br>|
+|0 .. 1:0 .. 1|Entity creation date and time of the navigation property to be expanded|Descending order|
+|0 .. 1: *|Entity creation date and time of the navigation property to be expanded|Descending order|
+|*: 0 .. 1|Entity creation date and time of the navigation property to be expanded|Descending order|
+|*: *|Link information creation date and time with the navigation property to be expanded|Descending order|
 
 \*When Multiplicity is "1", the sort result is the same as "0..1".
 
@@ -22,9 +22,9 @@ The sort order of related data acquired by $expand is as follows.
 $expand={NavigationPropertyName}
 ```
 
-|Path<br>|Overview<br>|
+|Path|Overview|
 |:--|:--|
-|{NavigationPropertyName}<br>|Navigation property name to expand<br>To specify more than one, specify it with a comma separator<br>|
+|{NavigationPropertyName}|Navigation property name to expand<br>To specify more than one, specify it with a comma separator|
 
 \*If you specify a NavigationProperty name that does not exist in $expand, return "400 Bad Request"
 
@@ -45,6 +45,6 @@ curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeN
 ### Restrictions
 
 * Expansion of related information can be done in one level only
-* Add \_\_count as an item in the related information list (not supported) to indicate whether the expanded related information has returned all cases<br><br><br><br><br><br>
+* Add \_\_count as an item in the related information list (not supported) to indicate whether the expanded related information has returned all cases
 
 ###### Copyright 2017 FUJITSU LIMITED

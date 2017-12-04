@@ -12,7 +12,7 @@ PersoniumのすべてのAPIは、一部例外を除き原則CORS(Cross Origin Re
 Access-Control-Allow-Originレスポンスヘッダはアクセスを許可しているドメインを返却するものですが、Personiumは全てのドメインからのアクセスを許可すべくこのような振る舞いをします。  
 次に示すのは、Access-Control-Allow-Originのレスポンスヘッダの例です。
 ```
-Access-Control-Allow-Origin: *          
+Access-Control-Allow-Origin: *
 ```
 ### ブラウザからのプレフライトリクエストへの対応
 ブラウザからのプレフライトリクエストへの対応として、すべてのAPIにおいてOPTIONSメソッドのリクエストを発行すると以下の振る舞いをします。
@@ -23,11 +23,11 @@ Access-Control-Allow-Origin: *
 すべてのAPIにおいてOPTIONSメソッドのリクエストを発行すると、Access-Control-Allow-Methodsレスポンスヘッダを返却します。  
 Access-Control-Allow-Methodsレスポンスヘッダの内容は、APIのアクセス制御設定とAuthorizationヘッダの内容によって以下のように変化します。
 
-|条件<br>|結果<br>|
+|条件|結果|
 |:--|:--|
-|公開（Authorizationヘッダなしでも読み取り可能）なリソース<br>|そのリソースがサポートするすべてのHTTPメソッドを返します。<br>|
-|非公開（公開でない）リソースへのAuthorizationヘッダなしでのOPTIONSリクエスト  <br>|PersoniumがサポートしうるすべてのHTTPメソッドを返します。<br>|
-|非公開リソースへの有効な※AuthorizationヘッダつきでのOPTIONSリクエスト<br>|そのリソースがサポートするすべてのHTTPメソッドを返します。<br>|
+|公開（Authorizationヘッダなしでも読み取り可能）なリソース|そのリソースがサポートするすべてのHTTPメソッドを返します。|
+|非公開（公開でない）リソースへのAuthorizationヘッダなしでのOPTIONSリクエスト|PersoniumがサポートしうるすべてのHTTPメソッドを返します。|
+|非公開リソースへの有効な※AuthorizationヘッダつきでのOPTIONSリクエスト|そのリソースがサポートするすべてのHTTPメソッドを返します。|
 ※ Authorizationヘッダつきのリクエストでは、そのヘッダ内容に応じて以下のエラーとなることもあります。
 1. 401: Authorizationヘッダの内容が無効である。
 2. 403: アクセス制御等の状況によりリクエストが受け付けられない。（読み取りが許可されていない。）
@@ -45,7 +45,5 @@ Access-Control-Allow-Origin: sample
 ```
 ### 参考
 CORSの詳細については[こちら](http://www.w3.org/TR/cors/)を参照してください。
-<br>
-<br>
-<br>
-###### Copyright 2017    FUJITSU LIMITED
+
+###### Copyright 2017 FUJITSU LIMITED

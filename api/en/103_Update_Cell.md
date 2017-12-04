@@ -23,7 +23,6 @@ Only unit users permitted
     * If-None-Match header is ignored
     * Name validation unimplemented
 
-<br>
 
 ### Request
 
@@ -51,25 +50,25 @@ None
 
 ##### Common Request Header
 
-|Header Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|X-HTTP-Method-Override<br>|Method override function<br>|User-defined<br>|No<br>|Specifying this value in a request with the POST method indicates that the specified value is used as the method<br>|
-|X-Override<br>|Header override function<br>|${OverwrittenHeaderName}:${Value}<br>|No<br>|The normal HTTP header value is overwritten. Specify multiple X-Override headers for the overwriting of multiple headers<br>|
-|X-Personium-RequestKey<br>|RequestKey field value output in the event log<br>|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters<br>|No<br>|PCS-${UNIXtime} by default<br>Supported in V 1.1.7 and later<br>|
+|X-HTTP-Method-Override|Method override function|User-defined|No|Specifying this value in a request with the POST method indicates that the specified value is used as the method|
+|X-Override|Header override function|${OverwrittenHeaderName}:${Value}|No|The normal HTTP header value is overwritten. Specify multiple X-Override headers for the overwriting of multiple headers|
+|X-Personium-RequestKey|RequestKey field value output in the event log|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters|No|PCS-${UNIXtime} by default<br>Supported in V 1.1.7 and later|
 
 ##### OData Common Request Header
 
-|Header Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|Specifies authentication information in the OAuth 2.0 format<br>|Bearer {AccessToken}<br>|No<br>|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API<br>|
+|Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
 
 ##### OData Update Request Header
 
-|Header Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|Content-Type<br>|Specifies the request body format<br>|application/json<br>|No<br>|[application/json] by default<br>|
-|Accept<br>|Specifies the response body format<br>|application/json<br>|No<br>|[application/json] by default<br>|
-|If-Match<br>|Specifies the target ETag value<br>|ETag value<br>|No<br>|[*] by default<br>|
+|Content-Type|Specifies the request body format|application/json|No|[application/json] by default|
+|Accept|Specifies the response body format|application/json|No|[application/json] by default|
+|If-Match|Specifies the target ETag value|ETag value|No|[*] by default|
 
 #### Request Body
 
@@ -77,9 +76,9 @@ None
 
 JSON
 
-|Item Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|Item Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|Name<br>|Cell name<br>|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("\_")<br>null<br>|Yes<br>|<br>|
+|Name|Cell name|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("\_")<br>null|Yes||
 
 #### Request Sample
 
@@ -87,7 +86,6 @@ JSON
 {"Name":"{CellName}"}
 ```
 
-<br>
 
 ### Response
 
@@ -97,12 +95,12 @@ JSON
 
 #### Response Header
 
-|Header Name<br>|Overview<br>|Notes<br>|
+|Header Name|Overview|Notes|
 |:--|:--|:--|
-|ETag<br>|Resource version information<br>|<br>|
-|DataServiceVersion<br>|OData version<br>|<br>|
-|Access-Control-Allow-Origin<br>|Cross domain communication permission header<br>|Return value fixed to "*"<br>|
-|X-Personium-Version<br>|Personium API version<br>|Version of the API used to process the request<br>|
+|ETag|Resource version information||
+|DataServiceVersion|OData version||
+|Access-Control-Allow-Origin|Cross domain communication permission header|Return value fixed to "*"|
+|X-Personium-Version|Personium API version|Version of the API used to process the request|
 
 #### Response Body
 
@@ -116,7 +114,6 @@ Refer to [Error Message List](004_Error_Messages.html)
 
 None
 
-<br>
 
 ### cURL Command
 
@@ -124,6 +121,5 @@ None
 curl "https://{UnitFQDN}/__ctl/Cell(Name='{CellName}')" -X PUT -i -H 'If-Match: *' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{CellName}"}'
 ```
 
-<br><br><br><br><br>
 
 ###### Copyright 2017 FUJITSU LIMITED

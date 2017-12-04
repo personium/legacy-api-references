@@ -1,6 +1,5 @@
 # Common Limitations on HTTP Implementation of Personium
 
-<br>
 
 ### Request
 
@@ -32,17 +31,16 @@ It does not support is expected to respond to a request for gzip.
 
 Time of 60 seconds from the start of the request, the server until you have received all of the request (unconfirmed)
 
-<br>
 
 ### Response
 
 #### Response Header
 
-|Header Name<br>|Description<br>|
+|Header Name|Description|
 |:--|:--|
-|Transfer-Encoding<br>|It always respond with chunked<br>|
-|Content-Encoding<br>|If set to a valid value Accept-Encoding request header contains the value<br>|
-|Date<br>|It returns the UTC time that the request has been accepted<br>|
+|Transfer-Encoding|It always respond with chunked|
+|Content-Encoding|If set to a valid value Accept-Encoding request header contains the value|
+|Date|It returns the UTC time that the request has been accepted|
 
 #### Response Body
 
@@ -54,6 +52,6 @@ Support to chunked request
 
 ##### Content-Encoding
 
-If you set the value of a valid request Accept-Encoding header is compressed and encoded in the form of its body.<br><br><br><br><br><br>
+If you set the value of a valid request Accept-Encoding header is compressed and encoded in the form of its body.
 
 ###### Copyright 2017 FUJITSU LIMITED

@@ -11,7 +11,7 @@ Cell Level ACLのauth権限
 ### 制限事項
 なし
 
-<br>
+
 ### リクエスト
 #### リクエストURL
 ```
@@ -22,17 +22,17 @@ PUT
 #### リクエストクエリ
 クエリは無視する
 #### リクエストヘッダ
-|ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
+|ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {CellLocalToken}<br>|○<br>|認証トークンは認証トークン取得APIで取得したセルローカルトークン<br>|
-|X-Personium-Credential<br>|変更後パスワード<br>|文字列<br>|○<br>|文字数：6&#65374;32文字<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>|
+|Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {CellLocalToken}|○|認証トークンは認証トークン取得APIで取得したセルローカルトークン|
+|X-Personium-Credential|変更後パスワード|文字列|○|文字数：6&#65374;32文字<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)|
 #### リクエストボディ
 なし
 
 #### リクエストサンプル
 なし
 
-<br>
+
 ### レスポンス
 #### ステータスコード
 204
@@ -46,12 +46,10 @@ PUT
 #### レスポンスサンプル
 なし
 
-<br>
+
 ### cURLサンプル
 ```sh
 curl "https://{UnitFQDN}/{CellName}/__mypassword" -X PUT -i -H 'X-Personium-Credential: change_password' -H 'Authorization: Bearer {CellLocalToken}' -H 'Accept: application/json'
 ```
-<br>
-<br>
-<br>
-###### Copyright 2017    FUJITSU LIMITED
+
+###### Copyright 2017 FUJITSU LIMITED

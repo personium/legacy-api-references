@@ -15,7 +15,6 @@ alter-schema
 * Only application/json is supported for Content-Type in the request header and the JSON format for the response body
 * Response body data is not ensured if atom or xml is specified in the $format query option, although it does not result in an error
 
-<br>
 
 ### Request
 
@@ -33,9 +32,9 @@ PUT
 
 ##### Common Request Query
 
-|Query Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|p_cookie_peer<br>|Cookie Authentication Value<br>|The cookie authentication value returned from the server during authentication<br>|No<br>|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used<br>|
+|p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
 ##### OData Common Request Query
 
@@ -45,25 +44,25 @@ None
 
 ##### Common Request Header
 
-|Header Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|X-HTTP-Method-Override<br>|Method override function<br>|User-defined<br>|No<br>|Specifying this value in a request with the POST method indicates that the specified value is used as the method<br>|
-|X-Override<br>|Header override function<br>|${OverwrittenHeaderName}:${Value}<br>|No<br>|The normal HTTP header value is overwritten. Specify multiple X-Override headers for the overwriting of multiple headers<br>|
-|X-Personium-RequestKey<br>|RequestKey field value output in the event log<br>|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters<br>|No<br>|Supported in V 1.1.7 and later<br>|
+|X-HTTP-Method-Override|Method override function|User-defined|No|Specifying this value in a request with the POST method indicates that the specified value is used as the method|
+|X-Override|Header override function|${OverwrittenHeaderName}:${Value}|No|The normal HTTP header value is overwritten. Specify multiple X-Override headers for the overwriting of multiple headers|
+|X-Personium-RequestKey|RequestKey field value output in the event log|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters|No|Supported in V 1.1.7 and later|
 
 ##### OData Common Request Header
 
-|Header Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|Specifies authentication information in the OAuth 2.0 format<br>|Bearer {AccessToken}<br>|No<br>|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API<br>|
+|Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
 
 ##### OData Update Request Header
 
-|Header Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|Content-Type<br>|Specifies the request body format<br>|application/json<br>|No<br>|[application/json] by default<br>|
-|Accept<br>|Specifies the response body format<br>|application/json<br>|No<br>|[application/json] by default<br>|
-|If-Match<br>|Specifies the target ETag value<br>|ETag value<br>|No<br>|[*] by default<br>|
+|Content-Type|Specifies the request body format|application/json|No|[application/json] by default|
+|Accept|Specifies the response body format|application/json|No|[application/json] by default|
+|If-Match|Specifies the target ETag value|ETag value|No|[*] by default|
 
 #### Request Body
 
@@ -71,11 +70,11 @@ None
 
 JSON
 
-|Item Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|Item Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|Name<br>|AssociationEndName<br>|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("\_")<br>|Yes<br>|<br>|
-|Multiplicity<br>|Multiplicity<br>|"0 .. 1" / "1" / "*"<br>|Yes<br>|<br>|
-|_EntityType.Name<br>|EntityType name of relation target<br>|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("\_")<br>Explanation: Registered EntityType by EntityType registration API<br>|Yes<br>|<br>|
+|Name|AssociationEndName|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("\_")|Yes||
+|Multiplicity|Multiplicity|"0 .. 1" / "1" / "*"|Yes||
+|_EntityType.Name|EntityType name of relation target|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("\_")<br>Explanation: Registered EntityType by EntityType registration API|Yes||
 
 #### Request Sample
 
@@ -83,7 +82,6 @@ JSON
 {"Name":"{AssociationEndName}","Multiplicity":"{Multiplicity}","_EntityType.Name":"{EntityTypeName}"}
 ```
 
-<br>
 
 ### Response
 
@@ -107,7 +105,6 @@ Refer to [Error Message List](004_Error_Messages.html)
 
 None
 
-<br>
 
 ### cURL Command
 
@@ -115,6 +112,5 @@ None
 curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')" -X PUT -i  -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{AssociationEndName}","Multiplicity":"{Multiplicity}","_EntityType.Name":"{EntityTypeName}"}'
 ```
 
-<br><br><br><br><br>
 
 ###### Copyright 2017 FUJITSU LIMITED

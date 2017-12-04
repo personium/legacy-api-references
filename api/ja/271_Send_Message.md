@@ -11,7 +11,7 @@ message
 * レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはJSON形式とする
 * $formatクエリオプションにatom または xmlを指定した場合、エラーとはならないが、レスポンスボディのデータの保証はない
 
-<br>
+
 ### リクエスト
 #### リクエストURL
 ```
@@ -25,28 +25,28 @@ POST
 
 #### リクエストヘッダ
 
-|ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
+|ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|X-HTTP-Method-Override<br>|メソッドオーバーライド機能<br>|任意<br>|×<br>|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用されます。<br>|
-|X-Override<br>|ヘッダオーバライド機能<br>|${上書きするヘッダ名}:${値}<br>|×<br>|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定します。<br>|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {AccessToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
-|Content-Type<br>|リクエストボディの形式を指定する<br>|application/json<br>|×<br>|省略時は[application/json]として扱う<br>|
-|Accept<br>|レスポンスボディの形式を指定する<br>|application/json<br>|×<br>|省略時は[application/json]として扱う<br>|
+|X-HTTP-Method-Override|メソッドオーバーライド機能|任意|×|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用されます。|
+|X-Override|ヘッダオーバライド機能|${上書きするヘッダ名}:${値}|×|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定します。|
+|Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
+|Content-Type|リクエストボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
+|Accept|レスポンスボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
 #### リクエストボディ
 JSON
 
-|項目名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
+|項目名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|BoxBound<br>|Boxと紐付けるか否か<br>|true / false<br>デフォルト値はfalse<br>|×<br>|Boxに結びつける場合に本項目を「true」にしてスキーマ認証したトークンを送る<br>|
-|InReplyTo<br>|返信対象のメッセージID<br>|桁数：32<br>null<br>|×<br>|<br>|
-|To<br>|送信先セルURL<br>|URL形式<br>null<br>|※ 1<br>|複数Cellに送信する場合はCSV形式で指定する<br>※1 ToまたはRelationのどちらかは必須,<br>ToまたはRelationで指定できる送信先セルURLの最大件数は1000件<br>|
-|ToRelation<br>|送信対象の関係名<br>|桁数：1&#65374;128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)と+(プラス)と:(コロン)<br>ただし、先頭文字に_(半角アンダーバー)と:(コロン)は指定不可<br>null<br>|※ 1<br>|※1 ToまたはRelationのどちらかは必須<br>ToまたはRelationで指定できる送信先セルURLの最大件数は1000件<br>|
-|Type<br>|メッセージタイプ<br>|message<br>req.relation.build<br>req.relation.break<br>req.role.grant<br>req.role.revoke|×<br>|省略時はmessageとして扱う<br>|
-|Title<br>|メッセージタイトル<br>|桁数：256文字以下<br>|×<br>|省略時は空文字として扱う<br>|
-|Body<br>|メッセージ本文<br>|桁数：64Kbyte以下<br>|×<br>|省略時は空文字として扱う<br>|
-|Priority<br>|優先度<br>|1~5<br>|×<br>|省略時は3として扱う<br>|
-|RequestRelation<br>|登録依頼した関係情報<br>|URL形式<br>null<br>|※ 2<br>|※2 メッセージタイプがmessage以外の場合必須<br>登録依頼するリレーションクラスURL、またはリレーション名、またはロールクラスURL、またはロール名を指定<br>リレーション名指定時は以下のURLからの相対URLとみなす<br>BoxBoundがtrue：[対象BoxスキーマURL]\_\_relation/\_\_/<br>BoxBoundがfalse：[送信先セルURL]\_\_relation/\_\_/<br>ロール名指定時は以下のURLからの相対URLとみなす<br>BoxBoundがtrue：[対象BoxスキーマURL]\_\_role/\_\_/<br>BoxBoundがfalse：[送信先セルURL]\_\_role/\_\_/<br>|
-|RequestRelationTarget<br>|関係を結ぶセルURL<br>|URL形式<br>null<br>|※ 2<br>|※2 メッセージタイプがmessage以外の場合必須<br>|
+|BoxBound|Boxと紐付けるか否か|true / false<br>デフォルト値はfalse|×|Boxに結びつける場合に本項目を「true」にしてスキーマ認証したトークンを送る|
+|InReplyTo|返信対象のメッセージID|桁数：32<br>null|×||
+|To|送信先セルURL|URL形式<br>null|※ 1|複数Cellに送信する場合はCSV形式で指定する<br>※1 ToまたはRelationのどちらかは必須,<br>ToまたはRelationで指定できる送信先セルURLの最大件数は1000件|
+|ToRelation|送信対象の関係名|桁数：1&#65374;128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)と+(プラス)と:(コロン)<br>ただし、先頭文字に_(半角アンダーバー)と:(コロン)は指定不可<br>null|※ 1|※1 ToまたはRelationのどちらかは必須<br>ToまたはRelationで指定できる送信先セルURLの最大件数は1000件|
+|Type|メッセージタイプ|message<br>req.relation.build<br>req.relation.break<br>req.role.grant<br>req.role.revoke|×|省略時はmessageとして扱う|
+|Title|メッセージタイトル|桁数：256文字以下|×|省略時は空文字として扱う|
+|Body|メッセージ本文|桁数：64Kbyte以下|×|省略時は空文字として扱う|
+|Priority|優先度|1~5|×|省略時は3として扱う|
+|RequestRelation|登録依頼した関係情報|URL形式<br>null|※ 2|※2 メッセージタイプがmessage以外の場合必須<br>登録依頼するリレーションクラスURL、またはリレーション名、またはロールクラスURL、またはロール名を指定<br>リレーション名指定時は以下のURLからの相対URLとみなす<br>BoxBoundがtrue：[対象BoxスキーマURL]\_\_relation/\_\_/<br>BoxBoundがfalse：[送信先セルURL]\_\_relation/\_\_/<br>ロール名指定時は以下のURLからの相対URLとみなす<br>BoxBoundがtrue：[対象BoxスキーマURL]\_\_role/\_\_/<br>BoxBoundがfalse：[送信先セルURL]\_\_role/\_\_/|
+|RequestRelationTarget|関係を結ぶセルURL|URL形式<br>null|※ 2|※2 メッセージタイプがmessage以外の場合必須|
 
 #### リクエストサンプル
 ```JSON
@@ -63,56 +63,56 @@ JSON
   "RequestRelationTarget": "https://{UnitFQDN}/{CellName}"
 }
 ```
-<br>
+
 ### レスポンス
 #### ステータスコード
 201
 
 #### レスポンスヘッダ
 
-|ヘッダ名<br>|概要<br>|備考<br>|
+|ヘッダ名|概要|備考|
 |:--|:--|:--|
-|Content-Type<br>|返却されるデータの形式<br>|<br>|
-|Location<br>|作成したリソースへのURL<br>|<br>|
-|DataServiceVersion<br>|ODataのバージョン<br>|<br>|
-|ETag<br>|リソースのバージョン情報<br>|<br>|
-|Access-Control-Allow-Origin<br>|クロスドメイン通信許可ヘッダ<br>|返却値は"*"固定<br>|
-|X-Personium-Version<br>|APIの実行バージョン<br>|リクエストが処理されたAPIバージョン<br>|
+|Content-Type|返却されるデータの形式||
+|Location|作成したリソースへのURL||
+|DataServiceVersion|ODataのバージョン||
+|ETag|リソースのバージョン情報||
+|Access-Control-Allow-Origin|クロスドメイン通信許可ヘッダ|返却値は"*"固定|
+|X-Personium-Version|APIの実行バージョン|リクエストが処理されたAPIバージョン|
 #### レスポンスボディ
 
 ##### 共通レスポンスボディ
 レスポンスはJSONオブジェクトで、オブジェクト（サブオブジェクト）に定義されるキー(名前)と型、並びに値の対応は以下のとおりです。
 
-|オブジェクト<br>|名前【キー）<br>|型<br>|値<br>|
+|オブジェクト|名前【キー）|型|値|
 |:--|:--|:--|:--|
-|ルート<br>|d<br>|object<br>|オブジェクト{1}<br>|
-|{1}<br>|results<br>|array<br>|オブジェクト{2}の配列<br>|
-|{2}<br>|__metadata<br>|object<br>|オブジェクト{3}<br>|
-|{3}<br>|uri<br>|string<br>|作成したリソースへのURL<br>|
-|{3}<br>|etag<br>|string<br>|Etag値<br>|
-|{2}<br>|__published<br>|string<br>|作成日(UNIX時間)<br>|
-|{2}<br>|__updated<br>|string<br>|更新日(UNIX時間)<br>|
-|{1}<br>|__count<br>|string<br>|$inlinecountクエリでの取得結果件数<br>|
+|ルート|d|object|オブジェクト{1}|
+|{1}|results|array|オブジェクト{2}の配列|
+|{2}|__metadata|object|オブジェクト{3}|
+|{3}|uri|string|作成したリソースへのURL|
+|{3}|etag|string|Etag値|
+|{2}|__published|string|作成日(UNIX時間)|
+|{2}|__updated|string|更新日(UNIX時間)|
+|{1}|__count|string|$inlinecountクエリでの取得結果件数|
 
 ##### SentMessage固有レスポンスボディ
-|オブジェクト<br>|名前【キー】<br>|型<br>|値<br>|
+|オブジェクト|名前【キー】|型|値|
 |:--|:--|:--|:--|
-|{3}<br>|type<br>|string<br>|CellCtl.ReceivedMessage<br>|
-|{2}<br>|__id<br>|string<br>|受信メッセージID<br>UUIDで「b5d008e9092f489c8d3c574a768afc33」のような32文字の文字列を返却<br>|
-|{2}<br>|InReplyTo<br>|string<br>|受信元メッセージID<br>UUIDで「b5d008e9092f489c8d3c574a768afc33」のような32文字の文字列を返却<br>|
-|{2}<br>|To<br>|string<br>|送信先CellURL<br>|
-|{2}<br>|ToRelation<br>|string<br>|送信対象の関係名<br>|
-|{2}<br>|Type<br>|string<br>|メッセージタイプ<br>メッセージ：message<br>関係登録依頼(リレーション)：req.relation.build<br>関係削除依頼(リレーション)：req.relation.break<br>関係登録依頼(ロール)：req.role.grant<br>関係削除依頼(ロール)：req.role.revoke<br>|
-|{2}<br>|Title<br>|string<br>|メッセージタイトル<br>|
-|{2}<br>|Body<br>|string<br>|メッセージ本文<br>|
-|{2}<br>|Priority<br>|string<br>|優先度<br>(高)1&#65374;5(低)<br>|
-|{2}<br>|RequestRelation<br>|string<br>|登録依頼するリレーションクラスURL、またはリレーション名、またはロールクラスURL、またはロール名<br>メッセージタイプがmessage以外の場合のみ<br>|
-|{2}<br>|RequestRelationTarget<br>|string<br>|関係を結ぶCellURL<br>メッセージタイプがmessage以外の場合のみ<br>|
-|{2}<br>|_Box.Name<br>|string<br>|関係対象のボックス名<br>|
-|{2}<br>|Result<br>|array<br>|送信先Cell毎の送信結果<br>オブジェクト{4}の配列<br>|
-|{4}<br>|To<br>|string<br>|送信先CellURL<br>|
-|{4}<br>|Code<br>|string<br>|ステータスコード<br>|
-|{4}<br>|Reason<br>|string<br>|詳細メッセージ<br>|
+|{3}|type|string|CellCtl.ReceivedMessage|
+|{2}|__id|string|受信メッセージID<br>UUIDで「b5d008e9092f489c8d3c574a768afc33」のような32文字の文字列を返却|
+|{2}|InReplyTo|string|受信元メッセージID<br>UUIDで「b5d008e9092f489c8d3c574a768afc33」のような32文字の文字列を返却|
+|{2}|To|string|送信先CellURL|
+|{2}|ToRelation|string|送信対象の関係名|
+|{2}|Type|string|メッセージタイプ<br>メッセージ：message<br>関係登録依頼(リレーション)：req.relation.build<br>関係削除依頼(リレーション)：req.relation.break<br>関係登録依頼(ロール)：req.role.grant<br>関係削除依頼(ロール)：req.role.revoke|
+|{2}|Title|string|メッセージタイトル|
+|{2}|Body|string|メッセージ本文|
+|{2}|Priority|string|優先度<br>(高)1&#65374;5(低)|
+|{2}|RequestRelation|string|登録依頼するリレーションクラスURL、またはリレーション名、またはロールクラスURL、またはロール名<br>メッセージタイプがmessage以外の場合のみ|
+|{2}|RequestRelationTarget|string|関係を結ぶCellURL<br>メッセージタイプがmessage以外の場合のみ|
+|{2}|_Box.Name|string|関係対象のボックス名|
+|{2}|Result|array|送信先Cell毎の送信結果<br>オブジェクト{4}の配列|
+|{4}|To|string|送信先CellURL|
+|{4}|Code|string|ステータスコード|
+|{4}|Reason|string|詳細メッセージ|
 #### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.html)を参照
 
@@ -150,12 +150,10 @@ JSON
   }
 }
 ```
-<br>
+
 ### cURLサンプル
 ```sh
 curl "https://{UnitFQDN}/{CellName}/__message/send" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"BoxBound":false,"InReplyTo":"xnKXmd4TTZCw-bfSEw4f0AxnKXmd4TTZ","To":"https://{UnitFQDN}/{CellName}","Type":"message","Title":"メッセージサンプルタイトル","Body":"メッセージサンプル本文です。","Priority":3}'
 ```
-<br>
-<br>
-<br>
-###### Copyright 2017    FUJITSU LIMITED
+
+###### Copyright 2017 FUJITSU LIMITED

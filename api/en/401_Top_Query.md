@@ -15,9 +15,9 @@ Because the data obtained by the $top query is not sorted, you need to specify a
 $top={number}
 ```
 
-|Value<br>|Overview<br>|Effective Value<br>|Notes<br>|
+|Value|Overview|Effective Value|Notes|
 |:--|:--|:--|:--|
-|{number}<br>|Specify the number of entities included in the returned feed<br>|Half size numeric 0-10000 (default: 25) <br> $expand 0-100 (default: 25) when query is specified<br>|<br>|
+|{number}|Specify the number of entities included in the returned feed|Half size numeric 0-10000 (default: 25) <br> $expand 0-100 (default: 25) when query is specified||
 
 ### cURL Command
 
@@ -30,6 +30,6 @@ curl "https://{UnitFQDN}/__ctl/Cell?\$top=10" -X GET -i -H 'Authorization: Beare
 ### Restrictions
 
 * Considering processing performance, use with the $skip query  
-    In this case, the recommended value of the $top query is 50 or less<br><br><br><br><br><br>
+    In this case, the recommended value of the $top query is 50 or less
 
 ###### Copyright 2017 FUJITSU LIMITED

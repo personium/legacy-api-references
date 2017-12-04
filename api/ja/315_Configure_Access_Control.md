@@ -10,7 +10,7 @@ write-acl
 * ACL設定を打ち消す機能（deny）
 * ACLで設定出来るprivilegeの一覧取得
 
-<br>
+
 ### リクエスト
 #### リクエストURL
 ```
@@ -21,11 +21,11 @@ write-acl
 /{CellName}/{BoxName}/{ResourcePath}
 ```
 
-|パス<br>|概要<br>|備考<br>|
+|パス|概要|備考|
 |:--|:--|:--|
-|{CellName}<br>|セル名<br>| <br>
-|{BoxName}<br>|ボックス名<br>| <br>
-|{ResourcePath}<br>|リソースへのパス<br>|有効値 桁数:1&#65374;128<br>使用可能文字種<br>半角英数字、半角ピリオド(.)、半角アンダーバー(_)、半角ハイフン(-)<br>|
+|{CellName}|セル名||
+|{BoxName}|ボックス名||
+|{ResourcePath}|リソースへのパス|有効値 桁数:1&#65374;128<br>使用可能文字種<br>半角英数字、半角ピリオド(.)、半角アンダーバー(_)、半角ハイフン(-)|
 
 #### メソッド
 ACL
@@ -35,20 +35,20 @@ ACL
 
 #### リクエストヘッダ
 
-|ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
+|ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|X-HTTP-Method-Override<br>|メソッドオーバーライド機能<br>|任意<br>|×<br>|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用される<br>|
-|X-Override<br>|ヘッダオーバライド機能<br>|${上書きするヘッダ名}:${値}<br>|×<br>|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定する<br>|
-|X-Personium-RequestKey<br>|イベントログに出力するRequestKeyフィールドの値<br>|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字<br>|×<br>|指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応<br>|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {AccessToken}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|X-HTTP-Method-Override|メソッドオーバーライド機能|任意|×|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用される|
+|X-Override|ヘッダオーバライド機能|${上書きするヘッダ名}:${値}|×|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定する|
+|X-Personium-RequestKey|イベントログに出力するRequestKeyフィールドの値|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字|×|指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応|
+|Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
 
 #### リクエストボディ
 名前空間
 
-|URI<br>|概要<br>|参考prefix<br>|
+|URI|概要|参考prefix|
 |:--|:--|:--|
-|DAV:<br>|WebDAVの名前空間<br>|D:<br>|
-|urn:x-personium:xmlns<br>|Personiumの名前空間<br>|p:<br>|
+|DAV:|WebDAVの名前空間|D:|
+|urn:x-personium:xmlns|Personiumの名前空間|p:|
 
 ※ 参考prefixは以下表の可読性を高めるためのもので、このprefix文字列の使用を保証するものでも要求するものでもありません。
 
@@ -57,26 +57,25 @@ XMLの構造
 ボディはXMLで、以下のスキーマに従っています。  
 privilegeタグ配下の権限設定の内容については、acl_model（[アクセス制御モデル](../../user_guide/002_Access_Control.html)）を参照。
 
-|ノード名<br>|名前空間<br>|ノードタイプ<br>|概要<br>|備考<br>|
+|ノード名|名前空間|ノードタイプ|概要|備考|
 |:--|:--|:--|:--|:--|
-|acl<br>|D:<br>|要素<br>|ACL（アクセス制御リスト）のルートを表し、1つ以上複数のaceが子となる<br>| <br>|
-|base<br>|xml:<br>|属性<br>|hrefタグ内に記述するURLの基底を表し、任意の値を属性値とする。この属性は任意。<br>| <br>|
-|ace<br>|D:<br>|要素<br>|ACE（アクセス制御エレメント）を表し、principalとgrantが一対で子となる<br>|「invert」「deny」「protected」「inherited」はV1.1系未対応<br>|
-|principal<br>|D:<br>|要素<br>|権限設定対象を表し、hrefまたはallが子となる<br>| <br>|
-|grant<br>|D:<br>|要素<br>|権限付与設定を表し、1つ以上複数のprivilegeが子となる<br>| <br>|
-|href<br>|D:<br>|要素<br>|権限設定対象ロール表し、ロールリソースURLを入力するテキストノード<br>|権限設定対象ロールのリソースURLを指定する acl要素内のxml:base属性の設定によって、URLを短縮する事が出来る<br>|
-|all<br>|D:<br>|要素<br>|全アクセス主体権限設定<br>| <br>|
-|privilege<br>|D:<br>|要素<br>|権限設定を表し、以下の要素のいづれか一つが子となる<br>| <br>|
-|read<br>|D:<br>|要素<br>|参照権限<br>| <br>|
-|write<br>|D:<br>|要素<br>|編集権限<br>| <br>|
-|read-properties<br>|D:<br>|要素<br>|プロパティ参照権限<br>| <br>|
-|write-properties<br>|D:<br>|要素<br>|プロパティ編集権限<br>| <br>|
-|read-acl<br>|D:<br>|要素<br>|ACL設定参照権限<br>| <br>|
-|write-acl<br>|D:<br>|要素<br>|ACL設定編集権限<br>| <br>|
-|bind<br>|D:<br>|要素<br>|未稿<br>|V1.1系、V1.2系未対応<br>|
-|unbind<br>|D:<br>|要素<br>|未稿<br>|V1.1系、V1.2系未対応<br>|
-|exec<br>|D:<br>|要素<br>|サービス実行権限<br>| <br>|
-
+|acl|D:|要素|ACL（アクセス制御リスト）のルートを表し、1つ以上複数のaceが子となる||
+|base|xml:|属性|hrefタグ内に記述するURLの基底を表し、任意の値を属性値とする。この属性は任意。||
+|ace|D:|要素|ACE（アクセス制御エレメント）を表し、principalとgrantが一対で子となる|「invert」「deny」「protected」「inherited」はV1.1系未対応|
+|principal|D:|要素|権限設定対象を表し、hrefまたはallが子となる||
+|grant|D:|要素|権限付与設定を表し、1つ以上複数のprivilegeが子となる||
+|href|D:|要素|権限設定対象ロール表し、ロールリソースURLを入力するテキストノード|権限設定対象ロールのリソースURLを指定する acl要素内のxml:base属性の設定によって、URLを短縮する事が出来る|
+|all|D:|要素|全アクセス主体権限設定||
+|privilege|D:|要素|権限設定を表し、以下の要素のいづれか一つが子となる||
+|read|D:|要素|参照権限||
+|write|D:|要素|編集権限||
+|read-properties|D:|要素|プロパティ参照権限||
+|write-properties|D:|要素|プロパティ編集権限||
+|read-acl|D:|要素|ACL設定参照権限||
+|write-acl|D:|要素|ACL設定編集権限||
+|bind|D:|要素|未稿|V1.1系、V1.2系未対応|
+|unbind|D:|要素|未稿|V1.1系、V1.2系未対応|
+|exec|D:|要素|サービス実行権限||
 
 
 DTD表記
@@ -138,18 +137,18 @@ DTD表記
 </D:acl>
 ```
 
-<br>
+
 ### レスポンス
 #### ステータスコード
 
-|コード<br>|メッセージ<br>|概要<br>|
+|コード|メッセージ|概要|
 |:--|:--|:--|
-|200<br>|OK<br>|成功<br>|
+|200|OK|成功|
 #### レスポンスヘッダ
 
-|ヘッダ名<br>|概要<br>|備考<br>|
+|ヘッダ名|概要|備考|
 |:--|:--|:--|
-|Content-Type<br>|返却されるデータの形式<br>|更新・作成時に失敗した場合のみ返却する<br>|
+|Content-Type|返却されるデータの形式|更新・作成時に失敗した場合のみ返却する|
 #### レスポンスボディ
 なし
 
@@ -159,7 +158,7 @@ DTD表記
 #### レスポンスサンプル
 なし
 
-<br>
+
 ### cURLサンプル
 
 ```sh
@@ -182,7 +181,5 @@ curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}" -X ACL -i
   </D:ace>
  </D:acl>'
 ```
-<br>
-<br>
-<br>
-###### Copyright 2017    FUJITSU LIMITED
+
+###### Copyright 2017 FUJITSU LIMITED

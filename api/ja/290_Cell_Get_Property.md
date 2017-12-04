@@ -105,6 +105,7 @@ PROPFIND
 |collection<br>|p:<br>|要素<br>|リソースのタイプがコレクションであることを表す<br>リソースがWebDAVの場合、この要素のみが表示される<br>|<br>|
 |odata<br>|p:<br>|要素<br>|リソースのタイプがODataコレクションであることを表す<br>|ODataコレクションの場合表示<br>|
 |service<br>|p:<br>|要素<br>|リソースのタイプがサービスコレクションであることを表す<br>|Serviceコレクションの場合表示<br>|
+|cellstatus|p:|要素|Cellのステータスを表す<br>normal:正常<br>import failed:Cell Import失敗|Cellのステータスがimport failedの場合は以下のAPI以外は実行不可<br>- Unit Level API<br>- OAuth2.0 トークンエンドポイント<br>- Cellインポート|
 |acl<br>|p:<br>|要素<br>|リソースに設定されているACL設定<br>|ACL設定を取得するためには、対象リソースに対するacl-read権限が必要<br>ACL要素以下の内容については、[Cell Level アクセス制御設定API](289_Cell_ACL.html)を参照<br>|
 |base<br>|p:<br>|要素<br>|ACLのPrivilegeのBaseURL<br>|CellへのPROPFINDの場合、デフォルトボックス（"__"）のリソースURL<br>|
 |status<br>|D:<br>|要素<br>|リソース取得のレスポンスコードを表す<br>|<br>|
@@ -153,7 +154,8 @@ PROPFIND
                 <resourcetype>
                     <collection/>
                 </resourcetype>
-								<acl xmlns:p="urn:x-personium:xmlns"/>
+                <p:cellstatus xmlns:p="urn:x-personium:xmlns">normal</p:cellstatus>
+                <acl xmlns:p="urn:x-personium:xmlns"/>
             </prop>
             <status>HTTP/1.1 200 OK</status>
         </propstat>

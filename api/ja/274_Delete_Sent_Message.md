@@ -1,7 +1,6 @@
 # SentMessage削除
 ### 概要
 存在する送信メッセージを削除する  
-SentMessageに紐付くBox,Accountがある場合は409となり削除は行わない
 ### 必要な権限
 message
 ### 制限事項

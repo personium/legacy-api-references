@@ -292,8 +292,7 @@ barファイルのインストール時には、下記サンプルの<prop>配�
                   <p:service xmlns:p="urn:x-personium:xmlns"/>
               </resourcetype>
              <acl xml:base="https://{UnitFQDN}/cell/__role/__/" xmlns:p="urn:x-personium:xmlns"/>
-              <p:service language="JavaScript" xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" \
-              xmlns:Z="http://www.w3.com/standards/z39.50/">
+              <p:service language="JavaScript" xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns">
                   <p:path name="ehr" src="ehr.js"/>
                   <p:path name="ehr_connector" src="ehr_connector.js"/>
               </p:service>
@@ -433,8 +432,7 @@ bar/90_contents/{Service}/{src.js}に格納されたソースファイルを、�
                 </resourcetype>
                 <acl xml:base="https://{UnitFQDN}/cell/__role/__/"\
                 xmlns:p="urn:x-personium:xmlns"/>
-                <p:service language="JavaScript" xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" \
-                xmlns:Z="http://www.w3.com/standards/z39.50/">
+                <p:service language="JavaScript" xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns">
                     <p:path name="ehr" src="ehr.js"/>
                     <p:path name="ehr_connector" src="ehr_connector.js"/>
                 </p:service>

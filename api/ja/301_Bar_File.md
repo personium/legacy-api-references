@@ -13,41 +13,41 @@ Boxインストール時に「★必須」となっているディレクトリ�
 また、barファイルの構造が下記の順序で作成されていない場合はエラーとなる。
 ```
 bar/
-|
+ |
  +-- 00_meta/  ★ 必須
-|  |
-|    +-- 00_manifest.json  ★ 必須
-|    +-- 10_relations.json
-|    +-- 20_roles.json
-|    +-- 30_extroles.json
-|    +-- 70_$links.json
-|    +-- 90_rootprops.xml  ★ 必須
-|
+ |    |
+ |    +-- 00_manifest.json  ★ 必須
+ |    +-- 10_relations.json
+ |    +-- 20_roles.json
+ |    +-- 30_extroles.json
+ |    +-- 70_$links.json
+ |    +-- 90_rootprops.xml  ★ 必須
+ |
  +-- 90_contents/     ★ 配下のディレクトリ名はコレクション名と同じ
-    |
+      |
       +-- {OData}/    ★ rootprops.xmlでODataコレクションの場合、必須
-    |  |
-    |    +-- 00_$metadata.xml    ★ 必須
-    |    +-- 10_odatarelations.json
-    |  |
-    |    +-- 90_data/
-    |       |
-    |         +-- {EntityType}/
-    |            |
-    |              +-- {1.json}
-    |
+      |    |
+      |    +-- 00_$metadata.xml    ★ 必須
+      |    +-- 10_odatarelations.json
+      |    |
+      |    +-- 90_data/
+      |         |
+      |         +-- {EntityType}/
+      |              |
+      |              +-- {1.json}
+      |
       +-- {Service}/
-    |  |
-    |    +-- {src.js}
-    |
+      |    |
+      |    +-- {src.js}
+      |
       +-- {dir1}/
-         |
+           |
            +-- {dir1-1}/
-              |
+                |
                 +-- {userdata1-2.jpg}
-              |
+                |
                 +-- {dir2}/
-                   |
+                     |
                      +-- [userdata1-2.jpg}
 ```
 

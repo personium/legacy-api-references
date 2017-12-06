@@ -17,6 +17,5 @@ Example: When acquiring information from the 11th cell by omitting acquisition o
 curl "https://{UnitFQDN}/__ctl/Cell?\$skip=10" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 
-<br><br><br><br><br>
 
 ###### Copyright 2017 FUJITSU LIMITED

@@ -12,7 +12,6 @@ Only unit users permitted
 
 Unpublished
 
-<br>
 
 ### Request
 
@@ -28,31 +27,31 @@ PROPPATCH
 
 #### Request Query
 
-|Query Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|p_cookie_peer<br>|Cookie Authentication Value<br>|The cookie authentication value returned from the server during authentication<br>|No<br>|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used<br>|
+|p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
 #### Request Header
 
-|Header Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|X-HTTP-Method-Override<br>|Method override function<br>|User-defined<br>|No<br>|If you specify this value when requesting with the POST method, the specified value will be used as a method.<br>|
-|X-Override<br>|Header override function<br>|${OverwrittenHeaderName}:${Value}<br>|No<br>|Overwrite normal HTTP header value. To overwrite multiple headers, specify multiple X-Override headers.<br>|
-|Authorization<br>|Specifies authentication information in the OAuth 2.0 format<br>|Bearer {AccessToken}<br>|No<br>|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API<br>|
-|Content-Type<br>|Specify content format<br>|application / xml<br>|No<br>|<br>|
-|Accept<br>|Specify acceptable media types in response<br>|application / xml<br>|No<br>|<br>|
+|X-HTTP-Method-Override|Method override function|User-defined|No|If you specify this value when requesting with the POST method, the specified value will be used as a method.|
+|X-Override|Header override function|${OverwrittenHeaderName}:${Value}|No|Overwrite normal HTTP header value. To overwrite multiple headers, specify multiple X-Override headers.|
+|Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
+|Content-Type|Specify content format|application / xml|No||
+|Accept|Specify acceptable media types in response|application / xml|No||
 
 #### Request Body
 
-|Item Name<br>|Namespace<br>|Overview<br>|Required<br>|Effective Value<br>|Notes<br>|
+|Item Name|Namespace|Overview|Required|Effective Value|Notes|
 |:--|:--|:--|:--|:--|:--|
-|DAV:<br>|<br>|XML namespace setting<br>|Yes<br>|"DAV:"<br>|<br>|
-|urn: x-personium: xmlns<br>|<br>|XML namespace setting<br>|Yes<br>|"Urn: x-personium: xmlns"<br>|<br>|
-|propertyupdate<br>|DAV:<br>|propertyupdate (Access Control List) root<br>|Yes<br>|<ELEMENT propertyupdate! (Set &#124; remove)><br>|<br>|
-|set<br>|DAV:<br>|set property<br>|No<br>|<! ELEMENT set (prop *)><br>|<br>|
-|remove<br>|DAV:<br>|remove property<br>|No<br>|<! ELEMENT set (prop *)><br>|<br>|
-|prop<br>|DAV:<br>|remove property value<br>|No<br>|<! ELEMENT prop ANY><br>|Delete using the XML tag specified as ANY as a key<br>|
-|prop<br>|DAV:<br>|set property value<br>|No<br>|<! ELEMENT prop ANY><br>|The XML tag specified as ANY is the key<br>|
+|DAV:||XML namespace setting|Yes|"DAV:"||
+|urn: x-personium: xmlns||XML namespace setting|Yes|"Urn: x-personium: xmlns"||
+|propertyupdate|DAV:|propertyupdate (Access Control List) root|Yes|<ELEMENT propertyupdate! (Set &#124; remove)>||
+|set|DAV:|set property|No|<! ELEMENT set (prop *)>||
+|remove|DAV:|remove property|No|<! ELEMENT set (prop *)>||
+|prop|DAV:|remove property value|No|<! ELEMENT prop ANY>|Delete using the XML tag specified as ANY as a key|
+|prop|DAV:|set property value|No|<! ELEMENT prop ANY>|The XML tag specified as ANY is the key|
 
 #### Request Sample
 
@@ -72,15 +71,14 @@ PROPPATCH
 </D:propertyupdate>
 ```
 
-<br>
 
 ### Response
 
 #### Response Code
 
-|Code<br>|Message<br>|Overview<br>|
+|Code|Message|Overview|
 |:--|:--|:--|
-|207<br>|MULTI_STATUS<br>|Success<br>|
+|207|MULTI_STATUS|Success|
 
 #### Response Header
 
@@ -88,14 +86,14 @@ None
 
 #### Response Body
 
-|Item Name<br>|Namespace<br>|Overview<br>|Notes<br>|
+|Item Name|Namespace|Overview|Notes|
 |:--|:--|:--|:--|
-|multistatus<br>|DAV:<br>|Response Body route<br>|<! ELEMENT multistatus (response *)><br>|
-|response<br>|DAV:<br>|response route<br>|<! ELEMENT response (href, propstat)><br>|
-|href<br>|DAV:<br>|URL of the resource that executed PROPPATCH<br>|URL of the resource that executed PROPPATCH<br>|
-|propstat<br>|DAV:<br>|rproperty setting result<br>|<! ELEMENT propstat (prop, status)><br>|
-|prop<br>|DAV:<br>|property setting contents<br>|display resource setting result as following <br>success: setting key and value<br>delete success: deleted key<br>|
-|status<br>|DAV:<br>|Property setting status code<br>|In the case of setting success 200 (OK) is returned<br>|
+|multistatus|DAV:|Response Body route|<! ELEMENT multistatus (response *)>|
+|response|DAV:|response route|<! ELEMENT response (href, propstat)>|
+|href|DAV:|URL of the resource that executed PROPPATCH|URL of the resource that executed PROPPATCH|
+|propstat|DAV:|rproperty setting result|<! ELEMENT propstat (prop, status)>|
+|prop|DAV:|property setting contents|display resource setting result as following <br>success: setting key and value<br>delete success: deleted key|
+|status|DAV:|Property setting status code|In the case of setting success 200 (OK) is returned|
 
 #### Error Messages
 
@@ -118,7 +116,6 @@ Refer to [Error Message List](004_Error_Messages.html)
 </multistatus>
 ```
 
-<br>
 
 ### cURL Command
 
@@ -128,6 +125,5 @@ curl "https://{UnitFQDN}/{CellName}" -X PROPPATCH -i -H 'Authorization: Bearer {
 <p:hoge>${hoge}</p:hoge></D:prop></D:set><D:remove><D:prop><p:hoge/></D:prop></D:remove></D:propertyupdate>'
 ```
 
-<br>
 
 ###### Copyright 2017 FUJITSU LIMITED

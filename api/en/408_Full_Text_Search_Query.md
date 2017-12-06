@@ -15,22 +15,22 @@ Including complex type data, all values are searched
 q={SearchKeyword}
 ```
 
-|Item<br>|Overview<br>|Effective Value<br>|Notes<br>|
+|Item|Overview|Effective Value|Notes|
 |:--|:--|:--|:--|
-|{SearchKeyword}<br>|Specify search string<br>|Number of digits: 1-255 byte<br>|<br>|
+|{SearchKeyword}|Specify search string|Number of digits: 1-255 byte||
 
 ### Type to be searched
 
 The data types to be searched are shown below
 
-|Data type<br>|Search target<br>|Notes<br>|
+|Data type|Search target|Notes|
 |:--|:--|:--|
-|Edm.String<br>|Yes<br>|<br>|
-|Edm.Boolean<br>|Yes<br>|<br>|
-|Edm.Single<br>|Yes<br>|<br>|
-|Edm.Int32<br>|Yes<br>|<br>|
-|Edm.Double<br>|Yes<br>|Dynamic property only<br>|
-|Edm.DateTime<br>|No<br>|<br>|
+|Edm.String|Yes||
+|Edm.Boolean|Yes||
+|Edm.Single|Yes||
+|Edm.Int32|Yes||
+|Edm.Double|Yes|Dynamic property only|
+|Edm.DateTime|No||
 
 ### Search Specification
 
@@ -60,6 +60,5 @@ Example: When acquiring a cell list, when acquiring a cell that matches the keyw
 curl "https://{UnitFQDN}/__ctl/Cell?q=sample" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 
-<br><br><br><br><br>
 
 ###### Copyright 2017 FUJITSU LIMITED

@@ -62,6 +62,5 @@ It should be noted that, as the default 50MB, maximum size of the rotating at th
 2013-04-18 14:52:39.780 [thread-pool-1-38888(20)] [ERROR] EventLogger Req_animal-access_1001,server,https://{UnitFQDN}/appCell/,https://{UnitFQDN}/appCell/#staff,GET,/homeClinic/box/col/blog_20130418,200
 ```
 
-<br><br><br><br><br>
 
 ###### Copyright 2017 FUJITSU LIMITED

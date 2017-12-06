@@ -10,7 +10,7 @@ read
 * $formatがatomsvcでなく、Acceptヘッダがapplication/atomsvc+xmlでない場合は、ユーザデータのEDMXを返却する
 * ComplexTypeおよび、Documentationタグは対応していないため返却しない
 
-<br>
+
 ### リクエスト
 #### リクエストURL
 ```
@@ -20,138 +20,138 @@ read
 GET
 #### リクエストクエリ
 ##### 共通クエリ
-|クエリ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
+|クエリ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|p_cookie_peer<br>|クッキー認証値<br>|認証時にサーバから返却されたクッキー認証値<br>|×<br>|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br>|
+|p_cookie_peer|クッキー認証値|認証時にサーバから返却されたクッキー認証値|×|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する|
 ##### 個別クエリ
 $formatにatomsvcを指定した場合、SchemaのAtom ServiceDocumentを返却する  
 その他は無視する
 #### リクエストヘッダ
 ##### 共通リクエストヘッダ
-|ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
+|ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|X-HTTP-Method-Override<br>|メソッドオーバーライド機能<br>|任意<br>|×<br>|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用される<br>|
-|X-Override<br>|ヘッダオーバライド機能<br>|${上書きするヘッダ名}:${値}<br>|×<br>|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定する<br>|
-|X-Personium-RequestKey<br>|イベントログに出力するRequestKeyフィールドの値<br>|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字<br>|×<br>|指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応<br>|
+|X-HTTP-Method-Override|メソッドオーバーライド機能|任意|×|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用される|
+|X-Override|ヘッダオーバライド機能|${上書きするヘッダ名}:${値}|×|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定する|
+|X-Personium-RequestKey|イベントログに出力するRequestKeyフィールドの値|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字|×|指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応|
 ##### 個別リクエストヘッダ
-|ヘッダ名<br>|概要<br>|有効値<br>|必須<br>|備考<br>|
+|ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|Accept<br>|返却されるデータの形式<br>|application/atomsvc+xml<br>application/xml<br>|×<br>|指定がない場合、ユーザデータスキーマのスキーマ情報取得となる<br>|
-|Authorization<br>|OAuth2.0形式で、認証情報を指定する<br>|Bearer {認証トークン}<br>|×<br>|※認証トークンは認証トークン取得APIで取得したトークン<br>|
+|Accept|返却されるデータの形式|application/atomsvc+xml<br>application/xml|×|指定がない場合、ユーザデータスキーマのスキーマ情報取得となる|
+|Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {認証トークン}|×|※認証トークンは認証トークン取得APIで取得したトークン|
 #### リクエストボディ
 なし
 #### リクエストサンプル
 なし
 
-<br>
+
 ### レスポンス
 #### ステータスコード
 200
 #### レスポンスヘッダ
 ##### 共通レスポンスヘッダ
-|ヘッダ名<br>|概要<br>|備考<br>|
+|ヘッダ名|概要|備考|
 |:--|:--|:--|
-|Access-Control-Allow-Origin<br>|クロスドメイン通信許可ヘッダ<br>|返却値は"*"固定<br>|
-|X-Personium-Version<br>|APIの実行バージョン<br>|指定がない場合、最新のAPIバージョンが指定される<br>|
+|Access-Control-Allow-Origin|クロスドメイン通信許可ヘッダ|返却値は"*"固定|
+|X-Personium-Version|APIの実行バージョン|指定がない場合、最新のAPIバージョンが指定される|
 
 ##### スキーマ取得固有レスポンスヘッダ
-|ヘッダ名<br>|概要<br>|備考<br>|
+|ヘッダ名|概要|備考|
 |:--|:--|:--|
-|Content-Type<br>|返却されるデータの形式<br>|<br>|
-|DataServiceVersion<br>|ODataのバージョン<br>|<br>|
+|Content-Type|返却されるデータの形式||
+|DataServiceVersion|ODataのバージョン||
 #### レスポンスボディ
 ##### ユーザデータの場合
-|URI<br>|概要<br>|参考prefix<br>|
+|URI|概要|参考prefix|
 |:--|:--|:--|
-|http://schemas.microsoft.com/ado/2007/06/edmx<br>|edmxの名前空間<br>|edmx:<br>|
-|http://schemas.microsoft.com/ado/2007/08/dataservices<br>|WCF Data Servicesの名前空間<br>|d:<br>|
-|http://schemas.microsoft.com/ado/2007/08/dataservices/metadata<br>|WCF Data Services metadataの名前空間<br>|m:<br>|
-|urn:x-personium:xmlns<br>|Personiumの名前空間 <br>|p:<br>|
-|http://schemas.microsoft.com/ado/2006/04/edm<br>|schemeの名前空間<br>|-<br>|
+|http://schemas.microsoft.com/ado/2007/06/edmx|edmxの名前空間|edmx:|
+|http://schemas.microsoft.com/ado/2007/08/dataservices|WCF Data Servicesの名前空間|d:|
+|http://schemas.microsoft.com/ado/2007/08/dataservices/metadata|WCF Data Services metadataの名前空間|m:|
+|urn:x-personium:xmlns|Personiumの名前空間|p:|
+|http://schemas.microsoft.com/ado/2006/04/edm|schemeの名前空間|-|
 ※ 参考prefixは以下表の可読性を高めるためのもので、このprefix文字列の使用を保証するものでも要求するものでもありません。
 ##### XMLの構造
 ボディはXML(edmx)で、以下のスキーマに従っています。
 
-|ノード名<br>|名前空間<br>|ノードタイプ<br>|概要<br>|備考<br>|
+|ノード名|名前空間|ノードタイプ|概要|備考|
 |:--|:--|:--|:--|:--|
-|Edmx <br>|edmx:<br>|要素<br>|EDMXドキュメントのルートを表し、子に必ず１つのDataServices要素を持つ<br>|<br>|
-|Version<br>|edmx:<br>|属性<br>|EDMXドキュメントのバージョンを表す。属性値は必ず'1.0'となる<br>|<br>|
-|DataServices<br>|edmx:<br>|要素<br>|データサービスを表し、子に複数のSchema要素を持つ<br>|<br>|
-|DataServiceVersion<br>|m:<br>|属性<br>|データサービスのバージョンを表す。属性値は必ず'1.0'となる<br>|<br>|
-|Schema<br>|-<br>|要素<br>|CSDLドキュメントの最上位要素を表し、子にAssociation・ComplexType・<br>EntityType・EntityContainer・Documentationの要素を持つ<br>|<br>|
-|Namespace<br>|-<br>|属性<br>|スキーマの名前を表すし、必須な属性。<br>|値として、System、Transient、または Edm を使用することはできない<br>|
-|ComplexType<br>|-<br>|要素<br>|複合型を表し、子にDocumentation・Propertyの要素を持つ<br>|<br>|
-|Name<br>|-<br>|属性<br>|複合のスキーマ名を表し、必須な属性<br>|ODataコレクション内にComplexTypeが存在する場合のみ必須<br>|
-|Abstract<br>|-<br>|属性<br>|プロパティの形式のデータを表す<br>|Abstractが存在する場合のみ表示<br>|
-|Documentation<br>|-<br>|要素<br>|複合型のドキュメントを表す<br>|存在する場合のみ表示<br>|
-|EntityType<br>|-<br>|要素<br>|エンティティ型を表し、子にDocumentation・HasStream・BaseType・<br>Key・Property・NavigationPropertyの要素を持つ <br>|<br>|
-|HasStream<br>|-<br>|属性<br>|エンティティがメディア リソース ストリームに関連付けられているかを表す<br>|<br>|
-|BaseType<br>|-<br>|属性<br>|エンティティ型の基本型を表す<br>|<br>|
-|Documentation<br>|-<br>|要素<br>|エンティティ型のドキュメントを表す<br>|<br>|
-|Key<br>|-<br>|要素<br>|エンティティのキーを表し、必ず１個以上のPropertyRefが子となる<br>|<br>|
-|PropertyRef<br>|-<br>|要素<br>|キーの参照プロパティを表す<br>|<br>|
-|Name<br>|-<br>|属性<br>|参照されているプロパティの名前を表し、必須の属性となる<br>|<br>|
-|NavigationProperty<br>|-<br>|要素<br>|ナビゲーションプロパティを表す<br>|<br>|
-|Name<br>|-<br>|属性<br>|ナビゲーションプロパティの名前を表し、必須の属性となる<br>|<br>|
-|Documentation<br>|-<br>|要素<br>|ナビゲーションプロパティのドキュメントを表<br>|<br>|
-|Relationship<br>|-<br>|属性<br>|モデルのスコープ内にあるアソシエーションの名前を表し、必須の属性となる<br>|<br>|
-|FromRole<br>|-<br>|属性<br>|参照元ロールを表す<br>|<br>|
-|ToRole<br>|-<br>|属性<br>|参照先ロールを表す<br>|<br>|
-|Association<br>|-<br>|要素<br>|アソシエーションを表し、子にDocumentation・Endの要素を持つ<br>|<br>|
-|Name<br>|-<br>|属性<br>|アソシエーション名を表し、必須な属性<br>|<br>|
-|Documentation<br>|-<br>|要素<br>|アソシエーションのドキュメントを表す<br>|存在する場合のみ表示<br>|
-|End<br>|-<br>|要素<br>|アソシエーションエンドの名前を表し、必須な属性<br>|<br>|
-|Role<br>|-<br>|属性<br>|アソシエーションエンドの名前を表し、必須な属性<br>|<br>|
-|Type<br>|-<br>|属性<br>|アソシエーションエンドの型を表し、必須な属性<br>|<br>|
-|Multiplicity<br>|-<br>|属性<br>|アソシエーションエンドの多重度を表し、必須な属性<br>|<br>|
-|EntityContainer<br>|-<br>|要素<br>| エンティティコンテナを表し、子にDocumentation・EntitySet・<br>FunctionImport・AssociationSetの要素を持つ<br>|<br>|
-|Name<br>|-<br>|属性<br>|エンティティコンテナ名を表し、必須な属性<br>|<br>|
-|IsDefaultEntityContainer<br>|m:<br>|属性<br>|デフォルトエンティティコンテナフラグを表す<br>|<br>|
-|Documentation<br>|-<br>|要素<br>|エンティティコンテナのドキュメントのドキュメントを表す<br>|<br>|
-|EntitySet<br>|-<br>|要素<br>|エンティティセットを表し、子に Documentationの要素を持つ<br>|<br>|
-|Documentation<br>|-<br>|要素<br>|エンティティコンテナのドキュメントのドキュメントを表す<br>|<br>|
-|Name<br>|-<br>|属性<br>|エンティティセットを表し、子に Documentationの要素を持つ<br>|<br>|
-|EntityType<br>|-<br>|属性<br>|エンティティセットのエンティティタイプを表す<br>|<br>|
-|Name<br>|-<br>|属性<br>|エンティティセット名を表し、必須な属性<br>|<br>|
-|FunctionImport<br>|-<br>|要素<br>|関数インポート（モデル宣言関数）を表す<br>|<br>|
-|Name<br>|-<br>|属性<br>|関数インポート名を表し、必須な属性<br>|<br>|
-|EntitySet<br>|-<br>|属性<br>|関数インポートのエンティティセットを表し、子に Documentationの要素を持つ<br>|存在するエンティティセット分 繰り返す<br>|
-|ReturnType<br>|-<br>|属性<br>|戻り値の型を表す<br>|<br>|
-|HttpMethod<br>|m:<br>|属性<br>|メソッドを表し、必須な属性<br>|FunctionImportが存在する場合<br>|
-|Documentation<br>|-<br>|要素<br>|関数インポートのドキュメントを表す <br>|<br>|
-|Parameter<br>|-<br>|要素<br>|関数インポートの引数を表す<br>|<br>|
-|Name<br>|-<br>|属性<br>|関数インポートの引数名を表し、必須な項目<br>|FunctionImport、Parameterが存在する場合<br>|
-|Type<br>|-<br>|属性<br>|関数インポートの引数の型を表し、必須な項目<br>|FunctionImport、Parameterが存在する場合<br>|
-|Mode<br>|-<br>|属性<br>|関数インポートの引数のモードを表し、有効値：'In'、'Out'、または 'InOut'<br>|<br>|
-|Documentation<br>|-<br>|要素<br>|関数インポートの引数のドキュメントを表す<br>|存在する場合のみ表示<br>|
-|AssociationSet<br>|-<br>|要素<br>|アソシエーションセットを表し、子にDocumentationと２つのEndを持つ<br>|<br>|
-|Name<br>|-<br>|属性<br>|アソシエーションセット名を表し、必須な属性<br>|<br>|
-|Association<br>|-<br>|属性<br>|アソシエーションセットのアソシエーションを表し、必須な属性<br>|<br>|
-|Documentation<br>|-<br>|要素<br>|アソシエーションセットのドキュメントを表す<br>|存在する場合のみ表示<br>|
-|End<br>|-<br>|要素<br>|アソシエーションセット ENDを表し、必須な要素<br>|<br>|
-|Role<br>|-<br>|属性<br>|ロールを表し、必須な属性<br>|<br>|
-|EntitySet<br>|-<br>|属性<br>|エンティティセットを表し、必須な属性<br>|<br>|
+|Edmx|edmx:|要素|EDMXドキュメントのルートを表し、子に必ず１つのDataServices要素を持つ||
+|Version|edmx:|属性|EDMXドキュメントのバージョンを表す。属性値は必ず'1.0'となる||
+|DataServices|edmx:|要素|データサービスを表し、子に複数のSchema要素を持つ||
+|DataServiceVersion|m:|属性|データサービスのバージョンを表す。属性値は必ず'1.0'となる||
+|Schema|-|要素|CSDLドキュメントの最上位要素を表し、子にAssociation・ComplexType・<br>EntityType・EntityContainer・Documentationの要素を持つ||
+|Namespace|-|属性|スキーマの名前を表すし、必須な属性。|値として、System、Transient、または Edm を使用することはできない|
+|ComplexType|-|要素|複合型を表し、子にDocumentation・Propertyの要素を持つ||
+|Name|-|属性|複合のスキーマ名を表し、必須な属性|ODataコレクション内にComplexTypeが存在する場合のみ必須|
+|Abstract|-|属性|プロパティの形式のデータを表す|Abstractが存在する場合のみ表示|
+|Documentation|-|要素|複合型のドキュメントを表す|存在する場合のみ表示|
+|EntityType|-|要素|エンティティ型を表し、子にDocumentation・HasStream・BaseType・<br>Key・Property・NavigationPropertyの要素を持つ||
+|HasStream|-|属性|エンティティがメディア リソース ストリームに関連付けられているかを表す||
+|BaseType|-|属性|エンティティ型の基本型を表す||
+|Documentation|-|要素|エンティティ型のドキュメントを表す||
+|Key|-|要素|エンティティのキーを表し、必ず１個以上のPropertyRefが子となる||
+|PropertyRef|-|要素|キーの参照プロパティを表す||
+|Name|-|属性|参照されているプロパティの名前を表し、必須の属性となる||
+|NavigationProperty|-|要素|ナビゲーションプロパティを表す||
+|Name|-|属性|ナビゲーションプロパティの名前を表し、必須の属性となる||
+|Documentation|-|要素|ナビゲーションプロパティのドキュメントを表||
+|Relationship|-|属性|モデルのスコープ内にあるアソシエーションの名前を表し、必須の属性となる||
+|FromRole|-|属性|参照元ロールを表す||
+|ToRole|-|属性|参照先ロールを表す||
+|Association|-|要素|アソシエーションを表し、子にDocumentation・Endの要素を持つ||
+|Name|-|属性|アソシエーション名を表し、必須な属性||
+|Documentation|-|要素|アソシエーションのドキュメントを表す|存在する場合のみ表示|
+|End|-|要素|アソシエーションエンドの名前を表し、必須な属性||
+|Role|-|属性|アソシエーションエンドの名前を表し、必須な属性||
+|Type|-|属性|アソシエーションエンドの型を表し、必須な属性||
+|Multiplicity|-|属性|アソシエーションエンドの多重度を表し、必須な属性||
+|EntityContainer|-|要素|エンティティコンテナを表し、子にDocumentation・EntitySet・<br>FunctionImport・AssociationSetの要素を持つ||
+|Name|-|属性|エンティティコンテナ名を表し、必須な属性||
+|IsDefaultEntityContainer|m:|属性|デフォルトエンティティコンテナフラグを表す||
+|Documentation|-|要素|エンティティコンテナのドキュメントのドキュメントを表す||
+|EntitySet|-|要素|エンティティセットを表し、子に Documentationの要素を持つ||
+|Documentation|-|要素|エンティティコンテナのドキュメントのドキュメントを表す||
+|Name|-|属性|エンティティセットを表し、子に Documentationの要素を持つ||
+|EntityType|-|属性|エンティティセットのエンティティタイプを表す||
+|Name|-|属性|エンティティセット名を表し、必須な属性||
+|FunctionImport|-|要素|関数インポート（モデル宣言関数）を表す||
+|Name|-|属性|関数インポート名を表し、必須な属性||
+|EntitySet|-|属性|関数インポートのエンティティセットを表し、子に Documentationの要素を持つ|存在するエンティティセット分 繰り返す|
+|ReturnType|-|属性|戻り値の型を表す||
+|HttpMethod|m:|属性|メソッドを表し、必須な属性|FunctionImportが存在する場合|
+|Documentation|-|要素|関数インポートのドキュメントを表す||
+|Parameter|-|要素|関数インポートの引数を表す||
+|Name|-|属性|関数インポートの引数名を表し、必須な項目|FunctionImport、Parameterが存在する場合|
+|Type|-|属性|関数インポートの引数の型を表し、必須な項目|FunctionImport、Parameterが存在する場合|
+|Mode|-|属性|関数インポートの引数のモードを表し、有効値：'In'、'Out'、または 'InOut'||
+|Documentation|-|要素|関数インポートの引数のドキュメントを表す|存在する場合のみ表示|
+|AssociationSet|-|要素|アソシエーションセットを表し、子にDocumentationと２つのEndを持つ||
+|Name|-|属性|アソシエーションセット名を表し、必須な属性||
+|Association|-|属性|アソシエーションセットのアソシエーションを表し、必須な属性||
+|Documentation|-|要素|アソシエーションセットのドキュメントを表す|存在する場合のみ表示|
+|End|-|要素|アソシエーションセット ENDを表し、必須な要素||
+|Role|-|属性|ロールを表し、必須な属性||
+|EntitySet|-|属性|エンティティセットを表し、必須な属性||
 ##### プロパティ
-|ノード名<br>|名前空間<br>|ノードタイプ<br>|概要<br>|備考<br>|
+|ノード名|名前空間|ノードタイプ|概要|備考|
 |:--|:--|:--|:--|:--|
-|Property<br>|-<br>|要素<br>|エンティティ型のPropertyを表す<br>|<br>|
-| Name<br>|-<br>|属性<br>|プロパティの名前を表す<br>|<br>|
-|Type<br>|-<br>|属性<br>|プロパティ値の型を表す<br>|<br>|
-|Nullable<br>|-<br>|属性<br>|null 値の割り当ての可否を表す<br>|<br>|
-|MaxLength<br>|-<br>|属性<br>|プロパティの許容最大長を表す<br>|<br>|
-|DefaultValue<br>|-<br>|属性<br>|プロパティの既定値を表す<br>|<br>|
-|Precision<br>|-<br>|属性<br>|プロパティの有効桁数を表す<br>|<br>|
-|Scale<br>|-<br>|属性<br>|プロパティの小数点以下桁数を表す<br>|<br>|
-|CollectionKind<br>|-<br>|属性<br>|プロパティの配列種別を表す<br>|コレクションが配列の場合List,それ以外はNone<br>Noneの場合は表示されない|
-|Format<br>|p:<br>|属性<br>|プロパティの文字フォーマットを表す<br>|<br>|
-|IsDeclared<br>|p:<br>|属性<br>|静的プロパティか否かを表す<br>|動的プロパティの場合falseで表示,静的プロパティの場合は表示されない<br>|
+|Property|-|要素|エンティティ型のPropertyを表す||
+|Name|-|属性|プロパティの名前を表す||
+|Type|-|属性|プロパティ値の型を表す||
+|Nullable|-|属性|null 値の割り当ての可否を表す||
+|MaxLength|-|属性|プロパティの許容最大長を表す||
+|DefaultValue|-|属性|プロパティの既定値を表す||
+|Precision|-|属性|プロパティの有効桁数を表す||
+|Scale|-|属性|プロパティの小数点以下桁数を表す||
+|CollectionKind|-|属性|プロパティの配列種別を表す|コレクションが配列の場合List,それ以外はNone<br>Noneの場合は表示されない|
+|Format|p:|属性|プロパティの文字フォーマットを表す||
+|IsDeclared|p:|属性|静的プロパティか否かを表す|動的プロパティの場合falseで表示,静的プロパティの場合は表示されない|
 ##### ドキュメンテーション
 未対応
 
-|ノード名<br>|名前空間<br>|ノードタイプ<br>|概要<br>|備考<br>|
+|ノード名|名前空間|ノードタイプ|概要|備考|
 |:--|:--|:--|:--|:--|
-|Summary<br>|-<br>|要素<br>|ドキュメントのサマリを表す<br>|<br>|
-|LongDescription<br>|-<br>|要素<br>|ドキュメントの詳細を表す<br>|<br>|
+|Summary|-|要素|ドキュメントのサマリを表す||
+|LongDescription|-|要素|ドキュメントの詳細を表す||
 ##### DTD表記
 名前空間:edmx:
 ```dtd
@@ -289,7 +289,7 @@ $formatにatomsvcを指定した場合、SchemaのAtom ServiceDocumentを返却�
 
 ```
 
-<br>
+
 ### cURLサンプル
 ##### SchemaのAtom ServiceDocumentの場合
 ```sh
@@ -299,7 +299,5 @@ curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata" 
 ```sh
 curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept:application/xml'
 ```
-<br>
-<br>
-<br>
-###### Copyright 2017    FUJITSU LIMITED
+
+###### Copyright 2017 FUJITSU LIMITED

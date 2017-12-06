@@ -28,7 +28,6 @@ None
 
 None
 
-<br>
 
 ### Request
 
@@ -44,31 +43,31 @@ POST
 
 #### Request Query
 
-|Query Name<br>|Overview<br>|Effective Value<br>|Required<br>|Notes<br>|
+|Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|p_cookie_peer<br>|Cookie Authentication Value<br>|The cookie authentication value returned from the server during authentication<br>|No<br>|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used<br>|
+|p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
 #### Request Header
 
-|Item Name<br>|Overview<br>|Format<br>|Required<br>|Effective Value<br>|
+|Item Name|Overview|Format|Required|Effective Value|
 |:--|:--|:--|:--|:--|
-|Authorization<br>|Specifies authentication information in the OAuth 2.0 format<br>|Basic {String}<br>|No<br>|If you specify Base64 Encode value for {{Schema Authenticator's source URL}: {Token paid out from the schema authentication source}}, it becomes schema authentication<br>At the above setting, if there is a setting of client_id and client_secret in the request body, the setting of the authorization header takes precedence<br>|
+|Authorization|Specifies authentication information in the OAuth 2.0 format|Basic {String}|No|If you specify Base64 Encode value for {{Schema Authenticator's source URL}: {Token paid out from the schema authentication source}}, it becomes schema authentication<br>At the above setting, if there is a setting of client_id and client_secret in the request body, the setting of the authorization header takes precedence|
 
 #### Request Body
 
 ##### Password authentication
 
-|Item Name<br>|Overview<br>|Format<br>|Required<br>|Effective Value<br>|
+|Item Name|Overview|Format|Required|Effective Value|
 |:--|:--|:--|:--|:--|
-|grant_type<br>|Authentication type<br>|String<br>|Yes<br>|password<br>urn:x-personium:oidc:google<br>|
-|username<br>|User name<br>|String<br>|Yes(When grant_type = password)<br>|Registered user name<br>|
-|password<br>|Password<br>|String<br>|Yes(When grant_type = password)<br>|Registered password<br>|
-|id_token<br>|Token ID<br>|JSON Web Token<br>|Yes(grant_type=urn:x-personium:oidc:For google)<br>|JWT Formed ID Token<br>|
-|p_target<br>|Transcell token target<br>|String<br>|No<br>|Where to use the token to be paid (cell URL)<br>If specified, it becomes transcellation token authentication<br>|
-|client_id<br>|App cell URL<br>|String<br>|No<br>|Schema Authenticator's source App cell URL<br>When specified with client_secret, it becomes schema authentication<br>At the same time, if the Authorization header also has schema authentication settings, the setting of the Authorization header takes precedence<br>|
-|client_secret<br>|Token paid out from the application cell<br>|String<br>|No<br>|Set the token that was paid out from the schema authentication source to the value<br>When specified with client_id, it becomes schema authentication<br>At the same time, if the Authorization header also has schema authentication settings, the setting of the Authorization header takes precedence<br>|
-|p_owner<br>|ULUUT promotion execution Query<br>|String<br>|No<br>|Valid only for true<br>|
-|p_cookie<br>|Authentication cookie issuance option<br>If specified, issue an authentication cookie<br>When p_target is specified, specification of this parameter is ignored<br>|String<br>|No<br>|Valid only for true<br>|
+|grant_type|Authentication type|String|Yes|password<br>urn:x-personium:oidc:google|
+|username|User name|String|Yes(When grant_type = password)|Registered user name|
+|password|Password|String|Yes(When grant_type = password)|Registered password|
+|id_token|Token ID|JSON Web Token|Yes(grant_type=urn:x-personium:oidc:For google)|JWT Formed ID Token|
+|p_target|Transcell token target|String|No|Where to use the token to be paid (cell URL)<br>If specified, it becomes transcellation token authentication|
+|client_id|App cell URL|String|No|Schema Authenticator's source App cell URL<br>When specified with client_secret, it becomes schema authentication<br>At the same time, if the Authorization header also has schema authentication settings, the setting of the Authorization header takes precedence|
+|client_secret|Token paid out from the application cell|String|No|Set the token that was paid out from the schema authentication source to the value<br>When specified with client_id, it becomes schema authentication<br>At the same time, if the Authorization header also has schema authentication settings, the setting of the Authorization header takes precedence|
+|p_owner|ULUUT promotion execution Query|String|No|Valid only for true|
+|p_cookie|Authentication cookie issuance option<br>If specified, issue an authentication cookie<br>When p_target is specified, specification of this parameter is ignored|String|No|Valid only for true|
 
 #### Request Sample
 
@@ -105,14 +104,14 @@ grant_type=urn:x-personium:oidc:google&id_token=IDTOKEN
 
 ##### Token authentication
 
-|Item Name<br>|Overview<br>|Format<br>|Required<br>|Effective Value<br>|
+|Item Name|Overview|Format|Required|Effective Value|
 |:--|:--|:--|:--|:--|
-|grant_type<br>|Authentication type<br>|String<br>|Yes<br>|urn: ietf: params: oauth: grant-type: saml2-bearer<br>|
-|assertion<br>|Access token<br>|String<br>|Yes<br>|A valid token<br>|
-|p_target<br>|Transcell token target<br>|String<br>|No<br>|Where to use the token to be paid (cell URL)<br>When specified, it becomes a transcell token<br>|
-|client_id<br>|App cell URL<br>|String<br>|No<br>|Schema Authenticator's source App cell URL<br>When specified with client_secret, it becomes schema authentication<br>At the same time, if the Authorization header also has schema authentication settings, the setting of the Authorization header takes precedence<br>|
-|client_secret<br>|Token paid out from the application cell<br>|String<br>|No<br>|Set the token that was paid out from the schema authentication source to the value<br>When specified with client_id, it becomes schema authentication<br>At the same time, if the Authorization header also has schema authentication settings, the setting of the Authorization header takes precedence<br>|
-|p_cookie<br>|Authentication cookie issuance option<br>If specified, issue an authentication cookie<br>When p_target is specified, specification of this parameter is ignored<br>|String<br>|No<br>|Valid only for true<br>|
+|grant_type|Authentication type|String|Yes|urn: ietf: params: oauth: grant-type: saml2-bearer|
+|assertion|Access token|String|Yes|A valid token|
+|p_target|Transcell token target|String|No|Where to use the token to be paid (cell URL)<br>When specified, it becomes a transcell token|
+|client_id|App cell URL|String|No|Schema Authenticator's source App cell URL<br>When specified with client_secret, it becomes schema authentication<br>At the same time, if the Authorization header also has schema authentication settings, the setting of the Authorization header takes precedence|
+|client_secret|Token paid out from the application cell|String|No|Set the token that was paid out from the schema authentication source to the value<br>When specified with client_id, it becomes schema authentication<br>At the same time, if the Authorization header also has schema authentication settings, the setting of the Authorization header takes precedence|
+|p_cookie|Authentication cookie issuance option<br>If specified, issue an authentication cookie<br>When p_target is specified, specification of this parameter is ignored|String|No|Valid only for true|
 
 ```
 grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&assertion={token}
@@ -120,21 +119,20 @@ grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&assertion={token}
 
 ##### Refresh token authentication
 
-|Item Name<br>|Overview<br>|Format<br>|Required<br>|Effective Value<br>|
+|Item Name|Overview|Format|Required|Effective Value|
 |:--|:--|:--|:--|:--|
-|grant_type<br>|Authentication type<br>|String<br>|Yes<br>|Refresh token<br>|
-|refresh_token<br>|Refresh token name<br>|String<br>|Yes<br>|Effective refresh token<br>|
-|p_target<br>|Transcell token target<br>|String<br>|No<br>|Where to use the token to be paid (cell URL) If specified, it becomes transcell token authentication<br>|
-|client_id<br>|App cell URL<br>|String<br>|No<br>|Schema Authenticator's source App cell URL<br>When specified with client_secret, it becomes schema authentication<br>At the same time, if the Authorization header also has schema authentication settings, the setting of the Authorization header takes precedence<br>|
-|client_secret<br>|Token paid out from the application cell<br>|String<br>|No<br>|Set the token that was paid out from the schema authentication source to the value<br>When specified with client_id, it becomes schema authentication<br>At the same time, if the Authorization header also has schema authentication settings, the setting of the Authorization header takes precedence<br>|
-|p_owner<br>|ULUUT promotion execution Query<br>|String<br>|No<br>|Valid only for true<br>|
-|p_cookie<br>|Authentication cookie issuance option<br>If specified, issue an authentication cookie<br>When p_target is specified, specification of this parameter is ignored<br>|String<br>|No<br>|Valid only for true<br>|
+|grant_type|Authentication type|String|Yes|Refresh token|
+|refresh_token|Refresh token name|String|Yes|Effective refresh token|
+|p_target|Transcell token target|String|No|Where to use the token to be paid (cell URL) If specified, it becomes transcell token authentication|
+|client_id|App cell URL|String|No|Schema Authenticator's source App cell URL<br>When specified with client_secret, it becomes schema authentication<br>At the same time, if the Authorization header also has schema authentication settings, the setting of the Authorization header takes precedence|
+|client_secret|Token paid out from the application cell|String|No|Set the token that was paid out from the schema authentication source to the value<br>When specified with client_id, it becomes schema authentication<br>At the same time, if the Authorization header also has schema authentication settings, the setting of the Authorization header takes precedence|
+|p_owner|ULUUT promotion execution Query|String|No|Valid only for true|
+|p_cookie|Authentication cookie issuance option<br>If specified, issue an authentication cookie<br>When p_target is specified, specification of this parameter is ignored|String|No|Valid only for true|
 
 ```
 grant_type=refresh_token&refresh_token={token}
 ```
 
-<br>
 
 ### Response
 
@@ -144,21 +142,21 @@ grant_type=refresh_token&refresh_token={token}
 
 #### Response Header
 
-|Item Name<br>|Overview<br>|Notes<br>|
+|Item Name|Overview|Notes|
 |:--|:--|:--|
-|Content-Type<br>|application/json<br>|<br>|
-|Set-Cookie<br>|Cookie authentication information (p_cookie)<br>|Only when setting cookie issue option (p_cookie) at request<br>|
+|Content-Type|application/json||
+|Set-Cookie|Cookie authentication information (p_cookie)|Only when setting cookie issue option (p_cookie) at request|
 
 #### Response Body
 
-|Item Name<br>|Overview<br>|Notes<br>|
+|Item Name|Overview|Notes|
 |:--|:--|:--|
-|access_token<br>|Access token<br>|<br>|
-|refresh_token_expires_in<br>|Refresh token expiration date<br>|24 hours (86400 seconds)<br>*If p_owner is set at the time of request, it will not be returned<br>|
-|refresh_token<br>|Refresh token<br>|*If p_owner is set at the time of request, it will not be returned<br>|
-|token_type<br>|Bearer<br>|<br>|
-|expires_in<br>|Access token expiration date<br>|1 hour (3600 seconds)<br>|
-|p_cookie_peer<br>|Cookie Authentication Value<br>|Authentication value specified at the time of cookie authentication<br>*Return only when the cookie issue option (p_cookie) is set at the time of request<br>|
+|access_token|Access token||
+|refresh_token_expires_in|Refresh token expiration date|24 hours (86400 seconds)<br>*If p_owner is set at the time of request, it will not be returned|
+|refresh_token|Refresh token|*If p_owner is set at the time of request, it will not be returned|
+|token_type|Bearer||
+|expires_in|Access token expiration date|1 hour (3600 seconds)|
+|p_cookie_peer|Cookie Authentication Value|Authentication value specified at the time of cookie authentication<br>*Return only when the cookie issue option (p_cookie) is set at the time of request|
 
 #### Response Sample
 
@@ -208,6 +206,5 @@ curl "https://{UnitFQDN}/{CellName}/__token" -X POST -i -d 'grant_type=password&
 curl "https://{UnitFQDN}/{CellName}/__token" -X POST -i -d 'grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&assertion={SAML_token}&p_target=https://{UnitFQDN}/{CellName}/'
 ```
 
-<br><br><br><br><br>
 
 ###### Copyright 2017 FUJITSU LIMITED

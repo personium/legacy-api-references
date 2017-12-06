@@ -2,22 +2,22 @@
 ### 概要
 一覧取得時に検索条件を指定する場合は$filterクエリを使用する
 ### Operator Support
-|演算子<br>|意味<br>|記述例<br>|備考<br>|
+|演算子|意味|記述例|備考|
 |:--|:--|:--|:--|
-|eq<br>|等号<br>|文字列の場合 ： $filter=itemKey eq 'searchValue'<br>数値の場合 ： $filter=itemKey eq 10<br>|文字列、数値、真偽値、NULLに対応<br>|
-|ne<br>|否定等号<br>|文字列の場合 ： $filter=itemKey ne 'searchValue'<br>数値の場合 ： $filter=itemKey ne 10<br>|文字列、数値、真偽値、NULLに対応<br>|
-|gt<br>|より大きい<br>|$filter=itemKey gt 1000<br>|文字列、数値に対応<br>|
-|ge<br>|以上<br>|$filter=itemKey ge 1000<br>|文字列、数値に対応<br>|
-|lt<br>|より小さい<br>|$filter=itemKey lt 1000<br>|文字列、数値に対応<br>|
-|le<br>|以下<br>|$filter=itemKey le 1000<br>|文字列、数値に対応<br>|
-|and<br>|論理積<br>|$filter=itemKey1 eq 'searchValue1' and itemKey2 eq 'searchValue2'<br>| <br>|
-|or<br>|論理和<br>|$filter=itemKey1 eq 'searchValue1' or itemKey2 eq 'searchValue2'<br>| <br>|
-|()<br>|優先グループ<br>|$filter=itemKey eq 'searchValue' or (itemKey gt 500 and itemKey lt 1500)<br>|括弧が片方のみの場合、括弧は無視される<br>|
+|eq|等号|文字列の場合 ： $filter=itemKey eq 'searchValue'<br>数値の場合 ： $filter=itemKey eq 10|文字列、数値、真偽値、NULLに対応|
+|ne|否定等号|文字列の場合 ： $filter=itemKey ne 'searchValue'<br>数値の場合 ： $filter=itemKey ne 10|文字列、数値、真偽値、NULLに対応|
+|gt|より大きい|$filter=itemKey gt 1000|文字列、数値に対応|
+|ge|以上|$filter=itemKey ge 1000|文字列、数値に対応|
+|lt|より小さい|$filter=itemKey lt 1000|文字列、数値に対応|
+|le|以下|$filter=itemKey le 1000|文字列、数値に対応|
+|and|論理積|$filter=itemKey1 eq 'searchValue1' and itemKey2 eq 'searchValue2'||
+|or|論理和|$filter=itemKey1 eq 'searchValue1' or itemKey2 eq 'searchValue2'||
+|()|優先グループ|$filter=itemKey eq 'searchValue' or (itemKey gt 500 and itemKey lt 1500)|括弧が片方のみの場合、括弧は無視される|
 ### サポート関数
-|Function<br>|概要<br>|Example<br>|備考<br>|
+|Function|概要|Example|備考|
 |:--|:--|:--|:--|
-|startswith<br>|前方一致<br>|$filter=startswith(itemKey, 'searchValue')<br>|文字列のみ対応<br>|
-|substringof<br>|部分一致<br>|$filter=substringof('searchValue1', itemKey1)<br>|文字列のみ対応<br>※英数字の部分一致は未対応<br>|
+|startswith|前方一致|$filter=startswith(itemKey, 'searchValue')|文字列のみ対応|
+|substringof|部分一致|$filter=substringof('searchValue1', itemKey1)|文字列のみ対応<br>※英数字の部分一致は未対応|
 ### プロパティ型別の検索仕様
 #### Edm.String型
 検索に指定したキーワードを文字列型に変換して検索する
@@ -40,7 +40,5 @@
 ```sh
 curl "https://{UnitFQDN}/__ctl/Cell?\$filter=Name%20eq%20'sample'" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
-<br>
-<br>
-<br>
-###### Copyright 2017    FUJITSU LIMITED
+
+###### Copyright 2017 FUJITSU LIMITED

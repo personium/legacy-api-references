@@ -149,7 +149,7 @@ POST
 
 ##### RoleのnavigationProperty経由登録
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Role('{RoleName}')/_Role" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{RoleName}"}'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Role('{RoleName}')/_Relation" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{RelationName}"}'
 ```
 
 ###### Copyright 2017 FUJITSU LIMITED

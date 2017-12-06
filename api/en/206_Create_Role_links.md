@@ -9,6 +9,8 @@ Link Role to the OData resource specified by $links
 * ExtRole
 * Relation
 
+Only when the \_Box.Name described in the request URL is null (or if it is not specified) can be associated with Box
+
 ### Required Privileges
 
 None

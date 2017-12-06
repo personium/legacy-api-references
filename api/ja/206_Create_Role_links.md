@@ -6,6 +6,8 @@ Roleに$linksで指定したODataリソースを紐付ける
 * ExtRole
 * Relation
 
+リクエストURLに記載された_Box.Nameがnullの場合（または指定されていない場合）のみBoxに紐付けることができる
+
 ### 必要な権限
 なし
 

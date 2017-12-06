@@ -50,7 +50,7 @@ Only boolean values or null can be specified
 \*URL encoding required for query specification  
 \*Valid values of the property to be searched are half-size alphanumeric characters, - (hyphen), \_ (underscore) valid.  
 \*If you want to include a single quote in the search string, you can specify a single quote as a search string by describing two single quotes"''"  
-\*If a property name that does not exist in $ filter is specified, it is searched with it included in the search condition  
+\*If a property name that does not exist in $ filter is specified, search is performed ignoring the property name  
 \*When \_\_updated, \_\_published is specified, it is specified by UNIX time (a number in parenthesis of "/Date()")
 
 ### cURL Command

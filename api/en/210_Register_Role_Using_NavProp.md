@@ -15,7 +15,7 @@ write
 * Only accepts the request body in the JSON format
 * Only application/json is supported for Content-Type in the request header and the JSON format for the response body
 * $formatQuery options ignored
-
+* If \_Box.Name in the request URL is different from \_Box.Name in the request body, \_Box.Name of the request body is ignored
 
 ### Request
 

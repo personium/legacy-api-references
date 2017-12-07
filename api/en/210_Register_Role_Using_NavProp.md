@@ -202,10 +202,10 @@ Refer to [Error Message List](004_Error_Messages.html)
 
 ### cURL Command
 
-##### Role registration via navigationProperty
+##### Relation registration via navigationProperty
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Role('{RoleName}')/_Role" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{RoleName}"}'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Role('{RoleName}')/_Relation" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{RelationName}"}'
 ```
 
 

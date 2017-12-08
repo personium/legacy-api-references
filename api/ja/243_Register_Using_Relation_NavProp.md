@@ -11,7 +11,7 @@ write
 * リクエストボディはJSON形式のみ受け付ける
 * レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはJSON形式とする
 * $formatクエリオプションは無視される
-
+* リクエストURLに記載された_Box.Nameと、リクエストボディに記載された_Box.Nameが異なる場合、リクエストボディの_Box.Nameは無視される
 
 ### リクエスト
 #### リクエストURL

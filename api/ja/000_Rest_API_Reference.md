@@ -159,7 +159,7 @@ PersoniumアプリケーションやCell利用者が作成したサーバサイ�
 
 ##### OData取得共通クエリ
 |クエリ|一件取得使用可|一覧取得使用可|
-|:--|:--:|:--:|
+|:--|:--|:--|
 |[$formatクエリ](404_Format_Query.html)|○|○|
 |[$expandクエリ](405_Expand_Query.html)|○|○|
 |[$selectクエリ](406_Select_Query.html)|○|○|

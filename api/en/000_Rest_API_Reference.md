@@ -185,7 +185,7 @@ You can run the user logic for requests from any path under the collection.
 ##### OData Acquisition Common Queries
 
 |Query|Single Acquisition|List Acquisition|
-|:--|:--:|:--:|
+|:--|:--|:--|
 |[$format Query](404_Format_Query.html)|Yes|Yes|
 |[$expand Query](405_Expand_Query.html)|Yes|Yes|
 |[$select Query](406_Select_Query.html)|Yes|Yes|

@@ -53,7 +53,7 @@ POST : 認証フォーム リクエスト、トークン認証
 ![レスポンスボディ](image/OAuth2ResponseBody.png "レスポンスボディ")
 
 ##### エラーメッセージ一覧
-[エラーメッセージ一覧](004_Error_Messages.html)を参照
+[エラーメッセージ一覧](004_Error_Messages.md)を参照
 
 ##### レスポンスサンプル
 なし
@@ -104,11 +104,11 @@ POST : 認証フォーム リクエスト、トークン認証
 ### cURLサンプル
 #### GET
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__authz?response_type=token&redirect_uri=https://{UnitFQDN}/{AppliCellName}/__/redirect.html&client_id=https://{UnitFQDN}/{AppliCellName}" -X GET -i
+curl "https://{UnitFQDN}/{CellName}/__authz?response_type=token&redirect_uri=https://{UnitFQDN}/{AppliCellName}/__/redirect.md&client_id=https://{UnitFQDN}/{AppliCellName}" -X GET -i
 ```
 #### POST
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__authz" -X POST -i -d 'response_type=token&client_id=https://{UnitFQDN}/{AppliCellName}&redirect_uri=https://{UnitFQDN}/{AppliCellName}/__/redirect.html&state=0000000111&username={AccountUserName}&password={AccountUserPass}'
+curl "https://{UnitFQDN}/{CellName}/__authz" -X POST -i -d 'response_type=token&client_id=https://{UnitFQDN}/{AppliCellName}&redirect_uri=https://{UnitFQDN}/{AppliCellName}/__/redirect.md&state=0000000111&username={AccountUserName}&password={AccountUserPass}'
 ```
 
 ###### Copyright 2017 FUJITSU LIMITED

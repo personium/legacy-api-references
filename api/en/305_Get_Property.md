@@ -160,7 +160,7 @@ The body is XML and follows the following schema.
 |collection|D:|Element|Represents that the resource type is a collection|If the resource is WebDAV, only this element is displayed|
 |odata|p:|Element|Represents that the resource type is an OData collection|For OData collection display|
 |service|p:|Element|Represents that the resource type is a service collection|For Service collection Display|
-|acl|D:|Element|ACL setting set for resource|In order to acquire the ACL setting, acl-read authority for the target resource is required. <br> ACL element For content below, see the [cell level access control setting API](289_Cell_ACL.html)|
+|acl|D:|Element|ACL setting set for resource|In order to acquire the ACL setting, acl-read authority for the target resource is required. <br> ACL element For content below, see the [cell level access control setting API](289_Cell_ACL.md)|
 |base|xml:|Attributes|ACL Privilege BaseURL|In the case of PROPFIND to Cell, the resource URL of the default box ("__")|
 
 DTD notation
@@ -198,7 +198,7 @@ namespace xml:
 
 #### Error Messages
 
-Refer to [Error Message List](004_Error_Messages.html)
+Refer to [Error Message List](004_Error_Messages.md)
 
 #### Response Sample
 

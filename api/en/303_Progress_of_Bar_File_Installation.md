@@ -85,12 +85,12 @@ The correspondence between key (name) and type, and value are as follows.
 |Root|installed_at|string|Start time (ISO 8610 UTC format)|Do not output when status is one of the following.<br>- "Installation in Progress"<br>- "installation failed"|
 |Root|started_at|string|Start time (ISO 8610 UTC format)|Do not output when status is below.<br>- "Ready"|
 |Root|progress|string|Progress rate (for example, "30%")|Do not output when status is below.<br>- "Ready"|
-|Root|message|object|Object (message format)|Output only when status is below.<br>- "Installation failed"<br>For details, see the [error message list](004_Error_Messages.html)|
+|Root|message|object|Object (message format)|Output only when status is below.<br>- "Installation failed"<br>For details, see the [error message list](004_Error_Messages.md)|
 |Root|status|string|One of the following strings: <br>- "ready"<br>- "installation in progress"<br>- "installation failed"|Box shows usable state<br>Box indicating that the installation process is in progress<br>Box indicates completion of installation (abnormal termination)|
 
 #### Error Messages
 
-Refer to [Error Message List](004_Error_Messages.html)
+Refer to [Error Message List](004_Error_Messages.md)
 
 #### Response Sample
 

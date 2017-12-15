@@ -129,7 +129,7 @@ The body is XML and follows the following schema.
 |odata|p:|Element|Represents that the type of resource is a OData service collection|Displays, if resource is OData collection|
 |service|p:|Element|Represents that the type of resource is a service collection|Displays, if resource is service collection|
 |cellstatus|p:|Element|Cell status<br>normal:Cell imported successfuly<br>import failed:Cell import failed|When the status of Cell is import failed, execution other than the following API can not be executed<br>- Unit Level API<br>- OAuth2.0 token endpoint<br>- Cell Import|
-|acl|p:|Element|ACL setting set for resource|In order to acquire the ACL setting, acl-read authority for the target resource is required<br>ACL Element Refer to the [cell level access control setting API](289_Cell_ACL.html) for the following contents|
+|acl|p:|Element|ACL setting set for resource|In order to acquire the ACL setting, acl-read authority for the target resource is required<br>ACL Element Refer to the [cell level access control setting API](289_Cell_ACL.md) for the following contents|
 |base|p:|Element|ACL Privilege BaseURL|When PROPFIND to Cell, default box ("__") resource URL|
 |status|D:|Element|Represents the response code of resource acquisition||
 
@@ -168,7 +168,7 @@ Namespace: xml:
 
 #### Error Messages
 
-Refer to [Error Message List](004_Error_Messages.html)
+Refer to [Error Message List](004_Error_Messages.md)
 
 #### Response Sample
 

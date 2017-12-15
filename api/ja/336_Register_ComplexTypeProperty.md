@@ -142,7 +142,7 @@ DefaultValueの有効値はTypeの値（型定義）によって異なり、以�
 |{2}|CollectionKind|string|配列種別|
 
 #### エラーメッセージ一覧
-[エラーメッセージ一覧](004_Error_Messages.html)を参照
+[エラーメッセージ一覧](004_Error_Messages.md)を参照
 
 #### レスポンスサンプル
 ```JSON

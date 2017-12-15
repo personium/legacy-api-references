@@ -37,11 +37,11 @@ GET
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|クッキー認証値|認証時にサーバから返却されたクッキー認証値|×|Authorizationヘッダの指定が無い場合のみ有効クッキーの認証情報を利用する場合に指定する|
 
-[$select クエリ](406_Select_Query.html)
+[$select クエリ](406_Select_Query.md)
 
-[$expand クエリ](405_Expand_Query.html)
+[$expand クエリ](405_Expand_Query.md)
 
-[$format クエリ](404_Format_Query.html)
+[$format クエリ](404_Format_Query.md)
 
 #### リクエストヘッダ
 ##### 共通リクエストヘッダ
@@ -109,7 +109,7 @@ GET
 		出力された固定小数点数を入力に用いた場合、その入力数ともとの数との同一性は保証される
 
 #### エラーメッセージ一覧
-[エラーメッセージ一覧](004_Error_Messages.html)を参照
+[エラーメッセージ一覧](004_Error_Messages.md)を参照
 
 #### レスポンスサンプル
 ```JSON

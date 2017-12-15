@@ -157,7 +157,7 @@ In addition to the above, return dynamic user data specified at the time of regi
 
 #### Error Messages
 
-Refer to [Error Message List](004_Error_Messages.html)
+Refer to [Error Message List](004_Error_Messages.md)
 
 #### Response Sample
 

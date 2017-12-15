@@ -1,6 +1,6 @@
 # Cellインポート
 ### 概要
-CellスナップショットファイルからCellのデータをインポートする。<br>CellスナップショットファイルはPersoniumUnit内の特殊な領域(Cellスナップショット領域)のものを使用する。<br>処理に失敗した場合、Cellのステータスを"import failed"に変更する。<br>処理に成功した場合、Cellのステータスが"import failed"であれば"normal"に変更する。<br>Cellのステータスが"import failed"の場合、対象のCellは一部API以外を受け付けない。詳細は[プロパティ取得](290_Cell_Get_Property.html)を参照。<br>本APIは非同期通信方式を採用しているため、APIを受け付けた後、即復帰する。<br>Cellインポートの状況を確認するには[Cellインポート状態取得](508_Progress_of_Import_Cell.html)を使用する。<br>クライアントにおける受付から処理完了までの呼び出し例を以下に示す。
+CellスナップショットファイルからCellのデータをインポートする。<br>CellスナップショットファイルはPersoniumUnit内の特殊な領域(Cellスナップショット領域)のものを使用する。<br>処理に失敗した場合、Cellのステータスを"import failed"に変更する。<br>処理に成功した場合、Cellのステータスが"import failed"であれば"normal"に変更する。<br>Cellのステータスが"import failed"の場合、対象のCellは一部API以外を受け付けない。詳細は[プロパティ取得](290_Cell_Get_Property.md)を参照。<br>本APIは非同期通信方式を採用しているため、APIを受け付けた後、即復帰する。<br>Cellインポートの状況を確認するには[Cellインポート状態取得](508_Progress_of_Import_Cell.md)を使用する。<br>クライアントにおける受付から処理完了までの呼び出し例を以下に示す。
 ```
 Cellインポートの呼び出し例（クライアントでのポーリングを10秒とした場合)
  1. Cellインポート受付
@@ -77,7 +77,7 @@ JSON
 作成に失敗した場合のみエラーメッセージを返却する
 
 #### エラーメッセージ一覧
-[エラーメッセージ一覧](004_Error_Messages.html)を参照
+[エラーメッセージ一覧](004_Error_Messages.md)を参照
 
 #### レスポンスサンプル
 なし

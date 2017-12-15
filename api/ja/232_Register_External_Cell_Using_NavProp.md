@@ -89,7 +89,7 @@ ExtCell固有レスポンスボディ
 |{3}|type|string|CellCtl.ExtRole|
 |{2}|Name|string|関係対象のRole名|
 #### エラーメッセージ一覧
-[エラーメッセージ一覧](004_Error_Messages.html)を参照
+[エラーメッセージ一覧](004_Error_Messages.md)を参照
 
 ##### レスポンスサンプル
 ```JSON

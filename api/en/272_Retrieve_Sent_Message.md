@@ -36,11 +36,11 @@ The following query parameters are available
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
-[$select  Query](406_Select_Query.html)
+[$select  Query](406_Select_Query.md)
 
-[$expand  Query](405_Expand_Query.html)
+[$expand  Query](405_Expand_Query.md)
 
-[$format  Query](404_Format_Query.html)
+[$format  Query](404_Format_Query.md)
 
 #### Request Header
 
@@ -124,7 +124,7 @@ The response is a JSON object, the correspondence between the key (name) and typ
 
 #### Error Messages
 
-Refer to [Error Message List](004_Error_Messages.html)
+Refer to [Error Message List](004_Error_Messages.md)
 
 #### Response Sample
 

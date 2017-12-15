@@ -1,9 +1,9 @@
 # Boxインストール
 ### 概要
-barファイルを使って指定されたパスにBoxをインストールする。barファイルフォーマットについては 「[barファイル](301_Bar_File.html)」を参照。  
+barファイルを使って指定されたパスにBoxをインストールする。barファイルフォーマットについては 「[barファイル](301_Bar_File.md)」を参照。  
 本APIは非同期通信方式を採用しているため、本APIではBoxインストールを受け付けた後、即復帰する。  
 そのため、Boxインストール状況を確認するには、以下のAPIを使用する。
-* [Box メタデータ取得](303_Progress_of_Bar_File_Installation.html) Boxインストールが異常終了した場合は、本APIにてBoxインストール状況を確認することで、エラーとなった原因を参照することができる。以下に、クライアントにおける受付から処理完了までの呼び出し方法を示す。
+* [Box メタデータ取得](303_Progress_of_Bar_File_Installation.md) Boxインストールが異常終了した場合は、本APIにてBoxインストール状況を確認することで、エラーとなった原因を参照することができる。以下に、クライアントにおける受付から処理完了までの呼び出し方法を示す。
 
 ```
 Boxインストールの呼び出し例（クライアントでのポーリングを30秒とした場合)
@@ -91,7 +91,7 @@ MKCOL
 |:--|:--|:--|:--|
 |インストールするbarファイルをバイナリでリクエストボディに指定する|Content-Typeヘッダで指定した形式|○|barファイル：Zipファイル形式|
 
-barファイルのファイル構成については [bar ファイル](301_Bar_File.html)を参照。
+barファイルのファイル構成については [bar ファイル](301_Bar_File.md)を参照。
 
 #### リクエストサンプル
 なし
@@ -113,18 +113,18 @@ Locationサンプル
 ```
 Location:https://{UnitFQDN}/{CellName}/{BoxName}
 ```
-Boxメタデータ取得API用URLの詳細は、[Boxメタデータ取得](303_Progress_of_Bar_File_Installation.html)を参照。
+Boxメタデータ取得API用URLの詳細は、[Boxメタデータ取得](303_Progress_of_Bar_File_Installation.md)を参照。
 #### レスポンスボディ
 なし
 
 #### エラーメッセージ一覧
-[エラーメッセージ一覧](004_Error_Messages.html)を参照
+[エラーメッセージ一覧](004_Error_Messages.md)を参照
 
 #### レスポンスサンプル
 ```
 Location: https://{UnitFQDN}/{CellName}/{BoxName}
 ```
-Boxメタデータ取得API用URLの詳細は、[Boxメタデータ取得](303_Progress_of_Bar_File_Installation.html)を参照。
+Boxメタデータ取得API用URLの詳細は、[Boxメタデータ取得](303_Progress_of_Bar_File_Installation.md)を参照。
 
 ### cURLサンプル
 

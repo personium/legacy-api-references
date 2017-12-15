@@ -38,11 +38,11 @@ GET
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|クッキー認証値|認証時にサーバから返却されたクッキー認証値|×|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する|_
 
-[$select クエリ](406_Select_Query.html)
+[$select クエリ](406_Select_Query.md)
 
-[$expand クエリ](405_Expand_Query.html)
+[$expand クエリ](405_Expand_Query.md)
 
-[$format クエリ](404_Format_Query.html)
+[$format クエリ](404_Format_Query.md)
 
 #### リクエストヘッダ
 |ヘッダ名|概要|有効値|必須|備考|
@@ -91,7 +91,7 @@ GET
 |{2}|Name|string|Role名|
 |{2}|_Box.Name|string|関係対象のBox名|
 #### エラーメッセージ一覧
-[エラーメッセージ一覧](004_Error_Messages.html)を参照
+[エラーメッセージ一覧](004_Error_Messages.md)を参照
 
 #### レスポンスサンプル
 ```JSON

@@ -84,11 +84,11 @@ The correspondence between key (name) and type, and value are as follows.
 |Root|started_at|string|Start time (ISO 8610 UTC format)|Do not output when status is below.<br>"ready"|
 |Root|progress|string|Progress rate (for example, "30%")|Do not output when status is below.<br>"ready"|
 |Root|importation_name|string|Import file name (excluding extension)|Do not output when status is below.<br>"ready"|
-|Root|message|object|Object (message format)|Output only when status is below.<br>"import failed"<br>See [ Error Messages ](004_Error_Messages.html) for details|
+|Root|message|object|Object (message format)|Output only when status is below.<br>"import failed"<br>See [ Error Messages ](004_Error_Messages.md) for details|
 
 #### Error Messages
 
-Refer to [Error Message List](004_Error_Messages.html)
+Refer to [Error Message List](004_Error_Messages.md)
 
 #### Response Sample
 

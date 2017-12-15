@@ -68,7 +68,7 @@ GET
 |ルート|exportation_name|string|エクスポートファイル名(拡張子は除く)|statusが以下の場合は出力しない。<br>"ready"|
 
 #### エラーメッセージ一覧
-[エラーメッセージ一覧](004_Error_Messages.html)を参照
+[エラーメッセージ一覧](004_Error_Messages.md)を参照
 
 #### レスポンスサンプル
 Cellエクスポート受付可能（Cellエクスポート完了時を含む）

@@ -147,7 +147,7 @@ The body is XML and follows the following schema.
 |collection|p:|Element|Represents that the type of resource is a collection|Displays, if resource is collection|
 |odata|p:|Element|Represents that the type of resource is a odata collection|Displays, if resource is odata collection|
 |service|p:|Element|Represents that the type of resource is a service collection|Displays, if resource is service collection|
-|acl|p:|Element|ACL setting set for resource|In order to acquire the ACL setting, acl-read authority for the target resource is required. For contents below the ACL element, refer to the [cell level access control setting API](289_Cell_ACL.html)|
+|acl|p:|Element|ACL setting set for resource|In order to acquire the ACL setting, acl-read authority for the target resource is required. For contents below the ACL element, refer to the [cell level access control setting API](289_Cell_ACL.md)|
 |base|p:|Element|ACL Privilege BaseURL|When PROPFIND to Cell, default box ("__") resource URL|
 
 ##### DTD notation
@@ -216,7 +216,7 @@ In this case, based on the log file compression flag, file name of href componen
 
 #### Error Messages
 
-Refer to [Error Message List](004_Error_Messages.html)
+Refer to [Error Message List](004_Error_Messages.md)
 
 ### cURL Command
 

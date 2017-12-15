@@ -136,7 +136,7 @@ Account specific response body
 
 #### Error Messages
 
-Refer to [Error Message List](004_Error_Messages.html)
+Refer to [Error Message List](004_Error_Messages.md)
 
 ### cURL Command
 

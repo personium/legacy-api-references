@@ -102,7 +102,7 @@ JSON
 |{2}|Name|string|Relation名|
 |{2}|_Box.Name|string|関係対象のBox名|
 #### エラーメッセージ一覧
-[エラーメッセージ一覧](004_Error_Messages.html)を参照
+[エラーメッセージ一覧](004_Error_Messages.md)を参照
 
 ##### レスポンスサンプル
 ```JSON

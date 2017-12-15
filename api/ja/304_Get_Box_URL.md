@@ -10,7 +10,7 @@ BoxのURLを取得するために用いるリソースです。スキーマ認�
 かつ  
 利用者がBoxルートをread可能（Boxルートが全公開である場合は利用者認証不要）
 
-※ACLのrequireSchemaAuthz属性については、[アクセス制御モデル](../../user_guide/002_Access_Control.html)内の「スキーマ権限要求レベル」を参照。
+※ACLのrequireSchemaAuthz属性については、[アクセス制御モデル](../../user_guide/002_Access_Control.md)内の「スキーマ権限要求レベル」を参照。
 
 ### 制限事項
 なし
@@ -67,7 +67,7 @@ Location:https://{UnitFQDN}/{CellName}/{BoxName}
 なし
 
 #### エラーメッセージ一覧
-[エラーメッセージ一覧](004_Error_Messages.html)を参照
+[エラーメッセージ一覧](004_Error_Messages.md)を参照
 
 #### レスポンスサンプル
 ```

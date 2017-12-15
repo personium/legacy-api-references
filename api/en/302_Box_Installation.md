@@ -2,11 +2,11 @@
 
 ### Overview
 
-Install the Box in the specified path using the bar file.For the bar file format, see "[ bar file ](301_Bar_File.html)".  
+Install the Box in the specified path using the bar file.For the bar file format, see "[ bar file ](301_Bar_File.md)".  
 Since this API employs the asynchronous communication method, this API immediately restores after accepting Box installation.  
 Therefore, to check the Box installation status, use the following API.
 
-* [Box metadata acquisition](303_Progress_of_Bar_File_Installation.html) If Box installation terminates abnormally, you can refer to the cause of the error by checking the Box installation status with this API. Below is a method of calling from acceptance at the client to completion of processing.
+* [Box metadata acquisition](303_Progress_of_Bar_File_Installation.md) If Box installation terminates abnormally, you can refer to the cause of the error by checking the Box installation status with this API. Below is a method of calling from acceptance at the client to completion of processing.
 
 ```
 Example call of Box installation (when polling on client is set to 30 seconds)
@@ -109,7 +109,7 @@ MKCOL
 |:--|:--|:--|:--|
 |Specify the bar file to install as binary in the request body|Format specified in the Content-Type header|Yes|bar file: Zip file format|
 
-For the file structure of the bar file, see the [ bar file ](301_Bar_File.html).
+For the file structure of the bar file, see the [ bar file ](301_Bar_File.md).
 
 #### Request Sample
 
@@ -138,7 +138,7 @@ Location sample
 Location:https://{UnitFQDN}/{CellName}/{BoxName}
 ```
 
-For details of URL for [Box metadata acquisition API](303_Progress_of_Bar_File_Installation.html), see Box metadata acquisition.
+For details of URL for [Box metadata acquisition API](303_Progress_of_Bar_File_Installation.md), see Box metadata acquisition.
 
 #### Response Body
 
@@ -146,7 +146,7 @@ None
 
 #### Error Messages
 
-Refer to [Error Message List](004_Error_Messages.html)
+Refer to [Error Message List](004_Error_Messages.md)
 
 #### Response Sample
 
@@ -154,7 +154,7 @@ Refer to [Error Message List](004_Error_Messages.html)
 Location: https://{UnitFQDN}/{CellName}/{BoxName}
 ```
 
-For details of URL for [Box metadata acquisition API](303_Progress_of_Bar_File_Installation.html), see Box metadata acquisition.
+For details of URL for [Box metadata acquisition API](303_Progress_of_Bar_File_Installation.md), see Box metadata acquisition.
 
 ### cURL Command
 

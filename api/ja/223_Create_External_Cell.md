@@ -83,7 +83,7 @@ POST
 |{3}|type|string|CellCtl.ExtCell|
 |{2}|Url|string|対象CellのURL|
 #### エラーメッセージ一覧
-[エラーメッセージ一覧](004_Error_Messages.html)を参照
+[エラーメッセージ一覧](004_Error_Messages.md)を参照
 
 #### レスポンスサンプル
 ```JSON

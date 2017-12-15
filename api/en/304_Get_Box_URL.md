@@ -7,10 +7,12 @@ An application that does not support schema authentication redirects to the URL 
 
 ### Required Privileges
 
-Access control of this resource depends on ACL of Box route. It is necessary to satisfy the following two points.
+It is necessary to satisfy either of the followings.
 
-* If the requireSchemaAuthz attribute of the Box root ACL is not none (public, confidential) it must be schema authenticated
-* The user can read the Box route. (User authentication is unnecessary when the Box route is open to the public)
+* Schema authenticated
+* If the requireSchemaAuthz attribute of the Box root ACL is none  
+and  
+The user can read the Box route. (User authentication is unnecessary when the Box route is open to the public)
 
 \*For the requireSchemaAuthz attribute of the ACL, see "Schema Privilege Request Level" in the [access control model](../../user_guide/002_Access_Control.html).
 

@@ -4,9 +4,11 @@ BoxのURLを取得するために用いるリソースです。スキーマ認�
 スキーマ認証に対応していないアプリケーションはパラメタでschema urlを与えることで、対応するBoxのURLにリダイレクトします。
 
 ### 必要な権限
-本リソースのアクセス制御はBoxルートのACLに依存します。以下２点を満たしている必要があります。
-* BoxルートACLのrequireSchemaAuthz属性がnoneでない場合（public、confidentialの場合）はスキーマ認証済であること
-* 利用者がBoxルートをread可能であること。（Boxルートが全公開である場合は利用者認証不要）
+以下どちらかを満たしている必要があります。
+* スキーマ認証済み
+* BoxルートACLのrequireSchemaAuthz属性がnone  
+かつ  
+利用者がBoxルートをread可能（Boxルートが全公開である場合は利用者認証不要）
 
 ※ACLのrequireSchemaAuthz属性については、[アクセス制御モデル](../../user_guide/002_Access_Control.html)内の「スキーマ権限要求レベル」を参照。
 

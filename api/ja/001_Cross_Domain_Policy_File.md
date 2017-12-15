@@ -39,7 +39,7 @@ XML形式
 |/cross-domain-policy/allow-access-from|現在のドメインにアクセス可能なドメイン。固定で属性値「domain="*"」を返却する|
 |/cross-domain-policy/allow-http-request-headers-from|現在のドメインに送信可能なヘッダ情報と、ヘッダ送信元ドメイン。固定で属性値「domain="\*" headers="*"」を返却する|
 #### エラーメッセージ一覧
-[エラーメッセージ一覧](004_Error_Messages.html)を参照
+[エラーメッセージ一覧](004_Error_Messages.md)を参照
 
 ### cURLサンプル
 ```sh

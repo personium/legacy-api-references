@@ -110,7 +110,7 @@ XMLの構造
 |getlastmodified|D:|要素|リソース更新時刻||
 |resourcetype|D:|要素|リソースのタイプを表す。<br>collectionが子となるか、子は空となる||
 |collection|D:|要素|リソースのタイプがコレクションであることを表す|リソースがWebDAVの場合、この要素のみが表示される|
-|acl|D:|要素|リソースに設定されているACL設定|ACL要素以下の内容については、[Cell Level アクセス制御設定API](289_Cell_ACL.html)を参照|
+|acl|D:|要素|リソースに設定されているACL設定|ACL要素以下の内容については、[Cell Level アクセス制御設定API](289_Cell_ACL.md)を参照|
 |base|xml:|属性|ACLのPrivilegeのBaseURL|CellへのPROPFINDの場合、デフォルトボックス（"__"）のリソースURL|
 
 DTD表記
@@ -133,7 +133,7 @@ DTD表記
 ```
 
 #### エラーメッセージ一覧
-[エラーメッセージ一覧](004_Error_Messages.html)を参照
+[エラーメッセージ一覧](004_Error_Messages.md)を参照
 
 #### レスポンスサンプル
 ```xml

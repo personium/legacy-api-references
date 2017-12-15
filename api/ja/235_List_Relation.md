@@ -31,23 +31,23 @@ GET
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|クッキー認証値|認証時にサーバから返却されたクッキー認証値|×|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する|
 
-[$select クエリ](406_Select_Query.html)
+[$select クエリ](406_Select_Query.md)
 
-[$expand クエリ](405_Expand_Query.html)
+[$expand クエリ](405_Expand_Query.md)
 
-[$format クエリ](404_Format_Query.html)
+[$format クエリ](404_Format_Query.md)
 
-[$filter クエリ](403_Filter_Query.html)
+[$filter クエリ](403_Filter_Query.md)
 
-[$inlinecount クエリ](407_Inlinecount_Query.html)
+[$inlinecount クエリ](407_Inlinecount_Query.md)
 
-[$orderby クエリ](400_Orderby_Query.html)
+[$orderby クエリ](400_Orderby_Query.md)
 
-[$top クエリ](401_Top_Query.html)
+[$top クエリ](401_Top_Query.md)
 
-[$skip クエリ](402_Skip_Query.html)
+[$skip クエリ](402_Skip_Query.md)
 
-[全文検索(q)クエリ](408_Full_Text_Search_Query.html)
+[全文検索(q)クエリ](408_Full_Text_Search_Query.md)
 
 #### リクエストヘッダ
 
@@ -174,7 +174,7 @@ GET
 }
 ```
 #### エラーメッセージ一覧
-[エラーメッセージ一覧](004_Error_Messages.html)を参照
+[エラーメッセージ一覧](004_Error_Messages.md)を参照
 
 ### cURLサンプル
 

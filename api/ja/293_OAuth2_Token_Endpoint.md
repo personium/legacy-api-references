@@ -145,7 +145,7 @@ grant_type=refresh_token&refresh_token={token}
 }
 ```
 #### エラーメッセージ一覧
-[エラーメッセージ一覧](004_Error_Messages.html)を参照
+[エラーメッセージ一覧](004_Error_Messages.md)を参照
 
 ### cURLサンプル
 ##### パスワード認証

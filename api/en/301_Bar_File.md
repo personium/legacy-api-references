@@ -197,7 +197,7 @@ The file describing the data relation information of the $links to be installed
 
 #### 90\_rootprops.xml
 
-Shows the XML data acquired with the PROPFIND method for all hierarchical levels under the box to be export to the bar file. <br>For details on XML data, refer to [get file setting API(PROPFIND)](307_Get_Property.html). <br>The URL of the box to be installed is described as "Personium-box:/". <br>When the bar file is installed, the installation targets include all data excluding creationdate and astmodified under the following sample.
+Shows the XML data acquired with the PROPFIND method for all hierarchical levels under the box to be export to the bar file. <br>For details on XML data, refer to [get file setting API(PROPFIND)](307_Get_Property.md). <br>The URL of the box to be installed is described as "Personium-box:/". <br>When the bar file is installed, the installation targets include all data excluding creationdate and astmodified under the following sample.
 
 * resourcetype: Sets the collection type
 * acl: Sets privileges
@@ -349,7 +349,7 @@ Details not contributed yet for the following files
 
 ##### 00\_$metadata.xml
 
-Shows user OData schema definitions. This data is the XML data acquired by $metadata for the collection for Odata during the export to the bar file. <br>For details on XML data, refer to [schema acquisition ($metadata)](316_User_Defined_Data_Schema.html). <br>When the box is installed, the installation targets include the contents under the Schema tag. <br>Even if user OData schema definitions do not exist, the file itself exists.
+Shows user OData schema definitions. This data is the XML data acquired by $metadata for the collection for Odata during the export to the bar file. <br>For details on XML data, refer to [schema acquisition ($metadata)](316_User_Defined_Data_Schema.md). <br>When the box is installed, the installation targets include the contents under the Schema tag. <br>Even if user OData schema definitions do not exist, the file itself exists.
 
 Sample in the case of no schema definitions
 

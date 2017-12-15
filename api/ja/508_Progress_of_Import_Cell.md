@@ -68,10 +68,10 @@ GET
 |ルート|started_at|string|Start time (ISO 8610 UTC format)|statusが以下の場合は出力しない。<br>"ready"|
 |ルート|progress|string|Progress rate (for example, "30%")|statusが以下の場合は出力しない。<br>"ready"|
 |ルート|importation_name|string|インポートファイル名(拡張子は除く)|statusが以下の場合は出力しない。<br>"ready"|
-|ルート|message|object|Object (message format)|statusが以下の場合のみ出力する。<br>"import failed"<br>詳細は [エラーメッセージ一覧](004_Error_Messages.html)を参照|
+|ルート|message|object|Object (message format)|statusが以下の場合のみ出力する。<br>"import failed"<br>詳細は [エラーメッセージ一覧](004_Error_Messages.md)を参照|
 
 #### エラーメッセージ一覧
-[エラーメッセージ一覧](004_Error_Messages.html)を参照
+[エラーメッセージ一覧](004_Error_Messages.md)を参照
 
 #### レスポンスサンプル
 Cellインポート受付可能（Cellインポート完了時を含む）

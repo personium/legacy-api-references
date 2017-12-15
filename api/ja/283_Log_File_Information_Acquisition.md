@@ -99,7 +99,7 @@ PROPFIND
 |collection|p:|要素|リソースのタイプがコレクションであることを表す|リソースがWebDAVの場合、この要素のみが表示される|
 |odata|p:|要素|リソースのタイプがODataコレクションであることを表す|ODataコレクションの場合表示|
 |service|p:|要素|リソースのタイプがサービスコレクションであることを表す|Serviceコレクションの場合表示|
-|acl|p:|要素|リソースに設定されているACL設定|ACL設定を取得するためには、対象リソースに対するacl-read権限が必要 ACL要素以下の内容については、[Cell Level アクセス制御設定API](289_Cell_ACL.html)を参照|
+|acl|p:|要素|リソースに設定されているACL設定|ACL設定を取得するためには、対象リソースに対するacl-read権限が必要 ACL要素以下の内容については、[Cell Level アクセス制御設定API](289_Cell_ACL.md)を参照|
 |base|p:|要素|ACLのPrivilegeのBaseURL|CellへのPROPFINDの場合、デフォルトボックス（"__"）のリソースURL|
 |status|D:|要素|リソース取得のレスポンスコードを表す||
 
@@ -133,7 +133,7 @@ PROPFIND
 ```
 
 #### エラーメッセージ一覧
-[エラーメッセージ一覧](004_Error_Messages.html)を参照
+[エラーメッセージ一覧](004_Error_Messages.md)を参照
 
 #### レスポンスサンプル
 ```xml

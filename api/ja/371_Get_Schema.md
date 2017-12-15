@@ -222,7 +222,7 @@ $formatにatomsvcを指定した場合、SchemaのAtom ServiceDocumentを返却�
 <!ATTLIST Property Format CDDATA #IMPLIED>
 ```
 #### エラーメッセージ一覧
-[エラーメッセージ一覧](004_Error_Messages.html)を参照
+[エラーメッセージ一覧](004_Error_Messages.md)を参照
 
 #### レスポンスサンプル
 ##### SchemaのAtom ServiceDocumentの場合

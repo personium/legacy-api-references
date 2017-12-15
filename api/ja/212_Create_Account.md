@@ -99,7 +99,7 @@ ID/PW認証＋Google認証用アカウント
 |{2}|Type|string|デフォルト:"basic"|
 |{2}|Cell|string|デフォルト：null|
 #### エラーメッセージ一覧
-[エラーメッセージ一覧](004_Error_Messages.html)を参照
+[エラーメッセージ一覧](004_Error_Messages.md)を参照
 
 #### レスポンスサンプル
 ID/PW認証用アカウント

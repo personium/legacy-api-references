@@ -85,7 +85,7 @@ The correspondence between key (name) and type, and value are as follows.
 
 #### Error Messages
 
-Refer to [Error Message List](004_Error_Messages.html)
+Refer to [Error Message List](004_Error_Messages.md)
 
 #### Response Sample
 

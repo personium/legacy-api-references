@@ -2,7 +2,7 @@
 
 ### Overview
 
-Import cell data from Cell snapshot file.<br>The Cell snapshot file uses a special area (Cell snapshot area) in PersoniumUnit.<br>If processing fails, change the status of Cell to " import failed ".<br>When processing is successful, if the status of Cell is " import failed ", it is changed to " normal ".<br>When the status of Cell is " import failed ", the target Cell does not accept anything other than API. See [ Acquire Properties ](290_Cell_Get_Property.html) for details.<br>Since this API employs the asynchronous communication method, it immediately returns after accepting the API.<br>To check the status of Cell Import, use [ Cell import status acquisition ](508_Progress_of_Import_Cell.html).<br>An example of calling from acceptance at the client to completion of processing is shown below.
+Import cell data from Cell snapshot file.<br>The Cell snapshot file uses a special area (Cell snapshot area) in PersoniumUnit.<br>If processing fails, change the status of Cell to " import failed ".<br>When processing is successful, if the status of Cell is " import failed ", it is changed to " normal ".<br>When the status of Cell is " import failed ", the target Cell does not accept anything other than API. See [ Acquire Properties ](290_Cell_Get_Property.md) for details.<br>Since this API employs the asynchronous communication method, it immediately returns after accepting the API.<br>To check the status of Cell Import, use [ Cell import status acquisition ](508_Progress_of_Import_Cell.md).<br>An example of calling from acceptance at the client to completion of processing is shown below.
 
 ```
 Call Import example of Cell Import (When polling on client is set to 10 seconds)
@@ -95,7 +95,7 @@ Return error message only if creation fails
 
 #### Error Messages
 
-Refer to [Error Message List](004_Error_Messages.html)
+Refer to [Error Message List](004_Error_Messages.md)
 
 #### Response Sample
 

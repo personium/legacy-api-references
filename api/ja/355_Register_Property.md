@@ -133,7 +133,7 @@ DefaultValueの有効値はTypeの値（型定義）によって異なり、以�
 |{2}|UniqueKey|string|ユニークキー設定|
 |{2}|IsDeclared|boolean|Declaredかの真偽|
 #### エラーメッセージ一覧
-[エラーメッセージ一覧](004_Error_Messages.html)を参照
+[エラーメッセージ一覧](004_Error_Messages.md)を参照
 
 #### レスポンスサンプル
 ```JSON

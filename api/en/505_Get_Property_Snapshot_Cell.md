@@ -128,7 +128,7 @@ The body is XML and follows the following schema.
 |getlastmodified|D:|Element|Resource update time||
 |resourcetype|D:|Element|Represents the type of the resource. <br>If collection is a child or child is empty||
 |collection|D:|Element|Represents that the type of resource is a collection|Displays, if resource is collection|
-|acl|D:|Element|ACL setting set for resource|ACL Element See the [ Cell Level Access Control Settings API ](289_Cell_ACL.html) for content below|
+|acl|D:|Element|ACL setting set for resource|ACL Element See the [ Cell Level Access Control Settings API ](289_Cell_ACL.md) for content below|
 |base|xml:|attribute|ACL Privilege BaseURL|When PROPFIND to Cell, default box ("__") resource URL|
 
 DTD notation
@@ -153,7 +153,7 @@ Namespace D:
 
 #### Error Messages
 
-Refer to [Error Message List](004_Error_Messages.html)
+Refer to [Error Message List](004_Error_Messages.md)
 
 #### Response Sample
 

@@ -114,7 +114,7 @@ JSON
 |{4}|Code|string|ステータスコード|
 |{4}|Reason|string|詳細メッセージ|
 #### エラーメッセージ一覧
-[エラーメッセージ一覧](004_Error_Messages.html)を参照
+[エラーメッセージ一覧](004_Error_Messages.md)を参照
 
 #### レスポンスサンプル
 ```JSON

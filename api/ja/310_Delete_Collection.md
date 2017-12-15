@@ -51,7 +51,7 @@ DELETE
 |X-Personium-RequestKey|イベントログに出力するRequestKeyフィールドの値|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字|×|指定がない場合、PCS-${UNIX時間}を設定する|
 |Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
 |If-Match|対象ETag値を指定する|ETag値|×|省略時は[*]として扱う|
-|X-Personium-Recursive|再帰削除の指定|文字列|×|trueの場合はコレクションの再帰削除を実施<br>falseの場合およびヘッダの指定がなかった場合は通常の削除を実施<br>※再帰削除はODataコレクションのみ対応|
+|X-Personium-Recursive|再帰削除の指定|文字列|×|trueの場合はコレクションの再帰削除を実施<br>falseの場合およびヘッダの指定がなかった場合は通常の削除を実施|
 #### リクエストボディ
 なし
 

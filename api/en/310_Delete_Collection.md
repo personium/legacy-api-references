@@ -60,7 +60,7 @@ None
 |X-Personium-RequestKey|RequestKey field value output in the event log|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters|No||
 |Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
 |If-Match|Specifies the target ETag value|ETag value|No|[*] by default|
-|X-Personium-Recursive|Specify recursive deletion|String|No|If true, recursive deletion of the collection is performed.<br>If it is false or if there is no header specification, normal deletion is carried out.<br>* Recursive deletion corresponds only to the OData collection.|
+|X-Personium-Recursive|Specify recursive deletion|String|No|If true, recursive deletion of the collection is performed.<br>If it is false or if there is no header specification, normal deletion is carried out.|
 
 #### Request Body
 

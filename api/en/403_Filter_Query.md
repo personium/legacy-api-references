@@ -4,16 +4,25 @@
 
 Use the $filter query to specify the search condition when retrieving the list
 
+### Specifiable type
+
+|Type|Description example|Notes|
+|:--|:--|:--|
+|Character string|'StringValue'||
+|Numeric value|100||
+|Boolean value|true<br>false||
+|Date|datetime'2017-12-15T09:39:10'<br>datetimeoffset'2017-12-15T18:39:10+09:00'|"datetime" can not specify time zone offset.<br>If timezone offset is not specified, treat it as UTC.|
+
 ### Operator Support
 
 |Operator|Meaning|Description example|Notes|
 |:--|:--|:--|:--|
-|eq|equal|For character strings : $filter=itemKey eq 'searchValue'<br>In case of numerical value : $filter=itemKey eq 10|Corresponds to character string, numeric value, boolean value, NULL|
-|ne|Negative Equal|For character strings : $filter=itemKey ne 'searchValue'<br>In case of numerical value : $filter=itemKey ne 10|Corresponds to character string, numeric value, boolean value, NULL|
-|gt|Greater than|$filter=itemKey gt 1000|Corresponds to character string, numeric value|
-|ge|Greater equal|$filter=itemKey ge 1000|Corresponds to character string, numeric value|
-|lt|Less than|$filter=itemKey lt 1000|Corresponds to character string, numeric value|
-|le|Less equal|$filter=itemKey le 1000|Corresponds to character string, numeric value|
+|eq|equal|$filter=itemKey eq 'searchValue'|Corresponds to character string, numeric value, boolean value, Date, NULL|
+|ne|Negative Equal|$filter=itemKey ne 'searchValue'|Corresponds to character string, numeric value, boolean value, Date, NULL|
+|gt|Greater than|$filter=itemKey gt 1000|Corresponds to character string, numeric value, Date|
+|ge|Greater equal|$filter=itemKey ge 1000|Corresponds to character string, numeric value, Date|
+|lt|Less than|$filter=itemKey lt 1000|Corresponds to character string, numeric value, Date|
+|le|Less equal|$filter=itemKey le 1000|Corresponds to character string, numeric value, Date|
 |and|AND|$filter=itemKey1 eq 'searchValue1' and itemKey2 eq 'searchValue2'||
 |or|OR|$filter=itemKey1 eq 'searchValue1' or itemKey2 eq 'searchValue2'||
 |()|Priority group|$filter=itemKey eq 'searchValue' or (itemKey gt 500 and itemKey lt 1500)|If parentheses are only one, parentheses are ignored|
@@ -45,13 +54,17 @@ If it is a string type integer, if decimal value is specified convert it to deci
 
 Only boolean values or null can be specified
 
+#### Edm.DateTime
+
+Date or null can be specified.  
+If an integer value is specified, it converts it to UNIX time and performs a search.
+
 ### Notices
 
 \*URL encoding required for query specification  
 \*Valid values of the property to be searched are half-size alphanumeric characters, - (hyphen), \_ (underscore) valid.  
 \*If you want to include a single quote in the search string, you can specify a single quote as a search string by describing two single quotes"''"  
 \*If a property name that does not exist in $ filter is specified, search is performed ignoring the property name  
-\*When \_\_updated, \_\_published is specified, it is specified by UNIX time (a number in parenthesis of "/Date()")
 
 ### cURL Command
 

@@ -43,7 +43,7 @@ MKCOL
 |URI|概要|参考prefix|
 |:--|:--|:--|
 |DAV:|WebDAVの名前空間|D:|
-|urn:x-personium:xmlns|Personiumの名前空間|p:|
+|urn&#58;x-personium:xmlns|Personiumの名前空間|p:|
 ※ 参考prefixは以下表の可読性を高めるためのもので、このprefix文字列の使用を保証するものでも要求するものでもありません。
 ##### XMLの構造
 ボディはXMLで、以下のスキーマに従っています。

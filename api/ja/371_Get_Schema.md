@@ -66,7 +66,7 @@ $formatにatomsvcを指定した場合、SchemaのAtom ServiceDocumentを返却�
 |http://schemas.microsoft.com/ado/2007/06/edmx|edmxの名前空間|edmx:|
 |http://schemas.microsoft.com/ado/2007/08/dataservices|WCF Data Servicesの名前空間|d:|
 |http://schemas.microsoft.com/ado/2007/08/dataservices/metadata|WCF Data Services metadataの名前空間|m:|
-|urn:x-personium:xmlns|Personiumの名前空間|p:|
+|urn&#58;x-personium:xmlns|Personiumの名前空間|p:|
 |http://schemas.microsoft.com/ado/2006/04/edm|schemeの名前空間|-|
 ※ 参考prefixは以下表の可読性を高めるためのもので、このprefix文字列の使用を保証するものでも要求するものでもありません。
 ##### XMLの構造

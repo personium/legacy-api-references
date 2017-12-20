@@ -77,7 +77,7 @@ PROPFIND
 |項目名|概要|備考|
 |:--|:--|:--|
 |Content-Type|返却されるデータの形式|D:|
-|urn:x-personium:xmlns|Personiumの名前空間|p:|
+|urn&#58;x-personium:xmlns|Personiumの名前空間|p:|
 
 ※ 参考prefixは以下表の可読性を高めるためのもので、このprefix文字列の使用を保証するものでも要求するものでもありません。
 

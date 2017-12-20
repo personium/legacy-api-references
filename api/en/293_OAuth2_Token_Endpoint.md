@@ -59,10 +59,10 @@ POST
 
 |Item Name|Overview|Format|Required|Effective Value|
 |:--|:--|:--|:--|:--|
-|grant_type|Authentication type|String|Yes|password<br>urn:x-personium:oidc:google|
+|grant_type|Authentication type|String|Yes|password<br>urn&#58;x-personium:oidc:google|
 |username|User name|String|Yes(When grant_type = password)|Registered user name|
 |password|Password|String|Yes(When grant_type = password)|Registered password|
-|id_token|Token ID|JSON Web Token|Yes(grant_type=urn:x-personium:oidc:For google)|JWT Formed ID Token|
+|id_token|Token ID|JSON Web Token|Yes(grant_type=urn&#58;x-personium:oidc:For google)|JWT Formed ID Token|
 |p_target|Transcell token target|String|No|Where to use the token to be paid (cell URL)<br>If specified, it becomes transcellation token authentication|
 |client_id|App cell URL|String|No|Schema Authenticator's source App cell URL<br>When specified with client_secret, it becomes schema authentication<br>At the same time, if the Authorization header also has schema authentication settings, the setting of the Authorization header takes precedence|
 |client_secret|Token paid out from the application cell|String|No|Set the token that was paid out from the schema authentication source to the value<br>When specified with client_id, it becomes schema authentication<br>At the same time, if the Authorization header also has schema authentication settings, the setting of the Authorization header takes precedence|

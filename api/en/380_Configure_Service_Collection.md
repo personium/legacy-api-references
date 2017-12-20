@@ -64,7 +64,7 @@ Namespace
 |URI|Overview|reference prefix|
 |:--|:--|:--|
 |DAV:|WebDAV Namespace|D:|
-|urn:x-personium:xmlns|Personium API namespace|p:|
+|urn&#58;x-personium:xmlns|Personium API namespace|p:|
 
 \* Reference The prefixes are for making it easier to read the following table, but the use of these prefix strings is not ensured or requested.
 

@@ -99,7 +99,7 @@ None
 |http://schemas.microsoft.com/ado/2007/06/edmx|edmx namespace|edmx:|
 |http://schemas.microsoft.com/ado/2007/08/dataservices|WCF Data Services namespace|d:|
 |http://schemas.microsoft.com/ado/2007/08/dataservices/metadata|WCF Data Services metadata namespace|m:|
-|urn:x-personium:xmlns|Personium namespace|p:|
+|urn&#58;x-personium:xmlns|Personium namespace|p:|
 |http://schemas.microsoft.com/ado/2006/04/edm|scheme namespace|-|
 
 \* Reference The prefixes are for making it easier to read the following table, but the use of these prefix strings is not ensured or requested.

@@ -47,10 +47,10 @@ POST
 
 |項目名|概要|書式|必須|有効値|
 |:--|:--|:--|:--|:--|
-|grant_type|認証タイプ|String|○|password<br>urn:x-personium:oidc:google|
+|grant_type|認証タイプ|String|○|password<br>urn&#58;x-personium:oidc:google|
 |username|ユーザ名|String|○(grant_type=passwordの場合)|登録済のユーザ名|
 |password|パスワード|String|○(grant_type=passwordの場合)|登録済のパスワード|
-|id_token|トークンID|JSON Web Token|○(grant_type=urn:x-personium:oidc:googleの場合)|JWT Formed ID Token|
+|id_token|トークンID|JSON Web Token|○(grant_type=urn&#58;x-personium:oidc:googleの場合)|JWT Formed ID Token|
 |p_target|トランスセルトークンターゲット|String|×|払い出されるトークンを使う先（セルURL）<br>指定した場合トランスセルトークン認証になる|
 |client_id|アプリセルURL|String|×|スキーマ認証元のアプリセルURL<br>client_secretとともに指定した場合スキーマ認証になる<br>同時にAuthorizationヘッダにもスキーマ認証設定がされている場合、Authorizationヘッダの設定が優先される|
 |client_secret|アプリセルから払い出されたトークン|String|×|スキーマ認証元から払い出されたトークンを値に設定する<br>client_idとともに指定した場合スキーマ認証になる<br>同時にAuthorizationヘッダにもスキーマ認証設定がされている場合、Authorizationヘッダの設定が優先される|

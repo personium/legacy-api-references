@@ -58,7 +58,7 @@ Common Request Query
 |URI|Overview|Notes (prefix)|
 |:--|:--|:--|
 |DAV:|WebDAV Namespace|D:|
-|urn:x-personium:xmlns|Personium namespace|p:|
+|urn&#58;x-personium:xmlns|Personium namespace|p:|
 
 \* Reference The prefixes are for making it easier to read the following table, but the use of these prefix strings is not ensured or requested.
 

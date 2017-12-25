@@ -55,7 +55,7 @@ POST
 |Item Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |ExtRole|External Role Name(URL)|Number of digits: 1-1024<br>Follow URI format<br>scheme:http / https / urn<br>When associated with Box:/{Application CellName}/\_\_role/\_\_/{RoleName}<br>* However, if Schema information is not registered in Box, it is considered not to be associated with Box<br>When not associated with Box:/{CellName}/\_\_role/\_\_/{RoleName}|Yes||
-|_Relation.Name|Relation name of relationbr|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br> and +(plus) and :(colon)<br>However, the string cannot start with a underscore ("\_") or colon (:)<br>Relation which registered by Relation register API<br>null|Yes||
+|_Relation.Name|Relation name of relationbr|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br> and +(plus) and :(colon)<br>However, the string cannot start with a underscore ("\_") or colon (:)<br>Relation which registered by Relation register API|Yes||
 |_Relation._Box.Name|Box Name aassociated wirh Relation|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Box name associated with Relation registered by Relation registration API<br>null|No||
 
 #### Request Sample

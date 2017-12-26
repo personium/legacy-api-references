@@ -72,7 +72,7 @@ JSON
 
 |Item Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|Name|EntityType name|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("\_")<br>null|Yes||
+|Name|EntityType name|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("\_")|Yes||
 
 #### Request Sample
 

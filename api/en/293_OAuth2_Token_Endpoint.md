@@ -121,7 +121,7 @@ grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&assertion={token}
 
 |Item Name|Overview|Format|Required|Effective Value|
 |:--|:--|:--|:--|:--|
-|grant_type|Authentication type|String|Yes|Refresh token|
+|grant_type|Authentication type|String|Yes|refresh_token|
 |refresh_token|Refresh token name|String|Yes|Effective refresh token|
 |p_target|Transcell token target|String|No|Where to use the token to be paid (cell URL) If specified, it becomes transcell token authentication|
 |client_id|App cell URL|String|No|Schema Authenticator's source App cell URL<br>When specified with client_secret, it becomes schema authentication<br>At the same time, if the Authorization header also has schema authentication settings, the setting of the Authorization header takes precedence|

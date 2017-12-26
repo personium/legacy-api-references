@@ -101,7 +101,7 @@ grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&assertion={token}
 
 |項目名|概要|書式|必須|有効値|
 |:--|:--|:--|:--|:--|
-|grant_type|認証タイプ|String|○|リフレッシュトークン|
+|grant_type|認証タイプ|String|○|refresh_token|
 |refresh_token|リフレッシュトークン名|String|○|有効リフレッシュトークン|
 |p_target|トランスセルトークンターゲット|String|×|払い出されるトークンを使う先（セルURL） 指定した場合はトランスセルトークン認証になる|
 |client_id|アプリセルURL|String|×|スキーマ認証元のアプリセルURL<br>client_secretとともに指定した場合スキーマ認証になる<br>同時にAuthorizationヘッダにもスキーマ認証設定がされている場合、Authorizationヘッダの設定が優先される|

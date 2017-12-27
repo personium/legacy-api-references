@@ -75,7 +75,7 @@ https://{UnitFQDN}/{CellName}
 
 ||Create/Register|Acquire|Update|Delete|
 |:--|:--|:--|:--|:--|
-|**Box**|[Create](256_Create_Box.md)|[Acquire](258_Retrieve_Box.md)<br>[Acquire List](257_Search_Box.md)<br>[Acquire URL](304_Get_Box_URL.md)|[Update](259_Update_Box.md)|[Delete](260_Delete_Box.md)|
+|**Box**|[Create](256_Create_Box.md)|[Acquire](258_Retrieve_Box.md)<br>[Acquire List](257_Search_Box.md)<br>[Acquire URL](304_Get_Box_URL.md)|[Update](259_Update_Box.md)|[Delete](260_Delete_Box.md)<br>[Recursive Delete](295_Box_Recursive_Delete.md)|
 |_$links|[Register](261_Register_Box_links.md)|[Acquire List](262_List_Box_links.md)|Update|[Delete](264_Delete_Box_links.md)|
 |_via NavProp|[Register](265_Register_Using_Box_NavProp.md)|[Acquire](266_List_Box_NavProp.md)|||
 |Install|[Install Box](302_Box_Installation.md)|[Acquire Box Meta Data](303_Progress_of_Bar_File_Installation.md)|||

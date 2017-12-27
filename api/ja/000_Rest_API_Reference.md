@@ -64,7 +64,7 @@ https://{UnitFQDN}/{CellName}
 ##### Boxを生成・管理する機能
 ||作成・登録|取得|更新|削除|
 |:--|:--|:--|:--|:--|
-|**Box**|[作成](256_Create_Box.md)|[取得](258_Retrieve_Box.md)<br>[一覧取得](257_Search_Box.md)<br>[URL取得](304_Get_Box_URL.md)|[更新](259_Update_Box.md)|[削除](260_Delete_Box.md)|
+|**Box**|[作成](256_Create_Box.md)|[取得](258_Retrieve_Box.md)<br>[一覧取得](257_Search_Box.md)<br>[URL取得](304_Get_Box_URL.md)|[更新](259_Update_Box.md)|[削除](260_Delete_Box.md)<br>[再帰的削除](295_Box_Recursive_Delete.md)|
 |&nbsp;&nbsp;_$links|[登録](261_Register_Box_links.md)|[一覧取得](262_List_Box_links.md)|更新|[削除](264_Delete_Box_links.md)|
 |&nbsp;&nbsp;_NavProp経由|[登録](265_Register_Using_Box_NavProp.md)|[取得](266_List_Box_NavProp.md)|||
 |&nbsp;&nbsp;インストール|[Boxインストール](302_Box_Installation.md)|[Boxメタデータ取得](303_Progress_of_Bar_File_Installation.md)|||

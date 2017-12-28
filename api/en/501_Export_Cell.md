@@ -2,7 +2,7 @@
 
 ### Overview
 
-This API export all data in Cell as Cell snapshot file.<br>The snapshot file is created in a special area (Cell snapshot area) in PersoniumUnit.<br>When exported successfully, created the file which suffix is ".zip" and when fail created the file which suffix is ".error".(In the ".error" file, detail error message is described)<br>The Cell snapshot area is excluded from the Cell export.<br>Since this API employs the asynchronous communication method, it immediately returns after accepting the API.<br>To confirm the Cell export executing status, use [Get Cell Export status](502_Progress_of_Export_Cell.md),[Get Cell Snapshot property](505_Get_Property_Export_Cell.md).<br>An example of calling from acceptance at the client to completion of processing is shown below.
+This API export all data in Cell as Cell snapshot file.<br>The snapshot file is created in a special area (Cell snapshot area) in PersoniumUnit.<br>When exported successfully, created the file which suffix is ".zip" and when fail created the file which suffix is ".error".(In the ".error" file, detail error message is described)<br>The Cell snapshot area is excluded from the Cell export.<br>Since this API employs the asynchronous communication method, it immediately returns after accepting the API.<br>To confirm the Cell export executing status, use [Get Cell Export status](502_Progress_of_Export_Cell.md),[Get Cell Snapshot property](505_Get_Property_Snapshot_Cell.md).<br>An example of calling from acceptance at the client to completion of processing is shown below.
 
 ```
 Call export call example (with 10 seconds polling on the client)

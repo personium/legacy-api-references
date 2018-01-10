@@ -1,6 +1,6 @@
-# ComplexTypeProrerty更新
+# ComplexTypeProperty更新
 ### 概要
-既存のComplexTypeProrerty情報を更新する
+既存のComplexTypeProperty情報を更新する
 
 ### 必要な権限
 alter-schema
@@ -15,7 +15,7 @@ alter-schema
 ### リクエスト
 #### リクエストURL
 ```
-/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/ComplexTypeProrerty('ComplexTypeProrerty')
+/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/ComplexTypeProperty('ComplexTypeProperty')
 ```
 #### メソッド
 PUT
@@ -59,7 +59,7 @@ JSON
 
 |項目名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|Name|ComplexTypeProrerty名|桁数：1&#65374;128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)は指定不可|○||
+|Name|ComplexTypeProperty名|桁数：1&#65374;128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)は指定不可|○||
 
 #### リクエストサンプル
 ```JSON
@@ -83,7 +83,7 @@ JSON
 ### cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/ComplexTypeProrerty('animal')" -X PUT -i -H 'If-Match: *' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"ComplexTypeProrerty"}'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/ComplexTypeProperty('animal')" -X PUT -i -H 'If-Match: *' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"ComplexTypeProperty"}'
 ```
 
 ###### Copyright 2017 FUJITSU LIMITED

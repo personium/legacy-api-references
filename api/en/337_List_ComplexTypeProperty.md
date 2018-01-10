@@ -120,7 +120,7 @@ The response is a JSON object, the correspondence between the key (name) and typ
 |{2}|Name|string|ComplexTypeProperty name|
 |{2}|_ComplexType.Name|string|ComplexType name attached|
 |{2}|Type|string|Type definition|
-|{2}|Nullable|boolean|Null value authorization|
+|{2}|Nullable|boolean|null value authorization|
 |{2}|DefaultValue|string|Default value|
 |{2}|CollectionKind|string|Array type|
 

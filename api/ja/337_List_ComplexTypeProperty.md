@@ -100,7 +100,7 @@ GET
 |{2}|Name|string|ComplexTypeProperty名|
 |{2}|_ComplexType.Name|string|紐付くComplexType名|
 |{2}|Type|string|型定義|
-|{2}|Nullable|boolean|Null値許可|
+|{2}|Nullable|boolean|null値許可|
 |{2}|DefaultValue|string|デフォルト値|
 |{2}|CollectionKind|string|配列種別|
 

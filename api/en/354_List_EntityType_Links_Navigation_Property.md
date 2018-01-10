@@ -2,7 +2,7 @@
 
 ### Overview
 
-Update existing Prorerty information
+Update existing Property information
 
 ### Required Privileges
 
@@ -21,7 +21,7 @@ alter-schema
 #### Request URL
 
 ```
-/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/Prorerty('{PropertyName}')
+/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/Property('{PropertyName}')
 ```
 
 #### Request Method
@@ -72,7 +72,7 @@ JSON
 
 |Item Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|Name|Prorerty Name|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("\_")|Yes||
+|Name|Property Name|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("\_")|Yes||
 
 #### Request Sample
 
@@ -107,7 +107,7 @@ None
 ### cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/Prorerty('animal')" -X PUT -i -H 'If-Match: *' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{PropertyName}"}'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/Property('animal')" -X PUT -i -H 'If-Match: *' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{PropertyName}"}'
 ```
 
 

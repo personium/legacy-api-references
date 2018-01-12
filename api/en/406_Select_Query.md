@@ -12,7 +12,7 @@ However, the following properties are always returned without specifying them in
 * \_\_metadata
 
 \*If you specify a property name that does not exist in $select, ignore the specified item  
-\*If the value of the Dynamic property specified by $select is NULL, you can not get the property value  
+\*If the value of the Dynamic property specified by $select is null, you can not get the property value  
 \*Specify the property name without enclosing it with "'" (single quote)
 
 ### Request Query

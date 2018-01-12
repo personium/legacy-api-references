@@ -12,8 +12,8 @@
 ### Operator Support
 |演算子|意味|記述例|備考|
 |:--|:--|:--|:--|
-|eq|等号|$filter=itemKey eq 'searchValue'|文字列、数値、真偽値、日付、NULLに対応|
-|ne|否定等号|$filter=itemKey ne 'searchValue'|文字列、数値、真偽値、日付、NULLに対応|
+|eq|等号|$filter=itemKey eq 'searchValue'|文字列、数値、真偽値、日付、nullに対応|
+|ne|否定等号|$filter=itemKey ne 'searchValue'|文字列、数値、真偽値、日付、nullに対応|
 |gt|より大きい|$filter=itemKey gt 1000|文字列、数値、日付に対応|
 |ge|以上|$filter=itemKey ge 1000|文字列、数値、日付に対応|
 |lt|より小さい|$filter=itemKey lt 1000|文字列、数値、日付に対応|

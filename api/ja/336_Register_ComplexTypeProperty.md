@@ -72,8 +72,8 @@ JSON
 |Name|ComplexTypeProperty名|桁数：1&#65374;128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)は指定不可|○||
 |_ComplexType.Name|紐付くComplexType名|桁数：1&#65374;128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)は指定不可|○||
 |Type|型定義|Edm.Boolean / Edm.String / Edm.Int32 / Edm.Single / Edm.Double / Edm.DateTime / 登録済みComplexType名|○||
-|Nullable|Null値許可|true / false<br>デフォルト値は Null|×||
-|DefaultValue|デフォルト値|下記表を参照<br>デフォルト値は Null|×||
+|Nullable|null値許可|true / false<br>デフォルト値は null|×||
+|DefaultValue|デフォルト値|下記表を参照<br>デフォルト値は null|×||
 |CollectionKind|配列種別|None / List<br>デフォルト値は "None"|×||
 
 ##### Valid values &#8203;&#8203;for DefaultValue
@@ -137,7 +137,7 @@ DefaultValueの有効値はTypeの値（型定義）によって異なり、以�
 |{3}|type|string|ODataSvcSchema.ComplexTypeProperty|
 |{2}|Name|string|ComplexTypeProperty名|
 |{2}|Type|string|型定義|
-|{2}|Nullable|boolean|Null値許可|
+|{2}|Nullable|boolean|null値許可|
 |{2}|DefaultValue|string|デフォルト値|
 |{2}|CollectionKind|string|配列種別|
 

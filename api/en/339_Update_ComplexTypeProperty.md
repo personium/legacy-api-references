@@ -1,8 +1,8 @@
-# ComplexTypeProrerty Update
+# ComplexTypeProperty Update
 
 ### Overview
 
-Update existing ComplexTypeProrerty information
+Update existing ComplexTypeProperty information
 
 ### Required Privileges
 
@@ -21,7 +21,7 @@ alter-schema
 #### Request URL
 
 ```
-/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/ComplexTypeProrerty('ComplexTypeProrerty')
+/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/ComplexTypeProperty('ComplexTypeProperty')
 ```
 
 #### Request Method
@@ -72,7 +72,7 @@ JSON
 
 |Item Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|Name|ComplexTypeProrerty Name|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("\_")|Yes||
+|Name|ComplexTypeProperty Name|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("\_")|Yes||
 
 #### Request Sample
 
@@ -107,7 +107,7 @@ None
 ### cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/ComplexTypeProrerty('animal')" -X PUT -i -H 'If-Match: *' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"ComplexTypeProrerty"}'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/ComplexTypeProperty('animal')" -X PUT -i -H 'If-Match: *' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"ComplexTypeProperty"}'
 ```
 
 

@@ -90,7 +90,7 @@ GET
 |{2}|Name|string|Property名|
 |{2}|_EntityType.Name|string|紐付くEntityType名|
 |{2}|Type|string|型定義|
-|{2}|Nullable|boolean|Null値許可|
+|{2}|Nullable|boolean|null値許可|
 |{2}|DefaultValue|string|デフォルト値|
 |{2}|CollectionKind|string|配列種別|
 |{2}|IsKey|boolean|主キー設定|

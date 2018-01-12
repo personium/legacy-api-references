@@ -139,8 +139,8 @@ Roleの$link情報を更新する
 ```
 /{CellName}/__ctl/Role('{RoleName}')/$links/_Relation('{RelationName}')
 ```
-※ \_Box.Nameパラメタを省略した場合は、nullが指定されたものとする
-※ ExtCellのキーはURLエンコードした文字列を指定する
+※ \_Box.Nameパラメタを省略した場合は、nullが指定されたものとする  
+※ ExtCellのキーはURLエンコードした文字列を指定する  
 
 #### メソッド
 ##### PUT

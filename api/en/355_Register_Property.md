@@ -85,7 +85,7 @@ JSON
 |_EntityType.Name|EntityType name to be attached|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("\_")|Yes||
 |Type|Type definition|Edm.Boolean / Edm.String / Edm.Int32 / Edm.Single / Edm.Double / Edm.DateTime / Registered ComplexType name|Yes||
 |Nullable|Null value authorization|true / false<br>The default value is true|No||
-|DefaultValue|Default value|Refer to the following table<br>The default value is Null|No||
+|DefaultValue|Default value|Refer to the following table<br>The default value is null|No||
 |CollectionKind|Array type|None / List<br>The default value is "None"|No||
 |IsKey|Primary key setting|true / false<br>The default value is false|No||
 |UniqueKey|Unique key setting|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("\_")|No||

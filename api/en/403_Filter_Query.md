@@ -17,8 +17,8 @@ Use the $filter query to specify the search condition when retrieving the list
 
 |Operator|Meaning|Description example|Notes|
 |:--|:--|:--|:--|
-|eq|equal|$filter=itemKey eq 'searchValue'|Corresponds to character string, numeric value, boolean value, Date, NULL|
-|ne|Negative Equal|$filter=itemKey ne 'searchValue'|Corresponds to character string, numeric value, boolean value, Date, NULL|
+|eq|equal|$filter=itemKey eq 'searchValue'|Corresponds to character string, numeric value, boolean value, Date, null|
+|ne|Negative Equal|$filter=itemKey ne 'searchValue'|Corresponds to character string, numeric value, boolean value, Date, null|
 |gt|Greater than|$filter=itemKey gt 1000|Corresponds to character string, numeric value, Date|
 |ge|Greater equal|$filter=itemKey ge 1000|Corresponds to character string, numeric value, Date|
 |lt|Less than|$filter=itemKey lt 1000|Corresponds to character string, numeric value, Date|

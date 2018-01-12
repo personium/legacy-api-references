@@ -39,8 +39,8 @@ JSON
 |:--|:--|:--|:--|:--|
 |BoxBound|Boxと紐付けるか否か|true / false<br>デフォルト値はfalse|×|Boxに結びつける場合に本項目を「true」にしてスキーマ認証したトークンを送る|
 |InReplyTo|返信対象のメッセージID|桁数：32<br>null|×||
-|To|送信先セルURL|URL形式<br>null|※ 1|複数Cellに送信する場合はCSV形式で指定する<br>※1 ToまたはRelationのどちらかは必須,<br>ToまたはRelationで指定できる送信先セルURLの最大件数は1000件|
-|ToRelation|送信対象の関係名|桁数：1&#65374;128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)と+(プラス)と:(コロン)<br>ただし、先頭文字に_(半角アンダーバー)と:(コロン)は指定不可<br>null|※ 1|※1 ToまたはRelationのどちらかは必須<br>ToまたはRelationで指定できる送信先セルURLの最大件数は1000件|
+|To|送信先セルURL|URL形式<br>null|※ 1|複数Cellに送信する場合はCSV形式で指定する<br>※1 ToまたはToRelationのどちらかは必須,<br>ToまたはToRelationで指定できる送信先セルURLの最大件数は1000件|
+|ToRelation|送信対象の関係名|桁数：1&#65374;128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)と+(プラス)と:(コロン)<br>ただし、先頭文字に_(半角アンダーバー)と:(コロン)は指定不可<br>null|※ 1|※1 ToまたはToRelationのどちらかは必須<br>ToまたはToRelationで指定できる送信先セルURLの最大件数は1000件|
 |Type|メッセージタイプ|message<br>req.relation.build<br>req.relation.break<br>req.role.grant<br>req.role.revoke|×|省略時はmessageとして扱う|
 |Title|メッセージタイトル|桁数：256文字以下|×|省略時は空文字として扱う|
 |Body|メッセージ本文|桁数：64Kbyte以下|×|省略時は空文字として扱う|

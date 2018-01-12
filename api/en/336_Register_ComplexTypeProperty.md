@@ -86,7 +86,7 @@ JSON
 |Name|ComplexTypeProperty name|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("\_")|Yes||
 |_ComplexType.Name|ComplexType name attached|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("\_")|Yes||
 |Type|Type definition|Edm.Boolean / Edm.String / Edm.Int32 / Edm.Single / Edm.Double / Edm.DateTime / Registered ComplexType name|Yes||
-|Nullable|null value authorization|true / false<br>The default value is null|No||
+|Nullable|Null value authorization|true / false<br>The default value is null|No||
 |DefaultValue|Default value|See the table below<br>The default value is null|No||
 |CollectionKind|Array type|None / List<br>The default value is "None"|No||
 
@@ -158,7 +158,7 @@ The response is a JSON object, the correspondence between the key (name) and typ
 |{3}|type|string|ODataSvcSchema.ComplexTypeProperty|
 |{2}|Name|string|ComplexTypeProperty name|
 |{2}|Type|string|Type definition|
-|{2}|Nullable|boolean|null value authorization|
+|{2}|Nullable|boolean|Null value authorization|
 |{2}|DefaultValue|string|Default value|
 |{2}|CollectionKind|string|Array type|
 

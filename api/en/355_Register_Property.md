@@ -84,7 +84,7 @@ JSON
 |Name|Property Name|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("\_")|Yes||
 |_EntityType.Name|EntityType name to be attached|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("\_")|Yes||
 |Type|Type definition|Edm.Boolean / Edm.String / Edm.Int32 / Edm.Single / Edm.Double / Edm.DateTime / Registered ComplexType name|Yes||
-|Nullable|null value authorization|true / false<br>The default value is true|No||
+|Nullable|Null value authorization|true / false<br>The default value is true|No||
 |DefaultValue|Default value|Refer to the following table<br>The default value is null|No||
 |CollectionKind|Array type|None / List<br>The default value is "None"|No||
 |IsKey|Primary key setting|true / false<br>The default value is false|No||
@@ -168,7 +168,7 @@ The response is a JSON object, the correspondence between the key (name) and typ
 |{2}|Name|string|Property Name|
 |{2}|_EntityType.Name|string|EntityType name to be attached|
 |{2}|Type|string|Type definition|
-|{2}|Nullable|boolean|null value authorization|
+|{2}|Nullable|boolean|Null value authorization|
 |{2}|DefaultValue|string|Default value|
 |{2}|CollectionKind|string|Array type|
 |{2}|IsKey|boolean|Primary key setting|

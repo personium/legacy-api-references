@@ -1,5 +1,5 @@
 # Entity_NavProp経由登録
-### 概要
+## 概要
 ユーザデータのEntityをNavigation Property経由で作成します。
 ### 必要な権限
 write
@@ -16,10 +16,11 @@ write
 	- 1つのEntityTypeに対して作成出来るのは、DynamicProperty・DeclaredProperty・ComplexTypeProperty合わせて400個まで
 
 
-### リクエスト
-#### リクエストURL
+## リクエスト
+### リクエストURL
 ```
-/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')/{NavigationPropertyName}
+/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')
+/{NavigationPropertyName}
 ```
 |パス|概要|
 |:--|:--|
@@ -38,21 +39,21 @@ write
 |1|1|
 |1|*|
 |*|*|
-#### メソッド
+### メソッド
 POST
 
-#### リクエストクエリ
-##### 共通リクエストクエリ
+### リクエストクエリ
+#### 共通リクエストクエリ
 |クエリ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|クッキー認証値|認証時にサーバから返却されたクッキー認証値|×|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する|
-#### リクエストヘッダ
+### リクエストヘッダ
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン<br>テスト未実施|
 |Accept|レスポンスボディの形式を指定する|application/json|×|省略時は[application/json]として扱う<br>未対応|
 |Content-Type|リクエストボディの形式を指定する|application/json|×|省略時は[application/json]として扱う<br>未対応|
-#### リクエストボディ
+### リクエストボディ
 |項目名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |__id|EntityのID|桁数：1&#65374;200<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)|×|指定しない場合ユニークなIDが割り当てられます<br>有効値チェック未実装|
@@ -63,23 +64,24 @@ POST
 	- 最大で400個のユーザデータを指定可能
 	- \_published、\_updatedは、予約語であるためリクエストボディの指定は不可
 
-#### リクエストサンプル
+### リクエストサンプル
 ```JSON
-{"__id": "100-1_20101108-111352093","animalId": "100-1","name": "episode","startedAt": "2010-11-08","episodeType": "care","endedAt": "","outcome": "治療中"}
+{"__id": "100-1_20101108-111352093","animalId": "100-1","name": "episode","startedAt": 
+"2010-11-08","episodeType": "care","endedAt": "","outcome": "治療中"}
 ```
 
 
-### レスポンス
-#### ステータスコード
+## レスポンス
+### ステータスコード
 201
-#### レスポンスヘッダ
+### レスポンスヘッダ
 |項目名|概要|備考|
 |:--|:--|:--|
 |Content-Type|返却されるデータの形式||
 |Location|作成したEntityのリソースURL|正常にEntityが作成できた場合のみ返却する|
 |DataServiceVersion|ODataのバージョン情報|正常にEntityが作成できた場合のみ返却する|
 |ETag|リソースのバージョン情報|正常にEntityが作成できた場合のみ返却する|
-#### レスポンスボディ
+### レスポンスボディ
 レスポンスはJSONオブジェクトで、オブジェクト（サブオブジェクト）に定義されるキー(名前)と型、並びに値の対応は以下のとおり
 
 |オブジェクト|名前（キー）|型|値|
@@ -99,16 +101,17 @@ POST
 |{1}|__count|string|$inlinecountクエリでの取得結果件数|
 
 上記以外にスキーマ設定した項目、または登録時に指定した動的な項目を返却
-#### エラーメッセージ一覧
+### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
 
-#### レスポンスサンプル
+### レスポンスサンプル
 ```JSON
 {
   "d": {
     "results": {
       "__metadata": {
-        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('100-1_20101108-111352093')",
+        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}
+('100-1_20101108-111352093')",
         "etag": "W/\"1-1487929403469\"",
         "type": "UserData.{EntityTypeName}"
       },
@@ -118,7 +121,8 @@ POST
       "PetName": null,
       "{NavigationPropertyName}": {
         "__deferred": {
-          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('100-1_20101108-111352093')/{NavigationPropertyName}"
+          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}
+('100-1_20101108-111352093')/{NavigationPropertyName}"
         }
       }
     }
@@ -127,11 +131,12 @@ POST
 ```
 
 
-### cURLサンプル
+## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')/{NavigationPropertyName}" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"__id": "100-1_20101108-111352093"}'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')\
+/{NavigationPropertyName}" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H \
+'Accept: application/json' -d '{"__id": "100-1_20101108-111352093"}'
 
 ```
 
-###### Copyright 2017 FUJITSU LIMITED

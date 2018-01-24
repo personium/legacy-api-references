@@ -1,5 +1,5 @@
 # Box_NavProp経由取得
-### 概要
+## 概要
 セル制御オブジェクトをNavigation Property経由で取得する
 ### 必要な権限
 * Roleを取得する場合<br>auth-read
@@ -13,9 +13,9 @@
 * $formatクエリオプションは無視される
 
 
-### リクエスト
-#### リクエストURL
-##### RoleへのnavigationProperty
+## リクエスト
+### リクエストURL
+#### RoleへのnavigationProperty
 ```
 /{CellName}/__ctl/Box(Name='{BoxName}',Schema='SchemaURL')/_Role
 ```
@@ -27,7 +27,7 @@
 ```
 /{CellName}/__ctl/Box('{BoxName}')/_Role
 ```
-##### RelationへのnavigationProperty
+#### RelationへのnavigationProperty
 ```
 /{CellName}/__ctl/Box(Name='{BoxName}',Schema='SchemaURL')/_Relation
 ```
@@ -40,9 +40,9 @@
 /{CellName}/__ctl/Box('{BoxName}')/_Relation
 ```
 ※ Schemaパラメタを省略した場合は、nullが指定されたものとする
-#### メソッド
+### メソッド
 GET
-#### リクエストクエリ
+### リクエストクエリ
 以下のクエリパラメタが利用可能です。
 
 |クエリ名|概要|有効値|必須|備考|
@@ -67,7 +67,7 @@ GET
 
 [全文検索(q)クエリ](408_Full_Text_Search_Query.md)
 
-#### リクエストヘッダ
+### リクエストヘッダ
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |X-HTTP-Method-Override|メソッドオーバーライド機能|任意|×|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用されます。|
@@ -75,23 +75,20 @@ GET
 |X-Personium-RequestKey|イベントログに出力するRequestKeyフィールドの値|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字|×|指定がない場合、PCS-${UNIX時間}を設定する|
 |Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
 |Accept|レスポンスボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
-#### リクエストボディ
-なし
-#### リクエストサンプル
+### リクエストボディ
 なし
 
-
-### レスポンス
-#### ステータスコード
+## レスポンス
+### ステータスコード
 200
-#### レスポンスヘッダ
+### レスポンスヘッダ
 |ヘッダ名|概要|備考|
 |:--|:--|:--|
 |Content-Type|返却されるデータの形式||
 |DataServiceVersion|ODataのバージョン||
 |Access-Control-Allow-Origin|クロスドメイン通信許可ヘッダ|返却値は"*"固定|
 |X-Personium-Version|APIの実行バージョン|リクエストが処理されたAPIバージョン|
-#### レスポンスボディ
+### レスポンスボディ
 |オブジェクト|項目名|Data Type|備考|
 |:--|:--|:--|:--|
 |ルート|d|object|オブジェクト{1}|
@@ -103,23 +100,24 @@ GET
 |{2}|__updated|string|更新日(UNIX時間)|
 |{1}|__count|string|$inlinecountクエリでの取得結果件数|
 
-##### Relationを取得した場合
+#### Relationを取得した場合
 |オブジェクト|項目名|Data Type|備考|
 |:--|:--|:--|:--|
 |{3}|type|string|CellCtl.Relation|
 |{2}|Name|string|Relation名|
 |{2}|_Box.Name|string|関係対象のBox名|
-#### エラーメッセージ一覧
+### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
 
-##### レスポンスサンプル
+#### レスポンスサンプル
 ```JSON
 {
   "d": {
     "results": [
       {
         "__metadata": {
-          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')",
+          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}'
+,_Box.Name='{BoxName}')",
           "etag": "W/\"1-1486700131198\"",
           "type": "CellCtl.Relation"
         },
@@ -129,22 +127,26 @@ GET
         "__updated": "/Date(1486700131198)/",
         "_Box": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_Box"
+            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}'
+,_Box.Name='{BoxName}')/_Box"
           }
         },
         "_ExtCell": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_ExtCell"
+            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}'
+,_Box.Name='{BoxName}')/_ExtCell"
           }
         },
         "_ExtRole": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_ExtRole"
+            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}'
+,_Box.Name='{BoxName}')/_ExtRole"
           }
         },
         "_Role": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_Role"
+            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}'
+,_Box.Name='{BoxName}')/_Role"
           }
         }
       }
@@ -154,15 +156,15 @@ GET
 ```
 
 
-### cURLサンプル
+## cURLサンプル
 ```sh
 curl
-"https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_Role" -X POST -i  -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{RoleName}"}'
+"https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_Role" -X POST -i  -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{RoleName}"}'
 ```
-##### Relationを取得する場合
+#### Relationを取得する場合
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_Relation" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_Relation" -X GET -i -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 
-
-###### Copyright 2017 FUJITSU LIMITED

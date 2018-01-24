@@ -1,5 +1,5 @@
 # AssociationEnd登録
-### 概要
+## 概要
 ユーザーデータのAssociationEndを登録する
 ### 必要な権限
 alter-schema
@@ -12,35 +12,35 @@ alter-schema
 	- AssociationEndでMultiplicityに"1"を指定した場合、"0..1"として動作する
 
 
-### リクエスト
-#### リクエストURL
+## リクエスト
+### リクエストURL
 ```
 /{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/AssociationEnd
 ```
-#### メソッド
+### メソッド
 POST
-#### リクエストクエリ
+### リクエストクエリ
 |クエリ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|クッキー認証値|認証時にサーバから返却されたクッキー認証値|×|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する|
-#### リクエストヘッダ
-##### 共通リクエストヘッダ
+### リクエストヘッダ
+#### 共通リクエストヘッダ
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |X-HTTP-Method-Override|メソッドオーバーライド機能|任意|×|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用される|
 |X-Override|ヘッダオーバライド機能|${上書きするヘッダ名}:${値}|×|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定する|
 |X-Personium-RequestKey|イベントログに出力するRequestKeyフィールドの値|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字|×|指定がない場合、PCS-${UNIX時間}を設定する|
-##### OData共通リクエストヘッダ
+#### OData共通リクエストヘッダ
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
-##### OData登録リクエストヘッダ
+#### OData登録リクエストヘッダ
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |Content-Type|リクエストボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
 |Accept|レスポンスボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
-#### リクエストボディ
-##### Format
+### リクエストボディ
+#### Format
 JSON
 
 |項目名|概要|有効値|必須|備考|
@@ -49,7 +49,7 @@ JSON
 |Multiplicity|多重度|"0 .. 1" / "1" / "*"|○||
 |_EntityType.Name|関係対象のEntityType名|桁数：1&#65374;128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)は指定不可<br>説明：EntityType登録APIにて登録済みのEntityType|○||
 
-#### リクエストサンプル
+### リクエストサンプル
 ```JSON
 {
    "Name": "{AssociationEndName}",
@@ -58,17 +58,17 @@ JSON
 }
 ```
 
-### レスポンス
-#### ステータスコード
+## レスポンス
+### ステータスコード
 201
-#### レスポンスヘッダ
-##### 共通レスポンスヘッダ
+### レスポンスヘッダ
+#### 共通レスポンスヘッダ
 |ヘッダ名|概要|備考|
 |:--|:--|:--|
 |Access-Control-Allow-Origin|クロスドメイン通信許可ヘッダ|返却値は"*"固定|
 |X-Personium-Version|APIの実行バージョン|リクエストが処理されたAPIバージョン|
 
-##### ODataレスポンスヘッダ
+#### ODataレスポンスヘッダ
 |ヘッダ名|概要|備考|
 |:--|:--|:--|
 |Content-Type|返却されるデータの形式||
@@ -76,8 +76,8 @@ JSON
 |DataServiceVersion|ODataのバージョン||
 |ETag|リソースのバージョン情報||
 
-#### レスポンスボディ
-##### 共通レスポンスボディ
+### レスポンスボディ
+#### 共通レスポンスボディ
 レスポンスはJSONオブジェクトで、オブジェクト（サブオブジェクト）に定義されるキー(名前)と型、並びに値の対応は以下のとおりです。
 
 |オブジェクト|名前（キー）|型|値|
@@ -91,20 +91,21 @@ JSON
 |{2}|__updated|string|更新日(UNIX時間)|
 |{1}|__count|string|$inlinecountクエリでの取得結果件数|
 
-##### AssociationEnd個別レスポンスボディ
+#### AssociationEnd個別レスポンスボディ
 |オブジェクト|名前（キー）|型|値|
 |:--|:--|:--|:--|
 |{3}|type|string|ODataSvcSchema.AssociationEnd|
 |{2}|Name|string|AssociationEnd名|
 |{2}|Multiplicity|string|多重度|
 |{2}|_EntityType.Name|string|関係対象のEntityType名|
-#### レスポンスサンプル
+### レスポンスサンプル
 ```JSON
 {
   "d": {
     "results": {
       "__metadata": {
-        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/$metadata/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')",
+        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/$metadata
+/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')",
         "etag": "W/\"1-1487652733383\"",
         "type": "ODataSvcSchema.AssociationEnd"
       },
@@ -117,13 +118,15 @@ JSON
   }
 }
 ```
-### エラーメッセージ一覧
+## エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
 
-### cURLサンプル
+## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata/AssociationEnd" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{ "Name": "{AssociationEndName}", "Multiplicity": "{Multiplicity}", "_EntityType.Name": "{EntityTypeName}"}'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata/AssociationEnd" \
+-X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
+'{ "Name": "{AssociationEndName}", "Multiplicity": "{Multiplicity}", "_EntityType.Name": \
+"{EntityTypeName}"}'
 ```
 
-###### Copyright 2017 FUJITSU LIMITED

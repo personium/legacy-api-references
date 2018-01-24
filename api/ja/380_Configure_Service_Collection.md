@@ -1,14 +1,14 @@
 # サービスコレクションソース設定適用
-### 概要
+## 概要
 サービスコレクションソースの設定を適用する
-### 制限事項
-未稿
 ### 必要な権限
 write-properties
+### 制限事項
+未稿
 
 
-### リクエスト
-#### リクエストURL
+## リクエスト
+### リクエストURL
 ```
 /{CellName}/{BoxName}/{CollectionName}
 ```
@@ -17,27 +17,27 @@ write-properties
 |{CellName}|セル名||
 |{BoxName}|ボックス名||
 |{CollectionName}|サービスコレクション名|有効値 桁数:1&#65374;128<br>使用可能文字種<br>半角英数字、半角ピリオド(.)、半角アンダーバー(_)、半角ハイフン(-)|
-#### メソッド
+### メソッド
 PROPPATCH
-#### リクエストクエリ
-##### 共通リクエストクエリ
+### リクエストクエリ
+#### 共通リクエストクエリ
 |クエリ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|クッキー認証値|認証時にサーバから返却されたクッキー認証値|×|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する|
-#### リクエストヘッダ
-##### 共通リクエストヘッダ
+### リクエストヘッダ
+#### 共通リクエストヘッダ
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |X-HTTP-Method-Override|メソッドオーバーライド機能|任意|×|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用されます。|
 |X-Override|ヘッダオーバライド機能|${上書きするヘッダ名}:${値}|×|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定します。|
 |X-Personium-RequestKey|イベントログに出力するRequestKeyフィールドの値|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字|×|指定がない場合、PCS-${UNIX時間}を設定する|
-##### サービスコレクション設定固有リクエストヘッダ
+#### サービスコレクション設定固有リクエストヘッダ
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
 |Content-Type|コンテンツ形式を指定する|application/xml|×||
 |Accept|レスポンスで受け入れ可能なメディアタイプを指定する|application/xml|×||
-#### リクエストボディ
+### リクエストボディ
 名前空間
 
 |URI|概要|参考prefix|
@@ -63,7 +63,7 @@ DTD表記
 <!ELEMENT remove (prop*) >
 <!ELEMENT prop ANY>
 ```
-#### サービスコレクション設定固有定義
+### サービスコレクション設定固有定義
 |ノード名|名前空間|ノードタイプ|概要|備考|
 |:--|:--|:--|:--|:--|
 |service|p:|要素|サービス設定を表し、1つ以上複数のpath要素を子とする||
@@ -81,7 +81,7 @@ DTD表記
 <!ATTLIST path name CDATA #REQUIRED>
 <!ATTLIST path src CDATA #REQUIRED>
 ```
-#### リクエストサンプル
+### リクエストサンプル
 ```xml
 <D:propertyupdate xmlns:D="DAV:"
     xmlns:p="urn:x-personium:xmlns">
@@ -96,12 +96,12 @@ DTD表記
 ```
 
 
-### レスポンス
-#### ステータスコード
+## レスポンス
+### ステータスコード
 207
-#### レスポンスヘッダ
+### レスポンスヘッダ
 なし
-#### レスポンスボディ
+### レスポンスボディ
 名前空間
 
 |URI|概要|参考prefix|
@@ -130,7 +130,7 @@ DTD表記
 <!ELEMENT prop ANY>
 <!ELEMENT status (#PCDATA)>
 ```
-#### レスポンスサンプル
+### レスポンスサンプル
 ```xml
 <multistatus xmlns="DAV:">
     <response>
@@ -146,13 +146,16 @@ DTD表記
     </response>
 </multistatus>
 ```
-#### エラーメッセージ一覧
+### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
 
-### cURLサンプル
+## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}" -X PROPPATCH -i -H "Authorization:Bearer {AccessToken}" -H "Accept:application/json" -d "<?xml version=\"1.0\" encoding=\"utf-8\" ?><D:propertyupdate xmlns:D=\"DAV:\" xmlns:p=\"urn:x-personium:xmlns\"><D:set><D:prop><p:service language=\"JavaScript\"><p:path name=\"sample\" src=\"sample.js\"/></p:service></D:prop></D:set></D:propertyupdate>"
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}" -X PROPPATCH -i -H \
+"Authorization:Bearer {AccessToken}" -H "Accept:application/json" -d "<?xml version=\"1.0\" \
+encoding=\"utf-8\" ?><D:propertyupdate xmlns:D=\"DAV:\" xmlns:p=\"urn:x-personium:xmlns\"><D:set>\
+<D:prop><p:service language=\"JavaScript\"><p:path name=\"sample\" src=\"sample.js\"/></p:service>\
+</D:prop></D:set></D:propertyupdate>"
 ```
 
-###### Copyright 2017 FUJITSU LIMITED

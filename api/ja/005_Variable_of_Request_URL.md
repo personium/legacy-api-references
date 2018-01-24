@@ -1,8 +1,8 @@
 # リクエストURLの変数一覧
-### 概要
+## 概要
 APIリファレンスのリクエストURLで使われている変数についての説明
 
-### 変数一覧
+## 変数一覧
 
 |変数名|概要|備考|
 |:--|:--|:--|
@@ -31,4 +31,3 @@ APIリファレンスのリクエストURLで使われている変数につい�
 |{ServiceSourceName}|ServiceSource名<br>ServiceとはServiceCollectionに登録されたユーザ定義のサーバサイドロジックを指す||
 |{ServiceName}|Service名<br>Serviceを実行する際に用いられる|ServiceSource名から拡張子を除いたもの|
 
-###### Copyright 2017 FUJITSU LIMITED

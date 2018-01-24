@@ -369,7 +369,8 @@ Boxインストール時には、Schemaタグの配下をインストール対�
 ```xml
 <Edmx: Edmx Version = '1 .0 'xmlns: edmx =' http://schemas.microsoft.com/ado/2007/06/edmx \
 'xmlns: d =' http://schemas.microsoft.com/ado/2007 / 08/dataservices' xmlns:\
- m = 'http://schemas.microsoft.com/ado/2007/08/dataservices/metadata' xmlns: p = 'urn: x-personium: xmlns'>
+ m = 'http://schemas.microsoft.com/ado/2007/08/dataservices/metadata' xmlns:\
+ p = 'urn: x-personium: xmlns'>
   <edmx:DataServices m:DataServiceVersion='1.0'>
     <Schema Xmlns='http://schemas.microsoft.com/ado/2006/04/edm' Namespace='UserData'>
       <EntityContainer Name='UserData' m:IsDefaultEntityContainer='true'/>
@@ -496,4 +497,3 @@ bar/90_contents/{Service}/{src.js}に格納されたソースファイルを、�
 </multistatus>
 ```
 
-###### Copyright 2018 FUJITSU LIMITED

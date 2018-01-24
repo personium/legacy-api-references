@@ -1,5 +1,5 @@
 # Cell Level アクセス制御設定
-### 概要
+## 概要
 Cell Level のアクセス制御機能を提供する。
 
 ### 必要な権限
@@ -12,15 +12,15 @@ ACL設定を行うと、既存のACL設定を上書きされる形で更新さ�
 	- ACLで設定出来るprivilegeの一覧取得
 
 
-### リクエスト
-#### リクエストURL
+## リクエスト
+### リクエストURL
 ```
 /{CellName}
 ```
-#### メソッド
+### メソッド
 ACL
 
-#### リクエストクエリ
+### リクエストクエリ
 共通リクエストクエリ
 
 |クエリ名|概要|有効値|必須|備考|
@@ -28,20 +28,20 @@ ACL
 |p_cookie_peer|クッキー認証値|認証時にサーバから返却されたクッキー認証値|×|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する|
 
 
-#### 共通リクエストヘッダ
+### 共通リクエストヘッダ
 
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |X-HTTP-Method-Override|メソッドオーバーライド機能|任意|×|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用されます。|
 |X-Override|ヘッダオーバライド機能|${上書きするヘッダ名}:${値}|×|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定します。|
 |X-Personium-RequestKey|イベントログに出力するRequestKeyフィールドの値|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字|×|指定がない場合、PCS-${UNIX時間}を設定する|
-#### リクエストヘッダ
+### リクエストヘッダ
 
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
-#### リクエストボディ
-#### 名前空間
+### リクエストボディ
+### 名前空間
 
 |URI|概要|備考 (prefix)|
 |:--|:--|:--|
@@ -49,7 +49,7 @@ ACL
 |urn&#58;x-personium:xmlns|Personiumの名前空間|p:|
 ※ 参考prefixは以下表の可読性を高めるためのもので、このprefix文字列の使用を保証するものでも要求するものでもありません。
 
-#### XMLの構造
+### XMLの構造
 ボディはXMLで、以下のスキーマに従っています。  
 privilegeタグ配下の権限設定の内容については、acl_model（[アクセス制御モデル](../../user_guide/002_Access_Control.md)）を参照。
 
@@ -82,7 +82,7 @@ privilegeタグ配下の権限設定の内容については、acl_model（[ア�
 |acl-read|p:|要素|ACL管理API参照権限||
 |propfind|p:|要素|プロパティ取得API参照権限||
 
-##### DTD表記
+#### DTD表記
 名前空間：D:
 ```dtd
 <!ELEMENT acl (ace*) >
@@ -92,7 +92,8 @@ privilegeタグ配下の権限設定の内容については、acl_model（[ア�
 <!ELEMENT principal (privilege+)>
 <!ELEMENT href (#PCDATA)>
 <!ELEMENT all EMPTY>
-<!ELEMENT privilege (root or auth or auth-read or message or message-read or event or event-read or social or social-read or box or box-read or acl or acl-read or propfind)>
+<!ELEMENT privilege (root or auth or auth-read or message or message-read or event or 
+event-read or social or social-read or box or box-read or acl or acl-read or propfind)>
 ```
 
 
@@ -123,10 +124,11 @@ privilegeタグ配下の権限設定の内容については、acl_model（[ア�
 <!ELEMENT propfind EMPTY>
 ```
 
-#### リクエストサンプル
+### リクエストサンプル
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
-<D:acl xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" xml:base="https://example.com/testcell1/__role/box1/">
+<D:acl xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" 
+xml:base="https://example.com/testcell1/__role/box1/">
     <D:ace>
         <D:principal>
             <D:all/>
@@ -147,26 +149,29 @@ privilegeタグ配下の権限設定の内容については、acl_model（[ア�
 </D:acl>
 ```
 
-### レスポンス
-#### ステータスコード
+## レスポンス
+### ステータスコード
 
 |コード|メッセージ|概要|
 |:--|:--|:--|
 |200|OK|成功|
-#### レスポンスヘッダ
+### レスポンスヘッダ
 
 |項目名|概要|備考|
 |:--|:--|:--|
 |Content-Type|返却されるデータの形式||
-#### レスポンスボディ
+### レスポンスボディ
 なし
 
-#### エラーメッセージ一覧
+### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
 
-### cURLサンプル
+## cURLサンプル
 ```sh
-curl "https://{UnitFQDN}/{CellName}" -X ACL -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8" ?><D:acl xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" xml:base="http://{UnitFQDN}/{CellName}/__role/{BoxName}/">  <D:ace><D:principal><D:href>{RoleName}</D:href></D:principal><D:grant><D:privilege><p:box-read/></D:privilege><D:privilege><p:auth/></D:privilege></D:grant></D:ace></D:acl>'
+curl "https://{UnitFQDN}/{CellName}" -X ACL -i -H 'Authorization: Bearer {AccessToken}' -H \
+'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8" ?><D:acl xmlns:D="DAV:" \
+xmlns:p="urn:x-personium:xmlns" xml:base="http://{UnitFQDN}/{CellName}/__role/{BoxName}/">  \
+<D:ace><D:principal><D:href>{RoleName}</D:href></D:principal><D:grant><D:privilege><p:box-read/>\
+</D:privilege><D:privilege><p:auth/></D:privilege></D:grant></D:ace></D:acl>'
 ```
 
-###### Copyright 2017 FUJITSU LIMITED

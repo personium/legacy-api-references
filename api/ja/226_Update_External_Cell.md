@@ -1,5 +1,5 @@
 # ExtCell更新
-### 概要
+## 概要
 既存のExtCell情報を更新する
 
 ### 必要な権限
@@ -13,22 +13,22 @@ auth
 * $formatクエリオプションは無視される
 
 
-### リクエスト
-#### リクエストURL
+## リクエスト
+### リクエストURL
 ```
 /{CellName}/__ctl/ExtCell('http%3A%2F%2F{UnitFQDN}%2F{CellName}')
 ```
-#### メソッド
+### メソッド
 PUT
 
-#### リクエストクエリ
+### リクエストクエリ
 
 |クエリ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|クッキー認証値|認証時にサーバから返却されたクッキー認証値|×|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する|
 &#160;
 
-#### リクエストヘッダ
+### リクエストヘッダ
 
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
@@ -39,39 +39,36 @@ PUT
 |Content-Type|リクエストボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
 |Accept|レスポンスボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
 |If-Match|対象ETag値を指定する|ETag値|×|省略時は[*]として扱う|
-#### リクエストボディ
+### リクエストボディ
 
 |項目名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |Url|CellへのURL|桁数：1&#65374;1024<br>URIの形式に従う<br>scheme：http, https<br>トレイリングスラッシュ(URL終端の/)必須|○||
-#### リクエストサンプル
+### リクエストサンプル
 ```JSON
 {
   "Url": "https://{UnitFQDN}/{CellName}/"
 }
 ```
 
-### レスポンス
-#### ステータスコード
+## レスポンス
+### ステータスコード
 204
 
-#### レスポンスヘッダ
+### レスポンスヘッダ
 なし
 
-#### レスポンスボディ
+### レスポンスボディ
 なし
 
-#### エラーメッセージ一覧
+### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
 
-#### レスポンスサンプル
-なし
-
-### cURLサンプル
+## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/ExtCell('http%3A%2F%2F{UnitFQDN}%2F{CellName}')" -X PUT -i -H 'If-Match: *' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/__ctl/ExtCell('http%3A%2F%2F{UnitFQDN}%2F{CellName}')" -X \
+PUT -i -H 'If-Match: *' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
  -H 'Accept: application/json' -d '{"Url":"http://{UnitFQDN}/{CellName}/"}'
 ```
 
-###### Copyright 2017 FUJITSU LIMITED

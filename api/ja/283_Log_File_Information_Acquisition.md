@@ -1,5 +1,5 @@
 # ログファイル情報取得
-### 概要
+## 概要
 イベントログのログファイル情報を取得する。  
 ローテートされたログファイルの保持世代数は最大12世代である。  
 ログファイルのローテート時に最大保持世代数を超えた場合は、最古のログファイルが削除される。
@@ -15,38 +15,38 @@ log-read
 * ローテート時のファイル名は、 default.log.{Timestamp} とする。 {Timestamp}は、ローテートされたときの時刻で採番される。
 
 
-### リクエスト
-#### リクエストURL
-##### 最新のログファイル一覧取得
+## リクエスト
+### リクエストURL
+#### 最新のログファイル一覧取得
 ```
 /{CellName}/__log/current
 ```
 
-##### 最新のログファイル情報取得
+#### 最新のログファイル情報取得
 ```
 /{CellName}/__log/current/default.log
 ```
 
-##### ローテートされたログファイル一覧取得
+#### ローテートされたログファイル一覧取得
 ```
 /{CellName}/__log/archive
 ```
 
-##### ローテートされたログファイル情報取得
+#### ローテートされたログファイル情報取得
 ```
 /{CellName}/__log/archive/default.log.{Timestamp}
 ```
 
-#### メソッド
+### メソッド
 PROPFIND
 
-#### リクエストクエリ
+### リクエストクエリ
 
 |クエリ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|クッキー認証値|認証時にサーバから返却されたクッキー認証値|×|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する|
 
-#### リクエストヘッダ
+### リクエストヘッダ
 
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
@@ -55,23 +55,23 @@ PROPFIND
 |X-Personium-RequestKey|イベントログに出力するRequestKeyフィールドの値|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字|×|指定がない場合、PCS-${UNIX時間}を設定する|
 |Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
 |Depth|取得するリソースの階層|0:対象のリソース自身<br>1:対象のリソースとそれの直下のリソース|○||
-#### リクエストボディ
+### リクエストボディ
 なし
 
 
-### レスポンス
-#### ステータスコード
+## レスポンス
+### ステータスコード
 
 |コード|メッセージ|概要|
 |:--|:--|:--|
 |207|Multi-Status|成功|
-#### レスポンスヘッダ
+### レスポンスヘッダ
 
 |項目名|概要|備考|
 |:--|:--|:--|
 |Content-Type|返却されるデータの形式||
 |DataServiceVersion|ODataのバージョン情報|正常にEntityが取得できた場合のみ返却する|
-#### レスポンスボディ
+### レスポンスボディ
 名前空間
 
 |項目名|概要|備考|
@@ -81,7 +81,7 @@ PROPFIND
 
 ※ 参考prefixは以下表の可読性を高めるためのもので、このprefix文字列の使用を保証するものでも要求するものでもありません。
 
-##### XMLの構造
+#### XMLの構造
 ボディはXMLで、以下のスキーマに従っています。
 
 |ノード名|Namespace|ノードタイプ|概要|備考|
@@ -103,7 +103,7 @@ PROPFIND
 |base|p:|要素|ACLのPrivilegeのBaseURL|CellへのPROPFINDの場合、デフォルトボックス（"__"）のリソースURL|
 |status|D:|要素|リソース取得のレスポンスコードを表す||
 
-##### DTD表記
+#### DTD表記
 名前空間：D:
 ```dtd
 <!ELEMENT multistatus (response*)>
@@ -132,10 +132,10 @@ PROPFIND
 <!ATTLIST acl base CDATA #IMPLIED>
 ```
 
-#### エラーメッセージ一覧
+### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
 
-#### レスポンスサンプル
+### レスポンスサンプル
 ```xml
 <multistatus xmlns="DAV:">
     <response>
@@ -154,9 +154,10 @@ PROPFIND
 </multistatus>
 ```
 
-### cURLサンプル
+## cURLサンプル
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__log/archive" -X PROPFIND -i -H 'Depth:1' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8"?><D:propfind xmlns:D="DAV:"><D:allprop/></D:propfind>'
+curl "https://{UnitFQDN}/{CellName}/__log/archive" -X PROPFIND -i -H 'Depth:1' -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
+'<?xml version="1.0" encoding="utf-8"?><D:propfind xmlns:D="DAV:"><D:allprop/></D:propfind>'
 ```
 
-###### Copyright 2017 FUJITSU LIMITED

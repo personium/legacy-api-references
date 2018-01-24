@@ -1,5 +1,5 @@
 # Account取得
-### 概要
+## 概要
 既存のAccount情報を取得する
 ### 必要な権限
 auth-read
@@ -10,8 +10,8 @@ auth-read
 * $formatクエリオプションにatom または xmlを指定した場合、エラーとはならないが、レスポンスボディのデータの保証はない
 
 
-### リクエスト
-#### リクエストURL
+## リクエスト
+### リクエストURL
 ```
 /{CellName}/__ctl/Account(Name='aoount_name')
 ```
@@ -19,9 +19,9 @@ auth-read
 ```
 /{CellName}/__ctl/Account('{AccountName}')
 ```
-#### メソッド
+### メソッド
 GET
-#### リクエストクエリ
+### リクエストクエリ
 |クエリ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|クッキー認証値|認証時にサーバから返却されたクッキー認証値|×|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する|
@@ -32,7 +32,7 @@ GET
 
 [$format クエリ](404_Format_Query.md)
 
-#### リクエストヘッダ
+### リクエストヘッダ
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |X-HTTP-Method-Override|メソッドオーバーライド機能|任意|×|POSTメソッドでリクエスト時にこの値を指定すると、<br>指定した値がメソッドとして使用されます。|
@@ -41,18 +41,16 @@ GET
 |Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
 |Accept|レスポンスボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
 |If-None-Match|対象ETag値を指定する|ETag値|○|未対応|
-#### リクエストボディ
-なし
-#### リクエストサンプル
+### リクエストボディ
 なし
 
 
-### レスポンス
-#### ステータスコード
+## レスポンス
+### ステータスコード
 200
-#### レスポンスヘッダ
+### レスポンスヘッダ
 なし
-#### レスポンスボディ
+### レスポンスボディ
 |オブジェクト|Name(Key)|Type|Value|
 |:--|:--|:--|:--|
 |Root|d|object|オブジェクト{1}|
@@ -64,7 +62,7 @@ GET
 |{2}|__updated|string|更新日(UNIX時間)|
 |{1}|__count|string|$inlinecountクエリでの取得結果件数|
 
-#### Account固有レスポンスボディ
+### Account固有レスポンスボディ
 |オブジェクト|項目名|型|備考|
 |:--|:--|:--|:--|
 |{3}|type|string|CellCtl.Account|
@@ -73,10 +71,10 @@ GET
 |{2}|Type|string|初期値:"basic"|
 |{2}|Cell|string|デフォルト：null|
 
-#### エラーメッセージ一覧
+### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
 
-#### レスポンスサンプル
+### レスポンスサンプル
 ```JSON
 {
   "d": {
@@ -108,10 +106,10 @@ GET
 ```
 
 
-### cURLサンプル
+## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Account('{AccountName}')" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Account('{AccountName}')" -X GET -i -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 
-###### Copyright 2017 FUJITSU LIMITED

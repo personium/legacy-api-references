@@ -1,5 +1,5 @@
 # 全文検索(q) クエリ
-### 概要
+## 概要
 一覧取得時に全文検索キーワードを指定する場合は全文検索(q)クエリを使用する  
 コンプレックスタイプのデータを含めて、全ての値が検索対象
 
@@ -7,7 +7,7 @@
 ※クエリを指定する際はURLエンコードが必要  
 ※\__updated, \_publishedの値を指定する場合は、UNIX時間（"/Date()"の括弧内の数字）で指定  
 ※\_metadata内の項目は検索対象外
-### リクエストクエリ
+## リクエストクエリ
 ```
 q={SearchKeyword}
 ```
@@ -15,7 +15,7 @@ q={SearchKeyword}
 |:--|:--|:--|:--|
 |{SearchKeyword}|検索文字列を指定する|桁数：1&#65374;255 byte||
 
-### 検索対象となる型
+## 検索対象となる型
 検索対象となるデータ型を以下に示す
 
 |データ型|検索対象|備考|
@@ -26,7 +26,7 @@ q={SearchKeyword}
 |Edm.Int32|○||
 |Edm.Double|○|動的プロパティのみ|
 |Edm.DateTime|×||
-### 検索の仕様
+## 検索の仕様
 * 半角空白
 	- 区切り文字として扱う
 	- "(ダブルコート)で囲んでも、一単語として扱われない
@@ -42,11 +42,10 @@ q="ぽち%20たま"
 	- 部分一致の検索可
 	- 大文字・小文字の区別は行わない
 
-### cURLサンプル
+## cURLサンプル
 例：セル一覧を取得時、sampleというキーワードと一致するセルを取得する場合:
 ```sh
-curl "https://{UnitFQDN}/__ctl/Cell?q=sample" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/__ctl/Cell?q=sample" -X GET -i -H 'Authorization: Bearer {AccessToken}' \
+-H 'Accept: application/json'
 ```
 
-
-###### Copyright 2017 FUJITSU LIMITED

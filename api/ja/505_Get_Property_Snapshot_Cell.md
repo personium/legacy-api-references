@@ -1,5 +1,5 @@
 # Cellスナップショットファイル設定取得
-### 概要
+## 概要
 Cellスナップショットファイルプロパティを取得する。
 
 ### 必要な権限
@@ -9,8 +9,8 @@ root
 * レスポンスボディで返却するプロパティを指定する機能（現状allpropとなる）
 
 
-### リクエスト
-#### リクエストURL
+## リクエスト
+### リクエストURL
 ```
 /{CellName}/__snapshot
 ```
@@ -19,15 +19,15 @@ root
 /{CellName}/__snapshot/{FileName}
 ```
 
-#### メソッド
+### メソッド
 PROPFIND
 
-#### リクエストクエリ
+### リクエストクエリ
 |クエリ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|クッキー認証値|認証時にサーバから返却されたクッキー認証値|×|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する|
 
-#### リクエストヘッダ
+### リクエストヘッダ
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |X-HTTP-Method-Override|メソッドオーバーライド機能|任意|×|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用される|
@@ -36,7 +36,7 @@ PROPFIND
 |Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
 |Depth|取得するリソースの階層|0:対象のリソース自身 <br>1:対象のリソースとそれの直下のリソース|○||
 
-#### リクエストボディ
+### リクエストボディ
 名前空間
 
 |URI|概要|参考prefix|
@@ -60,7 +60,7 @@ DTD表記
 <!ELEMENT allprop ENPTY >
 ```
 
-#### リクエストサンプル
+### リクエストサンプル
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <D:propfind xmlns:D="DAV:">
@@ -68,20 +68,20 @@ DTD表記
 </D:propfind>
 ```
 
-### レスポンス
-#### ステータスコード
+## レスポンス
+### ステータスコード
 |コード|メッセージ|概要|
 |:--|:--|:--|
 |207|Multi-Status|成功|
 
-#### レスポンスヘッダ
+### レスポンスヘッダ
 |ヘッダ名|概要|備考|
 |:--|:--|:--|
 |Content-Type|返却されるデータの形式||
 |Access-Control-Allow-Origin|クロスドメイン通信許可ヘッダ|返却値は"*"固定|
 |X-Personium-Version|APIの実行バージョン|リクエストが処理されたAPIバージョン|
 
-#### レスポンスボディ
+### レスポンスボディ
 名前空間
 
 |URI|概要|参考prefix|
@@ -132,10 +132,10 @@ DTD表記
 <!ELEMENT acl (ace*)>
 ```
 
-#### エラーメッセージ一覧
+### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
 
-#### レスポンスサンプル
+### レスポンスサンプル
 ```xml
 <multistatus xmlns="DAV:">
     <response>
@@ -155,9 +155,10 @@ DTD表記
 </multistatus>
 ```
 
-### cURLサンプル
+## cURLサンプル
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__snapshot/CellExport_2017_01.zip" -X PROPFIND -i  -H 'Depth:0' -H 'Authorization: Bearer {AccessToken}' -d '<?xml version="1.0" encoding="utf-8"?><D:propfind xmlns:D="DAV:"><D:allprop/></D:propfind>'
+curl "https://{UnitFQDN}/{CellName}/__snapshot/CellExport_2017_01.zip" -X PROPFIND -i  \
+-H 'Depth:0' -H 'Authorization: Bearer {AccessToken}' -d '<?xml version="1.0" \
+encoding="utf-8"?><D:propfind xmlns:D="DAV:"><D:allprop/></D:propfind>'
 ```
 
-###### Copyright 2017 FUJITSU LIMITED

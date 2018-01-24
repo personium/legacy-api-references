@@ -1,5 +1,5 @@
 # Boxインストール
-### 概要
+## 概要
 barファイルを使って指定されたパスにBoxをインストールする。barファイルフォーマットについては 「[barファイル](301_Bar_File.md)」を参照。  
 本APIは非同期通信方式を採用しているため、本APIではBoxインストールを受け付けた後、即復帰する。  
 そのため、Boxインストール状況を確認するには、以下のAPIを使用する。
@@ -62,21 +62,21 @@ box-install
 |PL-BI-1004|install failed ({cause})|barファイル内エントリインストール完了(異常終了)|
 |PL-BI-1005|Unknown Error ({原因})|内部エラー|
 
-### リクエスト
-#### リクエストURL
+## リクエスト
+### リクエストURL
 ```
 /{CellName}/{BoxName}
 ```
-#### メソッド
+### メソッド
 MKCOL
 
-#### リクエストクエリ
+### リクエストクエリ
 
 |クエリ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|クッキー認証値|認証時にサーバから返却されたクッキー認証値|×|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する|
 
-#### リクエストヘッダ
+### リクエストヘッダ
 
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
@@ -86,24 +86,21 @@ MKCOL
 |Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
 |Content-Type|リクエストボディの形式を指定する|application/zip|○||
 |Content-Length|リクエストボディのサイズを指定する|半角数字|×||
-#### リクエストボディ
+### リクエストボディ
 |概要|有効値|必須|備考|
 |:--|:--|:--|:--|
 |インストールするbarファイルをバイナリでリクエストボディに指定する|Content-Typeヘッダで指定した形式|○|barファイル：Zipファイル形式|
 
 barファイルのファイル構成については [bar ファイル](301_Bar_File.md)を参照。
 
-#### リクエストサンプル
-なし
 
-
-### レスポンス
-#### ステータスコード
+## レスポンス
+### ステータスコード
 |コード|メッセージ|概要|備考|
 |:--|:--|:--|:--|
 |202|Accepted|処理受付成功時||
 
-#### レスポンスヘッダ
+### レスポンスヘッダ
 |ヘッダ名|概要|備考|
 |:--|:--|:--|
 |Location|Boxメタデータ取得API用URL||
@@ -114,22 +111,22 @@ Locationサンプル
 Location:https://{UnitFQDN}/{CellName}/{BoxName}
 ```
 Boxメタデータ取得API用URLの詳細は、[Boxメタデータ取得](303_Progress_of_Bar_File_Installation.md)を参照。
-#### レスポンスボディ
+### レスポンスボディ
 なし
 
-#### エラーメッセージ一覧
+### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
 
-#### レスポンスサンプル
+### レスポンスサンプル
 ```
 Location: https://{UnitFQDN}/{CellName}/{BoxName}
 ```
 Boxメタデータ取得API用URLの詳細は、[Boxメタデータ取得](303_Progress_of_Bar_File_Installation.md)を参照。
 
-### cURLサンプル
+## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}" -X MKCOL -i -H 'Content-type: application/zip' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' --data-binary @{FileName}
+curl "https://{UnitFQDN}/{CellName}/{BoxName}" -X MKCOL -i -H 'Content-type: application/zip' -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' --data-binary @{FileName}
 ```
 
-###### Copyright 2017 FUJITSU LIMITED

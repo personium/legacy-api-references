@@ -2,10 +2,10 @@
 ## 概要
 新規Ruleを作成する
 
-## 必要な権限
+### 必要な権限
 rule
 
-## 制限事項
+### 制限事項
 * リクエストヘッダのAcceptは無視される
 * リクエストヘッダのContent-Typeは全てapplication/jsonとして扱う
 * リクエストボディはJSON形式のみ受け付ける
@@ -42,12 +42,19 @@ JSON
 
 |項目名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|Name|Box名|桁数：1&#65374;128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)は指定不可|○||
-|Schema|Schema名|桁数：1&#65374;128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)は指定不可<br>null|×||
+|Name|Rule名|桁数：1&#65374;200<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)と:(半角コロン)<br>ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)と:(半角コロン)は指定不可<br>デフォルト値はUUID|×|省略時は自動でUUIDが採番されます|
+|_Box.Name|関係対象のBox名|桁数：1&#65374;128<br>文字種：半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)は指定不可<br>説明：Box登録APIにて登録済みのBoxのNameを指定<br>特定のBoxと関連付けない場合はnullを指定|×||
+|EventExternal|マッチするイベントの外部イベントフラグ|true / false<br>デフォルト値はfalse|×||
+|EventSubject|マッチするイベントのSubject|アクセスを行なう主体（アカウント）|×||
+|EventType|マッチするイベントの型|イベントの内容を表す文字列。文字列は内部イベント対応状況を参照|×||
+|EventObject|マッチするイベントのObject|アクセスされる対象|×|＿Box.Nameの設定に応じて指定形式が異なる<br>_Box.Name設定なし<br> personium-localcell:/box/col/entity<br>_Box.Name設定あり<br> personium-localbox:/col/entity|
+|EventInfo|マッチするイベントの情報|HTTPレスポンスのステータスコードなどの情報|×||
+|Action|イベントがマッチした際に実行するアクション|log<br>log.info<br>log.warn<br>log.error<br>exec<br>relay|○||
+|TargetUrl|アクションの対象となるURL|サービススクリプトのURLを指定|×|以下のように設定可能な形式に決まりがある<br>Actionがexecのとき<br>_Box.Name設定なし<br> personium-localcell:/box/col/service<br>_Box.Name設定あり<br> personium-localbox:/col/service<br>Actionがrelayのとき<br>    http://xxx/...<br>    https://xxx/...<br>    personium-localunit:/…|
 
 ### リクエストサンプル
 ```JSON
-{"Name":"{BoxName}", "Schema":"https://{UnitFQDN}/{CellName}/"}
+{"Name":"{RuleName}", "EventExternal":true, "Action":"log"}
 ```
 
 ## レスポンス
@@ -65,7 +72,7 @@ JSON
 |ETag|リソースのバージョン情報||
 |DataServiceVersion|ODataのバージョン||
 
-#### レスポンスボディ
+### レスポンスボディ
 レスポンスはJSONオブジェクトで、オブジェクト（サブオブジェクト）に定義されるキー(名前)と型、並びに値の対応は以下のとおりです。
 
 |オブジェクト|項目名|Data Type|備考|
@@ -79,13 +86,20 @@ JSON
 |{2}|__updated|string|更新日(UNIX時間)|
 |{1}|__count|string|$inlinecountクエリでの取得結果件数|
 
-### Box固有レスポンスボディ
+### Rule固有レスポンスボディ
 
 |オブジェクト|項目名|Data Type|備考|
 |:--|:--|:--|:--|
-|{3}|type|string|CellCtl.Box|
-|{2}|Name|string|Box名|
-|{2}|Schema|string|Schema名|
+|{3}|type|string|CellCtl.Rule|
+|{2}|Name|string|Rule名|
+|{2}|EventExternal|boolean||
+|{2}|EventSubject|string||
+|{2}|EventType|string||
+|{2}|EventObject|string||
+|{2}|EventInfo|string||
+|{2}|Action|string||
+|{2}|TargetUrl|string||
+|{2}|_Box.Name|string|関係対象のBox名|
 
 ### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
@@ -96,12 +110,19 @@ JSON
   "d": {
     "results": {
       "__metadata": {
-        "uri": "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')",
+        "uri": "https://{UnitFQDN}/{CellName}/__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')",
         "etag": "W/\"1-1486368212581\"",
-        "type": "CellCtl.Box"
+        "type": "CellCtl.Rule"
       },
-      "Name": "{BoxName}",
-      "Schema": null,
+      "Name": "{RuleName}",
+      "EventExternal": true,
+      "EventSubject": null,
+      "EventType": null,
+      "EventObject": null,
+      "EventInfo": null,
+      "Action": "log",
+      "TargetUrl": null,
+      "_Box.Name": "{BoxName}",
       "__published": "/Date(1486368212581)/",
       "__updated": "/Date(1486368212581)/"
     }
@@ -112,7 +133,7 @@ JSON
 ## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Rule" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{BoxName}"}'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Rule" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{RuleName}", "EventExternal":true, "Action":"log"}'
 ```
 
 

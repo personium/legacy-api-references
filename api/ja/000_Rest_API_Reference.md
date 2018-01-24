@@ -33,20 +33,35 @@ https://{UnitFQDN}/{CellName}
 ```
 
 ### Cellにアクセスする人やアプリケーションを認証する機能
-||作成・登録|取得|更新|削除|その他|
-|:--|:--|:--|:--|:--|:--|
-|**Account**|[登録](212_Create_Account.md)|[一覧取得](214_Search_Account.md)<br>[取得](213_Retrieve_Account.md)|[更新](215_Update_Account.md)<br>[パスワード変更](294_Password_Change.md)|[削除](216_Delete_Account.md)||
-|&nbsp;&nbsp;_$links|[登録](217_Register_Account_links.md)|[一覧取得](218_Acquire_Account_links_List.md)|更新|[削除](220_Delete_Account_links.md)||
-|&nbsp;&nbsp;_NavProp経由|[登録](221_Register_Account_Navigation_Property.md)|[取得](222_Acquire_Account_Navigation_Property.md)||||
-|**認証**<br>(\_\_token, \_\_authz)|||||[OAuth2.0 認可エンドポイント](292_OAuth2_Authorization_Endpoint.md)<br>[OAuth2.0 トークンエンドポイント](293_OAuth2_Token_Endpoint.md)|
+#### 認証
+
+* [OAuth2.0 認可エンドポイント](292_OAuth2_Authorization_Endpoint.md)<br>
+* [OAuth2.0 トークンエンドポイント](293_OAuth2_Token_Endpoint.md)<br>
+* [パスワード変更](294_Password_Change.md)<br>
+
+#### Account (Cell制御オブジェクト)
+
+|種別|操作|
+|:--|:--|
+|基本操作|[登録](212_Create_Account.md)&nbsp; [取得](213_Retrieve_Account.md)&nbsp;[一覧取得](214_Search_Account.md) &nbsp;[更新](215_Update_Account.md) &nbsp;[削除](216_Delete_Account.md) |
+|他オブジェクトとのリンク|[リンク](217_Register_Account_links.md)&nbsp; &nbsp;  [リンク解除](220_Delete_Account_links.md) &nbsp; &nbsp; [リンク一覧取得](218_Acquire_Account_links_List.md) &nbsp; &nbsp; リンク更新はありません|
+|Navigation Property 経由の操作|[登録](221_Register_Account_Navigation_Property.md)&nbsp; &nbsp;[一覧取得](222_Acquire_Account_Navigation_Property.md)|
 
 ### Cellに対するアクセス制御を設定する機能
-||作成・登録|取得|更新|削除|
-|:--|:--|:--|:--|:--|
-|**Role**|[登録](201_Create_Role.md)|[一覧取得](202_Retrieve_Role.md)<br>[取得](203_Search_Role.md)|[更新](204_Update_Role.md)|[削除](205_Delete_Role.md)|
-|&nbsp;&nbsp;_$links|[登録](206_Create_Role_links.md)|[一覧取得](207_List_Role_links.md)|更新|[削除](209_Delete_Role_links.md)|
-|&nbsp;&nbsp;_NavProp経由|[登録](210_Register_Role_Using_NavProp.md)|[取得](211_List_Using_Role_NavProp.md)|||
-|**アクセス制御**|[制限設定](289_Cell_ACL.md)|[プロパティ取得](290_Cell_Get_Property.md)|[プロパティ変更](291_Cell_Change_Property.md)||
+
+#### Role (Cell制御オブジェクト)
+
+|種別|操作|
+|:--|:--|
+|基本操作|[登録](201_Create_Role.md)&nbsp;&nbsp; [一覧取得](202_Retrieve_Role.md)&nbsp;&nbsp;[取得](203_Search_Role.md)&nbsp;&nbsp;[更新](204_Update_Role.md)&nbsp;&nbsp;[削除](205_Delete_Role.md)|
+|他オブジェクトとのリンク|[リンク](206_Create_Role_links.md)&nbsp;&nbsp;[リンク解除](209_Delete_Role_links.md)&nbsp;&nbsp;[リンク一覧取得](207_List_Role_links.md)&nbsp;&nbsp;リンク更新はありません|
+|Navigation Property 経由の操作|[登録](210_Register_Role_Using_NavProp.md)&nbsp; &nbsp;[一覧取得](211_List_Using_Role_NavProp.md)|
+
+#### アクセス制御
+
+* [制限設定](289_Cell_ACL.md)
+* [プロパティ取得](290_Cell_Get_Property.md)
+* [プロパティ変更](291_Cell_Change_Property.md)
 
 ### Cell間の関係を構築する機能
 ||作成・登録|取得|更新|削除|

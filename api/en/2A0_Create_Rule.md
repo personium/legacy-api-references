@@ -64,17 +64,15 @@ JSON
 |Action|Action to invoke when the matching event is met|Valid values are listed in the separate table below|Yes||
 |TargetUrl|Specific target url of the action|Meaning of this field changes with the Action field. |No||
 
-Valid Actions
-
+#### Valid Actions
 |Action|Description|TargetUrl|Note|
 |:--|:--|:--|:--|
+|exec|Engine script will be invoked with post method|engine service endpoint url|-|
+|relay|Events will be relayed to TargetUrl|Url to which event info should be relayed.|-|
 |log|Events will be logged at info level|-|-|
 |log.info|Events will be logged at info level|-|-|
 |log.warn|Events will be logged at warn level|-|-|
 |log.error|Events will be logged at error level|-|-|
-|exec|Engine script will be invoked with post method|engine service endpoint url|-|
-|relay|Events will be relayed to TargetUrl|Url to which event info should be relayed.|-|
-
 
 ### Request Body Sample
 

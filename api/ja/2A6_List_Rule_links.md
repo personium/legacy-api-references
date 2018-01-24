@@ -8,11 +8,8 @@ Ruleに紐付いたODataリソースを一覧取得する<br>以下のODataリ�
 rule-read
 
 ### 制限事項
-* リクエストヘッダのAcceptは無視される
-* リクエストヘッダのContent-Typeは全てapplication/jsonとして扱う
-* リクエストボディはJSON形式のみ受け付ける
 * レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはJSON形式とする
-* $formatクエリオプションは無視される
+
 
 
 ## リクエスト

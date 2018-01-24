@@ -16,11 +16,11 @@
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/__ctl/Box('{BoxName}')
+/{CellName}/__ctl/Rule('{BoxName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}')
+/{CellName}/__ctl/Rule(Name='{BoxName}')
 ```
 ### メソッド
 PUT
@@ -76,6 +76,6 @@ JSON
 ## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')" -X PUT -i -H 'If-Match: *' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{BoxName}"}'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Rule('{BoxName}')" -X PUT -i -H 'If-Match: *' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{BoxName}"}'
 ```
 

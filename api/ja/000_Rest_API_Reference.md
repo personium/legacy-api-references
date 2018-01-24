@@ -12,8 +12,7 @@ Unit Root URL
 ````
 https://{UnitFQDN}/
 ````
-Unit Level API はUnit制御オブジェクトという形で実現されています。
-ODataに従ったREST操作でUnit制御オブジェクトを操作してください。
+Unit Level API はUnit制御オブジェクトという形で実現されています。ODataに従ったREST操作でUnit制御オブジェクトを操作してください。
 
 ### Cell (ユニット制御オブジェクト)
 
@@ -24,8 +23,6 @@ ODataに従ったREST操作でUnit制御オブジェクトを操作してくだ�
 #### その他API
 
 * [Cell再帰的削除](105_Cell_Recursive_Delete.md)
-
-
 
 ## Cell Level API
 Cell Level API は、
@@ -56,8 +53,8 @@ https://{UnitFQDN}/{CellName}/
 |種別|操作|
 |:--|:--|
 |基本操作|[登録](212_Create_Account.md)&nbsp; [取得](213_Retrieve_Account.md)&nbsp;[一覧取得](214_Search_Account.md) &nbsp;[更新](215_Update_Account.md) &nbsp;[削除](216_Delete_Account.md) |
-|他オブジェクトとのリンク|[リンク](217_Register_Account_links.md)&nbsp; &nbsp;  [リンク解除](220_Delete_Account_links.md) &nbsp; &nbsp; [リンク一覧取得](218_Acquire_Account_links_List.md) &nbsp; &nbsp; リンク更新はありません|
-|Navigation Property 経由の操作|[登録](221_Register_Account_Navigation_Property.md)&nbsp; &nbsp;[一覧取得](222_Acquire_Account_Navigation_Property.md)|
+|&nbsp; &nbsp;他オブジェクトとのリンク|[リンク](217_Register_Account_links.md)&nbsp; &nbsp;  [リンク解除](220_Delete_Account_links.md) &nbsp; &nbsp; [リンク一覧取得](218_Acquire_Account_links_List.md) &nbsp; &nbsp; リンク更新はありません|
+|&nbsp; &nbsp;Navigation Property 経由の操作|[登録](221_Register_Account_Navigation_Property.md)&nbsp; &nbsp;[一覧取得](222_Acquire_Account_Navigation_Property.md)|
 
 ### Cellに対するアクセス制御を設定する機能
 
@@ -66,8 +63,8 @@ https://{UnitFQDN}/{CellName}/
 |種別|操作|
 |:--|:--|
 |基本操作|[登録](201_Create_Role.md)&nbsp;&nbsp; [一覧取得](202_Retrieve_Role.md)&nbsp;&nbsp;[取得](203_Search_Role.md)&nbsp;&nbsp;[更新](204_Update_Role.md)&nbsp;&nbsp;[削除](205_Delete_Role.md)|
-|他オブジェクトとのリンク|[リンク](206_Create_Role_links.md)&nbsp;&nbsp;[リンク解除](209_Delete_Role_links.md)&nbsp;&nbsp;[リンク一覧取得](207_List_Role_links.md)&nbsp;&nbsp;リンク更新はありません|
-|Navigation Property 経由の操作|[登録](210_Register_Role_Using_NavProp.md)&nbsp; &nbsp;[一覧取得](211_List_Using_Role_NavProp.md)|
+|&nbsp; &nbsp;他オブジェクトとのリンク|[リンク](206_Create_Role_links.md)&nbsp;&nbsp;[リンク解除](209_Delete_Role_links.md)&nbsp;&nbsp;[リンク一覧取得](207_List_Role_links.md)&nbsp;&nbsp;リンク更新はありません|
+|&nbsp; &nbsp;Navigation Property 経由の操作|[登録](210_Register_Role_Using_NavProp.md)&nbsp; &nbsp;[一覧取得](211_List_Using_Role_NavProp.md)|
 
 #### アクセス制御
 
@@ -82,16 +79,16 @@ https://{UnitFQDN}/{CellName}/
 |種別|操作|
 |:--|:--|
 |基本操作|[登録](223_Create_External_Cell.md)&nbsp;&nbsp; [一覧取得](224_List_External_Cell.md)&nbsp;&nbsp;[取得](225_Get_External_Cell.md)&nbsp;&nbsp;[更新](226_Update_External_Cell.md)&nbsp;&nbsp;[削除](227_Delete_External_Cell.md)|
-|他オブジェクトとのリンク|[リンク](228_Register_External_Cell_links.md)&nbsp;&nbsp;[リンク解除](231_Delete_External_Cell_links.md)&nbsp;&nbsp;[リンク一覧取得](229_List_External_Cell_links.md)&nbsp;&nbsp;リンク更新はありません|
-|Navigation Property 経由の操作|[登録](232_Register_External_Cell_Using_NavProp.md)&nbsp; &nbsp;[一覧取得](233_List_External_Cell_NavProp.md)|
+|&nbsp; &nbsp;他オブジェクトとのリンク|[リンク](228_Register_External_Cell_links.md)&nbsp;&nbsp;[リンク解除](231_Delete_External_Cell_links.md)&nbsp;&nbsp;[リンク一覧取得](229_List_External_Cell_links.md)&nbsp;&nbsp;リンク更新はありません|
+|&nbsp; &nbsp;Navigation Property 経由の操作|[登録](232_Register_External_Cell_Using_NavProp.md)&nbsp; &nbsp;[一覧取得](233_List_External_Cell_NavProp.md)|
 
 #### Relation (Cell制御オブジェクト)
 
 |種別|操作|
 |:--|:--|
 |基本操作|[登録](234_Create_Relation.md)&nbsp; &nbsp; [一覧取得](235_List_Relation.md)&nbsp; &nbsp;[取得](236_Retrieve_Relation.md)&nbsp; &nbsp;[更新](237_Update_Relation.md)&nbsp; &nbsp;[削除](238_Delete_Relation.md)|
-|他オブジェクトとのリンク|[リンク](239_Register_Relation_links.md)&nbsp;&nbsp;[リンク解除](242_Delete_Relation_links.md)&nbsp;&nbsp;[リンク一覧取得](240_List_Relation_links.md)&nbsp;&nbsp;リンク更新はありません|
-|Navigation Property 経由の操作|[登録](243_Register_Using_Relation_NavProp.md)&nbsp; &nbsp;[一覧取得](244_List_Using_Relation_NavProp.md)|
+|&nbsp; &nbsp;他オブジェクトとのリンク|[リンク](239_Register_Relation_links.md)&nbsp;&nbsp;[リンク解除](242_Delete_Relation_links.md)&nbsp;&nbsp;[リンク一覧取得](240_List_Relation_links.md)&nbsp;&nbsp;リンク更新はありません|
+|&nbsp; &nbsp;Navigation Property 経由の操作|[登録](243_Register_Using_Relation_NavProp.md)&nbsp; &nbsp;[一覧取得](244_List_Using_Relation_NavProp.md)|
 
 #### ExtRole (Cell制御オブジェクト)
 

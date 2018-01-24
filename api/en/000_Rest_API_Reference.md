@@ -4,12 +4,10 @@ Welcome to the Personium REST API Reference.
 The REST API Reference describes technical detailed specifications related to all of the REST APIs provided by Personium.
 
 ## Unit Level API
+The Unit Level API's belong to the unit that hosts a group of cells (for creating cells and managing a group of created cells).  
+In principle, these APIs cannot be accessed using the access tokens issued by normal cells.
 
-The Unit Level API is an API belonging to the unit that hosts a group of cells (for creating cells and managing a group of created cells).  
-In principle, these APIs cannot be accessed using the access tokens issued from the cell.
-
-Resource Path
-
+Unit Root URL
 ```
 https://{UnitFQDN}/
 ```
@@ -33,8 +31,7 @@ Cell Level API
 
 And so on. Many of these functions are implemented in the form of control objects that can be operated with the OData protocol, which is a standard for performing relational data manipulation based on REST.
 
-Resource Path
-
+Cell Root URL
 ```
 https://{UnitFQDN}/{CellName}/
 ```
@@ -73,12 +70,15 @@ https://{UnitFQDN}/{CellName}/
 
 ### Box creation and management inside the Cell
 
+[Install Box](302_Box_Installation.md)
+[Acquire Box Meta Data](303_Progress_of_Bar_File_Installation.md)
+
+
 ||Create/Register|Acquire|Update|Delete|
 |:--|:--|:--|:--|:--|
 |**Box**|[Create](256_Create_Box.md)|[Acquire](258_Retrieve_Box.md)<br>[Acquire List](257_Search_Box.md)<br>[Acquire URL](304_Get_Box_URL.md)|[Update](259_Update_Box.md)|[Delete](260_Delete_Box.md)<br>[Recursive Delete](295_Box_Recursive_Delete.md)|
 |_$links|[Register](261_Register_Box_links.md)|[Acquire List](262_List_Box_links.md)|Update|[Delete](264_Delete_Box_links.md)|
 |_via NavProp|[Register](265_Register_Using_Box_NavProp.md)|[Acquire](266_List_Box_NavProp.md)|||
-|Install|[Install Box](302_Box_Installation.md)|[Acquire Box Meta Data](303_Progress_of_Bar_File_Installation.md)|||
 
 ### Sending and receiving messages between Cells
 
@@ -87,13 +87,28 @@ https://{UnitFQDN}/{CellName}/
 |**Message Control**<br>[Transmit](271_Send_Message.md)||[Acquire](272_Retrieve_Sent_Message.md)<br>[Acquire List](273_List_Sent_Messages.md)||[Delete](274_Delete_Sent_Message.md)|
 |**Message Control**<br>Receive||[Acquire](269_Get_Received_Message.md)<br>[Acquire List](268_List_Received_Messages.md)|[Change Status](267_Received_Message_Approval.md)|[Delete](270_Delete_an_Incoming_Message.md)|
 
-##### Event processing functions
+### Event processing functions
 
-||Create/Register|Acquire|Update|Delete|
-|:--|:--|:--|:--|:--|
-|[Events](277_Event_Summary.md)|[Accept Event](278_Event_Reception.md)|[Log File Acquire](285_Retrieve_Log_File.md)<br>[Log File Acquire List](284_Retrieve_Log_File_list.md)<br>[Log File Acquire Information](283_Log_File_Information_Acquisition.md)||[Delete Log File](286_Delete_Log_File.md)|
+* [Events Overview](277_Event_Summary.md)
+* [Accept External Events](278_Event_Reception.md)
 
-##### Exporting/Importing the contents inside the Cell
+#### Event Processing Rule (Cell Control Object)
+
+|Rule|Operations|
+|:--|:--|
+|Basic Operations|[Create](2A0_Create_Rule.md) &nbsp; &nbsp; [List](2A2_Search_Rule.md) &nbsp; &nbsp; [Retrieve](2A1_Retrieve_Rule.md) &nbsp; &nbsp; [Update](2A3_Update_Rule.md) &nbsp; &nbsp; [Delete](2A4_Delete_Rule.md) |
+|&nbsp; &nbsp;Linking with other objects|[Link](2A5_Create_Rule_links.md) &nbsp; &nbsp; [Unlink](2A6_List_Rule_links.md) &nbsp; &nbsp; [List of links](2A6_List_Rule_links.md) &nbsp; &nbsp; |
+|&nbsp; &nbsp;via Navigation Property|[Create](2A8_Register_Rule_Using_NavProp.md) &nbsp; &nbsp; [List](2A9_List_Using_Rule_NavProp.md)|
+
+
+#### Event Log 
+
+* [Retrieve Log File](285_Retrieve_Log_File.md)
+* [List of Log Files](284_Retrieve_Log_File_list.md)
+* [Meatadata of Log File](283_Log_File_Information_Acquisition.md)
+* [Delete Log File](286_Delete_Log_File.md)
+
+### Exporting / Importing the contents inside the Cell
 
 Snapshot file of Cell is created by export execution.  
 Import imports the contents of the snapshot file into Cell.  
@@ -124,17 +139,14 @@ These special collections can be created in any path on the WebDAV space provide
 Resource Path (* with certain exceptions)
 
 ```
-https://{UnitFQDN}/{CellName}/{BoxName}
+https://{UnitFQDN}/{CellName}/{BoxName}/
 https://{UnitFQDN}/{CellName}/{BoxName}/{ResourcePath}
 ```
 
-##### Box Management
+### Box Management
 
-|Create/Register|Acquire|
-|:--|:--|
-|[Install Box](302_Box_Installation.md)|[Acquire Box Meta Data](303_Progress_of_Bar_File_Installation.md)|
 
-##### WebDAV
+### WebDAV
 
 ||Create/Register|Acquire|Update|Delete|Other|
 |:--|:--|:--|:--|:--|:--|

@@ -93,23 +93,34 @@ https://{UnitFQDN}/{CellName}/
 |種別|操作|
 |:--|:--|
 |基本操作|[登録](245_Create_External_Role.md)&nbsp;&nbsp; [一覧取得](246_List_External_Role.md)&nbsp;&nbsp;[取得](247_Get_External_Role.md)&nbsp;&nbsp;[更新](248_Update_External_Role.md)&nbsp;&nbsp;[削除](249_Delete_External_Role.md)|
-|他オブジェクトとのリンク|[リンク](250_Register_External_Role_links.md)&nbsp; &nbsp;[リンク解除](253_Delete_External_Role_links.md)&nbsp;&nbsp;[リンク一覧取得](251_Retrieve_External_Role_links.md)&nbsp; &nbsp;リンク更新はありません|
-|Navigation Property 経由の操作|[登録](254_Register_Using_Role_NavProp.md)&nbsp; &nbsp;[一覧取得](255_List_External_Role_NavProp.md)|
+|&nbsp; &nbsp;他オブジェクトとのリンク|[リンク](250_Register_External_Role_links.md)&nbsp; &nbsp;[リンク解除](253_Delete_External_Role_links.md)&nbsp; &nbsp;[リンク一覧取得](251_Retrieve_External_Role_links.md)&nbsp; &nbsp;リンク更新はありません|
+|&nbsp; &nbsp;Navigation Property 経由の操作|[登録](254_Register_Using_Role_NavProp.md)&nbsp; &nbsp;[一覧取得](255_List_External_Role_NavProp.md)|
 
 
-### Boxを生成・管理する機能
-||作成・登録|取得|更新|削除|
-|:--|:--|:--|:--|:--|
-|**Box**|[作成](256_Create_Box.md)|[取得](258_Retrieve_Box.md)<br>[一覧取得](257_Search_Box.md)<br>[URL取得](304_Get_Box_URL.md)|[更新](259_Update_Box.md)|[削除](260_Delete_Box.md)<br>[再帰的削除](295_Box_Recursive_Delete.md)|
-|&nbsp;&nbsp;_$links|[登録](261_Register_Box_links.md)|[一覧取得](262_List_Box_links.md)|更新|[削除](264_Delete_Box_links.md)|
-|&nbsp;&nbsp;_NavProp経由|[登録](265_Register_Using_Box_NavProp.md)|[取得](266_List_Box_NavProp.md)|||
-|&nbsp;&nbsp;インストール|[Boxインストール](302_Box_Installation.md)|[Boxメタデータ取得](303_Progress_of_Bar_File_Installation.md)|||
+### Boxを作成・管理する機能
+
+* [Boxインストール](302_Box_Installation.md)
+* [Boxメタデータ取得](303_Progress_of_Bar_File_Installation.md)
+* [URL取得](304_Get_Box_URL.md)
+* [再帰的削除](295_Box_Recursive_Delete.md)
+
+#### Box (Cell制御オブジェクト)
+
+|種別|操作|
+|:--|:--|
+|基本操作|[登録](256_Create_Box.md)&nbsp;&nbsp; [一覧取得](257_Search_Box.md)&nbsp;&nbsp;[取得](258_Retrieve_Box.md)&nbsp;&nbsp;[更新](259_Update_Box.md)&nbsp;&nbsp;[削除](260_Delete_Box.md) |
+|&nbsp; &nbsp;他オブジェクトとのリンク|[リンク](261_Register_Box_links.md)&nbsp; &nbsp;[リンク解除](264_Delete_Box_links.md)&nbsp; &nbsp;[リンク一覧取得](262_List_Box_links.md)&nbsp; &nbsp;リンク更新はありません|
+|&nbsp; &nbsp;Navigation Property 経由の操作|[登録](265_Register_Using_Box_NavProp.md)&nbsp; &nbsp;[一覧取得](266_List_Box_NavProp.md)|
 
 ### Cell間のメッセージを送受信する機能
-||作成・登録|取得|更新|削除|
-|:--|:--|:--|:--|:--|
-|**メッセージ制御**<br>[送信](271_Send_Message.md)||[取得](272_Retrieve_Sent_Message.md)<br>[一覧取得](273_List_Sent_Messages.md)||[削除](274_Delete_Sent_Message.md)|
-|**メッセージ制御**<br>受信||[取得](269_Get_Received_Message.md)<br>[一覧取得](268_List_Received_Messages.md)|[状態変更](267_Received_Message_Approval.md)|[削除](270_Delete_an_Incoming_Message.md)|
+
+* [メッセージ送信](271_Send_Message.md)
+* [状態変更](267_Received_Message_Approval.md) (承認・拒否等)
+
+|Cell制御オブジェクト|操作|
+|:--|:--|
+|**送信済メッセージ**|[取得](272_Retrieve_Sent_Message.md)&nbsp; &nbsp;[一覧取得](273_List_Sent_Messages.md)&nbsp; &nbsp; [削除](274_Delete_Sent_Message.md)|
+|**受診メッセージ**|[取得](269_Get_Received_Message.md) &nbsp; &nbsp; [一覧取得](268_List_Received_Messages.md&nbsp; &nbsp;[削除](270_Delete_an_Incoming_Message.md)|
 
 ### イベント制御の機能
 

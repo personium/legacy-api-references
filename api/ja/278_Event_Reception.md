@@ -8,16 +8,6 @@ event
 ### 制限事項
 なし
 
-#### イベントAPI共通
-* ログの出力設定は未サポート
-  - ログファイル名は"default.log"固定とする
-  - ローテートは以下のデフォルト設定に従い行う
-    - ローテート数:12世代
-    - ローテートのサイズ設定:50MB
-    - ローテート後の圧縮方式:zip<br>ログの出力レベルは"info"固定（INFO, WARN, ERRORすべて出力）とする
-* ログ出力設定の参照は未サポート
-
-
 ### リクエスト
 #### リクエストURL
 ```
@@ -41,17 +31,15 @@ JSON
 
 |項目名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|level|ログ出力レベル|"INFO"/"WARN"/"ERROR"のいずれか|○|小文字の"info"/"warn"/"error"が指定された場合は、大文字として扱う。<br>ただし、小文字での指定は非推奨（deprecated）。|
-|action|イベントのアクション|文字列型<br>桁数：0&#65374;51200 byte|○||
-|object|イベントの対象オブジェクト|文字列型<br>桁数：0&#65374;51200 byte|○||
-|result|イベントの結果|文字列型<br>桁数：0&#65374;51200 byte|○||
+|Type|イベントの型|文字列型<br>桁数：0&#65374;51200 byte|○||
+|Object|イベントの対象オブジェクト|文字列型<br>桁数：0&#65374;51200 byte|○||
+|Info|イベントの情報|文字列型<br>桁数：0&#65374;51200 byte|○||
 #### リクエストサンプル
 ```JSON
 {
-  "level":"INFO",
-  "action":"authSchema",
-  "object":"/{CellName}/{BoxName}/service_name/token_keeper",
-  "result":"[XXXX2033] Success schema authorization. cellUrl=https://{UnitFQDN}/keeper-d4a57bb26eae481486b07d06487051d1/"
+  "Type":"authSchema",
+  "Object":"/{CellName}/{BoxName}/service_name/token_keeper",
+  "Info":"[XXXX2033] Success schema authorization. cellUrl=https://{UnitFQDN}/keeper-d4a57bb26eae481486b07d06487051d1/"
 }
 ```
 
@@ -73,7 +61,7 @@ JSON
 
 ### cURLサンプル
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__event" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"level":"INFO", "action":"authSchema", "object":"/{CellName}/{BoxName}/service_name/token_keeper", "result":"[XXXX2033] Success schema authorization. cellUrl=https://{UnitFQDN}/keeper-d4a57bb26eae481486b07d06487051d1/"}'
+curl "https://{UnitFQDN}/{CellName}/__event" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Type":"authSchema", "Object":"/{CellName}/{BoxName}/service_name/token_keeper", "Info":"[XXXX2033] Success schema authorization. cellUrl=https://{UnitFQDN}/keeper-d4a57bb26eae481486b07d06487051d1/"}'
 ```
 
-###### Copyright 2017 FUJITSU LIMITED
+###### Copyright 2018 FUJITSU LIMITED

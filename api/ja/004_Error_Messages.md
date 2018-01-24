@@ -1,6 +1,6 @@
 # エラーメッセージ一覧
 
-### 認証系 API
+## 認証系 API
 |OAUTH エラーコード|メッセージコード|メッセージ|
 |:--|:--|:--|
 |unsupported_grant_type|PR400-AN-0001|Unsupported grant type.||
@@ -27,7 +27,7 @@
 |invalid_grant|PR400-AN-0032|OpenID Connect Invalid Token. ({0})||
 |invalid_grant|PR400-AN-0033|OpenID Connect ID Token Expired (at UnixTime: {0}).||
 
-### その他 API
+## その他 API
 |レスポンスコード|メッセージコード|メッセージ|詳細|
 |:--|:--|:--|:--|
 |400|PR400-OD-0001|JSON parse error.||
@@ -229,4 +229,3 @@
 |500|PR500-AN-0001|Root ca certificate setting error.||
 |412|-|["{0}","{1}","{2}"…]|利用可能なPersonium<br>バージョン番号を返却する|
 
-###### Copyright 2017 FUJITSU LIMITED

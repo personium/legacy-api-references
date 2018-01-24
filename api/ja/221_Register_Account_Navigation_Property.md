@@ -1,5 +1,5 @@
 # Account_NavProp経由登録
-### 概要
+## 概要
 RoleをAccountのNavigation Property経由で登録する
 ### 必要な権限
 write
@@ -10,9 +10,9 @@ write
 * $formatクエリオプションにatom または xmlを指定した場合、エラーとはならないが、レスポンスボディのデータの保証はない
 
 
-### リクエスト
-#### リクエストURL
-##### RoleへのnavigationProperty
+## リクエスト
+### リクエストURL
+#### RoleへのnavigationProperty
 ```
 /{CellName}/__ctl/Account(Name='{AccountName}')/_Role
 ```
@@ -20,13 +20,13 @@ write
 ```
 /{CellName}/__ctl/Account('{AccountName}')/_Role
 ```
-#### メソッド
+### メソッド
 POST
-#### リクエストクエリ
+### リクエストクエリ
 |クエリ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|クッキー認証値|認証時にサーバから返却されたクッキー認証値|×|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する|
-#### リクエストヘッダ
+### リクエストヘッダ
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |X-HTTP-Method-Override|メソッドオーバーライド機能|任意|×|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用されます。|
@@ -35,13 +35,13 @@ POST
 |Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
 |Content-Type|リクエストボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
 |Accept|レスポンスボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
-#### リクエストボディ
+### リクエストボディ
 Roleを登録する場合
 
 |項目名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |Name|アカウント名|文字種:半角英数字と左記半角記号（-_!$*=^`{&#124;}~.@）<br>ただし、先頭文字に半角記号は指定不可|○||
-#### リクエストサンプル
+### リクエストサンプル
 ```JSON
 {
   "Name": "{AccountName}"  
@@ -49,10 +49,10 @@ Roleを登録する場合
 ```
 
 
-### レスポンス
-#### ステータスコード
+## レスポンス
+### ステータスコード
 201
-#### レスポンスヘッダ
+### レスポンスヘッダ
 |項目名|概要|備考|
 |:--|:--|:--|
 |X-Personium-Version|APIの実行バージョン|リクエストが処理されたAPIバージョン|
@@ -61,7 +61,7 @@ Roleを登録する場合
 |Location|作成したリソースへのURL||
 |ETag|リソースのバージョン情報||
 |DataServiceVersion|ODataのバージョン||
-#### レスポンスボディ
+### レスポンスボディ
 |項目名|概要|備考|
 |:--|:--|:--|
 |d|||
@@ -74,7 +74,7 @@ Roleを登録する場合
 |d / results / __metadata / type|EntityType||
 |d / results / Name|Role名||
 |d / results / _Box.Name|関係対象のBox名||
-##### Accountを登録した場合
+#### Accountを登録した場合
 Account固有レスポンスボディ
 
 |オブジェクト|項目名|Data Type|備考|
@@ -84,7 +84,7 @@ Account固有レスポンスボディ
 |{2}|Type|string|basic|
 |{3}|Type|string|CellCtl.Account|
 
-#### レスポンスサンプル
+### レスポンスサンプル
 ```JSON
 {
   "d": {
@@ -103,14 +103,14 @@ Account固有レスポンスボディ
   }
 }   
 ```
-#### エラーメッセージ一覧
+### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
 
-### cURLサンプル
+## cURLサンプル
 
-##### AccountとRoleのnavigationProperty経由登録
+### AccountとRoleのnavigationProperty経由登録
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Account('acount_name')/_Role" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{RoleName}"}'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Account('acount_name')/_Role" -X POST -i -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{RoleName}"}'
 ```
 
-###### Copyright 2017 FUJITSU LIMITED

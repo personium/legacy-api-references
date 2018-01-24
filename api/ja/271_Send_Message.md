@@ -1,5 +1,5 @@
 # メッセージ送信
-### 概要
+## 概要
 メッセージを送信する
 
 ### 必要な権限
@@ -12,18 +12,18 @@ message
 * $formatクエリオプションにatom または xmlを指定した場合、エラーとはならないが、レスポンスボディのデータの保証はない
 
 
-### リクエスト
-#### リクエストURL
+## リクエスト
+### リクエストURL
 ```
 /{CellName}/__message/send
 ```
-#### メソッド
+### メソッド
 POST
 
-#### リクエストクエリ
+### リクエストクエリ
 クエリは無視する
 
-#### リクエストヘッダ
+### リクエストヘッダ
 
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
@@ -32,7 +32,7 @@ POST
 |Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
 |Content-Type|リクエストボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
 |Accept|レスポンスボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
-#### リクエストボディ
+### リクエストボディ
 JSON
 
 |項目名|概要|有効値|必須|備考|
@@ -48,7 +48,7 @@ JSON
 |RequestRelation|登録依頼した関係情報|URL形式<br>null|※ 2|※2 メッセージタイプがmessage以外の場合必須<br>登録依頼するリレーションクラスURL、またはリレーション名、またはロールクラスURL、またはロール名を指定<br>リレーション名指定時は以下のURLからの相対URLとみなす<br>BoxBoundがtrue：[対象BoxスキーマURL]\_\_relation/\_\_/<br>BoxBoundがfalse：[送信先セルURL]\_\_relation/\_\_/<br>ロール名指定時は以下のURLからの相対URLとみなす<br>BoxBoundがtrue：[対象BoxスキーマURL]\_\_role/\_\_/<br>BoxBoundがfalse：[送信先セルURL]\_\_role/\_\_/|
 |RequestRelationTarget|関係を結ぶセルURL|URL形式<br>null|※ 2|※2 メッセージタイプがmessage以外の場合必須|
 
-#### リクエストサンプル
+### リクエストサンプル
 ```JSON
 {
   "BoxBound": true,
@@ -64,11 +64,11 @@ JSON
 }
 ```
 
-### レスポンス
-#### ステータスコード
+## レスポンス
+### ステータスコード
 201
 
-#### レスポンスヘッダ
+### レスポンスヘッダ
 
 |ヘッダ名|概要|備考|
 |:--|:--|:--|
@@ -78,9 +78,9 @@ JSON
 |ETag|リソースのバージョン情報||
 |Access-Control-Allow-Origin|クロスドメイン通信許可ヘッダ|返却値は"*"固定|
 |X-Personium-Version|APIの実行バージョン|リクエストが処理されたAPIバージョン|
-#### レスポンスボディ
+### レスポンスボディ
 
-##### 共通レスポンスボディ
+#### 共通レスポンスボディ
 レスポンスはJSONオブジェクトで、オブジェクト（サブオブジェクト）に定義されるキー(名前)と型、並びに値の対応は以下のとおりです。
 
 |オブジェクト|名前【キー）|型|値|
@@ -94,7 +94,7 @@ JSON
 |{2}|__updated|string|更新日(UNIX時間)|
 |{1}|__count|string|$inlinecountクエリでの取得結果件数|
 
-##### SentMessage固有レスポンスボディ
+#### SentMessage固有レスポンスボディ
 |オブジェクト|名前【キー】|型|値|
 |:--|:--|:--|:--|
 |{3}|type|string|CellCtl.ReceivedMessage|
@@ -113,16 +113,17 @@ JSON
 |{4}|To|string|送信先CellURL|
 |{4}|Code|string|ステータスコード|
 |{4}|Reason|string|詳細メッセージ|
-#### エラーメッセージ一覧
+### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
 
-#### レスポンスサンプル
+### レスポンスサンプル
 ```JSON
 {
   "d": {
     "results": {
       "__metadata": {
-        "uri": "https://{UnitFQDN}/{CellName}/__ctl/SentMessage('3afcc60e35fc49ee9a4e4f6c1ebee426')",
+        "uri": "https://{UnitFQDN}/{CellName}/__ctl/SentMessage
+('3afcc60e35fc49ee9a4e4f6c1ebee426')",
         "etag": "W/\"1-1486638759524\"",
         "type": "CellCtl.SentMessage"
       },
@@ -151,9 +152,12 @@ JSON
 }
 ```
 
-### cURLサンプル
+## cURLサンプル
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__message/send" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"BoxBound":false,"InReplyTo":"xnKXmd4TTZCw-bfSEw4f0AxnKXmd4TTZ","To":"https://{UnitFQDN}/{CellName}","Type":"message","Title":"メッセージサンプルタイトル","Body":"メッセージサンプル本文です。","Priority":3}'
+curl "https://{UnitFQDN}/{CellName}/__message/send" -X POST -i -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
+'{"BoxBound":false,"InReplyTo":"xnKXmd4TTZCw-bfSEw4f0AxnKXmd4TTZ",\
+"To":"https://{UnitFQDN}/{CellName}","Type":"message","Title":"メッセージサンプルタイトル",\
+"Body":"メッセージサンプル本文です。","Priority":3}'
 ```
 
-###### Copyright 2017 FUJITSU LIMITED

@@ -1,5 +1,5 @@
 # ExtCell取得
-### 概要
+## 概要
 既存のExtCell情報を取得する
 
 ### 必要な権限
@@ -13,15 +13,15 @@ auth-read
 * $formatクエリオプションは無視される
 
 
-### リクエスト
-#### リクエストURL
+## リクエスト
+### リクエストURL
 ```
 /{CellName}/__ctl/ExtCell('http%3A%2F%2F{UnitFQDN}%2F{CellName}')
 ```
-#### メソッド
+### メソッド
 GET
 
-#### リクエストクエリ
+### リクエストクエリ
 
 |クエリ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
@@ -32,7 +32,7 @@ GET
 
 [$format クエリ](404_Format_Query.md)
 
-#### リクエストヘッダ
+### リクエストヘッダ
 
 |Header Name|Summary|Valid Value|Required|Remarks|
 |:--|:--|:--|:--|:--|
@@ -43,21 +43,17 @@ GET
 |Content-Type|リクエストボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
 |Accept|レスポンスボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
 |If-Match|対象ETag値を指定する|ETag値|×|省略時は[*]として扱う|
-#### リクエストボディ
+### リクエストボディ
 なし
 
-#### リクエストサンプル
-なし
-
-
-### レスポンス
-#### ステータスコード
+## レスポンス
+### ステータスコード
 200
 
-#### レスポンスヘッダ
+### レスポンスヘッダ
 なし
 
-#### レスポンスボディ
+### レスポンスボディ
 
 |オブジェクト|Item Name|Data Type|Remarks|
 |:--|:--|:--|:--|
@@ -70,16 +66,16 @@ GET
 |{2}|__updated|string|更新日(UNIX時間)|
 |{1}|__count|string|$inlinecountクエリでの取得結果件数|
 
-##### ExtCell固有レスポンスボディ
+#### ExtCell固有レスポンスボディ
 
 |オブジェクト|Item Name|Data Type|Remarks|
 |:--|:--|:--|:--|
 |{3}|type|string|CellCtl.ExtCell|
 |{2}|Url|string|対象CellのURL|
-#### エラーメッセージ一覧
+### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
 
-#### レスポンスサンプル
+### レスポンスサンプル
 ```JSON
 {
   "d": {
@@ -94,12 +90,14 @@ GET
       "__updated": "/Date(1486519006899)/",
       "_Role": {
         "__deferred": {
-          "uri": "https://{UnitFQDN}/{CellName}/__ctl/ExtCell('https://{UnitFQDN}/{ExtCellName}/')/_Role"
+          "uri": "https://{UnitFQDN}/{CellName}/__ctl/ExtCell('https://{UnitFQDN}/{ExtCellName}/')
+/_Role"
         }
       },
       "_Relation": {
         "__deferred": {
-          "uri": "https://{UnitFQDN}/{CellName}/__ctl/ExtCell('https://{UnitFQDN}/{ExtCellName}/')/_Relation"
+          "uri": "https://{UnitFQDN}/{CellName}/__ctl/ExtCell('https://{UnitFQDN}/{ExtCellName}/')
+/_Relation"
         }
       }
     }
@@ -107,10 +105,10 @@ GET
 }
 ```
 
-### cURLサンプル
+## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{CellName}%2F')" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{CellName}%2F')" -X \
+GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 
-###### Copyright 2017 FUJITSU LIMITED

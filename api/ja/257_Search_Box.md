@@ -1,5 +1,5 @@
 # Box一覧取得
-### 概要
+## 概要
 既存のBox情報の一覧を取得する
 
 ### 必要な権限
@@ -13,15 +13,15 @@ box-read
 * $formatクエリオプションは無視される
 
 
-### リクエスト
-#### リクエストURL
+## リクエスト
+### リクエストURL
 ```
 /{CellName}/__ctl/Box
 ```
-#### メソッド
+### メソッド
 GET
 
-#### リクエストクエリ
+### リクエストクエリ
 以下のクエリパラメタが利用可能です。
 
 |クエリ名|概要|有効値|必須|備考|
@@ -46,7 +46,7 @@ GET
 
 [全文検索(q)クエリ](408_Full_Text_Search_Query.md)
 
-#### リクエストヘッダ
+### リクエストヘッダ
 
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
@@ -55,21 +55,18 @@ GET
 |X-Personium-RequestKey|イベントログに出力するRequestKeyフィールドの値|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字|×|指定がない場合、PCS-${UNIX時間}を設定する|
 |Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
 |Accept|レスポンスボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
-#### リクエストボディ
-なし
-
-#### リクエストサンプル
+### リクエストボディ
 なし
 
 
-### レスポンス
-#### ステータスコード
+## レスポンス
+### ステータスコード
 200
 
-#### レスポンスヘッダ
+### レスポンスヘッダ
 なし
 
-#### レスポンスボディ
+### レスポンスボディ
 レスポンスはJSONオブジェクトで、オブジェクト（サブオブジェクト）に定義されるキー(名前)と型、並びに値の対応は以下のとおりです。
 
 |オブジェクト|項目名|Data Type|備考|
@@ -83,7 +80,7 @@ GET
 |{2}|__updated|string|更新日(UNIX時間)|
 |{1}|__count|string|$inlinecountクエリでの取得結果件数|
 
-#### Box固有レスポンスボディ
+### Box固有レスポンスボディ
 
 |オブジェクト|項目名|Data Type|備考|
 |:--|:--|:--|:--|
@@ -91,10 +88,10 @@ GET
 |{2}|Name|string|Box名|
 |{2}|Schema|string|Schema名|
 
-#### エラーメッセージ一覧
+### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
 
-#### レスポンスサンプル
+### レスポンスサンプル
 ```JSON
 {
   "d": {
@@ -166,10 +163,10 @@ GET
 }
 ```
 
-### cURLサンプル
+## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Box" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Box" -X GET -i -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 
-###### Copyright 2017 FUJITSU LIMITED

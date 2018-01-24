@@ -1,5 +1,5 @@
 # Account更新
-### 概要
+## 概要
 既存のAccount情報を更新する
 
 ### 必要な権限
@@ -12,8 +12,8 @@ auth
 * $formatクエリオプションにatom または xmlを指定した場合、エラーとはならないが、レスポンスボディのデータの保証はない
 
 
-### リクエスト
-#### リクエストURL
+## リクエスト
+### リクエストURL
 ```
 /{CellName}/__ctl/Account(Name='{AccountName}')
 ```
@@ -21,15 +21,15 @@ auth
 ```
 /{CellName}/__ctl/Account('{AccountName}')
 ```
-#### メソッド
+### メソッド
 PUT
 
-#### リクエストクエリ
+### リクエストクエリ
 
 |クエリ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|クッキー認証値|認証時にサーバから返却されたクッキー認証値|×|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する|
-#### リクエストヘッダ
+### リクエストヘッダ
 
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
@@ -41,14 +41,14 @@ PUT
 |Accept|レスポンスボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
 |If-Match|対象ETag値を指定する|ETag値|○||
 |X-Personium-Credential|パスワード|文字列|×|文字数：6&#65374;32文字<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)|
-#### リクエストボディ
+### リクエストボディ
 
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |Name|アカウント名|桁数：1&#65374;128<br>文字種:半角英数字と右記半角記号（-_!$*=^`{&#124;}~.@）<br>ただし、先頭文字に半角記号は指定不可|○||
 |Type|アカウントタイプ|basic(ID/PWによる認証)<br>oidc:google(Google OpenID Connectによる認証)<br>または上記２つをスペースで区切る<br>説明：省略した場合basicで更新される|×|デフォルト：basic|
 |LastAuthenticated|最終認証日時|/Date(【long型の時刻】)/の形式で文字列で指定する<br>【long型の時刻】の有効値は、-6847804800000(1753-01-01T00:00:00.000Z)&#65374;253402300799999(9999-12-31T23:59:59.999Z)<br>説明：省略した場合nullで更新される|×|デフォルト：null|
-#### リクエストサンプル
+### リクエストサンプル
 アカウント名更新
 ```JSON
 {
@@ -62,31 +62,30 @@ PUT
 }
 ```
 
-### レスポンス
-#### ステータスコード
+## レスポンス
+### ステータスコード
 204
 
-#### レスポンスヘッダ
+### レスポンスヘッダ
 なし
 
-#### レスポンスボディ
+### レスポンスボディ
 なし
 
-#### エラーメッセージ一覧
+### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
 
-#### レスポンスサンプル
-なし
-
-### cURLサンプル
+## cURLサンプル
 アカウント名更新
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Account('{AccountName}')" -X PUT -i -H 'If-Match: *' -H 'X-Personium-Credential:password' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{AccountName}"}'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Account('{AccountName}')" -X PUT -i -H \
+'If-Match: *' -H 'X-Personium-Credential:password' -H 'Authorization: Bearer {AccessToken}' -H \
+'Accept: application/json' -d '{"Name":"{AccountName}"}'
 ```
 アカウント名+アカウントタイプ更新
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Account('{AccountName}')" -X PUT -i -H 'If-Match: *' -H 'X-Personium-Credential:password' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{AccountName}","Type":"oidc:google"}'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Account('{AccountName}')" -X PUT -i -H \
+'If-Match: *' -H 'X-Personium-Credential:password' -H 'Authorization: Bearer {AccessToken}' -H \
+'Accept: application/json' -d '{"Name":"{AccountName}","Type":"oidc:google"}'
 ```
 
-
-###### Copyright 2017 FUJITSU LIMITED

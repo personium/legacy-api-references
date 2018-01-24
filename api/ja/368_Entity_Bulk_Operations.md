@@ -1,5 +1,5 @@
 # Entity一括操作($batch)
-### 概要
+## 概要
 ODataEntityに対して、一覧取得や一件取得、登録、更新、削除といった一括操作を行う
 ### 必要な権限
 * 一覧取得・一件取得  
@@ -15,8 +15,8 @@ ODataEntityに対して、一覧取得や一件取得、登録、更新、削除
 	- $linksの「PUT」「GET」「DELETE」は、未対応(501を返却)
 
 
-### リクエスト
-#### リクエストURL
+## リクエスト
+### リクエストURL
 ```
 /{CellName}/{BoxName}/{ODataCollecitonName}/$batch
 ```
@@ -25,18 +25,18 @@ ODataEntityに対して、一覧取得や一件取得、登録、更新、削除
 |{CellName}|セル名|
 |{BoxName}|ボックス名|
 |{ODataCollecitonName}|コレクション名|
-#### メソッド
+### メソッド
 POST
-#### リクエストクエリ
+### リクエストクエリ
 |クエリ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|クッキー認証値|認証時にサーバから返却されたクッキー認証値|×|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する|
-#### リクエストヘッダ
+### リクエストヘッダ
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン テスト未実施|
 |Content-Type|リクエストボディの形式を指定する|multipart / mixed; boundary = {Boundary}|○|省略時は[multipart/mixed]として扱う 　{Boundary}に使用可能な文字種：半角英数大小文字 '()+_,-./:=?<br>未対応|
-#### リクエストボディ
+### リクエストボディ
 バッチ処理内容をMIMEのマルチパートデータ形式でリクエストボディに指定する
 バッチ処理の最大処理件数は、1000件まで可能  
 バッチ処理には、コンテキスト取得の「クエリーオペレーション」と、コンテキスト登録・更新・削除の「チェンジセット」がある  
@@ -114,21 +114,21 @@ POST
 	チェンジセットバウンダリー文字列からチェンジセットバウンダリー文字列までが１つのリクエスト情報となり、
 	リクエストをチェンジセットバウンダリー文字列で区切ることで、複数指定が可能
 ```
-#### Request Path
+### Request Path
 * {EntitySet名}
 * {EntitySet名}('{\__id}')
 * {EntitySet名}('{\__id}')/{NavigationProperty名}
 * {EntitySet名}('{\__id}')/$links/{NavigationProperty名}
 
-#### メソッド
+### メソッド
 POST, GET, PUT, DELETE
-#### Request Queries
+### Request Queries
 未対応
-#### リクエストヘッダ
+### リクエストヘッダ
 ユーザデータの仕様に従う
-#### リクエストボディ
+### リクエストボディ
 ユーザデータの仕様に従う
-#### リクエストサンプル
+### リクエストサンプル
 次に示すのは、以下の流れでコンテキストを取得・登録・更新・削除する場合のリクエストの例を示す
 * 「ID:0000」を取得
 * 「ID:0000、Name:田中 太郎」で登録
@@ -214,21 +214,21 @@ If-Match: *
 ```
 
 
-### レスポンス
-#### ステータスコード
+## レスポンス
+### ステータスコード
 202
-#### レスポンスヘッダ
+### レスポンスヘッダ
 |ヘッダ名|概要|備考|
 |:--|:--|:--|
 |Content-Type|返却されるデータの形式|正常に$batch処理ができた場合：multipart/mixed; boundary={Boundary}|
 |DataServiceVersion|ODataのバージョン情報|正常にEntityが作成できた場合のみ返却する|
-#### レスポンスボディ
+### レスポンスボディ
 レスポンスサンプル参照
 
-#### エラーメッセージ一覧
+### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
 
-#### レスポンスサンプル
+### レスポンスサンプル
 次に示すのは、上記のリクエストパラメータの例を実行した場合のレスポンスの例を示す
 * 「ID:0000」を取得
 * 「ID:0000、Name:田中 太郎」で登録
@@ -264,12 +264,14 @@ HTTP/1.1 201 Created
 Content-Type: application/json
 Content-Length: 425
 DataServiceVersion: 2.0
-Location: http://{UnitFQDN}:50280/api/context/xxx-ah,http%253A%252F%252FUnitFQDN%252Fds%252Fabc-web/odata/user('0000')
+Location: http://{UnitFQDN}:50280/api/context/xxx-ah,http%253A%252F%252FUnitFQDN%252Fds%252Fabc-web
+/odata/user('0000')
 {
   "d": {
     "Results": {
       "__metadata": {
-        "uri": "http://{UnitFQDN}/api/context/xxx-ah,http%253A%252F%252FUnitFQDN%252Fds%252Fvet-web/odata/user('0000')"
+        "uri": "http://{UnitFQDN}/api/context/xxx-ah,http%253A%252F%252FUnitFQDN%252Fds%252Fvet-web
+/odata/user('0000')"
         "etag": "W/\"1-1488184348000\"",
         "type": "UserData.user",
       },
@@ -317,7 +319,8 @@ Content-Type: application/json
       "name": "田中 太郎",
       "_log": {
         "__deferred": {
-          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('0000')/_log"
+          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}
+('0000')/_log"
         }
       }
     }
@@ -355,11 +358,13 @@ DataServiceVersion: 2.0
 ```
 
 
-### cURLサンプル
+## cURLサンプル
 
 curlコマンド
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$batch" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Content-Type:multipart/mixed; boundary=batch_XAmu9BiJJLBa20sRWIq74jp2UlNAVueztqu' --data-binary @sample.txt
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$batch" -X POST -i -H \
+'Authorization: Bearer {AccessToken}' -H 'Content-Type:multipart/mixed; boundary=\
+batch_XAmu9BiJJLBa20sRWIq74jp2UlNAVueztqu' --data-binary @sample.txt
 ```
 sample.txt
 ```
@@ -387,4 +392,3 @@ Content-Length: 41
 --batch_XAmu9BiJJLBa20sRWIq74jp2UlNAVueztqu--
 ```
 
-###### Copyright 2017 FUJITSU LIMITED

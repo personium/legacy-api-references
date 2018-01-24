@@ -1,5 +1,5 @@
 # Box再帰的削除
-### 概要
+## 概要
 * 指定されたBox、Box配下のデータ、Boxとリンクしているデータを全て削除する。
 * 削除対象のデータは下記
 	- Role
@@ -19,22 +19,20 @@
 ### 必要な権限
 Box
 
-### 制限事項
-なし
 
-### リクエスト
-#### リクエストURL
+## リクエスト
+### リクエストURL
 ```
 /{CellName}/{BoxName}
 ```
 
-#### メソッド
+### メソッド
 DELETE
 
-#### リクエストクエリ
+### リクエストクエリ
 なし
 
-#### リクエストヘッダ
+### リクエストヘッダ
 
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
@@ -44,35 +42,29 @@ DELETE
 |Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|○|※認証トークンは認証トークン取得APIで取得したトークン|
 |X-Personium-Recursive|一括削除の指定|文字列|○|trueの場合は一括削除APIを実施<br>falseの場合およびヘッダの指定がなかった場合はエラーレスポンスコード412を返却|
 
-#### リクエストボディ
-なし
-
-#### リクエストサンプル
+### リクエストボディ
 なし
 
 
-### レスポンス
-#### ステータスコード
+## レスポンス
+### ステータスコード
 204
 
-#### レスポンスヘッダ
+### レスポンスヘッダ
 |ヘッダ名|概要|備考|
 |:--|:--|:--|
 |Access-Control-Allow-Origin|クロスドメイン通信許可ヘッダ|返却値は"*"固定|
 |X-Personium-Version|APIの実行バージョン|リクエストが処理されたAPIバージョン|
-#### レスポンスボディ
+### レスポンスボディ
 なし
 
-#### エラーメッセージ一覧
+### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
 
-#### レスポンスサンプル
-なし
-
-### cURLサンプル
+## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}" -X DELETE -i -H 'X-Personium-Recursive: true' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}" -X DELETE -i -H 'X-Personium-Recursive: true' -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 
-###### Copyright 2017 FUJITSU LIMITED

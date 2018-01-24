@@ -1,5 +1,5 @@
 # Account一覧取得
-### 概要
+## 概要
 既存のAccount情報の一覧を取得する
 
 ### 必要な権限
@@ -12,15 +12,15 @@ auth-read
 * $formatクエリオプションにatom または xmlを指定した場合、エラーとはならないが、レスポンスボディのデータの保証はない
 
 
-### リクエスト
-#### リクエストURL
+## リクエスト
+### リクエストURL
 ```
 /{CellName}/__ctl/Account
 ```
-#### メソッド
+### メソッド
 GET
 
-#### リクエストクエリ
+### リクエストクエリ
 以下のクエリパラメタが利用可能です。
 
 |クエリ名|概要|有効値|必須|備考|
@@ -45,7 +45,7 @@ GET
 
 [全文検索(q)クエリ](408_Full_Text_Search_Query.md)
 
-#### リクエストヘッダ
+### リクエストヘッダ
 
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
@@ -54,21 +54,18 @@ GET
 |X-Personium-RequestKey|イベントログに出力するRequestKeyフィールドの値|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字|×|指定がない場合、PCS-${UNIX時間}を設定する|
 |Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
 |Accept|レスポンスボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
-#### リクエストボディ
-なし
-
-#### リクエストサンプル
+### リクエストボディ
 なし
 
 
-### レスポンス
-#### ステータスコード
+## レスポンス
+### ステータスコード
 200
 
-#### レスポンスヘッダ
+### レスポンスヘッダ
 なし
 
-#### レスポンスボディ
+### レスポンスボディ
 
 |オブジェクト|Name(Key)|Type|Value|
 |:--|:--|:--|:--|
@@ -81,7 +78,7 @@ GET
 |{2}|__updated|string|更新日(UNIX時間)|
 |{1}|__count|string|$inlinecountクエリでの取得結果件数|
 
-#### Account固有レスポンスボディ
+### Account固有レスポンスボディ
 |オブジェクト|項目名|型|備考|
 |:--|:--|:--|:--|
 |{3}|type|string|CellCtl.Account|
@@ -90,10 +87,10 @@ GET
 |{2}|Type|string|初期値:"basic"|
 |{2}|Cell|string|デフォルト：null|
 
-#### エラーメッセージ一覧
+### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
 
-#### レスポンスサンプル
+### レスポンスサンプル
 ```JSON
 {
   "d": {
@@ -149,10 +146,10 @@ GET
 }
 ```
 
-### cURLサンプル
+## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Account" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Account" -X GET -i -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 
-###### Copyright 2017 FUJITSU LIMITED

@@ -1,5 +1,5 @@
 # ReceivedMessage一覧取得
-### 概要
+## 概要
 受信メッセージ情報を取得する
 ### 必要な権限
 message または message-read
@@ -10,14 +10,14 @@ message または message-read
 * $formatクエリオプションにatom または xmlを指定した場合、エラーとはならないが、レスポンスボディのデータの保証はない
 
 
-### リクエスト
-#### リクエストURL
+## リクエスト
+### リクエストURL
 ```
 /{CellName}/__ctl/ReceivedMessage
 ```
-#### メソッド
+### メソッド
 GET
-#### リクエストクエリ
+### リクエストクエリ
 以下のクエリパラメタが利用可能です。
 
 |クエリ名|概要|有効値|必須|備考|
@@ -42,35 +42,32 @@ GET
 
 [全文検索(q)クエリ](408_Full_Text_Search_Query.md)
 
-#### リクエストヘッダ
-##### 共通リクエストヘッダ
+### リクエストヘッダ
+#### 共通リクエストヘッダ
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |X-HTTP-Method-Override|メソッドオーバーライド機能|任意|×|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用される|
 |X-Override|ヘッダオーバライド機能|${上書きするヘッダ名}:${値}|×|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定する|
 |X-Personium-RequestKey|イベントログに出力するRequestKeyフィールドの値|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字|×|指定がない場合、PCS-${UNIX時間}を設定する|
-##### OData共通リクエストヘッダ
+#### OData共通リクエストヘッダ
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
-##### OData取得リクエストヘッダ
+#### OData取得リクエストヘッダ
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |Accept|レスポンスボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
 |If-None-Match|対象ETag値を指定する|ETag値|○|未対応|
-#### リクエストボディ
-なし
-#### リクエストサンプル
+### リクエストボディ
 なし
 
-
-### レスポンス
-#### ステータスコード
+## レスポンス
+### ステータスコード
 200
-#### レスポンスヘッダ
+### レスポンスヘッダ
 なし
-#### レスポンスボディ
-##### 共通レスポンスボディ
+### レスポンスボディ
+#### 共通レスポンスボディ
 レスポンスはJSONオブジェクトで、オブジェクト（サブオブジェクト）に定義されるキー(名前)と型、並びに値の対応は以下のとおりです。
 
 |オブジェクト|名前(キー）|型|値|
@@ -84,7 +81,7 @@ GET
 |{2}|__updated|string|更新日(UNIX時間)|
 |{1}|__count|string|$inlinecountクエリでの取得結果件数|
 
-##### ReceivedMessage固有レスポンスボディ
+#### ReceivedMessage固有レスポンスボディ
 |オブジェクト|名前（キー）|型|値|
 |:--|:--|:--|:--|
 |{3}|type|string|CellCtl.ReceivedMessage|
@@ -100,17 +97,18 @@ GET
 |{2}|Status|string|メッセージステータス<br>Typeがmessageの場合<br>　read：既読<br>　unread：未読<br>Typeがreq.relation.build/req.relation.break/req.role.grant/req.role.revokeの場合<br>　approved：承認<br>　rejected：拒否<br>　none：未決|
 |{2}|RequestRelation|string|登録依頼するリレーションクラスURL、またはリレーション名、またはロールクラスURL、またはロール名<br>メッセージタイプがmessage以外の場合のみ|
 |{2}|RequestRelationTarget|string|関係を結ぶCellURL<br>メッセージタイプがmessage以外の場合のみ|
-#### エラーメッセージ一覧
+### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
 
-#### レスポンスサンプル
+### レスポンスサンプル
 ```JSON
 {
   "d": {
     "results": [
       {
         "__metadata": {
-          "uri": "https://{UnitFQDN}/{CellName}/__ctl/ReceivedMessage('c87b42e10df846a9bee842225d1383fe')",
+          "uri": "https://{UnitFQDN}/{CellName}/__ctl/ReceivedMessage
+('c87b42e10df846a9bee842225d1383fe')",
           "etag": "W/\"1-1486683974451\"",
           "type": "CellCtl.ReceivedMessage"
         },
@@ -130,18 +128,21 @@ GET
         "__updated": "/Date(1486683974451)/",
         "_Box": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/ReceivedMessage('c87b42e10df846a9bee842225d1383fe')/_Box"
+            "uri": "https://{UnitFQDN}/{CellName}/__ctl/ReceivedMessage
+('c87b42e10df846a9bee842225d1383fe')/_Box"
           }
         },
         "_AccountRead": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/ReceivedMessage('c87b42e10df846a9bee842225d1383fe')/_AccountRead"
+            "uri": "https://{UnitFQDN}/{CellName}/__ctl/ReceivedMessage
+('c87b42e10df846a9bee842225d1383fe')/_AccountRead"
           }
         }
       },
       {
         "__metadata": {
-          "uri": "https://{UnitFQDN}/{CellName}/__ctl/ReceivedMessage('3afcc60e35fc49ee9a4e4f6c1ebee426')",
+          "uri": "https://{UnitFQDN}/{CellName}/__ctl/ReceivedMessage
+('3afcc60e35fc49ee9a4e4f6c1ebee426')",
           "etag": "W/\"3-1486688634556\"",
           "type": "CellCtl.ReceivedMessage"
         },
@@ -161,12 +162,14 @@ GET
         "__updated": "/Date(1486688634556)/",
         "_Box": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/ReceivedMessage('3afcc60e35fc49ee9a4e4f6c1ebee426')/_Box"
+            "uri": "https://{UnitFQDN}/{CellName}/__ctl/ReceivedMessage
+('3afcc60e35fc49ee9a4e4f6c1ebee426')/_Box"
           }
         },
         "_AccountRead": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/ReceivedMessage('3afcc60e35fc49ee9a4e4f6c1ebee426')/_AccountRead"
+            "uri": "https://{UnitFQDN}/{CellName}/__ctl/ReceivedMessage
+('3afcc60e35fc49ee9a4e4f6c1ebee426')/_AccountRead"
           }
         }
       }
@@ -176,10 +179,10 @@ GET
 ```
 
 
-### cURLサンプル
+## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/ReceivedMessage" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/__ctl/ReceivedMessage" -X GET -i -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 
-###### Copyright 2017 FUJITSU LIMITED

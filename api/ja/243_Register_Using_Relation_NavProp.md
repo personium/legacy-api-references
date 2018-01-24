@@ -1,5 +1,5 @@
 # Relation_NavProp経由登録
-### 概要
+## 概要
 Cell制御オブジェクトNavigation Property経由で登録し、同時に$linksを登録する。
 
 ### 必要な権限
@@ -13,9 +13,9 @@ write
 * $formatクエリオプションは無視される
 
 
-### リクエスト
-#### リクエストURL
-##### BoxへのnavigationProperty
+## リクエスト
+### リクエストURL
+#### BoxへのnavigationProperty
 ```
 /{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_Box
 ```
@@ -27,7 +27,7 @@ write
 ```
 /{CellName}/__ctl/Relation('{RelationName}')/_Box
 ```
-##### ExtCellへのnavigationProperty
+#### ExtCellへのnavigationProperty
 ```
 /{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_ExtCell
 ```
@@ -39,7 +39,7 @@ write
 ```
 /{CellName}/__ctl/Relation('{RelationName}')/_ExtCell
 ```
-##### ExtRoleへのnavigationProperty
+#### ExtRoleへのnavigationProperty
 ```
 /{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_ExtRole
 ```
@@ -51,7 +51,7 @@ write
 ```
 /{CellName}/__ctl/Relation('{RelationName}')/_ExtRole
 ```
-##### RoleへのnavigationProperty
+#### RoleへのnavigationProperty
 ```
 /{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_Role
 ```
@@ -65,16 +65,16 @@ write
 ```
 ※ \_Box.Nameパラメタを省略した場合は、nullが指定されたものとする
 
-#### メソッド
+### メソッド
 POST
 
-#### リクエストクエリ
+### リクエストクエリ
 
 |クエリ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|クッキー認証値|認証時にサーバから返却されたクッキー認証値|×|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する|
 
-#### リクエストヘッダ
+### リクエストヘッダ
 
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
@@ -84,9 +84,9 @@ POST
 |Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
 |Content-Type|リクエストボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
 |Accept|レスポンスボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
-#### リクエストボディ
-##### Boxを登録する場合
-##### Format
+### リクエストボディ
+#### Boxを登録する場合
+#### Format
 JSON
 
 |項目名|概要|有効値|必須|備考|
@@ -94,7 +94,7 @@ JSON
 |Name|Relation名|桁数：1&#65374;128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)と+(プラス)と:(コロン)<br>ただし、先頭文字に_(半角アンダーバー)と:(コロン)は指定不可|○||
 |_Box.Name|関係対象のBox名|桁数：1&#65374;128<br>文字種：半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)は指定不可<br>説明：Box登録APIにて登録済みのBoxのNameを指定<br>特定のBoxと関連付けない場合はnullを指定|×||
 
-##### リクエストサンプル
+#### リクエストサンプル
 ```JSON
 {
   "Name": "{RelationName}",
@@ -102,11 +102,11 @@ JSON
 }
 ```
 
-### レスポンス
-#### ステータスコード
+## レスポンス
+### ステータスコード
 201
 
-#### レスポンスヘッダ
+### レスポンスヘッダ
 
 |ヘッダ名|概要|備考|
 |:--|:--|:--|
@@ -116,7 +116,7 @@ JSON
 |ETag|リソースのバージョン情報||
 |Access-Control-Allow-Origin|クロスドメイン通信許可ヘッダ|返却値は"*"固定|
 |X-Personium-Version|APIの実行バージョン|リクエストが処理されたAPIバージョン|
-#### レスポンスボディ
+### レスポンスボディ
 
 |オブジェクト|項目名|Data Type|備考|
 |:--|:--|:--|:--|
@@ -129,8 +129,7 @@ JSON
 |{2}|__updated|string|更新日(UNIX時間)|
 |{1}|__count|string|$inlinecountクエリでの取得結果件数|
 
-##### Boxを登録した場合
-##### Box固有レスポンスボディ
+#### Boxを登録した場合
 
 |オブジェクト|項目名|Data Type|備考|
 |:--|:--|:--|:--|
@@ -138,7 +137,7 @@ JSON
 |{2}|Name|string|Box名|
 |{2}|Schema|string|Schema名|
 
-##### レスポンスサンプル
+#### レスポンスサンプル
 ```JSON
 {
   "d": {
@@ -156,14 +155,15 @@ JSON
   }
 }
 ```
-#### エラーメッセージ一覧
+### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
 
-### cURLサンプル
+## cURLサンプル
 
-##### Boxを登録した場合
+#### Boxを登録した場合
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_Box" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{BoxName}"}'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')\
+/_Box" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' \
+-d '{"Name":"{BoxName}"}'
 ```
 
-###### Copyright 2017 FUJITSU LIMITED

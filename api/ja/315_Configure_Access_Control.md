@@ -1,5 +1,5 @@
 # Box Level アクセス制御設定
-### 概要
+## 概要
 Box Level のアクセス制御機能を提供する
 
 ### 必要な権限
@@ -11,8 +11,8 @@ write-acl
 * ACLで設定出来るprivilegeの一覧取得
 
 
-### リクエスト
-#### リクエストURL
+## リクエスト
+### リクエストURL
 ```
 /{CellName}/{BoxName}
 ```
@@ -27,13 +27,13 @@ write-acl
 |{BoxName}|ボックス名||
 |{ResourcePath}|リソースへのパス|有効値 桁数:1&#65374;128<br>使用可能文字種<br>半角英数字、半角ピリオド(.)、半角アンダーバー(_)、半角ハイフン(-)|
 
-#### メソッド
+### メソッド
 ACL
 
-#### リクエストクエリ
+### リクエストクエリ
 なし
 
-#### リクエストヘッダ
+### リクエストヘッダ
 
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
@@ -42,7 +42,7 @@ ACL
 |X-Personium-RequestKey|イベントログに出力するRequestKeyフィールドの値|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字|×|指定がない場合、PCS-${UNIX時間}を設定する|
 |Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
 
-#### リクエストボディ
+### リクエストボディ
 名前空間
 
 |URI|概要|参考prefix|
@@ -88,7 +88,8 @@ DTD表記
 <!ELEMENT principal (privilege*)>
 <!ELEMENT href (#PCDATA)>
 <!ELEMENT all EMPTY>
-<!ELEMENT privilege (all or read or write or read-properties or write-properties or read-acl or write-acl or exec or bind or unbind)>
+<!ELEMENT privilege (all or read or write or read-properties or write-properties or read-acl 
+or write-acl or exec or bind or unbind)>
 <!ELEMENT read EMPTY>
 <!ELEMENT write EMPTY>
 <!ELEMENT read-properties EMPTY>
@@ -111,7 +112,7 @@ DTD表記
 <!ATTLIST acl base CDATA #IMPLIED>
 ```
 
-#### リクエストサンプル
+### リクエストサンプル
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <D:acl xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns"
@@ -138,34 +139,32 @@ DTD表記
 ```
 
 
-### レスポンス
-#### ステータスコード
+## レスポンス
+### ステータスコード
 
 |コード|メッセージ|概要|
 |:--|:--|:--|
 |200|OK|成功|
-#### レスポンスヘッダ
+### レスポンスヘッダ
 
 |ヘッダ名|概要|備考|
 |:--|:--|:--|
 |Content-Type|返却されるデータの形式|更新・作成時に失敗した場合のみ返却する|
-#### レスポンスボディ
+### レスポンスボディ
 なし
 
-#### エラーメッセージ一覧
+### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
 
-#### レスポンスサンプル
-なし
 
-
-### cURLサンプル
+## cURLサンプル
 
 ```sh
 curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}" -X ACL -i
 -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d
 '<?xml version="1.0" encoding="utf-8" ?>
- <D:acl xmlns:D="DAV:" xml:base="https://{UnitFQDN}/{CellName}/__role/{BoxName}/"　xmlns:p="urn:x-personium:xmlns" p:requireSchemaAuthz="none">
+ <D:acl xmlns:D="DAV:" xml:base="https://{UnitFQDN}/{CellName}/__role/{BoxName}/"　xmlns:p=
+"urn:x-personium:xmlns" p:requireSchemaAuthz="none">
   <D:ace>
    <D:principal>
     <D:href>doctor</D:href>
@@ -182,4 +181,3 @@ curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}" -X ACL -i
  </D:acl>'
 ```
 
-###### Copyright 2017 FUJITSU LIMITED

@@ -1,5 +1,5 @@
 # Entity取得
-### 概要
+## 概要
 ユーザデータのEntityを一件取得します。
 ### 必要な権限
 read
@@ -16,8 +16,8 @@ read
   - 1つのEntityTypeに対して作成出来るのは、DynamicProperty・DeclaredProperty・ComplexTypeProperty合わせて400個まで
 
 
-### リクエスト
-#### リクエストURL
+## リクエスト
+### リクエストURL
 ```
 /{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}({EntityID})}
 ```
@@ -28,9 +28,9 @@ read
 |{ODataCollecitonName}|コレクション名|
 |{EntityTypeName}|EntityType名|
 |{EntityID}|取得するEntityのID|
-#### メソッド
+### メソッド
 GET
-#### リクエストクエリ
+### リクエストクエリ
 以下のクエリパラメタが利用可能です。
 
 |ヘッダ名|概要|有効値|必須|備考|
@@ -43,38 +43,36 @@ GET
 
 [$format クエリ](404_Format_Query.md)
 
-#### リクエストヘッダ
-##### 共通リクエストヘッダ
+### リクエストヘッダ
+#### 共通リクエストヘッダ
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |X-HTTP-Method-Override|メソッドオーバーライド機能|任意|×|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用される|
 |X-Override|ヘッダオーバライド機能|${上書きするヘッダ名}:${値}|×|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定する|
 |X-Personium-RequestKey|イベントログに出力するRequestKeyフィールドの値|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字|×|指定がない場合、PCS-${UNIX時間}を設定する|
-##### OData共通リクエストヘッダ
+#### OData共通リクエストヘッダ
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
-##### OData取得リクエストヘッダ
+#### OData取得リクエストヘッダ
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |Accept|レスポンスボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
 |If-None-Match|ETagの値を指定し、変更がない場合は304、変更されている場合は最新リソースを返却する||×|ETagに一致しないEntityを取得する場合に指定<br>未対応|
-#### リクエストボディ
-なし
-#### リクエストサンプル
+### リクエストボディ
 なし
 
 
-### レスポンス
-#### ステータスコード
+## レスポンス
+### ステータスコード
 200
 
-#### レスポンスヘッダ
+### レスポンスヘッダ
 |項目名|概要|備考|
 |:--|:--|:--|
 |Content-Type|返却されるデータの形式||
 |DataServiceVersion|ODataのバージョン情報|正常にEntityが取得できた場合のみ返却する|
-#### レスポンスボディ
+### レスポンスボディ
 レスポンスはJSONオブジェクトで、オブジェクト（サブオブジェクト）に定義されるキー(名前)と型、並びに値の対応は以下のとおり
 
 |オブジェクト|名前（キー）|型|値|
@@ -94,12 +92,12 @@ GET
 |{1}|__count|string|$inlinecountクエリでの取得結果件数|
 
 上記以外にスキーマ設定した項目、または登録時に指定した動的な項目を返却
-##### 数値の扱い
-##### 小数値（Edm.Single型）
+#### 数値の扱い
+#### 小数値（Edm.Single型）
 * JSON形式でUserODataを取得する場合の取り扱いは以下の通り
 	* 10.0等の小数部が0となる値は、整数値として返却する
 
-##### 数値（Edm.Double型）
+#### 数値（Edm.Double型）
 ※PersoniumでのDouble型の扱いは、JavaのDoubleの仕様に従います
 * JSON形式でUserODataを取得する場合の取り扱いは以下の通り
 	* 10.0等の小数部が0となる値は、整数値として返却する
@@ -108,16 +106,17 @@ GET
 		* 内部的には浮動小数点数として管理されるが、出力時には情報落ちの起こらない範囲で固定小数点数表現に変換して出力する  
 		出力された固定小数点数を入力に用いた場合、その入力数ともとの数との同一性は保証される
 
-#### エラーメッセージ一覧
+### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
 
-#### レスポンスサンプル
+### レスポンスサンプル
 ```JSON
 {
   "d": {
     "results": {
       "__metadata": {
-        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')",
+        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}
+('{EntityID}')",
         "etag": "W/\"1-1487662179733\"",
         "type": "UserData.{EntityTypeName}"
       },
@@ -137,10 +136,10 @@ GET
 ```
 
 
-### cURLサンプル
+## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')" \
+-X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 
-###### Copyright 2017 FUJITSU LIMITED

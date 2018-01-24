@@ -1,5 +1,5 @@
 # スキーマ取得 ($metadata)
-### 概要
+## 概要
 スキーマ情報を取得する
 ### 必要な権限
 read
@@ -11,56 +11,54 @@ read
 * ComplexTypeおよび、Documentationタグは対応していないため返却しない
 
 
-### リクエスト
-#### リクエストURL
+## リクエスト
+### リクエストURL
 ```
 /{CellName}/{BoxName}/{odataname}/$metadata
 ```
-#### メソッド
+### メソッド
 GET
-#### リクエストクエリ
-##### 共通クエリ
+### リクエストクエリ
+#### 共通クエリ
 |クエリ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|クッキー認証値|認証時にサーバから返却されたクッキー認証値|×|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する|
-##### 個別クエリ
+#### 個別クエリ
 $formatにatomsvcを指定した場合、SchemaのAtom ServiceDocumentを返却する  
 その他は無視する
-#### リクエストヘッダ
-##### 共通リクエストヘッダ
+### リクエストヘッダ
+#### 共通リクエストヘッダ
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |X-HTTP-Method-Override|メソッドオーバーライド機能|任意|×|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用される|
 |X-Override|ヘッダオーバライド機能|${上書きするヘッダ名}:${値}|×|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定する|
 |X-Personium-RequestKey|イベントログに出力するRequestKeyフィールドの値|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字|×|指定がない場合、PCS-${UNIX時間}を設定する|
-##### 個別リクエストヘッダ
+#### 個別リクエストヘッダ
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |Accept|返却されるデータの形式|application/atomsvc+xml<br>application/xml|×|指定がない場合、ユーザデータスキーマのスキーマ情報取得となる|
 |Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {認証トークン}|×|※認証トークンは認証トークン取得APIで取得したトークン|
-#### リクエストボディ
-なし
-#### リクエストサンプル
+### リクエストボディ
 なし
 
 
-### レスポンス
-#### ステータスコード
+## レスポンス
+### ステータスコード
 200
-#### レスポンスヘッダ
-##### 共通レスポンスヘッダ
+### レスポンスヘッダ
+#### 共通レスポンスヘッダ
 |ヘッダ名|概要|備考|
 |:--|:--|:--|
 |Access-Control-Allow-Origin|クロスドメイン通信許可ヘッダ|返却値は"*"固定|
 |X-Personium-Version|APIの実行バージョン|指定がない場合、最新のAPIバージョンが指定される|
 
-##### スキーマ取得固有レスポンスヘッダ
+#### スキーマ取得固有レスポンスヘッダ
 |ヘッダ名|概要|備考|
 |:--|:--|:--|
 |Content-Type|返却されるデータの形式||
 |DataServiceVersion|ODataのバージョン||
-#### レスポンスボディ
-##### ユーザデータの場合
+### レスポンスボディ
+#### ユーザデータの場合
 |URI|概要|参考prefix|
 |:--|:--|:--|
 |http://schemas.microsoft.com/ado/2007/06/edmx|edmxの名前空間|edmx:|
@@ -69,7 +67,7 @@ $formatにatomsvcを指定した場合、SchemaのAtom ServiceDocumentを返却�
 |urn&#58;x-personium:xmlns|Personiumの名前空間|p:|
 |http://schemas.microsoft.com/ado/2006/04/edm|schemeの名前空間|-|
 ※ 参考prefixは以下表の可読性を高めるためのもので、このprefix文字列の使用を保証するものでも要求するものでもありません。
-##### XMLの構造
+#### XMLの構造
 ボディはXML(edmx)で、以下のスキーマに従っています。
 
 |ノード名|名前空間|ノードタイプ|概要|備考|
@@ -131,7 +129,7 @@ $formatにatomsvcを指定した場合、SchemaのAtom ServiceDocumentを返却�
 |End|-|要素|アソシエーションセット ENDを表し、必須な要素||
 |Role|-|属性|ロールを表し、必須な属性||
 |EntitySet|-|属性|エンティティセットを表し、必須な属性||
-##### プロパティ
+#### プロパティ
 |ノード名|名前空間|ノードタイプ|概要|備考|
 |:--|:--|:--|:--|:--|
 |Property|-|要素|エンティティ型のPropertyを表す||
@@ -145,14 +143,14 @@ $formatにatomsvcを指定した場合、SchemaのAtom ServiceDocumentを返却�
 |CollectionKind|-|属性|プロパティの配列種別を表す|コレクションが配列の場合List,それ以外はNone<br>Noneの場合は表示されない|
 |Format|p:|属性|プロパティの文字フォーマットを表す||
 |IsDeclared|p:|属性|静的プロパティか否かを表す|動的プロパティの場合falseで表示,静的プロパティの場合は表示されない|
-##### ドキュメンテーション
+#### ドキュメンテーション
 未対応
 
 |ノード名|名前空間|ノードタイプ|概要|備考|
 |:--|:--|:--|:--|:--|
 |Summary|-|要素|ドキュメントのサマリを表す||
 |LongDescription|-|要素|ドキュメントの詳細を表す||
-##### DTD表記
+#### DTD表記
 名前空間:edmx:
 ```dtd
 <!ELEMENT Edmx (DataServices)>
@@ -221,15 +219,17 @@ $formatにatomsvcを指定した場合、SchemaのAtom ServiceDocumentを返却�
 ```dtd
 <!ATTLIST Property Format CDDATA #IMPLIED>
 ```
-#### エラーメッセージ一覧
+### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
 
-#### レスポンスサンプル
-##### SchemaのAtom ServiceDocumentの場合
+### レスポンスサンプル
+#### SchemaのAtom ServiceDocumentの場合
 以下を固定で返却する。
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<service xmlns="http://www.w3.org/2007/app" xml:base="https://demo.Personium/kouroki/TestBox/TestOData/$metadata/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:app="http://www.w3.org/2007/app">
+<service xmlns="http://www.w3.org/2007/app" xml:base="https://demo.Personium/kouroki/TestBox
+/TestOData/$metadata/" xmlns:atom="http://www.w3.org/2005/Atom" 
+xmlns:app="http://www.w3.org/2007/app">
   <workspace>
     <atom:title>Default</atom:title>
     <collection href="EntityType">
@@ -250,10 +250,12 @@ $formatにatomsvcを指定した場合、SchemaのAtom ServiceDocumentを返却�
   </workspace>
 </service>
 ```
-##### ユーザデータの場合
+#### ユーザデータの場合
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:p="urn:x-personium:xmlns">
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" 
+xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m=
+"http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:p="urn:x-personium:xmlns">
   <edmx:DataServices m:DataServiceVersion="1.0">
     <Schema xmlns="http://schemas.microsoft.com/ado/2006/04/edm" Namespace="UserData">
       <ComplexType Name="Address"></ComplexType>
@@ -264,21 +266,29 @@ $formatにatomsvcを指定した場合、SchemaのAtom ServiceDocumentを返却�
         <Key>
           <PropertyRef Name="__id"></PropertyRef>
         </Key>
-        <Property Name="__id" Type="Edm.String" Nullable="false" DefaultValue="UUID()" p:Format="regEx('^[a-zA-Z0-9][a-zA-Z0-9-_:]{0,199}$')"></Property>
-        <Property Name="__published" Type="Edm.DateTime" Nullable="false" DefaultValue="SYSUTCDATETIME()" Precision="3"></Property>
-        <Property Name="__updated" Type="Edm.DateTime" Nullable="false" DefaultValue="SYSUTCDATETIME()" Precision="3"></Property>
+        <Property Name="__id" Type="Edm.String" Nullable="false" DefaultValue="UUID()" p:Format=
+"regEx('^[a-zA-Z0-9][a-zA-Z0-9-_:]{0,199}$')"></Property>
+        <Property Name="__published" Type="Edm.DateTime" Nullable="false" DefaultValue=
+"SYSUTCDATETIME()" Precision="3"></Property>
+        <Property Name="__updated" Type="Edm.DateTime" Nullable="false" DefaultValue=
+"SYSUTCDATETIME()" Precision="3"></Property>
         <Property Name="TestProperty" Type="Edm.String" Nullable="true"></Property>
-        <NavigationProperty Name="_TestEntity" Relationship="UserData.TestEntity-TestEntity-assoc" FromRole="TestEntity:TestAssociationEndFrom" ToRole="TestEntity:TestAssociationEndTo"></NavigationProperty>
+        <NavigationProperty Name="_TestEntity" Relationship="UserData.TestEntity-TestEntity-assoc" 
+FromRole="TestEntity:TestAssociationEndFrom" ToRole="TestEntity:TestAssociationEndTo">
+        </NavigationProperty>
       </EntityType>
       <Association Name="TestEntity-TestEntity-assoc">
-        <End Role="TestEntity:TestAssociationEndFrom" Type="UserData.TestEntity" Multiplicity="1"></End>
-        <End Role="TestEntity:TestAssociationEndTo" Type="UserData.TestEntity" Multiplicity="0..1"></End>
+        <End Role="TestEntity:TestAssociationEndFrom" Type="UserData.TestEntity" Multiplicity="1">
+        </End>
+        <End Role="TestEntity:TestAssociationEndTo" Type="UserData.TestEntity" Multiplicity="0..1">
+        </End>
       </Association>
       <EntityContainer Name="UserData" m:IsDefaultEntityContainer="true">
         <EntitySet Name="TestEntity" EntityType="UserData.TestEntity"></EntitySet>
         <EntitySet Name="animal" EntityType="UserData.animal"></EntitySet>
         <EntitySet Name="Profile" EntityType="UserData.Profile"></EntitySet>
-        <AssociationSet Name="TestEntity-TestEntity-assoc" Association="UserData.TestEntity-TestEntity-assoc">
+        <AssociationSet Name="TestEntity-TestEntity-assoc" Association=
+"UserData.TestEntity-TestEntity-assoc">
           <End Role="TestEntity:TestAssociationEndFrom" EntitySet="TestEntity"></End>
           <End Role="TestEntity:TestAssociationEndTo" EntitySet="TestEntity"></End>
         </AssociationSet>
@@ -290,14 +300,15 @@ $formatにatomsvcを指定した場合、SchemaのAtom ServiceDocumentを返却�
 ```
 
 
-### cURLサンプル
-##### SchemaのAtom ServiceDocumentの場合
+## cURLサンプル
+### SchemaのAtom ServiceDocumentの場合
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept:application/atomsvc+xml'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata" -X GET -i -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept:application/atomsvc+xml'
 ```
-##### ユーザデータの場合
+### ユーザデータの場合
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept:application/xml'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata" -X GET -i -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept:application/xml'
 ```
 
-###### Copyright 2017 FUJITSU LIMITED

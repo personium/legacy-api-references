@@ -1,5 +1,5 @@
 # Box作成
-### 概要
+## 概要
 新規Boxを作成する
 
 ### 必要な権限
@@ -13,21 +13,21 @@ box
 * $formatクエリオプションは無視される
 
 
-### リクエスト
-#### リクエストURL
+## リクエスト
+### リクエストURL
 ```
 /{CellName}/__ctl/Box
 ```
-#### メソッド
+### メソッド
 POST
 
-#### リクエストクエリ
+### リクエストクエリ
 
 |クエリ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|クッキー認証値|認証時にサーバから返却されたクッキー認証値|×|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する|
 
-#### リクエストヘッダ
+### リクエストヘッダ
 
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
@@ -37,8 +37,8 @@ POST
 |Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
 |Content-Type|リクエストボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
 |Accept|レスポンスボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
-#### リクエストボディ
-##### Format
+### リクエストボディ
+#### Format
 JSON
 
 |項目名|概要|有効値|必須|備考|
@@ -46,16 +46,16 @@ JSON
 |Name|Box名|桁数：1&#65374;128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)は指定不可|○||
 |Schema|Schema名|桁数：1&#65374;128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)は指定不可<br>null|×||
 
-#### リクエストサンプル
+### リクエストサンプル
 ```JSON
 {"Name":"{BoxName}", "Schema":"https://{UnitFQDN}/{CellName}/"}
 ```
 
-### レスポンス
-#### ステータスコード
+## レスポンス
+### ステータスコード
 201
 
-#### レスポンスヘッダ
+### レスポンスヘッダ
 
 |ヘッダ名|概要|備考|
 |:--|:--|:--|
@@ -66,7 +66,7 @@ JSON
 |ETag|リソースのバージョン情報||
 |DataServiceVersion|ODataのバージョン||
 
-#### レスポンスボディ
+### レスポンスボディ
 レスポンスはJSONオブジェクトで、オブジェクト（サブオブジェクト）に定義されるキー(名前)と型、並びに値の対応は以下のとおりです。
 
 |オブジェクト|項目名|Data Type|備考|
@@ -80,7 +80,7 @@ JSON
 |{2}|__updated|string|更新日(UNIX時間)|
 |{1}|__count|string|$inlinecountクエリでの取得結果件数|
 
-#### Box固有レスポンスボディ
+### Box固有レスポンスボディ
 
 |オブジェクト|項目名|Data Type|備考|
 |:--|:--|:--|:--|
@@ -88,10 +88,10 @@ JSON
 |{2}|Name|string|Box名|
 |{2}|Schema|string|Schema名|
 
-#### エラーメッセージ一覧
+### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
 
-#### レスポンスサンプル
+### レスポンスサンプル
 ```JSON
 {
   "d": {
@@ -110,10 +110,10 @@ JSON
 }
 ```
 
-### cURLサンプル
+## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Box" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{BoxName}"}'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Box" -X POST -i -H 'Authorization: Bearer {AccessToken}' \
+-H 'Accept: application/json' -d '{"Name":"{BoxName}"}'
 ```
 
-###### Copyright 2017 FUJITSU LIMITED

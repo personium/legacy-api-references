@@ -1,8 +1,8 @@
 # $orderby クエリ
-### 概要
+## 概要
 一覧取得時に検索結果を並べ替える場合は$orderbyクエリを使用する  
 ※$orderbyに存在しないプロパティ名を指定した場合は、指定された項目を無視する
-### リクエストクエリ
+## リクエストクエリ
 ```
 $orderby={propertyName} {option}, ・・・
 ```
@@ -12,12 +12,13 @@ $orderby={propertyName} {option}, ・・・
 |:--|:--|
 |{PropertyName}|並び替えのキーに指定するプロパティ名|
 |{Option}|並び替え方法<br>asc:昇順<br>desc:降順<br>デフォルト値:asc|
-### cURLサンプル
+## cURLサンプル
 例：セル情報をセル名の降順で取得する場合:
 ```sh
-curl "https://{UnitFQDN}/__ctl/Cell?\$orderby=Name%20desc" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/__ctl/Cell?\$orderby=Name%20desc" -X GET -i -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
-### 動作詳細
+## 動作詳細
 * null値を含む場合のソート順序  
 	昇順を指定した場合、降順を指定した場合ともにnullはソート結果の末尾になるようにソートします。  
 	※ただし、マイナーバージョン 0.19.9を使用している場合は、以下の規則に従いソートします。
@@ -37,4 +38,3 @@ curl "https://{UnitFQDN}/__ctl/Cell?\$orderby=Name%20desc" -X GET -i -H 'Authori
 * $orderbyに配列型のプロパティ名を指定した場合は、400エラーを返却する
 
 
-###### Copyright 2017 FUJITSU LIMITED

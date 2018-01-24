@@ -1,10 +1,7 @@
 # Account_$links登録
-### 概要
+## 概要
 Accountに$linksで指定したODataリソースを紐付ける
 以下のODataリソースと紐付けることができる
-
-### 必要な権限
-なし
 
 ### 制限事項
 * リクエストヘッダのContent-Typeは全てapplication/jsonとして扱う
@@ -13,8 +10,8 @@ Accountに$linksで指定したODataリソースを紐付ける
 * $formatクエリオプションにatom または xmlを指定した場合、エラーとはならないが、レスポンスボディのデータの保証はない
 
 
-### リクエスト
-#### リクエストURL
+## リクエスト
+### リクエストURL
 Roleと紐付ける場合
 ```
 /{CellName}/__ctl/Account(Name='{AccountName}')/$links/_Role
@@ -24,13 +21,13 @@ Roleと紐付ける場合
 /{CellName}/__ctl/Account('{AccountName}')/$links/_Role
 ```
 
-#### メソッド
+### メソッド
 POST
 
-#### リクエストクエリ
+### リクエストクエリ
 クエリは無視する
 
-#### リクエストヘッダ
+### リクエストヘッダ
 
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
@@ -40,42 +37,40 @@ POST
 |Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
 |Content-Type|リクエストボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
 |Accept|レスポンスボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
-#### リクエストボディ
+### リクエストボディ
 JSON
 
 |項目名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |uri|紐付けるODataリソースのURI|桁数：1&#65374;1024<br>URIの形式に従う<br>scheme：http / https / urn|○||
 
-#### リクエストサンプル
+### リクエストサンプル
 ```JSON
 {"uri":"https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')"}
 ```
 
-### レスポンス
-#### ステータスコード
+## レスポンス
+### ステータスコード
 204
 
-#### レスポンスヘッダ
+### レスポンスヘッダ
 
 |ヘッダ名|概要|備考|
 |:--|:--|:--|
 |DataServiceVersion|ODataのバージョン||
 |Access-Control-Allow-Origin|クロスドメイン通信許可ヘッダ|返却値は"*"固定|
 |X-Personium-Version|APIの実行バージョン|リクエストが処理されたAPIバージョン|
-#### レスポンスボディ
+### レスポンスボディ
 なし
 
-#### エラーメッセージ一覧
+### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
 
-#### レスポンスサンプル
-なし
-
-### cURLサンプル
+## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Account(Name='{AccountName}')/\$links/_Role" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d "{\"uri\":\"https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')\"}"
+curl "https://{UnitFQDN}/{CellName}/__ctl/Account(Name='{AccountName}')/\$links/_Role" -X \
+POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
+"{\"uri\":\"https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')\"}"
 ```
 
-###### Copyright 2017 FUJITSU LIMITED

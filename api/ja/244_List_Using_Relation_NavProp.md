@@ -1,10 +1,12 @@
 # Relation_NavProp経由取得
-### 概要
+## 概要
 セル制御オブジェクトをNavigation Property経由で取得する
 
 ### 必要な権限
-* Roleを取得する場合<br>auth-read
-* Relationを取得する場合<br>social-read
+* Roleを取得する場合  
+auth-read
+* Relationを取得する場合  
+social-read
 
 ### 制限事項
 * リクエストヘッダのAcceptは無視される
@@ -14,9 +16,9 @@
 * $formatクエリオプションは無視される
 
 
-### リクエスト
-#### リクエストURL
-##### BoxへのnavigationProperty
+## リクエスト
+### リクエストURL
+#### BoxへのnavigationProperty
 ```
 /{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_Box
 ```
@@ -28,7 +30,7 @@
 ```
 /{CellName}/__ctl/Relation('{RelationName}')/_Box
 ```
-##### ExtCellへのnavigationProperty
+#### ExtCellへのnavigationProperty
 ```
 /{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_ExtCell
 ```
@@ -40,7 +42,7 @@
 ```
 /{CellName}/__ctl/Relation('{RelationName}')/_ExtCell
 ```
-##### ExtRoleへのnavigationProperty
+#### ExtRoleへのnavigationProperty
 ```
 /{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_ExtRole
 ```
@@ -52,7 +54,7 @@
 ```
 /{CellName}/__ctl/Relation('{RelationName}')/_ExtRole
 ```
-##### RoleへのnavigationProperty
+#### RoleへのnavigationProperty
 ```
 /{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_Role
 ```
@@ -66,10 +68,10 @@
 ```
 ※ \_Box.Nameパラメタを省略した場合は、nullが指定されたものとする  
 
-#### メソッド
+### メソッド
 GET
 
-#### リクエストクエリ
+### リクエストクエリ
 以下のクエリパラメタが利用可能です。
 
 |クエリ名|概要|有効値|必須|備考|
@@ -94,7 +96,7 @@ GET
 
 [全文検索(q)クエリ](408_Full_Text_Search_Query.md)
 
-#### リクエストヘッダ
+### リクエストヘッダ
 
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
@@ -103,18 +105,15 @@ GET
 |X-Personium-RequestKey|イベントログに出力するRequestKeyフィールドの値|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字|×|指定がない場合、PCS-${UNIX時間}を設定する|
 |Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
 |Accept|レスポンスボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
-#### リクエストボディ
-なし
-
-#### リクエストサンプル
+### リクエストボディ
 なし
 
 
-### レスポンス
-#### ステータスコード
+## レスポンス
+### ステータスコード
 200
 
-#### レスポンスヘッダ
+### レスポンスヘッダ
 
 |ヘッダ名|概要|備考|
 |:--|:--|:--|
@@ -122,7 +121,7 @@ GET
 |Access-Control-Allow-Origin|クロスドメイン通信許可ヘッダ|返却値は"*"固定|
 |Content-Type|返却されるデータの形式||
 |DataServiceVersion|ODataのバージョン||
-#### レスポンスボディ
+### レスポンスボディ
 
 |オブジェクト|項目名|Data Type|備考|
 |:--|:--|:--|:--|
@@ -135,8 +134,7 @@ GET
 |{3}|uri|string|作成したリソースへのURL|
 |{1}|__count|string|$inlinecountクエリでの取得結果件数|
 
-##### Relationを取得した場合
-##### Relation固有レスポンスボディ
+#### Relationを取得した場合
 
 |オブジェクト|項目名|Data Type|備考|
 |:--|:--|:--|:--|
@@ -144,10 +142,10 @@ GET
 |{3}|Name|string|Relation名|
 |{2}|_Box.Name|string|関係対象のBox名|
 
-#### エラーメッセージ一覧
+### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
 
-##### レスポンスサンプル
+### レスポンスサンプル
 ```JSON
 {
   "d": {
@@ -155,7 +153,8 @@ GET
       "Name": "{RelationName}",
       "_Box.Name": "{BoxName}",
       "__metadata": {  
-        "uri": "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')",
+        "uri": "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}'
+,_Box.Name='{BoxName}')",
         "type": "CellCtl.relation"  
       },  
       "__published" : "\/Date(1339128525502)\/",  
@@ -166,7 +165,6 @@ GET
 ```
 
 
-### cURLサンプル
+## cURLサンプル
 なし
 
-###### Copyright 2017 FUJITSU LIMITED

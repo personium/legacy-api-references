@@ -1,5 +1,5 @@
 # ExtCell_NavProp経由一覧取得
-### 概要
+## 概要
 セル制御オブジェクトをNavigation Property経由で取得する
 
 ### 必要な権限
@@ -14,9 +14,9 @@
 * $formatクエリオプションは無視される
 
 
-### リクエスト
-#### リクエストURL
-##### RoleへのnavigationProperty
+## リクエスト
+### リクエストURL
+#### RoleへのnavigationProperty
 ```
 /{CellName}/__ctl/ExtCell(Url='{ExtCellURL}')/_Role
 ```
@@ -24,7 +24,7 @@
 ```
 /{CellName}/__ctl/ExtCell('{ExtCellURL}')/_Role
 ```
-##### RelationへのnavigationProperty
+#### RelationへのnavigationProperty
 ```
 /{CellName}/__ctl/ExtCell(Url='{ExtCellURL}')/_Relation
 ```
@@ -34,10 +34,10 @@
 ```
 ※{ExtCellURL}についてはURLエンコードが必要
 
-#### メソッド
+### メソッド
 GET
 
-#### リクエストクエリ
+### リクエストクエリ
 以下のクエリパラメタが利用可能です。
 
 |クエリ名|概要|有効値|必須|備考|
@@ -62,7 +62,7 @@ GET
 
 [全文検索(q)クエリ](408_Full_Text_Search_Query.md)
 
-#### リクエストヘッダ
+### リクエストヘッダ
 
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
@@ -71,18 +71,15 @@ GET
 |X-Personium-RequestKey|イベントログに出力するRequestKeyフィールドの値|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字|×|指定がない場合、PCS-${UNIX時間}を設定する|
 |Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
 |Accept|レスポンスボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
-#### リクエストボディ
-なし
-
-#### リクエストサンプル
+### リクエストボディ
 なし
 
 
-### レスポンス
-#### ステータスコード
+## レスポンス
+### ステータスコード
 200
 
-#### レスポンスヘッダ
+### レスポンスヘッダ
 
 |ヘッダ名|概要|備考|
 |:--|:--|:--|
@@ -90,7 +87,7 @@ GET
 |DataServiceVersion|ODataのバージョン||
 |Access-Control-Allow-Origin|クロスドメイン通信許可ヘッダ|返却値は"*"固定|
 |X-Personium-Version|APIの実行バージョン|リクエストが処理されたAPIバージョン|
-#### レスポンスボディ
+### レスポンスボディ
 
 |オブジェクト|Item Name|Data Type|Remarks|
 |:--|:--|:--|:--|
@@ -103,18 +100,17 @@ GET
 |{2}|__updated|string|更新日(UNIX時間)|
 |{1}|__count|string|$inlinecountクエリでの取得結果件数|
 
-##### ExtCellを取得した場合
-##### ExtCell固有レスポンスボディ
+#### ExtCellを取得した場合
 
 |オブジェクト|Item Name|Data Type|Remarks|
 |:--|:--|:--|:--|
 |{3}|type|string|CellCtl.ExtRole|
 |{2}|Name|string|関係対象のRole名|
 |{2}|_Box.Name|string|関係対象のBox名|
-#### エラーメッセージ一覧
+### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
 
-#### レスポンスサンプル
+### レスポンスサンプル
 ```JSON
 {
   "d": {
@@ -131,27 +127,32 @@ GET
         "__updated": "/Date(1487320623218)/",
         "_Box": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_Box"
+            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}'
+,_Box.Name='{BoxName}')/_Box"
           }
         },
         "_Account": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_Account"
+            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}'
+,_Box.Name='{BoxName}')/_Account"
           }
         },
         "_ExtCell": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_ExtCell"
+            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}'
+,_Box.Name='{BoxName}')/_ExtCell"
           }
         },
         "_ExtRole": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_ExtRole"
+            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}'
+,_Box.Name='{BoxName}')/_ExtRole"
           }
         },
         "_Relation": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_Relation"
+            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}'
+,_Box.Name='{BoxName}')/_Relation"
           }
         }
       }
@@ -160,10 +161,10 @@ GET
 }
 ```
 
-### cURLサンプル
-##### RoleのnavigationProperty経由一覧
+## cURLサンプル
+#### RoleのnavigationProperty経由一覧
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{ExtCellName}%2F')/_Role" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{ExtCellName}%2F')\
+/_Role" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 
-###### Copyright 2017 FUJITSU LIMITED

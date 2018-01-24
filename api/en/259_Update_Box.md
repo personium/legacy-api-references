@@ -1,12 +1,12 @@
 # Box Update
 
-### Overview
+## Overview
 
 Update existing Box information
 
 ### Required Privileges
 
-None
+box
 
 ### Restrictions
 
@@ -17,9 +17,9 @@ None
 * $formatQuery options ignored
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
 ```
 /{CellName}/__ctl/Box('{BoxName}')
@@ -31,17 +31,17 @@ or
 /{CellName}/__ctl/Box(Name='{BoxName}')
 ```
 
-#### Request Method
+### Request Method
 
 PUT
 
-#### Request Query
+### Request Query
 
 |Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
-#### Request Header
+### Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -53,9 +53,9 @@ PUT
 |Accept|Specifies the response body format|application/json|No|[application/json] by default|
 |If-Match|Specifies the target ETag value|ETag value|Yes||
 
-#### Request Body
+### Request Body
 
-##### Format
+#### Format
 
 JSON
 
@@ -64,41 +64,35 @@ JSON
 |Name|Box Name|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("\_")|Yes||
 |Schema|Schema Name|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("\_")<br>null|No||
 
-#### Request Sample
+### Request Body Sample
 
 ```JSON
 {"Name":"{BoxName}", "Schema":"https://{UnitFQDN}/{CellName}/"}
 ```
 
 
-### Response
+## Response
 
-#### Response Code
+### Successful Response Code
 
 204
 
-#### Response Header
+### Response Header
 
 None
 
-#### Response Body
+### Response Body
 
 None
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-#### Response Sample
 
-None
-
-
-### cURL Command
+## cURL Command
 
 ```sh
 curl "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')" -X PUT -i -H 'If-Match: *' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{BoxName}"}'
 ```
 
-
-###### Copyright 2017 FUJITSU LIMITED

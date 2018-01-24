@@ -5,4 +5,3 @@ PersoniumアプリケーションやCell利用者が作成したサーバサイ�
 
 詳細はサービスのモデルを参照。
 
-###### Copyright 2017 FUJITSU LIMITED

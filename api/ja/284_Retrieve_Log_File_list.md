@@ -1,5 +1,5 @@
 # ログファイル一覧取得
-### 概要
+## 概要
 指定されたURL配下のログファイルの一覧を取得する
 ### 必要な権限
 log-read
@@ -17,28 +17,28 @@ log-read
 
 |アクション|アーカイブされたログファイル|説明|備考|
 |:--|:--|:--|:--|
-|First Rotation|archive/<br>default.log.1402910774659|<br>新規にローテートされたファイル|<br>2014-06-16 18:26:14 +0900|
-|2nd Rotation|archive/<br>default.log.1402910774659<br>default.log.1403910784659|<br>前回ローテートされたファイル<br>新規にローテートされたファイル|<br>2014-06-16 18:26:14 +0900<br>2014-06-28 08:13:04 +0900|
-|3rd Rotation|archive/<br>default.log.1402910774659<br>default.log.1403910784659<br>default.log.1403910784659|<br>前々回にローテートされたファイル<br>前回ローテートされたファイル<br>新規にローテートされたファイル|<br>2014-06-16 18:26:14 +0900<br>2014-06-28 08:13:04 +0900<br>2014-07-09 21:59:44 +0900|
+|First Rotation|archive/<br>default.log.1402910774659|新規にローテートされたファイル|2014-06-16 18:26:14 +0900|
+|2nd Rotation|archive/<br>default.log.1402910774659<br>default.log.1403910784659|前回ローテートされたファイル<br>新規にローテートされたファイル|2014-06-16 18:26:14 +0900<br>2014-06-28 08:13:04 +0900|
+|3rd Rotation|archive/<br>default.log.1402910774659<br>default.log.1403910784659  <br>default.log.1403910784659|前々回にローテートされたファイル<br>前回ローテートされたファイル<br>新規にローテートされたファイル| 2014-06-16 18:26:14 +0900<br>2014-06-28 08:13:04 +0900<br>2014-07-09 21:59:44 +0900|
 
 
-### リクエスト
-#### リクエストURL
-##### 最新のログファイルの一覧を取得
+## リクエスト
+### リクエストURL
+#### 最新のログファイルの一覧を取得
 ```
 /{CellName}/__log/current
 ```
-##### ローテートされたログファイルの一覧を取得
+#### ローテートされたログファイルの一覧を取得
 ```
 /{CellName}/__log/archive
 ```
-#### メソッド
+### メソッド
 PROPFIND
-#### リクエストクエリ
+### リクエストクエリ
 |クエリ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|クッキー認証値|認証時にサーバから返却されたクッキー認証値|×|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する|
-#### リクエストヘッダ
+### リクエストヘッダ
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |X-HTTP-Method-Override|メソッドオーバーライド機能|任意|×|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用されます。|
@@ -46,25 +46,25 @@ PROPFIND
 |X-Personium-RequestKey|イベントログに出力するRequestKeyフィールドの値|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字|×|指定がない場合、PCS-${UNIX時間}を設定する|
 |Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
 |Depth|取得するリソースの階層|0:対象のリソース自身<br>1:対象のリソースとそれの直下のリソース|○||
-#### リクエストボディ
-##### 名前空間
+### リクエストボディ
+#### 名前空間
 |URI|概要|備考()prefix|
 |:--|:--|:--|
 |DAV:|WebDAVの名前空間|D:|
 ※ 参考prefixは以下表の可読性を高めるためのもので、このprefix文字列の使用を保証するものでも要求するものでもありません。
-##### XMLの構造
+#### XMLの構造
 ボディはXMLで、以下のスキーマに従っています。
 
 |ノード名|Namespace|ノードタイプ|概要|備考|
 |:--|:--|:--|:--|:--|
 |propfind|D:|要素|propfindのルート要素を表し、allpropが子となる。||
 |allprop|D:|要素|全プロパティを取得設定を表す|allprop・・・すべてのプロパティを取得する<br>リクエストボディが空の場合も、allpropとして扱う<br>allprop以外の要素はv1.2系、v1.1系未対応|
-##### DTD表記
+#### DTD表記
 ```dtd
 <!ELEMENT propfind (allprop) >
 <!ELEMENT allprop ENPTY >
 ```
-#### リクエストサンプル
+### リクエストサンプル
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <D:propfind xmlns:D="DAV:">
@@ -73,26 +73,26 @@ PROPFIND
 ```
 
 
-### レスポンス
-#### ステータスコード
+## レスポンス
+### ステータスコード
 |コード|メッセージ|概要|
 |:--|:--|:--|
 |207|Multi-Status|取得成功時|
-#### レスポンスヘッダ
+### レスポンスヘッダ
 |項目名|概要|備考|
 |:--|:--|:--|
 |Content-Type|Resourceのデータ形式に応じたMimeType|"application/xml"|
 |Access-Control-Allow-Origin|クロスドメイン通信許可ヘッダ|返却値は"*"固定|
 |X-Personium-Version|APIの実行バージョン|有効なバージョン|
 
-#### レスポンスボディ
-##### 名前空間
+### レスポンスボディ
+#### 名前空間
 |URI|概要|参考Prefix|
 |:--|:--|:--|
 |DAV:|WebDAVの名前空間|D:|
 |urn&#58;x-personium:xmlns|Personiumの名前空間|p:|
 ※ 参考prefixは以下表の可読性を高めるためのもので、このprefix文字列の使用を保証するものでも要求するものでもありません。
-##### XMLの構造
+#### XMLの構造
 ボディはXMLで、以下のスキーマに従っています。
 
 |ノード名|Namespace|ノードタイプ|概要|備考|
@@ -113,8 +113,8 @@ PROPFIND
 |service|p:|要素|リソースのタイプがサービスコレクションであることを表す|Serviceコレクションの場合表示|
 |acl|p:|要素|リソースに設定されているACL設定|ACL設定を取得するためには、対象リソースに対するacl-read権限が必要 ACL要素以下の内容については、[Cell Level アクセス制御設定API](289_Cell_ACL.md)を参照|
 |base|p:|要素|ACLのPrivilegeのBaseURL|CellへのPROPFINDの場合、デフォルトボックス（"__"）のリソースURL|
-##### DTD表記
-##### 名前空間：D:
+#### DTD表記
+#### 名前空間：D:
 ```dtd
 <!ELEMENT multistatus (response*)>
 <!ELEMENT response (href, propstat)>
@@ -130,17 +130,17 @@ PROPFIND
 <!ELEMENT collection EMPTY>
 <!ELEMENT acl (ace*)>
 ```
-##### 名前空間:p:
+#### 名前空間:p:
 ```dtd
 <!ELEMENT odata EMPTY>
 <!ELEMENT service EMPTY>
 ```
-##### 名前空間：xml:
+#### 名前空間：xml:
 ```dtd
 <!ATTLIST acl base CDATA #IMPLIED>
 ```
-#### レスポンスサンプル
-##### resourcetype要素
+### レスポンスサンプル
+#### resourcetype要素
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <multistatus xmlns="DAV:">
@@ -169,10 +169,10 @@ PROPFIND
 #### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
 
-### cURLサンプル
+## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__log/archive" -X PROPFIND -i -H 'Depth:1' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/__log/archive" -X PROPFIND -i -H 'Depth:1' -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 
-###### Copyright 2017 FUJITSU LIMITED

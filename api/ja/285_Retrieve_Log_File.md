@@ -1,5 +1,5 @@
 # ログファイル取得
-### 概要
+## 概要
 イベントログを取得する  
 ローテートされたログファイルの保持世代数は最大12世代である。  
 ログファイルのローテート時に最大保持世代数を超えた場合は、最古のログファイルが削除される。
@@ -24,45 +24,45 @@ log-read
 |3rd Rotation|archive/<br>default.log.1402910774659<br>default.log.1403910784659<br>default.log.1403910784659|<br>前々回にローテートされたファイル<br>前回ローテートされたファイル<br>新規にローテートされたファイル|<br>2014-06-16 18:26:14 +0900<br>2014-06-28 08:13:04 +0900<br>2014-07-09 21:59:44 +0900|
 
 
-### リクエスト
-#### リクエストURL
-##### 最新のログファイルを取得
+## リクエスト
+### リクエストURL
+#### 最新のログファイルを取得
 ```
 /{CellName}/__log/current/{LogName}
 ```
-##### ローテートされたログファイルを取得
+#### ローテートされたログファイルを取得
 ```
 /{CellName}/__log/archive/{LogName}
 ```
 ※{LogName}は、ログファイル情報取得API で返却されたファイル名を指定する。
-#### メソッド
+### メソッド
 GET
-#### リクエストクエリ
+### リクエストクエリ
 |クエリ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|クッキー認証値|認証時にサーバから返却されたクッキー認証値|×|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する|
-#### リクエストヘッダ
-##### 共通リクエストヘッダ
+### リクエストヘッダ
+#### 共通リクエストヘッダ
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |X-HTTP-Method-Override|メソッドオーバーライド機能|任意|×|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用される|
 |X-Override|ヘッダオーバライド機能|${上書きするヘッダ名}:${値}|×|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定する|
 |X-Personium-RequestKey|イベントログに出力するRequestKeyフィールドの値|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字|×|指定がない場合、PCS-${UNIX時間}を設定する|
 |Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
-#### リクエストボディ
+### リクエストボディ
 なし
-#### リクエストサンプル
+### リクエストサンプル
 なし
 
 
-### レスポンス
-#### ステータスコード
+## レスポンス
+### ステータスコード
 200
-#### レスポンスヘッダ
+### レスポンスヘッダ
 |ヘッダ名|概要|備考|
 |:--|:--|:--|
 |Content-Type|Resourceのデータ形式に応じたMimeType|"text/csv"または"application/zip"|
-#### レスポンスボディ
+### レスポンスボディ
 currentのログ取得時にログが存在しない場合は、空のレスポンスボディを返却する。  
 ローテートのサイズ設定値よりも5MB程度大きなサイズとなる場合がある。  
 出力形式は以下の通り。
@@ -80,25 +80,29 @@ currentのログ取得時にログが存在しない場合は、空のレスポ�
 |action|外部イベント：イベント受付で定義されたaction<br>内部イベント：HTTPメソッド名|文字列|
 |object|外部イベント：イベント受付で定義されたobject<br>内部イベント：リクエストされたリソースパス|文字列|
 |result|外部イベント：イベント受付で定義されたresult<br>内部イベント：HTTPステータスコード|文字列|
-#### エラーメッセージ一覧
+### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
 
-#### レスポンスサンプル
+### レスポンスサンプル
 外部イベント
 ```
-2013-02-04T00:50:12.761Z,[INFO ],Req_animal-access_1001,client,https://{UnitFQDN}/{CellName}/,https://{UnitFQDN}/servicemanager/#admin,authSchema,/{CellName}/{BoxName}/service_name/token_keeper,[XXXX2033] Success schema authorization. cellUrl=https://{UnitFQDN}/keeper-d4a57bb26eae481486b07d06487051d1/
+2013-02-04T00:50:12.761Z,[INFO ],Req_animal-access_1001,client,https://{UnitFQDN}/{CellName}
+/,https://{UnitFQDN}/servicemanager/#admin,authSchema,/{CellName}/{BoxName}/service_name
+/token_keeper,[XXXX2033] Success schema authorization. cellUrl=https://{UnitFQDN}
+/keeper-d4a57bb26eae481486b07d06487051d1/
 ```
 
 内部イベント
 ```
-2013-04-18T14:52:39.778Z,[ERROR],PCS-1364350331902,server,https://{UnitFQDN}/appCell/,https://{UnitFQDN}/appCell/#staff,POST,/homeClinic/__token,200
+2013-04-18T14:52:39.778Z,[ERROR],PCS-1364350331902,server,https://{UnitFQDN}/appCell
+/,https://{UnitFQDN}/appCell/#staff,POST,/homeClinic/__token,200
 ```
 
 
-### cURLサンプル
+## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__log/current/default.log" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/__log/current/default.log" -X GET -i -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 
-###### Copyright 2017 FUJITSU LIMITED

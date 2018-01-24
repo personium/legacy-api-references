@@ -1,5 +1,5 @@
 # Box取得
-### 概要
+## 概要
 既存のBox情報を取得する
 
 ### 必要な権限
@@ -13,8 +13,8 @@ box-read
 * $formatクエリオプションは無視される
 
 
-### リクエスト
-#### リクエストURL
+## リクエスト
+### リクエストURL
 ```
 /{CellName}/__ctl/Box('{BoxName}')
 ```
@@ -22,10 +22,10 @@ box-read
 ```
 /{CellName}/__ctl/Box(Name='{BoxName}')
 ```
-#### メソッド
+### メソッド
 GET
 
-#### リクエストクエリ
+### リクエストクエリ
 
 |クエリ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
@@ -36,8 +36,8 @@ GET
 
 [$format クエリ](404_Format_Query.md)
 
-#### リクエストヘッダ
-#### リクエストボディ
+### リクエストヘッダ
+### リクエストボディ
 
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
@@ -48,18 +48,15 @@ GET
 |Accept|レスポンスボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
 |If-None-Match|対象ETag値を指定する|ETag値|○|未対応|
 
-#### リクエストサンプル
-なし
 
-
-### レスポンス
-#### ステータスコード
+## レスポンス
+### ステータスコード
 200
 
-#### レスポンスヘッダ
+### レスポンスヘッダ
 なし
 
-#### レスポンスボディ
+### レスポンスボディ
 レスポンスはJSONオブジェクトで、オブジェクト（サブオブジェクト）に定義されるキー(名前)と型、並びに値の対応は以下のとおりです。
 
 |オブジェクト|項目名|Data Type|備考|
@@ -73,7 +70,7 @@ GET
 |{2}|__updated|string|更新日(UNIX時間)|
 |{1}|__count|string|$inlinecountクエリでの取得結果件数|
 
-#### Box固有レスポンスボディ
+### Box固有レスポンスボディ
 
 |オブジェクト|項目名|Data Type|備考|
 |:--|:--|:--|:--|
@@ -81,10 +78,10 @@ GET
 |{2}|Name|string|Box名|
 |{2}|Schema|string|Schema名|
 
-#### エラーメッセージ一覧
+### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
 
-#### レスポンスサンプル
+### レスポンスサンプル
 ```JSON
 {
   "d": {
@@ -123,10 +120,10 @@ GET
 }
 ```
 
-### cURLサンプル
+## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')" -X GET -i -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 
-###### Copyright 2017 FUJITSU LIMITED

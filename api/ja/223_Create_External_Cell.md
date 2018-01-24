@@ -1,5 +1,5 @@
 # ExtCell登録
-### 概要
+## 概要
 新規ExtCellを作成する
 
 ### 必要な権限
@@ -13,22 +13,22 @@ auth
 * $formatクエリオプションは無視される
 
 
-### リクエスト
-#### リクエストURL
+## リクエスト
+### リクエストURL
 ```
 /{CellName}/__ctl/ExtCell
 ```
-#### メソッド
+### メソッド
 POST
 
-#### リクエストクエリ
+### リクエストクエリ
 
 |クエリ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|クッキー認証値|認証時にサーバから返却されたクッキー認証値|×|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する|
 &#160;
 
-#### リクエストヘッダ
+### リクエストヘッダ
 
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
@@ -38,23 +38,23 @@ POST
 |Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
 |Content-Type|リクエストボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
 |Accept|レスポンスボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
-#### リクエストボディ
+### リクエストボディ
 
 |項目名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |Url|CellへのURL|桁数：1&#65374;1024<br>URIの形式に従う<br>scheme：http, https<br>トレイリングスラッシュ(URL終端の/)必須|○||
-#### リクエストサンプル
+### リクエストサンプル
 ```JSON
 {
   "Url": "https://{UnitFQDN}/{CellName}/"
 }
 ```
 
-### レスポンス
-#### ステータスコード
+## レスポンス
+### ステータスコード
 201
 
-#### レスポンスヘッダ
+### レスポンスヘッダ
 
 |項目名|概要|備考|
 |:--|:--|:--|
@@ -64,7 +64,7 @@ POST
 |ETag|リソースのバージョン情報||
 |Access-Control-Allow-Origin|クロスドメイン通信許可ヘッダ|返却値は"*"固定|
 |X-Personium-Version|APIの実行バージョン|リクエストが処理されたAPIバージョン|
-#### レスポンスボディ
+### レスポンスボディ
 
 |オブジェクト|項目名|Data Type|備考|
 |:--|:--|:--|:--|
@@ -77,15 +77,15 @@ POST
 |{2}|__updated|string|更新日(UNIX時間)|
 |{1}|__count|string|$inlinecountクエリでの取得結果件数|
 
-#### ExtCell固有レスポンスボディ
+### ExtCell固有レスポンスボディ
 |オブジェクト|項目名|Data Type|備考|
 |:--|:--|:--|:--|
 |{3}|type|string|CellCtl.ExtCell|
 |{2}|Url|string|対象CellのURL|
-#### エラーメッセージ一覧
+### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
 
-#### レスポンスサンプル
+### レスポンスサンプル
 ```JSON
 {
   "d": {
@@ -103,11 +103,11 @@ POST
 }
 ```
 
-### cURLサンプル
+## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/ExtCell" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'  -d '{"Url":"https://{UnitFQDN}/{CellName}/"}'
+curl "https://{UnitFQDN}/{CellName}/__ctl/ExtCell" -X POST -i -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'  -d \
+'{"Url":"https://{UnitFQDN}/{CellName}/"}'
 ```
 
-
-###### Copyright 2017 FUJITSU LIMITED

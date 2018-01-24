@@ -1,5 +1,5 @@
 # OAuth2.0 トークンエンドポイント(\__token)
-### 概要
+## 概要
 認証の方式は以下の3種類
 
 
@@ -17,33 +17,27 @@
 * セルローカルトークンをリフレッシュして再度セルローカルトークンを取得する。
 
 
-### 必要な権限
-なし
 
-### 制限事項
-なし
-
-
-### リクエスト
-#### リクエストURL
+## リクエスト
+### リクエストURL
 ```
 {CellName}/__token
 ```
-#### メソッド
+### メソッド
 POST
 
-#### リクエストクエリ
+### リクエストクエリ
 
 |クエリ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|クッキー認証値|認証時にサーバから返却されたクッキー認証値|×|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する|
-#### リクエストヘッダ
+### リクエストヘッダ
 
 |項目名|概要|書式|必須|有効値|
 |:--|:--|:--|:--|:--|
 |Authorization|OAuth2.0形式で、認証情報を指定する|Basic {String}|×|{{スキーマ認証元のアプリセルURL}:{スキーマ認証元から払い出されたトークン}}をBase64Encodeした値を指定した場合、スキーマ認証になる<br>上記設定時、リクエストボディにclient_idとclient_secretの設定がある場合、Authorizationヘッダの設定が優先される|
-#### リクエストボディ
-##### パスワード認証
+### リクエストボディ
+#### パスワード認証
 
 |項目名|概要|書式|必須|有効値|
 |:--|:--|:--|:--|:--|
@@ -56,7 +50,7 @@ POST
 |client_secret|アプリセルから払い出されたトークン|String|×|スキーマ認証元から払い出されたトークンを値に設定する<br>client_idとともに指定した場合スキーマ認証になる<br>同時にAuthorizationヘッダにもスキーマ認証設定がされている場合、Authorizationヘッダの設定が優先される|
 |p_owner|ULUUT昇格実行クエリ|String|×|trueのみ有効|
 |p_cookie|認証クッキー発行オプション<br>指定された場合は認証クッキーを発行する<br>p_targetが指定された場合は、本パラメタの指定は無視する|String|×|trueのみ有効|
-#### リクエストサンプル
+### リクエストサンプル
 パスワード認証
 ```
 grant_type=password&username=username&password=pass
@@ -74,15 +68,17 @@ grant_type=password&username=username&password=pass&p_target=https://{UnitFQDN}/
 
 スキーマ付きパスワード認証
 ```
-grant_type=password&username=username&password=pass&client_id=https://{UnitFQDN}/app{CellName}/&client_secret=
-WjzDmvJSLvM9qVuJL1xxP6hSxt64HijoIea0P5R2CVloXJ2HEvEILl7UOtEtjSDdjlvyx9wrosPBhDRU97Qnn6EQIQ3MwaqtIx7HjuX36_ZBC6qxcgscCDmdtGb4nHgo
+grant_type=password&username=username&password=pass&client_id=https://{UnitFQDN}/app{CellName}
+/&client_secret=
+WjzDmvJSLvM9qVuJL1xxP6hSxt64HijoIea0P5R2CVloXJ2HEvEILl7UOtEtjSDdjlvyx9wrosPBhDRU97Qnn6EQIQ3MwaqtI
+x7HjuX36_ZBC6qxcgscCDmdtGb4nHgo
 ```
 OIDC(Open ID Connect(Google))認証
 ```
 grant_type=urn:x-personium:oidc:google&id_token=IDTOKEN
 ```
 
-##### トークン認証
+#### トークン認証
 
 |項目名|概要|書式|必須|有効値|
 |:--|:--|:--|:--|:--|
@@ -97,7 +93,7 @@ grant_type=urn:x-personium:oidc:google&id_token=IDTOKEN
 grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&assertion={token}
 ```
 
-##### リフレッシュトークン認証
+#### リフレッシュトークン認証
 
 |項目名|概要|書式|必須|有効値|
 |:--|:--|:--|:--|:--|
@@ -114,17 +110,17 @@ grant_type=refresh_token&refresh_token={token}
 ```
 
 
-### レスポンス
-#### ステータスコード
+## レスポンス
+### ステータスコード
 200
 
-#### レスポンスヘッダ
+### レスポンスヘッダ
 
 |項目名|概要|備考|
 |:--|:--|:--|
 |Content-Type|application/json||
 |Set-Cookie|クッキー認証情報（p_cookie）|クッキー発行オプション（p_cookie）をリクエスト時に設定した場合のみ|
-#### レスポンスボディ
+### レスポンスボディ
 
 |項目名|概要|備考|
 |:--|:--|:--|
@@ -134,39 +130,47 @@ grant_type=refresh_token&refresh_token={token}
 |token_type|Bearer||
 |expires_in|アクセストークンの有効期限|1時間（3600秒）|
 |p_cookie_peer|クッキー認証値|クッキー認証時に指定する認証値<br>※クッキー発行オプション（p_cookie）をリクエスト時に設定した場合のみ返却する|
-#### レスポンスサンプル
+### レスポンスサンプル
 ```JSON
 {
-  "access_token": "AA~osIZ4CZ8cZmxf5NidEueHej_6Lj-ww0c_kJZd4HbHBqFyZ0OZBrS29miYr9Jh19b0o39cTJdH2Va3xSMMbu6Eg",
+  "access_token": "AA~osIZ4CZ8cZmxf5NidEueHej_6Lj-ww0c_kJZd4HbHBqFyZ0OZBrS29miYr9Jh19b0o39c
+TJdH2Va3xSMMbu6Eg",
   "refresh_token_expires_in": 86400,
-  "refresh_token": "RA~uELMJkVpzTtsl1ueh2KlrT9UiOx85-dmg7nGX01YaogoQ86qgfv2VMUxQXSP95uNY9MuWxZe0AQFtEnFYyWMoQ",
+  "refresh_token": "RA~uELMJkVpzTtsl1ueh2KlrT9UiOx85-dmg7nGX01YaogoQ86qgfv2VMUxQXSP95uNY9Mu
+WxZe0AQFtEnFYyWMoQ",
   "token_type": "Bearer",
   "expires_in": 3600
 }
 ```
-#### エラーメッセージ一覧
+### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
 
-### cURLサンプル
-##### パスワード認証
+## cURLサンプル
+#### パスワード認証
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__token" -X POST -i -d 'grant_type=password&username={username}&password={password}'
+curl "https://{UnitFQDN}/{CellName}/__token" -X POST -i -d \
+'grant_type=password&username={username}&password={password}'
 ```
-##### トークン認証
+#### トークン認証
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__token" -X POST -i -d 'grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&assertion={token}'
+curl "https://{UnitFQDN}/{CellName}/__token" -X POST -i -d \
+'grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&assertion={token}'
 ```
-##### リフレッシュトークン認証
+#### リフレッシュトークン認証
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__token" -X POST -i -d 'grant_type=refresh_token&refresh_token={refresh_token}'
+curl "https://{UnitFQDN}/{CellName}/__token" -X POST -i -d \
+'grant_type=refresh_token&refresh_token={refresh_token}'
 ```
-##### パスワード認証 + スキーマ認証
+#### パスワード認証 + スキーマ認証
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__token" -X POST -i -d 'grant_type=password&username={user_name}&password={pass}&client_id=https://{UnitFQDN}/app{CellName}/&client_secret={token_from_app_cell}'
+curl "https://{UnitFQDN}/{CellName}/__token" -X POST -i -d \
+'grant_type=password&username={user_name}&password={pass}&client_id=\
+https://{UnitFQDN}/app{CellName}/&client_secret={token_from_app_cell}'
 ```
-##### トークン認証 + トランスセルトークン認証
+#### トークン認証 + トランスセルトークン認証
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__token" -X POST -i -d 'grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&assertion={SAML_token}&p_target=https://{UnitFQDN}/{CellName}/'
+curl "https://{UnitFQDN}/{CellName}/__token" -X POST -i -d \
+'grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&assertion=\
+{SAML_token}&p_target=https://{UnitFQDN}/{CellName}/'
 ```
 
-###### Copyright 2017 FUJITSU LIMITED

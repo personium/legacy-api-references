@@ -1,5 +1,5 @@
 # プロパティ変更
-### 概要
+## 概要
 プロパティを変更する
 
 ### 必要な権限
@@ -9,21 +9,21 @@
 未稿
 
 
-### リクエスト
-#### リクエストURL
+## リクエスト
+### リクエストURL
 ```
 /{CellName}
 ```
 
-#### メソッド
+### メソッド
 PROPPATCH
 
-#### リクエストクエリ
+### リクエストクエリ
 
 |クエリ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|クッキー認証値|認証時にサーバから返却されたクッキー認証値|×|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する|
-#### リクエストヘッダ
+### リクエストヘッダ
 
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
@@ -32,7 +32,7 @@ PROPPATCH
 |Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
 |Content-Type|コンテンツ形式を指定する|application / xml|×||
 |Accept|レスポンスで受け入れ可能なメディアタイプを指定する|application / xml|×||
-#### リクエストボディ
+### リクエストボディ
 
 |項目名|Namespace|概要|必須|有効値|備考|
 |:--|:--|:--|:--|:--|:--|
@@ -43,7 +43,7 @@ PROPPATCH
 |remove|DAV:|プロパティ削除|×|<! ELEMENT set (prop *)>||
 |prop|DAV:|プロパティ削除値|×|<! ELEMENT prop ANY>|ANYに指定したXMLがタグをキーとして削除を行う|
 |prop|DAV:|プロパティ設定値|×|<! ELEMENT prop ANY>|ANYに指定したXMLタグがキーとなる|
-#### リクエストサンプル
+### リクエストサンプル
 ```xml
 <D:propertyupdate xmlns:D="DAV:"  
     xmlns:p="urn:x-personium:xmlns">
@@ -60,16 +60,16 @@ PROPPATCH
 </D:propertyupdate>
 ```
 
-### レスポンス
-#### ステータスコード
+## レスポンス
+### ステータスコード
 |コード|メッセージ|概要|
 |:--|:--|:--|
 |207|MULTI_STATUS|成功|
 
-#### レスポンスヘッダ
+### レスポンスヘッダ
 なし
 
-#### レスポンスボディ
+### レスポンスボディ
 
 |項目名|Namespace|概要|備考|
 |:--|:--|:--|:--|
@@ -79,10 +79,10 @@ PROPPATCH
 |propstat|DAV:|プロパティ設定結果|<! ELEMENT propstat (prop, status)>|
 |prop|DAV:|プロパティ設定内容|リソース設定の結果を以下のように表示する<br>設定成功：設定したキーと値<br>削除成功：削除したキー|
 |status|DAV:|プロパティ設定ステータスコード|設定成功の場合200(OK)が返る|
-#### エラーメッセージ一覧
+### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
 
-#### レスポンスサンプル
+### レスポンスサンプル
 ```xml
 <multistatus xmlns="DAV:">
     <response>
@@ -98,11 +98,12 @@ PROPPATCH
 </multistatus>
 ```
 
-### cURLサンプル
+## cURLサンプル
 ```sh
-curl "https://{UnitFQDN}/{CellName}" -X PROPPATCH -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8" ?>
+curl "https://{UnitFQDN}/{CellName}" -X PROPPATCH -i -H 'Authorization: Bearer {AccessToken}' \
+-H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8" ?>
 <D:propertyupdate xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns"><D:set><D:prop>
-<p:hoge>${hoge}</p:hoge></D:prop></D:set><D:remove><D:prop><p:hoge/></D:prop></D:remove></D:propertyupdate>'
+<p:hoge>${hoge}</p:hoge></D:prop></D:set><D:remove><D:prop><p:hoge/></D:prop>
+</D:remove></D:propertyupdate>'
 ```
 
-###### Copyright 2017 FUJITSU LIMITED

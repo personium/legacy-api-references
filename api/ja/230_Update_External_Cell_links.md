@@ -1,5 +1,5 @@
 # Extcell_$links更新
-### 概要
+## 概要
 Extcellに紐付いたODataリソースを更新する<br>以下のODataリソースを指定することができる
 
 * Box
@@ -7,22 +7,21 @@ Extcellに紐付いたODataリソースを更新する<br>以下のODataリソ�
 * ExtRole
 * Role
 
-### 必要な権限
-なし
-
-### OData 制限
-* リクエストヘッダのAcceptは無視される
-* リクエストヘッダのContent-Typeは全てapplication/jsonとして扱う
-* リクエストボディはJSON形式のみ受け付ける
-* レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはJSON形式とする
-* $formatクエリオプションは無視される
+### 制限事項
+* OData制限
+	- リクエストヘッダのAcceptは無視される
+	- リクエストヘッダのContent-Typeは全てapplication/jsonとして扱う
+	- リクエストボディはJSON形式のみ受け付ける
+	- レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはJSON形式とする
+	- $formatクエリオプションは無視される
 
 
-### リクエスト
-#### リクエストURL
-##### ExtCellとの$links
+## リクエスト
+### リクエストURL
+#### ExtCellとの$links
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_ExtCell('{ExtCellURL}')
+/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/
+_ExtCell('{ExtCellURL}')
 ```
 または、
 ```
@@ -32,15 +31,15 @@ Extcellに紐付いたODataリソースを更新する<br>以下のODataリソ�
 ```
 /{CellName}/__ctl/Relation('{RelationName}')/$links/_ExtCell('{ExtCellURL}')
 ```
-#### メソッド
+### メソッド
 PUT
 
-#### リクエストクエリ
+### リクエストクエリ
 
 |クエリ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|クッキー認証値|認証時にサーバから返却されたクッキー認証値|×|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する|
-#### リクエストヘッダ
+### リクエストヘッダ
 
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
@@ -51,25 +50,25 @@ PUT
 |Contents-Type|リクエストボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
 |Accept|レスポンスボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
 |If-Match|対象ETag値を指定する|ETag値|×|省略時は[*]として扱う|
-#### リクエストボディ
-#### 形式
+### リクエストボディ
+### 形式
 JSON
 
-#### 説明
+### 説明
 
 |項目名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |Url|CellへのURL|桁数：1&#65374;1024<br>URIの形式に従う<br>scheme：http, https<br>トレイリングスラッシュ(URL終端の/)必須|○||
-#### リクエストサンプル
+### リクエストサンプル
 ```JSON
 {"uri":"https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')"}
 ```
 
-### レスポンス
-#### ステータスコード
+## レスポンス
+### ステータスコード
 204
 
-#### レスポンスヘッダ
+### レスポンスヘッダ
 
 |ヘッダ名|概要|備考|
 |:--|:--|:--|
@@ -77,26 +76,28 @@ JSON
 |Access-Control-Allow-Origin|クロスドメイン通信許可ヘッダ|返却値は"*"固定|
 |Content-Type|返却されるデータの形式||
 |DataServiceVersion|ODataのバージョン||
-#### ODataレスポンスヘッダ
+### ODataレスポンスヘッダ
 
 |ヘッダ名|概要|備考|
 |:--|:--|:--|
 |DataServiceVersion|ODataのバージョン||
 |ETag|リソースのバージョン情報||
-#### レスポンスボディ
+### レスポンスボディ
 なし
 
-#### エラーメッセージ一覧
+### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
 
-#### レスポンスサンプル
+### レスポンスサンプル
 なし
 
 
-### cURLサンプル
+## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_Box('{BoxName}')" -X PUT -i -H 'If-Match:*' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"uri":"https://{UnitFQDN}/{CellName}/__ctl/Box('update_{BoxName}')"}'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')\
+/$links/_Box('{BoxName}')" -X PUT -i -H 'If-Match:*' -H 'Authorization: Bearer {AccessToken}' \
+-H 'Accept: application/json' -d '{"uri":"https://{UnitFQDN}/{CellName}/\
+__ctl/Box('update_{BoxName}')"}'
 ```
 
-###### Copyright 2017 FUJITSU LIMITED

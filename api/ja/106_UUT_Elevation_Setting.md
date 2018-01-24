@@ -1,14 +1,15 @@
 # ULUUT昇格設定
-### 概要
+## 概要
 UUT（Unit User Token）昇格設定を変更する
+
 ### 必要な権限
 ユニットユーザのみ可能
 
 ### 制限事項
 未稿
 
-### リクエスト
-#### リクエストURL
+## リクエスト
+### リクエストURL
 ```
 /{CellName}
 ```
@@ -16,13 +17,13 @@ UUT（Unit User Token）昇格設定を変更する
 |:--|:--|
 |{CellName}|セル名|
 
-#### メソッド
+### メソッド
 PROPPATCH
 
-#### リクエストクエリ
+### リクエストクエリ
 なし
 
-#### リクエストヘッダ
+### リクエストヘッダ
 
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
@@ -31,7 +32,7 @@ PROPPATCH
 |Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
 |Content-Type|コンテンツ形式を指定する|application / xml|×||
 |Accept|レスポンスで受け入れ可能なメディアタイプを指定する|application / xml|×||
-#### リクエストボディ
+### リクエストボディ
 
 |項目名|Namespace|概要|必須|有効値|備考|
 |:--|:--|:--|:--|:--|:--|
@@ -45,8 +46,8 @@ PROPPATCH
 |prop|DAV:|プロパティ設定値|×|<! ELEMENT prop ANY>|ANYに指定したXMLタグがキーとなる|
 |ownerRepresentativeAccounts||昇格設定|○|<! ELEMENT ownerRepresentativeAccounts (account *)>||
 |account||昇格対象アカウント設定|○|<! ELEMENT account ANY>|昇格を認めるアカウント名を値として指定する|
-#### XMLの構造
-##### ボディはXMLで、以下のスキーマに従っています。
+### XMLの構造
+#### ボディはXMLで、以下のスキーマに従っています。
 
 |ノード名|Namespace|ノードタイプ|概要|備考|
 |:--|:--|:--|:--|:--|
@@ -54,15 +55,15 @@ PROPPATCH
 |set|D:|要素|プロパティ設定を表し、1つ以上複数のpropが子となる||
 |remove|D:|要素|プロパティ削除設定を表し、1つ以上複数のpropが子となる||
 |prop|D:|要素|プロパティ値を表し、1つ以上複数の任意の要素が子となる|set時：子のノード名がキーとなる<br>remove時：子のノードを名キーとして削除を行う|
-#### DTD表記
+### DTD表記
 ```dtd
 <!ELEMENT propertyupdate (set, remove) >
 <!ELEMENT set (prop*) >
 <!ELEMENT remove (prop*) >
 <!ELEMENT prop ANY>
 ```
-#### ULUUT昇格設定固有要素
-##### ボディはXMLで、以下のスキーマに従っています。
+### ULUUT昇格設定固有要素
+#### ボディはXMLで、以下のスキーマに従っています。
 
 |ノード名|Namespace|ノードタイプ|概要|備考|
 |:--|:--|:--|:--|:--|
@@ -73,35 +74,36 @@ PROPPATCH
 <!ELEMENT ownerRepresentativeAccounts (account*)>
 <!ELEMENT account (#PCDATA)>
 ```
-#### リクエストサンプル
+### リクエストサンプル
 ```xml
 <D:propertyupdate xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns">
   <D:set>
     <D:prop>
-      <p:ownerRepresentativeAccounts><p:account>account1</p:account><p:account>account2</p:account></p:ownerRepresentativeAccounts>
+      <p:ownerRepresentativeAccounts><p:account>account1</p:account><p:account>
+account2</p:account></p:ownerRepresentativeAccounts>
     </D:prop>
   </D:set>
 </D:propertyupdate>
 ```
 
-### レスポンス
-#### ステータスコード
+## レスポンス
+### ステータスコード
 
 |コード|メッセージ|概要|
 |:--|:--|:--|
 |207|MULTI_STATUS|成功|
-#### レスポンスヘッダ
+### レスポンスヘッダ
 未稿
 
-#### レスポンスボディ
+### レスポンスボディ
 名前空間
 
 |URI|概要|備考 (prefix)|
 |:--|:--|:--|
 |multistatus|WebDAVの名前空間|D:|
 
-#### XMLの構造
-##### ボディはXMLで、以下のスキーマに従っています。
+### XMLの構造
+#### ボディはXMLで、以下のスキーマに従っています。
 
 |ノード名|Namespace|ノードタイプ|概要|備考|
 |:--|:--|:--|:--|:--|
@@ -111,7 +113,7 @@ PROPPATCH
 |propstat|D:|要素|プロパティ設定結果を表し、propとstatusが子となる||
 |prop|D:|要素|プロパティ設定内容を表す|リソース設定の結果を以下のように表示する 設定成功：設定したキーと値 削除成功：削除したキー|
 |status|D:|要素|プロパティ設定ステータスコード|設定成功の場合200(OK)が返る|
-#### DTD表記
+### DTD表記
 ```dtd
 <!ELEMENT multistatus (response*)>
 <!ELEMENT response (href, propstat)>
@@ -120,31 +122,37 @@ PROPPATCH
 <!ELEMENT prop ANY>
 <!ELEMENT status (#PCDATA)>
 ```
-#### レスポンスサンプル
+### レスポンスサンプル
 ```xml
 <multistatus xmlns="DAV:">
     <response>
         <href>http://localhost:9998/testcell1/box1/patchcol</href>
         <propstat>
             <prop>
-                <Z:Author xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/">Author1 update</Z:Author>
-                <p:hoge xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" xmlns:Z="http://www.w3.com/standards/z39.50/">fuga</p:hoge>
-                <Z:Author xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/"/>
-                <p:hoge xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" xmlns:Z="http://www.w3.com/standards/z39.50/"/>
+                <Z:Author xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" 
+xmlns:Z="http://www.w3.com/standards/z39.50/">Author1 update</Z:Author>
+                <p:hoge xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" 
+xmlns:Z="http://www.w3.com/standards/z39.50/">fuga</p:hoge>
+                <Z:Author xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" 
+xmlns:Z="http://www.w3.com/standards/z39.50/"/>
+                <p:hoge xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" 
+xmlns:Z="http://www.w3.com/standards/z39.50/"/>
             </prop>
             <status>HTTP/1.1 200 OK</status>
         </propstat>
     </response>
 </multistatus>   
 ```
-#### エラーメッセージ一覧
+### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
 
-### cURLサンプル
+## cURLサンプル
 ```sh
-curl "https://{UnitFQDN}/cell -X PROPPATCH" -H 'Authorization: Bearer {AccessToken}' -d '<?xml version="1.0" encoding="utf-8" ?>
-<D:propertyupdate xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" xmlns:Z="http://www.w3.com/standards/z39.50/">
-<D:set><D:prop><p:requireSchemaAuthz>confidential</p:requireSchemaAuthz></D:prop></D:set></D:propertyupdate>'
+curl "https://{UnitFQDN}/cell -X PROPPATCH" -H 'Authorization: Bearer {AccessToken}' -d \
+'<?xml version="1.0" encoding="utf-8" ?>\
+<D:propertyupdate xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" \
+xmlns:Z="http://www.w3.com/standards/z39.50/">\
+<D:set><D:prop><p:requireSchemaAuthz>confidential</p:requireSchemaAuthz></D:prop></D:set>\
+</D:propertyupdate>'
 ```
 
-###### Copyright 2017 FUJITSU LIMITED

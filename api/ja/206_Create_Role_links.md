@@ -1,5 +1,5 @@
 # Role_$links登録
-### 概要
+## 概要
 Roleに$linksで指定したODataリソースを紐付ける
 * Account
 * ExtCell
@@ -7,9 +7,6 @@ Roleに$linksで指定したODataリソースを紐付ける
 * Relation
 
 リクエストURLに記載された_Box.Nameがnullの場合（または指定されていない場合）のみBoxに紐付けることができる
-
-### 必要な権限
-なし
 
 ### 制限事項
 * リクエストヘッダのAcceptは無視される
@@ -19,9 +16,9 @@ Roleに$linksで指定したODataリソースを紐付ける
 * $formatクエリオプションは無視される
 
 
-### リクエスト
-#### リクエストURL
-##### Association with the account
+## リクエスト
+### リクエストURL
+#### Association with the account
 ```
 /{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_Account
 ```
@@ -45,7 +42,7 @@ Roleに$linksで指定したODataリソースを紐付ける
 ```
 /{CellName}/__ctl/Role('{RoleName}')/$links/_ExtCell
 ```
-##### Association with the ExtRole
+#### Association with the ExtRole
 ```
 /{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_ExtRole
 ```
@@ -57,7 +54,7 @@ Roleに$linksで指定したODataリソースを紐付ける
 ```
 /{CellName}/__ctl/Role('{RoleName}')/$links/_ExtRole
 ```
-##### Association with the relation
+#### Association with the relation
 ```
 /{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_Relation
 ```
@@ -71,17 +68,17 @@ Roleに$linksで指定したODataリソースを紐付ける
 ```
 ※ \_Box.Nameパラメタを省略した場合は、nullが指定されたものとする
 
-#### メソッド
+### メソッド
 POST
 
-#### リクエストクエリ
+### リクエストクエリ
 
 |クエリ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|クッキー認証値|認証時にサーバから返却されたクッキー認証値|×|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する|
 &#160;
 
-#### リクエストヘッダ
+### リクエストヘッダ
 
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
@@ -91,24 +88,24 @@ POST
 |Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
 |Content-Type|リクエストボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
 |Accept|レスポンスボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
-#### リクエストボディ
-##### Format
+### リクエストボディ
+#### Format
 JSON
 
 |項目名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |uri|紐付けるODataリソースのURI|桁数：1&#65374;1024<br>URIの形式に従う<br>scheme：http / https / urn|○||
 
-#### リクエストサンプル
+### リクエストサンプル
 ```JSON
 {"uri":"https://{UnitFQDN}/Cell/__ctl/Box('{BoxName}')"}
 ```
 
-### レスポンス
-#### ステータスコード
+## レスポンス
+### ステータスコード
 204
 
-#### レスポンスヘッダ
+### レスポンスヘッダ
 
 |ヘッダ名|概要|備考|
 |:--|:--|:--|
@@ -116,19 +113,17 @@ JSON
 |Access-Control-Allow-Origin|クロスドメイン通信許可ヘッダ|返却値は"*"固定|
 |X-Personium-Version|APIの実行バージョン|リクエストが処理されたAPIバージョン|
 
-#### レスポンスボディ
+### レスポンスボディ
 なし
 
-#### エラーメッセージ一覧
+### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
 
-#### レスポンスサンプル
-なし
-
-### cURLサンプル
+## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Role('{RoleName}')/\$links/_Box" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d "{\"uri\":\"https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')\"}"
+curl "https://{UnitFQDN}/{CellName}/__ctl/Role('{RoleName}')/\$links/_Box" -X POST -i -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
+"{\"uri\":\"https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')\"}"
 ```
 
-###### Copyright 2017 FUJITSU LIMITED

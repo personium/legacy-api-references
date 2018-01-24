@@ -1,5 +1,5 @@
 # ログファイル削除
-### Overview
+## Overview
 ログファイルを削除する。（最新のログファイルは削除できない。）  
 ローテートされたログファイルの保持世代数は最大12世代である。  
 ログファイルのローテート時に最大保持世代数を超えた場合は、最古のログファイルが削除される。
@@ -14,24 +14,24 @@ log
 * ログの出力レベル："info"（固定）（INFO, WARN, ERRORすべて出力）
 
 
-### リクエスト
-#### リクエストURL
-##### ローテートされたログファイル
+## リクエスト
+### リクエストURL
+#### ローテートされたログファイル
 ```
 /{CellName}/__log/archive/{LogName}
 ```
 ※{LogName}は、ログファイル情報取得API で返却されたファイル名を指定する。
 
-#### メソッド
+### メソッド
 DELETE
 
-#### リクエストクエリ
+### リクエストクエリ
 
 |クエリ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|クッキー認証値|認証時にサーバから返却されたクッキー認証値|×|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する|
 
-#### リクエストヘッダ
+### リクエストヘッダ
 
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
@@ -40,38 +40,32 @@ DELETE
 |X-Personium-RequestKey|イベントログに出力するRequestKeyフィールドの値|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字|×|指定がない場合、PCS-${UNIX時間}を設定する|
 |Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
 |If-Match|対象ETag値を指定する|ETag値|×|省略時は[*]として扱う|
-#### リクエストボディ
-なし
-
-#### リクエストサンプル
+### リクエストボディ
 なし
 
 
-### レスポンス
-#### ステータスコード
+## レスポンス
+### ステータスコード
 
 |コード|メッセージ|概要|
 |:--|:--|:--|
 |204|No Content|削除成功時|
-#### レスポンスヘッダ
+### レスポンスヘッダ
 
 |項目名|概要|備考|
 |:--|:--|:--|
 |Content-Type|application/json|削除に失敗した場合のみ返却する|
-#### レスポンスボディ
+### レスポンスボディ
 なし
 
-#### エラーメッセージ一覧
+### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
 
-#### レスポンスサンプル
-なし
 
-
-### cURLサンプル
+## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__log/archive/{LogName}" -X DELETE -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/__log/archive/{LogName}" -X DELETE -i -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 
-###### Copyright 2017 FUJITSU LIMITED

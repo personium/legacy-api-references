@@ -1,5 +1,5 @@
 # ExtCell_NavProp経由登録
-### 概要
+## 概要
 Cell制御オブジェクトNavigation Property経由で登録し、同時に$linksを登録する。
 ### 必要な権限
 write
@@ -11,9 +11,9 @@ write
 * $formatクエリオプションは無視される
 
 
-### リクエスト
-#### リクエストURL
-##### RoleへのnavigationProperty
+## リクエスト
+### リクエストURL
+#### RoleへのnavigationProperty
 ```
 /{CellName}/__ctl/ExtCell(Url='{ExtCellURL}')/_Role
 ```
@@ -21,7 +21,7 @@ write
 ```
 /{CellName}/__ctl/ExtCell('{ExtCellURL}')/_Role
 ```
-##### RelationへのnavigationProperty
+#### RelationへのnavigationProperty
 ```
 /{CellName}/__ctl/ExtCell(Url='{ExtCellURL}')/_Relation
 ```
@@ -29,13 +29,13 @@ write
 ```
 /{CellName}/__ctl/ExtCell('{ExtCellURL}')/_Relation
 ```
-#### メソッド
+### メソッド
 POST
-#### リクエストクエリ
+### リクエストクエリ
 |クエリ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|クッキー認証値|認証時にサーバから返却されたクッキー認証値|×|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する|
-#### リクエストヘッダ
+### リクエストヘッダ
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |X-HTTP-Method-Override|メソッドオーバーライド機能|任意|×|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用されます。|
@@ -44,12 +44,12 @@ POST
 |Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
 |Content-Type|リクエストボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
 |Accept|レスポンスボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
-#### リクエストボディ
-##### ExtCellを登録する場合
+### リクエストボディ
+#### ExtCellを登録する場合
 |項目名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |Url|CellへのURL|桁数：1&#65374;1024<br>URIの形式に従う<br>scheme：http, https<br>トレイリングスラッシュ(URL終端の/)必須|○||
-##### リクエストサンプル
+#### リクエストサンプル
 ```JSON
 {
   "Name": "{RoleName}"
@@ -57,10 +57,10 @@ POST
 ```
 
 
-### レスポンス
-#### ステータスコード
+## レスポンス
+### ステータスコード
 201
-#### レスポンスヘッダ
+### レスポンスヘッダ
 |ヘッダ名|概要|備考|
 |:--|:--|:--|
 |Content-Type|返却されるデータの形式||
@@ -69,7 +69,7 @@ POST
 |ETag|リソースのバージョン情報||
 |Access-Control-Allow-Origin|クロスドメイン通信許可ヘッダ|返却値は"*"固定|
 |X-Personium-Version|APIの実行バージョン|リクエストが処理されたAPIバージョン|
-#### レスポンスボディ
+### レスポンスボディ
 |オブジェクト|項目名|Data Type|備考|
 |:--|:--|:--|:--|
 |ルート|d|object|オブジェクト{1}|
@@ -81,17 +81,17 @@ POST
 |{2}|__updated|string|更新日(UNIX時間)|
 |{1}|__count|string|$inlinecountクエリでの取得結果件数|
 
-##### ExtCellを登録した場合
+#### ExtCellを登録した場合
 ExtCell固有レスポンスボディ
 
 |オブジェクト|項目名|Data Type|備考|
 |:--|:--|:--|:--|
 |{3}|type|string|CellCtl.ExtRole|
 |{2}|Name|string|関係対象のRole名|
-#### エラーメッセージ一覧
+### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
 
-##### レスポンスサンプル
+#### レスポンスサンプル
 ```JSON
 {
   "d": {
@@ -106,27 +106,32 @@ ExtCell固有レスポンスボディ
       "__updated": "/Date(1487320623218)/",
       "_Box": {
         "__deferred": {
-          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_Box"
+          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}'
+,_Box.Name='{BoxName}')/_Box"
         }
       },
       "_Account": {
         "__deferred": {
-          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_Account"
+          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}'
+,_Box.Name='{BoxName}')/_Account"
         }
       },
       "_ExtCell": {
         "__deferred": {
-          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_ExtCell"
+          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}'
+,_Box.Name='{BoxName}')/_ExtCell"
         }
       },
       "_ExtRole": {
         "__deferred": {
-          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_ExtRole"
+          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}'
+,_Box.Name='{BoxName}')/_ExtRole"
         }
       },
       "_Relation": {
         "__deferred": {
-          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_Relation"
+          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}'
+,_Box.Name='{BoxName}')/_Relation"
         }
       }
     }
@@ -134,11 +139,11 @@ ExtCell固有レスポンスボディ
 }
 ```
 
-### cURLサンプル
-##### RoleのnavigationProperty経由登録
+## cURLサンプル
+#### RoleのnavigationProperty経由登録
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{ExtCellName}%2F')/_Role" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{ "Name": "{RoleName}"}'
+curl "https://{UnitFQDN}/{CellName}/__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{ExtCellName}%2F')\
+/_Role" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '\
+{ "Name": "{RoleName}"}'
 ```
 
-
-###### Copyright 2017 FUJITSU LIMITED

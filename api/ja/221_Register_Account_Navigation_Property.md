@@ -1,8 +1,10 @@
-# Account_NavProp経由登録
+# AccountのNavigation Property経由でのRole登録
 ## 概要
-RoleをAccountのNavigation Property経由で登録する
+AccountのNavigation Property経由でRoleを登録する
+
 ### 必要な権限
-write
+auth
+
 ### 制限事項
 * リクエストヘッダのContent-Typeは全てapplication/jsonとして扱う
 * リクエストボディはJSON形式のみ受け付ける
@@ -108,7 +110,6 @@ Account固有レスポンスボディ
 
 ## cURLサンプル
 
-### AccountとRoleのnavigationProperty経由登録
 ```sh
 curl "https://{UnitFQDN}/{CellName}/__ctl/Account('acount_name')/_Role" -X POST -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{RoleName}"}'

@@ -12,7 +12,6 @@ Unit Root URL
 ````
 https://{UnitFQDN}/
 ````
-
 Unit Level API はUnit制御オブジェクトという形で実現されています。
 ODataに従ったREST操作でUnit制御オブジェクトを操作してください。
 
@@ -20,7 +19,13 @@ ODataに従ったREST操作でUnit制御オブジェクトを操作してくだ�
 
 |種別|操作|
 |:--|:--|
-|基本操作|[作成](100_Create_Cell.md)&nbsp; &nbsp;[一覧取得](101_List_Cell.md)&nbsp; &nbsp;[取得](102_Get_Cell.md)&nbsp; &nbsp;[更新](103_Update_Cell.md)&nbsp; &nbsp;[削除](104_Delete_Cell.md)&nbsp; &nbsp;[再帰的削除](105_Cell_Recursive_Delete.md)|
+|基本操作|[作成](100_Create_Cell.md) &nbsp; &nbsp; [一覧取得](101_List_Cell.md) &nbsp; &nbsp; [取得](102_Get_Cell.md) &nbsp; &nbsp; [更新](103_Update_Cell.md) &nbsp; &nbsp; [削除](104_Delete_Cell.md) &nbsp; &nbsp; |
+
+#### その他API
+
+* [Cell再帰的削除](105_Cell_Recursive_Delete.md)
+
+
 
 ## Cell Level API
 Cell Level API は、
@@ -92,9 +97,9 @@ https://{UnitFQDN}/{CellName}/
 
 |種別|操作|
 |:--|:--|
-|基本操作|[登録](245_Create_External_Role.md)&nbsp;&nbsp; [一覧取得](246_List_External_Role.md)&nbsp;&nbsp;[取得](247_Get_External_Role.md)&nbsp;&nbsp;[更新](248_Update_External_Role.md)&nbsp;&nbsp;[削除](249_Delete_External_Role.md)|
-|&nbsp; &nbsp;他オブジェクトとのリンク|[リンク](250_Register_External_Role_links.md)&nbsp; &nbsp;[リンク解除](253_Delete_External_Role_links.md)&nbsp; &nbsp;[リンク一覧取得](251_Retrieve_External_Role_links.md)&nbsp; &nbsp;リンク更新はありません|
-|&nbsp; &nbsp;Navigation Property 経由の操作|[登録](254_Register_Using_Role_NavProp.md)&nbsp; &nbsp;[一覧取得](255_List_External_Role_NavProp.md)|
+|基本操作|[登録](245_Create_External_Role.md) &nbsp; &nbsp; [一覧取得](246_List_External_Role.md) &nbsp; &nbsp; [取得](247_Get_External_Role.md) &nbsp; &nbsp; [更新](248_Update_External_Role.md) &nbsp; &nbsp; [削除](249_Delete_External_Role.md)|
+| &nbsp; &nbsp; 他オブジェクトとのリンク|[リンク](250_Register_External_Role_links.md) &nbsp; &nbsp; ;[リンク解除](253_Delete_External_Role_links.md) &nbsp; &nbsp; [リンク一覧取得](251_Retrieve_External_Role_links.md) &nbsp; &nbsp; リンク更新はありません|
+| &nbsp; &nbsp; Navigation Property 経由の操作|[登録](254_Register_Using_Role_NavProp.md) &nbsp; &nbsp; [一覧取得](255_List_External_Role_NavProp.md)|
 
 
 ### Boxを作成・管理する機能
@@ -108,9 +113,9 @@ https://{UnitFQDN}/{CellName}/
 
 |種別|操作|
 |:--|:--|
-|基本操作|[登録](256_Create_Box.md)&nbsp;&nbsp; [一覧取得](257_Search_Box.md)&nbsp;&nbsp;[取得](258_Retrieve_Box.md)&nbsp;&nbsp;[更新](259_Update_Box.md)&nbsp;&nbsp;[削除](260_Delete_Box.md) |
-|&nbsp; &nbsp;他オブジェクトとのリンク|[リンク](261_Register_Box_links.md)&nbsp; &nbsp;[リンク解除](264_Delete_Box_links.md)&nbsp; &nbsp;[リンク一覧取得](262_List_Box_links.md)&nbsp; &nbsp;リンク更新はありません|
-|&nbsp; &nbsp;Navigation Property 経由の操作|[登録](265_Register_Using_Box_NavProp.md)&nbsp; &nbsp;[一覧取得](266_List_Box_NavProp.md)|
+|基本操作|[登録](256_Create_Box.md) &nbsp; &nbsp; [一覧取得](257_Search_Box.md) &nbsp; &nbsp; [取得](258_Retrieve_Box.md) &nbsp; &nbsp; [更新](259_Update_Box.md) &nbsp; &nbsp; [削除](260_Delete_Box.md) |
+|&nbsp; &nbsp;他オブジェクトとのリンク|[リンク](261_Register_Box_links.md) &nbsp; &nbsp; [リンク解除](264_Delete_Box_links.md) &nbsp; &nbsp; [リンク一覧取得](262_List_Box_links.md) &nbsp; &nbsp; リンク更新はありません|
+|&nbsp; &nbsp;Navigation Property 経由の操作|[登録](265_Register_Using_Box_NavProp.md) &nbsp; &nbsp; [一覧取得](266_List_Box_NavProp.md)|
 
 ### Cell間のメッセージを送受信する機能
 
@@ -119,8 +124,8 @@ https://{UnitFQDN}/{CellName}/
 
 |Cell制御オブジェクト|操作|
 |:--|:--|
-|**送信済メッセージ**|[取得](272_Retrieve_Sent_Message.md)&nbsp; &nbsp;[一覧取得](273_List_Sent_Messages.md)&nbsp; &nbsp; [削除](274_Delete_Sent_Message.md)|
-|**受診メッセージ**|[取得](269_Get_Received_Message.md) &nbsp; &nbsp; [一覧取得](268_List_Received_Messages.md&nbsp; &nbsp;[削除](270_Delete_an_Incoming_Message.md)|
+|**送信済メッセージ**|[取得](272_Retrieve_Sent_Message.md)v[一覧取得](273_List_Sent_Messages.md) &nbsp; &nbsp; [削除](274_Delete_Sent_Message.md)|
+|**受診メッセージ**|[取得](269_Get_Received_Message.md) &nbsp; &nbsp; [一覧取得](268_List_Received_Messages.md) &nbsp; &nbsp; [削除](270_Delete_an_Incoming_Message.md)|
 
 ### イベント制御の機能
 

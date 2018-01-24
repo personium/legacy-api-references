@@ -1,4 +1,4 @@
-# Box Acquire List
+# Box List
 
 ## Overview
 

@@ -27,15 +27,15 @@ a RESTful and standardized manner.
 
 ## Cell Level API
 
-Cell Level API
+Cell Level API's comprise of the following features;
 
-*  Authenticating user and applications accessing the Cell
-*  Function to set access control for Cell
-*  Function to build relations between Cells
-*  Function to create and manage Box
-*  Ability to send and receive messages between Cells
-*  Function of event processing
-*  Function to export / import Cell
+*  User and application Authentication
+*  Access control
+*  Networking Cells
+*  Box creation and management
+*  Messages exchange between Cells
+*  Event processing
+*  Other features
 
 And so on. Many of these functions are implemented in the form of control objects that can be operated with the OData protocol, which is a standard for performing relational data manipulation based on REST.
 
@@ -44,7 +44,7 @@ Cell Root URL
 https://{UnitFQDN}/{CellName}/
 ```
 
-### Authenticating user and applications accessing the Cell
+### User and application Authentication
 
 #### Authentication
 
@@ -60,9 +60,20 @@ https://{UnitFQDN}/{CellName}/
 |&nbsp; &nbsp; Linking with other objects|[Link](217_Register_Account_links.md) &nbsp; &nbsp; [Unlink](220_Delete_Account_links.md) &nbsp; &nbsp; [List Links](218_Acquire_Account_links_List.md) |
 |&nbsp; &nbsp; Bound Object Manipulation|[Create](221_Register_Account_Navigation_Property.md) &nbsp; &nbsp; [Retrieve](222_Acquire_Account_Navigation_Property.md)|
 
-### Functions to set access control for the Cell
+### Access control
 
-#### Role (Cell Control Object)
+Personium Cells employ Role-Based Access Control. A role can be defined in the form of Cell Control Object "Role".
+Cell-level ACL can be configured with the following API, where multiple pairs of role and granted privileges can be defined.
+
+* [Cell-level ACL Configuralion](289_Cell_ACL.md)
+
+Configured ACL can be retrieved together with other properties, by sending regular WebDAV PROPFIND request to the root URL of the Cell. 
+
+* [Retrieve Properties](290_Cell_Get_Property.md)
+* [Change Properties](291_Cell_Change_Property.md)
+
+
+#### Cell Control Object
 
 |Role|Operations|
 |:--|:--|
@@ -70,16 +81,11 @@ https://{UnitFQDN}/{CellName}/
 |&nbsp; &nbsp; Linking with other objects|[Link](206_Create_Role_links.md) &nbsp; &nbsp; [Unlink](209_Delete_Role_links.md) &nbsp; &nbsp; [List Links](207_List_Role_links.md) |
 |&nbsp; &nbsp; Bound Object Manipulation|[Create](210_Register_Role_Using_NavProp.md) &nbsp; &nbsp; [Retrieve](211_List_Using_Role_NavProp.md)|
 
-#### Access Control
-
-[Configure ACL](289_Cell_ACL.md)
-[Retrieve Properties](290_Cell_Get_Property.md)
-[Change Properties](291_Cell_Change_Property.md)
 
 
-### Functions to build relationship between cells
+### Networking Cells
 
-#### ExtCell (Cell Control Object)
+#### External Cell (Cell Control Object)
 
 |ExtCell|Operations|
 |:--|:--|
@@ -119,7 +125,9 @@ https://{UnitFQDN}/{CellName}/
 |&nbsp; &nbsp; Linking with other objects|[Link](261_Register_Box_links.md) &nbsp; &nbsp; [Unlink](264_Delete_Box_links.md) &nbsp; &nbsp; [List Links](262_List_Box_links.md) |
 |&nbsp; &nbsp; Bound Object Manipulation|[Create](265_Register_Using_Box_NavProp.md) &nbsp; &nbsp; [Retrieve](266_List_Box_NavProp.md)|
 
-### Sending and receiving messages between Cells
+### Message Exchange between Cells
+
+#### Message Manipulation
 
 * [Send a message](271_Send_Message.md)
 * [Change Status](267_Received_Message_Approval.md) (Approve / Decline, etc.)
@@ -129,7 +137,7 @@ https://{UnitFQDN}/{CellName}/
 |**Sent Message**|[Retrieve](272_Retrieve_Sent_Message.md) &nbsp; &nbsp; [Retrieve List](273_List_Sent_Messages.md) &nbsp; &nbsp; [Delete](274_Delete_Sent_Message.md)|
 |**Received Message**|[Retrieve](269_Get_Received_Message.md) &nbsp; &nbsp; [Retrieve List](268_List_Received_Messages.md) &nbsp; &nbsp; [Delete](270_Delete_an_Incoming_Message.md)|
 
-### Event processing functions
+### Event processing
 
 * [Events Overview](277_Event_Summary.md)
 * [Accept External Events](278_Event_Reception.md)
@@ -150,7 +158,8 @@ https://{UnitFQDN}/{CellName}/
 * [Meatadata of Log File](283_Log_File_Information_Acquisition.md)
 * [Delete Log File](286_Delete_Log_File.md)
 
-### Exporting / Importing the contents inside the Cell
+### Other functions
+#### Exporting / Importing the contents inside the Cell
 
 Snapshot file of Cell is created by export execution.  
 Import imports the contents of the snapshot file into Cell.  
@@ -162,11 +171,9 @@ Snapshot file can be operated with WebDAV interface.
 |**Import**|[Execute](507_Import_Cell.md)|[Get progress](508_Progress_of_Import_Cell.md)|||
 |**Snapshot**|[Register/Update](503_Register_and_Update_Snapshot_Cell.md)|[Acquire](504_Get_Snapshot_Cell.md)<br>[Acquire Settings](505_Get_Property_Snapshot_Cell.md)||[Delete](506_Delete_Snapshot_Cell.md)|
 
-
 ## Box Level API
 
-The Box Level API is an API for applications and others to manipulate data, and is a group of APIs based on WebDAV as a file system idea.  
-Like ordinary file systems, it is possible to arrange / acquire files, create / manage folders (collection), get list of files and folders, set / refer to access control, etc.
+The Box Level API is an API for applications and others to manipulate data, and is a group of APIs based on WebDAV as a file system idea.  Like ordinary file systems, it is possible to arrange / acquire files, create / manage folders (collection), get list of files and folders, set / refer to access control, etc.
 
 Also, because it supports the following special collections, it can handle not only file-like data but also various forms of data.  
 These special collections can be created in any path on the WebDAV space provided by Box.

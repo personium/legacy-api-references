@@ -11,17 +11,25 @@ Unit Root URL
 ```
 https://{UnitFQDN}/
 ```
+Most of the Unit Level API's are implemented in the form of Unit Control Objects. 
+Since they conform with the OData standard, their manipulation can be made in 
+a RESTful and standardized manner.
 
-||Create/Register|Acquire|Update|Delete|
-|:--|:--|:--|:--|:--|
-|**Cell**|[Create](100_Create_Cell.md)|[Acquire List](101_List_Cell.md)<br>[Acquire](102_Get_Cell.md)|[Update](103_Update_Cell.md)|[Delete](104_Delete_Cell.md)<br>[Recursive Delete](105_Cell_Recursive_Delete.md)|
+### Unit Control Objects
 
+|Cell|Operations|
+|:--|:--|
+|Basic Operations|[Create](100_Create_Cell.md) &nbsp; &nbsp; [Retrieve List](101_List_Cell.md) &nbsp; &nbsp; [Retrieve](102_Get_Cell.md) &nbsp; &nbsp; [Update](103_Update_Cell.md) &nbsp; &nbsp; [Delete](104_Delete_Cell.md)|
+
+### Other API's
+
+*  [Cell Recursive Deletion](105_Cell_Recursive_Delete.md)
 
 ## Cell Level API
 
 Cell Level API
 
-*  Ability to authenticate people and applications accessing Cell
+*  Authenticating user and applications accessing the Cell
 *  Function to set access control for Cell
 *  Function to build relations between Cells
 *  Function to create and manage Box
@@ -38,12 +46,19 @@ https://{UnitFQDN}/{CellName}/
 
 ### Authenticating user and applications accessing the Cell
 
-||Create/Register|Acquire|Update|Delete|Other|
-|:--|:--|:--|:--|:--|:--|
-|**Account**|[Register](212_Create_Account.md)|[Acquire List](214_Search_Account.md)<br>[Acquire](213_Retrieve_Account.md)|[Update](215_Update_Account.md)<br>[Change Password](294_Password_Change.md)|[Delete](216_Delete_Account.md)||
-|_$links|[Register](217_Register_Account_links.md)|[Acquire List](218_Acquire_Account_links_List.md)|Update|[Delete](220_Delete_Account_links.md)||
-|_via NavProp|[Register](221_Register_Account_Navigation_Property.md)|[Acquire](222_Acquire_Account_Navigation_Property.md)||||
-|**Authentication**<br>(__token, __authz)|||||[OAuth2.0 Authorization Endpoint](292_OAuth2_Authorization_Endpoint.md)<br>[OAuth2.0 Token Endpoint](293_OAuth2_Token_Endpoint.md)|
+#### Authentication
+
+* [OAuth2.0 Authorization Endpoint](292_OAuth2_Authorization_Endpoint.md)
+* [OAuth2.0 Token Endpoint](293_OAuth2_Token_Endpoint.md)
+* [Change Password](294_Password_Change.md)
+
+#### Account (Cell Control Object)
+
+|Account|Operations|
+|:--|:--|
+|Basic Operations|[Register](212_Create_Account.md)  [Acquire List](214_Search_Account.md)  [Acquire](213_Retrieve_Account.md)  [Update](215_Update_Account.md)  [Delete](216_Delete_Account.md)|
+|&nbsp; &nbsp;Linking with other objects|[Link](217_Register_Account_links.md) &nbsp; &nbsp; [Unlink](220_Delete_Account_links.md) &nbsp; &nbsp; [Acquire List](218_Acquire_Account_links_List.md) |
+|&nbsp; &nbsp; Bound Object Manipulation|[Create](221_Register_Account_Navigation_Property.md) &nbsp; &nbsp; [Retrieve](222_Acquire_Account_Navigation_Property.md)|
 
 ### Functions to set access control for the Cell
 
@@ -70,15 +85,19 @@ https://{UnitFQDN}/{CellName}/
 
 ### Box creation and management inside the Cell
 
-[Install Box](302_Box_Installation.md)
-[Acquire Box Meta Data](303_Progress_of_Bar_File_Installation.md)
+* [Install Box](302_Box_Installation.md)
+* [Acquire Box Meta Data](303_Progress_of_Bar_File_Installation.md)
+* [Acquire URL](304_Get_Box_URL.md)
+* [Recursive Delete](295_Box_Recursive_Delete.md)
+
+#### Box (Cell Control Object)
 
 
-||Create/Register|Acquire|Update|Delete|
-|:--|:--|:--|:--|:--|
-|**Box**|[Create](256_Create_Box.md)|[Acquire](258_Retrieve_Box.md)<br>[Acquire List](257_Search_Box.md)<br>[Acquire URL](304_Get_Box_URL.md)|[Update](259_Update_Box.md)|[Delete](260_Delete_Box.md)<br>[Recursive Delete](295_Box_Recursive_Delete.md)|
-|_$links|[Register](261_Register_Box_links.md)|[Acquire List](262_List_Box_links.md)|Update|[Delete](264_Delete_Box_links.md)|
-|_via NavProp|[Register](265_Register_Using_Box_NavProp.md)|[Acquire](266_List_Box_NavProp.md)|||
+|Box|Operations|
+|:--|:--|
+|Basic Operations|[Create](256_Create_Box.md)  [Retrieve](258_Retrieve_Box.md)  [Retrieve List](257_Search_Box.md)  [Update](259_Update_Box.md)  [Delete](260_Delete_Box.md)|
+|&nbsp; &nbsp;Linking with other objects|[Link](261_Register_Box_links.md) &nbsp; &nbsp; [Unlink](264_Delete_Box_links.md) &nbsp; &nbsp; [Acquire List](262_List_Box_links.md) |
+|&nbsp; &nbsp; Bound Object Manipulation|[Create](265_Register_Using_Box_NavProp.md) &nbsp; &nbsp; [Retrieve](266_List_Box_NavProp.md)|
 
 ### Sending and receiving messages between Cells
 

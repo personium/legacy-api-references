@@ -1,6 +1,6 @@
 # Error Messages
 
-### Authentication API
+## Authentication API
 
 |OAUTH error code|Message code|Message|
 |:--|:--|:--|
@@ -28,7 +28,7 @@
 |invalid_grant|PR400-AN-0032|OpenID Connect Invalid Token. ({0})|
 |invalid_grant|PR400-AN-0033|OpenID Connect ID Token Expired (at UnixTime: {0}).|
 
-### Other Resource API
+## Other Resource API
 
 |Response code|Message code|Message|Details|
 |:--|:--|:--|:--|
@@ -231,5 +231,3 @@
 |500|PR500-AN-0001|Root ca certificate setting error.||
 |412|-|["{0}","{1}","{2}"...]|Return available Personium<br>version number|
 
-
-###### Copyright 2017 FUJITSU LIMITED

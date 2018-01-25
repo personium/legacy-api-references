@@ -1,6 +1,6 @@
 # Cell Level Access Control Configuration
 
-### Overview
+## Overview
 
 Provides cell level access control functions.
 
@@ -17,19 +17,19 @@ Updating the ACL configuration overwrites existing ACL settings.
     * Acquisition of a list of privileges configurable by the ACL
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
 ```
 /{CellName}
 ```
 
-#### Request Method
+### Request Method
 
 ACL
 
-#### Request Query
+### Request Query
 
 Common Request Query
 
@@ -37,7 +37,7 @@ Common Request Query
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
-#### Common Request Header
+### Common Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -45,15 +45,15 @@ Common Request Query
 |X-Override|Header override function|${OverwrittenHeaderName}:${Value}|No|Overwrite normal HTTP header value. To overwrite multiple headers, specify multiple X-Override headers.|
 |X-Personium-RequestKey|RequestKey field value output in the event log|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters|No|PCS-${UNIXtime} by default|
 
-#### Request Header
+### Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
 
-#### Request Body
+### Request Body
 
-#### Namespace
+### Namespace
 
 |URI|Overview|Notes (prefix)|
 |:--|:--|:--|
@@ -62,7 +62,7 @@ Common Request Query
 
 \* Reference The prefixes are for making it easier to read the following table, but the use of these prefix strings is not ensured or requested.
 
-#### Structure of XML
+### Structure of XML
 
 The body is XML and follows the following schema.  
 For details on the privilege settings within the privilege tag, please refer to the acl\_model ([Access Control Model](../../user_guide/002_Access_Control.md)).
@@ -96,7 +96,7 @@ For details on the privilege settings within the privilege tag, please refer to 
 |acl-read|p:|Element|ACL management API viewing privileges||
 |propfind|p:|Element|Property acquisition API viewing privileges||
 
-##### DTD notation
+#### DTD notation
 
 Namespace: D:
 
@@ -108,7 +108,8 @@ Namespace: D:
 <!ELEMENT principal (privilege+)>
 <!ELEMENT href (#PCDATA)>
 <!ELEMENT all EMPTY>
-<!ELEMENT privilege (root or auth or auth-read or message or message-read or event or event-read or social or social-read or box or box-read or acl or acl-read or propfind)>
+<!ELEMENT privilege (root or auth or auth-read or message or message-read or event or event-read or 
+social or social-read or box or box-read or acl or acl-read or propfind)>
 ```
 
 Namespace:xml:
@@ -140,7 +141,7 @@ Namespace: p:
 <!ELEMENT propfind EMPTY>
 ```
 
-#### Request Sample
+### Request Sample
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -166,33 +167,35 @@ Namespace: p:
 ```
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 |Code|Message|Overview|
 |:--|:--|:--|
 |200|OK|Success|
 
-#### Response Header
+### Response Header
 
 |Item Name|Overview|Notes|
 |:--|:--|:--|
 |Content-Type|Format of data to be returned||
 
-#### Response Body
+### Response Body
 
 None
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-### cURL Command
+## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}" -X ACL -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8" ?><D:acl xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" xml:base="http://{UnitFQDN}/{CellName}/__role/{BoxName}/">  <D:ace><D:principal><D:href>{RoleName}</D:href></D:principal><D:grant><D:privilege><p:box-read/></D:privilege><D:privilege><p:auth/></D:privilege></D:grant></D:ace></D:acl>'
+curl "https://{UnitFQDN}/{CellName}" -X ACL -i -H 'Authorization: Bearer {AccessToken}' -H \
+'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8" ?><D:acl xmlns:D="DAV:" \
+xmlns:p="urn:x-personium:xmlns" xml:base="http://{UnitFQDN}/{CellName}/__role/{BoxName}/">  \
+<D:ace><D:principal><D:href>{RoleName}</D:href></D:principal><D:grant><D:privilege><p:box-read/>\
+</D:privilege><D:privilege><p:auth/></D:privilege></D:grant></D:ace></D:acl>'
 ```
 
-
-###### Copyright 2017 FUJITSU LIMITED

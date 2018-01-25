@@ -1,6 +1,6 @@
 # Registration via Account\_NavProp
 
-### Overview
+## Overview
 
 register Role via Account Navigation Property
 
@@ -16,11 +16,11 @@ write
 * Response body data is not ensured if atom or xml is specified in the $format query option, although it does not result in an error
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
-##### navigationProperty to Role
+#### navigationProperty to Role
 
 ```
 /{CellName}/__ctl/Account(Name='{AccountName}')/_Role
@@ -32,17 +32,17 @@ or
 /{CellName}/__ctl/Account('{AccountName}')/_Role
 ```
 
-#### Request Method
+### Request Method
 
 POST
 
-#### Request Query
+### Request Query
 
 |Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
-#### Request Header
+### Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -53,7 +53,7 @@ POST
 |Content-Type|Specifies the request body format|application/json|No|[application/json] by default|
 |Accept|Specifies the response body format|application/json|No|[application/json] by default|
 
-#### Request Body
+### Request Body
 
 When registering Role
 
@@ -61,7 +61,7 @@ When registering Role
 |:--|:--|:--|:--|:--|
 |Name|Account Name|Character type: Half size alphanumeric characters and following half-width symbol (-_!$*=^`{&#124;}~.@) <br>However, the first character can not be specified as the first character|Yes||
 
-#### Request Sample
+### Request Sample
 
 ```JSON
 {
@@ -70,13 +70,13 @@ When registering Role
 ```
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 201
 
-#### Response Header
+### Response Header
 
 |Item Name|Overview|Notes|
 |:--|:--|:--|
@@ -87,7 +87,7 @@ When registering Role
 |ETag|Resource version information||
 |DataServiceVersion|OData version||
 
-#### Response Body
+### Response Body
 
 |Item Name|Overview|Notes|
 |:--|:--|:--|
@@ -102,7 +102,7 @@ When registering Role
 |d / results / Name|Role Name||
 |d / results / _Box.Name|Box name to be related||
 
-##### When registered Account
+#### When registered Account
 
 Account specific response body
 
@@ -113,7 +113,7 @@ Account specific response body
 |{2}|Type|string|basic|
 |{3}|Type|string|CellCtl.Account|
 
-#### Response Sample
+### Response Sample
 
 ```JSON
 {
@@ -134,17 +134,17 @@ Account specific response body
 }   
 ```
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-### cURL Command
+## cURL Command
 
-##### Register via Account and Role navigationProperty
+### Register via Account and Role navigationProperty
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Account('acount_name')/_Role" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{RoleName}"}'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Account('acount_name')/_Role" -X POST -i -H '\
+Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{RoleName}"}'
 ```
 
 
-###### Copyright 2017 FUJITSU LIMITED

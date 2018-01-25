@@ -1,6 +1,6 @@
 # Acquire Properties
 
-### Overview
+## Overview
 
 Get cell properties
 
@@ -19,25 +19,25 @@ Restrictions in V 1.0
     * It becomes current allprop
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
 ```
 /{CellName}
 ```
 
-#### Request Method
+### Request Method
 
 PROPFIND
 
-#### Request Query
+### Request Query
 
 |Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
-#### Request Header
+### Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -47,9 +47,9 @@ PROPFIND
 |Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
 |Depth|To get the hierarchy of a resource|0:Gets target resource only<br>1:Gets target and resources directly under the target|Yes||
 
-#### Request Body
+### Request Body
 
-##### Namespace
+#### Namespace
 
 |URI|Overview|Notes|
 |:--|:--|:--|
@@ -57,7 +57,7 @@ PROPFIND
 
 \* Reference The prefixes are for making it easier to read the following table, but the use of these prefix strings is not ensured or requested.
 
-##### Structure of XML
+#### Structure of XML
 
 The body is XML and follows the following schema.
 
@@ -66,14 +66,14 @@ The body is XML and follows the following schema.
 |propfind|D:|Element|Represents the root element of propfind, and allprop is a child.||
 |allprop||Element|Represent setting to retrieve all properties|allprop : get all properties<br>Even if the request body is empty, treat it as allprop<br>Elements other than allprop are not supported for v1.2 , v1.1|
 
-##### DTD notation
+#### DTD notation
 
 ```dtd
 <!ELEMENT propfind (allprop) >
 <!ELEMENT allprop ENPTY >
 ```
 
-#### Request Sample
+### Request Sample
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -83,22 +83,22 @@ The body is XML and follows the following schema.
 ```
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 |Code|Message|Overview|
 |:--|:--|:--|
 |207|Multi-Status|Success|
 
-#### Response Header
+### Response Header
 
 |Item Name|Overview|Notes|
 |:--|:--|:--|
 |Content-Type|Format of data to be returned||
 |DataServiceVersion|OData Version|Return only when Entity can be successfully acquired|
 
-#### Response Body
+### Response Body
 
 Namespace
 
@@ -109,7 +109,7 @@ Namespace
 
 \* Reference The prefixes are for making it easier to read the following table, but the use of these prefix strings is not ensured or requested.
 
-##### Structure of XML
+#### Structure of XML
 
 The body is XML and follows the following schema.
 
@@ -133,7 +133,7 @@ The body is XML and follows the following schema.
 |base|p:|Element|ACL Privilege BaseURL|When PROPFIND to Cell, default box ("__") resource URL|
 |status|D:|Element|Represents the response code of resource acquisition||
 
-##### DTD notation
+#### DTD notation
 
 Namespace: D:
 
@@ -166,11 +166,11 @@ Namespace: xml:
 <!ATTLIST acl base CDATA #IMPLIED>
 ```
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-#### Response Sample
+### Response Sample
 
 ```xml
 <multistatus xmlns="DAV:">
@@ -193,11 +193,12 @@ Refer to [Error Message List](004_Error_Messages.md)
 ```
 
 
-### cURL Command
+## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}" -X PROPFIND -i -H 'Depth:1' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8"?><D:propfind xmlns:D="DAV:"><D:allpop/></D:propfind>'
+curl "https://{UnitFQDN}/{CellName}" -X PROPFIND -i -H 'Depth:1' -H 'Authorization: Bearer {AccessToken}' \
+-H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8"?><D:propfind xmlns:D="DAV:">\
+<D:allpop/></D:propfind>'
 ```
 
 
-###### Copyright 2017 FUJITSU LIMITED

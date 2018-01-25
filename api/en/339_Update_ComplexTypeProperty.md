@@ -1,6 +1,6 @@
 # ComplexTypeProperty Update
 
-### Overview
+## Overview
 
 Update existing ComplexTypeProperty information
 
@@ -16,33 +16,33 @@ alter-schema
 * Response body data is not ensured if atom or xml is specified in the $format query option, although it does not result in an error
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
 ```
 /{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/ComplexTypeProperty('ComplexTypeProperty')
 ```
 
-#### Request Method
+### Request Method
 
 PUT
 
-#### Request Query
+### Request Query
 
-##### Common Request Query
+#### Common Request Query
 
 |Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
-##### OData Common Request Query
+#### OData Common Request Query
 
 None
 
-#### Request Header
+### Request Header
 
-##### Common Request Header
+#### Common Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -50,13 +50,13 @@ None
 |X-Override|Header override function|${OverwrittenHeaderName}:${Value}|No|The normal HTTP header value is overwritten. Specify multiple X-Override headers for the overwriting of multiple headers|
 |X-Personium-RequestKey|RequestKey field value output in the event log|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters|No||
 
-##### OData Common Request Header
+#### OData Common Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
 
-##### OData Update Request Header
+#### OData Update Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -64,9 +64,9 @@ None
 |Accept|Specifies the response body format|application/json|No|[application/json] by default|
 |If-Match|Specifies the target ETag value|ETag value|No|[*] by default|
 
-#### Request Body
+### Request Body
 
-##### Format
+#### Format
 
 JSON
 
@@ -74,41 +74,38 @@ JSON
 |:--|:--|:--|:--|:--|
 |Name|ComplexTypeProperty Name|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("\_")|Yes||
 
-#### Request Sample
+### Request Sample
 
 ```JSON
 {"Name":"animal"}   
 ```
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 204
 
-#### Response Header
+### Response Header
 
 None
 
-#### Response Body
+### Response Body
 
 None
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-#### Response Sample
 
-None
-
-
-### cURL Command
+## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/ComplexTypeProperty('animal')" -X PUT -i -H 'If-Match: *' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"ComplexTypeProperty"}'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/ComplexTypeProperty('animal')" \
+-X PUT -i -H 'If-Match: *' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
+'{"Name":"ComplexTypeProperty"}'
 ```
 
 
-###### Copyright 2017 FUJITSU LIMITED

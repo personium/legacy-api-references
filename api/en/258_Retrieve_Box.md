@@ -1,6 +1,6 @@
 # Box Acquire
 
-### Overview
+## Overview
 
 Obtain existing Box information
 
@@ -17,9 +17,9 @@ box-read
 * $formatQuery options ignored
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
 ```
 /{CellName}/__ctl/Box('{BoxName}')
@@ -31,11 +31,11 @@ or
 /{CellName}/__ctl/Box(Name='{BoxName}')
 ```
 
-#### Request Method
+### Request Method
 
 GET
 
-#### Request Query
+### Request Query
 
 |Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -47,9 +47,9 @@ GET
 
 [$format  Query](404_Format_Query.md)
 
-#### Request Header
+### Request Header
 
-#### Request Body
+### Request Body
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -60,22 +60,18 @@ GET
 |Accept|Specifies the response body format|application/json|No|[application/json] by default|
 |If-None-Match|Specifies the target ETag value|ETag value|Yes|Not compatible|
 
-#### Request Sample
 
-None
+## Response
 
-
-### Response
-
-#### Response Code
+### Response Code
 
 200
 
-#### Response Header
+### Response Header
 
 None
 
-#### Response Body
+### Response Body
 
 The response is a JSON object, the correspondence between the key (name) and type defined in the object (subobject) and the value are as follows
 
@@ -90,7 +86,7 @@ The response is a JSON object, the correspondence between the key (name) and typ
 |{2}|__updated|string|Update date (UNIX time)|
 |{1}|__count|string|Get number of results in $inlinecount query|
 
-#### Box specific response body
+### Box specific response body
 
 |Object|Item Name|Data Type|Notes|
 |:--|:--|:--|:--|
@@ -98,11 +94,11 @@ The response is a JSON object, the correspondence between the key (name) and typ
 |{2}|Name|string|Box Name|
 |{2}|Schema|string|Schema Name|
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-#### Response Sample
+### Response Sample
 
 ```JSON
 {
@@ -143,11 +139,10 @@ Refer to [Error Message List](004_Error_Messages.md)
 ```
 
 
-### cURL Command
+## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')" -X GET -i -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 
-
-###### Copyright 2017 FUJITSU LIMITED

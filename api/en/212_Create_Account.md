@@ -1,6 +1,6 @@
 # Account Register
 
-### Overview
+## Overview
 
 register Account
 
@@ -16,25 +16,25 @@ auth
 * Response body data is not ensured if atom or xml is specified in the $format query option, although it does not result in an error
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
 ```
 /{CellName}/__ctl/Account
 ```
 
-#### Request Method
+### Request Method
 
 POST
 
-#### Request Query
+### Request Query
 
 |Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
-#### Request Header
+### Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -46,7 +46,7 @@ POST
 |Accept|Specifies the response body format|application/json|No|[application/json] by default|
 |X-Personium-Credential|Password|String|No|Number of character:6 - 92<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")|
 
-#### Request Body
+### Request Body
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -54,7 +54,7 @@ POST
 |Type|Account Type|basic(ID/PW authentication)<br>oidc:google(Google OpenID Connect authentication)<br>or divide upper case by space character|No|default: basic|
 |LastAuthenticated|last authentication date|It is specified as a character string in the format of Date ([time of long type])<br>The valid value of [time of long type] is -6847804800000(1753-01-01T00:00:00.000Z)-253402300799999(9999-12-31T23:59:59.999Z)|No|default: null|
 
-#### Request Sample
+### Request Sample
 
 ID/PWaccount for authentication
 
@@ -81,13 +81,13 @@ ID/PW authentication +Googleaccount for authentication
 ```
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 201
 
-#### Response Header
+### Response Header
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
@@ -98,7 +98,7 @@ ID/PW authentication +Googleaccount for authentication
 |Access-Control-Allow-Origin|Cross domain communication permission header|Return value fixed to "*"|
 |X-Personium-Version|API version that the request is processed|Version of the API used to process the request|
 
-#### Response Body
+### Response Body
 
 |Object|Item Name|Type|Notes|
 |:--|:--|:--|:--|
@@ -111,7 +111,7 @@ ID/PW authentication +Googleaccount for authentication
 |{2}|__updated|string|Update date (UNIX time)|
 |{1}|__count|string|Get number of results in $inlinecount query|
 
-#### Account specific response body
+### Account specific response body
 
 |Object|Item Name|Type|Notes|
 |:--|:--|:--|:--|
@@ -121,11 +121,11 @@ ID/PW authentication +Googleaccount for authentication
 |{2}|Type|string|default: "basic"|
 |{2}|Cell|string|default: null|
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-#### Response Sample
+### Response Sample
 
 ID/PWaccount for authentication
 
@@ -194,25 +194,28 @@ ID/PW authentication +Googleaccount for authentication
 ```
 
 
-### cURL Command
+## cURL Command
 
 ID/PWaccount for authentication
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Account" -X POST -i -H 'X-Personium-Credential:password' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{AccountName}"}'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Account" -X POST -i -H 'X-Personium-Credential:password' -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{AccountName}"}'
 ```
 
 Googleaccount for authentication
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Account" -X POST -i -H 'X-Personium-Credential:password' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{AccountName}","Type":"oidc:google"}'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Account" -X POST -i -H 'X-Personium-Credential:password' -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{AccountName}","Type":"oidc:google"}'
 ```
 
 ID/PW authentication +Googleaccount for authentication
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Account" -X POST -i -H 'X-Personium-Credential:password' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{AccountName}","Type":"basic oidc:google"}'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Account" -X POST -i -H 'X-Personium-Credential:password' -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
+'{"Name":"{AccountName}","Type":"basic oidc:google"}'
 ```
 
 
-###### Copyright 2017 FUJITSU LIMITED

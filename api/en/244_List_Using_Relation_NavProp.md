@@ -1,6 +1,6 @@
 # Acquisition via Relation\_NavProp
 
-### Overview
+## Overview
 
 Acquire cell control object via Navigation Property
 
@@ -18,11 +18,11 @@ Acquire cell control object via Navigation Property
 * $formatQuery options ignored
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
-##### NavigationProperty to Box
+#### NavigationProperty to Box
 
 ```
 /{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_Box
@@ -40,7 +40,7 @@ or
 /{CellName}/__ctl/Relation('{RelationName}')/_Box
 ```
 
-##### NavigationProperty to ExCel
+#### NavigationProperty to ExCel
 
 ```
 /{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_ExtCell
@@ -58,7 +58,7 @@ or
 /{CellName}/__ctl/Relation('{RelationName}')/_ExtCell
 ```
 
-##### NavigationPropert to ExtRole
+#### NavigationPropert to ExtRole
 
 ```
 /{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_ExtRole
@@ -76,7 +76,7 @@ or
 /{CellName}/__ctl/Relation('{RelationName}')/_ExtRole
 ```
 
-##### navigationProperty to Role
+#### navigationProperty to Role
 
 ```
 /{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_Role
@@ -96,11 +96,11 @@ or
 
 If the \_Box.Name parameter is omitted, it is assumed that null is specified
 
-#### Request Method
+### Request Method
 
 GET
 
-#### Request Query
+### Request Query
 
 The following query parameters are available
 
@@ -126,7 +126,7 @@ The following query parameters are available
 
 [Full-text Search (q) Query](408_Full_Text_Search_Query.md)
 
-#### Request Header
+### Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -136,22 +136,18 @@ The following query parameters are available
 |Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
 |Accept|Specifies the response body format|application/json|No|[application/json] by default|
 
-#### Request Body
-
-None
-
-#### Request Sample
+### Request Body
 
 None
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 200
 
-#### Response Header
+### Response Header
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
@@ -160,7 +156,7 @@ None
 |Content-Type|Format of data to be returned||
 |DataServiceVersion|OData version||
 
-#### Response Body
+### Response Body
 
 |Object|Item Name|Data Type|Notes|
 |:--|:--|:--|:--|
@@ -173,9 +169,9 @@ None
 |{3}|uri|string|URL to the resource that was created|
 |{1}|__count|string|Get number of results in $inlinecount query|
 
-##### When acquiring Relation
+#### When acquiring Relation
 
-##### Relation specific response body
+#### Relation specific response body
 
 |Object|Item Name|Data Type|Notes|
 |:--|:--|:--|:--|
@@ -183,11 +179,11 @@ None
 |{3}|Name|string|Relation Name|
 |{2}|_Box.Name|string|Box name to be related|
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-##### Response Sample
+#### Response Sample
 
 ```JSON
 {
@@ -207,8 +203,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ```
 
 
-### cURL Command
+## cURL Command
 
 None
 
-###### Copyright 2017 FUJITSU LIMITED

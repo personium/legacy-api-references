@@ -3,7 +3,7 @@
 Welcome to the Personium REST API Reference.  
 The REST API Reference describes technical detailed specifications related to all of the REST APIs provided by Personium.
 
-### Unit Level API
+## Unit Level API
 
 The Unit Level API is an API belonging to the unit that hosts a group of cells (for creating cells and managing a group of created cells).  
 In principle, these APIs cannot be accessed using the access tokens issued from the cell.
@@ -19,7 +19,7 @@ https://{UnitFQDN}/
 |**Cell**|[Create](100_Create_Cell.md)|[Acquire List](101_List_Cell.md)<br>[Acquire](102_Get_Cell.md)|[Update](103_Update_Cell.md)|[Delete](104_Delete_Cell.md)<br>[Recursive Delete](105_Cell_Recursive_Delete.md)|
 
 
-### Cell Level API
+## Cell Level API
 
 Cell Level API
 
@@ -39,7 +39,7 @@ Resource Path
 https://{UnitFQDN}/{CellName}
 ```
 
-##### Ability to authenticate people and applications accessing Cell
+### Ability to authenticate people and applications accessing Cell
 
 ||Create/Register|Acquire|Update|Delete|Other|
 |:--|:--|:--|:--|:--|:--|
@@ -48,7 +48,7 @@ https://{UnitFQDN}/{CellName}
 |_via NavProp|[Register](221_Register_Account_Navigation_Property.md)|[Acquire](222_Acquire_Account_Navigation_Property.md)||||
 |**Authentication**<br>(__token, __authz)|||||[OAuth2.0 Authorization Endpoint](292_OAuth2_Authorization_Endpoint.md)<br>[OAuth2.0 Token Endpoint](293_OAuth2_Token_Endpoint.md)|
 
-##### Function to set access control for Cell
+### Function to set access control for Cell
 
 ||Create/Register|Acquire|Update|Delete|
 |:--|:--|:--|:--|:--|
@@ -57,7 +57,7 @@ https://{UnitFQDN}/{CellName}
 |_via NavProp|[Register](210_Register_Role_Using_NavProp.md)|[Acquire](211_List_Using_Role_NavProp.md)|||
 |**Access Control**|[Restrict](289_Cell_ACL.md)|[Acquire Properties](290_Cell_Get_Property.md)|[Change Properties](291_Cell_Change_Property.md)||
 
-##### Function to build relationship between cells
+### Function to build relationship between cells
 
 ||Create/Register|Acquire|Update|Delete|
 |:--|:--|:--|:--|:--|
@@ -71,7 +71,7 @@ https://{UnitFQDN}/{CellName}
 |_$links|[Register](250_Register_External_Role_links.md)|[Acquire List](251_Retrieve_External_Role_links.md)|Update|[Delete](253_Delete_External_Role_links.md)|
 |_via NavProp|[Register](254_Register_Using_Role_NavProp.md)|[Acquire](255_List_External_Role_NavProp.md)|||
 
-##### Function to create and manage Box
+### Function to create and manage Box
 
 ||Create/Register|Acquire|Update|Delete|
 |:--|:--|:--|:--|:--|
@@ -80,20 +80,20 @@ https://{UnitFQDN}/{CellName}
 |_via NavProp|[Register](265_Register_Using_Box_NavProp.md)|[Acquire](266_List_Box_NavProp.md)|||
 |Install|[Install Box](302_Box_Installation.md)|[Acquire Box Meta Data](303_Progress_of_Bar_File_Installation.md)|||
 
-##### Ability to send and receive messages between cells
+### Ability to send and receive messages between cells
 
 ||Create/Register|Acquire|Update|Delete|
 |:--|:--|:--|:--|:--|
 |**Message Control**<br>[Transmit](271_Send_Message.md)||[Acquire](272_Retrieve_Sent_Message.md)<br>[Acquire List](273_List_Sent_Messages.md)||[Delete](274_Delete_Sent_Message.md)|
 |**Message Control**<br>Receive||[Acquire](269_Get_Received_Message.md)<br>[Acquire List](268_List_Received_Messages.md)|[Change Status](267_Received_Message_Approval.md)|[Delete](270_Delete_an_Incoming_Message.md)|
 
-##### Event processing function
+### Event processing function
 
 ||Create/Register|Acquire|Update|Delete|
 |:--|:--|:--|:--|:--|
 |[Events](277_Event_Summary.md)|[Accept Event](278_Event_Reception.md)|[Log File Acquire](285_Retrieve_Log_File.md)<br>[Log File Acquire List](284_Retrieve_Log_File_list.md)<br>[Log File Acquire Information](283_Log_File_Information_Acquisition.md)||[Delete Log File](286_Delete_Log_File.md)|
 
-##### Ability to export/import Cell
+### Ability to export/import Cell
 
 Snapshot file of Cell is created by export execution.  
 Import imports the contents of the snapshot file into Cell.  
@@ -106,7 +106,7 @@ Snapshot file can be operated with WebDAV interface.
 |**Snapshot**|[Register/Update](503_Register_and_Update_Snapshot_Cell.md)|[Acquire](504_Get_Snapshot_Cell.md)<br>[Acquire Settings](505_Get_Property_Snapshot_Cell.md)||[Delete](506_Delete_Snapshot_Cell.md)|
 
 
-### Box Level API
+## Box Level API
 
 The Box Level API is an API for applications and others to manipulate data, and is a group of APIs based on WebDAV as a file system idea.  
 Like ordinary file systems, it is possible to arrange / acquire files, create / manage folders (collection), get list of files and folders, set / refer to access control, etc.
@@ -128,13 +128,13 @@ https://{UnitFQDN}/{CellName}/{BoxName}
 https://{UnitFQDN}/{CellName}/{BoxName}/{ResourcePath}
 ```
 
-##### Box Management
+### Box Management
 
 |Create/Register|Acquire|
 |:--|:--|
 |[Install Box](302_Box_Installation.md)|[Acquire Box Meta Data](303_Progress_of_Bar_File_Installation.md)|
 
-##### WebDAV
+### WebDAV
 
 ||Create/Register|Acquire|Update|Delete|Other|
 |:--|:--|:--|:--|:--|:--|
@@ -145,7 +145,7 @@ https://{UnitFQDN}/{CellName}/{BoxName}/{ResourcePath}
 \* ACL setting (access control setting) is possible for all files and collections (including special collections).  
 \* ACL setting can be acquired with the PROPFIND method.
 
-##### OData
+### OData
 
 ||Create/Register|Acquire|Update|Delete|Other|
 |:--|:--|:--|:--|:--|:--|
@@ -165,7 +165,7 @@ https://{UnitFQDN}/{CellName}/{BoxName}/{ResourcePath}
 |_$links|[Register](373_Register_User_Data_links.md)|[Acquire List](374_User_Data_List_links.md)|Update|[Delete](376_Delete_User_Data_links.md)||
 |_via NavProp|[Register](377_Register_using_NavProp.md)|[Acquire List](378_List_using_NavProp.md)||||
 
-##### Server Script (Engine Service Collection)
+### Server Script (Engine Service Collection)
 
 You can register Personium application and server side logic created by Cell user and run it.  
 First, register the user logic as a file, set the service collection and associate with the path, so that  
@@ -175,14 +175,14 @@ You can run the user logic for requests from any path under the collection.
 |:--|:--|:--|:--|:--|:--|
 |Service Collection Source|[Create](381_Create_Service_Collection_Source.md)|[Acquire](382_List_Service_Collection_Source.md)|[Apply Settings](380_Configure_Service_Collection.md)|[Delete](383_Delete_Service_Collection_Source.md)|[Service Execute](384_Service_Execution.md)|
 
-##### Service Document Acquire/Schema Acquire
+### Service Document Acquire/Schema Acquire
 
 ||Acquire|
 |:--|:--|
 |Service Document|[Acquire](317_Document_Acquisition_Service.md)|
 |Schema|[Acquire](316_User_Defined_Data_Schema.md)|
 
-##### OData Acquisition Common Queries
+### OData Acquisition Common Queries
 
 |Query|Single Acquisition|List Acquisition|
 |:--|:--|:--|
@@ -197,15 +197,14 @@ You can run the user logic for requests from any path under the collection.
 |[Full-text Search (q) Query](408_Full_Text_Search_Query.md)|Yes|Yes|
 
 
-### Common
+## Common
 
-#### [Error Messages](004_Error_Messages.md)
+### [Error Messages](004_Error_Messages.md)
 
-#### [Restrictions on Personium HTTP Implementation](003_Common_Limitations_on_HTTP_Implementation.md)
+### [Restrictions on Personium HTTP Implementation](003_Common_Limitations_on_HTTP_Implementation.md)
 
-#### [CORS Support](002_CORS_Support.md)
+### [CORS Support](002_CORS_Support.md)
 
-#### [Cross Domain Policy File Acquire](001_Cross_Domain_Policy_File.md)
+### [Cross Domain Policy File Acquire](001_Cross_Domain_Policy_File.md)
 
 
-###### Copyright 2017 FUJITSU LIMITED

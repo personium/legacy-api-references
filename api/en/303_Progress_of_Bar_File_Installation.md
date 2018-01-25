@@ -1,6 +1,6 @@
 # Acquire Box Meta Data
 
-### Overview
+## Overview
 
 Get the metadata of Box. The metadata includes the following information.
 
@@ -23,25 +23,25 @@ read
 * If Box installation fails, you need to refer to the log output to EventBus
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
 ```
 /{CellName}/{BoxName}
 ```
 
-#### Request Method
+### Request Method
 
 GET
 
-#### Request Query
+### Request Query
 
 |Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
-#### Request Header
+### Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -50,31 +50,27 @@ GET
 |X-Personium-RequestKey|RequestKey field value output in the event log|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters|No||
 |Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
 
-#### Request Body
-
-None
-
-#### Request Sample
+### Request Body
 
 None
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 |Code|Message|Overview|Notes|
 |:--|:--|:--|:--|
 |200|OK|On success|Refer to response body for success / failure of Box installation|
 
-#### Response Header
+### Response Header
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
 |Access-Control-Allow-Origin|Cross domain communication permission header|Return value fixed to "*"|
 |X-Personium-Version|API version that the request is processed|Version of the API used to process the request|
 
-#### Response Body
+### Response Body
 
 Response is JSON format, defined in object (subobject).  
 The correspondence between key (name) and type, and value are as follows.
@@ -88,11 +84,11 @@ The correspondence between key (name) and type, and value are as follows.
 |Root|message|object|Object (message format)|Output only when status is below.<br>- "Installation failed"<br>For details, see the [error message list](004_Error_Messages.md)|
 |Root|status|string|One of the following strings: <br>- "ready"<br>- "installation in progress"<br>- "installation failed"|Box shows usable state<br>Box indicating that the installation process is in progress<br>Box indicates completion of installation (abnormal termination)|
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-#### Response Sample
+### Response Sample
 
 After creating Box (including when Box installation is completed)
 
@@ -136,11 +132,10 @@ When Box installation is completed (abnormal termination)
 ```
 
 
-### cURL Command
+## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}" -X GET -i -H 'Authorization: Bearer {AccessToken}' \
+-H 'Accept: application/json'
 ```
 
-
-###### Copyright 2017 FUJITSU LIMITED

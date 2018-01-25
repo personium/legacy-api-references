@@ -1,6 +1,6 @@
 # Create Cell
 
-### Overview
+## Overview
 
 This API creates a new Cell
 
@@ -10,9 +10,6 @@ Only unit users permitted
 
 ### Restrictions
 
-* General Restrictions
-    * None
-
 * OData Restrictions
     * Always handles Content-Type in the request header as application/json
     * Only accepts the request body in the JSON format
@@ -20,25 +17,25 @@ Only unit users permitted
     * Response body data is not ensured if atom or xml is specified in the $format query option, although it does not result in an error
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
 ```
 /__ctl/Cell
 ```
 
-#### Request Method
+### Request Method
 
 POST
 
-#### Request Query
+### Request Query
 
 None
 
-#### Request Header
+### Request Header
 
-##### Common Request Header
+#### Common Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -46,22 +43,22 @@ None
 |X-Override|Header override function|${OverwrittenHeaderName}:${Value}|No|The normal HTTP header value is overwritten. Specify multiple X-Override headers for the overwriting of multiple headers|
 |X-Personium-RequestKey|RequestKey field value output in the event log|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters|No|PCS-${UNIXtime} by default|
 
-##### OData Common Request Header
+#### OData Common Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
 
-##### OData Create Request Header
+#### OData Create Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |Content-Type|Specifies the request body format|application/json|No|[application/json] by default|
 |Accept|Specifies the response body format|application/json|No|[application/json] by default|
 
-#### Request Body
+### Request Body
 
-##### Format
+#### Format
 
 JSON
 
@@ -69,20 +66,20 @@ JSON
 |:--|:--|:--|:--|:--|
 |Name|Cell name|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, the string cannot start with a hyphens ("-") or underscores ("")|Yes||
 
-#### Request Sample
+### Request Sample
 
 ```JSON
 {"Name":"{CellName}"}
 ```
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 201
 
-#### Response Header
+### Response Header
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
@@ -93,9 +90,9 @@ JSON
 |Access-Control-Allow-Origin|Cross domain communication permission header|Return value fixed to "*"|
 |X-Personium-Version|Personium API version|Version of the API used to process the request|
 
-#### Response Body
+### Response Body
 
-##### Common
+#### Common
 
 The response is a JSON object defined in an object (subobject)
 
@@ -110,18 +107,18 @@ The response is a JSON object defined in an object (subobject)
 |{2}|__updated|string|Update date (UNIX time)|
 |{1}|__count|string|Get number of results in $inlinecount query|
 
-##### Individual response body
+#### Individual response body
 
 |Object|Name(Key)|Type|Value|
 |:--|:--|:--|:--|
 |{3}|type|string|UnitCtl.Cell|
 |{2}|Name|string|Cell name|
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-#### Response Sample
+### Response Sample
 
 ```JSON
 {
@@ -141,11 +138,11 @@ Refer to [Error Message List](004_Error_Messages.md)
 ```
 
 
-### cURL Command
+## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/__ctl/Cell" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{CellName}"}'
+curl "https://{UnitFQDN}/__ctl/Cell" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H \
+'Accept: application/json' -d '{"Name":"{CellName}"}'
 ```
 
 
-###### Copyright 2017 FUJITSU LIMITED

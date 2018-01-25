@@ -1,6 +1,6 @@
 # AssociationEnd Registration
 
-### Overview
+## Overview
 
 Register user data AssociationEnd
 
@@ -18,27 +18,27 @@ alter-schema
     * When AssociationEnd specifies"1"in Multiplicity, it operates as "0..1".
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
 ```
 /{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/AssociationEnd
 ```
 
-#### Request Method
+### Request Method
 
 POST
 
-#### Request Query
+### Request Query
 
 |Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
-#### Request Header
+### Request Header
 
-##### Common Request Header
+#### Common Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -46,22 +46,22 @@ POST
 |X-Override|Header override function|${OverwrittenHeaderName}:${Value}|No|The normal HTTP header value is overwritten. Specify multiple X-Override headers for the overwriting of multiple headers|
 |X-Personium-RequestKey|RequestKey field value output in the event log|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters|No||
 
-##### OData Common Request Header
+#### OData Common Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
 
-##### OData Create Request Header
+#### OData Create Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |Content-Type|Specifies the request body format|application/json|No|[application/json] by default|
 |Accept|Specifies the response body format|application/json|No|[application/json] by default|
 
-#### Request Body
+### Request Body
 
-##### Format
+#### Format
 
 JSON
 
@@ -71,7 +71,7 @@ JSON
 |Multiplicity|Multiplicity|"0 .. 1" / "1" / "*"|Yes||
 |_EntityType.Name|EntityType name of relation target|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("\_")<br>Explanation: Registered EntityType by EntityType registration API|Yes||
 
-#### Request Sample
+### Request Sample
 
 ```JSON
 {
@@ -82,22 +82,22 @@ JSON
 ```
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 201
 
-#### Response Header
+### Response Header
 
-##### Common Response Header
+#### Common Response Header
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
 |Access-Control-Allow-Origin|Cross domain communication permission header|Return value fixed to "*"|
 |X-Personium-Version|API version that the request is processed|Version of the API used to process the request|
 
-##### OData Response Header
+#### OData Response Header
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
@@ -106,9 +106,9 @@ JSON
 |DataServiceVersion|OData version||
 |ETag|Resource version information||
 
-#### Response Body
+### Response Body
 
-##### Common
+#### Common
 
 The response is a JSON object, the correspondence between the key (name) and type defined in the object (subobject) and the value are as follows
 
@@ -123,7 +123,7 @@ The response is a JSON object, the correspondence between the key (name) and typ
 |{2}|__updated|string|Update date (UNIX time)|
 |{1}|__count|string|Get number of results in $inlinecount query|
 
-##### AssociationEnd Individual response body
+#### AssociationEnd Individual response body
 
 |Object|Name(Key)|Type|Value|
 |:--|:--|:--|:--|
@@ -132,14 +132,15 @@ The response is a JSON object, the correspondence between the key (name) and typ
 |{2}|Multiplicity|string|Multiplicity|
 |{2}|_EntityType.Name|string|EntityType name of relation target|
 
-#### Response Sample
+### Response Sample
 
 ```JSON
 {
   "d": {
     "results": {
       "__metadata": {
-        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/$metadata/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')",
+        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/$metadata
+/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')",
         "etag": "W/\"1-1487652733383\"",
         "type": "ODataSvcSchema.AssociationEnd"
       },
@@ -153,15 +154,15 @@ The response is a JSON object, the correspondence between the key (name) and typ
 }
 ```
 
-### Error Messages
+## Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-### cURL Command
+## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata/AssociationEnd" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{ "Name": "{AssociationEndName}", "Multiplicity": "{Multiplicity}", "_EntityType.Name": "{EntityTypeName}"}'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata/AssociationEnd" -X \
+POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
+'{ "Name": "{AssociationEndName}", "Multiplicity": "{Multiplicity}", "_EntityType.Name": "{EntityTypeName}"}'
 ```
 
-
-###### Copyright 2017 FUJITSU LIMITED

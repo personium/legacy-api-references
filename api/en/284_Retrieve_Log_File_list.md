@@ -1,6 +1,6 @@
 # Log File Acquire List
 
-### Overview
+## Overview
 
 Acquire the list of log files under the specified URL
 
@@ -28,33 +28,33 @@ log-read
 |3rd Rotation|archive/<br>default.log.1402910774659<br>default.log.1403910784659<br>default.log.1403910784659|<br>the file before preceding file<br>the preceding roteted file<br>Newly rotated file|<br>2014-06-16 18:26:14 +0900<br>2014-06-28 08:13:04 +0900<br>2014-07-09 21:59:44 +0900|
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
-##### Recent log file
+#### Recent log file
 
 ```
 /{CellName}/__log/current
 ```
 
-##### Log file that is rotated
+#### Log file that is rotated
 
 ```
 /{CellName}/__log/archive
 ```
 
-#### Request Method
+### Request Method
 
 PROPFIND
 
-#### Request Query
+### Request Query
 
 |Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
-#### Request Header
+### Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -64,9 +64,9 @@ PROPFIND
 |Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
 |Depth|To get the hierarchy of a resource|0:Gets target resource only<br>1:Gets target and resources directly under the target|Yes||
 
-#### Request Body
+### Request Body
 
-##### Namespace
+#### Namespace
 
 |URI|Overview|notes()prefix|
 |:--|:--|:--|
@@ -74,7 +74,7 @@ PROPFIND
 
 \* Reference The prefixes are for making it easier to read the following table, but the use of these prefix strings is not ensured or requested.
 
-##### Structure of XML
+#### Structure of XML
 
 The body is XML and follows the following schema.
 
@@ -83,14 +83,14 @@ The body is XML and follows the following schema.
 |propfind|D:|Element|Represents the root element of propfind, and allprop is a child.||
 |allprop|D:|Element|Represent setting to retrieve all properties|allprop : get all properties<br>Even if the request body is empty, treat it as allprop<br>Elements other than allprop are not supported for v1.2 , v1.1|
 
-##### DTD notation
+#### DTD notation
 
 ```dtd
 <!ELEMENT propfind (allprop) >
 <!ELEMENT allprop ENPTY >
 ```
 
-#### Request Sample
+### Request Sample
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -100,15 +100,15 @@ The body is XML and follows the following schema.
 ```
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 |Code|Message|Overview|
 |:--|:--|:--|
 |207|Multi-Status|when acquire succeed|
 
-#### Response Header
+### Response Header
 
 |Item Name|Overview|Notes|
 |:--|:--|:--|
@@ -116,9 +116,9 @@ The body is XML and follows the following schema.
 |Access-Control-Allow-Origin|Cross domain communication permission header|Return value fixed to "*"|
 |X-Personium-Version|API version that the request is processed|Valid version|
 
-#### Response Body
+### Response Body
 
-##### Namespace
+#### Namespace
 
 |URI|Overview|Reference Prefix|
 |:--|:--|:--|
@@ -127,7 +127,7 @@ The body is XML and follows the following schema.
 
 \* Reference The prefixes are for making it easier to read the following table, but the use of these prefix strings is not ensured or requested.
 
-##### Structure of XML
+#### Structure of XML
 
 The body is XML and follows the following schema.
 
@@ -150,9 +150,9 @@ The body is XML and follows the following schema.
 |acl|p:|Element|ACL setting set for resource|In order to acquire the ACL setting, acl-read authority for the target resource is required. For contents below the ACL element, refer to the [cell level access control setting API](289_Cell_ACL.md)|
 |base|p:|Element|ACL Privilege BaseURL|When PROPFIND to Cell, default box ("__") resource URL|
 
-##### DTD notation
+#### DTD notation
 
-##### Namespace: D:
+#### Namespace: D:
 
 ```dtd
 <!ELEMENT multistatus (response*)>
@@ -170,22 +170,22 @@ The body is XML and follows the following schema.
 <!ELEMENT acl (ace*)>
 ```
 
-##### Namespace:p:
+#### Namespace:p:
 
 ```dtd
 <!ELEMENT odata EMPTY>
 <!ELEMENT service EMPTY>
 ```
 
-##### Namespace: xml:
+#### Namespace: xml:
 
 ```dtd
 <!ATTLIST acl base CDATA #IMPLIED>
 ```
 
-#### Response Sample
+### Response Sample
 
-##### resourcetype element
+#### resourcetype element
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -214,15 +214,15 @@ In this case, based on the log file compression flag, file name of href componen
 |Uncompressed|default.log.1364460341902|text/csv|Applies the same even at the case of no rotation|
 |Compressed|default.log.1364460341902.zip|application/zip||
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-### cURL Command
+## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__log/archive" -X PROPFIND -i -H 'Depth:1' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/__log/archive" -X PROPFIND -i -H 'Depth:1' -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 
 
-###### Copyright 2017 FUJITSU LIMITED

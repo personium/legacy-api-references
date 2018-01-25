@@ -1,6 +1,6 @@
 # Registration via Role\_NavProp
 
-### Overview
+## Overview
 
 Register via the Cell control object Navigation Property and register $links at the same time.
 
@@ -17,11 +17,11 @@ write
 * $formatQuery options ignored
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
-##### NavigationProperty to Account
+#### NavigationProperty to Account
 
 ```
 /{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_Account
@@ -39,7 +39,7 @@ or
 /{CellName}/__ctl/Role('{RoleName}')/_Account
 ```
 
-##### NavigationProperty to ExCel
+#### NavigationProperty to ExCel
 
 ```
 /{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_ExtCell
@@ -57,7 +57,7 @@ or
 /{CellName}/__ctl/Role('{RoleName}')/_ExtCell
 ```
 
-##### NavigationProperty to ExtRole
+#### NavigationProperty to ExtRole
 
 ```
 /{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_ExtRole
@@ -75,7 +75,7 @@ or
 /{CellName}/__ctl/Role('{RoleName}')/_ExtRole
 ```
 
-##### NavigationProperty to Relation
+#### NavigationProperty to Relation
 
 ```
 /{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_Relation
@@ -95,17 +95,17 @@ or
 
 If the \_Box.Name parameter is omitted, it is assumed that null is specified
 
-#### Request Method
+### Request Method
 
 POST
 
-#### Request Query
+### Request Query
 
 |Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
-#### Request Header
+### Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -116,16 +116,16 @@ POST
 |Content-Type|Specifies the request body format|application/json|No|[application/json] by default|
 |Accept|Specifies the response body format|application/json|No|[application/json] by default|
 
-#### Request Body
+### Request Body
 
-##### When registering Role
+#### When registering Role
 
 |Item Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |Name|Role Name|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("\_")|Yes||
 |_Box.Name|Box name to be related|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("\_")<br>Description: Specify Name of Box registered with Box registration API <br>Specify null if not associated with specific Box|No||
 
-#### Request Sample
+### Request Sample
 
 ```JSON
 {
@@ -135,13 +135,13 @@ POST
 ```
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 201
 
-#### Response Header
+### Response Header
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
@@ -152,7 +152,7 @@ POST
 |Access-Control-Allow-Origin|Cross domain communication permission header|Return value fixed to "*"|
 |X-Personium-Version|API version that the request is processed|Version of the API used to process the request|
 
-#### Response Body
+### Response Body
 
 |Object|Item Name|Data Type|Notes|
 |:--|:--|:--|:--|
@@ -165,9 +165,9 @@ POST
 |{2}|__updated|string|Update date (UNIX time)|
 |{1}|__count|string|Get number of results in $inlinecount query|
 
-##### When registered Role
+#### When registered Role
 
-##### Role specific response body
+#### Role specific response body
 
 |Object|Item Name|Data Type|Notes|
 |:--|:--|:--|:--|
@@ -175,7 +175,7 @@ POST
 |{2}|Name|string|Role Name|
 |{2}|_Box.Name|string|Box name to be related|
 
-#### Response Sample
+### Response Sample
 
 ```JSON
 {
@@ -195,18 +195,18 @@ POST
 }
 ```
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
 
-### cURL Command
+## cURL Command
 
-##### Relation registration via navigationProperty
+#### Relation registration via navigationProperty
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Role('{RoleName}')/_Relation" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{RelationName}"}'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Role('{RoleName}')/_Relation" -X POST -i -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{RelationName}"}'
 ```
 
 
-###### Copyright 2017 FUJITSU LIMITED

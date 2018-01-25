@@ -1,6 +1,6 @@
 # ReceivedMessage Acquire List
 
-### Overview
+## Overview
 
 acquire the List of ReceivedMessage
 
@@ -16,19 +16,19 @@ message or message-read
 * Response body data is not ensured if atom or xml is specified in the $format query option, although it does not result in an error
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
 ```
 /{CellName}/__ctl/ReceivedMessage
 ```
 
-#### Request Method
+### Request Method
 
 GET
 
-#### Request Query
+### Request Query
 
 The following query parameters are available
 
@@ -54,9 +54,9 @@ The following query parameters are available
 
 [Full-text Search (q) Query](408_Full_Text_Search_Query.md)
 
-#### Request Header
+### Request Header
 
-##### Common Request Header
+#### Common Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -64,41 +64,37 @@ The following query parameters are available
 |X-Override|Header override function|${OverwrittenHeaderName}:${Value}|No|The normal HTTP header value is overwritten. Specify multiple X-Override headers for the overwriting of multiple headers|
 |X-Personium-RequestKey|RequestKey field value output in the event log|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters|No|PCS-${UNIXtime} by default|
 
-##### OData Common Request Header
+#### OData Common Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
 
-##### OData Request Header
+#### OData Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |Accept|Specifies the response body format|application/json|No|[application/json] by default|
 |If-None-Match|Specifies the target ETag value|ETag value|Yes|Not compatible|
 
-#### Request Body
-
-None
-
-#### Request Sample
+### Request Body
 
 None
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 200
 
-#### Response Header
+### Response Header
 
 None
 
-#### Response Body
+### Response Body
 
-##### Common
+#### Common
 
 The response is a JSON object, the correspondence between the key (name) and type defined in the object (subobject) and the value are as follows
 
@@ -113,7 +109,7 @@ The response is a JSON object, the correspondence between the key (name) and typ
 |{2}|__updated|string|Update date (UNIX time)|
 |{1}|__count|string|Get number of results in $inlinecount query|
 
-##### ReceivedMessage specific response body
+#### ReceivedMessage specific response body
 
 |Object|Name(Key)|Type|Value|
 |:--|:--|:--|:--|
@@ -131,11 +127,11 @@ The response is a JSON object, the correspondence between the key (name) and typ
 |{2}|RequestRelation|string|Relation name or relation class URL or role name or role class URL, the registration request<br>Only when message type is other than message|
 |{2}|RequestRelationTarget|string|CellURL of relationships<br>Only when message type is other than message|
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-#### Response Sample
+### Response Sample
 
 ```JSON
 {
@@ -209,11 +205,10 @@ Refer to [Error Message List](004_Error_Messages.md)
 ```
 
 
-### cURL Command
+## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/ReceivedMessage" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/__ctl/ReceivedMessage" -X GET -i -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 
-
-###### Copyright 2017 FUJITSU LIMITED

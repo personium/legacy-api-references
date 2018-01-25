@@ -1,6 +1,6 @@
 # Account Update
 
-### Overview
+## Overview
 
 Update existing Account information
 
@@ -16,9 +16,9 @@ auth
 * Response body data is not ensured if atom or xml is specified in the $format query option, although it does not result in an error
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
 ```
 /{CellName}/__ctl/Account(Name='{AccountName}')
@@ -30,17 +30,17 @@ or
 /{CellName}/__ctl/Account('{AccountName}')
 ```
 
-#### Request Method
+### Request Method
 
 PUT
 
-#### Request Query
+### Request Query
 
 |Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
-#### Request Header
+### Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -53,7 +53,7 @@ PUT
 |If-Match|Specifies the target ETag value|ETag value|Yes||
 |X-Personium-Credential|Password|String|No|Number of character:6 - 92<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")|
 
-#### Request Body
+### Request Body
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -61,7 +61,7 @@ PUT
 |Type|Account Type|basic(ID/PW authentication)<br>oidc:google(Google OpenID Connect authentication)<br>or divide upper case by space character<br>Description: If omitted, it is updated with basic|No|default: basic|
 |LastAuthenticated|last authentication date|It is specified as a character string in the format of Date ([time of long type])<br>The valid value of [time of long type] is -6847804800000(1753-01-01T00:00:00.000Z)-253402300799999(9999-12-31T23:59:59.999Z)<br>Description: Updated with null if omitted|No|default: null|
 
-#### Request Sample
+### Request Sample
 
 Account name update
 
@@ -80,41 +80,40 @@ Account name and Account type update
 ```
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 204
 
-#### Response Header
+### Response Header
 
 None
 
-#### Response Body
+### Response Body
 
 None
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-#### Response Sample
 
-None
-
-### cURL Command
+## cURL Command
 
 Account name update
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Account('{AccountName}')" -X PUT -i -H 'If-Match: *' -H 'X-Personium-Credential:password' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{AccountName}"}'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Account('{AccountName}')" -X PUT -i -H 'If-Match: *' \
+-H 'X-Personium-Credential:password' -H 'Authorization: Bearer {AccessToken}' -H \
+'Accept: application/json' -d '{"Name":"{AccountName}"}'
 ```
 
 Account name and Account type update
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Account('{AccountName}')" -X PUT -i -H 'If-Match: *' -H 'X-Personium-Credential:password' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{AccountName}","Type":"oidc:google"}'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Account('{AccountName}')" -X PUT -i -H 'If-Match: *' -H \
+'X-Personium-Credential:password' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' \
+-d '{"Name":"{AccountName}","Type":"oidc:google"}'
 ```
 
-
-###### Copyright 2017 FUJITSU LIMITED

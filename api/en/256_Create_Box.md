@@ -1,6 +1,6 @@
 # Create Box
 
-### Overview
+## Overview
 
 This API creates a new Box
 
@@ -17,25 +17,25 @@ box
 * $formatQuery options ignored
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
 ```
 /{CellName}/__ctl/Box
 ```
 
-#### Request Method
+### Request Method
 
 POST
 
-#### Request Query
+### Request Query
 
 |Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
-#### Request Header
+### Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -46,9 +46,9 @@ POST
 |Content-Type|Specifies the request body format|application/json|No|[application/json] by default|
 |Accept|Specifies the response body format|application/json|No|[application/json] by default|
 
-#### Request Body
+### Request Body
 
-##### Format
+#### Format
 
 JSON
 
@@ -57,20 +57,20 @@ JSON
 |Name|Box Name|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("\_")|Yes||
 |Schema|Schema Name|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("\_")<br>null|No||
 
-#### Request Sample
+### Request Sample
 
 ```JSON
 {"Name":"{BoxName}", "Schema":"https://{UnitFQDN}/{CellName}/"}
 ```
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 201
 
-#### Response Header
+### Response Header
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
@@ -81,7 +81,7 @@ JSON
 |ETag|Resource version information||
 |DataServiceVersion|OData version||
 
-#### Response Body
+### Response Body
 
 The response is a JSON object, the correspondence between the key (name) and type defined in the object (subobject) and the value are as follows
 
@@ -96,7 +96,7 @@ The response is a JSON object, the correspondence between the key (name) and typ
 |{2}|__updated|string|Update date (UNIX time)|
 |{1}|__count|string|Get number of results in $inlinecount query|
 
-#### Box specific response body
+### Box specific response body
 
 |Object|Item Name|Data Type|Notes|
 |:--|:--|:--|:--|
@@ -104,11 +104,11 @@ The response is a JSON object, the correspondence between the key (name) and typ
 |{2}|Name|string|Box Name|
 |{2}|Schema|string|Schema Name|
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-#### Response Sample
+### Response Sample
 
 ```JSON
 {
@@ -129,11 +129,10 @@ Refer to [Error Message List](004_Error_Messages.md)
 ```
 
 
-### cURL Command
+## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Box" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{BoxName}"}'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Box" -X POST -i -H 'Authorization: Bearer {AccessToken}' \
+-H 'Accept: application/json' -d '{"Name":"{BoxName}"}'
 ```
 
-
-###### Copyright 2017 FUJITSU LIMITED

@@ -1,6 +1,6 @@
 # Get ComplexType
 
-### Overview
+## Overview
 
 Get a list of existing ComplexType information
 
@@ -16,19 +16,19 @@ read
 * Response body data is not ensured if atom or xml is specified in the $format query option, although it does not result in an error
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
 ```
 /{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/ComplexType('{ComplexTypeName}')
 ```
 
-#### Request Method
+### Request Method
 
 GET
 
-#### Request Query
+### Request Query
 
 The following query parameters are available
 
@@ -42,9 +42,9 @@ The following query parameters are available
 
 [$format  Query](404_Format_Query.md)
 
-#### Request Header
+### Request Header
 
-##### Common Request Header
+#### Common Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -52,41 +52,37 @@ The following query parameters are available
 |X-Override|Header override function|${OverwrittenHeaderName}:${Value}|No|The normal HTTP header value is overwritten. Specify multiple X-Override headers for the overwriting of multiple headers|
 |X-Personium-RequestKey|RequestKey field value output in the event log|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters|No||
 
-##### OData Common Request Header
+#### OData Common Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
 
-##### OData Request Header
+#### OData Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |Accept|Specify the format of the response body|application/json|No|When omitted, treat it as [application/json]|
 |If-None-Match|Specifies the target ETag value|ETag value|No|Not compatible|
 
-#### Request Body
-
-None
-
-#### Request Sample
+### Request Body
 
 None
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 200
 
-#### Response Header
+### Response Header
 
 None
 
-#### Response Body
+### Response Body
 
-##### Common
+#### Common
 
 The response is a JSON object, the correspondence between the key (name) and type defined in the object (subobject) and the value are as follows
 
@@ -101,21 +97,22 @@ The response is a JSON object, the correspondence between the key (name) and typ
 |{2}|__updated|string|Update date (UNIX time)|
 |{1}|__count|string|Get number of results in $inlinecount query|
 
-##### ComplexType unique response body
+#### ComplexType unique response body
 
 |Object|Name (Key)|Type|Value|
 |:--|:--|:--|:--|
 |{3}|type|string|ODataSvcSchema.ComplexType|
 |{2}|Name|string|ComplexType name|
 
-#### Response Sample
+### Response Sample
 
 ```JSON
 {
   "d": {
     "results": {
       "__metadata": {
-        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/ComplexType('{ComplexTypeName}}')",
+        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/ComplexType
+('{ComplexTypeName}}')",
         "etag": "W/\"1-1487650447372\"",
         "type": "ODataSvcSchema.ComplexType"
       },
@@ -124,7 +121,8 @@ The response is a JSON object, the correspondence between the key (name) and typ
       "__updated": "/Date(1487650447372)/",
       "_ComplexTypeProperty": {
         "__deferred": {
-          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/ComplexType('{ComplexTypeName}')/_ComplexTypeProperty"
+          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/ComplexType
+('{ComplexTypeName}')/_ComplexTypeProperty"
         }
       }
     }
@@ -132,15 +130,14 @@ The response is a JSON object, the correspondence between the key (name) and typ
 }
 ```
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-### cURL Command
+## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata/ComplexType('{ComplexTypeName}')" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata/ComplexType('{ComplexTypeName}')"\
+ -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 
-
-###### Copyright 2017 FUJITSU LIMITED

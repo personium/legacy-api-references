@@ -1,6 +1,6 @@
 # Relation\_$links registration
 
-### Overview
+## Overview
 
 Link Relation to the OData resource specified by $links<br>Get a list of OData resources linked with following
 
@@ -11,10 +11,6 @@ Link Relation to the OData resource specified by $links<br>Get a list of OData r
 
 Only when the \_Box.Name described in the request URL is null (or if it is not specified) can be associated with Box
 
-### Required Privileges
-
-None
-
 ### Restrictions
 
 * Accept in the request header is ignored
@@ -24,11 +20,11 @@ None
 * $formatQuery options ignored
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
-##### Correlating with Box
+#### Correlating with Box
 
 ```
 /{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_Box
@@ -46,7 +42,7 @@ or
 /{CellName}/__ctl/Relation('{RelationName}')/$links/_Box
 ```
 
-##### Correlating with ExtCell
+#### Correlating with ExtCell
 
 ```
 /{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_ExtCell
@@ -64,7 +60,7 @@ or
 /{CellName}/__ctl/Relation('{RelationName}')/$links/_ExtCell
 ```
 
-##### Correlating with ExtRole
+#### Correlating with ExtRole
 
 ```
 /{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_ExtRole
@@ -82,7 +78,7 @@ or
 /{CellName}/__ctl/Relation('{RelationName}')/$links/_ExtRole
 ```
 
-##### Correlating with the role
+#### Correlating with the role
 
 ```
 /{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_Role
@@ -102,17 +98,17 @@ or
 
 If the \_Box.Name parameter is omitted, it is assumed that null is specified
 
-#### Request Method
+### Request Method
 
 POST
 
-#### Request Query
+### Request Query
 
 |Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
-#### Request Header
+### Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -123,9 +119,9 @@ POST
 |Content-Type|Specifies the request body format|application/json|No|[application/json] by default|
 |Accept|Specifies the response body format|application/json|No|[application/json] by default|
 
-#### Request Body
+### Request Body
 
-##### Format
+#### Format
 
 JSON
 
@@ -133,20 +129,20 @@ JSON
 |:--|:--|:--|:--|:--|
 |uri|URI of the OData resource to be linked|Number of digits: 1-1024<br>Follow URI format<br>scheme:http / https / urn|Yes||
 
-#### Request Sample
+### Request Sample
 
 ```JSON
 {"uri":"https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')"}
 ```
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 204
 
-#### Response Header
+### Response Header
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
@@ -154,24 +150,21 @@ JSON
 |Access-Control-Allow-Origin|Cross domain communication permission header|Return value fixed to "*"|
 |X-Personium-Version|API version that the request is processed|Version of the API used to process the request|
 
-#### Response Body
+### Response Body
 
 None
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-#### Response Sample
 
-None
-
-
-### cURL Command
+## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/\$links/_Role" -X POST -i  -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d "{\"uri\":\"https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')\"}"
+curl "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/\$links/_Role" \
+-X POST -i  -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
+"{\"uri\":\"https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')\"}"
 ```
 
 
-###### Copyright 2017 FUJITSU LIMITED

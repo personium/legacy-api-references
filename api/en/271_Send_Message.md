@@ -1,6 +1,6 @@
 # SendMessage
 
-### Overview
+## Overview
 
 send message
 
@@ -16,23 +16,23 @@ message
 * Response body data is not ensured if atom or xml is specified in the $format query option, although it does not result in an error
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
 ```
 /{CellName}/__message/send
 ```
 
-#### Request Method
+### Request Method
 
 POST
 
-#### Request Query
+### Request Query
 
 None
 
-#### Request Header
+### Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -42,7 +42,7 @@ None
 |Content-Type|Specifies the request body format|application/json|No|[application/json] by default|
 |Accept|Specifies the response body format|application/json|No|[application/json] by default|
 
-#### Request Body
+### Request Body
 
 JSON
 
@@ -59,7 +59,7 @@ JSON
 |RequestRelation|Information of requested relation to register|URL format<br>null|* 2|*2 Required when message type is other than message<br>Relation name or relation class URL or role name or role class URL, the registration request<br>When only the relation name is specified, it is regarded as a relative URL from the following URL<br>BoxBound is true:[target Box schema URL]\_\_relation/\_\_/<br>BoxBound is false:[destination cell URL]\_\_relation/\_\_/<br>When only the role name is specified, it is regarded as a relative URL from the following URL<br>BoxBound is true:[target Box schema URL]\_\_role/\_\_/<br>BoxBound is false:[destination cell URL]\_\_role/\_\_/|
 |RequestRelationTarget|Cell URL that connects the relationship|URL format<br>null|* 2|*2 Required when message type is other than message|
 
-#### Request Sample
+### Request Sample
 
 ```JSON
 {
@@ -77,13 +77,13 @@ JSON
 ```
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 201
 
-#### Response Header
+### Response Header
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
@@ -94,9 +94,9 @@ JSON
 |Access-Control-Allow-Origin|Cross domain communication permission header|Return value fixed to "*"|
 |X-Personium-Version|API version that the request is processed|Version of the API used to process the request|
 
-#### Response Body
+### Response Body
 
-##### Common
+#### Common
 
 The response is a JSON object, the correspondence between the key (name) and type defined in the object (subobject) and the value are as follows
 
@@ -111,7 +111,7 @@ The response is a JSON object, the correspondence between the key (name) and typ
 |{2}|__updated|string|Update date (UNIX time)|
 |{1}|__count|string|Get number of results in $inlinecount query|
 
-##### SentMessage specific response body
+#### SentMessage specific response body
 
 |Object|Name (Key)|Type|Value|
 |:--|:--|:--|:--|
@@ -132,11 +132,11 @@ The response is a JSON object, the correspondence between the key (name) and typ
 |{4}|Code|string|Response Code|
 |{4}|Reason|string|Detailed message|
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-#### Response Sample
+### Response Sample
 
 ```JSON
 {
@@ -173,11 +173,12 @@ Refer to [Error Message List](004_Error_Messages.md)
 ```
 
 
-### cURL Command
+## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__message/send" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"BoxBound":false,"InReplyTo":"xnKXmd4TTZCw-bfSEw4f0AxnKXmd4TTZ","To":"https://{UnitFQDN}/{CellName}","Type":"message","Title":"Message Sample Title","Body":"Message Sample Body","Priority":3}'
+curl "https://{UnitFQDN}/{CellName}/__message/send" -X POST -i -H 'Authorization: Bearer {AccessToken}' \
+-H 'Accept: application/json' -d '{"BoxBound":false,"InReplyTo":"xnKXmd4TTZCw-bfSEw4f0AxnKXmd4TTZ",\
+"To":"https://{UnitFQDN}/{CellName}","Type":"message","Title":"Message Sample Title","Body":"Message Sample Body",\
+"Priority":3}'
 ```
 
-
-###### Copyright 2017 FUJITSU LIMITED

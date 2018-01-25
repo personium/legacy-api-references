@@ -1,6 +1,6 @@
 # Message status change (unread, read, approve)
 
-### Overview
+## Overview
 * approve Message
 	* When the message type to be approved is message  
 	change message status to read/unread
@@ -22,25 +22,25 @@ social(Requires only relationship registration/deletion approval)
 * Response body data is not ensured if atom or xml is specified in the $format query option, although it does not result in an error
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
 ```
 /{CellName}/__message/received/{MessageID}
 ```
 
-#### Request Method
+### Request Method
 
 POST
 
-#### Request Query
+### Request Query
 
 |Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
-#### Request Header
+### Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -51,7 +51,7 @@ POST
 |Content-Type|Specifies the request body format|application/json|No|[application/json] by default|
 |Accept|Specifies the response body format|application/json|No|[application/json] by default|
 
-#### Request Body
+### Request Body
 
 JSON
 
@@ -59,20 +59,20 @@ JSON
 |:--|:--|:--|:--|:--|
 |Command|Message Command|When Type is message<br> read: read<br> unread: unread<br>When type is req.relation.build or req.relation.break or req.role.grant or req.role.revoke<br> approved: approved <br> rejected: rejected <br>However, if you have already changed to approved or rejected, you can not approve it|Yes||
 
-#### Request Sample
+### Request Sample
 
 ```JSON
 {"Command": "approved"}
 ```
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 204
 
-#### Response Header
+### Response Header
 
 |Item Name|Overview|Notes|
 |:--|:--|:--|
@@ -81,24 +81,19 @@ JSON
 |Access-Control-Allow-Origin|Cross domain communication permission header|Return value fixed to "*"|
 |X-Personium-Version|API version that the request is processed|Version of the API used to process the request|
 
-#### Response Body
+### Response Body
 
 None
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-#### Response Sample
 
-None
-
-
-### cURL Command
+## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__message/received/{MessageID}" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Command": "approved"}'
+curl "https://{UnitFQDN}/{CellName}/__message/received/{MessageID}" -X POST -i -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Command": "approved"}'
 ```
 
-
-###### Copyright 2017 FUJITSU LIMITED

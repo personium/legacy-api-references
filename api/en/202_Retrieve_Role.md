@@ -1,13 +1,14 @@
 # Role Acquire List
 
-### Overview
+## Overview
 
 Obtain a list of existing Role information
 
-### Restrictions
+### Required Privileges
 
-* General Restrictions
-    * None
+auth-read
+
+### Restrictions
 
 * OData Restrictions
     * Accept in the request header is ignored
@@ -16,24 +17,20 @@ Obtain a list of existing Role information
     * Only application/json is supported for Content-Type in the request header and the JSON format for the response body
     * $formatQuery options ignored
 
-### Required Privileges
 
-auth-read
+## Request
 
-
-### Request
-
-#### Request URL
+### Request URL
 
 ```
 /{CellName}/__ctl/Role
 ```
 
-#### Request Method
+### Request Method
 
 GET
 
-#### Request Query
+### Request Query
 
 The following query parameters are available
 
@@ -59,7 +56,7 @@ The following query parameters are available
 
 [Full-text Search (q) Query](408_Full_Text_Search_Query.md)
 
-#### Request Header
+### Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -67,49 +64,45 @@ The following query parameters are available
 |X-Override|Header override function|${OverwrittenHeaderName}:${Value}|No|Overwrite normal HTTP header value. To overwrite multiple headers, specify multiple X-Override headers.|
 |X-Personium-RequestKey|RequestKey field value output in the event log|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters|No|PCS-${UNIXtime} by default|
 
-#### OData Request Header
+### OData Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
 
-#### OData Create Request Header
+### OData Create Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |Content-Type|Specifies the request body format|application/json|No|[application/json] by default|
 |Accept|Specifies the response body format|application/json|No|[application/json] by default|
 
-#### Request Body
-
-None
-
-#### Request Sample
+### Request Body
 
 None
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 200
 
-#### Response Header
+### Response Header
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
 |Access-Control-Allow-Origin|Cross domain communication permission header|Return value fixed to "*"|
 |X-Personium-Version|API version that the request is processed|Version of the API used to process the request|
 
-#### OData Response Header
+### OData Response Header
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
 |Content-Type|Format of data to be returned||
 |DataServiceVersion|OData version||
 
-#### Response Body
+### Response Body
 
 The response is a JSON object, the correspondence between the key (name) and type defined in the object (subobject) and the value are as follows
 
@@ -124,7 +117,7 @@ The response is a JSON object, the correspondence between the key (name) and typ
 |{2}|__updated|string|Update date (UNIX time)|
 |{1}|__count|string|Get number of results in $inlinecount query|
 
-#### Role specific response body
+### Role specific response body
 
 |Object|Item Name|Type|Notes|
 |:--|:--|:--|:--|
@@ -132,7 +125,7 @@ The response is a JSON object, the correspondence between the key (name) and typ
 |{2}|Name|string|Role Name|
 |{2}|_Box.Name|string|Box name to be related|
 
-#### Response Sample
+### Response Sample
 
 ```JSON
 {
@@ -215,16 +208,16 @@ The response is a JSON object, the correspondence between the key (name) and typ
 }
 ```
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
 
-### cURL Command
+## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Role" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Role" -X GET -i -H 'Authorization: Bearer {AccessToken}' \
+-H 'Accept: application/json'
 ```
 
 
-###### Copyright 2017 FUJITSU LIMITED

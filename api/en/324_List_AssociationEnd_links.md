@@ -1,6 +1,6 @@
 # AssociationEnd $links List Acquisition
 
-### Overview
+## Overview
 
 Obtain a list of OData resources associated with AssociationEnd  
 You can specify the following OData resources
@@ -17,19 +17,20 @@ You can specify the following OData resources
 * Response body data is not ensured if atom or xml is specified in the $format query option, although it does not result in an error
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
 ```
-/{CellName}/{BoxName}/{CollectionName}/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')/$links/_AssociationEnd
+/{CellName}/{BoxName}/{CollectionName}/AssociationEnd(Name='{AssociationEndName}',
+_EntityType.Name='{EntityTypeName}')/$links/_AssociationEnd
 ```
 
-#### Request Method
+### Request Method
 
 GET
 
-#### Request Query
+### Request Query
 
 The following query parameters are available
 
@@ -55,9 +56,9 @@ The following query parameters are available
 
 [Full-text Search (q) Query](408_Full_Text_Search_Query.md)
 
-#### Request Header
+### Request Header
 
-##### Common Request Header
+#### Common Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -65,52 +66,48 @@ The following query parameters are available
 |X-Override|Header override function|${OverwrittenHeaderName}:${Value}|No|The normal HTTP header value is overwritten. Specify multiple X-Override headers for the overwriting of multiple headers|
 |X-Personium-RequestKey|RequestKey field value output in the event log|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters|No||
 
-##### OData Common Request Header
+#### OData Common Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
 
-##### OData Acquire List Request Header
+#### OData Acquire List Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |Accept|Specifies the response body format|application/json|No|[application/json] by default|
 
-#### Request Body
-
-None
-
-#### Request Sample
+### Request Body
 
 None
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 200
 
-#### Response Header
+### Response Header
 
-##### Common Response Header
+#### Common Response Header
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
 |Access-Control-Allow-Origin|Cross domain communication permission header|Return value fixed to "*"|
 |X-Personium-Version|API version that the request is processed|Version of the API used to process the request|
 
-##### OData Response Header
+#### OData Response Header
 
 |Item Name|Overview|Notes|
 |:--|:--|:--|
 |Content-Type|Format of data to be returned||
 |DataServiceVersion|OData version information||
 
-#### Response Body
+### Response Body
 
-##### OData $links Response body
+#### OData $links Response body
 
 The response is a JSON object, the correspondence between the key (name) and type defined in the object (subobject) and the value are as follows
 
@@ -120,18 +117,19 @@ The response is a JSON object, the correspondence between the key (name) and typ
 |{1}|results|array|Array object {2}|
 |{2}|uri|string|URI of the linked OData resource|
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-#### Response Sample
+### Response Sample
 
 ```JSON
 {
   "d": {
     "results": [
       {
-        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/$metadata/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')"
+        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/$metadata/AssociationEnd
+(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')"
       }
     ]
   }
@@ -139,11 +137,11 @@ Refer to [Error Message List](004_Error_Messages.md)
 ```
 
 
-### cURL Command
+## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/\$metadata/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')/\$links/_AssociationEnd" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/\$metadata/AssociationEnd
+(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')/\$links/_AssociationEnd" -X \
+GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 
-
-###### Copyright 2017 FUJITSU LIMITED

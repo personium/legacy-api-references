@@ -1,6 +1,6 @@
 # Extcell $links update
 
-### Overview
+## Overview
 
 Update OData resources associated with ExternalCell<br>You can specify the following OData resources
 
@@ -8,10 +8,6 @@ Update OData resources associated with ExternalCell<br>You can specify the follo
 * ExtCell
 * ExtRole
 * Role
-
-### Required Privileges
-
-None
 
 ### OData Restrictions
 
@@ -22,11 +18,11 @@ None
 * $formatQuery options ignored
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
-##### $links with ExtCell
+#### $links with ExtCell
 
 ```
 /{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_ExtCell('{ExtCellURL}')
@@ -44,17 +40,17 @@ or
 /{CellName}/__ctl/Relation('{RelationName}')/$links/_ExtCell('{ExtCellURL}')
 ```
 
-#### Request Method
+### Request Method
 
 PUT
 
-#### Request Query
+### Request Query
 
 |Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
-#### Request Header
+### Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -66,32 +62,32 @@ PUT
 |Accept|Specifies the response body format|application/json|No|[application/json] by default|
 |If-Match|Specifies the target ETag value|ETag value|No|[*] by default|
 
-#### Request Body
+### Request Body
 
-#### format
+### format
 
 JSON
 
-#### Description
+### Description
 
 |Item Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |Url|URL to Cell|Number of digits: 1-1024<br>Follow URI format<br>scheme:http, https<br>Trailing slash (URL terminated /) Required|Yes||
 
-#### Request Sample
+### Request Sample
 
 ```JSON
 {"uri":"https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')"}
 ```
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 204
 
-#### Response Header
+### Response Header
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
@@ -100,31 +96,27 @@ JSON
 |Content-Type|Format of data to be returned||
 |DataServiceVersion|OData version||
 
-#### OData Response Header
+### OData Response Header
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
 |DataServiceVersion|OData version||
 |ETag|Resource version information||
 
-#### Response Body
+### Response Body
 
 None
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-#### Response Sample
 
-None
-
-
-### cURL Command
+## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_Box('{BoxName}')" -X PUT -i -H 'If-Match:*' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"uri":"https://{UnitFQDN}/{CellName}/__ctl/Box('update_{BoxName}')"}'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_Box('{BoxName}')" \
+-X PUT -i -H 'If-Match:*' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
+'{"uri":"https://{UnitFQDN}/{CellName}/__ctl/Box('update_{BoxName}')"}'
 ```
 
-
-###### Copyright 2017 FUJITSU LIMITED

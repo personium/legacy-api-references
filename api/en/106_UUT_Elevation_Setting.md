@@ -1,6 +1,6 @@
 # ULUUT elevation setting PROPPATCH
 
-### Overview
+## Overview
 
 This API changes the UUT (Unit User Token) upgraded settings.
 
@@ -12,9 +12,9 @@ Only unit users permitted
 
 Unpublished  
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
 ```
 /{CellName}
@@ -24,15 +24,15 @@ Unpublished
 |:--|:--|
 |{CellName}|Cell Name|
 
-#### Request Method
+### Request Method
 
 PROPPATCH
 
-#### Request Query
+### Request Query
 
 None
 
-#### Request Header
+### Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -42,7 +42,7 @@ None
 |Content-Type|Specify content format|application / xml|No||
 |Accept|Specify acceptable media types in response|application / xml|No||
 
-#### Request Body
+### Request Body
 
 |Item Name|Namespace|Overview|Required|Effective Value|Notes|
 |:--|:--|:--|:--|:--|:--|
@@ -57,9 +57,9 @@ None
 |ownerRepresentativeAccounts||Upgrade setting|Yes|<! ELEMENT ownerRepresentativeAccounts (account *)>||
 |account||Account setting for upgrade|Yes|<! ELEMENT account ANY>|Specify an account name that allows upgrade as a value|
 
-#### Structure of XML
+### Structure of XML
 
-##### The body is XML and follows the following schema.
+#### The body is XML and follows the following schema.
 
 |Node name|Namespace|Node type|Overview|Notes|
 |:--|:--|:--|:--|:--|
@@ -68,7 +68,7 @@ None
 |remove|D:|Element|Represents a property deletion setting, and one or more props are children||
 |prop|D:|Element|Represents a property value, and one or more arbitrary elements are children|When set: Child node name is key<br>When remove: Delete with child node name as key|
 
-#### DTD notation
+### DTD notation
 
 ```dtd
 <!ELEMENT propertyupdate (set, remove) >
@@ -77,48 +77,49 @@ None
 <!ELEMENT prop ANY>
 ```
 
-#### ULUUT elevation setting factor
+### ULUUT elevation setting factor
 
-##### The body is XML and follows the following schema.
+#### The body is XML and follows the following schema.
 
 |Node name|Namespace|Node type|Overview|Notes|
 |:--|:--|:--|:--|:--|
 |ownerRepresentativeAccounts|p:|Element|Represents an elevation setting list, one or more account elements are children||
 |account|p:|Element|Describe account setting for promotion and describe account name to be promoted||
 
-#### DTD notation
+### DTD notation
 
 ```dtd
 <!ELEMENT ownerRepresentativeAccounts (account*)>
 <!ELEMENT account (#PCDATA)>
 ```
 
-#### Request Sample
+### Request Sample
 
 ```xml
 <D:propertyupdate xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns">
   <D:set>
     <D:prop>
-      <p:ownerRepresentativeAccounts><p:account>account1</p:account><p:account>account2</p:account></p:ownerRepresentativeAccounts>
+      <p:ownerRepresentativeAccounts><p:account>account1</p:account><p:account>account2</p:account>
+</p:ownerRepresentativeAccounts>
     </D:prop>
   </D:set>
 </D:propertyupdate>
 ```
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 |Code|Message|Overview|
 |:--|:--|:--|
 |207|MULTI_STATUS|Success|
 
-#### Response Header
+### Response Header
 
 Unpublished
 
-#### Response Body
+### Response Body
 
 Namespace
 
@@ -126,9 +127,9 @@ Namespace
 |:--|:--|:--|
 |multistatus|WebDAV Namespace|D:|
 
-#### Structure of XML
+### Structure of XML
 
-##### The body is XML and follows the following schema.
+#### The body is XML and follows the following schema.
 
 |Node name|Namespace|Node type|Overview|Notes|
 |:--|:--|:--|:--|:--|
@@ -139,7 +140,7 @@ Namespace
 |prop|D:|Element|Represents property setting contents|Display the result of resource setting as follows Setting Successful: Set key and value Deleted Successful: Deleted key|
 |status|D:|Element|Property setting status code|In the case of setting success 200 (OK) is returned|
 
-#### DTD notation
+### DTD notation
 
 ```dtd
 <!ELEMENT multistatus (response*)>
@@ -150,7 +151,7 @@ Namespace
 <!ELEMENT status (#PCDATA)>
 ```
 
-#### Response Sample
+### Response Sample
 
 ```xml
 <multistatus xmlns="DAV:">
@@ -158,10 +159,14 @@ Namespace
         <href>http://localhost:9998/testcell1/box1/patchcol</href>
         <propstat>
             <prop>
-                <Z:Author xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/">Author1 update</Z:Author>
-                <p:hoge xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" xmlns:Z="http://www.w3.com/standards/z39.50/">fuga</p:hoge>
-                <Z:Author xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" xmlns:Z="http://www.w3.com/standards/z39.50/"/>
-                <p:hoge xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" xmlns:Z="http://www.w3.com/standards/z39.50/"/>
+                <Z:Author xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" xmlns:Z=
+"http://www.w3.com/standards/z39.50/">Author1 update</Z:Author>
+                <p:hoge xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" xmlns:Z=
+"http://www.w3.com/standards/z39.50/">fuga</p:hoge>
+                <Z:Author xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" xmlns:Z=
+"http://www.w3.com/standards/z39.50/"/>
+                <p:hoge xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" xmlns:Z=
+"http://www.w3.com/standards/z39.50/"/>
             </prop>
             <status>HTTP/1.1 200 OK</status>
         </propstat>
@@ -169,17 +174,19 @@ Namespace
 </multistatus>   
 ```
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-### cURL Command
+## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/cell -X PROPPATCH" -H 'Authorization: Bearer {AccessToken}' -d '<?xml version="1.0" encoding="utf-8" ?>
-<D:propertyupdate xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" xmlns:Z="http://www.w3.com/standards/z39.50/">
-<D:set><D:prop><p:requireSchemaAuthz>confidential</p:requireSchemaAuthz></D:prop></D:set></D:propertyupdate>'
+curl "https://{UnitFQDN}/cell -X PROPPATCH" -H 'Authorization: Bearer {AccessToken}' -d \
+'<?xml version="1.0" encoding="utf-8" ?>
+<D:propertyupdate xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" \
+xmlns:Z="http://www.w3.com/standards/z39.50/">
+<D:set><D:prop><p:requireSchemaAuthz>confidential</p:requireSchemaAuthz></D:prop></D:set>\
+</D:propertyupdate>'
 ```
 
 
-###### Copyright 2017 FUJITSU LIMITED

@@ -1,6 +1,6 @@
 # Registration via ExtCell\_NavProp
 
-### Overview
+## Overview
 
 Register via the Cell control object Navigation Property and register $links at the same time.
 
@@ -17,11 +17,11 @@ write
 * $formatQuery options ignored
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
-##### navigationProperty to Role
+#### navigationProperty to Role
 
 ```
 /{CellName}/__ctl/ExtCell(Url='{ExtCellURL}')/_Role
@@ -33,7 +33,7 @@ or
 /{CellName}/__ctl/ExtCell('{ExtCellURL}')/_Role
 ```
 
-##### NavigationProperty to Relation
+#### NavigationProperty to Relation
 
 ```
 /{CellName}/__ctl/ExtCell(Url='{ExtCellURL}')/_Relation
@@ -45,17 +45,17 @@ or
 /{CellName}/__ctl/ExtCell('{ExtCellURL}')/_Relation
 ```
 
-#### Request Method
+### Request Method
 
 POST
 
-#### Request Query
+### Request Query
 
 |Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
-#### Request Header
+### Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -66,15 +66,15 @@ POST
 |Content-Type|Specifies the request body format|application/json|No|[application/json] by default|
 |Accept|Specifies the response body format|application/json|No|[application/json] by default|
 
-#### Request Body
+### Request Body
 
-##### When registering ExtCell
+#### When registering ExtCell
 
 |Item Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |Url|URL to Cell|Number of digits: 1-1024<br>Follow URI format<br>scheme:http, https<br>Trailing slash (URL terminated /) Required|Yes||
 
-##### Request Sample
+#### Request Sample
 
 ```JSON
 {
@@ -83,13 +83,13 @@ POST
 ```
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 201
 
-#### Response Header
+### Response Header
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
@@ -100,7 +100,7 @@ POST
 |Access-Control-Allow-Origin|Cross domain communication permission header|Return value fixed to "*"|
 |X-Personium-Version|API version that the request is processed|Version of the API used to process the request|
 
-#### Response Body
+### Response Body
 
 |Object|Item Name|Data Type|Notes|
 |:--|:--|:--|:--|
@@ -113,7 +113,7 @@ POST
 |{2}|__updated|string|Update date (UNIX time)|
 |{1}|__count|string|Get number of results in $inlinecount query|
 
-##### When registered ExtCell
+#### When registered ExtCell
 
 ExtCell specific response body
 
@@ -122,11 +122,11 @@ ExtCell specific response body
 |{3}|type|string|CellCtl.ExtRole|
 |{2}|Name|string|Role name to be related|
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-##### Response Sample
+#### Response Sample
 
 ```JSON
 {
@@ -170,13 +170,13 @@ Refer to [Error Message List](004_Error_Messages.md)
 }
 ```
 
-### cURL Command
+## cURL Command
 
-##### Role registration via navigationProperty
+### Role registration via navigationProperty
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{ExtCellName}%2F')/_Role" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{ "Name": "{RoleName}"}'
+curl "https://{UnitFQDN}/{CellName}/__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{ExtCellName}%2F')/_Role" -X \
+POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{ "Name": "{RoleName}"}'
 ```
 
 
-###### Copyright 2017 FUJITSU LIMITED

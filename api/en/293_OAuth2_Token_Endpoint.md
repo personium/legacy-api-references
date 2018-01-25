@@ -1,6 +1,6 @@
 # OAuth2.0 Token Endpoint(\_\_token)
 
-### Overview
+## Overview
 
 There are three types of authentication as follows
 
@@ -20,42 +20,34 @@ Refresh token authentication
 
 * Refresh the cell local token and acquire the cell local token again.
 
-### Required Privileges
 
-None
+## Request
 
-### Restrictions
-
-None
-
-
-### Request
-
-#### Request URL
+### Request URL
 
 ```
 {CellName}/__token
 ```
 
-#### Request Method
+### Request Method
 
 POST
 
-#### Request Query
+### Request Query
 
 |Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
-#### Request Header
+### Request Header
 
 |Item Name|Overview|Format|Required|Effective Value|
 |:--|:--|:--|:--|:--|
 |Authorization|Specifies authentication information in the OAuth 2.0 format|Basic {String}|No|If you specify Base64 Encode value for {{Schema Authenticator's source URL}: {Token paid out from the schema authentication source}}, it becomes schema authentication<br>At the above setting, if there is a setting of client_id and client_secret in the request body, the setting of the authorization header takes precedence|
 
-#### Request Body
+### Request Body
 
-##### Password authentication
+#### Password authentication
 
 |Item Name|Overview|Format|Required|Effective Value|
 |:--|:--|:--|:--|:--|
@@ -69,7 +61,7 @@ POST
 |p_owner|ULUUT promotion execution Query|String|No|Valid only for true|
 |p_cookie|Authentication cookie issuance option<br>If specified, issue an authentication cookie<br>When p_target is specified, specification of this parameter is ignored|String|No|Valid only for true|
 
-#### Request Sample
+### Request Sample
 
 Password authentication
 
@@ -93,7 +85,8 @@ Password authentication with schema
 
 ```
 grant_type=password&username=username&password=pass&client_id=https://{UnitFQDN}/app{CellName}/&client_secret=
-WjzDmvJSLvM9qVuJL1xxP6hSxt64HijoIea0P5R2CVloXJ2HEvEILl7UOtEtjSDdjlvyx9wrosPBhDRU97Qnn6EQIQ3MwaqtIx7HjuX36_ZBC6qxcgscCDmdtGb4nHgo
+WjzDmvJSLvM9qVuJL1xxP6hSxt64HijoIea0P5R2CVloXJ2HEvEILl7UOtEtjSDdjlvyx9wrosPBhDRU97Qnn6EQIQ3MwaqtIx7HjuX36_
+ZBC6qxcgscCDmdtGb4nHgo
 ```
 
 OIDC(Open ID Connect(Google)) authentication
@@ -102,7 +95,7 @@ OIDC(Open ID Connect(Google)) authentication
 grant_type=urn:x-personium:oidc:google&id_token=IDTOKEN
 ```
 
-##### Token authentication
+#### Token authentication
 
 |Item Name|Overview|Format|Required|Effective Value|
 |:--|:--|:--|:--|:--|
@@ -117,7 +110,7 @@ grant_type=urn:x-personium:oidc:google&id_token=IDTOKEN
 grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&assertion={token}
 ```
 
-##### Refresh token authentication
+#### Refresh token authentication
 
 |Item Name|Overview|Format|Required|Effective Value|
 |:--|:--|:--|:--|:--|
@@ -134,20 +127,20 @@ grant_type=refresh_token&refresh_token={token}
 ```
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 200
 
-#### Response Header
+### Response Header
 
 |Item Name|Overview|Notes|
 |:--|:--|:--|
 |Content-Type|application/json||
 |Set-Cookie|Cookie authentication information (p_cookie)|Only when setting cookie issue option (p_cookie) at request|
 
-#### Response Body
+### Response Body
 
 |Item Name|Overview|Notes|
 |:--|:--|:--|
@@ -158,7 +151,7 @@ grant_type=refresh_token&refresh_token={token}
 |expires_in|Access token expiration date|1 hour (3600 seconds)|
 |p_cookie_peer|Cookie Authentication Value|Authentication value specified at the time of cookie authentication<br>*Return only when the cookie issue option (p_cookie) is set at the time of request|
 
-#### Response Sample
+### Response Sample
 
 ```JSON
 {
@@ -170,41 +163,45 @@ grant_type=refresh_token&refresh_token={token}
 }
 ```
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-### cURL Command
+## cURL Command
 
-##### Password authentication
-
-```sh
-curl "https://{UnitFQDN}/{CellName}/__token" -X POST -i -d 'grant_type=password&username={username}&password={password}'
-```
-
-##### Token authentication
+### Password authentication
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__token" -X POST -i -d 'grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&assertion={token}'
+curl "https://{UnitFQDN}/{CellName}/__token" -X POST -i -d \
+'grant_type=password&username={username}&password={password}'
 ```
 
-##### Refresh token authentication
+### Token authentication
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__token" -X POST -i -d 'grant_type=refresh_token&refresh_token={refresh_token}'
+curl "https://{UnitFQDN}/{CellName}/__token" -X POST -i -d \
+'grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&assertion={token}'
 ```
 
-##### Password authentication + Schema authentication
+### Refresh token authentication
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__token" -X POST -i -d 'grant_type=password&username={user_name}&password={pass}&client_id=https://{UnitFQDN}/app{CellName}/&client_secret={token_from_app_cell}'
+curl "https://{UnitFQDN}/{CellName}/__token" -X POST -i -d \
+'grant_type=refresh_token&refresh_token={refresh_token}'
 ```
 
-##### Token authentication + Transcel token authentication
+### Password authentication + Schema authentication
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__token" -X POST -i -d 'grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&assertion={SAML_token}&p_target=https://{UnitFQDN}/{CellName}/'
+curl "https://{UnitFQDN}/{CellName}/__token" -X POST -i -d \
+'grant_type=password&username={user_name}&password={pass}&client_id=https://{UnitFQDN}
+/app{CellName}/&client_secret={token_from_app_cell}'
 ```
 
+### Token authentication + Transcel token authentication
 
-###### Copyright 2017 FUJITSU LIMITED
+```sh
+curl "https://{UnitFQDN}/{CellName}/__token" -X POST -i -d 'grant_type=urn:ietf:params:oauth:grant-type:\
+saml2-bearer&assertion={SAML_token}&p_target=https://{UnitFQDN}/{CellName}/'
+```
+

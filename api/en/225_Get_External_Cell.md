@@ -1,6 +1,6 @@
 # ExtCell Acquire
 
-### Overview
+## Overview
 
 acquire existed ExtCell
 
@@ -17,19 +17,19 @@ auth-read
 * $formatQuery options ignored
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
 ```
 /{CellName}/__ctl/ExtCell('http%3A%2F%2F{UnitFQDN}%2F{CellName}')
 ```
 
-#### Request Method
+### Request Method
 
 GET
 
-#### Request Query
+### Request Query
 
 |Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -41,7 +41,7 @@ GET
 
 [$format  Query](404_Format_Query.md)
 
-#### Request Header
+### Request Header
 
 |Header Name|Summary|Valid Value|Required|Remarks|
 |:--|:--|:--|:--|:--|
@@ -53,26 +53,22 @@ GET
 |Accept|Specifies the response body format|application/json|No|[application/json] by default|
 |If-Match|Specifies the target ETag value|ETag value|No|[*] by default|
 
-#### Request Body
-
-None
-
-#### Request Sample
+### Request Body
 
 None
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 200
 
-#### Response Header
+### Response Header
 
 None
 
-#### Response Body
+### Response Body
 
 |Object|Item Name|Data Type|Remarks|
 |:--|:--|:--|:--|
@@ -85,18 +81,18 @@ None
 |{2}|__updated|string|Update date (UNIX time)|
 |{1}|__count|string|Get number of results in $inlinecount query|
 
-##### ExtCell specific response body
+#### ExtCell specific response body
 
 |Object|Item Name|Data Type|Remarks|
 |:--|:--|:--|:--|
 |{3}|type|string|CellCtl.ExtCell|
 |{2}|Url|string|URL of target Cell|
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-#### Response Sample
+### Response Sample
 
 ```JSON
 {
@@ -126,11 +122,11 @@ Refer to [Error Message List](004_Error_Messages.md)
 ```
 
 
-### cURL Command
+## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{CellName}%2F')" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{CellName}%2F')" -X \
+GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 
 
-###### Copyright 2017 FUJITSU LIMITED

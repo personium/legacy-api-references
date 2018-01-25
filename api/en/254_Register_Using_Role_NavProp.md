@@ -1,6 +1,6 @@
 # Registration via ExtRole\_NavProp
 
-### Overview
+## Overview
 
 Register via the Cell control object Navigation Property and register $links at the same time.
 
@@ -17,18 +17,18 @@ write
 * $formatQuery options ignored
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
-##### navigationProperty to Role
+#### navigationProperty to Role
 
 ```
 /{CellName}/__ctl/ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name='{RelationName}',
 _Relation._Box.Name='{BoxName}')/_Role
 ```
 
-##### NavigationProperty to Relation
+#### NavigationProperty to Relation
 
 ```
 /{CellName}/__ctl/ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name='{RelationName}',
@@ -38,17 +38,17 @@ _Relation._Box.Name='{BoxName}')/_Relation
 If the \_Relation.\_Box.Name parameter is omitted, it is assumed that null is specified  
 \* Registration via NavProp of ExtRole only enables registration of Role
 
-#### Request Method
+### Request Method
 
 POST
 
-#### Request Query
+### Request Query
 
 |Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
-#### Request Header
+### Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -59,11 +59,11 @@ POST
 |Content-Type|Specifies the request body format|application/json|No|[application/json] by default|
 |Accept|Specifies the response body format|application/json|No|[application/json] by default|
 
-#### Request Body
+### Request Body
 
-##### When registering Role
+#### When registering Role
 
-##### Format
+#### Format
 
 JSON
 
@@ -72,7 +72,7 @@ JSON
 |Name|Role Name|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("\_")|Yes||
 |_Box.Name|Box name to be related|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("\_")<br>Description: Specify Name of Box registered with Box registration API <br>Specify null if not associated with specific Box|No||
 
-#### Request Sample
+### Request Sample
 
 ```JSON
 {
@@ -82,13 +82,13 @@ JSON
 ```
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 201
 
-#### Response Header
+### Response Header
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
@@ -99,7 +99,7 @@ JSON
 |Access-Control-Allow-Origin|Cross domain communication permission header|Return value fixed to "*"|
 |X-Personium-Version|API version that the request is processed|Version of the API used to process the request|
 
-#### Response Body
+### Response Body
 
 |Object|Item Name|Data Type|Notes|
 |:--|:--|:--|:--|
@@ -112,7 +112,7 @@ JSON
 |{2}|__updated|string|Update date (UNIX time)|
 |{1}|__count|string|Get number of results in $inlinecount query|
 
-##### When registering Role
+#### When registering Role
 
 |Object|Item Name|Data Type|Notes|
 |:--|:--|:--|:--|
@@ -120,11 +120,11 @@ JSON
 |{2}|Name|string|Role Name|
 |{2}|_Box.Name|string|Box name to be related|
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-#### Response Sample
+### Response Sample
 
 ```JSON
 {
@@ -145,13 +145,15 @@ Refer to [Error Message List](004_Error_Messages.md)
 ```
 
 
-### cURL Command
+## cURL Command
 
-##### When registering Role
+### When registering Role
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/ExtRole(ExtRole='https%3A%2F%2F{UnitFQDN}%2F{CellName}%2F__role%2F__%2F{ExtRoleName}',_Relation.Name='{RelationName}',_Relation._Box.Name='{BoxName}')/_Role" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{ "Name": "{RoleName}", "_Box.Name": "{BoxName}"}'
+curl "https://{UnitFQDN}/{CellName}/__ctl/ExtRole(ExtRole='https%3A%2F%2F{UnitFQDN}%2F{CellName}
+%2F__role%2F__%2F{ExtRoleName}',_Relation.Name='{RelationName}',_Relation._Box.Name='{BoxName}')
+/_Role" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
+'{ "Name": "{RoleName}", "_Box.Name": "{BoxName}"}'
 ```
 
 
-###### Copyright 2017 FUJITSU LIMITED

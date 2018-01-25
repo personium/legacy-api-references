@@ -1,12 +1,8 @@
 # Role\_$links update
 
-### Overview
+## Overview
 
 Update Roles $link information
-
-### Required Privileges
-
-None
 
 ### Restrictions
 
@@ -17,11 +13,11 @@ None
 * $formatQuery options ignored
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
-##### Correlating with the Account
+#### Correlating with the Account
 
 ```
 /{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_Account(Name='{AccountName}')
@@ -57,7 +53,7 @@ or
 /{CellName}/__ctl/Role('{RoleName}')/$links/_Account('{AccountName}')
 ```
 
-##### Correlating with ExtCell
+#### Correlating with ExtCell
 
 ```
 /{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_ExtCell(Url='{ExtCellURL}')
@@ -81,16 +77,18 @@ or
 /{CellName}/__ctl/Role('{RoleName}')/$links/_ExtCell('{ExtCellURL}')
 ```
 
-##### Correlating with ExtRole
+#### Correlating with ExtRole
 
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name='{RelationName}',_Relation._Box.Name='{BoxName}')
+/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}'
+,_Relation.Name='{RelationName}',_Relation._Box.Name='{BoxName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name='{RelationName}')
+/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}'
+,_Relation.Name='{RelationName}')
 ```
 
 or
@@ -108,13 +106,15 @@ or
 or
 
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name='{RelationName}',_Relation._Box.Name='{BoxName}')
+/{CellName}/__ctl/Role(Name='{RoleName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name=
+'{RelationName}',_Relation._Box.Name='{BoxName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name='{RelationName}')
+/{CellName}/__ctl/Role(Name='{RoleName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name=
+'{RelationName}')
 ```
 
 or
@@ -132,13 +132,15 @@ or
 or
 
 ```
-/{CellName}/__ctl/Role('{RoleName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name='{RelationName}',_Relation._Box.Name='{BoxName}')
+/{CellName}/__ctl/Role('{RoleName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name=
+'{RelationName}',_Relation._Box.Name='{BoxName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role('{RoleName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name='{RelationName}')
+/{CellName}/__ctl/Role('{RoleName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name=
+'{RelationName}')
 ```
 
 or
@@ -153,16 +155,18 @@ or
 /{CellName}/__ctl/Role('{RoleName}')/$links/_ExtRole('{ExtRoleURL}')
 ```
 
-##### Relation with linking
+#### Relation with linking
 
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_Relation(Name='{RelationName}',_Box.Name='{BoxName}')
+/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_Relation(Name=
+'{RelationName}',_Box.Name='{BoxName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_Relation(Name='{RelationName}')
+/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_Relation(Name=
+'{RelationName}')
 ```
 
 or
@@ -210,17 +214,17 @@ or
 If the \_Box.Name parameter is omitted, it is assumed that null is specified  
 \* The ExCel key specifies the URL-encoded character string
 
-#### Request Method
+### Request Method
 
-##### PUT
+#### PUT
 
-#### Request Query
+### Request Query
 
 |Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
-#### Request Header
+### Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -230,9 +234,9 @@ If the \_Box.Name parameter is omitted, it is assumed that null is specified
 |Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
 |If-Match|Specifies the target ETag value|ETag value|No|[*] by default|
 
-#### Request Body
+### Request Body
 
-##### Format
+#### Format
 
 JSON
 
@@ -240,20 +244,20 @@ JSON
 |:--|:--|:--|:--|:--|
 |uri|URI of the OData resource to be linked|Number of digits: 1-1024<br>Follow URI format<br>scheme:http / https / urn|Yes||
 
-#### Request Sample
+### Request Sample
 
 ```JSON
 {"uri":"https://{UnitFQDN}/Cell/__ctl/Box('{BoxName}')"}
 ```
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 204
 
-#### Response Header
+### Response Header
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
@@ -262,24 +266,22 @@ JSON
 |DataServiceVersion|OData version||
 |ETag|Resource version information||
 
-#### Response Body
+### Response Body
 
 None
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-#### Response Sample
-
-None
 
 
-### cURL Command
+## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Role(Name="{RoleName}",_Box.Name=null)/$links/_Box" -X PUT -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"uri":"https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')"}'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Role(Name="{RoleName}",_Box.Name=null)/$links/_Box" -X \
+PUT -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
+'{"uri":"https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')"}'
 ```
 
 
-###### Copyright 2017 FUJITSU LIMITED

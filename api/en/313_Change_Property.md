@@ -1,6 +1,6 @@
 # File setting change
 
-### Overview
+## Overview
 
 Change properties
 
@@ -13,9 +13,9 @@ write-properties
 Unpublished
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
 ```
 /{CellName}
@@ -39,21 +39,21 @@ or
 |{BoxName}|Box Name||
 |{ResourcePath}|Path to resource|Valid values Number of digits:1-128<br>Usable character types<br>alphanumeric character, period(.), under score(_), hyphen(-)|
 
-#### Request Method
+### Request Method
 
 PROPPATCH
 
-#### Request Query
+### Request Query
 
-##### Common Request Query
+#### Common Request Query
 
 |Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
-#### Request Header
+### Request Header
 
-##### Common Request Header
+#### Common Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -61,7 +61,7 @@ PROPPATCH
 |X-Override|Header override function|${OverwrittenHeaderName}:${Value}|No|The normal HTTP header value is overwritten. Specify multiple X-Override headers for the overwriting of multiple headers|
 |X-Personium-RequestKey|RequestKey field value output in the event log|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters|No||
 
-##### Individual Request Header
+#### Individual Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -72,9 +72,9 @@ PROPPATCH
 |Content-Type|Specify content format|application/xml|No||
 |Accept|Specify acceptable media types in response|application/xml|No||
 
-#### Request Body
+### Request Body
 
-##### Namespace
+#### Namespace
 
 |URI|Overview|Reference prefix|
 |:--|:--|:--|
@@ -83,7 +83,7 @@ PROPPATCH
 
 \* Reference The prefixes are for making it easier to read the following table, but the use of these prefix strings is not ensured or requested.
 
-##### Structure of XML
+#### Structure of XML
 
 |Node name|Namespace|Node type|Overview|Notes|
 |:--|:--|:--|:--|:--|
@@ -92,7 +92,7 @@ PROPPATCH
 |remove|D:|Element|Represents a property deletion setting, and one or more props are children||
 |prop|D:|Element|Represents a property value, and one or more arbitrary elements are children|When set: Child node name is key<br>When remove: Delete with child node name as key|
 
-##### DTD notation
+#### DTD notation
 
 ```dtd
 <!ELEMENT propertyupdate (set, remove) >
@@ -101,7 +101,7 @@ PROPPATCH
 <!ELEMENT prop ANY>
 ```
 
-#### Request Sample
+### Request Sample
 
 ```xml
 <D:propertyupdate xmlns:D="DAV:"
@@ -120,21 +120,21 @@ PROPPATCH
 ```
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 |Code|Message|Overview|
 |:--|:--|:--|
 |207|Multi-Status|Success|
 
-#### Response Header
+### Response Header
 
 Unpublished
 
-#### Response Body
+### Response Body
 
-##### Namespace
+#### Namespace
 
 |URI|Overview|Reference prefix|
 |:--|:--|:--|
@@ -142,7 +142,7 @@ Unpublished
 
 \* Reference The prefixes are for making it easier to read the following table, but the use of these prefix strings is not ensured or requested.
 
-##### Structure of XML
+#### Structure of XML
 
 The body is XML and follows the following schema.
 
@@ -155,9 +155,9 @@ The body is XML and follows the following schema.
 |prop|D:|Element|Represents property setting contentsbr|Display the result of resource setting as follows <br> Setting Succeeded: Set Key and Value <br> Deleted Successful: Deleted Key|
 |status|D:|Element|Property setting status code|In the case of setting success 200 (OK) is returned|
 
-##### DTD notation
+#### DTD notation
 
-##### namespace D:
+#### namespace D:
 
 ```dtd
 <!ELEMENT multistatus (response*)>
@@ -168,11 +168,11 @@ The body is XML and follows the following schema.
 <!ELEMENT status (#PCDATA)   
 ```
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-#### Response Sample
+### Response Sample
 
 ```xml
 <multistatus xmlns="DAV:">
@@ -190,11 +190,12 @@ Refer to [Error Message List](004_Error_Messages.md)
 ```
 
 
-### cURL Command
+## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ResourcePath}' -X PROPPATCH -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8" ?><D:propertyupdate xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns"><D:set><D:prop><p:hoge>${hoge}</p:hoge></D:prop></D:set><D:remove><D:prop><p:hoge/></D:prop></D:remove></D:propertyupdate>'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ResourcePath}' -X PROPPATCH -i -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8" ?>
+<D:propertyupdate xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns"><D:set><D:prop><p:hoge>${hoge}</p:hoge></D:prop>
+</D:set><D:remove><D:prop><p:hoge/></D:prop></D:remove></D:propertyupdate>'
 ```
 
-
-###### Copyright 2017 FUJITSU LIMITED

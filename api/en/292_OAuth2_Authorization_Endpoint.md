@@ -1,13 +1,9 @@
 # OAuth2.0 Authorization Endpoint(\_\_authz)
 
-### Overview
+## Overview
 
 OAuth2 Authorization Endpoint  
 This API is the OAuth2 authorization endpoint, for utilizing the Personium on JS application and native application.
-
-### Required Privileges
-
-None
 
 ### Precondition
 
@@ -21,20 +17,20 @@ Request query, specification of "p\_target" parameter of request body is not sup
 * Internet Explorer can not redirect correctly because the maximum URL length is limited to 2048 characters.
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
 ```
 {CellName}/__authz
 ```
 
-#### Request Method
+### Request Method
 
 GET : Authentication form request  
 POST : Authentication form request, Authentication Token
 
-#### Request Query
+### Request Query
 
 |Item Name|Overview|Format|Required|Effective Value|
 |:--|:--|:--|:--|:--|
@@ -48,48 +44,44 @@ POST : Authentication form request, Authentication Token
 |username|User name|String|No|Registered user name|
 |password|Password|String|No|Registered password|
 
-#### Request Header
+### Request Header
 
 None
 
-#### Request Body
+### Request Body
 
 Same as request query
 
-#### Request Sample
 
-None
+## Response
 
+### Forms Authentication Request
 
-### Response
-
-#### Forms Authentication Request
-
-##### Response Code
+#### Response Code
 
 200
 
-##### Response Header
+#### Response Header
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
 |Content-Type|Content-Type of Resource||
 
-##### Response Body
+#### Response Body
 
 Return the following HTML form.<br>![Response body](image/OAuth2ResponseBody.png "Response body")
 
-##### Error Messages
+#### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-##### Response Sample
+#### Response Sample
 
 None
 
-#### Request Token Authentication
+### Request Token Authentication
 
-##### Response Code
+#### Response Code
 
 302  
 The browser is redirected to redirect\_uri. A fragment indicated by "URL parameter" is stored in redirect\_uri.
@@ -106,7 +98,7 @@ The browser is redirected to redirect\_uri. A fragment indicated by "URL paramet
 |expires_in|Expiration date of "access_token"|1 hour (3600 seconds)|
 |state|Value of state set at the time of request|Random value used to maintain state between request and callback|
 
-##### Error Messages
+#### Error Messages
 
 |Item Name|Overview|Notes|
 |:--|:--|:--|
@@ -125,7 +117,7 @@ The browser is redirected to redirect\_uri. A fragment indicated by "URL paramet
 |User ID or password is incorrect.|When password authentication fails||
 |Since the Expiration Date of the authentication passed,<br>You must be authorized again.|Cookie authentication failed||
 
-##### Parameter Check Error
+#### Parameter Check Error
 
 The browser is redirected to redirect\_uri.  
 "Redirect\_uri is not in URL format" "cell in client\_id and redirect\_uri is different" "Authorization processing failure"
@@ -141,19 +133,21 @@ Other than those above
 ```
 
 
-### cURL Command
+## cURL Command
 
-#### GET
-
-```sh
-curl "https://{UnitFQDN}/{CellName}/__authz?response_type=token&redirect_uri=https://{UnitFQDN}/{AppliCellName}/__/redirect.md&client_id=https://{UnitFQDN}/{AppliCellName}" -X GET -i
-```
-
-#### POST
+### GET
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__authz" -X POST -i -d 'response_type=token&client_id=https://{UnitFQDN}/{AppliCellName}&redirect_uri=https://{UnitFQDN}/{AppliCellName}/__/redirect.md&state=0000000111&username={AccountUserName}&password={AccountUserPass}'
+curl "https://{UnitFQDN}/{CellName}/__authz?response_type=token&redirect_uri=https://{UnitFQDN}
+/{AppliCellName}/__/redirect.md&client_id=https://{UnitFQDN}/{AppliCellName}" -X GET -i
+```
+
+### POST
+
+```sh
+curl "https://{UnitFQDN}/{CellName}/__authz" -X POST -i -d 'response_type=token&client_id=\
+https://{UnitFQDN}/{AppliCellName}&redirect_uri=https://{UnitFQDN}/{AppliCellName}/__/redirect.md&state
+=0000000111&username={AccountUserName}&password={AccountUserPass}'
 ```
 
 
-###### Copyright 2017 FUJITSU LIMITED

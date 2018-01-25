@@ -1,6 +1,6 @@
 # Relation\_$links update
 
-### Overview
+## Overview
 
 Update OData resources associated with Relation<br>You can specify the following OData resources
 
@@ -8,10 +8,6 @@ Update OData resources associated with Relation<br>You can specify the following
 * ExtCell
 * ExtRole
 * Role
-
-### Required Privileges
-
-None
 
 ### Restrictions
 
@@ -22,17 +18,17 @@ None
 * $formatQuery options ignored
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
-##### Correlating with Box
+#### Correlating with Box
 
 ```
 /{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_Box('{BoxName}')
 ```
 
-##### Correlating with ExtCell
+#### Correlating with ExtCell
 
 ```
 /{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_ExtCell('{ExtCellURL}')
@@ -50,46 +46,53 @@ or
 /{CellName}/__ctl/Relation('{RelationName}')/$links/_ExtCell('{ExtCellURL}')
 ```
 
-##### Linking with ExtRole
+#### Linking with ExtRole
 
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name='{RelationName}',_Relation._Box.Name='{BoxName}')
-```
-
-or
-
-```
-/{CellName}/__ctl/Relation(Name='{RelationName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name='{RelationName}',_Relation._Box.Name='{BoxName}')
+/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}'
+,_Relation.Name='{RelationName}',_Relation._Box.Name='{BoxName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Relation('{RelationName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name='{RelationName}',_Relation._Box.Name='{BoxName}')
+/{CellName}/__ctl/Relation(Name='{RelationName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name=
+'{RelationName}',_Relation._Box.Name='{BoxName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name='{RelationName}')
+/{CellName}/__ctl/Relation('{RelationName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name=
+'{RelationName}',_Relation._Box.Name='{BoxName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name='{RelationName}')
+/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_ExtRole(ExtRole=
+'{ExtRoleURL}',_Relation.Name='{RelationName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Relation('{RelationName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name='{RelationName}')
+/{CellName}/__ctl/Relation(Name='{RelationName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name=
+'{RelationName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}')
+/{CellName}/__ctl/Relation('{RelationName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name=
+'{RelationName}')
+```
+
+or
+
+```
+/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_ExtRole(ExtRole=
+'{ExtRoleURL}')
 ```
 
 or
@@ -116,10 +119,11 @@ or
 /{CellName}/__ctl/Relation('{RelationName}')/$links/_ExtRole('{ExtRoleURL}')
 ```
 
-##### Correlating with the Role
+#### Correlating with the Role
 
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')
+/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_Role(Name='{RoleName}'
+,_Box.Name='{BoxName}')
 ```
 
 or
@@ -173,15 +177,15 @@ or
 If the \_Box.Name, \_Relation.Name, \_Relation.\_Box.Name parameter is omitted, it is assumed that null is specified  
 \* The ExCel key specifies the URL-encoded character string.
 
-#### Request Method
+### Request Method
 
 PUT
 
-#### Request Query
+### Request Query
 
 None
 
-#### Request Header
+### Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -193,9 +197,9 @@ None
 |Accept|Specifies the response body format|application/json|No|[application/json] by default|
 |If-Match|Specifies the target ETag value|ETag value|No|[*] by default|
 
-#### Request Body
+### Request Body
 
-##### Format
+#### Format
 
 JSON
 
@@ -203,20 +207,20 @@ JSON
 |:--|:--|:--|:--|:--|
 |uri|URI of the OData resource to be linked|Number of digits: 1-1024<br>Follow URI format<br>scheme:http / https / urn|Yes||
 
-#### Request Sample
+### Request Sample
 
 ```JSON
 {"uri":"https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')"}
 ```
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 204
 
-#### Response Header
+### Response Header
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
@@ -225,24 +229,20 @@ JSON
 |DataServiceVersion|OData version||
 |ETag|Resource version information||
 
-#### Response Body
+### Response Body
 
 None
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-#### Response Sample
 
-None
-
-
-### cURL Command
+## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_Box('{BoxName}')" -X PUT -i -H 'If-Match:*' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"uri":"https://{UnitFQDN}/{CellName}/__ctl/Box('update_{BoxName}')"}'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')
+/$links/_Box('{BoxName}')" -X PUT -i -H 'If-Match:*' -H 'Authorization: Bearer {AccessToken}' -H \
+'Accept: application/json' -d '{"uri":"https://{UnitFQDN}/{CellName}/__ctl/Box('update_{BoxName}')"}'
 ```
 
-
-###### Copyright 2017 FUJITSU LIMITED

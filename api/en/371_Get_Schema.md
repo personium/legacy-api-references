@@ -1,6 +1,6 @@
 # Schema acquisition ($metadata)
 
-### Overview
+## Overview
 
 Retrieve schema information
 
@@ -17,34 +17,34 @@ read
 * ComplexType and Documentation tags do not correspond and do not return
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
 ```
 /{CellName}/{BoxName}/{odataname}/$metadata
 ```
 
-#### Request Method
+### Request Method
 
 GET
 
-#### Request Query
+### Request Query
 
-##### Common Query
+#### Common Query
 
 |Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
-##### Individual Query
+#### Individual Query
 
 If atomsvc is specified for $format, return Schema's Atom ServiceDocument  
 Ignore others
 
-#### Request Header
+### Request Header
 
-##### Common Request Header
+#### Common Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -52,47 +52,43 @@ Ignore others
 |X-Override|Header override function|${OverwrittenHeaderName}:${Value}|No|The normal HTTP header value is overwritten. Specify multiple X-Override headers for the overwriting of multiple headers|
 |X-Personium-RequestKey|RequestKey field value output in the event log|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters|No||
 
-##### Individual request header
+#### Individual request header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |Accept|Format of data to be returned|application/atomsvc+xml<br>application/xml|No|If not specified, the schema information of the user data schema will be acquired|
 |Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {Authentication token}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
 
-#### Request Body
-
-None
-
-#### Request Sample
+### Request Body
 
 None
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 200
 
-#### Response Header
+### Response Header
 
-##### Common Response Header
+#### Common Response Header
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
 |Access-Control-Allow-Origin|Cross domain communication permission header|Return value fixed to "*"|
 |X-Personium-Version|API version that the request is processed|If not specified, the latest API version is specified|
 
-##### Schema acquisition specific response header
+#### Schema acquisition specific response header
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
 |Content-Type|Format of data to be returned||
 |DataServiceVersion|OData version||
 
-#### Response Body
+### Response Body
 
-##### For user data
+#### For user data
 
 |URI|Overview|Reference prefix|
 |:--|:--|:--|
@@ -104,7 +100,7 @@ None
 
 \* Reference The prefixes are for making it easier to read the following table, but the use of these prefix strings is not ensured or requested.
 
-##### Structure of XML
+#### Structure of XML
 
 The body is XML (edmx) and follows the following schema.
 
@@ -168,7 +164,7 @@ The body is XML (edmx) and follows the following schema.
 |Role|-|Attributes|Represents a role, mandatory attributes||
 |EntitySet|-|Attributes|Representing an EntitySet, mandatory attributes||
 
-##### Property
+#### Property
 
 |Node name|Namespace|Node type|Overview|Notes|
 |:--|:--|:--|:--|:--|
@@ -184,7 +180,7 @@ The body is XML (edmx) and follows the following schema.
 |Format|p:|Attributes|Represents the character format of the Property||
 |IsDeclared|p:|Attributes|Represents whether it is a static Property or not|It is displayed with false for dynamic properties, not for static Properties|
 
-##### Documentation
+#### Documentation
 
 Not compatible
 
@@ -193,7 +189,7 @@ Not compatible
 |Summary|-|Element|Represents a summary of the Document||
 |LongDescription|-|Element|Represent Document details||
 
-##### DTD notation
+#### DTD notation
 
 namespace:edmx:
 
@@ -271,19 +267,20 @@ namespace:p:
 <!ATTLIST Property Format CDDATA #IMPLIED>
 ```
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-#### Response Sample
+### Response Sample
 
-##### For Schema's Atom ServiceDocument
+#### For Schema's Atom ServiceDocument
 
 Return the following fixedly.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<service xmlns="http://www.w3.org/2007/app" xml:base="https://demo.Personium/kouroki/TestBox/TestOData/$metadata/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:app="http://www.w3.org/2007/app">
+<service xmlns="http://www.w3.org/2007/app" xml:base="https://demo.Personium/kouroki/TestBox/TestOData/$metadata/" 
+xmlns:atom="http://www.w3.org/2005/Atom" xmlns:app="http://www.w3.org/2007/app">
   <workspace>
     <atom:title>Default</atom:title>
     <collection href="EntityType">
@@ -305,11 +302,13 @@ Return the following fixedly.
 </service>
 ```
 
-##### For user data
+#### For user data
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:p="urn:x-personium:xmlns">
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" 
+xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" 
+xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:p="urn:x-personium:xmlns">
   <edmx:DataServices m:DataServiceVersion="1.0">
     <Schema xmlns="http://schemas.microsoft.com/ado/2006/04/edm" Namespace="UserData">
       <ComplexType Name="Address"></ComplexType>
@@ -320,11 +319,15 @@ Return the following fixedly.
         <Key>
           <PropertyRef Name="__id"></PropertyRef>
         </Key>
-        <Property Name="__id" Type="Edm.String" Nullable="false" DefaultValue="UUID()" p:Format="regEx('^[a-zA-Z0-9][a-zA-Z0-9-_:]{0,199}$')"></Property>
-        <Property Name="__published" Type="Edm.DateTime" Nullable="false" DefaultValue="SYSUTCDATETIME()" Precision="3"></Property>
-        <Property Name="__updated" Type="Edm.DateTime" Nullable="false" DefaultValue="SYSUTCDATETIME()" Precision="3"></Property>
+        <Property Name="__id" Type="Edm.String" Nullable="false" DefaultValue="UUID()" 
+p:Format="regEx('^[a-zA-Z0-9][a-zA-Z0-9-_:]{0,199}$')"></Property>
+        <Property Name="__published" Type="Edm.DateTime" Nullable="false" DefaultValue="SYSUTCDATETIME()" 
+Precision="3"></Property>
+        <Property Name="__updated" Type="Edm.DateTime" Nullable="false" DefaultValue="SYSUTCDATETIME()" 
+Precision="3"></Property>
         <Property Name="TestProperty" Type="Edm.String" Nullable="true"></Property>
-        <NavigationProperty Name="_TestEntity" Relationship="UserData.TestEntity-TestEntity-assoc" FromRole="TestEntity:TestAssociationEndFrom" ToRole="TestEntity:TestAssociationEndTo"></NavigationProperty>
+        <NavigationProperty Name="_TestEntity" Relationship="UserData.TestEntity-TestEntity-assoc" 
+FromRole="TestEntity:TestAssociationEndFrom" ToRole="TestEntity:TestAssociationEndTo"></NavigationProperty>
       </EntityType>
       <Association Name="TestEntity-TestEntity-assoc">
         <End Role="TestEntity:TestAssociationEndFrom" Type="UserData.TestEntity" Multiplicity="1"></End>
@@ -345,19 +348,20 @@ Return the following fixedly.
 ```
 
 
-### cURL Command
+## cURL Command
 
-##### For Schema's Atom ServiceDocument
-
-```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept:application/atomsvc+xml'
-```
-
-##### For user data
+### For Schema's Atom ServiceDocument
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept:application/xml'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata" -X GET -i -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept:application/atomsvc+xml'
+```
+
+### For user data
+
+```sh
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata" -X GET -i -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept:application/xml'
 ```
 
 
-###### Copyright 2017 FUJITSU LIMITED

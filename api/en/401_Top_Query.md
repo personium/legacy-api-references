@@ -1,6 +1,6 @@
 # $top Query
 
-### Overview
+## Overview
 
 By specifying an integer value in the $top query, it is possible to limit the number of data listings to be acquired  
 If the number of registered data is less than the number of acquired data, all data is acquired  
@@ -9,7 +9,7 @@ Because the data obtained by the $top query is not sorted, you need to specify a
 
 \*If you specify anything other than an integer value in $top, return "400 Bad Request"
 
-### Request Query
+## Request Query
 
 ```
 $top={number}
@@ -19,12 +19,13 @@ $top={number}
 |:--|:--|:--|:--|
 |{number}|Specify the number of entities included in the returned feed|Half size numeric 0-10000 (default: 25) <br> $expand 0-100 (default: 25) when query is specified||
 
-### cURL Command
+## cURL Command
 
 Example: When acquiring 10 cells:
 
 ```sh
-curl "https://{UnitFQDN}/__ctl/Cell?\$top=10" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/__ctl/Cell?\$top=10" -X GET -i -H 'Authorization: Bearer {AccessToken}' \
+-H 'Accept: application/json'
 ```
 
 ### Restrictions
@@ -32,4 +33,3 @@ curl "https://{UnitFQDN}/__ctl/Cell?\$top=10" -X GET -i -H 'Authorization: Beare
 * Considering processing performance, use with the $skip query  
     In this case, the recommended value of the $top query is 50 or less
 
-###### Copyright 2017 FUJITSU LIMITED

@@ -1,6 +1,6 @@
 # Full-text Search (q) Query
 
-### Overview
+## Overview
 
 Use full-text search (q) query when specifying full-text search keyword when acquiring list  
 Including complex type data, all values are searched
@@ -9,7 +9,7 @@ Including complex type data, all values are searched
 \*When specifying \_\_updated, \_published values, specify them by UNIX time(a number in parenthesis of "/Date()")  
 \*Items in \_metadata are not subject to search
 
-### Request Query
+## Request Query
 
 ```
 q={SearchKeyword}
@@ -19,7 +19,7 @@ q={SearchKeyword}
 |:--|:--|:--|:--|
 |{SearchKeyword}|Specify search string|Number of digits: 1-255 byte||
 
-### Type to be searched
+## Type to be searched
 
 The data types to be searched are shown below
 
@@ -32,7 +32,7 @@ The data types to be searched are shown below
 |Edm.Double|Yes|Dynamic property only|
 |Edm.DateTime|No||
 
-### Search Specification
+## Search Specification
 
 * Half space blank
     * Treat as delimiter
@@ -52,13 +52,12 @@ The data types to be searched are shown below
     * Searchable for partial matches
     * Not distinguish between capital letters and small letters
 
-### cURL Command
+## cURL Command
 
 Example: When acquiring a cell list, when acquiring a cell that matches the keyword "sample":
 
 ```sh
-curl "https://{UnitFQDN}/__ctl/Cell?q=sample" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/__ctl/Cell?q=sample" -X GET -i -H 'Authorization: Bearer {AccessToken}' \
+-H 'Accept: application/json'
 ```
 
-
-###### Copyright 2017 FUJITSU LIMITED

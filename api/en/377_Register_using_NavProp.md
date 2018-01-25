@@ -1,6 +1,6 @@
 # Entity NavProp registration
 
-### Overview
+## Overview
 
 Create entity Entity via Navigation Property.
 
@@ -22,9 +22,9 @@ write
     * For EntityType, you can create up to 400 DynamicProperty / DeclaredProperty / ComplexTypeProperty
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
 ```
 /{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')/{NavigationPropertyName}
@@ -49,19 +49,19 @@ NavigationProperty name that can be specified is limited to those having the fol
 |1|*|
 |*|*|
 
-#### Request Method
+### Request Method
 
 POST
 
-#### Request Query
+### Request Query
 
-##### Common Request Query
+#### Common Request Query
 
 |Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
-#### Request Header
+### Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -69,7 +69,7 @@ POST
 |Accept|Specifies the response body format|application/json|No|[application/json] by default<br>Not compatible|
 |Content-Type|Specifies the request body format|application/json|No|[application/json] by default<br>Not compatible|
 
-#### Request Body
+### Request Body
 
 |Item Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -82,20 +82,21 @@ POST
     * Up to 400 user data can be specified
     * \_published, \_updated is a reserved word, so it is not possible to specify the request body
 
-#### Request Sample
+### Request Sample
 
 ```JSON
-{"__id": "100-1_20101108-111352093","animalId": "100-1","name": "episode","startedAt": "2010-11-08","episodeType": "care","endedAt": "","outcome": "During treatment"}
+{"__id": "100-1_20101108-111352093","animalId": "100-1","name": "episode","startedAt": "2010-11-08",
+"episodeType": "care","endedAt": "","outcome": "During treatment"}
 ```
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 201
 
-#### Response Header
+### Response Header
 
 |Item Name|Overview|Notes|
 |:--|:--|:--|
@@ -104,7 +105,7 @@ POST
 |DataServiceVersion|OData version information|Return only when Entity can be created successfully|
 |ETag|Resource version information|Return only when Entity can be created successfully|
 
-#### Response Body
+### Response Body
 
 The response is a JSON object, the correspondence between the key (name) and type defined in the object (subobject) and the value is as follows
 
@@ -126,18 +127,19 @@ The response is a JSON object, the correspondence between the key (name) and typ
 
 Return items that were schema-set other than the above, or dynamic items specified at registration
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-#### Response Sample
+### Response Sample
 
 ```JSON
 {
   "d": {
     "results": {
       "__metadata": {
-        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('100-1_20101108-111352093')",
+        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}
+('100-1_20101108-111352093')",
         "etag": "W/\"1-1487929403469\"",
         "type": "UserData.{EntityTypeName}"
       },
@@ -147,7 +149,8 @@ Refer to [Error Message List](004_Error_Messages.md)
       "PetName": null,
       "{NavigationPropertyName}": {
         "__deferred": {
-          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('100-1_20101108-111352093')/{NavigationPropertyName}"
+          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}
+('100-1_20101108-111352093')/{NavigationPropertyName}"
         }
       }
     }
@@ -156,11 +159,12 @@ Refer to [Error Message List](004_Error_Messages.md)
 ```
 
 
-### cURL Command
+## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')/{NavigationPropertyName}" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"__id": "100-1_20101108-111352093"}'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')
+/{NavigationPropertyName}" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' \
+-d '{"__id": "100-1_20101108-111352093"}'
 ```
 
 
-###### Copyright 2017 FUJITSU LIMITED

@@ -1,6 +1,6 @@
 # Property $links registered
 
-### Overview
+## Overview
 
 Link Property to OData resource specified by $links  
 Get a list of OData resources linked with following
@@ -19,29 +19,30 @@ alter-schema
 * Response body data is not ensured if atom or xml is specified in the $format query option, although it does not result in an error
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
 $links with EntityType
 
 ```
-/{CellName}/{BoxName}/{CollectionName}/$metadata/Property(Name='{PropertyName}',_EntityType.Name='{EntityTypeName}')/$links/_EntityType
+/{CellName}/{BoxName}/{CollectionName}/$metadata/Property(Name='{PropertyName}',_EntityType.Name='{EntityTypeName}')
+/$links/_EntityType
 ```
 
-#### Request Method
+### Request Method
 
 POST
 
-#### Request Query
+### Request Query
 
 |Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
-#### Request Header
+### Request Header
 
-##### Common Request Header
+#### Common Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -49,22 +50,22 @@ POST
 |X-Override|Header override function|${OverwrittenHeaderName}:${Value}|No|The normal HTTP header value is overwritten. Specify multiple X-Override headers for the overwriting of multiple headers|
 |X-Personium-RequestKey|RequestKey field value output in the event log|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters|No||
 
-##### OData Common Request Header
+#### OData Common Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
 
-##### OData Create Request Header
+#### OData Create Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |Content-Type|Specifies the request body format|application/json|No|[application/json] by default|
 |Accept|Specifies the response body format|application/json|No|[application/json] by default|
 
-#### Request Body
+### Request Body
 
-##### Format
+#### Format
 
 JSON
 
@@ -72,53 +73,51 @@ JSON
 |:--|:--|:--|:--|:--|
 |uri|URI of the OData resource to be linked|Number of digits: 1-1024<br>Follow URI format<br>scheme:http / https / urn|Yes||
 
-#### Request Sample
+### Request Sample
 
 ```JSON
 {"uri":"https://{UnitFQDN}/Cell/__ctl/Box('{BoxName}')"}
 ```
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 204
 
-#### Response Header
+### Response Header
 
-##### Common Response Header
+#### Common Response Header
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
 |X-Personium-Version|API version that the request is processed|Version of the API used to process the request|
 |Access-Control-Allow-Origin|Cross domain communication permission header|Return value fixed to "*"|
 
-##### OData Common Response Header
+#### OData Common Response Header
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
 |DataServiceVersion|OData version||
 |ETag|Resource version information||
 
-#### Response Body
+### Response Body
 
 None
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-#### Response Sample
-
-None
 
 
-### cURL Command
+## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/Property('property_nameName')/$links/_EntityType" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"uri":"https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/EntityType('Profile')"}'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/Property('property_nameName')
+/$links/_EntityType" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
+'{"uri":"https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/EntityType('Profile')"}'
 ```
 
 
-###### Copyright 2017 FUJITSU LIMITED

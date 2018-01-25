@@ -1,6 +1,6 @@
 # Get cell export status
 
-### Overview
+## Overview
 
 Get the status of Cell export. The Cell export state includes the following information.
 
@@ -15,30 +15,26 @@ Get the status of Cell export. The Cell export state includes the following info
 
 root
 
-### Restrictions
 
-* None
+## Request
 
-
-### Request
-
-#### Request URL
+### Request URL
 
 ```
 /{CellName}/__export
 ```
 
-#### Request Method
+### Request Method
 
 GET
 
-#### Request Query
+### Request Query
 
 |Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
-#### Request Header
+### Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -46,24 +42,20 @@ GET
 |X-Personium-RequestKey|RequestKey field value output in the event log|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters|No||
 |Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
 
-#### Request Body
-
-None
-
-#### Request Sample
+### Request Body
 
 None
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 |Code|Message|Overview|Notes|
 |:--|:--|:--|:--|
 |200|OK|On success|Cell Export status refers to response body|
 
-#### Response Header
+### Response Header
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
@@ -71,7 +63,7 @@ None
 |X-Personium-Version|API version that the request is processed|Version of the API used to process the request|
 |Content-Type|Format of data to be returned||
 
-#### Response Body
+### Response Body
 
 Response is JSON format and is defined as an object (subobject).  
 The correspondence between key (name) and type, and value are as follows.
@@ -83,11 +75,11 @@ The correspondence between key (name) and type, and value are as follows.
 |Root|progress|string|Progress rate (for example, "30%")|Do not output when status is below.<br>"ready"|
 |Root|exportation_name|string|Export file name (excluding extension)|Do not output when status is below.<br>"ready"|
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-#### Response Sample
+### Response Sample
 
 Cell export acceptance accepted (including when cell export is completed)
 
@@ -109,11 +101,10 @@ Cell export processing in progress
 ```
 
 
-### cURL Sample
+## cURL Sample
 
 ```sh
 curl "https://{UnitFQDN}/{CellName}/__export" -X GET -i -H 'Authorization: Bearer {AccessToken}'
 ```
 
 
-###### Copyright 2017 FUJITSU LIMITED

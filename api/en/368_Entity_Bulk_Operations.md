@@ -1,6 +1,6 @@
 # Entity collective operation($batch)
 
-### Overview
+## Overview
 
 Perform a batch operation such as list acquisition, single acquisition, registration, update, and deletion for ODataEntity
 
@@ -20,9 +20,9 @@ Perform a batch operation such as list acquisition, single acquisition, registra
     * $links "PUT" "GET" "DELETE" is not supported (returns 501)
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
 ```
 /{CellName}/{BoxName}/{ODataCollecitonName}/$batch
@@ -34,24 +34,24 @@ Perform a batch operation such as list acquisition, single acquisition, registra
 |{BoxName}|Box Name|
 |{ODataCollecitonName}|Collection Name|
 
-#### Request Method
+### Request Method
 
 POST
 
-#### Request Query
+### Request Query
 
 |Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
-#### Request Header
+### Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|*The authentication token is a token acquired by the authentication token acquisition API Not tested|
 |Content-Type|Specifies the request body format|multipart / mixed; boundary = {Boundary}|Yes|When omitted, treat it as [multipart/mixed]  Characters that can be used for {Boundary}: alphabetic lower case '()+_,-./:=?<br>Not compatible|
 
-#### Request Body
+### Request Body
 
 Specify batch process content as request body in MIME multipart data format  
 Up to 1,000 batch processes can be handled at maximum  
@@ -127,36 +127,38 @@ Describe how to describe request parameters below
 (9) Specify request header for :request_header
     Request header can be specified without specification, or one or more can be specified
 (10) Specify an empty line
-(11) In the case of the request method "POST" "PUT", specify the data to be registered / updated in :data in the JSON format
+(11) In the case of the request method "POST" "PUT", specify the data to be registered / updated in :data in the JSON
+    format
 (12) In case of the request method "POST" "PUT", specify a blank line
 (13) End Changeset Boundary String Specify "- {Change set Boundary string} -"
-    From the change set boundary string to the change set boundary character string becomes one request information, and multiple requests can be specified by delimiting the request with the change set boundary character string
+    From the change set boundary string to the change set boundary character string becomes one request information, 
+    and multiple requests can be specified by delimiting the request with the change set boundary character string
 ```
 
-#### Request Path
+### Request Path
 
 * { EntitySet name}
 * { EntitySet name}('{\_\_id}')
 * { EntitySet name}('{\_\_id}')/{NavigationProperty name}
 * { EntitySet name}('{\_\_id}')/$links/{NavigationProperty name}
 
-#### Request Method
+### Request Method
 
 POST, GET, PUT, DELETE
 
-#### Request Queries
+### Request Queries
 
 Not compatible
 
-#### Request Header
+### Request Header
 
 Follow the specifications of user data
 
-#### Request Body
+### Request Body
 
 Follow the specifications of user data
 
-#### Request Sample
+### Request Sample
 
 The following shows an example of a request when acquiring, registering, updating and deleting a context with the following flow
 
@@ -244,28 +246,28 @@ If-Match: *
 ```
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 202
 
-#### Response Header
+### Response Header
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
 |Content-Type|Format of data to be returned|When $ batch processing succeeded normally: multipart/mixed; boundary={Boundary}|
 |DataServiceVersion|OData version information|Return only when Entity can be created successfully|
 
-#### Response Body
+### Response Body
 
 Response sample reference
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-#### Response Sample
+### Response Sample
 
 The following shows an example of the response when executing the above example of the request parameter
 
@@ -394,12 +396,14 @@ DataServiceVersion: 2.0
 ```
 
 
-### cURL Command
+## cURL Command
 
 curl command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$batch" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Content-Type:multipart/mixed; boundary=batch_XAmu9BiJJLBa20sRWIq74jp2UlNAVueztqu' --data-binary @sample.txt
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$batch" -X POST -i -H \
+'Authorization: Bearer {AccessToken}' -H 'Content-Type:multipart/mixed; \
+boundary=batch_XAmu9BiJJLBa20sRWIq74jp2UlNAVueztqu' --data-binary @sample.txt
 ```
 
 sample.txt
@@ -430,4 +434,3 @@ Content-Length: 41
 ```
 
 
-###### Copyright 2017 FUJITSU LIMITED

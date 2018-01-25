@@ -1,6 +1,6 @@
 # Retrieve Cell snapshot file
 
-### Overview
+## Overview
 
 Obtain a Cell snapshot file.<br>The content to be returned varies depending on the ETag value specified in the If-None-Match header.
 
@@ -8,30 +8,26 @@ Obtain a Cell snapshot file.<br>The content to be returned varies depending on t
 
 root
 
-### Restrictions
 
-* None
+## Request
 
-
-### Request
-
-#### Request URL
+### Request URL
 
 ```
 /{CellName}/__snapshot/{FileName}
 ```
 
-#### Request Method
+### Request Method
 
 GET
 
-#### Request Query
+### Request Query
 
 |Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
-#### Request Header
+### Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -41,18 +37,14 @@ GET
 |Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
 |If-None-Match|Specify the value of ETag|String<br>Specify the ETag value in the following format<br>"*"or "{Half size} - {Half size}"|No|Example) When specifying ETag value "1-1372742704414"<br>"1-1372742704414"|
 
-#### Request Body
-
-None
-
-#### Request Sample
+### Request Body
 
 None
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 * If the If-None-Match header is not specified in the request, or if the ETag value of the If-None-Match header does not match the ETag of the resource stored in WebDav in the request<br>(Including cases where the format of the specified ETag value is invalid)
 
@@ -66,7 +58,7 @@ None
 |:--|:--|:--|
 |304|Not Modified|The document has not been updated|
 
-#### Response Header
+### Response Header
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
@@ -75,25 +67,19 @@ None
 |Access-Control-Allow-Origin|Cross domain communication permission header|Return value fixed to "*"|
 |X-Personium-Version|API version that the request is processed|Version of the API used to process the request|
 
-#### Response Body
+### Response Body
 
 Return the contents of the file  
 However, when the status code is 304, the response body is not returned
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-#### Response Sample
 
-None
-
-
-### cURL Sample
+## cURL Sample
 
 ```sh
 curl "https://{UnitFQDN}/{CellName}/__snapshot/{FileName}" -X POST -i -H 'Authorization: Bearer {AccessToken}'
 ```
 
-
-###### Copyright 2017 FUJITSU LIMITED

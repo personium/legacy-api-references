@@ -1,6 +1,6 @@
 # Cell Import
 
-### Overview
+## Overview
 
 Import cell data from Cell snapshot file.<br>The Cell snapshot file uses a special area (Cell snapshot area) in PersoniumUnit.<br>If processing fails, change the status of Cell to " import failed ".<br>When processing is successful, if the status of Cell is " import failed ", it is changed to " normal ".<br>When the status of Cell is " import failed ", the target Cell does not accept anything other than API. See [ Acquire Properties ](290_Cell_Get_Property.md) for details.<br>Since this API employs the asynchronous communication method, it immediately returns after accepting the API.<br>To check the status of Cell Import, use [ Cell import status acquisition ](508_Progress_of_Import_Cell.md).<br>An example of calling from acceptance at the client to completion of processing is shown below.
 
@@ -27,25 +27,25 @@ root
 * Even if processing fails in the middle, rollback is not performed<br>* It is recommended that you export the Cell once before importing the Cell.
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
 ```
 /{CellName}/__import
 ```
 
-#### Request Method
+### Request Method
 
 POST
 
-#### Request Query
+### Request Query
 
 |Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
-#### Request Header
+### Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -55,9 +55,9 @@ POST
 |Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
 |Content-Type|Specifies the request body format|application / json|No|[application/json] by default|
 
-#### Request Body
+### Request Body
 
-##### Format
+#### Format
 
 JSON
 
@@ -65,22 +65,22 @@ JSON
 |:--|:--|:--|:--|:--|
 |Name|Snapshot file name (excluding extension)|Number of digits: 1-192<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")|Yes||
 
-#### Request Sample
+### Request Sample
 
 ```json
 {"Name":"CellExport_2017_01"}
 ```
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 |Code|Message|Overview|
 |:--|:--|:--|
 |202|Accepted|Processing reception|
 
-#### Response Header
+### Response Header
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
@@ -89,24 +89,20 @@ JSON
 |Access-Control-Allow-Origin|Cross domain communication permission header|Return value fixed to "*"|
 |X-Personium-Version|API version that the request is processed|Version of the API used to process the request|
 
-#### Response Body
+### Response Body
 
 Return error message only if creation fails
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-#### Response Sample
 
-None
-
-
-### cURL Sample
+## cURL Sample
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__import" -X POST -i -H 'Authorization: Bearer {AccessToken}' -d '{"Name":"CellExport_2017_01"}'
+curl "https://{UnitFQDN}/{CellName}/__import" -X POST -i -H 'Authorization: Bearer {AccessToken}' -d \
+'{"Name":"CellExport_2017_01"}'
 ```
 
 
-###### Copyright 2017 FUJITSU LIMITED

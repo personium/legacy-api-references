@@ -1,6 +1,6 @@
 # $select  Query
 
-### Overview
+## Overview
 
 When specifying the property to return, use the $ select query  
 If omitted, return all the acquired properties  
@@ -15,7 +15,7 @@ However, the following properties are always returned without specifying them in
 \*If the value of the Dynamic property specified by $select is null, you can not get the property value  
 \*Specify the property name without enclosing it with "'" (single quote)
 
-### Request Query
+## Request Query
 
 ```
 $select={propertyName}
@@ -27,19 +27,20 @@ $select={propertyName}
 |:--|:--|
 |{PropertyName}|Property name to return<br>To specify more than one, specify it with a comma separator|
 
-### cURL Command
+## cURL Command
 
 Example: When returning only Name property when acquiring Box list:
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Box?\$select=Name" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Box?\$select=Name" -X GET -i -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 
 Example: When returning all the properties when acquiring the Box list:
 
 ```
-curl "https://{UnitFQDN}/{CellName}/__ctl/Box?\$select=*" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Box?\$select=*" -X GET -i -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 
 
-###### Copyright 2017 FUJITSU LIMITED

@@ -1,6 +1,6 @@
 # $expand Query
 
-### Overview
+## Overview
 
 By specifying the name of NavigationProperty in the $expand query, it is possible to expand related information and acquire it.  
 The expansion of related information at the time of list acquisition is expanded up to 100 cases.  
@@ -16,7 +16,7 @@ The sort order of related data acquired by $expand is as follows.
 
 \*When Multiplicity is "1", the sort result is the same as "0..1".
 
-### Request Query
+## Request Query
 
 ```
 $expand={NavigationPropertyName}
@@ -28,18 +28,20 @@ $expand={NavigationPropertyName}
 
 \*If you specify a NavigationProperty name that does not exist in $expand, return "400 Bad Request"
 
-##### Navigation property Specifiable number
+#### Navigation property Specifiable number
 
 You can specify up to 2 navigation properties when acquiring list  
 You can specify up to 10 navigation properties when acquiring one case  
 \*If you exceed the number of navigation properties that can be specified return "400 Bad Request"
 
-### cURL Command
+## cURL Command
 
 Expand and acquire information associated with navigation properties
 
 ```
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')?\$expand={NavigationPropertyName}" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}
+('{EntityID}')?\$expand={NavigationPropertyName}" -X GET -i -H 'Authorization: Bearer {AccessToken}' \
+-H 'Accept: application/json'
 ```
 
 ### Restrictions
@@ -47,4 +49,3 @@ curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeN
 * Expansion of related information can be done in one level only
 * Add \_\_count as an item in the related information list (not supported) to indicate whether the expanded related information has returned all cases
 
-###### Copyright 2017 FUJITSU LIMITED

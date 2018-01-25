@@ -1,6 +1,6 @@
 # Cell snapshot file registration update
 
-### Overview
+## Overview
 
 Register / update Cell snapshot.
 
@@ -8,30 +8,26 @@ Register / update Cell snapshot.
 
 root
 
-### Restrictions
 
-None
+## Request
 
-
-### Request
-
-#### Request URL
+### Request URL
 
 ```
 /{CellName}/__snapshot/{FileName}
 ```
 
-#### Request Method
+### Request Method
 
 PUT
 
-#### Request Query
+### Request Query
 
 |Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
-#### Request Header
+### Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -42,27 +38,23 @@ PUT
 |If-Match|Specifies the target ETag value|ETag value|No|[*] by default|
 |Content-Type|Specify the content format of the registration / update file|String|No|When registering and updating in ZIP format<br>Content-Type:application/zip|
 
-#### Request Body
+### Request Body
 
 |Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|
 |Designate the context information to be registered / updated as binary in the request body|The method specified in the Content-Type header|Yes||
 
-#### Request Sample
 
-None
+## Response
 
-
-### Response
-
-#### Response Code
+### Response Code
 
 |Code|Message|Overview|
 |:--|:--|:--|
 |201|Created|Registration success|
 |204|No Content|Update success|
 
-#### Response Header
+### Response Header
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
@@ -71,28 +63,25 @@ None
 |X-Personium-Version|API version that the request is processed|Version of the API used to process the request|
 |ETag|Resource version information||
 
-#### Response Body
+### Response Body
 
 Only when it fails at update / creation, return it
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-#### Response Sample
 
-None
-
-
-### cURL Sample
+## cURL Sample
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__snapshot/CellExport_2017_01.zip" -X PUT -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{File contents}'
+curl "https://{UnitFQDN}/{CellName}/__snapshot/CellExport_2017_01.zip" -X PUT -i -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{File contents}'
 ```
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__snapshot/CellExport_2017_01.zip" -X PUT -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -T "/home/user/CellExport.zip"
+curl "https://{UnitFQDN}/{CellName}/__snapshot/CellExport_2017_01.zip" -X PUT -i -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -T "/home/user/CellExport.zip"
 ```
 
 
-###### Copyright 2017 FUJITSU LIMITED

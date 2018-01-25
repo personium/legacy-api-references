@@ -2,10 +2,10 @@
 ## 概要
 新規のイベント処理ルールを作成する。
 
-## 必要な権限
+### 必要な権限
 rule
 
-## 制限事項
+### 制限事項
 * リクエストヘッダのAcceptは無視される
 * リクエストヘッダのContent-Typeは全てapplication/jsonとして扱う
 * リクエストボディはJSON形式のみ受け付ける
@@ -46,13 +46,13 @@ JSON
 |:--|:--|:--|:--|:--|
 |_Box.Name|ルールが紐づくべきBox名|有効な box名. このキーを指定しなかったりnull値を指定したリクエストは、いかなるBoxにも紐づかないRuleと解釈されます.|×||
 |Name|作成するルールを識別するため任意の名前|Boxに紐づく場合はBox内で一意、Boxに紐づかない場合はセルで一意である必要があります。|×|省略時は自動的にuuidが割り当たります|
-|EventType|ルールをトリガーするイベントのタイプ|？？|×||
-|EventSubject|ルールをトリガーすべきイベントのEvent Subject前方一致検査用文字列|Event Subject は基本的にCellのURLになるので、有効な値はその前方部分文字列となります。|×||
+|EventType|ルールをトリガーするイベントのタイプの前方一致検査用文字列|Evnet Typeの値は、内部イベントでは別表(未作成)のようにTypeが定義されています。外部イベントでは任意のTypeを指定可能です。|×||
+|EventSubject|ルールをトリガーすべきイベントのEvent Subject一致検査用文字列|Event Subject は基本的にCellのURLになるので、有効な値はその完全一致文字列となります。|×||
 |EventObject|ルールをトリガーすべきイベントのEvent Object前方一致検査用文字列|Event object の値はイベントのタイプにより異なります。 任意の文字列を設定可能ですが、意味を持つ値はイベントタイプにより異なります。 |×||
-|EventInfo|ルールをトリガーすべきイベントのEvent Info前方一致検査用文字列|Event info の値はイベントのタイプにより異なります。 任意の文字列を設定可能ですが、意味を持つ値はイベントタイプにより異なります。|×||
+|EventInfo|ルールをトリガーすべきイベントのEvent Info一致検査用文字列|Event info の値はイベントのタイプにより異なります。 任意の文字列を設定可能ですが、意味を持つ値はイベントタイプにより異なります。|×||
 |EventExternal|ルールをトリガーすべきイベントが外部イベントであるかどうかを表すフラグ|真偽値。外部イベントを検出したいときは true を設定してください。|×|デフォルト値 false|
 |Action|イベントがマッチしたときに起動すべきアクション|有効な値は以下の別表|〇||
-|TargetUrl|アクションに対する具体的なターゲットURL|Actionの値によって指定すべき値は変わります。 |×||
+|TargetUrl|アクションに対する具体的なターゲットURL|Actionの値によって指定すべき値は変わります。規則は以下の別表 |×||
 
 #### Valid Actions
 |Action|説明|TargetUrl|備考|
@@ -64,10 +64,23 @@ JSON
 |log.warn|Eventを warn レベルでログ出力します。|-|-|
 |log.error|Eventを error レベルでログ出力します。|-|-|
 
+#### EventObject記述の規則
+|_Box.Name|EventObject|備考|
+|:--|:--|:--|
+|設定あり|personium-localbox:/...||
+|設定なし|personium-localcel:/...||
+
+#### TargetUrl記述の規則
+|Action|_Box.Name|TargetUrl|備考|
+|:--|:--|:--|:--|
+|exec|設定あり|personium-localbox:/{CollectionName}/{ServiceName}||
+|exec|設定なし|personium-localcell:/{BoxName}/{CollectionName}/{ServiceName}||
+|relay||スキームがhttp,https,personium-localunitのURL||
+
 
 ### リクエストサンプル
 ```JSON
-{"Name":"{BoxName}", "Schema":"https://{UnitFQDN}/{CellName}/"}
+{"Name":"{RuleName}", "EventExternal":true, "Action":"log"}
 ```
 
 ## レスポンス
@@ -85,7 +98,7 @@ JSON
 |ETag|リソースのバージョン情報||
 |DataServiceVersion|ODataのバージョン||
 
-#### レスポンスボディ
+### レスポンスボディ
 レスポンスはJSONオブジェクトで、オブジェクト（サブオブジェクト）に定義されるキー(名前)と型、並びに値の対応は以下のとおりです。
 
 |オブジェクト|項目名|Data Type|備考|
@@ -99,13 +112,20 @@ JSON
 |{2}|__updated|string|更新日(UNIX時間)|
 |{1}|__count|string|$inlinecountクエリでの取得結果件数|
 
-### Box固有レスポンスボディ
+### Rule固有レスポンスボディ
 
 |オブジェクト|項目名|Data Type|備考|
 |:--|:--|:--|:--|
-|{3}|type|string|CellCtl.Box|
-|{2}|Name|string|Box名|
-|{2}|Schema|string|Schema名|
+|{3}|type|string|CellCtl.Rule|
+|{2}|Name|string|Rule名|
+|{2}|_Box.Name|string|関係対象のBox名|
+|{2}|EventExternal|boolean||
+|{2}|EventSubject|string||
+|{2}|EventType|string||
+|{2}|EventObject|string||
+|{2}|EventInfo|string||
+|{2}|Action|string||
+|{2}|TargetUrl|string||
 
 
 ### レスポンスボディサンプル
@@ -114,12 +134,19 @@ JSON
   "d": {
     "results": {
       "__metadata": {
-        "uri": "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')",
+        "uri": "https://{UnitFQDN}/{CellName}/__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')",
         "etag": "W/\"1-1486368212581\"",
-        "type": "CellCtl.Box"
+        "type": "CellCtl.Rule"
       },
-      "Name": "{BoxName}",
-      "Schema": null,
+      "Name": "{RuleName}",
+      "_Box.Name": "{BoxName}",
+      "EventExternal": true,
+      "EventSubject": null,
+      "EventType": null,
+      "EventObject": null,
+      "EventInfo": null,
+      "Action": "log",
+      "TargetUrl": null,
       "__published": "/Date(1486368212581)/",
       "__updated": "/Date(1486368212581)/"
     }
@@ -132,7 +159,5 @@ JSON
 ## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Rule" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{BoxName}"}'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Rule" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{RuleName}", "EventExternal":true, "Action":"log"}'
 ```
-
-

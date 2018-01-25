@@ -7,17 +7,26 @@
 
 #### 外部イベント
 [イベント受付API](278_Event_Reception.md) にて、受け付けるイベントを表す。  
-イベント受付APIによってイベントが発生し、受け付けたイベントの内容に沿って処理が実行される。  
-また、将来的には、他のセルに対するメッセージ通知によるイベント受付のリレー処理が可能となる予定。  
-イベント受付時に、発生したイベントの内容をイベントログとして出力する。
+イベント受付APIによってイベントが発生し、受け付けたイベントは、イベントバスに出力される。
+また、将来的には、他のセルに対するイベント受付のリレー処理が可能となる予定。  
 #### 内部イベント
 Personium内部で保持する管理データ（OData/WebDAV/Service等）の状態をもとに実行される処理のことを表す。  
 代表的な内部イベントとして、Personium APIのリクエストがある。  
-Personium APIのレスポンス返却時に実行結果をイベントログとして出力する。
-## イベントのログ
-### イベントログ管理設定
-ログ設定更新APIによってイベントログに対する出力設定が可能。  
-設定した情報を取得するには、ログ設定取得APIを使用する。
+Personium APIのレスポンス返却時に実行結果をイベントとしてイベントバスに出力する。
+
+## イベントの処理
+イベントバスに出力されたイベントは、ルールの条件と合致するか判定され、合致した場合は、ルールに記述されたアクションを実行される。
+アクションには、以下が指定可能。
+* ログ出力
+* スクリプト実行
+* イベント中継
+
+### イベントログフォーマット
+出力形式は以下の通り。
+```
+{dateTime},[{level}],{RequestKey},{external},{schema},{subject},{type},{object},{info}
+```
+
 ### イベントログアクセス方法
 イベントログは、WebDAV上で管理するため、イベントログファイルへのアクセスはWebDAV用のAPIで行う。
 * [ログファイル一覧取得](284_Retrieve_Log_File_list.md)
@@ -31,33 +40,31 @@ Personium APIのレスポンス返却時に実行結果をイベントログと�
 ### 出力例
 #### 外部イベントの出力例
 ```
-2013-04-18 14:52:39.778 [thread-pool-1-38888(20)] [ERROR] EventLogger Req_animal-access_1001,client,
-https://{UnitFQDN}/appCell/,https://{UnitFQDN}/servicemanager/#admin,actionData,/svc
-/token_keeper,resultData
-2013-04-18 14:52:40.688 [thread-pool-1-38888(17)] [INFO ] EventLogger Req_animal-access_2001,client,
-https://{UnitFQDN}/appCell/,https://{UnitFQDN}/servicemanager/#admin,action,/svc/token_keeper,result
-2013-04-18 15:01:46.994 [thread-pool-1-38888(25)] [INFO ] EventLogger Req_animal-access_2001,client,
-https://{UnitFQDN}/appCell/,https://{UnitFQDN}/servicemanager/#admin,action,/svc/token_keeper,result
-2013-04-18 15:06:19.294 [thread-pool-1-38888(15)] [ERROR] EventLogger Req_animal-access_1001,client,
-https://{UnitFQDN}/appCell/,https://{UnitFQDN}/servicemanager/#admin,actionData,/svc
-/token_keeper,resultData
-2013-04-18 15:06:23.360 [thread-pool-1-38888(17)] [INFO ] EventLogger Req_animal-access_2001,client,
-https://{UnitFQDN}/appCell/,https://{UnitFQDN}/servicemanager/#admin,action,/svc/token_keeper,result
-2013-04-18 15:09:18.073 [thread-pool-1-38888(10)] [ERROR] EventLogger Req_animal-access_1001,client,
-https://{UnitFQDN}/appCell/,https://{UnitFQDN}/servicemanager/#admin,actionData,/svc
-/token_keeper,resultData
+2013-04-18T14:52:39.778Z,[ERROR],"Req_animal-access_1001","true",
+"https://{UnitFQDN}/appCell/","https://{UnitFQDN}/servicemanager/#admin","actionData",
+"/svc/token_keeper","resultData"
+2013-04-18T14:52:40.688Z,[INFO ],"Req_animal-access_2001","true",
+"https://{UnitFQDN}/appCell/","https://{UnitFQDN}/servicemanager/#admin","action",
+"/svc/token_keeper","result"
+2013-04-18T15:01:46.994Z,[INFO ],"Req_animal-access_2001","true",
+"https://{UnitFQDN}/appCell/","https://{UnitFQDN}/servicemanager/#admin","action",
+"/svc/token_keeper","result"
+2013-04-18T15:06:19.294Z,[ERROR],"Req_animal-access_1001","true",
+"https://{UnitFQDN}/appCell/","https://{UnitFQDN}/servicemanager/#admin","actionData",
+"/svc/token_keeper","resultData"
+2013-04-18T15:06:23.360Z,[INFO ],"Req_animal-access_2001","true",
+"https://{UnitFQDN}/appCell/","https://{UnitFQDN}/servicemanager/#admin","action",
+"/svc/token_keeper","result"
+2013-04-18T15:09:18.073Z,[ERROR],"Req_animal-access_1001","true",
+"https://{UnitFQDN}/appCell/","https://{UnitFQDN}/servicemanager/#admin","actionData",
+"/svc/token_keeper","resultData"
 ```
 #### 内部イベントの出力例
 ```
-2013-04-18 14:52:39.778 [thread-pool-1-38888(20)] [ERROR] EventLogger Req_animal-access_1001,server,
-https://{UnitFQDN}/appCell/,https://{UnitFQDN}/appCell/#staff,POST,/homeClinic/__token,200
-2013-04-18 14:52:39.778 [thread-pool-1-38888(20)] [ERROR] EventLogger Req_animal-access_1001,server,
-https://{UnitFQDN}/appCell/,https://{UnitFQDN}/appCell/#staff,PROPFIND,/homeClinic/box/col
-/put_blog,207
-2013-04-18 14:52:39.779 [thread-pool-1-38888(20)] [ERROR] EventLogger Req_animal-access_1001,server,
-https://{UnitFQDN}/appCell/,https://{UnitFQDN}/appCell/#staff,PUT,/homeClinic/box/col/put_blog,204
-2013-04-18 14:52:39.780 [thread-pool-1-38888(20)] [ERROR] EventLogger Req_animal-access_1001,server,
-https://{UnitFQDN}/appCell/,https://{UnitFQDN}/appCell/#staff,GET,/homeClinic/box/col
-/blog_20130418,200
+2013-04-18T14:52:39.779Z,[INFO ],"Req_animal-access_1001","false",
+"https://{UnitFQDN}/appCell/","https://{UnitFQDN}/appCell/#staff","odata.update",
+"https://{UnitFQDN}/homeClinic/box/col/put_blog","204"
+2013-04-18T14:52:39.780Z,[INFO ],"Req_animal-access_1001","false",
+"https://{UnitFQDN}/appCell/","https://{UnitFQDN}/appCell/#staff","odata.get",
+"https://{UnitFQDN}/homeClinic/box/col/blog_20130418","200"
 ```
-

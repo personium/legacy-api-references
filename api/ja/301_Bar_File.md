@@ -20,6 +20,7 @@ bar/
  |    +-- 10_relations.json
  |    +-- 20_roles.json
  |    +-- 30_extroles.json
+ |    +-- 50_rules.json
  |    +-- 70_$links.json
  |    +-- 90_rootprops.xml  ★ 必須
  |
@@ -103,8 +104,8 @@ bar/
 
 |項目名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|Roles|Relationのリスト||○||
-|Roles/Name|Relation名|-|○||
+|Roles|Roleのリスト||○||
+|Roles/Name|Role名|-|○||
 
 ##### サンプル
 ```JSON
@@ -136,6 +137,32 @@ https://{UnitFQDN}/cell1/__role/box/staff → https://{UnitFQDN}/cell1/__role/__
     {
       "ExtRole": "https://{UnitFQDN}/{CellName}/__role/__/role2",
       "_Relation.Name": "Relation1"
+    }
+  ]
+}
+```
+#### 50_rules.json
+インストール対象とするRuleの情報を記述したファイル  
+※「有効値」欄が『&#65293;』となっている項目は、、Ruleのリクエストボディを参照
+
+|項目名|概要|有効値|必須|備考|
+|:--|:--|:--|:--|:--|
+|Rules|Ruleのリスト||○||
+|Rules/EventExternal|マッチするイベントの外部イベントフラグ|-|×||
+|Rules/EventSubject|マッチするイベントのSubject|-|×||
+|Rules/EventType|マッチするイベントの型|-|×||
+|Rules/EventObject|マッチするイベントのObject|-|×||
+|Rules/EventInfo|マッチするイベントの情報|-|×||
+|Rules/Action|イベントマッチ時のアクション|-|○||
+|Rules/TargetUrl|アクションの処理対象となるUrl|-|×||
+
+##### サンプル
+```JSON
+{
+  "Rules": [
+    {
+      "Action": "exec",
+      "TargetUrl": "personium-localbox:/col/srv"
     }
   ]
 }

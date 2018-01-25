@@ -125,6 +125,11 @@ GET
           "__deferred": {
             "uri": "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_SentMessage"
           }
+        },
+        "_Rule": {
+          "__deferred": {
+            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_Rule"
+          }
         }
       },
       {
@@ -156,6 +161,11 @@ GET
           "__deferred": {
             "uri": "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_SentMessage"
           }
+        },
+        "_Rule": {
+          "__deferred": {
+            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_Rule"
+          }
         }
       }
     ]
@@ -169,4 +179,3 @@ GET
 curl "https://{UnitFQDN}/{CellName}/__ctl/Box" -X GET -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
-

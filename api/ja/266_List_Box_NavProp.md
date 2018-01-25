@@ -2,8 +2,9 @@
 ## 概要
 セル制御オブジェクトをNavigation Property経由で取得する
 ### 必要な権限
-* Roleを取得する場合<br>auth-read
-* Relationを取得する場合<br>social-read
+* Roleを取得する場合<br>box-read,auth-read
+* Relationを取得する場合<br>box-read,social-read
+* Ruleを取得する場合<br>box-read,rule-read
 
 ### 制限事項
 * リクエストヘッダのAcceptは無視される
@@ -38,6 +39,18 @@
 または、
 ```
 /{CellName}/__ctl/Box('{BoxName}')/_Relation
+```
+#### RuleへのnavigationProperty
+```
+/{CellName}/__ctl/Box(Name='{BoxName}',Schema='SchemaURL')/_Rule
+```
+または、
+```
+/{CellName}/__ctl/Box(Name='{BoxName}')/_Rule
+```
+または、
+```
+/{CellName}/__ctl/Box('{BoxName}')/_Rule
 ```
 ※ Schemaパラメタを省略した場合は、nullが指定されたものとする
 ### メソッド
@@ -157,14 +170,21 @@ GET
 
 
 ## cURLサンプル
+#### Roleを取得する場合
 ```sh
 curl
-"https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_Role" -X POST -i  -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{RoleName}"}'
+"https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_Role" -X GET -i  -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 #### Relationを取得する場合
 ```sh
 curl "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_Relation" -X GET -i -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+```
+#### Ruleを取得する場合
+```sh
+curl
+"https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_Rule" -X GET -i  -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

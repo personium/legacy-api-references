@@ -4,6 +4,14 @@ Boxに$linksで指定したODataリソースを紐付ける<Br>以下のODataリ
 
 * Role
 * Relation
+* Rule
+
+### 必要な権限
+|紐付け先|必要な権限|
+|:-|:-|
+|Role|box<br>auth|
+|Relation|box<br>social|
+|Rule|box<br>rule|
 
 ### 制限事項
 * リクエストヘッダのAcceptは無視される
@@ -38,6 +46,18 @@ Boxに$linksで指定したODataリソースを紐付ける<Br>以下のODataリ
 または、
 ```
 /{CellName}/__ctl/Box('{BoxName}')/$links/_Relation
+```
+#### Ruleとの紐付け
+```
+/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/_Rule
+```
+または、
+```
+/{CellName}/__ctl/Box(Name='{BoxName}')/$links/_Rule
+```
+または、
+```
+/{CellName}/__ctl/Box('{BoxName}')/$links/_Rule
 ```
 
 ※ Schemaパラメタを省略した場合は、nullが指定されたものとする

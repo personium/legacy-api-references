@@ -8,7 +8,7 @@ REST API リファレンスでは、Personiumが提供するすべてのREST API
 Unit Level API はCell群をホストするユニットに属するAPIで、Cellの生成や作成したCell群の管理を行うものです。  
 これらAPIは原則としてCellから発行されたアクセストークンではアクセスできず、ユニットユーザとしてのトークンでのみアクセス可能です。 
 
-Unit Root URL
+#### Unit Root URL
 ````
 https://{UnitFQDN}/
 ````
@@ -25,7 +25,14 @@ Unit Level API の大半はUnit制御オブジェクトという形で実現さ�
 * [Cell再帰的削除](105_Cell_Recursive_Delete.md)
 
 ## Cell Level API
-Cell Level API 次のような機能で構成されます。
+Cell Level API は、Cellを管理するユーザがアプリ等を通じて操作するAPIで、以下のCellルートURL以下に展開されています。  
+
+#### Cell Root URL
+```
+https://{UnitFQDN}/{CellName}/
+```
+
+Cell Level API は、次のような機能で構成されます。
 * 人やアプリケーションの認証
 * アクセス制御
 * Cell間の関係の構築
@@ -36,10 +43,6 @@ Cell Level API 次のような機能で構成されます。
 
 これら機能群の多くはCell制御オブジェクトという形で実現されています。Cell制御オブジェクトはODataに従ったREST操作で操作可能です。
 
-Cell Root URL
-```
-https://{UnitFQDN}/{CellName}/
-```
 
 ### 人やアプリケーションの認証
 
@@ -103,7 +106,7 @@ https://{UnitFQDN}/{CellName}/
 
 |ExtRole|操作|
 |:--|:--|
-|ExtRole|[登録](245_Create_External_Role.md) &nbsp; &nbsp; [取得](247_Get_External_Role.md) &nbsp; &nbsp; [一覧取得](246_List_External_Role.md) &nbsp; &nbsp; [更新](248_Update_External_Role.md) &nbsp; &nbsp; [削除](249_Delete_External_Role.md)|
+|基本操作|[登録](245_Create_External_Role.md) &nbsp; &nbsp; [取得](247_Get_External_Role.md) &nbsp; &nbsp; [一覧取得](246_List_External_Role.md) &nbsp; &nbsp; [更新](248_Update_External_Role.md) &nbsp; &nbsp; [削除](249_Delete_External_Role.md)|
 | &nbsp; &nbsp; 他オブジェクトとのリンク|[リンク](250_Register_External_Role_links.md) &nbsp; &nbsp; ;[リンク解除](253_Delete_External_Role_links.md) &nbsp; &nbsp; [リンク一覧取得](251_Retrieve_External_Role_links.md)|
 | &nbsp; &nbsp; 紐づく他オブジェクト操作作|[登録](254_Register_Using_Role_NavProp.md) &nbsp; &nbsp; [一覧取得](255_List_External_Role_NavProp.md)|
 
@@ -160,18 +163,17 @@ https://{UnitFQDN}/{CellName}/
 #### エクスポート/インポートする機能
 エクスポート実行でCellのスナップショットファイルが作成されます。<br>インポート実行でスナップショットファイルの内容をCellに取り込みます。<br>スナップショットファイルはWebDAVのインターフェースで操作可能です。
 
-||作成・登録|取得|更新|削除|
-|:--|:--|:--|:--|:--|
-|**エクスポート**|[実行](501_Export_Cell.md)|[状態取得](502_Progress_of_Export_Cell.md)|||
-|**インポート**|[実行](507_Import_Cell.md)|[状態取得](508_Progress_of_Import_Cell.md)|||
-|**スナップショット**|[登録更新](503_Register_and_Update_Snapshot_Cell.md)|[取得](504_Get_Snapshot_Cell.md)<br>[設定取得](505_Get_Property_Snapshot_Cell.md)||[削除](506_Delete_Snapshot_Cell.md)|
+||操作|
+|:--|:--|
+|**エクスポート**|[実行](501_Export_Cell.md) &nbsp; &nbsp; [状態取得](502_Progress_of_Export_Cell.md)|
+|**インポート**|[実行](507_Import_Cell.md) &nbsp; &nbsp; [状態取得](508_Progress_of_Import_Cell.md)|
+|**スナップショット**|[登録更新](503_Register_and_Update_Snapshot_Cell.md) &nbsp; &nbsp; [取得](504_Get_Snapshot_Cell.md) &nbsp; &nbsp; [属性取得](505_Get_Property_Snapshot_Cell.md) &nbsp; &nbsp; [削除](506_Delete_Snapshot_Cell.md)|
 
 
 ## Box Level API
 Box Level API は、アプリケーション等がデータを操作するためのAPIで、以下のBox ルートURL以下に展開されています。  
 
-Box Root URL
-
+#### Box Root URL
 ```
 https://{UnitFQDN}/{CellName}/{BoxName}/
 ```
@@ -189,11 +191,11 @@ WebDAVをベースとしたファイルシステム的な考え方のAPI群で�
 
 ### WebDAV 基本操作
 
-||作成・登録|取得|更新|削除|その他|
-|:--|:--|:--|:--|:--|:--|
-|コレクション|[作成](306_Create_Collection.md)|[設定取得](305_Get_Property.md)|[設定変更](308_Change_Property.md)<br>[移動名称変更](309_Update_Move_Collection.md)|[削除](310_Delete_Collection.md)||
-|ファイル|[登録更新](312_Register_and_Update_WebDAV.md)|[取得](311_Get_WebDav.md)<br>[設定取得](307_Get_Property.md)|[設定変更](313_Change_Property.md)|[削除](314_Delete_WebDAV.md)||
-|アクセス制御|||||[設定](315_Configure_Access_Control.md)|
+|対象|操作|
+|:--|:--|
+|コレクション|[作成](306_Create_Collection.md) &nbsp; &nbsp; [設定取得](305_Get_Property.md) &nbsp; &nbsp; [設定変更](308_Change_Property.md) &nbsp; &nbsp; [移動名称変更](309_Update_Move_Collection.md) &nbsp; &nbsp; [削除](310_Delete_Collection.md)|
+|ファイル|[登録更新](312_Register_and_Update_WebDAV.md) &nbsp; &nbsp; [取得](311_Get_WebDav.md) &nbsp; &nbsp; [設定取得](307_Get_Property.md) &nbsp; &nbsp; [設定変更](313_Change_Property.md) &nbsp; &nbsp; [削除](314_Delete_WebDAV.md)|
+|共通|[アクセス制御設定](315_Configure_Access_Control.md)|
 
 ※ すべてのファイルやコレクション（特殊コレクションを含む）に対してACL設定(アクセス制御設定)が可能です。  
 ※ ACL設定 は PROPFINDメソッドで取得できます。
@@ -203,16 +205,27 @@ WebDAVをベースとしたファイルシステム的な考え方のAPI群で�
 リレーショナルデータを扱うための特殊コレクションで、[コレクション作成](306_Create_Collection.md)操作時に特定のパラメタを与えることにより作成可能です。スキーマ定義操作として、いわゆるテーブルに相当するEntityTypeを定義することで、その中にテーブル状のデータを格納・管理することができます。
 
 #### データ操作
+後述スキーマ定義でEntityTypeを定義すると対応するEntitySetが利用可能となります。
 
-||作成・登録|取得|更新|削除|その他|
-|:--|:--|:--|:--|:--|:--|
-|**Entity**|[作成](364_Create_Entity.md)|[取得](366_Get_Entity.md)<br>[一覧取得](365_List_Entity.md)|[更新](367_Update_Entity.md)<br>[部分更新](369_Partial_Update_Entity.md)|[削除](370_Delete_Entity.md)|[一括操作](368_Entity_Bulk_Operations.md)|
-|&nbsp;&nbsp;_$links|[登録](373_Register_User_Data_links.md)|[一覧取得](374_User_Data_List_links.md)|更新|[削除](376_Delete_User_Data_links.md)||
-|&nbsp;&nbsp;_NavProp経由|[登録](377_Register_using_NavProp.md)|[一覧取得](378_List_using_NavProp.md)||||
+|ユーザ定義EntitySet|操作|
+|:--|:--|
+|基本操作|[作成](364_Create_Entity.md) &nbsp; &nbsp; [取得](366_Get_Entity.md) &nbsp; &nbsp; [一覧取得](365_List_Entity.md) &nbsp; &nbsp; [更新](367_Update_Entity.md) &nbsp; &nbsp; [部分更新](369_Partial_Update_Entity.md) &nbsp; &nbsp; [削除](370_Delete_Entity.md) |
+|&nbsp; &nbsp; 他EntitySetのEntityとのリンク|[リンク](373_Register_User_Data_links.md) &nbsp; &nbsp; [リンク解除](376_Delete_User_Data_links.md) &nbsp; &nbsp; [リンク一覧取得](374_User_Data_List_links.md) |
+|&nbsp; &nbsp; 紐づく他EntitySet操作|[作成](377_Register_using_NavProp.md) &nbsp; &nbsp; [一覧取得](378_List_using_NavProp.md)|
 
+
+##### [一括操作](368_Entity_Bulk_Operations.md) 
+複数のオペレーションを一つのRESTリクエストにまとめて発行する機能です。アプリの性能確保のためには非常に重要なものです。
 
 #### スキーマ定義
 
+OData Service Collection には、スキーマ定義のためのOData Serviceが内包されています。この内包されたもうひとつのOData Service 上の Entity Set を操作することで、OData Service Collection の Entity Set やその中で扱うべき Property、Complex Propertyを定義したり、Entity Set 間の Association　を定義することができます。
+
+##### スキーマ定義用 OData Service URL
+```
+{ODataServiceURL}/$metadata/
+```
+##### スキーマ定義用 Entity Set
 
 ||作成・登録|取得|更新|削除|その他|
 |:--|:--|:--|:--|:--|:--|

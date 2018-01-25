@@ -2,7 +2,7 @@
 
 ## Overview
 
-Acquire a service document for schema definition of user data
+Acquire the service document of OData service to perform schema definition of OData Service Collection.
 
 ### Required Privileges
 

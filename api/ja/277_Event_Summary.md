@@ -22,15 +22,10 @@ Personium APIのレスポンス返却時に実行結果をイベントとして�
 * イベント中継
 
 ### イベントログフォーマット
-イベントログは、以下のフォーマットで出力される。
-* 日時
-* リクエストキー
-* 外部イベントフラグ
-* Schema
-* Subject
-* Type
-* Object
-* Info
+出力形式は以下の通り。
+```
+{dateTime},[{level}],{RequestKey},{external},{schema},{subject},{type},{object},{info}
+```
 
 ### イベントログアクセス方法
 イベントログは、WebDAV上で管理するため、イベントログファイルへのアクセスはWebDAV用のAPIで行う。
@@ -45,31 +40,31 @@ Personium APIのレスポンス返却時に実行結果をイベントとして�
 ### 出力例
 #### 外部イベントの出力例
 ```
-2013-04-18 14:52:39.778,[ERROR],"Req_animal-access_1001","true",
+2013-04-18T14:52:39.778Z,[ERROR],"Req_animal-access_1001","true",
 "https://{UnitFQDN}/appCell/","https://{UnitFQDN}/servicemanager/#admin","actionData",
 "/svc/token_keeper","resultData"
-2013-04-18 14:52:40.688,[INFO ],"Req_animal-access_2001","true",
+2013-04-18T14:52:40.688Z,[INFO ],"Req_animal-access_2001","true",
 "https://{UnitFQDN}/appCell/","https://{UnitFQDN}/servicemanager/#admin","action",
 "/svc/token_keeper","result"
-2013-04-18 15:01:46.994,[INFO ],"Req_animal-access_2001","true",
+2013-04-18T15:01:46.994Z,[INFO ],"Req_animal-access_2001","true",
 "https://{UnitFQDN}/appCell/","https://{UnitFQDN}/servicemanager/#admin","action",
 "/svc/token_keeper","result"
-2013-04-18 15:06:19.294,[ERROR],"Req_animal-access_1001","true",
+2013-04-18T15:06:19.294Z,[ERROR],"Req_animal-access_1001","true",
 "https://{UnitFQDN}/appCell/","https://{UnitFQDN}/servicemanager/#admin","actionData",
 "/svc/token_keeper","resultData"
-2013-04-18 15:06:23.360,[INFO ],"Req_animal-access_2001","true",
+2013-04-18T15:06:23.360Z,[INFO ],"Req_animal-access_2001","true",
 "https://{UnitFQDN}/appCell/","https://{UnitFQDN}/servicemanager/#admin","action",
 "/svc/token_keeper","result"
-2013-04-18 15:09:18.073,[ERROR],"Req_animal-access_1001","true",
+2013-04-18T15:09:18.073Z,[ERROR],"Req_animal-access_1001","true",
 "https://{UnitFQDN}/appCell/","https://{UnitFQDN}/servicemanager/#admin","actionData",
 "/svc/token_keeper","resultData"
 ```
 #### 内部イベントの出力例
 ```
-2013-04-18 14:52:39.779,[INFO ],"Req_animal-access_1001","false",
+2013-04-18T14:52:39.779Z,[INFO ],"Req_animal-access_1001","false",
 "https://{UnitFQDN}/appCell/","https://{UnitFQDN}/appCell/#staff","odata.update",
 "https://{UnitFQDN}/homeClinic/box/col/put_blog","204"
-2013-04-18 14:52:39.780,[INFO ],"Req_animal-access_1001","false",
+2013-04-18T14:52:39.780Z,[INFO ],"Req_animal-access_1001","false",
 "https://{UnitFQDN}/appCell/","https://{UnitFQDN}/appCell/#staff","odata.get",
 "https://{UnitFQDN}/homeClinic/box/col/blog_20130418","200"
 ```

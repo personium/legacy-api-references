@@ -1,6 +1,6 @@
 # Role\_$links registration
 
-### Overview
+## Overview
 
 Link Role to the OData resource specified by $links
 
@@ -13,7 +13,8 @@ Only when the \_Box.Name described in the request URL is null (or if it is not s
 
 ### Required Privileges
 
-None
+* social 
+
 
 ### Restrictions
 
@@ -24,11 +25,11 @@ None
 * $formatQuery options ignored
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
-##### Association with the account
+#### Association with the account
 
 ```
 /{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_Account
@@ -46,7 +47,7 @@ or
 /{CellName}/__ctl/Role('{RoleName}')/$links/_Account
 ```
 
-##### Association with the ExtCell
+#### Association with the ExtCell
 
 ```
 /{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_ExtCell
@@ -64,7 +65,7 @@ or
 /{CellName}/__ctl/Role('{RoleName}')/$links/_ExtCell
 ```
 
-##### Association with the ExtRole
+#### Association with the ExtRole
 
 ```
 /{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_ExtRole
@@ -82,7 +83,7 @@ or
 /{CellName}/__ctl/Role('{RoleName}')/$links/_ExtRole
 ```
 
-##### Association with the relation
+#### Association with the relation
 
 ```
 /{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_Relation
@@ -102,17 +103,17 @@ or
 
 If the \_Box.Name parameter is omitted, it is assumed that null is specified
 
-#### Request Method
+### Request Method
 
 POST
 
-#### Request Query
+### Request Query
 
 |Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
-#### Request Header
+### Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -123,9 +124,9 @@ POST
 |Content-Type|Specifies the request body format|application/json|No|[application/json] by default|
 |Accept|Specifies the response body format|application/json|No|[application/json] by default|
 
-#### Request Body
+### Request Body
 
-##### Format
+#### Format
 
 JSON
 
@@ -133,20 +134,20 @@ JSON
 |:--|:--|:--|:--|:--|
 |uri|URI of the OData resource to be linked|Number of digits: 1-1024<br>Follow URI format<br>scheme:http / https / urn|Yes||
 
-#### Request Sample
+### Request Body Sample
 
 ```JSON
 {"uri":"https://{UnitFQDN}/Cell/__ctl/Box('{BoxName}')"}
 ```
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 204
 
-#### Response Header
+### Response Header
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
@@ -154,23 +155,20 @@ JSON
 |Access-Control-Allow-Origin|Cross domain communication permission header|Return value fixed to "*"|
 |X-Personium-Version|API version that the request is processed|Version of the API used to process the request|
 
-#### Response Body
+### Response Body
 
 None
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-#### Response Sample
 
-None
 
-### cURL Command
+## cURL Command
 
 ```sh
 curl "https://{UnitFQDN}/{CellName}/__ctl/Role('{RoleName}')/\$links/_Box" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d "{\"uri\":\"https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')\"}"
 ```
 
 
-###### Copyright 2017 FUJITSU LIMITED

@@ -1,6 +1,6 @@
 # Create Collection
 
-### Overview
+## Overview
 
 Create a collection
 
@@ -10,18 +10,14 @@ write
 
 ### Restrictions
 
-Common restriction
-
-* None
-
 WebDAV restriction
 
 * Unpublished
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
 ```
 /{CellName}/{BoxName}/{CollectionName}
@@ -33,19 +29,19 @@ WebDAV restriction
 |{BoxName}|Box Name||
 |{CollectionName}|Collection Name|Valid values Number of digits:1-128<br>Usable character types<br>alphanumeric character, period(.), under score(_), hyphen(-)|
 
-#### Request Method
+### Request Method
 
 MKCOL
 
-#### Request Query
+### Request Query
 
 |Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
-#### Request Header
+### Request Header
 
-##### Common Request Header
+#### Common Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -53,15 +49,15 @@ MKCOL
 |X-Override|Header override function|${OverwrittenHeaderName}:${Value}|No|The normal HTTP header value is overwritten. Specify multiple X-Override headers for the overwriting of multiple headers|
 |X-Personium-RequestKey|RequestKey field value output in the event log|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters|No||
 
-##### Individual Request Header
+#### Individual Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
 
-#### Request Body
+### Request Body
 
-##### Namespace
+#### Namespace
 
 |URI|Overview|Reference prefix|
 |:--|:--|:--|
@@ -70,7 +66,7 @@ MKCOL
 
 \* Reference The prefixes are for making it easier to read the following table, but the use of these prefix strings is not ensured or requested.
 
-##### Structure of XML
+#### Structure of XML
 
 The body is XML and follows the following schema.
 
@@ -84,9 +80,9 @@ The body is XML and follows the following schema.
 |odata|p:|Element|Represents an OData collection|If collection node and odata node are specified OData collection creation|
 |service|p:|Element|Represents a Service collection|If collection node and service node are specified Service collection creation|
 
-##### DTD notation
+#### DTD notation
 
-##### Namespace D:
+#### Namespace D:
 
 ```dtd
 <!ELEMENT mkcol (set) >
@@ -96,14 +92,14 @@ The body is XML and follows the following schema.
 <!ELEMENT collection EMPTY>   
 ```
 
-##### Namespace p:
+#### Namespace p:
 
 ```dtd
 <!ELEMENT odata EMPTY>
 <!ELEMENT service EMPTY>
 ```
 
-#### Request Sample
+### Request Sample
 
 Create WebDAV collection
 
@@ -153,59 +149,62 @@ Create Service Collection
 ```
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 201
 
-#### Response Header
+### Response Header
 
-##### Common Response Header
+#### Common Response Header
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
 |Access-Control-Allow-Origin|Cross domain communication permission header|Return value fixed to "*"|
 |X-Personium-Version|API version that the request is processed|Version of the API used to process the request|
 
-##### WebDAVCommon Response Header
+#### WebDAVCommon Response Header
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
 |ETag|Resource version information|Return only when collection can be created successfully|
 
-#### Response Body
+### Response Body
 
 None
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-#### Response Sample
 
-None
-
-
-### cURL Command
+## cURL Command
 
 Create WebDAV collection
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}" -X MKCOL -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8"?><D:mkcol xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns"><D:set><D:prop><D:resourcetype><D:collection/></D:resourcetype></D:prop></D:set></D:mkcol>'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}" -X MKCOL -i -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
+'<?xml version="1.0" encoding="utf-8"?><D:mkcol xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns"><D:set>
+<D:prop><D:resourcetype><D:collection/></D:resourcetype></D:prop></D:set></D:mkcol>'
 ```
 
 Create OData collection
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}" -X MKCOL -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8"?><D:mkcol xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns"><D:set><D:prop><D:resourcetype><D:collection/><p:odata/></D:resourcetype></D:prop></D:set></D:mkcol>'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}" -X MKCOL -i -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
+'<?xml version="1.0" encoding="utf-8"?><D:mkcol xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns"><D:set>
+<D:prop><D:resourcetype><D:collection/><p:odata/></D:resourcetype></D:prop></D:set></D:mkcol>'
 ```
 
 Create Service Collection
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}" -X MKCOL -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8"?><D:mkcol xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns"><D:set><D:prop><D:resourcetype><D:collection/><p:service/></D:resourcetype></D:prop></D:set></D:mkcol>'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}" -X MKCOL -i -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
+'<?xml version="1.0" encoding="utf-8"?><D:mkcol xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns"><D:set>
+<D:prop><D:resourcetype><D:collection/><p:service/></D:resourcetype></D:prop></D:set></D:mkcol>'
 ```
 
-
-###### Copyright 2017 FUJITSU LIMITED

@@ -1,6 +1,6 @@
 # Acquire Cell snapshot file setting
 
-### Overview
+## Overview
 
 Get Cell snapshot file property.
 
@@ -13,9 +13,9 @@ root
 * A function that specifies properties to be returned in the response body(Become current allprop)
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
 ```
 /{CellName}/__snapshot
@@ -27,17 +27,17 @@ or
 /{CellName}/__snapshot/{FileName}
 ```
 
-#### Request Method
+### Request Method
 
 PROPFIND
 
-#### Request Query
+### Request Query
 
 |Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
-#### Request Header
+### Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -47,7 +47,7 @@ PROPFIND
 |Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
 |Depth|To get the hierarchy of a resource|0:The target resource itself <br>1:Gets target and resources directly under the target|Yes||
 
-#### Request Body
+### Request Body
 
 Namespace
 
@@ -73,7 +73,7 @@ DTD notation
 <!ELEMENT allprop ENPTY >
 ```
 
-#### Request Sample
+### Request Sample
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -83,15 +83,15 @@ DTD notation
 ```
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 |Code|Message|Overview|
 |:--|:--|:--|
 |207|Multi-Status|Success|
 
-#### Response Header
+### Response Header
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
@@ -99,7 +99,7 @@ DTD notation
 |Access-Control-Allow-Origin|Cross domain communication permission header|Return value fixed to "*"|
 |X-Personium-Version|API version that the request is processed|Version of the API used to process the request|
 
-#### Response Body
+### Response Body
 
 Namespace
 
@@ -151,11 +151,11 @@ Namespace D:
 <!ELEMENT acl (ace*)>
 ```
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-#### Response Sample
+### Response Sample
 
 ```xml
 <multistatus xmlns="DAV:">
@@ -177,11 +177,12 @@ Refer to [Error Message List](004_Error_Messages.md)
 ```
 
 
-### cURL Sample
+## cURL Sample
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__snapshot/CellExport_2017_01.zip" -X PROPFIND -i  -H 'Depth:0' -H 'Authorization: Bearer {AccessToken}' -d '<?xml version="1.0" encoding="utf-8"?><D:propfind xmlns:D="DAV:"><D:allprop/></D:propfind>'
+curl "https://{UnitFQDN}/{CellName}/__snapshot/CellExport_2017_01.zip" -X PROPFIND -i  -H \
+'Depth:0' -H 'Authorization: Bearer {AccessToken}' -d '<?xml version="1.0" encoding="utf-8"?>
+<D:propfind xmlns:D="DAV:"><D:allprop/></D:propfind>'
 ```
 
 
-###### Copyright 2017 FUJITSU LIMITED

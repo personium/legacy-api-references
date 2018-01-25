@@ -1,6 +1,6 @@
 # Box Level Access Control Configuration
 
-### Overview
+## Overview
 
 Provides box level access control functions
 
@@ -15,9 +15,9 @@ write-acl
 * Acquisition of a list of privileges configurable by the ACL
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
 ```
 /{CellName}/{BoxName}
@@ -35,15 +35,15 @@ or
 |{BoxName}|Box Name||
 |{ResourcePath}|Path to resource|Valid values Number of digits:1-128<br>Usable character types<br>alphanumeric character, period(.), under score(_), hyphen(-)|
 
-#### Request Method
+### Request Method
 
 ACL
 
-#### Request Query
+### Request Query
 
 None
 
-#### Request Header
+### Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -52,7 +52,7 @@ None
 |X-Personium-RequestKey|RequestKey field value output in the event log|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters|No||
 |Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
 
-#### Request Body
+### Request Body
 
 Namespace
 
@@ -123,7 +123,7 @@ namespace xml:
 <!ATTLIST acl base CDATA #IMPLIED>
 ```
 
-#### Request Sample
+### Request Sample
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -151,40 +151,37 @@ namespace xml:
 ```
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 |Code|Message|Overview|
 |:--|:--|:--|
 |200|OK|Success|
 
-#### Response Header
+### Response Header
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
 |Content-Type|Format of data to be returned|Only when it failed at the time of update / creation, return it|
 
-#### Response Body
+### Response Body
 
 None
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-#### Response Sample
 
-None
-
-
-### cURL Command
+## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}" -X ACL -i
--H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}" -X ACL -i\
+-H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d\
 '<?xml version="1.0" encoding="utf-8" ?>
- <D:acl xmlns:D="DAV:" xml:base="https://{UnitFQDN}/{CellName}/__role/{BoxName}/" xmlns:p="urn:x-personium:xmlns" p:requireSchemaAuthz="none">
+ <D:acl xmlns:D="DAV:" xml:base="https://{UnitFQDN}/{CellName}/__role/{BoxName}/" 
+xmlns:p="urn:x-personium:xmlns" p:requireSchemaAuthz="none">
   <D:ace>
    <D:principal>
     <D:href>doctor</D:href>
@@ -202,4 +199,3 @@ curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}" -X ACL -i
 ```
 
 
-###### Copyright 2017 FUJITSU LIMITED

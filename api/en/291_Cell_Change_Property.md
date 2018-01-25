@@ -1,6 +1,6 @@
 # Change Properties
 
-### Overview
+## Overview
 
 change Cell properties
 
@@ -13,25 +13,25 @@ Only unit users permitted
 Unpublished
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
 ```
 /{CellName}
 ```
 
-#### Request Method
+### Request Method
 
 PROPPATCH
 
-#### Request Query
+### Request Query
 
 |Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
-#### Request Header
+### Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -41,7 +41,7 @@ PROPPATCH
 |Content-Type|Specify content format|application / xml|No||
 |Accept|Specify acceptable media types in response|application / xml|No||
 
-#### Request Body
+### Request Body
 
 |Item Name|Namespace|Overview|Required|Effective Value|Notes|
 |:--|:--|:--|:--|:--|:--|
@@ -53,7 +53,7 @@ PROPPATCH
 |prop|DAV:|remove property value|No|<! ELEMENT prop ANY>|Delete using the XML tag specified as ANY as a key|
 |prop|DAV:|set property value|No|<! ELEMENT prop ANY>|The XML tag specified as ANY is the key|
 
-#### Request Sample
+### Request Sample
 
 ```xml
 <D:propertyupdate xmlns:D="DAV:"
@@ -72,19 +72,19 @@ PROPPATCH
 ```
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 |Code|Message|Overview|
 |:--|:--|:--|
 |207|MULTI_STATUS|Success|
 
-#### Response Header
+### Response Header
 
 None
 
-#### Response Body
+### Response Body
 
 |Item Name|Namespace|Overview|Notes|
 |:--|:--|:--|:--|
@@ -95,11 +95,11 @@ None
 |prop|DAV:|property setting contents|display resource setting result as following <br>success: setting key and value<br>delete success: deleted key|
 |status|DAV:|Property setting status code|In the case of setting success 200 (OK) is returned|
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-#### Response Sample
+### Response Sample
 
 ```xml
 <multistatus xmlns="DAV:">
@@ -117,13 +117,12 @@ Refer to [Error Message List](004_Error_Messages.md)
 ```
 
 
-### cURL Command
+## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}" -X PROPPATCH -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8" ?>
+curl "https://{UnitFQDN}/{CellName}" -X PROPPATCH -i -H 'Authorization: Bearer {AccessToken}' -H \
+'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8" ?>
 <D:propertyupdate xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns"><D:set><D:prop>
 <p:hoge>${hoge}</p:hoge></D:prop></D:set><D:remove><D:prop><p:hoge/></D:prop></D:remove></D:propertyupdate>'
 ```
 
-
-###### Copyright 2017 FUJITSU LIMITED

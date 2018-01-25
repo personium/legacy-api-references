@@ -492,4 +492,3 @@ Sample of 90\_rootprops.xml for service registration
 ```
 
 
-###### Copyright 2017 FUJITSU LIMITED

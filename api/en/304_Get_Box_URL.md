@@ -1,6 +1,6 @@
 # Get BoxURL
 
-### Overview
+## Overview
 
 It is a resource used to obtain the URL of Box. The application that performed the schema authentication redirects to the Box URL for the schema - authenticated application by accessing this resource with an access token.  
 An application that does not support schema authentication redirects to the URL of the corresponding Box by giving schema url as a parameter.
@@ -16,31 +16,27 @@ The user can read the Box route. (User authentication is unnecessary when the Bo
 
 \*For the requireSchemaAuthz attribute of the ACL, see "Schema Privilege Request Level" in the [access control model](../../user_guide/002_Access_Control.md).
 
-### Restrictions
 
-None
+## Request
 
-
-### Request
-
-#### Request URL
+### Request URL
 
 ```
 /{CellName}/__box
 ```
 
-#### Request Method
+### Request Method
 
 GET
 
-#### Request Query
+### Request Query
 
 |Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 |schema|App cell URL|URL format|No|Number of digits: 1-1024<br>Follow URI format|
 
-#### Request Header
+### Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -49,24 +45,20 @@ GET
 |X-Personium-RequestKey|RequestKey field value output in the event log|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters|No||
 |Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
 
-#### Request Body
-
-None
-
-#### Request Sample
+### Request Body
 
 None
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 |Code|Message|Overview|
 |:--|:--|:--|
 |200|FOUND|Acquisition success|
 
-#### Response Header
+### Response Header
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
@@ -78,34 +70,34 @@ Location sample
 Location:https://{UnitFQDN}/{CellName}/{BoxName}
 ```
 
-#### Response Body
+### Response Body
 
 None
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-#### Response Sample
+### Response Sample
 
 ```
 Location:https://{UnitFQDN}/{CellName}/{BoxName}
 ```
 
 
-### cURL Command
+## cURL Command
 
-#### Schema authenticated
-
-```sh
-curl "https://{UnitFQDN}/{CellName}/__box" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
-```
-
-#### Schema authentication not supported
+### Schema authenticated
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__box?schema=https://{UnitFQDN}/{CellName}/" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/__box" -X GET -i -H 'Authorization: Bearer {AccessToken}' \
+-H 'Accept: application/json'
 ```
 
+### Schema authentication not supported
 
-###### Copyright 2017 FUJITSU LIMITED
+```sh
+curl "https://{UnitFQDN}/{CellName}/__box?schema=https://{UnitFQDN}/{CellName}/" -X GET -i -H\
+ 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+```
+

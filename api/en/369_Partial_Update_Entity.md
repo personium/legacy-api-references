@@ -1,6 +1,6 @@
 # Entity partial update
 
-### Overview
+## Overview
 
 Partial update of Entity of user data
 
@@ -22,9 +22,9 @@ write
     * For EntityType, you can create up to 400 DynamicProperty / DeclaredProperty / ComplexTypeProperty
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
 ```
 /{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}({EntityID})}
@@ -38,21 +38,21 @@ write
 |{EntityTypeName}|EntityType name|
 |{EntityID}|ID of Entity to update|
 
-#### Request Method
+### Request Method
 
 MERGE
 
-#### Request Query
+### Request Query
 
-##### Common Request Query
+#### Common Request Query
 
 |Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
-#### Request Header
+### Request Header
 
-##### Common Request Header
+#### Common Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -61,13 +61,13 @@ MERGE
 |X-Override|Header override function|${OverwrittenHeaderName}:${Value}|No|The normal HTTP header value is overwritten. Specify multiple X-Override headers for the overwriting of multiple headers|
 |X-Personium-RequestKey|RequestKey field value output in the event log|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters|No||
 
-##### OData Common Request Header
+#### OData Common Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
 
-##### OData Update Request Header
+#### OData Update Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -75,20 +75,20 @@ MERGE
 |Accept|Specifies the response body format|application/json|No|When omitted, treat it as [application/json]|
 |If-Match|Specifies the target ETag value|ETag value|No|[*] by default|
 
-#### Request Body
+### Request Body
 
-##### Property
+#### Property
 
 Set up schema-defined properties and dynamic (schema-undefined) properties, up to 400 properties in total  
 Contains the number of properties defined by ComplexType in the above
 
-##### Schema-defined properties
+#### Schema-defined properties
 
 |Item Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |Property associated with EntityType|User defined item|Based on DefaultValue of default value Property|Based on Property Nullable||
 
-##### Dynamic (schema undefined) property
+#### Dynamic (schema undefined) property
 
 |Data type|Effective Value|
 |:--|:--|
@@ -101,13 +101,13 @@ Contains the number of properties defined by ComplexType in the above
 It is possible to set properties dynamically without defining schema  
 You can only register "character string" "number" "boolean" "null"
 
-##### Valid value of dynamic property's key
+#### Valid value of dynamic property's key
 
 |Data type|Effective Value|
 |:--|:--|
 |String|Number of digits: 1-128 :<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, - (hyphen) and _(underscore) can not be specified as the first character <br>_published, _updated is a reserved word, so it is not possible to specify the request body|
 
-##### Valid value of value of dynamic property
+#### Valid value of value of dynamic property
 
 Same as valid value of value of schema-defined property  
 Array, associative array can not be specified
@@ -121,44 +121,37 @@ Array, associative array can not be specified
 * If an item in ComplexType is specified, only the specified item is updated
     * Do not update undesignated items (keep original value)
 
-#### Request Sample
 
-None
+## Response
 
-
-### Response
-
-#### Response Code
+### Response Code
 
 204
 
-#### Response Header
+### Response Header
 
-##### OData Response Header
+#### OData Response Header
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
 |ETag|Resource version information||
 |DataServiceVersion|OData version||
 
-#### Response Body
+### Response Body
 
 None
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-#### Response Sample
 
-None
-
-
-### cURL Command
+## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')" -X MERGE -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"name": "episode","outcome": "After treatment"}'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')" \
+-X MERGE -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"name": \
+"episode","outcome": "After treatment"}'
 ```
 
 
-###### Copyright 2017 FUJITSU LIMITED

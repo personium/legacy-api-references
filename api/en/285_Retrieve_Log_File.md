@@ -1,6 +1,6 @@
 # Log File Acquire
 
-### Overview
+## Overview
 
 acquire event log  
 If you exceed the maximum number of generations to hold rotate when the log file, the log file of the oldest is deleted.
@@ -29,17 +29,17 @@ log-read
 |3rd Rotation|archive/<br>default.log.1402910774659<br>default.log.1403910784659<br>default.log.1403910784659|<br>the file before preceding file<br>the preceding roteted file<br>Newly rotated file|<br>2014-06-16 18:26:14 +0900<br>2014-06-28 08:13:04 +0900<br>2014-07-09 21:59:44 +0900|
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
-##### Recent log file
+#### Recent log file
 
 ```
 /{CellName}/__log/current/{LogName}
 ```
 
-##### Log file that is rotated
+#### Log file that is rotated
 
 ```
 /{CellName}/__log/archive/{LogName}
@@ -47,19 +47,19 @@ log-read
 
 \*{LogName} specifies the file name returned by the log file information acquisition API.
 
-#### Request Method
+### Request Method
 
 GET
 
-#### Request Query
+### Request Query
 
 |Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
-#### Request Header
+### Request Header
 
-##### Common Request Header
+#### Common Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -68,28 +68,24 @@ GET
 |X-Personium-RequestKey|RequestKey field value output in the event log|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters|No|PCS-${UNIXtime} by default|
 |Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
 
-#### Request Body
-
-None
-
-#### Request Sample
+### Request Body
 
 None
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 200
 
-#### Response Header
+### Response Header
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
 |Content-Type|MimeType depending on Resource|"text/csv" or "application/zip"|
 
-#### Response Body
+### Response Body
 
 If there is no log at current log acquisition time, return an empty response body.  
 There is a possibility that the rotate size is about 5MB larger than it configured  
@@ -111,30 +107,32 @@ Output form is following
 |object|External events: Object defined in the event reception<br>Internal events:Requested resource path|String|
 |result|External events: Result defined in the event reception<br>Internal events:Requested resource path|String|
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-#### Response Sample
+### Response Sample
 
 External Events
 
 ```
-2013-02-04T00:50:12.761Z,[INFO ],Req_animal-access_1001,client,https://{UnitFQDN}/{CellName}/,https://{UnitFQDN}/servicemanager/#admin,authSchema,/{CellName}/{BoxName}/service_name/token_keeper,[XXXX2033] Success schema authorization. cellUrl=https://{UnitFQDN}/keeper-d4a57bb26eae481486b07d06487051d1/
+2013-02-04T00:50:12.761Z,[INFO ],Req_animal-access_1001,client,https://{UnitFQDN}/{CellName}/,
+https://{UnitFQDN}/servicemanager/#admin,authSchema,/{CellName}/{BoxName}/service_name/token_keeper,
+[XXXX2033] Success schema authorization. cellUrl=https://{UnitFQDN}/keeper-d4a57bb26eae481486b07d06487051d1/
 ```
 
 Internal Event
 
 ```
-2013-04-18T14:52:39.778Z,[ERROR],PCS-1364350331902,server,https://{UnitFQDN}/appCell/,https://{UnitFQDN}/appCell/#staff,POST,/homeClinic/__token,200
+2013-04-18T14:52:39.778Z,[ERROR],PCS-1364350331902,server,https://{UnitFQDN}/appCell/,
+https://{UnitFQDN}/appCell/#staff,POST,/homeClinic/__token,200
 ```
 
 
-### cURL Command
+## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__log/current/default.log" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/__log/current/default.log" -X GET -i -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 
-
-###### Copyright 2017 FUJITSU LIMITED

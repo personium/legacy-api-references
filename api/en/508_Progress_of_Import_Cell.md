@@ -1,6 +1,6 @@
 # Get cell import status
 
-### Overview
+## Overview
 
 Get Cell Import status. The Cell import state includes the following information.
 
@@ -17,30 +17,26 @@ Get Cell Import status. The Cell import state includes the following information
 
 root
 
-### Restrictions
 
-* None
+## Request
 
-
-### Request
-
-#### Request URL
+### Request URL
 
 ```
 /{CellName}/__import
 ```
 
-#### Request Method
+### Request Method
 
 GET
 
-#### Request Query
+### Request Query
 
 |Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
-#### Request Header
+### Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -48,24 +44,20 @@ GET
 |X-Personium-RequestKey|RequestKey field value output in the event log|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters|No|PCS-${UNIXtime} by default|
 |Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
 
-#### Request Body
-
-None
-
-#### Request Sample
+### Request Body
 
 None
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 |Code|Message|Overview|Notes|
 |:--|:--|:--|:--|
 |200|OK|On success|Cell import status refers to response body|
 
-#### Response Header
+### Response Header
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
@@ -73,7 +65,7 @@ None
 |X-Personium-Version|API version that the request is processed|Version of the API used to process the request|
 |Content-Type|Format of data to be returned||
 
-#### Response Body
+### Response Body
 
 Response is JSON format and is defined as an object (subobject).  
 The correspondence between key (name) and type, and value are as follows.
@@ -86,11 +78,11 @@ The correspondence between key (name) and type, and value are as follows.
 |Root|importation_name|string|Import file name (excluding extension)|Do not output when status is below.<br>"ready"|
 |Root|message|object|Object (message format)|Output only when status is below.<br>"import failed"<br>See [ Error Messages ](004_Error_Messages.md) for details|
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-#### Response Sample
+### Response Sample
 
 Cell Import accepted (Including when importing Cell)
 
@@ -130,11 +122,11 @@ Cell Import Abnormal termination
 ```
 
 
-### cURL Sample
+## cURL Sample
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__import" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/__import" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H \
+'Accept: application/json'
 ```
 
 
-###### Copyright 2017 FUJITSU LIMITED

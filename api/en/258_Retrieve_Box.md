@@ -4,11 +4,11 @@
 
 Obtain existing Box information
 
-## Required Privileges
+### Required Privileges
 
 box-read
 
-## Restrictions
+### Restrictions
 
 * Accept in the request header is ignored
 * Always handles Content-Type in the request header as application/json
@@ -59,10 +59,6 @@ GET
 |Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
 |Accept|Specifies the response body format|application/json|No|[application/json] by default|
 |If-None-Match|Specifies the target ETag value|ETag value|Yes|Not compatible|
-
-### Request Sample
-
-None
 
 
 ## Response
@@ -146,7 +142,8 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')" -X GET -i -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 
 

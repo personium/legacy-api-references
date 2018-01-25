@@ -6,4 +6,3 @@ First, register the user logic as a file, set up the service collection and asso
 
 For details, see the service model.
 
-###### Copyright 2017 FUJITSU LIMITED

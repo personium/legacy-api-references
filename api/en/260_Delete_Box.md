@@ -10,6 +10,13 @@ box
 
 ## Request
 
+* Accept in the request header is ignored
+* Always handles Content-Type in the request header as application/json
+* Only accepts the request body in the JSON format
+* Only application/json is supported for Content-Type in the request header and the JSON format for the response body
+* $formatQuery options ignored
+
+
 ### Request URL
 
 ```
@@ -48,6 +55,7 @@ None
 
 ## Response
 
+
 ### Successful Response Code
 
 204
@@ -71,5 +79,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')" -X DELETE -i  -H 'If-Match: *' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')" -X DELETE -i  -H 'If-Match: *' -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
+

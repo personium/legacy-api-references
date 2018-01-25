@@ -1,6 +1,6 @@
 # Get An Entity list via NavProp
 
-### Overview
+## Overview
 
 Get Entity list of user data via Navigation Property.
 
@@ -8,14 +8,10 @@ Get Entity list of user data via Navigation Property.
 
 read
 
-### Restrictions
 
-None
+## Request
 
-
-### Request
-
-#### Request URL
+### Request URL
 
 ```
 /{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')/{NavigationPropertyName}
@@ -44,11 +40,11 @@ NavigationProperty name that can be specified is limited to those having the fol
 |*|1|
 |*|*|
 
-#### Request Method
+### Request Method
 
 GET
 
-#### Request Query
+### Request Query
 
 The following query parameters are available
 
@@ -74,36 +70,32 @@ The following query parameters are available
 
 [Full-text Search (q) Query](408_Full_Text_Search_Query.md)
 
-#### Request Header
+### Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
 |Accept|Specifies the response body format|application/json|No|[application/json] by default|
 
-#### Request Body
-
-None
-
-#### Request Sample
+### Request Body
 
 None
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 200
 
-#### Response Header
+### Response Header
 
 |Item Name|Overview|Notes|
 |:--|:--|:--|
 |Content-Type|Format of data to be returned||
 |DataServiceVersion|OData version information|Return only when Entity can be created successfully|
 
-#### Response Body
+### Response Body
 
 The response is a JSON object, the correspondence between the key (name) and type defined in the object (subobject) and the value is as follows
 
@@ -125,14 +117,14 @@ The response is a JSON object, the correspondence between the key (name) and typ
 
 In addition to the above, return the schema-set item or the dynamic item specified at the time of registration
 
-##### Numerical treatment
+#### Numerical treatment
 
-##### Decimal value(Edm.Single)
+#### Decimal value(Edm.Single)
 
 * The handling when acquiring UserOData in JSON format is as follows
     * The value that the decimal part such as 10.0 becomes 0 is returned as an integer value
 
-##### Numerical value(Edm.Double)
+#### Numerical value(Edm.Double)
 
 \*Double type handling in Personium follows the Java Double specification
 
@@ -143,11 +135,11 @@ In addition to the above, return the schema-set item or the dynamic item specifi
         * Internally, it is managed as a floating point number, but at the time of output, it converts it to fixed point number representation within the range where no information drop occurs and outputs it  
             When output fixed-point number is used for input, the same number of inputs and original number is guaranteed
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-#### Response Sample
+### Response Sample
 
 ```JSON
 {
@@ -165,7 +157,8 @@ Refer to [Error Message List](004_Error_Messages.md)
         "TestProperty": null,
         "_TestEntity": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')/{NavigationPropertyName}"
+            "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')
+/{NavigationPropertyName}"
           }
         }
       }
@@ -175,11 +168,11 @@ Refer to [Error Message List](004_Error_Messages.md)
 ```
 
 
-### cURL Command
+## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')/{NavigationPropertyName}" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')
+/{NavigationPropertyName}" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 
 
-###### Copyright 2017 FUJITSU LIMITED

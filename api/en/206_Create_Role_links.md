@@ -15,7 +15,6 @@ Only when the \_Box.Name described in the request URL is null (or if it is not s
 
 * social 
 
-
 ### Restrictions
 
 * Accept in the request header is ignored
@@ -168,7 +167,9 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Role('{RoleName}')/\$links/_Box" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d "{\"uri\":\"https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')\"}"
+curl "https://{UnitFQDN}/{CellName}/__ctl/Role('{RoleName}')/\$links/_Box" -X POST -i -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
+"{\"uri\":\"https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')\"}"
 ```
 
 

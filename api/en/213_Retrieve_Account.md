@@ -1,6 +1,6 @@
 # Account Acquire
 
-### Overview
+## Overview
 
 Obtain existing Account information
 
@@ -16,9 +16,9 @@ auth-read
 * Response body data is not ensured if atom or xml is specified in the $format query option, although it does not result in an error
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
 ```
 /{CellName}/__ctl/Account(Name='aoount_name')
@@ -30,11 +30,11 @@ or
 /{CellName}/__ctl/Account('{AccountName}')
 ```
 
-#### Request Method
+### Request Method
 
 GET
 
-#### Request Query
+### Request Query
 
 |Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -46,7 +46,7 @@ GET
 
 [$format  Query](404_Format_Query.md)
 
-#### Request Header
+### Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -57,26 +57,22 @@ GET
 |Accept|Specifies the response body format|application/json|No|[application/json] by default|
 |If-None-Match|Specifies the target ETag value|ETag value|Yes|Not compatible|
 
-#### Request Body
-
-None
-
-#### Request Sample
+### Request Body
 
 None
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 200
 
-#### Response Header
+### Response Header
 
 None
 
-#### Response Body
+### Response Body
 
 |Object|Name(Key)|Type|Value|
 |:--|:--|:--|:--|
@@ -89,7 +85,7 @@ None
 |{2}|__updated|string|Update date (UNIX time)|
 |{1}|__count|string|Get number of results in $inlinecount query|
 
-#### Account specific response body
+### Account specific response body
 
 |Object|Item Name|Type|Notes|
 |:--|:--|:--|:--|
@@ -99,11 +95,11 @@ None
 |{2}|Type|string|Initial value:"basic"|
 |{2}|Cell|string|default: null|
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-#### Response Sample
+### Response Sample
 
 ```JSON
 {
@@ -136,11 +132,11 @@ Refer to [Error Message List](004_Error_Messages.md)
 ```
 
 
-### cURL Command
+## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Account('{AccountName}')" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Account('{AccountName}')" -X GET -i -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 
 
-###### Copyright 2017 FUJITSU LIMITED

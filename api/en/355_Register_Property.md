@@ -1,6 +1,6 @@
 # Property Registration
 
-### Overview
+## Overview
 
 Define properties to be specified for user data
 
@@ -26,33 +26,33 @@ alter-schema
     * Even if isKey/UniqueKey is set, it is not reflected in the schema
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
 ```
 /{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/Property
 ```
 
-#### Request Method
+### Request Method
 
 POST
 
-#### Request Query
+### Request Query
 
-##### Common Request Query
+#### Common Request Query
 
 |Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
-##### OData Common Request Query
+#### OData Common Request Query
 
 None
 
-#### Request Header
+### Request Header
 
-##### Common Request Header
+#### Common Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -60,22 +60,22 @@ None
 |X-Override|Header override function|${OverwrittenHeaderName}:${Value}|No|The normal HTTP header value is overwritten. Specify multiple X-Override headers for the overwriting of multiple headers|
 |X-Personium-RequestKey|RequestKey field value output in the event log|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters|No||
 
-##### OData Common Request Header
+#### OData Common Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
 
-##### OData Create Request Header
+#### OData Create Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |Content-Type|Specifies the request body format|application/json|No|[application/json] by default|
 |Accept|Specifies the response body format|application/json|No|[application/json] by default|
 
-#### Request Body
+### Request Body
 
-##### Format
+#### Format
 
 JSON
 
@@ -90,7 +90,7 @@ JSON
 |IsKey|Primary key setting|true / false<br>The default value is false|No||
 |UniqueKey|Unique key setting|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("\_")|No||
 
-##### Valid values for DefaultValue
+#### Valid values for DefaultValue
 
 Valid values of DefaultValue differ depending on Type value (type definition), and also define items with different types of the following definitions with character strings
 
@@ -103,7 +103,7 @@ Valid values of DefaultValue differ depending on Type value (type definition), a
 |Edm.Double|Represents a floating point number with 15 digits precision.|
 |Edm.DateTime|It is specified as a character string in the format of Date ([time of long type])<br> The valid value of [time of long type] is -6847804800000(1753-01-01T00:00:00.000Z)-253402300799999(9999-12-31T23:59:59.999Z)<br>In addition, you can specify the following as reserved words<br> SYSUTCDATETIME (): server time|
 
-#### Request Sample
+### Request Sample
 
 ```JSON
 {
@@ -119,22 +119,22 @@ Valid values of DefaultValue differ depending on Type value (type definition), a
 ```
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 200
 
-#### Response Header
+### Response Header
 
-##### Common Response Header
+#### Common Response Header
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
 |Access-Control-Allow-Origin|Cross domain communication permission header|Return value fixed to "*"|
 |X-Personium-Version|API version that the request is processed|Version of the API used to process the request|
 
-##### OData Response Header
+#### OData Response Header
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
@@ -143,9 +143,9 @@ Valid values of DefaultValue differ depending on Type value (type definition), a
 |DataServiceVersion|OData version||
 |ETag|Resource version information||
 
-#### Response Body
+### Response Body
 
-##### Common
+#### Common
 
 The response is a JSON object, the correspondence between the key (name) and type defined in the object (subobject) and the value are as follows
 
@@ -160,7 +160,7 @@ The response is a JSON object, the correspondence between the key (name) and typ
 |{2}|__updated|string|Update date (UNIX time)|
 |{1}|__count|string|Get number of results in $inlinecount query|
 
-##### Property specific response body
+#### Property specific response body
 
 |Object|Name(Key)|Type|Value|
 |:--|:--|:--|:--|
@@ -175,18 +175,19 @@ The response is a JSON object, the correspondence between the key (name) and typ
 |{2}|UniqueKey|string|Unique key setting|
 |{2}|IsDeclared|boolean|Declared true or false|
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-#### Response Sample
+### Response Sample
 
 ```JSON
 {
   "d": {
     "results": {
       "__metadata": {
-        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/Property(Name='{PropertyName}',_EntityType.Name='{EntityTypeName}')",
+        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata
+/Property(Name='{PropertyName}',_EntityType.Name='{EntityTypeName}')",
         "etag": "W/\"1-1487635336196\"",
         "type": "ODataSvcSchema.Property"
       },
@@ -207,11 +208,13 @@ Refer to [Error Message List](004_Error_Messages.md)
 ```
 
 
-### cURL Command
+## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata/Property" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name": "{PetName}","_EntityType.Name": "{EntityTypeName}","Type": "Edm.String","Nullable": true,"DefaultValue": null,"CollectionKind": "None","IsKey": true,"UniqueKey": null}'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata/Property" -X POST \
+-i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name": "{PetName}",\
+"_EntityType.Name": "{EntityTypeName}","Type": "Edm.String","Nullable": true,"DefaultValue": null,\
+"CollectionKind": "None","IsKey": true,"UniqueKey": null}'
 ```
 
 
-###### Copyright 2017 FUJITSU LIMITED

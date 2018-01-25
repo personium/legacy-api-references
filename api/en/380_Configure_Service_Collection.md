@@ -1,6 +1,6 @@
 # Service Collection Source Settings
 
-### Overview
+## Overview
 
 Apply service collection source settings
 
@@ -13,9 +13,9 @@ Unpublished
 write-properties
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
 ```
 /{CellName}/{BoxName}/{CollectionName}
@@ -27,21 +27,21 @@ write-properties
 |{BoxName}|Box Name||
 |{CollectionName}|Service Collection Name|Valid values <br>Number of digits:1-128<br>Usable character types<br>alphanumeric character, period(.), under score(_), hyphen(-)|
 
-#### Request Method
+### Request Method
 
 PROPPATCH
 
-#### Request Query
+### Request Query
 
-##### Common Request Query
+#### Common Request Query
 
 |Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
-#### Request Header
+### Request Header
 
-##### Common Request Header
+#### Common Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -49,7 +49,7 @@ PROPPATCH
 |X-Override|Header override function|${OverwrittenHeaderName}:${Value}|No|Overwrite normal HTTP header value. To overwrite multiple headers, specify multiple X-Override headers.|
 |X-Personium-RequestKey|RequestKey field value output in the event log|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters|No||
 
-##### Service Collection Settings Specific Request Header
+#### Service Collection Settings Specific Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -57,7 +57,7 @@ PROPPATCH
 |Content-Type|Specify content format|application/xml|No||
 |Accept|Specify acceptable media types in response|application/xml|No||
 
-#### Request Body
+### Request Body
 
 Namespace
 
@@ -87,7 +87,7 @@ DTD notation
 <!ELEMENT prop ANY>
 ```
 
-#### Service collection setting specific definition
+### Service collection setting specific definition
 
 |Node name|Namespace|Node type|Overview|Notes|
 |:--|:--|:--|:--|:--|
@@ -109,7 +109,7 @@ DTD notation
 <!ATTLIST path src CDATA #REQUIRED>
 ```
 
-#### Request Sample
+### Request Sample
 
 ```xml
 <D:propertyupdate xmlns:D="DAV:"
@@ -125,17 +125,17 @@ DTD notation
 ```
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 207
 
-#### Response Header
+### Response Header
 
 None
 
-#### Response Body
+### Response Body
 
 Namespace
 
@@ -168,7 +168,7 @@ DTD notation
 <!ELEMENT status (#PCDATA)>
 ```
 
-#### Response Sample
+### Response Sample
 
 ```xml
 <multistatus xmlns="DAV:">
@@ -186,15 +186,18 @@ DTD notation
 </multistatus>
 ```
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-### cURL Command
+## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}" -X PROPPATCH -i -H "Authorization:Bearer {AccessToken}" -H "Accept:application/json" -d "<?xml version=\"1.0\" encoding=\"utf-8\" ?><D:propertyupdate xmlns:D=\"DAV:\" xmlns:p=\"urn:x-personium:xmlns\"><D:set><D:prop><p:service language=\"JavaScript\"><p:path name=\"sample\" src=\"sample.js\"/></p:service></D:prop></D:set></D:propertyupdate>"
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}" -X PROPPATCH -i -H \
+"Authorization:Bearer {AccessToken}" -H "Accept:application/json" -d \
+"<?xml version=\"1.0\" encoding=\"utf-8\" ?><D:propertyupdate xmlns:D=\"DAV:\" xmlns:p=\"urn:x-personium:xmlns\">
+<D:set><D:prop><p:service language=\"JavaScript\"><p:path name=\"sample\" src=\"sample.js\"/></p:service></D:prop>
+</D:set></D:propertyupdate>"
 ```
 
 
-###### Copyright 2017 FUJITSU LIMITED

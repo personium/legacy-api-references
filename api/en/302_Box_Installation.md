@@ -1,6 +1,6 @@
 # Install Box
 
-### Overview
+## Overview
 
 Install the Box in the specified path using the bar file.For the bar file format, see "[ bar file ](301_Bar_File.md)".  
 Since this API employs the asynchronous communication method, this API immediately restores after accepting Box installation.  
@@ -74,25 +74,25 @@ box-install
 |PL-BI-1005|Unknown Error ({cause})|Internal error|
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
 ```
 /{CellName}/{BoxName}
 ```
 
-#### Request Method
+### Request Method
 
 MKCOL
 
-#### Request Query
+### Request Query
 
 |Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
-#### Request Header
+### Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -103,7 +103,7 @@ MKCOL
 |Content-Type|Specifies the request body format|application/zip|Yes||
 |Content-Length|Specify the size of the request body|Half-width number|No||
 
-#### Request Body
+### Request Body
 
 |Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|
@@ -111,20 +111,16 @@ MKCOL
 
 For the file structure of the bar file, see the [ bar file ](301_Bar_File.md).
 
-#### Request Sample
 
-None
+## Response
 
-
-### Response
-
-#### Response Code
+### Response Code
 
 |Code|Message|Overview|Notes|
 |:--|:--|:--|:--|
 |202|Accepted|Process acceptance success||
 
-#### Response Header
+### Response Header
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
@@ -140,15 +136,15 @@ Location:https://{UnitFQDN}/{CellName}/{BoxName}
 
 For details of URL for [Box metadata acquisition API](303_Progress_of_Bar_File_Installation.md), see Box metadata acquisition.
 
-#### Response Body
+### Response Body
 
 None
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-#### Response Sample
+### Response Sample
 
 ```
 Location: https://{UnitFQDN}/{CellName}/{BoxName}
@@ -156,11 +152,11 @@ Location: https://{UnitFQDN}/{CellName}/{BoxName}
 
 For details of URL for [Box metadata acquisition API](303_Progress_of_Bar_File_Installation.md), see Box metadata acquisition.
 
-### cURL Command
+## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}" -X MKCOL -i -H 'Content-type: application/zip' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' --data-binary @{FileName}
+curl "https://{UnitFQDN}/{CellName}/{BoxName}" -X MKCOL -i -H 'Content-type: application/zip' -H\
+ 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' --data-binary @{FileName}
 ```
 
 
-###### Copyright 2017 FUJITSU LIMITED

@@ -1,6 +1,6 @@
 # Get file setting
 
-### Overview
+## Overview
 
 Get properties 
 
@@ -12,10 +12,6 @@ read-properties
 
 ### Restrictions
 
-Common restriction
-
-* None
-
 WebDAV restriction
 
 * Unpublished
@@ -25,9 +21,9 @@ Restriction on V1.0 series
 * Function to specify properties to be returned in the response body (it becomes current allprop)
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
 ```
 /{CellName}/{BoxName}
@@ -45,25 +41,25 @@ or
 |{BoxName}|Box Name||
 |{ResourcePath}|Path to resource|Valid values Number of digits:1-128<br>Usable character types<br>alphanumeric character, period(.), under score(_), hyphen(-)|
 
-#### Request Method
+### Request Method
 
 PROPFIND
 
-#### Request Query
+### Request Query
 
-##### Common Request Query
+#### Common Request Query
 
 |Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
-##### WebDav Common Request Query
+#### WebDav Common Request Query
 
 None
 
-#### Request Header
+### Request Header
 
-##### Common Request Header
+#### Common Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -71,14 +67,14 @@ None
 |X-Override|Header override function|${OverwrittenHeaderName}:${Value}|No|The normal HTTP header value is overwritten. Specify multiple X-Override headers for the overwriting of multiple headers|
 |X-Personium-RequestKey|RequestKey field value output in the event log|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters|No||
 
-##### Individual Request Header
+#### Individual Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
 |Depth|Resource hierarchy to be acquired|0: Resource itself itself <br> 1: Resource of interest and resource right under it|Yes||
 
-#### Request Body
+### Request Body
 
 Namespace
 
@@ -104,7 +100,7 @@ DTD notation
 <!ELEMENT allprop ENPTY >
 ```
 
-#### Request Sample
+### Request Sample
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -114,22 +110,22 @@ DTD notation
 ```
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 |Code|Message|Overview|
 |:--|:--|:--|
 |207|Multi-Status|Success|
 
-#### Response Header
+### Response Header
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
 |Content-Type|Format of data to be returned||
 |DataServiceVersion|OData version information|Return only when Entity can be successfully acquired|
 
-#### Response Body
+### Response Body
 
 Namespace
 
@@ -196,11 +192,11 @@ namespace xml:
 <!ATTLIST acl base CDATA #IMPLIED>
 ```
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-#### Response Sample
+### Response Sample
 
 ```xml
 <multistatus xmlns="DAV:">
@@ -222,11 +218,11 @@ Refer to [Error Message List](004_Error_Messages.md)
 ```
 
 
-### cURL Command
+## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}" -X PROPFIND -i  -H 'Depth:1' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8"?><D:propfind xmlns:D="DAV:"><D:allprop/></D:propfind>'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}" -X PROPFIND -i  -H 'Depth:1' -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
+'<?xml version="1.0" encoding="utf-8"?><D:propfind xmlns:D="DAV:"><D:allprop/></D:propfind>'
 ```
 
-
-###### Copyright 2017 FUJITSU LIMITED

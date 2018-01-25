@@ -1,59 +1,46 @@
 # Cross-Domain Policy File
 
-### Overview
+## Overview
 
 Gets the (crossdomain.xml) cross-domain policy file.  
 You can get the Cross-domain policy file of all users.
 
-### Required Privileges
+## Request
 
-None
-
-### Restrictions
-
-None
-
-
-### Request
-
-#### Request URL
+### Request URL
 
 ```
 /crossdomain.xml
 ```
 
-#### Request Method
+### Request Method
 
 GET
 
-#### Request Query
+### Request Query
 
 None
 
-#### Request Header
+### Request Header
 
 None
 
-#### Request Body
-
-None
-
-#### Request Sample
+### Request Body
 
 None
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 200
 
-#### Response Header
+### Response Header
 
 None
 
-#### Response Body
+### Response Body
 
 XML
 
@@ -63,15 +50,14 @@ XML
 |/cross-domain-policy/allow-access-from|Domain can be accessed in the current domain. Return the "domain =" * "" attribute value is fixed|
 |/cross-domain-policy/allow-http-request-headers-from|And header information that can be sent, the source domain to the domain of the current header. Return the "domain =" * "headers =" * "" attribute value is fixed|
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-### cURL Command
+## cURL Command
 
 ```sh
 curl "https://{UnitFQDN}/crossdomain.xml" -X GET -i
 ```
 
 
-###### Copyright 2017 FUJITSU LIMITED

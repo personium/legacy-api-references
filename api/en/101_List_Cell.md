@@ -1,6 +1,6 @@
 # Cell list acquisition
 
-### Overview
+## Overview
 
 Get a list of existing Cell information
 
@@ -10,9 +10,6 @@ Only unit users permitted
 
 ### Restrictions
 
-* General Restrictions
-    * None
-
 * OData Restrictions
     * Always handles Content-Type in the request header as application/json
     * Only accepts the request body in the JSON format
@@ -20,19 +17,19 @@ Only unit users permitted
     * Response body data is not ensured if atom or xml is specified in the $format query option, although it does not result in an error
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
 ```
 /__ctl/Cell
 ```
 
-#### Request Method
+### Request Method
 
 GET
 
-#### Request Query
+### Request Query
 
 The following query parameters are available
 
@@ -58,9 +55,9 @@ The following query parameters are available
 
 [Full-text Search (q) Query](408_Full_Text_Search_Query.md)
 
-#### Request Header
+### Request Header
 
-##### Common Request Header
+#### Common Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -68,33 +65,30 @@ The following query parameters are available
 |X-Override|Header override function|${OverwrittenHeaderName}:${Value}|No|The normal HTTP header value is overwritten. Specify multiple X-Override headers for the overwriting of multiple headers|
 |X-Personium-RequestKey|RequestKey field value output in the event log|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters|No|PCS-${UNIXtime} by default|
 
-##### OData Common Request Header
+#### OData Common Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
 
-##### OData Acquire List Request Header
+#### OData Acquire List Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |Accept|Specifies the response body format|application/json|No|[application/json] by default|
 
-#### Request Body
+### Request Body
 
 None
 
-#### Request Sample
 
-None
+## Response
 
-### Response
-
-#### Response Code
+### Response Code
 
 200
 
-#### Response Header
+### Response Header
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
@@ -103,7 +97,7 @@ None
 |Access-Control-Allow-Origin|Cross domain communication permission header|Return value fixed to "*"|
 |X-Personium-Version|Personium API version|Version of the API used to process the request|
 
-#### Response Body
+### Response Body
 
 Common
 
@@ -127,11 +121,11 @@ Cell specific response body
 |{3}|type|string|UnitCtl.Cell|
 |{2}|Name|string|Cell name|
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-#### Response Sample
+### Response Sample
 
 ```JSON
 {
@@ -163,11 +157,10 @@ Refer to [Error Message List](004_Error_Messages.md)
 ```
 
 
-### cURL Command
+## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/__ctl/Cell" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/__ctl/Cell" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H \
+'Accept: application/json'
 ```
 
-
-###### Copyright 2017 FUJITSU LIMITED

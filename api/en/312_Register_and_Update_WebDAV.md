@@ -1,6 +1,6 @@
 # File registration update
 
-### Overview
+## Overview
 
 Register / update WebDav information.
 
@@ -10,18 +10,14 @@ write
 
 ### Restrictions
 
-#### Common restriction
-
-None
-
 #### WebDAV restriction
 
 Unpublished
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
 ```
 /{CellName}/{BoxName}/{ResourcePath}
@@ -33,21 +29,21 @@ Unpublished
 |{BoxName}|Box Name||
 |{ResourcePath}|Path to resource|Valid values Number of digits:1-128<br>Usable character types<br>alphanumeric character, period(.), under score(_), hyphen(-)|
 
-#### Request Method
+### Request Method
 
 PUT
 
-#### Request Query
+### Request Query
 
-##### Common Request Query
+#### Common Request Query
 
 |Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
-#### Request Header
+### Request Header
 
-##### Common Request Header
+#### Common Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -55,7 +51,7 @@ PUT
 |X-Override|Header override function|${OverwrittenHeaderName}:${Value}|No|The normal HTTP header value is overwritten. Specify multiple X-Override headers for the overwriting of multiple headers|
 |X-Personium-RequestKey|RequestKey field value output in the event log|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters|No||
 
-##### Individual Request Header
+#### Individual Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -63,51 +59,42 @@ PUT
 |If-Match|Specifies the target ETag value|ETag value|No|[*] by default|
 |Content-Type|Specify the content format of the registration / update file|String|No|When registering and updating in SWF format<br>Content-Type:application/x-shockwave-flash<br>When registering / updating in PDF format<br>Content-Type:application/pdf<br>When registering and updating in JPG format<br>Content-Type:image/jpeg<br>When registering and updating in js format<br>Content-Type:application/x-javascript|
 
-#### Request Body
+### Request Body
 
 |Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|
 |Designate context information to be registered / updated as a request body in binary|The method specified in the Content-Type header|Yes||
 
-#### Request Sample
 
-None
+## Response
 
-
-### Response
-
-#### Response Code
+### Response Code
 
 |Code|Message|Overview|
 |:--|:--|:--|
 |201|Created|Successful registration|
 |204|No Content|Update success|
 
-#### Response Header
+### Response Header
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
 |Content-Type|Format of data to be returned|Only when it failed at the time of update / creation, return it|
 |ETag|Resource version information||
 
-#### Response Body
+### Response Body
 
 Only when it failed at the time of update / creation, return it
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-#### Response Sample
 
-None
-
-
-### cURL Command
+## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ResourceName}" -X PUT -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{[File contents]}'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ResourceName}" -X PUT -i -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{[File contents]}'
 ```
 
-
-###### Copyright 2017 FUJITSU LIMITED

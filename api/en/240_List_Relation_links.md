@@ -1,6 +1,6 @@
 # Relation\_$links Acquire List
 
-### Overview
+## Overview
 
 List OData resources associated with Relation  
 You can specify the following OData resources
@@ -23,11 +23,11 @@ Unpublished
 * $formatQuery options ignored
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
-##### Correlating with Box
+#### Correlating with Box
 
 ```
 /{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_Box
@@ -45,7 +45,7 @@ or
 /{CellName}/__ctl/Relation('{RelationName}')/$links/_Box
 ```
 
-##### Correlating with ExtCell
+#### Correlating with ExtCell
 
 ```
 /{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_ExtCell
@@ -63,7 +63,7 @@ or
 /{CellName}/__ctl/Relation('{RelationName}')/$links/_ExtCell
 ```
 
-##### Correlating with ExtRole
+#### Correlating with ExtRole
 
 ```
 /{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_ExtRole
@@ -81,7 +81,7 @@ or
 /{CellName}/__ctl/Relation('{RelationName}')/$links/_ExtRole
 ```
 
-##### Correlating with the role
+#### Correlating with the role
 
 ```
 /{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_Role
@@ -101,11 +101,11 @@ or
 
 If the \_Box.Name parameter is omitted, it is assumed that null is specified
 
-#### Request Method
+### Request Method
 
 GET
 
-#### Request Query
+### Request Query
 
 The following query parameters are available
 
@@ -131,7 +131,7 @@ The following query parameters are available
 
 [Full-text Search (q) Query](408_Full_Text_Search_Query.md)
 
-#### Request Header
+### Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -141,22 +141,18 @@ The following query parameters are available
 |Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
 |Accept|Specifies the response body format|application/json|No|[application/json] by default|
 
-#### Request Body
-
-None
-
-#### Request Sample
+### Request Body
 
 None
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 200
 
-#### Response Header
+### Response Header
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
@@ -165,7 +161,7 @@ None
 |Access-Control-Allow-Origin|Cross domain communication permission header|Return value fixed to "*"|
 |X-Personium-Version|API version that the request is processed|Version of the API used to process the request|
 
-#### Response Body
+### Response Body
 
 |Object|Item Name|Data Type|Notes|
 |:--|:--|:--|:--|
@@ -173,11 +169,11 @@ None
 |{1}|results|array|Array object {2}|
 |{2}|uri|string|URI of the linked OData resource|
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-#### Response Sample
+### Response Sample
 
 ```JSON
 {
@@ -192,11 +188,10 @@ Refer to [Error Message List](004_Error_Messages.md)
 ```
 
 
-### cURL Command
+## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/\$links/_Role" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/\$links/_Role" \
+-X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 
-
-###### Copyright 2017 FUJITSU LIMITED

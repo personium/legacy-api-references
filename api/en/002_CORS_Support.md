@@ -1,6 +1,6 @@
 # CORS (Cross Origin Resource Sharing) Support
 
-### Overview
+## Overview
 
 All API of Prsonium are empowered to make cross-origin requests to resources; they are based on CORS (Cross Origin Resource Sharing) principle though with some exceptions.  
 Specifically, if there isno descriptor for the particular exception, based on the request all API endpoint will return the response header like below
@@ -64,4 +64,3 @@ Access-Control-Allow-Origin: sample
 
 http://www.w3.org/TR/cors/
 
-###### Copyright 2017 FUJITSU LIMITED

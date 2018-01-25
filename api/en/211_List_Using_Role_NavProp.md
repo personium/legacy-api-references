@@ -1,6 +1,6 @@
 # Acquisition via Role\_NavProp
 
-### Overview
+## Overview
 
 Acquire cell control object via Navigation Property
 
@@ -20,11 +20,11 @@ Acquire cell control object via Navigation Property
 * $formatQuery options ignored
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
-##### NavigationProperty to Account
+#### NavigationProperty to Account
 
 ```
 /{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_Account
@@ -42,7 +42,7 @@ or
 /{CellName}/__ctl/Role('{RoleName}')/_Account
 ```
 
-##### NavigationProperty to ExCell
+#### NavigationProperty to ExCell
 
 ```
 /{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_ExtCell
@@ -60,7 +60,7 @@ or
 /{CellName}/__ctl/Role('{RoleName}')/_ExtCell
 ```
 
-##### NavigationProperty to ExtRole
+#### NavigationProperty to ExtRole
 
 ```
 /{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_ExtRole
@@ -78,7 +78,7 @@ or
 /{CellName}/__ctl/Role('{RoleName}')/_ExtRole
 ```
 
-##### NavigationProperty to Relation
+#### NavigationProperty to Relation
 
 ```
 /{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_Relation
@@ -98,11 +98,11 @@ or
 
 If the \_Box.Name parameter is omitted, it is assumed that null is specified
 
-#### Request Method
+### Request Method
 
 GET
 
-#### Request Query
+### Request Query
 
 The following query parameters are available
 
@@ -128,7 +128,7 @@ The following query parameters are available
 
 [Full-text Search (q) Query](408_Full_Text_Search_Query.md)
 
-#### Request Header
+### Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -138,22 +138,18 @@ The following query parameters are available
 |Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
 |Accept|Specifies the response body format|application/json|No|[application/json] by default|
 
-#### Request Body
-
-None
-
-#### Request Sample
+### Request Body
 
 None
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 200
 
-#### Response Header
+### Response Header
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
@@ -162,7 +158,7 @@ None
 |Content-Type|Format of data to be returned||
 |DataServiceVersion|OData version||
 
-#### Response Body
+### Response Body
 
 |Object|Item Name|Data Type|Notes|
 |:--|:--|:--|:--|
@@ -175,16 +171,16 @@ None
 |{2}|__updated|string|Update date (UNIX time)|
 |{1}|__count|string|Get number of results in $inlinecount query|
 
-##### When acquired Role
+#### When acquired Role
 
-##### Role specific response body
+#### Role specific response body
 
 |Object|Item Name|Data Type|Notes|
 |:--|:--|:--|:--|
 |{3}|type|string|CellCtl.Role|
 |{2}|Name|string|Role Name|
 
-### Response Sample
+## Response Sample
 
 ```JSON
 {
@@ -218,17 +214,17 @@ None
 }
 ```
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-### cURL Command
+## cURL Command
 
-##### Account and Role via navigationProperty list
+### Account and Role via navigationProperty list
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Role('{RoleName}')/_Account" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Role('{RoleName}')/_Account" -X GET -i -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 
 
-###### Copyright 2017 FUJITSU LIMITED

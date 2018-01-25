@@ -4,11 +4,11 @@
 
 This API creates a new Box
 
-## Required Privileges
+### Required Privileges
 
 box
 
-## Restrictions
+### Restrictions
 
 * Accept in the request header is ignored
 * Always handles Content-Type in the request header as application/json
@@ -132,8 +132,8 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Box" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{BoxName}"}'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Box" -X POST -i -H 'Authorization: Bearer {AccessToken}' \
+-H 'Accept: application/json' -d '{"Name":"{BoxName}"}'
 ```
-
 
 

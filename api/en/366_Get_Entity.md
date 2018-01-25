@@ -1,6 +1,6 @@
 # Get Entity
 
-### Overview
+## Overview
 
 We acquire one entity Entity of user data.
 
@@ -22,9 +22,9 @@ read
 * For EntityType, you can create up to 400 DynamicProperty / DeclaredProperty / ComplexTypeProperty
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
 ```
 /{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}({EntityID})}
@@ -38,11 +38,11 @@ read
 |{EntityTypeName}|EntityType name|
 |{EntityID}|ID of the Entity to acquire|
 
-#### Request Method
+### Request Method
 
 GET
 
-#### Request Query
+### Request Query
 
 The following query parameters are available
 
@@ -56,9 +56,9 @@ The following query parameters are available
 
 [$format  Query](404_Format_Query.md)
 
-#### Request Header
+### Request Header
 
-##### Common Request Header
+#### Common Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -66,42 +66,38 @@ The following query parameters are available
 |X-Override|Header override function|${OverwrittenHeaderName}:${Value}|No|The normal HTTP header value is overwritten. Specify multiple X-Override headers for the overwriting of multiple headers|
 |X-Personium-RequestKey|RequestKey field value output in the event log|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters|No||
 
-##### OData Common Request Header
+#### OData Common Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
 
-##### OData Request Header
+#### OData Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |Accept|Specify the format of the response body|application/json|No|When omitted, treat it as [application/json]|
 |If-None-Match|Specify the value of ETag, if there is no change, 304, if it is changed return the latest resource||No|Specified when acquiring Entity not matching ETag<br>Not compatible|
 
-#### Request Body
-
-None
-
-#### Request Sample
+### Request Body
 
 None
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 200
 
-#### Response Header
+### Response Header
 
 |Item Name|Overview|Notes|
 |:--|:--|:--|
 |Content-Type|Format of data to be returned||
 |DataServiceVersion|OData version information|Return only when Entity can be successfully acquired|
 
-#### Response Body
+### Response Body
 
 The response is a JSON object, the correspondence between the key (name) and type defined in the object (subobject) and the value is as follows
 
@@ -123,14 +119,14 @@ The response is a JSON object, the correspondence between the key (name) and typ
 
 Return items that were schema-set other than the above, or dynamic items specified at registration
 
-##### Numerical treatment
+#### Numerical treatment
 
-##### Decimal value (Edm.Single type)
+#### Decimal value (Edm.Single type)
 
 * The handling when acquiring UserOData in JSON format is as follows
     * The value that the decimal part such as 10.0 becomes 0 is returned as an integer value
 
-##### Numerical value (Edm.Double type)
+#### Numerical value (Edm.Double type)
 
 \*Double type handling in Personium follows the Java Double specification
 
@@ -141,11 +137,11 @@ Return items that were schema-set other than the above, or dynamic items specifi
         * Internally, it is managed as a floating point number, but at the time of output, it converts it to fixed point number representation within the range where no information drop occurs and outputs it  
             When output fixed-point number is used for input, the same number of inputs and original number is guaranteed
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-#### Response Sample
+### Response Sample
 
 ```JSON
 {
@@ -172,11 +168,11 @@ Refer to [Error Message List](004_Error_Messages.md)
 ```
 
 
-### cURL Command
+## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')" -X \
+GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 
 
-###### Copyright 2017 FUJITSU LIMITED

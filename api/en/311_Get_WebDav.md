@@ -1,6 +1,6 @@
 # File acquisition
 
-### Overview
+## Overview
 
 Acquire specific WebDav information  
 Depending on the ETag value specified in the If-None-Match header, the contents to be returned are different  
@@ -15,9 +15,9 @@ read
 Unpublished
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
 ```
 /{CellName}/{BoxName}/{ResourcePath}
@@ -29,19 +29,19 @@ Unpublished
 |{BoxName}|Box Name||
 |{ResourcePath}|Path to resource|Valid values Number of digits:1-128<br>Usable character types<br>alphanumeric character, period(.), under score(_), hyphen(-)|
 
-#### Request Method
+### Request Method
 
 GET
 
-#### Request Query
+### Request Query
 
 |Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
-#### Request Header
+### Request Header
 
-##### Common Request Header
+#### Common Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -49,7 +49,7 @@ GET
 |X-Override|Header override function|${OverwrittenHeaderName}:${Value}|No|Overwrite normal HTTP header value. To overwrite multiple headers, specify multiple X-Override headers.|
 |X-Personium-RequestKey|RequestKey field value output in the event log|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters|No||
 
-##### Individual Request Header
+#### Individual Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -57,18 +57,14 @@ GET
 |If-None-Match|Specify the value of ETag|String<br>Specify the ETag value in the following format<br>"*"<br>or <br>"{Half-width number}-{Half-width number}"|No|Example) When specifying the ETag value "1-1372742704414"<br> "1-1372742704414"|
 |Range|Specify a range when acquiring a part of a resource|-Data type:String<br>[Assumption]<br>Start value of range specification starts at 0.When the size of the acquired file is Z (byte), the termination is Z-1 (byte)<br>1."Range: bytes={Half-width number}-{Half-width number}"<br>ex) "Range: bytes=10-20"<br>2."Range: bytes={Half-width number}-"<br> -> From the range start value to the end of the acquired file<br>ex) "Range: bytes=10-"<br>3."Range: bytes=-{Half-width number}"<br> -> Retrieve the specified minute from the end of the resource<br>ex) "Range: bytes=-20"|No|-Specify a start value smaller than the size of the acquired file<br>-When the format of the specified Range header is incorrect, the Range header is ignored<br>[Limitations]<br>-Not supported for multi-part response|
 
-#### Request Body
-
-None
-
-#### Request Sample
+### Request Body
 
 None
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 * If the If-None-Match header is not specified in the request, or if the ETag value of the If-None-Match header does not match the ETag of the resource stored in the WebDav in the request  
     (Including cases where the format of the specified ETag value is invalid)
@@ -90,7 +86,7 @@ None
 |:--|:--|:--|
 |304|Not Modified|The document has not been updated|
 
-#### Response Header
+### Response Header
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
@@ -101,26 +97,23 @@ None
 
 In case of basic authentication error, return 400 + WWW-Authenticated: Basic header
 
-#### Response Body
+### Response Body
 
 Return the contents of the file  
 However, if the status code is 304, the response body is not returned  
 If the status code is 206, the contents of the file specified in the Range header are returned
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-#### Response Sample
 
-None
-
-
-### cURL Command
+## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}" -X GET -i -H 'If-None-Match:"1-1372742704414"' -H 'Range:bytes=10-20 ' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}" -X GET -i -H \
+'If-None-Match:"1-1372742704414"' -H 'Range:bytes=10-20 ' -H 'Authorization: Bearer {AccessToken}' \
+-H 'Accept: application/json'
 ```
 
 
-###### Copyright 2017 FUJITSU LIMITED

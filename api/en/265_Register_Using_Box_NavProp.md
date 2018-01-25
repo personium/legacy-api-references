@@ -1,6 +1,6 @@
 # Registration via Box\_NavProp
 
-### Overview
+## Overview
 
 register Role,Relation via Box\_NavProp
 
@@ -17,11 +17,11 @@ write
 * $formatQuery options ignored
 * If \_Box.Name in the request URL is different from \_Box.Name in the request body, \_Box.Name of the request body is ignored
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
-##### navigationProperty to Role
+#### navigationProperty to Role
 
 ```
 /{CellName}/__ctl/Box(Name='{BoxName}',Schema='SchemaURL')/_Role
@@ -39,7 +39,7 @@ or
 /{CellName}/__ctl/Box('{BoxName}')/_Role
 ```
 
-##### NavigationProperty to Relation
+#### NavigationProperty to Relation
 
 ```
 /{CellName}/__ctl/Box(Name='{BoxName}',Schema='SchemaURL')/_Relation
@@ -59,17 +59,17 @@ or
 
 If the Schema is omitted, it is assumed that null is specified
 
-#### Request Method
+### Request Method
 
 POST
 
-#### Request Query
+### Request Query
 
 |Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
-#### Request Header
+### Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -80,9 +80,9 @@ POST
 |Content-Type|Specifies the request body format|application/json|No|[application/json] by default|
 |Accept|Specifies the response body format|application/json|No|[application/json] by default|
 
-#### Request Body
+### Request Body
 
-##### When registering Relation
+#### When registering Relation
 
 JSON
 
@@ -91,7 +91,7 @@ JSON
 |Name|Relation Name|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_"), plus, :<br>However, the string cannot start with a underscore ("\_") or colon (:)|Yes||
 |_Box.Name|Box name to be related|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("\_")<br>Description: Specify Name of Box registered with Box registration API <br>Specify null if not associated with specific Box|No||
 
-##### Request Sample
+#### Request Sample
 
 ```JSON
 {
@@ -101,13 +101,13 @@ JSON
 ```
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 201
 
-#### Response Header
+### Response Header
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
@@ -118,7 +118,7 @@ JSON
 |Access-Control-Allow-Origin|Cross domain communication permission header|Return value fixed to "*"|
 |X-Personium-Version|API version that the request is processed|Version of the API used to process the request|
 
-#### Response Body
+### Response Body
 
 |Object|Item Name|Data Type|Notes|
 |:--|:--|:--|:--|
@@ -131,7 +131,7 @@ JSON
 |{2}|__updated|string|Update date (UNIX time)|
 |{1}|__count|string|Get number of results in $inlinecount query|
 
-##### When registered Relation
+#### When registered Relation
 
 |Object|Item Name|Data Type|Notes|
 |:--|:--|:--|:--|
@@ -139,11 +139,11 @@ JSON
 |{2}|Name|string|Relation Name|
 |{2}|_Box.Name|string|Box name to be related|
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-##### Response Sample
+#### Response Sample
 
 ```JSON
 {
@@ -164,20 +164,20 @@ Refer to [Error Message List](004_Error_Messages.md)
 ```
 
 
-### cURL Command
+## cURL Command
 
-##### When registering Role
+### When registering Role
 
 ```sh
 curl
-"https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_Role" -X POST -i  -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{RoleName}"}'
+"https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_Role" -X POST -i  -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{RoleName}"}'
 ```
 
-##### When registering Relation
+### When registering Relation
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_Relation" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{RelationName}"}'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_Relation" -X POST -i -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{RelationName}"}'
 ```
 
-
-###### Copyright 2017 FUJITSU LIMITED

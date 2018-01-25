@@ -1,6 +1,6 @@
 # Delete Collection
 
-### Overview
+## Overview
 
 Delete collection
 
@@ -10,18 +10,14 @@ write
 
 ### Restrictions
 
-#### Common restriction
-
-* None
-
 #### WebDAV restriction
 
 * Unpublished
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
 ```
 /{CellName}/{BoxName}/{CollectionName}
@@ -33,11 +29,11 @@ write
 |{BoxName}|Box Name||
 |{CollectionName}|Collection Name|Valid values Number of digits:1-128<br>Usable character types<br>alphanumeric character, period(.), under score(_), hyphen(-)|
 
-#### Request Method
+### Request Method
 
 DELETE
 
-#### Request Query
+### Request Query
 
 Common Request Query
 
@@ -45,13 +41,13 @@ Common Request Query
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
-#### WebDav Common Request Query
+### WebDav Common Request Query
 
 None
 
-#### Request Header
+### Request Header
 
-##### Common Request Header
+#### Common Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -62,22 +58,18 @@ None
 |If-Match|Specifies the target ETag value|ETag value|No|[*] by default|
 |X-Personium-Recursive|Specify recursive deletion|String|No|If true, recursive deletion of the collection is performed.<br>If it is false or if there is no header specification, normal deletion is carried out.|
 
-#### Request Body
-
-None
-
-#### Request Sample
+### Request Body
 
 None
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 204
 
-#### Response Header
+### Response Header
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
@@ -85,24 +77,20 @@ None
 |Access-Control-Allow-Origin|Cross domain communication permission header|Return value fixed to "*"|
 |X-Personium-Version|API version that the request is processed|Version of the API used to process the request|
 
-#### Response Body
+### Response Body
 
 None
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-#### Response Sample
 
-None
-
-
-### cURL Command
+## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}" -X DELETE -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}" -X DELETE -i -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 
 
-###### Copyright 2017 FUJITSU LIMITED

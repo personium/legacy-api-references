@@ -1,13 +1,14 @@
 # ExtRole Registration
 
-### Overview
+## Overview
 
 register ExtRole
 
-### Restrictions
+### Required Privileges
 
-* General Restrictions
-    * None
+auth
+
+### Restrictions
 
 * OData Restrictions
     * Accept in the request header is ignored
@@ -16,30 +17,26 @@ register ExtRole
     * Only application/json is supported for Content-Type in the request header and the JSON format for the response body
     * $formatQuery options ignored
 
-### Required Privileges
 
-auth
+## Request
 
-
-### Request
-
-#### Request URL
+### Request URL
 
 ```
 /{CellName}/__ctl/ExtRole
 ```
 
-#### Request Method
+### Request Method
 
 POST
 
-#### Request Query
+### Request Query
 
 |Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
-#### Request Header
+### Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -50,7 +47,7 @@ POST
 |Content-Type|Specifies the request body format|application/json|No|[application/json] by default|
 |Accept|Specifies the response body format|application/json|No|[application/json] by default|
 
-#### Request Body
+### Request Body
 
 |Item Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -58,7 +55,7 @@ POST
 |_Relation.Name|Relation name of relationbr|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br> and +(plus) and :(colon)<br>However, the string cannot start with a underscore ("\_") or colon (:)<br>Relation which registered by Relation register API|Yes||
 |_Relation._Box.Name|Box Name aassociated wirh Relation|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Box name associated with Relation registered by Relation registration API<br>null|No||
 
-#### Request Sample
+### Request Sample
 
 ```JSON
 {
@@ -69,20 +66,20 @@ POST
 ```
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 201
 
-#### Response Header
+### Response Header
 
 |Item Name|Overview|Notes|
 |:--|:--|:--|
 |Access-Control-Allow-Origin|Cross domain communication permission header|Return value fixed to "*"|
 |X-Personium-Version|API version that the request is processed|Version of the API used to process the request|
 
-#### OData Response Header
+### OData Response Header
 
 |Item Name|Overview|Notes|
 |:--|:--|:--|
@@ -91,7 +88,7 @@ POST
 |DataServiceVersion|OData version||
 |ETag|Resource version information||
 
-#### Response Body
+### Response Body
 
 The response is a JSON object, the correspondence between the key (name) and type defined in the object (subobject) and the value are as follows
 
@@ -106,7 +103,7 @@ The response is a JSON object, the correspondence between the key (name) and typ
 |{2}|__updated|string|Update date (UNIX time)|
 |{1}|__count|string|Get number of results in $inlinecount query|
 
-#### ExtRole specific response body
+### ExtRole specific response body
 
 |Object|Item Name|Data Type|Notes|
 |:--|:--|:--|:--|
@@ -115,11 +112,11 @@ The response is a JSON object, the correspondence between the key (name) and typ
 |{2}|_Relation.Name|string|Relation Name|
 |{2}|_Relation._Box.Name|string|Box Name aassociated wirh Relation|
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-#### Response Sample
+### Response Sample
 
 ```JSON
 {
@@ -132,7 +129,8 @@ Refer to [Error Message List](004_Error_Messages.md)
       "__metadata": {
         "etag": "W/\"1-1371010428917\"",
         "type": "CellCtl.ExtRole",
-        "uri": "https://{UnitFQDN}/{CellName}/__ctl/ExtRole(ExtRole='https://{UnitFQDN}/{CellName}/__role/__/roletest',_Relation.Name='relation',_Relation._Box.Name=null)"
+        "uri": "https://{UnitFQDN}/{CellName}/__ctl/ExtRole(ExtRole='https://{UnitFQDN}/{CellName}
+/__role/__/roletest',_Relation.Name='relation',_Relation._Box.Name=null)"
       },
       "ExtRole": "https://{UnitFQDN}/{CellName}/__role/__/RoleName"
     }
@@ -142,7 +140,8 @@ Refer to [Error Message List](004_Error_Messages.md)
   "d": {
     "results": {
       "__metadata": {
-        "uri": "https://{UnitFQDN}/{CellName}/__ctl/ExtRole(ExtRole='https://{UnitFQDN}/{CellName}/__role/__/{ExtRoleName}',_Relation.Name='{RelationName}',_Relation._Box.Name='{BoxName}')",
+        "uri": "https://{UnitFQDN}/{CellName}/__ctl/ExtRole(ExtRole='https://{UnitFQDN}/{CellName}
+/__role/__/{ExtRoleName}',_Relation.Name='{RelationName}',_Relation._Box.Name='{BoxName}')",
         "etag": "W/\"1-1486717404966\"",
         "type": "CellCtl.ExtRole"
       },
@@ -157,11 +156,11 @@ Refer to [Error Message List](004_Error_Messages.md)
 ```
 
 
-### cURL Command
+## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/ExtRole" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{ "ExtRole": "https://{UnitFQDN}/{CellName}/__role/__/{ExtRoleName}", "_Relation.Name": "{RelationName}", "_Relation._Box.Name": "{BoxName}"}'
+curl "https://{UnitFQDN}/{CellName}/__ctl/ExtRole" -X POST -i -H 'Authorization: Bearer {AccessToken}' \
+-H 'Accept: application/json' -d '{ "ExtRole": "https://{UnitFQDN}/{CellName}/__role/__/{ExtRoleName}", \
+"_Relation.Name": "{RelationName}", "_Relation._Box.Name": "{BoxName}"}'
 ```
 
-
-###### Copyright 2017 FUJITSU LIMITED

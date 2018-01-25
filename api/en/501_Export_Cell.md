@@ -1,8 +1,14 @@
 # Export Cell
 
-### Overview
+## Overview
 
-This API export all data in Cell as Cell snapshot file.<br>The snapshot file is created in a special area (Cell snapshot area) in PersoniumUnit.<br>When exported successfully, created the file which suffix is ".zip" and when fail created the file which suffix is ".error".(In the ".error" file, detail error message is described)<br>The Cell snapshot area is excluded from the Cell export.<br>Since this API employs the asynchronous communication method, it immediately returns after accepting the API.<br>To confirm the Cell export executing status, use [Get Cell Export status](502_Progress_of_Export_Cell.md),[Get Cell Snapshot property](505_Get_Property_Snapshot_Cell.md).<br>An example of calling from acceptance at the client to completion of processing is shown below.
+This API export all data in Cell as Cell snapshot file.  
+The snapshot file is created in a special area (Cell snapshot area) in PersoniumUnit.  
+When exported successfully, created the file which suffix is ".zip" and when fail created the file which suffix is ".error".(In the ".error" file, detail error message is described)  
+The Cell snapshot area is excluded from the Cell export.  
+Since this API employs the asynchronous communication method, it immediately returns after accepting the API.  
+To confirm the Cell export executing status, use [Get Cell Export status](502_Progress_of_Export_Cell.md),[Get Cell Snapshot property](505_Get_Property_Snapshot_Cell.md).  
+An example of calling from acceptance at the client to completion of processing is shown below.
 
 ```
 Call export call example (with 10 seconds polling on the client)
@@ -29,9 +35,9 @@ root
 * Accept only JSON format for request body
 
 
-### Error file
+## Error file
 
-#### Overview
+### Overview
 
 If the Cell export fails, a file with the extension ". Error" is generated in the Cell snapshot area. (The file name is the name specified by the body)<br>The error content is described in JSON format in the quot; .error & quot; file.<br>The format of the & quot;. error & quot; file is shown below.
 
@@ -42,7 +48,7 @@ If the Cell export fails, a file with the extension ". Error" is generated in th
 |message|lang|string|||
 |message|value|string|||
 
-#### Sample
+### Sample
 
 ```
 {
@@ -56,25 +62,25 @@ If the Cell export fails, a file with the extension ". Error" is generated in th
 ```
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
 ```
 /{CellName}/__export
 ```
 
-#### Request Method
+### Request Method
 
 POST
 
-#### Request Query
+### Request Query
 
 |Query Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
-#### Request Header
+### Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -84,9 +90,9 @@ POST
 |Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
 |Content-Type|Specifies the request body format|application / json|No|[application/json] by default|
 
-#### Request Body
+### Request Body
 
-##### Format
+#### Format
 
 JSON
 
@@ -94,22 +100,22 @@ JSON
 |:--|:--|:--|:--|:--|
 |Name|Snapshot file name (excluding extension)|Number of digits: 1-192<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")|No|Default [{CellName}_yyyyMMdd_HHmmss]|
 
-#### Request Sample
+### Request Sample
 
 ```json
 {"Name":"CellExport_2017_01"}
 ```
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 |Code|Message|Overview|
 |:--|:--|:--|
 |202|Accepted|Processing reception|
 
-#### Response Header
+### Response Header
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
@@ -118,24 +124,19 @@ JSON
 |Access-Control-Allow-Origin|Cross domain communication permission header|Return value fixed to "*"|
 |X-Personium-Version|API version that the request is processed|Version of the API used to process the request|
 
-#### Response Body
+### Response Body
 
 Return error message only if creation fails
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-#### Response Sample
 
-None
-
-
-### cURL Sample
+## cURL Sample
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__export" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"CellExport_2017_01"}'
+curl "https://{UnitFQDN}/{CellName}/__export" -X POST -i -H 'Authorization: Bearer {AccessToken}' \
+-H 'Accept: application/json' -d '{"Name":"CellExport_2017_01"}'
 ```
 
-
-###### Copyright 2017 FUJITSU LIMITED

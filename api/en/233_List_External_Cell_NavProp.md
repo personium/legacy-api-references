@@ -1,6 +1,6 @@
 # List acquire via ExtCell\_NavProp
 
-### Overview
+## Overview
 
 Acquire cell control object via Navigation Property
 
@@ -18,11 +18,11 @@ Acquire cell control object via Navigation Property
 * $formatQuery options ignored
 
 
-### Request
+## Request
 
-#### Request URL
+### Request URL
 
-##### navigationProperty to Role
+#### navigationProperty to Role
 
 ```
 /{CellName}/__ctl/ExtCell(Url='{ExtCellURL}')/_Role
@@ -34,7 +34,7 @@ or
 /{CellName}/__ctl/ExtCell('{ExtCellURL}')/_Role
 ```
 
-##### navigationProperty to Relation
+#### navigationProperty to Relation
 
 ```
 /{CellName}/__ctl/ExtCell(Url='{ExtCellURL}')/_Relation
@@ -48,11 +48,11 @@ or
 
 \* URL encoding required for {ExtCellURL}
 
-#### Request Method
+### Request Method
 
 GET
 
-#### Request Query
+### Request Query
 
 The following query parameters are available
 
@@ -78,7 +78,7 @@ The following query parameters are available
 
 [Full-text Search (q) Query](408_Full_Text_Search_Query.md)
 
-#### Request Header
+### Request Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -88,22 +88,18 @@ The following query parameters are available
 |Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
 |Accept|Specifies the response body format|application/json|No|[application/json] by default|
 
-#### Request Body
-
-None
-
-#### Request Sample
+### Request Body
 
 None
 
 
-### Response
+## Response
 
-#### Response Code
+### Response Code
 
 200
 
-#### Response Header
+### Response Header
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
@@ -112,7 +108,7 @@ None
 |Access-Control-Allow-Origin|Cross domain communication permission header|Return value fixed to "*"|
 |X-Personium-Version|API version that the request is processed|Version of the API used to process the request|
 
-#### Response Body
+### Response Body
 
 |Object|Item Name|Data Type|Remarks|
 |:--|:--|:--|:--|
@@ -125,9 +121,9 @@ None
 |{2}|__updated|string|Update date (UNIX time)|
 |{1}|__count|string|Get number of results in $inlinecount query|
 
-##### When acquired ExtCell
+#### When acquired ExtCell
 
-##### ExtCell specific response body
+#### ExtCell specific response body
 
 |Object|Item Name|Data Type|Remarks|
 |:--|:--|:--|:--|
@@ -135,11 +131,11 @@ None
 |{2}|Name|string|Role name to be related|
 |{2}|_Box.Name|string|Box name to be related|
 
-#### Error Messages
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-#### Response Sample
+### Response Sample
 
 ```JSON
 {
@@ -186,13 +182,12 @@ Refer to [Error Message List](004_Error_Messages.md)
 }
 ```
 
-### cURL Command
+## cURL Command
 
-##### Through Role's navigationProperty list
+### Through Role's navigationProperty list
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{ExtCellName}%2F')/_Role" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{ExtCellName}%2F')/_Role" \
+-X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 
-
-###### Copyright 2017 FUJITSU LIMITED

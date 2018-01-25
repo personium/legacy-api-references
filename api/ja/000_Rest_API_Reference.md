@@ -168,11 +168,16 @@ https://{UnitFQDN}/{CellName}/
 
 
 ## Box Level API
-Box Level API は、アプリケーション等がデータを操作するためのAPIで、WebDAVをベースとしたファイルシステム的な考え方のAPI群です。  
-通常のファイルシステムと同様にファイルの配置・取得、フォルダ（collection）の作成・管理、ファイルやフォルダの一覧取得、アクセス制御の設定・参照等が可能です。
+Box Level API は、アプリケーション等がデータを操作するためのAPIで、以下のBox ルートURL以下に展開されています。  
 
-また以下の特殊コレクションをサポートしているため、ファイル状のデータのみではなく、様々な形態のデータを扱うことができます。  
-これら特殊コレクションはBoxが提供するWebDAV空間上のいかなるパスに作成することもできます。
+Box Root URL
+
+```
+https://{UnitFQDN}/{CellName}/{BoxName}/
+```
+WebDAVをベースとしたファイルシステム的な考え方のAPI群で、通常のファイルシステムと同様にファイルの配置・取得、フォルダ（Collection）の作成・管理、ファイルやフォルダの一覧取得、アクセス制御の設定・参照等が可能です。
+
+また以下の特殊コレクションをサポートしているため、ファイル状のデータのみではなく、様々な形態のデータを扱うことができます。  これら特殊コレクションはBoxが提供するWebDAV空間上のいかなるパスに作成することもできます。
 
 |特殊コレクション|用途|備考|
 |:--|:--|:--|
@@ -181,14 +186,9 @@ Box Level API は、アプリケーション等がデータを操作するため
 |CALDAV Collection|カレンダーデータ|未実装|
 |Link Collection|他のCellや他Boxの特定の領域へのエイリアス|未実装|
 
-Resource Path（※一部例外あり）
 
-```
-https://{UnitFQDN}/{CellName}/{BoxName}
-https://{UnitFQDN}/{CellName}/{BoxName}/{ResourcePath}
-```
+### WebDAV 基本操作
 
-### WebDAV
 ||作成・登録|取得|更新|削除|その他|
 |:--|:--|:--|:--|:--|:--|
 |コレクション|[作成](306_Create_Collection.md)|[設定取得](305_Get_Property.md)|[設定変更](308_Change_Property.md)<br>[移動名称変更](309_Update_Move_Collection.md)|[削除](310_Delete_Collection.md)||
@@ -198,7 +198,22 @@ https://{UnitFQDN}/{CellName}/{BoxName}/{ResourcePath}
 ※ すべてのファイルやコレクション（特殊コレクションを含む）に対してACL設定(アクセス制御設定)が可能です。  
 ※ ACL設定 は PROPFINDメソッドで取得できます。
 
-### OData
+### OData サービスコレクション
+
+リレーショナルデータを扱うための特殊コレクションで、[コレクション作成](306_Create_Collection.md)操作時に特定のパラメタを与えることにより作成可能です。スキーマ定義操作として、いわゆるテーブルに相当するEntityTypeを定義することで、その中にテーブル状のデータを格納・管理することができます。
+
+#### データ操作
+
+||作成・登録|取得|更新|削除|その他|
+|:--|:--|:--|:--|:--|:--|
+|**Entity**|[作成](364_Create_Entity.md)|[取得](366_Get_Entity.md)<br>[一覧取得](365_List_Entity.md)|[更新](367_Update_Entity.md)<br>[部分更新](369_Partial_Update_Entity.md)|[削除](370_Delete_Entity.md)|[一括操作](368_Entity_Bulk_Operations.md)|
+|&nbsp;&nbsp;_$links|[登録](373_Register_User_Data_links.md)|[一覧取得](374_User_Data_List_links.md)|更新|[削除](376_Delete_User_Data_links.md)||
+|&nbsp;&nbsp;_NavProp経由|[登録](377_Register_using_NavProp.md)|[一覧取得](378_List_using_NavProp.md)||||
+
+
+#### スキーマ定義
+
+
 ||作成・登録|取得|更新|削除|その他|
 |:--|:--|:--|:--|:--|:--|
 |**EntityType**|[登録](345_Create_EntityType.md)|[取得](347_Get_EntityType.md)<br>[一覧取得](346_List_EntityType.md)|[更新](348_Update_EntityType.md)|[削除](349_Delete_EntityType.md)||
@@ -213,25 +228,23 @@ https://{UnitFQDN}/{CellName}/{BoxName}/{ResourcePath}
 |&nbsp;&nbsp;_$links|登録|一覧取得|更新|削除||
 |**ComplexTypeProperty**|[登録](336_Register_ComplexTypeProperty.md)|[取得](338_Get_ComplexTypeProperty.md)<br>[一覧取得](337_List_ComplexTypeProperty.md)|[更新](339_Update_ComplexTypeProperty.md)|[削除](340_Delete_ComplexTypeProperty.md)||
 |&nbsp;&nbsp;_$links|登録|一覧取得|更新|削除||
-|**Entity**|[作成](364_Create_Entity.md)|[取得](366_Get_Entity.md)<br>[一覧取得](365_List_Entity.md)|[更新](367_Update_Entity.md)<br>[部分更新](369_Partial_Update_Entity.md)|[削除](370_Delete_Entity.md)|[一括操作](368_Entity_Bulk_Operations.md)|
-|&nbsp;&nbsp;_$links|[登録](373_Register_User_Data_links.md)|[一覧取得](374_User_Data_List_links.md)|更新|[削除](376_Delete_User_Data_links.md)||
-|&nbsp;&nbsp;_NavProp経由|[登録](377_Register_using_NavProp.md)|[一覧取得](378_List_using_NavProp.md)||||
 
 
-### サーバスクリプト(Engine Service Collection)
-PersoniumアプリケーションやCell利用者が作成したサーバサイドロジックを登録しこれを走行させることができます。  
-はじめに、ユーザロジックをファイルとして登録し、サービスコレクションの設定を行ってパスとの関連付けを行うことで、  
-コレクション配下の任意のパスからのリクエストに対してユーザーロジックを走行させることができます。
+#### サービスドキュメント取得/スキーマ取得
+||取得|
+|:--|:--|
+|サービスドキュメント|[取得](317_Document_Acquisition_Service.md)|
+|スキーマ|[取得](316_User_Defined_Data_Schema.md)|
+
+
+### Engine サービスコレクション
+PersoniumアプリケーションやCell利用者が作成したサーバサイドロジックを登録しこれを走行させることができます。  はじめに、ユーザロジックをファイルとして登録し、サービスコレクションの設定を行ってパスとの関連付けを行うことで、コレクション配下の任意のパスからのリクエストに対してユーザーロジックを走行させることができます。
 
 ||作成・登録|取得|更新|削除|その他|
 |:--|:--|:--|:--|:--|:--|
 |サービスコレクションソース|[作成](381_Create_Service_Collection_Source.md)|[取得](382_List_Service_Collection_Source.md)|[設定適用](380_Configure_Service_Collection.md)|[削除](383_Delete_Service_Collection_Source.md)|[サービス実行](384_Service_Execution.md)|
 
-### サービスドキュメント取得/スキーマ取得
-||取得|
-|:--|:--|
-|サービスドキュメント|[取得](317_Document_Acquisition_Service.md)|
-|スキーマ|[取得](316_User_Defined_Data_Schema.md)|
+## 共通情報
 
 
 ### OData取得共通クエリ
@@ -247,7 +260,6 @@ PersoniumアプリケーションやCell利用者が作成したサーバサイ�
 |[$inlinecount](407_Inlinecount_Query.md)|○|○|
 |[全文検索(q)クエリ](408_Full_Text_Search_Query.md)|○|○|
 
-## 共通
 ### [エラーメッセージ一覧](004_Error_Messages.md)
 ### [PersoniumのHTTP実装に関する制限事項](003_Common_Limitations_on_HTTP_Implementation.md)
 ### [CORS対応](002_CORS_Support.md)

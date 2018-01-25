@@ -67,35 +67,34 @@ currentのログ取得時にログが存在しない場合は、空のレスポ�
 ローテートのサイズ設定値よりも5MB程度大きなサイズとなる場合がある。  
 出力形式は以下の通り。
 ```
-{dateTime},[{level}],{RequestKey},{name},{schema},{subject},{action},{object},{result}
+{dateTime},[{level}],{RequestKey},{external},{schema},{subject},{type},{object},{info}
 ```
 |項目名|概要|備考|
 |:--|:--|:--|
 |dateTime|ログ書込み日時（ISO8601 UTC形式）|YYYY-MM-DDTHH:MM:SS.sssZ|
 |level|ログレベル INFO,WARN,ERRORのいずれか|文字列|
 |RequestKey|X-Personium-RequestKeyヘッダで指定された値<br>X-Personium-RequestKeyヘッダ指定がない場合、PCS-${UNIX時間}|文字列|
-|name|外部イベント：client<br>内部イベント：server|文字列|
+|external|外部イベント：true<br>内部イベント：false|文字列|
 |schema|受け付けたURLのboxのschema|URL形式|
 |subject|イベントの主体|URL形式|
-|action|外部イベント：イベント受付で定義されたaction<br>内部イベント：HTTPメソッド名|文字列|
+|type|外部イベント：イベント受付で定義されたtype<br>内部イベント：イベント毎に定義された型|文字列|
 |object|外部イベント：イベント受付で定義されたobject<br>内部イベント：リクエストされたリソースパス|文字列|
-|result|外部イベント：イベント受付で定義されたresult<br>内部イベント：HTTPステータスコード|文字列|
+|info|外部イベント：イベント受付で定義されたinfo<br>内部イベント：HTTPステータスコード|文字列|
 ### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
 
 ### レスポンスサンプル
 外部イベント
 ```
-2013-02-04T00:50:12.761Z,[INFO ],Req_animal-access_1001,client,https://{UnitFQDN}/{CellName}
-/,https://{UnitFQDN}/servicemanager/#admin,authSchema,/{CellName}/{BoxName}/service_name
-/token_keeper,[XXXX2033] Success schema authorization. cellUrl=https://{UnitFQDN}
-/keeper-d4a57bb26eae481486b07d06487051d1/
+2013-02-04T00:50:12.761Z,[INFO ],"Req_animal-access_1001","true","https://{UnitFQDN}/{CellName}/",
+"https://{UnitFQDN}/servicemanager/#admin","authSchema","/{CellName}/{BoxName}/service_name/token_keeper",
+"[XXXX2033] Success schema authorization. cellUrl=https://{UnitFQDN}/keeper-d4a57bb26eae481486b07d06487051d1/"
 ```
 
 内部イベント
 ```
-2013-04-18T14:52:39.778Z,[ERROR],PCS-1364350331902,server,https://{UnitFQDN}/appCell
-/,https://{UnitFQDN}/appCell/#staff,POST,/homeClinic/__token,200
+2013-04-18T14:52:39.778Z,[INFO ],"PCS-1364350331902","false","https://{UnitFQDN}/appCell/",
+"https://{UnitFQDN}/appCell/#staff","cellctl.Role.list","https://{UnitFQDN}//homeClinic/__ctl/Role","200"
 ```
 
 

@@ -1,6 +1,6 @@
-# Rule一覧取得
+# Rule取得
 ## 概要
-既存のRule情報の一覧を取得する
+既存のRule情報を取得する
 
 ### 必要な権限
 rule-read
@@ -16,35 +16,30 @@ rule-read
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/__ctl/Rule
+/{CellName}/__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')
 ```
+または、
+```
+/{CellName}/__ctl/Rule(Name='{RuleName}')
+```
+または、
+```
+/{CellName}/__ctl/Rule('{RuleName}')
+```
+※ \_Box.Nameパラメタを省略した場合は、nullが指定されたものとする
 ### メソッド
 GET
 
 ### リクエストクエリ
-以下のクエリパラメタが利用可能です。
 
 |クエリ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|クッキー認証値|認証時にサーバから返却されたクッキー認証値|×|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する|
-
 [$select クエリ](406_Select_Query.md)
 
 [$expand クエリ](405_Expand_Query.md)
 
 [$format クエリ](404_Format_Query.md)
-
-[$filter クエリ](403_Filter_Query.md)
-
-[$inlinecount クエリ](407_Inlinecount_Query.md)
-
-[$orderby クエリ](400_Orderby_Query.md)
-
-[$top クエリ](401_Top_Query.md)
-
-[$skip クエリ](402_Skip_Query.md)
-
-[全文検索(q)クエリ](408_Full_Text_Search_Query.md)
 
 ### リクエストヘッダ
 |ヘッダ名|概要|有効値|必須|備考|
@@ -68,20 +63,12 @@ GET
 ### ステータスコード
 200
 ### レスポンスヘッダ
-|ヘッダ名|概要|備考|
-|:--|:--|:--|
-|Access-Control-Allow-Origin|クロスドメイン通信許可ヘッダ|返却値は"*"固定|
-|X-Personium-Version|APIの実行バージョン|リクエストが処理されたAPIバージョン|
-### ODataレスポンスヘッダ
+なし
 
-|ヘッダ名|概要|備考|
-|:--|:--|:--|
-|Content-Type|返却されるデータの形式||
-|DataServiceVersion|ODataのバージョン||
 ### レスポンスボディ
 レスポンスはJSONオブジェクトで、オブジェクト（サブオブジェクト）に定義されるキー(名前)と型、並びに値の対応は以下のとおりです。
 
-|オブジェクト|項目名|型|備考|
+|オブジェクト|項目名|Data Type|備考|
 |:--|:--|:--|:--|
 |ルート|d|object|オブジェクト{1}|
 |{1}|results|array|オブジェクト{2}の配列|
@@ -113,10 +100,10 @@ GET
 ```JSON
 {
   "d": {
-    "results": [
+    "results": {
       {
         "__metadata": {
-          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')",
+          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')",
           "etag": "W/\"1-1486368212581\"",
           "type": "CellCtl.Rule"
         },
@@ -136,31 +123,8 @@ GET
             "uri": "https://{UnitFQDN}/{CellName}/__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')/_Box"
           }
         }
-      },
-      {
-        "__metadata": {
-          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')",
-          "etag": "W/\"1-1486461000154\"",
-          "type": "CellCtl.Rule"
-        },
-        "Name": "{RuleName}",
-        "_Box.Name": "{BoxName}",
-        "EventExternal": true,
-        "EventSubject": null,
-        "EventType": null,
-        "EventObject": null,
-        "EventInfo": null,
-        "Action": "log",
-        "TargetUrl": null,
-        "__published": "/Date(1486461000154)/",
-        "__updated": "/Date(1486461000154)/",
-        "_Box": {
-          "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')/_Box"
-          }
-        }
       }
-    ]
+    }
   }
 }
 ```
@@ -168,5 +132,5 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Rule" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Rule('{RuleName}')" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```

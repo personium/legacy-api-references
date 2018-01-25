@@ -1,6 +1,7 @@
-# Rule_$links削除
+# Ruleから紐づいたBoxとのリンクを解除
 ## 概要
-Ruleとの$links情報を削除する
+
+Ruleから紐づいたBoxとのリンクを解除する。
 
 ### 必要な権限
 * rule
@@ -61,5 +62,6 @@ DELETE
 ## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')/\$links/_Box(Name='{BoxName}')" -X DELETE -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')/\$links/_Box(Name='{BoxName}')" \
+-X DELETE -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```

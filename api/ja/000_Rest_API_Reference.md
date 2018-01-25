@@ -3,84 +3,161 @@ REST API リファレンスへようこそ。
 REST API リファレンスでは、Personiumが提供するすべてのREST APIに関する技術的な詳細仕様を記述しています。
 
 リクエストURLの変数については[リクエストURLの変数一覧](005_Variable_of_Request_URL.md)を参照してください。
-## Unit Level API
-Unit Level API は、Cell群をホストするユニットに属するAPI(Cellの生成や作成したCell群の管理)です。  
-これらAPIは原則としてCellから発行されたアクセストークンではアクセスできません。  
 
-Resource Path
+## Unit Level API
+Unit Level API はCell群をホストするユニットに属するAPIで、Cellの生成や作成したCell群の管理を行うものです。  
+これらAPIは原則としてCellから発行されたアクセストークンではアクセスできず、ユニットユーザとしてのトークンでのみアクセス可能です。 
+
+Unit Root URL
 ````
 https://{UnitFQDN}/
 ````
-||作成・登録|取得|更新|削除|
-|:--|:--|:--|:--|:--|
-|**Cell**|[作成](100_Create_Cell.md)|[一覧取得](101_List_Cell.md)<br>[取得](102_Get_Cell.md)|[更新](103_Update_Cell.md)|[削除](104_Delete_Cell.md)<br>[再帰的削除](105_Cell_Recursive_Delete.md)|
+Unit Level API の大半はUnit制御オブジェクトという形で実現されています。ODataに従ったREST操作でUnit制御オブジェクトを操作してください。
+
+### ユニット制御オブジェクト
+
+|Cell|操作|
+|:--|:--|
+|基本操作|[作成](100_Create_Cell.md) &nbsp; &nbsp; [取得](102_Get_Cell.md) &nbsp; &nbsp; [一覧取得](101_List_Cell.md) &nbsp; &nbsp; [更新](103_Update_Cell.md) &nbsp; &nbsp; [削除](104_Delete_Cell.md) &nbsp; &nbsp; |
+
+### その他API
+
+* [Cell再帰的削除](105_Cell_Recursive_Delete.md)
 
 ## Cell Level API
-Cell Level API は、
-* Cellにアクセスする人やアプリケーションを認証する機能
-* Cellに対するアクセス制御を設定する機能
-* Cell間の関係を構築する機能
-* Boxを生成・管理する機能
-* Cell間のメッセージを送受信する機能
-* イベント処理の機能
-* Cellをエクスポート/インポートする機能
+Cell Level API 次のような機能で構成されます。
+* 人やアプリケーションの認証
+* アクセス制御
+* Cell間の関係の構築
+* Boxの生成・管理
+* Cell間のメッセージ交換
+* イベント処理
+* その他機能
 
-から構成されます。これら機能群の多くはRESTベースでリレーショナルデータ操作を行う標準であるODataプロトコルに準拠する制御オブジェクトで操作可能です。
+これら機能群の多くはCell制御オブジェクトという形で実現されています。Cell制御オブジェクトはODataに従ったREST操作で操作可能です。
 
-Resource Path
+Cell Root URL
 ```
-https://{UnitFQDN}/{CellName}
+https://{UnitFQDN}/{CellName}/
 ```
 
-### Cellにアクセスする人やアプリケーションを認証する機能
-||作成・登録|取得|更新|削除|その他|
-|:--|:--|:--|:--|:--|:--|
-|**Account**|[登録](212_Create_Account.md)|[一覧取得](214_Search_Account.md)<br>[取得](213_Retrieve_Account.md)|[更新](215_Update_Account.md)<br>[パスワード変更](294_Password_Change.md)|[削除](216_Delete_Account.md)||
-|&nbsp;&nbsp;_$links|[登録](217_Register_Account_links.md)|[一覧取得](218_Acquire_Account_links_List.md)|更新|[削除](220_Delete_Account_links.md)||
-|&nbsp;&nbsp;_NavProp経由|[登録](221_Register_Account_Navigation_Property.md)|[取得](222_Acquire_Account_Navigation_Property.md)||||
-|**認証**<br>(\_\_token, \_\_authz)|||||[OAuth2.0 認可エンドポイント](292_OAuth2_Authorization_Endpoint.md)<br>[OAuth2.0 トークンエンドポイント](293_OAuth2_Token_Endpoint.md)|
+### 人やアプリケーションの認証
 
-### Cellに対するアクセス制御を設定する機能
-||作成・登録|取得|更新|削除|
-|:--|:--|:--|:--|:--|
-|**Role**|[登録](201_Create_Role.md)|[一覧取得](202_Retrieve_Role.md)<br>[取得](203_Search_Role.md)|[更新](204_Update_Role.md)|[削除](205_Delete_Role.md)|
-|&nbsp;&nbsp;_$links|[登録](206_Create_Role_links.md)|[一覧取得](207_List_Role_links.md)|更新|[削除](209_Delete_Role_links.md)|
-|&nbsp;&nbsp;_NavProp経由|[登録](210_Register_Role_Using_NavProp.md)|[取得](211_List_Using_Role_NavProp.md)|||
-|**アクセス制御**|[制限設定](289_Cell_ACL.md)|[プロパティ取得](290_Cell_Get_Property.md)|[プロパティ変更](291_Cell_Change_Property.md)||
+#### 認証
 
-### Cell間の関係を構築する機能
-||作成・登録|取得|更新|削除|
-|:--|:--|:--|:--|:--|
-|**ExtCell**|[登録](223_Create_External_Cell.md)|[一覧取得](224_List_External_Cell.md)<br>[取得](225_Get_External_Cell.md)|[更新](226_Update_External_Cell.md)|[削除](227_Delete_External_Cell.md)|
-|&nbsp;&nbsp;_$links|[登録](228_Register_External_Cell_links.md)|[一覧取得](229_List_External_Cell_links.md)|更新|[削除](231_Delete_External_Cell_links.md)|
-|&nbsp;&nbsp;_NavProp経由|[登録](232_Register_External_Cell_Using_NavProp.md)|[一覧取得](233_List_External_Cell_NavProp.md)|||
-|**Relation**|[登録](234_Create_Relation.md)|[一覧取得](235_List_Relation.md)<br>[取得](236_Retrieve_Relation.md)|[更新](237_Update_Relation.md)|[削除](238_Delete_Relation.md)|
-|&nbsp;&nbsp;_$links|[登録](239_Register_Relation_links.md)|[一覧取得](240_List_Relation_links.md)|更新|[削除](242_Delete_Relation_links.md)|
-|&nbsp;&nbsp;_NavProp経由|[登録](243_Register_Using_Relation_NavProp.md)|[取得](244_List_Using_Relation_NavProp.md)|||
-|**ExtRole**|[登録](245_Create_External_Role.md)|[取得](247_Get_External_Role.md)<br>[一覧取得](246_List_External_Role.md)|[更新](248_Update_External_Role.md)|[削除](249_Delete_External_Role.md)|
-|&nbsp;&nbsp;_$links|[登録](250_Register_External_Role_links.md)|[一覧取得](251_Retrieve_External_Role_links.md)|更新|[削除](253_Delete_External_Role_links.md)|
-|&nbsp;&nbsp;_NavProp経由|[登録](254_Register_Using_Role_NavProp.md)|[取得](255_List_External_Role_NavProp.md)|||
+* [OAuth2.0 認可エンドポイント](292_OAuth2_Authorization_Endpoint.md)
+* [OAuth2.0 トークンエンドポイント](293_OAuth2_Token_Endpoint.md)
+* [パスワード変更](294_Password_Change.md)<br>
 
-### Boxを生成・管理する機能
-||作成・登録|取得|更新|削除|
-|:--|:--|:--|:--|:--|
-|**Box**|[作成](256_Create_Box.md)|[取得](258_Retrieve_Box.md)<br>[一覧取得](257_Search_Box.md)<br>[URL取得](304_Get_Box_URL.md)|[更新](259_Update_Box.md)|[削除](260_Delete_Box.md)<br>[再帰的削除](295_Box_Recursive_Delete.md)|
-|&nbsp;&nbsp;_$links|[登録](261_Register_Box_links.md)|[一覧取得](262_List_Box_links.md)|更新|[削除](264_Delete_Box_links.md)|
-|&nbsp;&nbsp;_NavProp経由|[登録](265_Register_Using_Box_NavProp.md)|[取得](266_List_Box_NavProp.md)|||
-|&nbsp;&nbsp;インストール|[Boxインストール](302_Box_Installation.md)|[Boxメタデータ取得](303_Progress_of_Bar_File_Installation.md)|||
+#### Account (Cell制御オブジェクト)
 
-### Cell間のメッセージを送受信する機能
-||作成・登録|取得|更新|削除|
-|:--|:--|:--|:--|:--|
-|**メッセージ制御**<br>[送信](271_Send_Message.md)||[取得](272_Retrieve_Sent_Message.md)<br>[一覧取得](273_List_Sent_Messages.md)||[削除](274_Delete_Sent_Message.md)|
-|**メッセージ制御**<br>受信||[取得](269_Get_Received_Message.md)<br>[一覧取得](268_List_Received_Messages.md)|[状態変更](267_Received_Message_Approval.md)|[削除](270_Delete_an_Incoming_Message.md)|
+|Account|操作|
+|:--|:--|
+|基本操作|[登録](212_Create_Account.md) &nbsp; &nbsp; [取得](213_Retrieve_Account.md) &nbsp; &nbsp; [一覧取得](214_Search_Account.md)  &nbsp; &nbsp; [更新](215_Update_Account.md)  &nbsp; &nbsp; [削除](216_Delete_Account.md) |
+|&nbsp; &nbsp; 他オブジェクトとのリンク|[リンク](217_Register_Account_links.md) &nbsp; &nbsp;  [リンク解除](220_Delete_Account_links.md) &nbsp; &nbsp; [リンク一覧取得](218_Acquire_Account_links_List.md)|
+|&nbsp; &nbsp; 紐づく他オブジェクト操作|[登録](221_Register_Account_Navigation_Property.md) &nbsp; &nbsp; [一覧取得](222_Acquire_Account_Navigation_Property.md)|
 
-### イベント処理の機能
-||作成・登録|取得|更新|削除|
-|:--|:--|:--|:--|:--|
-|[イベント](277_Event_Summary.md)|[イベント受付](278_Event_Reception.md)|[ログファイル取得](285_Retrieve_Log_File.md)<br>[ログファイル一覧取得](284_Retrieve_Log_File_list.md)<br>[ログファイル情報取得](283_Log_File_Information_Acquisition.md)||[ログファイル削除](286_Delete_Log_File.md)|
+### アクセス制御
 
-### Cellをエクスポート/インポートする機能
+* [ACL設定](289_Cell_ACL.md)
+* [プロパティ取得](290_Cell_Get_Property.md)
+* [プロパティ変更](291_Cell_Change_Property.md)
+
+
+#### Role (Cell制御オブジェクト)
+
+|Role|操作|
+|:--|:--|
+|基本操作|[登録](201_Create_Role.md) &nbsp; &nbsp;  [取得](202_Retrieve_Role.md) &nbsp; &nbsp; [一覧取得](203_Search_Role.md) &nbsp; &nbsp; [更新](204_Update_Role.md) &nbsp; &nbsp; [削除](205_Delete_Role.md)|
+|&nbsp; &nbsp; 他オブジェクトとのリンク|[リンク](206_Create_Role_links.md) &nbsp; &nbsp; [リンク解除](209_Delete_Role_links.md) &nbsp; &nbsp; [リンク一覧取得](207_List_Role_links.md) |
+|&nbsp; &nbsp; 紐づく他オブジェクト操作|[登録](210_Register_Role_Using_NavProp.md) &nbsp; &nbsp; [一覧取得](211_List_Using_Role_NavProp.md)|
+
+
+### Cell間の関係構築
+
+#### ExtCell (Cell制御オブジェクト)
+
+関係のある他のCellを登録管理するためのオブジェクトです。ExtCellとRoleをリンクさせることにより、そのCellで認証されたユーザに対し指定のロールを割り当てることができます。
+
+|ExtCell|操作|
+|:--|:--|
+|基本操作|[登録](223_Create_External_Cell.md) &nbsp; &nbsp;  [取得](225_Get_External_Cell.md) &nbsp; &nbsp; [一覧取得](224_List_External_Cell.md) &nbsp; &nbsp; [更新](226_Update_External_Cell.md) &nbsp; &nbsp; [削除](227_Delete_External_Cell.md)|
+|&nbsp; &nbsp; 他オブジェクトとのリンク|[リンク](228_Register_External_Cell_links.md) &nbsp; &nbsp; [リンク解除](231_Delete_External_Cell_links.md) &nbsp; &nbsp; [リンク一覧取得](229_List_External_Cell_links.md)|
+|&nbsp; &nbsp; 紐づく他オブジェクト操作|[登録](232_Register_External_Cell_Using_NavProp.md) &nbsp; &nbsp; [一覧取得](233_List_External_Cell_NavProp.md)|
+
+#### Relation (Cell制御オブジェクト)
+
+自Cellから見た外部Cellへの関係を表します。RelationをExtCellとリンクさせることにより、外部Cellとの関係を定義することができます。
+また、RelationとRoleをリンクさせることにより、その関係で結ばれたCellで認証されたユーザに対し指定のロールを割り当てることができます。
+
+
+|Relation|操作|
+|:--|:--|
+|基本操作|[登録](234_Create_Relation.md) &nbsp; &nbsp;  [取得](236_Retrieve_Relation.md) &nbsp; &nbsp; [一覧取得](235_List_Relation.md) &nbsp; &nbsp; [更新](237_Update_Relation.md) &nbsp; &nbsp; [削除](238_Delete_Relation.md)|
+|&nbsp; &nbsp;他オブジェクトとのリンク|[リンク](239_Register_Relation_links.md) &nbsp; &nbsp; [リンク解除](242_Delete_Relation_links.md) &nbsp; &nbsp; [リンク一覧取得](240_List_Relation_links.md)|
+|&nbsp; &nbsp;紐づく他オブジェクト操作|[登録](243_Register_Using_Relation_NavProp.md) &nbsp; &nbsp; [一覧取得](244_List_Using_Relation_NavProp.md)|
+
+#### ExtRole (Cell制御オブジェクト)
+
+ある関係で結ばれた他のCellであるロールを得ているユーザを表します。これとRoleをリンクさせることにより、そのようなユーザに指定のロールを割り当てることができます。
+
+|ExtRole|操作|
+|:--|:--|
+|ExtRole|[登録](245_Create_External_Role.md) &nbsp; &nbsp; [取得](247_Get_External_Role.md) &nbsp; &nbsp; [一覧取得](246_List_External_Role.md) &nbsp; &nbsp; [更新](248_Update_External_Role.md) &nbsp; &nbsp; [削除](249_Delete_External_Role.md)|
+| &nbsp; &nbsp; 他オブジェクトとのリンク|[リンク](250_Register_External_Role_links.md) &nbsp; &nbsp; ;[リンク解除](253_Delete_External_Role_links.md) &nbsp; &nbsp; [リンク一覧取得](251_Retrieve_External_Role_links.md)|
+| &nbsp; &nbsp; 紐づく他オブジェクト操作作|[登録](254_Register_Using_Role_NavProp.md) &nbsp; &nbsp; [一覧取得](255_List_External_Role_NavProp.md)|
+
+
+### Boxの作成・管理
+
+* [Boxインストール](302_Box_Installation.md)
+* [Boxメタデータ取得](303_Progress_of_Bar_File_Installation.md)
+* [URL取得](304_Get_Box_URL.md)
+* [再帰的削除](295_Box_Recursive_Delete.md)
+
+#### Box (Cell制御オブジェクト)
+
+|Box|操作|
+|:--|:--|
+|基本操作|[登録](256_Create_Box.md) &nbsp; &nbsp; [取得](258_Retrieve_Box.md) &nbsp; &nbsp; [一覧取得](257_Search_Box.md) &nbsp; &nbsp; [更新](259_Update_Box.md) &nbsp; &nbsp; [削除](260_Delete_Box.md) |
+|&nbsp; &nbsp;他オブジェクトとのリンク|[リンク](261_Register_Box_links.md) &nbsp; &nbsp; [リンク解除](264_Delete_Box_links.md) &nbsp; &nbsp; [リンク一覧取得](262_List_Box_links.md)|
+|&nbsp; &nbsp;紐づく他オブジェクト操作|[登録](265_Register_Using_Box_NavProp.md) &nbsp; &nbsp; [一覧取得](266_List_Box_NavProp.md)|
+
+### Cell間のメッセージ交換
+
+* [メッセージ送信](271_Send_Message.md)
+* [状態変更](267_Received_Message_Approval.md) (承認・拒否等)
+
+|Cell制御オブジェクト|操作|
+|:--|:--|
+|**送信済メッセージ**|[取得](272_Retrieve_Sent_Message.md) &nbsp; &nbsp; [一覧取得](273_List_Sent_Messages.md) &nbsp; &nbsp; [削除](274_Delete_Sent_Message.md)|
+|**受診メッセージ**|[取得](269_Get_Received_Message.md) &nbsp; &nbsp; [一覧取得](268_List_Received_Messages.md) &nbsp; &nbsp; [削除](270_Delete_an_Incoming_Message.md)|
+
+### イベント処理
+
+* [イベントの概要](277_Event_Summary.md)
+* [外部イベント受付](278_Event_Reception.md)
+
+#### イベント制御ルール　（Cell制御オブジェクト）
+
+イベントが発生したときに起動すべき処理を記述することができます。フィルタすべきイベントの条件とその際に起動すべき処理を記述します。記述可能な処理は、ログ出力、engineスクリプトの起動、他URLへのイベント情報のリレーです。
+
+|Rule|操作|
+|:--|:--|
+|基本操作|[登録](2A0_Create_Rule.md) &nbsp; &nbsp; [取得](2A1_Retrieve_Rule.md) &nbsp; &nbsp; [一覧取得](2A2_Search_Rule.md) &nbsp; &nbsp; [更新](2A3_Update_Rule.md) &nbsp; &nbsp; [削除](2A4_Delete_Rule.md) |
+|&nbsp; &nbsp; 他オブジェクトとのリンク|[リンク](2A5_Create_Rule_links.md) &nbsp; &nbsp; [リンク解除](2A6_List_Rule_links.md) &nbsp; &nbsp; [リンク一覧取得](2A6_List_Rule_links.md) |
+|&nbsp; &nbsp; 紐づく他オブジェクト操作|[登録](2A8_Register_Rule_Using_NavProp.md) &nbsp; &nbsp; [一覧取得](2A9_List_Using_Rule_NavProp.md)|
+
+#### イベントログ操作
+
+* [ログファイル取得](285_Retrieve_Log_File.md) 
+* [ログファイル一覧取得](284_Retrieve_Log_File_list.md) 
+* [ログファイル情報取得](283_Log_File_Information_Acquisition.md) 
+* [ログファイル削除](286_Delete_Log_File.md)
+
+### その他機能
+
+#### エクスポート/インポートする機能
 エクスポート実行でCellのスナップショットファイルが作成されます。<br>インポート実行でスナップショットファイルの内容をCellに取り込みます。<br>スナップショットファイルはWebDAVのインターフェースで操作可能です。
 
 ||作成・登録|取得|更新|削除|

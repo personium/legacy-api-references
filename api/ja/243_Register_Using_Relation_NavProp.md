@@ -1,6 +1,6 @@
-# Relation_NavProp経由登録
+# RelationのNavigation Property経由での他オブジェクト登録
 ## 概要
-Cell制御オブジェクトNavigation Property経由で登録し、同時に$linksを登録する。
+RelationのNavigation Property経由で他のCell制御オブジェクト登録する。
 
 ### 必要な権限
 write

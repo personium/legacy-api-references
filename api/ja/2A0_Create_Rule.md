@@ -1,6 +1,6 @@
 # Rule作成
 ## 概要
-新規Ruleを作成する
+新規のイベント処理ルールを作成する。
 
 ### 必要な権限
 rule
@@ -37,11 +37,14 @@ POST
 |Content-Type|リクエストボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
 |Accept|レスポンスボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
 ### リクエストボディ
+
 #### Format
+
 JSON
 
 |項目名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
+<<<<<<< HEAD
 |Name|Rule名|桁数：1&#65374;200<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)と:(半角コロン)<br>ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)と:(半角コロン)は指定不可<br>デフォルト値はUUID|×|省略時は自動でUUIDが採番されます|
 |_Box.Name|関係対象のBox名|桁数：1&#65374;128<br>文字種：半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)は指定不可<br>説明：Box登録APIにて登録済みのBoxのNameを指定<br>特定のBoxと関連付けない場合はnullを指定|×||
 |EventExternal|マッチするイベントの外部イベントフラグ|true / false<br>デフォルト値はfalse|×||
@@ -51,6 +54,28 @@ JSON
 |EventInfo|マッチするイベントの情報|HTTPレスポンスのステータスコードなどの情報|×||
 |Action|イベントがマッチした際に実行するアクション|log<br>log.info<br>log.warn<br>log.error<br>exec<br>relay|○||
 |TargetUrl|アクションの対象となるURL|サービススクリプトのURLを指定|×|以下のように設定可能な形式に決まりがある<br>Actionがexecのとき<br>_Box.Name設定なし<br> personium-localcell:/box/col/service<br>_Box.Name設定あり<br> personium-localbox:/col/service<br>Actionがrelayのとき<br>    http://xxx/...<br>    https://xxx/...<br>    personium-localunit:/…|
+=======
+|_Box.Name|ルールが紐づくべきBox名|有効な box名. このキーを指定しなかったりnull値を指定したリクエストは、いかなるBoxにも紐づかないRuleと解釈されます.|×||
+|Name|作成するルールを識別するため任意の名前|Boxに紐づく場合はBox内で一意、Boxに紐づかない場合はセルで一意である必要があります。|×|省略時は自動的にuuidが割り当たります|
+|EventType|ルールをトリガーするイベントのタイプ|？？|×||
+|EventSubject|ルールをトリガーすべきイベントのEvent Subject前方一致検査用文字列|Event Subject は基本的にCellのURLになるので、有効な値はその前方部分文字列となります。|×||
+|EventObject|ルールをトリガーすべきイベントのEvent Object前方一致検査用文字列|Event object の値はイベントのタイプにより異なります。 任意の文字列を設定可能ですが、意味を持つ値はイベントタイプにより異なります。 |×||
+|EventInfo|ルールをトリガーすべきイベントのEvent Info前方一致検査用文字列|Event info の値はイベントのタイプにより異なります。 任意の文字列を設定可能ですが、意味を持つ値はイベントタイプにより異なります。|×||
+|EventExternal|ルールをトリガーすべきイベントが外部イベントであるかどうかを表すフラグ|真偽値。外部イベントを検出したいときは true を設定してください。|×|デフォルト値 false|
+|Action|イベントがマッチしたときに起動すべきアクション|有効な値は以下の別表|〇||
+|TargetUrl|アクションに対する具体的なターゲットURL|Actionの値によって指定すべき値は変わります。 |×||
+
+#### Valid Actions
+|Action|説明|TargetUrl|備考|
+|:--|:--|:--|:--|
+|exec|エンジンscript が起動しPOSTメソッドでイベントデータが渡されます。|エンジンサービスのurl|-|
+|relay|イベントをTargetUrlにリレーします。|イベントの情報をリレーすべきリレー先Url|-|
+|log|Eventを info レベルでログ出力します。|-|-|
+|log.info|Eventを info レベルでログ出力します。|-|-|
+|log.warn|Eventを warn レベルでログ出力します。|-|-|
+|log.error|Eventを error レベルでログ出力します。|-|-|
+
+>>>>>>> master
 
 ### リクエストサンプル
 ```JSON
@@ -58,7 +83,7 @@ JSON
 ```
 
 ## レスポンス
-### ステータスコード
+### 成功時ステータスコード
 201
 
 ### レスポンスヘッダ
@@ -101,10 +126,8 @@ JSON
 |{2}|TargetUrl|string||
 |{2}|_Box.Name|string|関係対象のBox名|
 
-### エラーメッセージ一覧
-[エラーメッセージ一覧](004_Error_Messages.md)を参照
 
-### レスポンスサンプル
+### レスポンスボディサンプル
 ```JSON
 {
   "d": {
@@ -129,6 +152,8 @@ JSON
   }
 }
 ```
+### エラー応答一覧
+[エラーメッセージ一覧](004_Error_Messages.md)を参照
 
 ## cURLサンプル
 

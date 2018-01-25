@@ -167,15 +167,21 @@ Snapshot file of Cell is created by export execution.
 Import imports the contents of the snapshot file into Cell.  
 Snapshot file can be operated with WebDAV interface.  
 
-||Create/Register|Acquire|Update|Delete|
-|:--|:--|:--|:--|:--|
-|**Export**|[Execute](501_Export_Cell.md)|[Get progress](502_Progress_of_Export_Cell.md)|||
-|**Import**|[Execute](507_Import_Cell.md)|[Get progress](508_Progress_of_Import_Cell.md)|||
-|**Snapshot**|[Register/Update](503_Register_and_Update_Snapshot_Cell.md)|[Acquire](504_Get_Snapshot_Cell.md)<br>[Acquire Settings](505_Get_Property_Snapshot_Cell.md)||[Delete](506_Delete_Snapshot_Cell.md)|
+||Operations|
+|:--|:--|
+|**Export**|[Execute](501_Export_Cell.md) &nbsp; &nbsp; [Retrieve progress](502_Progress_of_Export_Cell.md)|
+|**Import**|[Execute](507_Import_Cell.md) &nbsp; &nbsp; [Retrieve progress](508_Progress_of_Import_Cell.md)|
+|**Snapshot**|[Register/Update](503_Register_and_Update_Snapshot_Cell.md) &nbsp; &nbsp; [Retrieve](504_Get_Snapshot_Cell.md) &nbsp; &nbsp; [Retrieve Properties](505_Get_Property_Snapshot_Cell.md) &nbsp; &nbsp; [Delete](506_Delete_Snapshot_Cell.md)|
 
 ## Box Level API
 
-The Box Level API is an API for applications and others to manipulate data, and is a group of APIs based on WebDAV as a file system idea.  Like ordinary file systems, it is possible to arrange / retrieve files, create / manage folders (collection), get list of files and folders, set / refer to access control, etc.
+The Box Level API is a group of API's that reside on the following Box Root URL and serve for applications and others to manipulate their data. 
+
+#### Box Root URL
+```
+https://{UnitFQDN}/{CellName}/{BoxName}/
+```
+Box Level API's are based on an idea of WebDAV file system.  Like ordinary file systems, it is possible to arrange / retrieve files, create / manage folders (collection), get list of files and folders, set / refer to access control, etc.
 
 Also, because it supports the following special collections, it can handle not only file-like data but also various forms of data.  
 These special collections can be created in any path on the WebDAV space provided by Box.
@@ -187,52 +193,47 @@ These special collections can be created in any path on the WebDAV space provide
 |CALDAV Collection|Calendar data|Unimplemented|
 |Link Collection|Aliases to specific areas of other cells or other Box|Unimplemented|
 
-Box Root URL
-```
-https://{UnitFQDN}/{CellName}/{BoxName}/
-```
 
 
-### WebDAV
+### Basic WebDAV Operations
 
-||Create/Register|Acquire|Update|Delete|Other|
-|:--|:--|:--|:--|:--|:--|
-|Collection|[Create](306_Create_Collection.md)|[Acquire Settings](305_Get_Property.md)|[Change Settings](308_Change_Property.md)<br>[Move/Rename](309_Update_Move_Collection.md)|[Delete](310_Delete_Collection.md)||
-|File|[Register/Update](312_Register_and_Update_WebDAV.md)|[Acquire](311_Get_WebDav.md)<br>[Acquire Settings](307_Get_Property.md)|[Change Settings](313_Change_Property.md)|[Delete](314_Delete_WebDAV.md)||
-|Access Control|||||[Configuring the Settings](315_Configure_Access_Control.md)|
+|Target|Operations|
+|:--|:--|
+|Collection|[Create](306_Create_Collection.md) &nbsp; &nbsp; [Acquire Settings](305_Get_Property.md) &nbsp; &nbsp; [Change Settings](308_Change_Property.md) &nbsp; &nbsp; [Move/Rename](309_Update_Move_Collection.md) &nbsp; &nbsp; [Delete](310_Delete_Collection.md)|
+|File|[Register/Update](312_Register_and_Update_WebDAV.md) &nbsp; &nbsp; [Acquire](311_Get_WebDav.md) &nbsp; &nbsp; [Acquire Settings](307_Get_Property.md) &nbsp; &nbsp; [Change Settings](313_Change_Property.md) &nbsp; &nbsp; [Delete](314_Delete_WebDAV.md)|
+|Common|[Configure Access Control](315_Configure_Access_Control.md)|
 
 \* ACL setting (access control setting) is possible for all files and collections (including special collections).  
 \* ACL setting can be acquired with the PROPFIND method.
 
-##### OData
+### OData Service Collection
+
+#### Data Manipulation
+
+|User-defined Entity Set|Operations|
+|:--|:--|
+|Basic Operations|[Create](364_Create_Entity.md) &nbsp; &nbsp; [Retrieve](366_Get_Entity.md) &nbsp; &nbsp; [List](365_List_Entity.md) &nbsp; &nbsp; [Update](367_Update_Entity.md) &nbsp; &nbsp; [Partial Update](369_Partial_Update_Entity.md) &nbsp; &nbsp; [Delete](370_Delete_Entity.md) |
+|&nbsp; &nbsp; Linking with other objects|[Link](373_Register_User_Data_links.md) &nbsp; &nbsp; [Unlink](376_Delete_User_Data_links.md) &nbsp; &nbsp; [List Links](374_User_Data_List_links.md) &nbsp; &nbsp; |
+|&nbsp; &nbsp; Bound Object Manipulation|[Create](377_Register_using_NavProp.md) &nbsp; &nbsp; [List](378_List_using_NavProp.md)|
+
+* [Batch Operation](368_Entity_Bulk_Operations.md)
+
+#### Schema Definition
 
 ||Create/Register|Acquire|Update|Delete|Other|
 |:--|:--|:--|:--|:--|:--|
 |**EntityType**|[Register](345_Create_EntityType.md)|[Acquire](347_Get_EntityType.md)<br>[Acquire List](346_List_EntityType.md)|[Update](348_Update_EntityType.md)|[Delete](349_Delete_EntityType.md)||
 |_$links|Register|Acquire List|Update|Delete||
 |_via NavProp||Acquire List||||
+|**Property**|[Register](355_Register_Property.md)|[Acquire](357_Get_Property.md)<br>[Acquire List](356_List_Property.md)|Update|[Delete](359_Delete_Property.md)||
+|_$links|Register|Acquire List|Update|Delete||
 |**AssociationEnd**|[Register](318_Register_AssociationEnd.md)|[Acquire](320_Get_AssociationEnd.md)<br>[Acquire List](319_List_AssociationEnd.md)|[Update](321_Update_AssociationEnd.md)|[Delete](322_Delete_AssociationEnd.md)||
 |_$links|[Register](323_Register_AssociationEnd_links.md)|[Acquire List](324_List_AssociationEnd_links.md)||[Delete](325_Delete_AssociationEnd_links.md)||
 |_via NavProp||Acquire List||||
 |**ComplexType**|[Register](327_Register_ComplexType.md)|[Acquire](329_Get_ComplexType.md)<br>[Acquire List](328_List_ComplexType.md)|Update|[Delete](331_Delete_ComplexType.md)||
 |_$links|Register|Acquire List|Update|Delete||
-|**Property**|[Register](355_Register_Property.md)|[Acquire](357_Get_Property.md)<br>[Acquire List](356_List_Property.md)|Update|[Delete](359_Delete_Property.md)||
-|_$links|Register|Acquire List|Update|Delete||
 |**ComplexTypeProperty**|[Register](336_Register_ComplexTypeProperty.md)|[Acquire](338_Get_ComplexTypeProperty.md)<br>[Acquire List](337_List_ComplexTypeProperty.md)|[Update](339_Update_ComplexTypeProperty.md)|[Delete](340_Delete_ComplexTypeProperty.md)||
 |_$links|Register|Acquire List|Update|Delete||
-|**Entity**|[Create](364_Create_Entity.md)|[Acquire](366_Get_Entity.md)<br>[Acquire List](365_List_Entity.md)|[Update](367_Update_Entity.md)<br>[Partial Update](369_Partial_Update_Entity.md)|[Delete](370_Delete_Entity.md)|[Batch Operation](368_Entity_Bulk_Operations.md)|
-|_$links|[Register](373_Register_User_Data_links.md)|[Acquire List](374_User_Data_List_links.md)|Update|[Delete](376_Delete_User_Data_links.md)||
-|_via NavProp|[Register](377_Register_using_NavProp.md)|[Acquire List](378_List_using_NavProp.md)||||
-
-##### Server Script (Engine Service Collection)
-
-You can register Personium application and server side logic created by Cell user and run it.  
-First, register the user logic as a file, set the service collection and associate with the path, so that  
-You can run the user logic for requests from any path under the collection.
-
-||Create/Register|Acquire|Update|Delete|Other|
-|:--|:--|:--|:--|:--|:--|
-|Service Collection Source|[Create](381_Create_Service_Collection_Source.md)|[Acquire](382_List_Service_Collection_Source.md)|[Apply Settings](380_Configure_Service_Collection.md)|[Delete](383_Delete_Service_Collection_Source.md)|[Service Execute](384_Service_Execution.md)|
 
 ##### Service Document Acquire/Schema Acquire
 
@@ -241,7 +242,19 @@ You can run the user logic for requests from any path under the collection.
 |Service Document|[Acquire](317_Document_Acquisition_Service.md)|
 |Schema|[Acquire](316_User_Defined_Data_Schema.md)|
 
-##### OData Acquisition Common Queries
+
+### Engine Service Collection
+You can register Personium application and server side logic created by Cell user and run it.  
+First, register the user logic as a file, set the service collection and associate with the path, so that  
+You can run the user logic for requests from any path under the collection.
+
+||Create/Register|Acquire|Update|Delete|Other|
+|:--|:--|:--|:--|:--|:--|
+|Service Collection Source|[Create](381_Create_Service_Collection_Source.md)|[Acquire](382_List_Service_Collection_Source.md)|[Apply Settings](380_Configure_Service_Collection.md)|[Delete](383_Delete_Service_Collection_Source.md)|[Service Execute](384_Service_Execution.md)|
+
+## Common Information
+
+### OData Acquisition Common Queries
 
 |Query|Single Acquisition|List Acquisition|
 |:--|:--|:--|
@@ -254,9 +267,6 @@ You can run the user logic for requests from any path under the collection.
 |[$filter Query](403_Filter_Query.md)|Yes|Yes|
 |[$inlinecount](407_Inlinecount_Query.md)|Yes|Yes|
 |[Full-text Search (q) Query](408_Full_Text_Search_Query.md)|Yes|Yes|
-
-
-### Common
 
 #### [Error Messages](004_Error_Messages.md)
 

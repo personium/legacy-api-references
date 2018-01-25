@@ -6,6 +6,13 @@ Boxに$linksで指定したODataリソースを紐付ける<Br>以下のODataリ
 * Relation
 * Rule
 
+### 必要な権限
+|紐付け先|必要な権限|
+|:-|:-|
+|Role|box<br>auth|
+|Relation|box<br>social|
+|Rule|box<br>rule|
+
 ### 制限事項
 * リクエストヘッダのAcceptは無視される
 * リクエストヘッダのContent-Typeは全てapplication/jsonとして扱う

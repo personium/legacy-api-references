@@ -11,7 +11,6 @@ rule
 * リクエストボディはJSON形式のみ受け付ける
 * レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはJSON形式とする
 
-
 ## リクエスト
 ### リクエストURL
 ```
@@ -153,11 +152,13 @@ JSON
   }
 }
 ```
-### エラー応答一覧
+### エラーレスポンス
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
 
 ## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Rule" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{RuleName}", "EventExternal":true, "Action":"log"}'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Rule" -X POST -i \
+-H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' \
+-d '{"Name":"{RuleName}", "EventExternal":true, "Action":"log"}'
 ```

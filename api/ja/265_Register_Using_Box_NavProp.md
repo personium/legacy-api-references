@@ -1,8 +1,17 @@
 # Box_NavProp経由登録
 ## 概要
-Role、RelationをBoxのNavigation Property経由で登録する
+以下のCell制御オブジェクトをBoxのNavigation Property経由で登録する
+* Role
+* Relation
+* Rule
+
 ### 必要な権限
-write
+|紐付け先|必要な権限|
+|:-|:-|
+|Role|box<br>auth|
+|Relation|box<br>social|
+|Rule|box<br>rule|
+
 ### 制限事項
 * リクエストヘッダのAcceptは無視される
 * リクエストヘッダのContent-Typeは全てapplication/jsonとして扱う
@@ -36,6 +45,18 @@ write
 または、
 ```
 /{CellName}/__ctl/Box('{BoxName}')/_Relation
+```
+#### RuleへのnavigationProperty
+```
+/{CellName}/__ctl/Box(Name='{BoxName}',Schema='SchemaURL')/_Rule
+```
+または、
+```
+/{CellName}/__ctl/Box(Name='{BoxName}')/_Rule
+```
+または、
+```
+/{CellName}/__ctl/Box('{BoxName}')/_Rule
 ```
 ※ Schemaパラメタを省略した場合は、nullが指定されたものとする
 ### メソッド
@@ -135,5 +156,11 @@ curl
 ```sh
 curl "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_Relation" -X POST -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{RelationName}"}'
+```
+#### Ruleを登録する場合
+```sh
+curl
+"https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_Rule" -X POST -i  -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{RuleName}","Action":"log"}'
 ```
 

@@ -1,8 +1,11 @@
-# Role_NavProp経由登録
+# RoleのNavigation Property経由での他オブジェクト登録
 ## 概要
-Cell制御オブジェクトNavigation Property経由で登録し、同時に$linksを登録する。
+
+RoleのNavigation Property経由での他のCell制御オブジェクトを登録します。これにより最初からリンクされた形でオブジェクト登録が可能です。
+
 ### 必要な権限
 write
+
 ### 制限事項
 * リクエストヘッダのAcceptは無視される
 * リクエストヘッダのContent-Typeは全てapplication/jsonとして扱う

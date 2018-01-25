@@ -1,6 +1,12 @@
 # Box_$links削除
 ## 概要
 Boxとの$links情報を削除する
+### 必要な権限
+|紐付け先|必要な権限|
+|:-|:-|
+|Role|box<br>auth|
+|Relation|box<br>social|
+|Rule|box<br>rule|
 ### 制限事項
 * リクエストヘッダのAcceptは無視される
 * リクエストヘッダのContent-Typeは全てapplication/jsonとして扱う
@@ -18,35 +24,11 @@ _Role(Name='{RoleName}',_Box.Name='{BoxName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/_Role(Name='{RoleName}')
-```
-または、
-```
-/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/_Role('{RoleName}')
-```
-または、
-```
 /{CellName}/__ctl/Box(Name='{BoxName}')/$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}')/$links/_Role(Name='{RoleName}')
-```
-または、
-```
-/{CellName}/__ctl/Box(Name='{BoxName}')/$links/_Role('{RoleName}')
-```
-または、
-```
 /{CellName}/__ctl/Box('{BoxName}')/$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')
-```
-または、
-```
-/{CellName}/__ctl/Box('{BoxName}')/$links/_Role(Name='{RoleName}')
-```
-または、
-```
-/{CellName}/__ctl/Box('{BoxName}')/$links/_Role('{RoleName}')
 ```
 #### Relationとの紐付け
 ```
@@ -55,35 +37,24 @@ _Box.Name='{BoxName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/_Relation(Name='{RelationName}')
-```
-または、
-```
-/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/_Relation('{RelationName}')
-```
-または、
-```
 /{CellName}/__ctl/Box(Name='{BoxName}')/$links/_Relation(Name='{RelationName}',_Box.Name='{BoxName}')
-```
-または、
-```
-/{CellName}/__ctl/Box(Name='{BoxName}')/$links/_Relation(Name='{RelationName}')
-```
-または、
-```
-/{CellName}/__ctl/Box(Name='{BoxName}')/$links/_Relation('{RelationName}')
 ```
 または、
 ```
 /{CellName}/__ctl/Box('{BoxName}')/$links/_Relation(Name='{RelationName}',_Box.Name='{BoxName}')
 ```
+#### Ruleとの紐付け
+```
+/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/
+_Rule(Name='{RuleName}',_Box.Name='{BoxName}')
+```
 または、
 ```
-/{CellName}/__ctl/Box('{BoxName}')/$links/_Relation(Name='{RelationName}')
+/{CellName}/__ctl/Box(Name='{BoxName}')/$links/_Rule(Name='{RuleName}',_Box.Name='{BoxName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Box('{BoxName}')/$links/_Relation('{RelationName}')
+/{CellName}/__ctl/Box('{BoxName}')/$links/_Rule(Name='{RuleName}',_Box.Name='{BoxName}')
 ```
 ※ Schemaパラメタを省略した場合は、nullが指定されたものとする
 

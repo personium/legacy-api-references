@@ -1,12 +1,12 @@
-# Create Box
+# Rule Retrieval
 
 ## Overview
 
-This API creates a new Box
+Retrieve a single Event Processing Rule by specifiying its name and the name the box to which the rule is bound.
 
 ### Required Privileges
 
-box
+rule-read
 
 ### Restrictions
 
@@ -21,13 +21,19 @@ box
 
 ### Request URL
 
+Box-bound Rules
 ```
-/{CellName}/__ctl/Box
+/{CellName}/__ctl/Rule(Name='{RuleName}',_Box.Name='{BoundBoxName}')
+```
+
+Rules not bound to any box
+```
+/{CellName}/__ctl/Rule(Name='{RuleName}')
 ```
 
 ### Request Method
 
-POST
+GET
 
 ### Request Query
 
@@ -35,7 +41,15 @@ POST
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
+[$select  Query](406_Select_Query.md)
+
+[$expand  Query](405_Expand_Query.md)
+
+[$format  Query](404_Format_Query.md)
+
 ### Request Header
+
+### Request Body
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
@@ -43,43 +57,18 @@ POST
 |X-Override|Header override function|${OverwrittenHeaderName}:${Value}|No|Overwrite normal HTTP header value. To overwrite multiple headers, specify multiple X-Override headers.|
 |X-Personium-RequestKey|RequestKey field value output in the event log|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters|No|PCS-${UNIXtime} by default|
 |Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
-|Content-Type|Specifies the request body format|application/json|No|[application/json] by default|
 |Accept|Specifies the response body format|application/json|No|[application/json] by default|
-
-### Request Body
-
-#### Format
-
-JSON
-
-|Item Name|Overview|Effective Value|Required|Notes|
-|:--|:--|:--|:--|:--|
-|Name|Box Name|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("\_")|Yes||
-|Schema|Schema Name|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("\_")<br>null|No||
-
-### Request Sample
-
-```JSON
-{"Name":"{BoxName}", "Schema":"https://{UnitFQDN}/{CellName}/"}
-```
-
+|If-None-Match|Specifies the target ETag value|ETag value|Yes|Not compatible|
 
 ## Response
 
 ### Response Code
 
-201
+200
 
 ### Response Header
 
-|Header Name|Overview|Notes|
-|:--|:--|:--|
-|X-Personium-Version|API version that the request is processed|Version of the API used to process the request|
-|Access-Control-Allow-Origin|Cross domain communication permission header|Return value fixed to "*"|
-|Content-Type|Format of data to be returned||
-|Location|URL to the resource that was created||
-|ETag|Resource version information||
-|DataServiceVersion|OData version||
+None
 
 ### Response Body
 
@@ -115,14 +104,34 @@ Refer to [Error Message List](004_Error_Messages.md)
   "d": {
     "results": {
       "__metadata": {
-        "uri": "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')",
+        "uri": "https://{UnitFQDN}/{CellName}/__ctl/Rule(Name='{RuleName}')",
         "etag": "W/\"1-1486368212581\"",
-        "type": "CellCtl.Box"
+        "type": "CellCtl.Rule"
       },
-      "Name": "{BoxName}",
+      "Name": "{RuleName}",
       "Schema": null,
       "__published": "/Date(1486368212581)/",
-      "__updated": "/Date(1486368212581)/"
+      "__updated": "/Date(1486368212581)/",
+      "_Role": {
+        "__deferred": {
+          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_Role"
+        }
+      },
+      "_Relation": {
+        "__deferred": {
+          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_Relation"
+        }
+      },
+      "_ReceivedMessage": {
+        "__deferred": {
+          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_ReceivedMessage"
+        }
+      },
+      "_SentMessage": {
+        "__deferred": {
+          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_SentMessage"
+        }
+      }
     }
   }
 }
@@ -132,8 +141,5 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Box" -X POST -i -H 'Authorization: Bearer {AccessToken}' \
--H 'Accept: application/json' -d '{"Name":"{BoxName}"}'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Rule(Name='{RuleName}')" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
-
-

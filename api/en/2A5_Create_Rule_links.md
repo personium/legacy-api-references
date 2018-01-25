@@ -1,14 +1,16 @@
-# Box Delete
+# Link a Rule with another object (Box)
 
 ## Overview
 
-Delete an empty Box. Fails if any content exists in the box. Use recursive box deletion api for recursive deletion. 
+Link an Event Processing Rule to a box.
+Only when the \_Box.Name described in the request URL is null (or if it is not specified) can be associated with Box.
 
 ### Required Privileges
 
-box
+* rule
+* box
 
-## Request
+### Restrictions
 
 * Accept in the request header is ignored
 * Always handles Content-Type in the request header as application/json
@@ -17,21 +19,32 @@ box
 * $formatQuery options ignored
 
 
+## Request
+
 ### Request URL
 
-```
-/{CellName}/__ctl/Box('{BoxName}')
-```
-
-or 
 
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}')
+/{CellName}/__ctl/Rule('{RuleName}')/$links/_Box
 ```
+
+or
+
+```
+/{CellName}/__ctl/Rule(Name='{RuleName}')/$links/_Box
+```
+
+or
+
+```
+/{CellName}/__ctl/Rule(Name='{RuleName}',_Box.Name=null)/$links/_Box
+```
+
+If the \_Box.Name parameter is omitted, it is assumed that null is specified
 
 ### Request Method
 
-DELETE
+POST
 
 ### Request Query
 
@@ -44,19 +57,31 @@ DELETE
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |X-HTTP-Method-Override|Method override function|User-defined|No|If you specify this value when requesting with the POST method, the specified value will be used as a method.|
-|X-Override|Header override function|${OverwrittenHeaderName}:${Value}override} $: $ {value}|No|Overwrite normal HTTP header value. To overwrite multiple headers, specify multiple X-Override headers.|
+|X-Override|Header override function|${OverwrittenHeaderName}:${Value}|No|Overwrite normal HTTP header value. To overwrite multiple headers, specify multiple X-Override headers.|
 |X-Personium-RequestKey|RequestKey field value output in the event log|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters|No|PCS-${UNIXtime} by default|
 |Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
+|Content-Type|Specifies the request body format|application/json|No|[application/json] by default|
+|Accept|Specifies the response body format|application/json|No|[application/json] by default|
 
 ### Request Body
 
-None
+#### Format
 
+JSON
+
+|Item Name|Overview|Effective Value|Required|Notes|
+|:--|:--|:--|:--|:--|
+|uri|URI of the OData resource to be linked|Number of digits: 1-1024<br>Follow URI format<br>scheme:http / https / urn|Yes||
+
+### Request Body Sample
+
+```JSON
+{"uri":"https://{UnitFQDN}/Cell/__ctl/Box('{BoxName}')"}
+```
 
 ## Response
 
-
-### Successful Response Code
+### Response Code
 
 204
 
@@ -64,22 +89,24 @@ None
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
-|X-Personium-Version|API version that the request is processed|Version of the API used to process the request|
+|DataServiceVersion|OData version||
 |Access-Control-Allow-Origin|Cross domain communication permission header|Return value fixed to "*"|
+|X-Personium-Version|API version that the request is processed|Version of the API used to process the request|
 
 ### Response Body
 
 None
 
-### Error Responses
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
+
 
 
 ## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')" -X DELETE -i  -H 'If-Match: *' -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Rule('{RuleName}')/\$links/_Box" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d "{\"uri\":\"https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')\"}"
 ```
+
 

@@ -11,6 +11,10 @@ Link Role to the OData resource specified by $links
 
 Only when the \_Box.Name described in the request URL is null (or if it is not specified) can be associated with Box
 
+### Required Privileges
+
+* social 
+
 ### Restrictions
 
 * Accept in the request header is ignored
@@ -129,7 +133,7 @@ JSON
 |:--|:--|:--|:--|:--|
 |uri|URI of the OData resource to be linked|Number of digits: 1-1024<br>Follow URI format<br>scheme:http / https / urn|Yes||
 
-### Request Sample
+### Request Body Sample
 
 ```JSON
 {"uri":"https://{UnitFQDN}/Cell/__ctl/Box('{BoxName}')"}
@@ -157,6 +161,7 @@ None
 ### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
+
 
 
 ## cURL Command

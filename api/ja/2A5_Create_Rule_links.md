@@ -1,33 +1,43 @@
-# AccountのNavigation Property経由でのRole登録
+# Ruleと他オブジェクト（Box）とのリンク
 ## 概要
-AccountのNavigation Property経由でRoleを登録する
+Ruleに$linksで指定したODataリソースを紐付ける<Br>以下のODataリソースと紐付けることができる
+* Box
+
+リクエストURLに記載された_Box.Nameがnullの場合（または指定されていない場合）のみBoxに紐付けることができる
 
 ### 必要な権限
-auth
+
+* rule
+* box
 
 ### 制限事項
+* リクエストヘッダのAcceptは無視される
 * リクエストヘッダのContent-Typeは全てapplication/jsonとして扱う
 * リクエストボディはJSON形式のみ受け付ける
 * レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはJSON形式とする
-* $formatクエリオプションにatom または xmlを指定した場合、エラーとはならないが、レスポンスボディのデータの保証はない
-
+* $formatクエリオプションは無視される
 
 ## リクエスト
 ### リクエストURL
-#### RoleへのnavigationProperty
+
 ```
-/{CellName}/__ctl/Account(Name='{AccountName}')/_Role
+/{CellName}/__ctl/Rule(Name='{RuleName}')/$links/_Box
 ```
 または、
 ```
-/{CellName}/__ctl/Account('{AccountName}')/_Role
+/{CellName}/__ctl/Rule('{RuleName}')/$links/_Box
 ```
+
+※ \_Box.Nameパラメタを省略した場合は、nullが指定されたものとする
+
 ### メソッド
 POST
+
 ### リクエストクエリ
 |クエリ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|クッキー認証値|認証時にサーバから返却されたクッキー認証値|×|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する|
+
 ### リクエストヘッダ
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
@@ -38,80 +48,38 @@ POST
 |Content-Type|リクエストボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
 |Accept|レスポンスボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
 ### リクエストボディ
-Roleを登録する場合
+#### Format
+JSON
 
 |項目名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|Name|アカウント名|文字種:半角英数字と左記半角記号（-_!$*=^`{&#124;}~.@）<br>ただし、先頭文字に半角記号は指定不可|○||
-### リクエストサンプル
-```JSON
-{
-  "Name": "{AccountName}"  
-}
-```
+|uri|紐付けるODataリソースのURI|桁数：1&#65374;1024<br>URIの形式に従う<br>scheme：http / https / urn|○||
 
+### リクエストボディサンプル
+```JSON
+{"uri":"https://{UnitFQDN}/{CellName}/__ctl/Box(Name='{BoxName}')"}
+```
 
 ## レスポンス
 ### ステータスコード
-201
+204
+
 ### レスポンスヘッダ
-|項目名|概要|備考|
+
+|ヘッダ名|概要|備考|
 |:--|:--|:--|
-|X-Personium-Version|APIの実行バージョン|リクエストが処理されたAPIバージョン|
-|Access-Control-Allow-Origin|クロスドメイン通信許可ヘッダ|返却値は"*"固定|
-|Content-Type|返却されるデータの形式||
-|Location|作成したリソースへのURL||
-|ETag|リソースのバージョン情報||
 |DataServiceVersion|ODataのバージョン||
+|Access-Control-Allow-Origin|クロスドメイン通信許可ヘッダ|返却値は"*"固定|
+|X-Personium-Version|APIの実行バージョン|リクエストが処理されたAPIバージョン|
 ### レスポンスボディ
-|項目名|概要|備考|
-|:--|:--|:--|
-|d|||
-|d / results|||
-|d / results / __published|作成日||
-|d / results / __updated|更新日||
-|d / results / __metadata|||
-|d / results / __metadata / etag|ETag値||
-|d / results / __metadata / uri|作成したリソースへのURL||
-|d / results / __metadata / type|EntityType||
-|d / results / Name|Role名||
-|d / results / _Box.Name|関係対象のBox名||
-#### Accountを登録した場合
-Account固有レスポンスボディ
+なし
 
-|オブジェクト|項目名|Data Type|備考|
-|:--|:--|:--|:--|
-|{2}|Name|string|Account名|
-|{2}|Cell|string|null|
-|{2}|Type|string|basic|
-|{3}|Type|string|CellCtl.Account|
-
-### レスポンスサンプル
-```JSON
-{
-  "d": {
-    "results": {
-      "Name": "{AccountName}",
-      "__published": "/Date(1349355810698)/",
-      "Cell": null,
-      "__updated": "/Date(1349355810698)/",
-      "Type": "basic",
-      "__metadata": {
-        "etag": "1-1349355810698",
-        "type": "CellCtl.Account",
-        "uri": "https://{UnitFQDN}/{CellName}/__ctl/Account('{AccountName}')"
-      }
-    }
-  }
-}   
-```
 ### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
+
 
 ## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Account('acount_name')/_Role" -X POST -i -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{RoleName}"}'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Rule('{RuleName}')/\$links/_Box" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d "{\"uri\":\"https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')\"}"
 ```
-

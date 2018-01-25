@@ -1,27 +1,35 @@
-# AccountのNavigation Property経由でのRole登録
+# RuleのNavigation Property経由での他オブジェクト登録
 ## 概要
-AccountのNavigation Property経由でRoleを登録する
+
+RuleのNavigation Property経由での他のCell制御オブジェクトを登録します。これにより最初からリンクされた形でオブジェクト登録が可能です。
 
 ### 必要な権限
-auth
+* rule
+* box
 
 ### 制限事項
+* リクエストヘッダのAcceptは無視される
 * リクエストヘッダのContent-Typeは全てapplication/jsonとして扱う
 * リクエストボディはJSON形式のみ受け付ける
 * レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはJSON形式とする
-* $formatクエリオプションにatom または xmlを指定した場合、エラーとはならないが、レスポンスボディのデータの保証はない
+* $formatクエリオプションは無視される
 
 
 ## リクエスト
 ### リクエストURL
-#### RoleへのnavigationProperty
+#### BoxへのnavigationProperty
 ```
-/{CellName}/__ctl/Account(Name='{AccountName}')/_Role
+/{CellName}/__ctl/Rule(Name='{RuleName}',_Box.Name=null)/_Box
 ```
 または、
 ```
-/{CellName}/__ctl/Account('{AccountName}')/_Role
+/{CellName}/__ctl/Rule(Name='{RuleName}')/_Box
 ```
+または、
+```
+/{CellName}/__ctl/Rule('{RuleName}')/_Box
+```
+※ \_Box.Nameパラメタを省略した場合は、nullが指定されたものとする
 ### メソッド
 POST
 ### リクエストクエリ
@@ -38,80 +46,72 @@ POST
 |Content-Type|リクエストボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
 |Accept|レスポンスボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
 ### リクエストボディ
-Roleを登録する場合
-
 |項目名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|Name|アカウント名|文字種:半角英数字と左記半角記号（-_!$*=^`{&#124;}~.@）<br>ただし、先頭文字に半角記号は指定不可|○||
+|Name|Box名|桁数：1&#65374;128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)は指定不可|○||
+|Schema|Schema名|桁数：1&#65374;128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)は指定不可<br>null|×||
+
 ### リクエストサンプル
 ```JSON
-{
-  "Name": "{AccountName}"  
-}
+{"Name":"{BoxName}", "Schema":"https://{UnitFQDN}/{CellName}/"}
 ```
-
 
 ## レスポンス
 ### ステータスコード
 201
 ### レスポンスヘッダ
-|項目名|概要|備考|
+|ヘッダ名|概要|備考|
 |:--|:--|:--|
-|X-Personium-Version|APIの実行バージョン|リクエストが処理されたAPIバージョン|
-|Access-Control-Allow-Origin|クロスドメイン通信許可ヘッダ|返却値は"*"固定|
 |Content-Type|返却されるデータの形式||
 |Location|作成したリソースへのURL||
-|ETag|リソースのバージョン情報||
 |DataServiceVersion|ODataのバージョン||
+|ETag|リソースのバージョン情報||
+|Access-Control-Allow-Origin|クロスドメイン通信許可ヘッダ|返却値は"*"固定|
+|X-Personium-Version|APIの実行バージョン|リクエストが処理されたAPIバージョン|
 ### レスポンスボディ
-|項目名|概要|備考|
-|:--|:--|:--|
-|d|||
-|d / results|||
-|d / results / __published|作成日||
-|d / results / __updated|更新日||
-|d / results / __metadata|||
-|d / results / __metadata / etag|ETag値||
-|d / results / __metadata / uri|作成したリソースへのURL||
-|d / results / __metadata / type|EntityType||
-|d / results / Name|Role名||
-|d / results / _Box.Name|関係対象のBox名||
-#### Accountを登録した場合
-Account固有レスポンスボディ
-
 |オブジェクト|項目名|Data Type|備考|
 |:--|:--|:--|:--|
-|{2}|Name|string|Account名|
-|{2}|Cell|string|null|
-|{2}|Type|string|basic|
-|{3}|Type|string|CellCtl.Account|
+|ルート|d|object|オブジェクト{1}|
+|{1}|results|array|オブジェクト{2}の配列|
+|{2}|__metadata|object|オブジェクト{3}|
+|{3}|uri|string|作成したリソースへのURL|
+|{3}|etag|string|Etag値|
+|{2}|__published|string|作成日(UNIX時間)|
+|{2}|__updated|string|更新日(UNIX時間)|
+|{1}|__count|string|$inlinecountクエリでの取得結果件数|
+
+### Box固有レスポンスボディ
+|オブジェクト|項目名|Data Type|備考|
+|:--|:--|:--|:--|
+|{3}|type|string|CellCtl.Box|
+|{2}|Name|string|Box名|
+|{2}|Schema|string|Schema名|
 
 ### レスポンスサンプル
 ```JSON
 {
   "d": {
     "results": {
-      "Name": "{AccountName}",
-      "__published": "/Date(1349355810698)/",
-      "Cell": null,
-      "__updated": "/Date(1349355810698)/",
-      "Type": "basic",
       "__metadata": {
-        "etag": "1-1349355810698",
-        "type": "CellCtl.Account",
-        "uri": "https://{UnitFQDN}/{CellName}/__ctl/Account('{AccountName}')"
-      }
+        "uri": "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')",
+        "etag": "W/\"1-1486368212581\"",
+        "type": "CellCtl.Box"
+      },
+      "Name": "{BoxName}",
+      "Schema": null,
+      "__published": "/Date(1486368212581)/",
+      "__updated": "/Date(1486368212581)/"
     }
   }
-}   
+}
 ```
 ### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
 
+
 ## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Account('acount_name')/_Role" -X POST -i -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{RoleName}"}'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Rule('{RuleName}')/_Box" -X POST -i -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{BoxName}"}'
 ```
-

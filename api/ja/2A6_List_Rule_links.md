@@ -1,70 +1,25 @@
-# Box_$links一覧取得
+# Rule_$links一覧取得
 ## 概要
-Boxに紐付いたODataリソースを一覧取得する<br>以下のODataリソースを指定することができる
+Ruleに紐付いたODataリソースを一覧取得する<br>以下のODataリソースを指定することができる
 
-* Role
-* Relation
-* Rule
+* Box
 
 ### 必要な権限
-|紐付け先|必要な権限|
-|:-|:-|
-|Role|box-read<br>auth-read|
-|Relation|box-read<br>social-read|
-|Rule|box-read<br>rule-read|
-
+rule-read
+box-read
 
 ### 制限事項
-* リクエストヘッダのAcceptは無視される
-* リクエストヘッダのContent-Typeは全てapplication/jsonとして扱う
-* リクエストボディはJSON形式のみ受け付ける
 * レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはJSON形式とする
-* $formatクエリオプションは無視される
 
 
 ## リクエスト
 ### リクエストURL
-#### Roleとの紐付け
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/_Role
+/{CellName}/__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')/$links/_Box
 ```
-または、
-```
-/{CellName}/__ctl/Box(Name='{BoxName}')/$links/_Role
-```
-または、
-```
-/{CellName}/__ctl/Box('{BoxName}')/$links/_Role
-```
-#### Relationとの紐付け
-```
-/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/_Relation
-```
-または、
-```
-/{CellName}/__ctl/Box(Name='{BoxName}')/$links/_Relation
-```
-または、
-```
-/{CellName}/__ctl/Box('{BoxName}')/$links/_Relation
-```
-#### Ruleとの紐付け
-```
-/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/_Rule
-```
-または、
-```
-/{CellName}/__ctl/Box(Name='{BoxName}')/$links/_Rule
-```
-または、
-```
-/{CellName}/__ctl/Box('{BoxName}')/$links/_Rule
-```
-※ Schemaパラメタを省略した場合は、nullが指定されたものとする
 
 ### メソッド
 GET
-
 ### リクエストクエリ
 以下のクエリパラメタが利用可能です。
 
@@ -91,7 +46,6 @@ GET
 [全文検索(q)クエリ](408_Full_Text_Search_Query.md)
 
 ### リクエストヘッダ
-
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |X-HTTP-Method-Override|メソッドオーバーライド機能|任意|×|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用されます。|
@@ -100,6 +54,9 @@ GET
 |Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
 |Accept|レスポンスボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
 ### リクエストボディ
+なし
+
+### リクエストサンプル
 なし
 
 
@@ -115,6 +72,7 @@ GET
 |DataServiceVersion|ODataのバージョン||
 |Access-Control-Allow-Origin|クロスドメイン通信許可ヘッダ|返却値は"*"固定|
 |X-Personium-Version|APIの実行バージョン|リクエストが処理されたAPIバージョン|
+
 ### レスポンスボディ
 
 |オブジェクト|項目名|Data Type|備考|
@@ -131,7 +89,7 @@ GET
   "d": {
     "results": [
       {
-        "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')"
+        "uri": "https://{UnitFQDN}/{CellName}/__ctl/Box(Name='{BoxName}')"
       }
     ]
   }
@@ -141,7 +99,5 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/\$links/_Role" -X GET -i -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')/\$links/_Box" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
-

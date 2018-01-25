@@ -1,14 +1,14 @@
-# Box List
+# Rule List
 
 ## Overview
 
-Obtain a list of existing Box information
+Retrieve a list of existing Event Processing Rules 
 
-### Required Privileges
+## Required Privileges
 
-box-read
+rule-read
 
-### Restrictions
+## Restrictions
 
 * Accept in the request header is ignored
 * Always handles Content-Type in the request header as application/json
@@ -22,7 +22,7 @@ box-read
 ### Request URL
 
 ```
-/{CellName}/__ctl/Box
+/{CellName}/__ctl/Rule
 ```
 
 ### Request Method
@@ -94,7 +94,7 @@ The response is a JSON object, the correspondence between the key (name) and typ
 |{2}|__updated|string|Update date (UNIX time)|
 |{1}|__count|string|Get number of results in $inlinecount query|
 
-### Box specific response body
+### Rule specific response body
 
 |Object|Item Name|Data Type|Notes|
 |:--|:--|:--|:--|
@@ -183,8 +183,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Box" -X GET -i -H 'Authorization: Bearer {AccessToken}'\
- -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Rule" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 
 

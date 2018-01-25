@@ -1,32 +1,25 @@
-# Box Delete
+# Rule Deletion
 
 ## Overview
 
-Delete an empty Box. Fails if any content exists in the box. Use recursive box deletion api for recursive deletion. 
+Delete a Event Processing Rule.
 
 ### Required Privileges
 
-box
+rule
 
 ## Request
 
-* Accept in the request header is ignored
-* Always handles Content-Type in the request header as application/json
-* Only accepts the request body in the JSON format
-* Only application/json is supported for Content-Type in the request header and the JSON format for the response body
-* $formatQuery options ignored
-
-
 ### Request URL
 
+Box-bound Rules
 ```
-/{CellName}/__ctl/Box('{BoxName}')
+/{CellName}/__ctl/Rule(Name='{RuleName}',_Box.Name='{BoundBoxName}')
 ```
 
-or 
-
+Rules not bound to any box
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}')
+/{CellName}/__ctl/Rule(Name='{RuleName}')
 ```
 
 ### Request Method
@@ -52,9 +45,7 @@ DELETE
 
 None
 
-
 ## Response
-
 
 ### Successful Response Code
 
@@ -75,11 +66,9 @@ None
 
 Refer to [Error Message List](004_Error_Messages.md)
 
-
 ## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')" -X DELETE -i  -H 'If-Match: *' -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Rule(Name='{RuleName}',_Box.Name='{BoundBoxName}')" -X DELETE -i \
+-H 'If-Match: *' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
-

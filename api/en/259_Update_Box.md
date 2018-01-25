@@ -4,6 +4,10 @@
 
 Update existing Box information
 
+### Required Privileges
+
+box
+
 ### Restrictions
 
 * Accept in the request header is ignored
@@ -60,7 +64,7 @@ JSON
 |Name|Box Name|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("\_")|Yes||
 |Schema|Schema Name|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("\_")<br>null|No||
 
-### Request Sample
+### Request Body Sample
 
 ```JSON
 {"Name":"{BoxName}", "Schema":"https://{UnitFQDN}/{CellName}/"}
@@ -69,7 +73,7 @@ JSON
 
 ## Response
 
-### Response Code
+### Successful Response Code
 
 204
 

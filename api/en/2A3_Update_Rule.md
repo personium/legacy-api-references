@@ -1,14 +1,14 @@
-# Box Delete
+# Rule Update
 
 ## Overview
 
-Delete an empty Box. Fails if any content exists in the box. Use recursive box deletion api for recursive deletion. 
+Update a single Event Processing Rule.
 
 ### Required Privileges
 
-box
+rule
 
-## Request
+### Restrictions
 
 * Accept in the request header is ignored
 * Always handles Content-Type in the request header as application/json
@@ -17,21 +17,24 @@ box
 * $formatQuery options ignored
 
 
+## Request
+
 ### Request URL
 
+Box-bound Rules
 ```
-/{CellName}/__ctl/Box('{BoxName}')
+/{CellName}/__ctl/Rule(Name='{RuleName}',_Box.Name='{BoundBoxName}')
 ```
 
-or 
+Rules not bound to any box
+```
+/{CellName}/__ctl/Rule(Name='{RuleName}')
+```
 
-```
-/{CellName}/__ctl/Box(Name='{BoxName}')
-```
 
 ### Request Method
 
-DELETE
+PUT
 
 ### Request Query
 
@@ -47,14 +50,29 @@ DELETE
 |X-Override|Header override function|${OverwrittenHeaderName}:${Value}override} $: $ {value}|No|Overwrite normal HTTP header value. To overwrite multiple headers, specify multiple X-Override headers.|
 |X-Personium-RequestKey|RequestKey field value output in the event log|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters|No|PCS-${UNIXtime} by default|
 |Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
+|Contents-Type|Specifies the request body format|application/json|No|[application/json] by default|
+|Accept|Specifies the response body format|application/json|No|[application/json] by default|
+|If-Match|Specifies the target ETag value|ETag value|Yes||
 
 ### Request Body
 
-None
+#### Format
+
+JSON
+
+|Item Name|Overview|Effective Value|Required|Notes|
+|:--|:--|:--|:--|:--|
+|Name|Box Name|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("\_")|Yes||
+|Schema|Schema Name|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("\_")<br>null|No||
+
+### Request Body Sample
+
+```JSON
+{"Name":"{BoxName}", "Schema":"https://{UnitFQDN}/{CellName}/"}
+```
 
 
 ## Response
-
 
 ### Successful Response Code
 
@@ -62,16 +80,13 @@ None
 
 ### Response Header
 
-|Header Name|Overview|Notes|
-|:--|:--|:--|
-|X-Personium-Version|API version that the request is processed|Version of the API used to process the request|
-|Access-Control-Allow-Origin|Cross domain communication permission header|Return value fixed to "*"|
+None
 
 ### Response Body
 
 None
 
-### Error Responses
+### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
 
@@ -79,7 +94,6 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')" -X DELETE -i  -H 'If-Match: *' -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Rule(Name='{RuleName}')" -X PUT -i -H 'If-Match: *' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{BoxName}"}'
 ```
 

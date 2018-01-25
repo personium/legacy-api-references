@@ -4,9 +4,15 @@ Boxに紐付いたODataリソースを一覧取得する<br>以下のODataリソ
 
 * Role
 * Relation
+* Rule
 
 ### 必要な権限
-未稿
+|紐付け先|必要な権限|
+|:-|:-|
+|Role|box-read<br>auth-read|
+|Relation|box-read<br>social-read|
+|Rule|box-read<br>rule-read|
+
 
 ### 制限事項
 * リクエストヘッダのAcceptは無視される
@@ -41,6 +47,18 @@ Boxに紐付いたODataリソースを一覧取得する<br>以下のODataリソ
 または、
 ```
 /{CellName}/__ctl/Box('{BoxName}')/$links/_Relation
+```
+#### Ruleとの紐付け
+```
+/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/_Rule
+```
+または、
+```
+/{CellName}/__ctl/Box(Name='{BoxName}')/$links/_Rule
+```
+または、
+```
+/{CellName}/__ctl/Box('{BoxName}')/$links/_Rule
 ```
 ※ Schemaパラメタを省略した場合は、nullが指定されたものとする
 

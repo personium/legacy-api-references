@@ -1,11 +1,13 @@
-# Rule_$links登録
+# Ruleと他オブジェクト（Box）とのリンク
 ## 概要
 Ruleに$linksで指定したODataリソースを紐付ける<Br>以下のODataリソースと紐付けることができる
 
 * Box
 
 ### 必要な権限
-なし
+
+* rule
+* box
 
 ### 制限事項
 * リクエストヘッダのAcceptは無視される
@@ -14,35 +16,18 @@ Ruleに$linksで指定したODataリソースを紐付ける<Br>以下のOData�
 * レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはJSON形式とする
 * $formatクエリオプションは無視される
 
-
 ## リクエスト
 ### リクエストURL
-#### Roleとの紐付け
+
 ```
-/{CellName}/__ctl/Rule(Name='{BoxName}',Schema='{SchemaURL}')/$links/_Box
-```
-または、
-```
-/{CellName}/__ctl/Box(Name='{BoxName}')/$links/_Role
+/{CellName}/__ctl/Rule(Name='{RuleName}')/$links/_Box
 ```
 または、
 ```
-/{CellName}/__ctl/Box('{BoxName}')/$links/_Role
-```
-#### Relationとの紐付け
-```
-/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/_Relation
-```
-または、
-```
-/{CellName}/__ctl/Box(Name='{BoxName}')/$links/_Relation
-```
-または、
-```
-/{CellName}/__ctl/Box('{BoxName}')/$links/_Relation
+/{CellName}/__ctl/Rule('{RuleName}')/$links/_Box
 ```
 
-※ Schemaパラメタを省略した場合は、nullが指定されたものとする
+※ \_Box.Nameパラメタを省略した場合は、nullが指定されたものとする
 
 ### メソッド
 POST
@@ -71,9 +56,9 @@ JSON
 |:--|:--|:--|:--|:--|
 |uri|紐付けるODataリソースのURI|桁数：1&#65374;1024<br>URIの形式に従う<br>scheme：http / https / urn|○||
 
-### リクエストサンプル
+### リクエストボディサンプル
 ```JSON
-{"uri":"https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}')"}
+{"uri":"https://{UnitFQDN}/{CellName}/__ctl/Box(Name='{BoxName}')"}
 ```
 
 ## レスポンス
@@ -100,6 +85,6 @@ JSON
 ## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Rule('{BoxName}')/\$links/_Role" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d "{\"uri\":\"https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}')\"}"
+curl "https://{UnitFQDN}/{CellName}/__ctl/Rule('{RuleName}')/\$links/_Box" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d "{\"uri\":\"https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')\"}"
 ```
 

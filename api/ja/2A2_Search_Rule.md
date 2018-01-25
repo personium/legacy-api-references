@@ -1,6 +1,6 @@
-# Rule一覧取得
+# Rule取得
 ## 概要
-既存のRule情報の一覧を取得する
+既存のRule情報を取得する
 
 ### 必要な権限
 rule-read
@@ -12,50 +12,41 @@ rule-read
 * レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはJSON形式とする
 * $formatクエリオプションは無視される
 
+
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/__ctl/Rule
+/{CellName}/__ctl/Rule('{BoxName}')
+```
+または、
+```
+/{CellName}/__ctl/Rule(Name='{BoxName}')
 ```
 ### メソッド
 GET
 
 ### リクエストクエリ
-以下のクエリパラメタが利用可能です。
 
 |クエリ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|クッキー認証値|認証時にサーバから返却されたクッキー認証値|×|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する|
-
 [$select クエリ](406_Select_Query.md)
 
 [$expand クエリ](405_Expand_Query.md)
 
 [$format クエリ](404_Format_Query.md)
 
-[$filter クエリ](403_Filter_Query.md)
-
-[$inlinecount クエリ](407_Inlinecount_Query.md)
-
-[$orderby クエリ](400_Orderby_Query.md)
-
-[$top クエリ](401_Top_Query.md)
-
-[$skip クエリ](402_Skip_Query.md)
-
-[全文検索(q)クエリ](408_Full_Text_Search_Query.md)
-
 ### リクエストヘッダ
+### リクエストボディ
 
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |X-HTTP-Method-Override|メソッドオーバーライド機能|任意|×|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用されます。|
-|X-Override|ヘッダオーバライド機能|${上書きするヘッダ名}:${値}override} $: $ {value}|×|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定します。|
+|X-Override|ヘッダオーバライド機能|${上書きするヘッダ名}:${値}|×|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定します。|
 |X-Personium-RequestKey|イベントログに出力するRequestKeyフィールドの値|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字|×|指定がない場合、PCS-${UNIX時間}を設定する|
 |Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
 |Accept|レスポンスボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
-### リクエストボディ
-なし
+|If-None-Match|対象ETag値を指定する|ETag値|○|未対応|
 
 ### リクエストサンプル
 なし
@@ -82,7 +73,7 @@ GET
 |{2}|__updated|string|更新日(UNIX時間)|
 |{1}|__count|string|$inlinecountクエリでの取得結果件数|
 
-### Rule固有レスポンスボディ
+### Box固有レスポンスボディ
 
 |オブジェクト|項目名|Data Type|備考|
 |:--|:--|:--|:--|
@@ -97,70 +88,37 @@ GET
 ```JSON
 {
   "d": {
-    "results": [
-      {
-        "__metadata": {
-          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')",
-          "etag": "W/\"1-1486368212581\"",
-          "type": "CellCtl.Box"
-        },
-        "Name": "{BoxName}",
-        "Schema": null,
-        "__published": "/Date(1486368212581)/",
-        "__updated": "/Date(1486368212581)/",
-        "_Role": {
-          "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_Role"
-          }
-        },
-        "_Relation": {
-          "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_Relation"
-          }
-        },
-        "_ReceivedMessage": {
-          "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_ReceivedMessage"
-          }
-        },
-        "_SentMessage": {
-          "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_SentMessage"
-          }
+    "results": {
+      "__metadata": {
+        "uri": "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')",
+        "etag": "W/\"1-1486368212581\"",
+        "type": "CellCtl.Box"
+      },
+      "Name": "{BoxName}",
+      "Schema": null,
+      "__published": "/Date(1486368212581)/",
+      "__updated": "/Date(1486368212581)/",
+      "_Role": {
+        "__deferred": {
+          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_Role"
         }
       },
-      {
-        "__metadata": {
-          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')",
-          "etag": "W/\"1-1486461000154\"",
-          "type": "CellCtl.Box"
-        },
-        "Name": "{BoxName}",
-        "Schema": null,
-        "__published": "/Date(1486461000154)/",
-        "__updated": "/Date(1486461000154)/",
-        "_Role": {
-          "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_Role"
-          }
-        },
-        "_Relation": {
-          "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_Relation"
-          }
-        },
-        "_ReceivedMessage": {
-          "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_ReceivedMessage"
-          }
-        },
-        "_SentMessage": {
-          "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_SentMessage"
-          }
+      "_Relation": {
+        "__deferred": {
+          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_Relation"
+        }
+      },
+      "_ReceivedMessage": {
+        "__deferred": {
+          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_ReceivedMessage"
+        }
+      },
+      "_SentMessage": {
+        "__deferred": {
+          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_SentMessage"
         }
       }
-    ]
+    }
   }
 }
 ```
@@ -168,6 +126,6 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Rule" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Rule('{BoxName}')" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

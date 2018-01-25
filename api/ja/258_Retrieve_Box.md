@@ -114,6 +114,11 @@ GET
         "__deferred": {
           "uri": "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_SentMessage"
         }
+      },
+      "_Rule": {
+        "__deferred": {
+          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_Rule"
+        }
       }
     }
   }

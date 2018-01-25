@@ -3,8 +3,8 @@
 Ruleとの$links情報を削除する
 
 ### 必要な権限
-rule
-box
+* rule
+* box
 
 ### 制限事項
 

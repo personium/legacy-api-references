@@ -118,6 +118,7 @@ JSON
 |:--|:--|:--|:--|
 |{3}|type|string|CellCtl.Rule|
 |{2}|Name|string|Rule名|
+|{2}|_Box.Name|string|関係対象のBox名|
 |{2}|EventExternal|boolean||
 |{2}|EventSubject|string||
 |{2}|EventType|string||
@@ -125,7 +126,6 @@ JSON
 |{2}|EventInfo|string||
 |{2}|Action|string||
 |{2}|TargetUrl|string||
-|{2}|_Box.Name|string|関係対象のBox名|
 
 
 ### レスポンスボディサンプル
@@ -139,6 +139,7 @@ JSON
         "type": "CellCtl.Rule"
       },
       "Name": "{RuleName}",
+      "_Box.Name": "{BoxName}",
       "EventExternal": true,
       "EventSubject": null,
       "EventType": null,
@@ -146,7 +147,6 @@ JSON
       "EventInfo": null,
       "Action": "log",
       "TargetUrl": null,
-      "_Box.Name": "{BoxName}",
       "__published": "/Date(1486368212581)/",
       "__updated": "/Date(1486368212581)/"
     }
@@ -161,5 +161,3 @@ JSON
 ```sh
 curl "https://{UnitFQDN}/{CellName}/__ctl/Rule" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{RuleName}", "EventExternal":true, "Action":"log"}'
 ```
-
-

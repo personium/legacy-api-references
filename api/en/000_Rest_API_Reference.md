@@ -4,45 +4,48 @@ Welcome to the Personium REST API Reference.
 The REST API Reference describes technical detailed specifications related to all of the REST APIs provided by Personium.
 
 ## Unit Level API
-The Unit Level API's belong to the unit that hosts a group of cells (for creating cells and managing a group of created cells).  
-In principle, these APIs cannot be accessed using the access tokens issued by normal cells.
+The Unit Level API's belong to the unit that hosts a group of cells and provide functions such as creating cells or managing a group of created cells. In principle, Unit Level API's cannot be accessed using the access tokens issued by normal cells and can only be accessed with Unit User Tokens.
 
-Unit Root URL
+#### Unit Root URL
+
 ```
 https://{UnitFQDN}/
 ```
+
+#### Unit Control Objects
 Most of the Unit Level API's are implemented in the form of Unit Control Objects. 
 Since they conform with the OData standard, their manipulation can be made in 
 a RESTful and standardized manner.
-
-### Unit Control Objects
 
 |Cell|Operations|
 |:--|:--|
 |Basic Operations|[Create](100_Create_Cell.md) &nbsp; &nbsp; [Retrieve List](101_List_Cell.md) &nbsp; &nbsp; [Retrieve](102_Get_Cell.md) &nbsp; &nbsp; [Update](103_Update_Cell.md) &nbsp; &nbsp; [Delete](104_Delete_Cell.md)|
 
-### Other API's
+#### Other API's
 
 *  [Cell Recursive Deletion](105_Cell_Recursive_Delete.md)
 
 ## Cell Level API
 
-Cell Level API's comprise of the following features;
+Cell Level API's are deployed under the following root URL.
+
+#### Cell Root URL
+```
+https://{UnitFQDN}/{CellName}/
+```
+
+Cell Level API's provides the following features:
 
 *  User and application Authentication
 *  Access control
 *  Networking Cells
 *  Box creation and management
-*  Messages exchange between Cells
+*  Message exchange between Cells
 *  Event processing
 *  Other features
 
-And so on. Many of these functions are implemented in the form of control objects that can be operated with the OData protocol, which is a standard for performing relational data manipulation based on REST.
+Most of these functions are implemented in the form of Cell Control Objects that can be operated with the OData protocol, which is a standard for performing relational data manipulation based on REST.
 
-Cell Root URL
-```
-https://{UnitFQDN}/{CellName}/
-```
 
 ### User and application Authentication
 
@@ -80,7 +83,6 @@ Configured ACL can be retrieved together with other properties, by sending regul
 |Basic Operations|[Create](201_Create_Role.md) &nbsp; &nbsp; [Retrieve](202_Retrieve_Role.md) &nbsp; &nbsp; [Retrieve List](203_Search_Role.md) &nbsp; &nbsp; [Update](204_Update_Role.md) &nbsp; &nbsp; [Delete](205_Delete_Role.md)|
 |&nbsp; &nbsp; Linking with other objects|[Link](206_Create_Role_links.md) &nbsp; &nbsp; [Unlink](209_Delete_Role_links.md) &nbsp; &nbsp; [List Links](207_List_Role_links.md) |
 |&nbsp; &nbsp; Bound Object Manipulation|[Create](210_Register_Role_Using_NavProp.md) &nbsp; &nbsp; [Retrieve](211_List_Using_Role_NavProp.md)|
-
 
 
 ### Networking Cells
@@ -121,7 +123,7 @@ Configured ACL can be retrieved together with other properties, by sending regul
 
 |Box|Operations|
 |:--|:--|
-|Basic Operations|[Create](256_Create_Box.md)  [Retrieve](258_Retrieve_Box.md)  [Retrieve List](257_Search_Box.md)  [Update](259_Update_Box.md)  [Delete](260_Delete_Box.md)|
+|Basic Operations|[Create](256_Create_Box.md) &nbsp; &nbsp; [Retrieve](258_Retrieve_Box.md) &nbsp; &nbsp; [Retrieve List](257_Search_Box.md) &nbsp; &nbsp; [Update](259_Update_Box.md) &nbsp; &nbsp; [Delete](260_Delete_Box.md)|
 |&nbsp; &nbsp; Linking with other objects|[Link](261_Register_Box_links.md) &nbsp; &nbsp; [Unlink](264_Delete_Box_links.md) &nbsp; &nbsp; [List Links](262_List_Box_links.md) |
 |&nbsp; &nbsp; Bound Object Manipulation|[Create](265_Register_Using_Box_NavProp.md) &nbsp; &nbsp; [Retrieve](266_List_Box_NavProp.md)|
 
@@ -173,7 +175,7 @@ Snapshot file can be operated with WebDAV interface.
 
 ## Box Level API
 
-The Box Level API is an API for applications and others to manipulate data, and is a group of APIs based on WebDAV as a file system idea.  Like ordinary file systems, it is possible to arrange / acquire files, create / manage folders (collection), get list of files and folders, set / refer to access control, etc.
+The Box Level API is an API for applications and others to manipulate data, and is a group of APIs based on WebDAV as a file system idea.  Like ordinary file systems, it is possible to arrange / retrieve files, create / manage folders (collection), get list of files and folders, set / refer to access control, etc.
 
 Also, because it supports the following special collections, it can handle not only file-like data but also various forms of data.  
 These special collections can be created in any path on the WebDAV space provided by Box.
@@ -185,14 +187,10 @@ These special collections can be created in any path on the WebDAV space provide
 |CALDAV Collection|Calendar data|Unimplemented|
 |Link Collection|Aliases to specific areas of other cells or other Box|Unimplemented|
 
-Resource Path (* with certain exceptions)
-
+Box Root URL
 ```
 https://{UnitFQDN}/{CellName}/{BoxName}/
-https://{UnitFQDN}/{CellName}/{BoxName}/{ResourcePath}
 ```
-
-### Box Management
 
 
 ### WebDAV

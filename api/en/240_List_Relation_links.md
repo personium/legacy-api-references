@@ -1,4 +1,4 @@
-# Relation\_$links Acquire List
+# Relation\_$links Retrieve List
 
 ## Overview
 

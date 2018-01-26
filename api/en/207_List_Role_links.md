@@ -1,4 +1,4 @@
-# Role\_$links Acquire List
+# Role\_$links Retrieve List
 
 ## Overview
 

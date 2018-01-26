@@ -2,7 +2,7 @@
 
 ## Overview
 
-Acquire existing ComplexTypeProperty information
+Retrieve existing ComplexTypeProperty information
 
 ### Required Privileges
 

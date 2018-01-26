@@ -1,8 +1,8 @@
-# Extcell Update
+# ExtRole Update
 
 ## Overview
 
-register ExtRole
+update existed ExtRole
 
 ### Required Privileges
 

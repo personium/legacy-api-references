@@ -2,7 +2,7 @@
 
 ## Overview
 
-Acquire cell control object via Navigation Property
+Retrieve cell control object via Navigation Property
 
 ### Required Privileges
 
@@ -23,7 +23,7 @@ Acquire cell control object via Navigation Property
 
 ### Request URL
 
-#### navigationProperty to Role
+#### Navigation Property to Role
 
 ```
 /{CellName}/__ctl/Account(Name='{AccountName}')/_Role
@@ -171,7 +171,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 
 ## cURL Command
 
-### List of via Account's navigationProperty
+### List of via Account's Navigation Property
 
 ```sh
 curl "https://{UnitFQDN}/{CellName}/__ctl/Account('{AccountName}')/_Role" -X GET -i -H \

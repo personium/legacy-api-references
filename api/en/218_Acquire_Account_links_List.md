@@ -1,4 +1,4 @@
-# Account\_$links Acquire List
+# Account\_$links Retrieve List
 
 ## Overview
 

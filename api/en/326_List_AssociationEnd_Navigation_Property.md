@@ -1,4 +1,4 @@
-# Acquire via AssociationEnd NavProp
+# Retrieve via AssociationEnd NavProp
 
 in preparation
 

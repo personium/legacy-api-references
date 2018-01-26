@@ -202,7 +202,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 
 ## cURL Command
 
-#### Relation registration via navigationProperty
+#### Relation registration via Navigation Property
 
 ```sh
 curl "https://{UnitFQDN}/{CellName}/__ctl/Role('{RoleName}')/_Relation" -X POST -i -H \

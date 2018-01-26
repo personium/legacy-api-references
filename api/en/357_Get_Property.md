@@ -2,7 +2,7 @@
 
 ## Overview
 
-Acquire existing Property information
+Retrieve existing Property information
 
 ### Required Privileges
 

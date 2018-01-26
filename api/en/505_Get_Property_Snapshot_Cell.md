@@ -1,4 +1,4 @@
-# Acquire Cell snapshot file setting
+# Retrieve Cell snapshot file setting
 
 ## Overview
 

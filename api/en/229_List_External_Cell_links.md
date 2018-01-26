@@ -1,4 +1,4 @@
-# ExtCell\_$links Acquire List
+# ExtCell\_$links Retrieve List
 
 ## Overview
 

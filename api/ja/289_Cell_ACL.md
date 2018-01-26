@@ -81,6 +81,8 @@ privilegeタグ配下の権限設定の内容については、acl_model（[ア�
 |acl|p:|要素|ACL管理API編集・参照権限||
 |acl-read|p:|要素|ACL管理API参照権限||
 |propfind|p:|要素|プロパティ取得API参照権限||
+|rule|p:|要素|イベント処理ルール管理API編集・参照権限||
+|rule-read|p:|要素|イベント処理ルール管理API参照権限||
 
 #### DTD表記
 名前空間：D:
@@ -93,7 +95,8 @@ privilegeタグ配下の権限設定の内容については、acl_model（[ア�
 <!ELEMENT href (#PCDATA)>
 <!ELEMENT all EMPTY>
 <!ELEMENT privilege (root or auth or auth-read or message or message-read or event or 
-event-read or social or social-read or box or box-read or acl or acl-read or propfind)>
+event-read or social or social-read or box or box-read or acl or acl-read or propfind or
+rule or rule-read)>
 ```
 
 
@@ -122,6 +125,8 @@ event-read or social or social-read or box or box-read or acl or acl-read or pro
 <!ELEMENT acl EMPTY>
 <!ELEMENT acl-read EMPTY>
 <!ELEMENT propfind EMPTY>
+<!ELEMENT rule EMPTY>
+<!ELEMENT rule-read EMPTY>
 ```
 
 ### リクエストサンプル

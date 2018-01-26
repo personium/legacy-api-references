@@ -41,12 +41,52 @@ JSON
 |InReplyTo|返信対象のメッセージID|桁数：32<br>null|×||
 |To|送信先セルURL|URL形式<br>null|※ 1|複数Cellに送信する場合はCSV形式で指定する<br>※1 ToまたはToRelationのどちらかは必須,<br>ToまたはToRelationで指定できる送信先セルURLの最大件数は1000件|
 |ToRelation|送信対象の関係名|桁数：1&#65374;128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)と+(プラス)と:(コロン)<br>ただし、先頭文字に_(半角アンダーバー)と:(コロン)は指定不可<br>null|※ 1|※1 ToまたはToRelationのどちらかは必須<br>ToまたはToRelationで指定できる送信先セルURLの最大件数は1000件|
-|Type|メッセージタイプ|message<br>req.relation.build<br>req.relation.break<br>req.role.grant<br>req.role.revoke|×|省略時はmessageとして扱う|
+|Type|メッセージタイプ|message<br>request|×|省略時はmessageとして扱う|
 |Title|メッセージタイトル|桁数：256文字以下|×|省略時は空文字として扱う|
 |Body|メッセージ本文|桁数：64Kbyte以下|×|省略時は空文字として扱う|
 |Priority|優先度|1~5|×|省略時は3として扱う|
-|RequestRelation|登録依頼した関係情報|URL形式<br>null|※ 2|※2 メッセージタイプがmessage以外の場合必須<br>登録依頼するリレーションクラスURL、またはリレーション名、またはロールクラスURL、またはロール名を指定<br>リレーション名指定時は以下のURLからの相対URLとみなす<br>BoxBoundがtrue：[対象BoxスキーマURL]\_\_relation/\_\_/<br>BoxBoundがfalse：[送信先セルURL]\_\_relation/\_\_/<br>ロール名指定時は以下のURLからの相対URLとみなす<br>BoxBoundがtrue：[対象BoxスキーマURL]\_\_role/\_\_/<br>BoxBoundがfalse：[送信先セルURL]\_\_role/\_\_/|
-|RequestRelationTarget|関係を結ぶセルURL|URL形式<br>null|※ 2|※2 メッセージタイプがmessage以外の場合必須|
+|RequestObjects|リクエストの詳細|JSON配列|※2|※2 Typeがrequestの場合必須<br>詳細は下記RequestObject参照|
+
+#### RequestObject
+リクエストの詳細を記載する。  
+RequestTypeに指定するTypeによって内容が異なる。  
+
+##### Relation add/remove
+RequestType : relation.add / relation.remove  
+Name または ClassUrlで指定したRelationと、TargetUrlで指定したCellのリンク/リンク解除を依頼する。  
+
+|項目名|概要|有効値|必須|備考|
+|:--|:--|:--|:--|:--|
+|RequestType|リクエストの種別|relation.add<br>relation.remove|〇||
+|Name|リレーション名|桁数：1～128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)と+(プラス)と:(コロン)<br>ただし、先頭文字に_(半角アンダーバー)と:(コロン)は指定不可|※1|※1 NameまたはClassUrlのどちらかは必須<br>Name指定時は以下のURLからの相対URLとみなす<br>BoxBoundがtrue：[対象BoxスキーマURL]\_\_relation/\_\_/<br>BoxBoundがfalse：[送信先セルURL]\_\_relation/\_\_/|
+|ClassUrl|リレーションクラスURL|リレーションクラスURL<br>詳細は[用語集](../../user_guide/008_Glossary.md#anc_r)を参照|※1|※1 NameまたはClassUrlのどちらかは必須|
+|TargetUrl|関係を結ぶセルURL|URL形式|〇||
+
+##### Role add/remove
+RequestType : role.add / role.remove  
+Name または ClassUrlで指定したRoleと、TargetUrlで指定したCellのリンク/リンク解除を依頼する。  
+
+|項目名|概要|有効値|必須|備考|
+|:--|:--|:--|:--|:--|
+|RequestType|リクエストの種別|role.add<br>role.remove|〇||
+|Name|ロール名|桁数：1～128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)は指定不可|※1|※1 NameまたはClassUrlのどちらかは必須<br>Name指定時は以下のURLからの相対URLとみなす<br>BoxBoundがtrue：[対象BoxスキーマURL]\_\_role/\_\_/<br>BoxBoundがfalse：[送信先セルURL]\_\_role/\_\_/|
+|ClassUrl|ロールクラスURL|ロールクラスURL<br>詳細は[用語集](../../user_guide/008_Glossary.md#anc_r)を参照|※1|※1 NameまたはClassUrlのどちらかは必須|
+|TargetUrl|関係を結ぶセルURL|URL形式|〇||
+
+##### Rule add/remove
+RequestType : rule.add / rule.remove  
+指定したRuleの作成/削除を依頼する。  
+
+|項目名|概要|有効値|必須|備考|
+|:--|:--|:--|:--|:--|
+|RequestType|リクエストの種別|rule.add<br>rule.remove|〇||
+|Name|作成するルールを識別するため任意の名前|詳細は[Rule作成](2A0_Create_Rule.md)を参照|×||
+|EventType|ルールをトリガーするイベントのタイプの前方一致検査用文字列|詳細は[Rule作成](2A0_Create_Rule.md)を参照|×||
+|EventSubject|ルールをトリガーすべきイベントのEvent Subject一致検査用文字列|詳細は[Rule作成](2A0_Create_Rule.md)を参照|×||
+|EventObject|ルールをトリガーすべきイベントのEvent Object前方一致検査用文字列|詳細は[Rule作成](2A0_Create_Rule.md)を参照|×||
+|EventInfo|ルールをトリガーすべきイベントのEvent Info一致検査用文字列|詳細は[Rule作成](2A0_Create_Rule.md)を参照|×||
+|Action|イベントがマッチしたときに起動すべきアクション|詳細は[Rule作成](2A0_Create_Rule.md)を参照|〇||
+|TargetUrl|アクションに対する具体的なターゲットURL|詳細は[Rule作成](2A0_Create_Rule.md)を参照|×||
 
 ### リクエストサンプル
 ```JSON
@@ -55,12 +95,22 @@ JSON
   "InReplyTo": "hnKXm44TTZCw-bfSEw4f0A",
   "To": "https://{UnitFQDN}/{TargetCellName}",
   "ToRelation": null,
-  "Type": "req.relation.build",
+  "Type": "request",
   "Title": "友人登録依頼です",
   "Body": "先日はありがとうごさいました。友人登録承認をお願いいたします。",
   "Priority": 3,
-  "RequestRelation": "https://{UnitFQDN}/{AppCellName}/__relation/__/{RelationName}",
-  "RequestRelationTarget": "https://{UnitFQDN}/{CellName}"
+  "RequestObjects": [
+    {
+      "RequestType": "relation.add",
+      "ClassUrl": "https://{UnitFQDN}/{AppCellName}/__relation/__/{RelationName}",
+      "TargetUrl": "https://{UnitFQDN}/{CellName}"
+    },
+    {
+      "RequestType": "role.add",
+      "Name": "{RoleName}",
+      "TargetUrl": "https://{UnitFQDN}/{CellName}"
+    }
+  ]
 }
 ```
 
@@ -102,17 +152,25 @@ JSON
 |{2}|InReplyTo|string|受信元メッセージID<br>UUIDで「b5d008e9092f489c8d3c574a768afc33」のような32文字の文字列を返却|
 |{2}|To|string|送信先CellURL|
 |{2}|ToRelation|string|送信対象の関係名|
-|{2}|Type|string|メッセージタイプ<br>メッセージ：message<br>関係登録依頼(リレーション)：req.relation.build<br>関係削除依頼(リレーション)：req.relation.break<br>関係登録依頼(ロール)：req.role.grant<br>関係削除依頼(ロール)：req.role.revoke|
+|{2}|Type|string|メッセージタイプ<br>メッセージ：message<br>依頼：request|
 |{2}|Title|string|メッセージタイトル|
 |{2}|Body|string|メッセージ本文|
 |{2}|Priority|string|優先度<br>(高)1&#65374;5(低)|
-|{2}|RequestRelation|string|登録依頼するリレーションクラスURL、またはリレーション名、またはロールクラスURL、またはロール名<br>メッセージタイプがmessage以外の場合のみ|
-|{2}|RequestRelationTarget|string|関係を結ぶCellURL<br>メッセージタイプがmessage以外の場合のみ|
+|{2}|RequestObjects|array|リクエストの詳細<br>オブジェクト{4}の配列|
+|{4}|RequestType|string|リクエストの種別|
+|{4}|Name|string|詳細はリクエストボディ参照|
+|{4}|ClassUrl|string|詳細はリクエストボディ参照|
+|{4}|TargetUrl|string|詳細はリクエストボディ参照|
+|{4}|EventType|string|詳細はリクエストボディ参照|
+|{4}|EventSubject|string|詳細はリクエストボディ参照|
+|{4}|EventObject|string|詳細はリクエストボディ参照|
+|{4}|EventInfo|string|詳細はリクエストボディ参照|
+|{4}|Action|string|詳細はリクエストボディ参照|
 |{2}|_Box.Name|string|関係対象のボックス名|
-|{2}|Result|array|送信先Cell毎の送信結果<br>オブジェクト{4}の配列|
-|{4}|To|string|送信先CellURL|
-|{4}|Code|string|ステータスコード|
-|{4}|Reason|string|詳細メッセージ|
+|{2}|Result|array|送信先Cell毎の送信結果<br>オブジェクト{5}の配列|
+|{5}|To|string|送信先CellURL|
+|{5}|Code|string|ステータスコード|
+|{5}|Reason|string|詳細メッセージ|
 ### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
 
@@ -131,12 +189,23 @@ JSON
       "InReplyTo": "xnKXmd4TTZCw-bfSEw4f0AxnKXmd4TTZ",
       "To": "https://{UnitFQDN}/{CellName}",
       "ToRelation": null,
-      "Type": "message",
+      "Type": "request",
       "Title": "メッセージサンプルタイトル",
       "Body": "メッセージサンプル本文です。",
       "Priority": 3,
-      "RequestRelation": null,
-      "RequestRelationTarget": null,
+      "RequestObjects": [
+        {
+          "RequestType": "relation.add",
+          "Name": null,
+          "ClassUrl": "https://{UnitFQDN}/{AppCellName}/__relation/__/{RelationName}",
+          "TargetUrl": "https://{UnitFQDN}/{CellName}",
+          "EventType": null,
+          "EventSubject": null,
+          "EventObject": null,
+          "EventInfo": null,
+          "Action": null
+        }
+      ],
       "_Box.Name": null,
       "Result": [
         {
@@ -160,4 +229,3 @@ curl "https://{UnitFQDN}/{CellName}/__message/send" -X POST -i -H \
 "To":"https://{UnitFQDN}/{CellName}","Type":"message","Title":"メッセージサンプルタイトル",\
 "Body":"メッセージサンプル本文です。","Priority":3}'
 ```
-

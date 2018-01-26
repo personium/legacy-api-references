@@ -119,13 +119,21 @@ The response is a JSON object, the correspondence between the key (name) and typ
 |{2}|InReplyTo|string|ID message you are replying<br>Return a 32 character string such as "b5d008e9092f489c8d3c574a768afc33" with UUID|
 |{2}|From|string|From Cell URL|
 |{2}|MulticastTo|string|Destination Cell URL<br>it becomes CSV format if it is sent to the plurality of Cell|
-|{2}|Type|string|Message type<br>message : message<br>relationship registration request(relation): req.relation.build<br>relationship deletion request(relation): req.relation.break<br>relationship registration request(role): req.role.grant<br>relationship deletion request(role): req.role.revoke|
+|{2}|Type|string|Message type<br>message : message<br>request : request|
 |{2}|Title|string|Message Title|
 |{2}|Body|string|Message Body|
 |{2}|Priority|string|Priority<br>(high)1 - 5(low)|
-|{2}|Status|string|Message Status<br>When Type is message<br> read: read<br> unread: unread<br>When type is req.relation.build or req.relation.break or req.role.grant or req.role.revoke <br> approved: approved <br> rejected: rejected <br> none: none|
-|{2}|RequestRelation|string|Relation name or relation class URL or role name or role class URL, the registration request<br>Only when message type is other than message|
-|{2}|RequestRelationTarget|string|CellURL of relationships<br>Only when message type is other than message|
+|{2}|Status|string|Message Status<br>When Type is message<br> read: read<br> unread: unread<br>When type is request<br> approved: approved <br> rejected: rejected <br> none: none|
+|{2}|RequestObjects|array|Request details<br>Array object {4}|
+|{4}|RequestType|string|Request type|
+|{4}|Name|string|Refer to [SendMessage](271_Send_Message.md) for details|
+|{4}|ClassUrl|string|Refer to [SendMessage](271_Send_Message.md) for details|
+|{4}|TargetUrl|string|Refer to [SendMessage](271_Send_Message.md) for details|
+|{4}|EventType|string|Refer to [SendMessage](271_Send_Message.md) for details|
+|{4}|EventSubject|string|Refer to [SendMessage](271_Send_Message.md) for details|
+|{4}|EventObject|string|Refer to [SendMessage](271_Send_Message.md) for details|
+|{4}|EventInfo|string|Refer to [SendMessage](271_Send_Message.md) for details|
+|{4}|Action|string|Refer to [SendMessage](271_Send_Message.md) for details|
 
 ### Error Messages
 
@@ -148,13 +156,24 @@ Refer to [Error Message List](004_Error_Messages.md)
         "InReplyTo": "xnKXmd4TTZCw-bfSEw4f0AxnKXmd4TTZ",
         "From": "https://{UnitFQDN}/{CellName}/",
         "MulticastTo": null,
-        "Type": "message",
+        "Type": "request",
         "Title": "Message Sample Title",
         "Body": "Message Sample Body",
         "Priority": 3,
         "Status": "unread",
-        "RequestRelation": null,
-        "RequestRelationTarget": null,
+        "RequestObjects": [
+          {
+            "RequestType": "relation.add",
+            "Name": null,
+            "ClassUrl": "https://{UnitFQDN}/{AppCellName}/__relation/__/{RelationName}",
+            "TargetUrl": "https://{UnitFQDN}/{CellName}",
+            "EventType": null,
+            "EventSubject": null,
+            "EventObject": null,
+            "EventInfo": null,
+            "Action": null
+          }
+        ],
         "__published": "/Date(1486683974451)/",
         "__updated": "/Date(1486683974451)/",
         "_Box": {
@@ -211,4 +230,3 @@ Refer to [Error Message List](004_Error_Messages.md)
 curl "https://{UnitFQDN}/{CellName}/__ctl/ReceivedMessage" -X GET -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
-

@@ -1,16 +1,19 @@
 # メッセージ状態変更(未読,既読,承認)
 ## 概要
-* メッセージを承認する
-	* 承認するメッセージのTypeがmessageの場合  
-	メッセージの状態を既読/未読に変更する
-	* 承認するメッセージのTypeがreq.relation.build/req.role.grantの場合  
-	承認するメッセージのRequestRelation, RequestRelationTargetの値に従い、関係を登録し、メッセージの状態を承認/拒否に変更する
-	* 承認するメッセージのTypeがreq.relation.break/req.role.revokeの場合  
-	承認するメッセージのRequestRelation, RequestRelationTargetの値に従い、関係を削除し、メッセージの状態を承認/拒否に変更する
+* メッセージを承認/拒否する  
+  * 承認するメッセージのTypeがmessageの場合  
+    メッセージの状態を既読/未読に変更する  
+  * 承認するメッセージのTypeがrequestの場合  
+    * RequestTypeがrelation.add/reation.removeの場合  
+      メッセージの値に従い、RelationとExtCellをリンク/リンク解除し、メッセージの状態を承認/拒否に変更する  
+    * RequestTypeがrole.add/role.removeの場合  
+      メッセージの値に従い、RoleとExtCellをリンク/リンク解除し、メッセージの状態を承認/拒否に変更する  
+    * RequestTypeがrule.add/rule.removeの場合  
+      メッセージの値に従い、Ruleを作成/削除し、メッセージの状態を承認/拒否に変更する  
 
 ### 必要な権限
-message
-social（関係登録/削除承認のみ必要）
+message  
+social（requestの承認のみ必要）
 ### 制限事項
 * リクエストヘッダのContent-Typeは全てapplication/jsonとして扱う
 * リクエストボディはJSON形式のみ受け付ける
@@ -43,7 +46,7 @@ JSON
 
 |項目名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|Command|メッセージコマンド|Typeがmessageの場合<br>　read: 既読<br>　unread: 未読<br>Typeがreq.relation.build/req.relation.break/req.role.grant/req.role.revokeの場合<br>　approved: 承認<br>　rejected: 拒否<br>　ただし既にapproved、rejectedに変更済みの場合は承認不可|○||
+|Command|メッセージコマンド|Typeがmessageの場合<br>　read: 既読<br>　unread: 未読<br>Typeがrequestの場合<br>　approved: 承認<br>　rejected: 拒否<br>　ただし既にapproved、rejectedに変更済みの場合は承認不可|○||
 ### リクエストサンプル
 ```JSON
 {"Command": "approved"}
@@ -73,4 +76,3 @@ JSON
 curl "https://{UnitFQDN}/{CellName}/__message/received/{MessageID}" -X POST -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Command": "approved"}'
 ```
-

@@ -89,16 +89,24 @@ GET
 |{2}|InReplyTo|string|受信元メッセージID<br>UUIDで「b5d008e9092f489c8d3c574a768afc33」のような32文字の文字列を返却|
 |{2}|To|string|送信先CellURL|
 |{2}|ToRelation|string|送信対象の関係名|
-|{2}|Type|string|メッセージタイプ<br>メッセージ：message<br>関係登録依頼(リレーション)：req.relation.build<br>関係削除依頼(リレーション)：req.relation.break<br>関係登録依頼(ロール)：req.role.grant<br>関係削除依頼(ロール)：req.role.revoke|
+|{2}|Type|string|メッセージタイプ<br>メッセージ：message<br>依頼：request|
 |{2}|Title|string|メッセージタイトル|
 |{2}|Body|string|メッセージ本文|
 |{2}|Priority|string|優先度<br>(高)1&#65374;5(低)|
-|{2}|RequestRelation|string|登録依頼するリレーションクラスURL、またはリレーション名、またはロールクラスURL、またはロール名<br>メッセージタイプがmessage以外の場合のみ|
-|{2}|RequestRelationTarget|string|関係を結ぶCellURL<br>メッセージタイプがmessage以外の場合のみ|
-|{2}|Result|array|送信先Cell毎の送信結果<br>オブジェクト{4}の配列|
-|{4}|To|string|送信先CellURL|
-|{4}|Code|string|ステータスコード|
-|{4}|Reason|string|詳細メッセージ|
+|{2}|RequestObjects|array|リクエストの詳細<br>オブジェクト{4}の配列|
+|{4}|RequestType|string|リクエストの種別|
+|{4}|Name|string|詳細は[メッセージ送信](271_Send_Message.md)参照|
+|{4}|ClassUrl|string|詳細は[メッセージ送信](271_Send_Message.md)参照|
+|{4}|TargetUrl|string|詳細は[メッセージ送信](271_Send_Message.md)参照|
+|{4}|EventType|string|詳細は[メッセージ送信](271_Send_Message.md)参照|
+|{4}|EventSubject|string|詳細は[メッセージ送信](271_Send_Message.md)参照|
+|{4}|EventObject|string|詳細は[メッセージ送信](271_Send_Message.md)参照|
+|{4}|EventInfo|string|詳細は[メッセージ送信](271_Send_Message.md)参照|
+|{4}|Action|string|詳細は[メッセージ送信](271_Send_Message.md)参照|
+|{2}|Result|array|送信先Cell毎の送信結果<br>オブジェクト{5}の配列|
+|{5}|To|string|送信先CellURL|
+|{5}|Code|string|ステータスコード|
+|{5}|Reason|string|詳細メッセージ|
 ### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
 
@@ -119,12 +127,23 @@ GET
         "InReplyTo": "xnKXmd4TTZCw-bfSEw4f0AxnKXmd4TTZ",
         "To": "https://{UnitFQDN}/{CellName}",
         "ToRelation": null,
-        "Type": "message",
+        "Type": "request",
         "Title": "メッセージサンプルタイトル",
         "Body": "メッセージサンプル本文です。",
         "Priority": 3,
-        "RequestRelation": null,
-        "RequestRelationTarget": null,
+        "RequestObjects": [
+          {
+            "RequestType": "relation.add",
+            "Name": null,
+            "ClassUrl": "https://{UnitFQDN}/{AppCellName}/__relation/__/{RelationName}",
+            "TargetUrl": "https://{UnitFQDN}/{CellName}",
+            "EventType": null,
+            "EventSubject": null,
+            "EventObject": null,
+            "EventInfo": null,
+            "Action": null
+          }
+        ],
         "Result": [
           {
             "To": "https://{UnitFQDN}/{CellName}/",
@@ -157,8 +176,6 @@ GET
         "Title": "メッセージサンプルタイトル",
         "Body": "メッセージサンプル本文です。",
         "Priority": 3,
-        "RequestRelation": null,
-        "RequestRelationTarget": null,
         "Result": [
           {
             "To": "https://{UnitFQDN}/{CellName}/",
@@ -187,4 +204,3 @@ GET
 curl "https://{UnitFQDN}/{CellName}/__ctl/SentMessage" -X GET -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
-

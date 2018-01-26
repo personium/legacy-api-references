@@ -58,6 +58,48 @@ JSON
 |Priority|Priority|1~5|No|The default is treated as 3|
 |RequestRelation|Information of requested relation to register|URL format<br>null|* 2|*2 Required when message type is other than message<br>Relation name or relation class URL or role name or role class URL, the registration request<br>When only the relation name is specified, it is regarded as a relative URL from the following URL<br>BoxBound is true:[target Box schema URL]\_\_relation/\_\_/<br>BoxBound is false:[destination cell URL]\_\_relation/\_\_/<br>When only the role name is specified, it is regarded as a relative URL from the following URL<br>BoxBound is true:[target Box schema URL]\_\_role/\_\_/<br>BoxBound is false:[destination cell URL]\_\_role/\_\_/|
 |RequestRelationTarget|Cell URL that connects the relationship|URL format<br>null|* 2|*2 Required when message type is other than message|
+|RequestObjects|Request details|JSON array|* 2|*2 Required when Type is request<br>For details, refer to RequestObject below|
+
+#### RequestObject
+Describe details of the request.  
+The content varies depending on the Type specified in RequestType.  
+
+##### Relation add/remove
+RequestType : relation.add / relation.remove  
+Ask Relation specified by Name or ClassUrl and link / unlink of Cell specified by TargetUrl.  
+
+|Item Name|Overview|Effective Value|Required|Notes|
+|:--|:--|:--|:--|:--|
+|RequestType|Request type|relation.add<br>relation.remove|Yes||
+|Name|Relation name|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_"), plus, :<br>However, the string cannot start with a underscore ("\_") or colon (:)|*1|*1 Either Name or ClassUrl is required<br>When Name is specified, it is regarded as a relative URL from the following URL<br>BoxBound is true:[target Box schema URL]\_\_relation/\_\_/<br>BoxBound is false:[destination cell URL]\_\_relation/\_\_/|
+|ClassUrl|Relation class URL|Relation class URL<br>See the [glossary](../../user_guide/008_Glossary.md#anc_r) for details|*1|*1 Either Name or ClassUrl is required|
+|TargetUrl|Cell URL that connects the relationship|URL format|Yes||
+
+##### Role add/remove
+RequestType : role.add / role.remove  
+Ask Role specified by Name or ClassUrl and link / unlink of Cell specified by TargetUrl.  
+
+|Item Name|Overview|Effective Value|Required|Notes|
+|:--|:--|:--|:--|:--|
+|RequestType|Request type|role.add<br>role.remove|Yes||
+|Name|Role name|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("\_")|*1|*1 Either Name or ClassUrl is required<br>When Name is specified, it is regarded as a relative URL from the following URL<br>BoxBound is true:[target Box schema URL]\_\_role/\_\_/<br>BoxBound is false:[destination cell URL]\_\_role/\_\_/|
+|ClassUrl|Role class URL|Role class URL<br>See the [glossary](../../user_guide/008_Glossary.md#anc_r) for details|*1|*1 Either Name or ClassUrl is required|
+|TargetUrl|Cell URL that connects the relationship|URL format|Yes||
+
+##### Rule add/remove
+RequestType : rule.add / rule.remove  
+Ask the creation / deletion of the specified Rule.  
+
+|Item Name|Overview|Effective Value|Required|Notes|
+|:--|:--|:--|:--|:--|
+|RequestType|Request type|rule.add<br>rule.remove|Yes||
+|Name|Arbitrary name to make the rule to be created identifiable|See the [CreateRule](2A0_Create_Rule.md) for details|No||
+|EventType|Type of the event to trigger the rule|See the [CreateRule](2A0_Create_Rule.md) for details|No||
+|EventSubject|Event Subject prefix to trigger the rule|See the [CreateRule](2A0_Create_Rule.md) for details|No||
+|EventObject|Event Object prefix to trigger the rule|See the [CreateRule](2A0_Create_Rule.md) for details|No||
+|EventInfo|Event Info prefix to trigger the rule|See the [CreateRule](2A0_Create_Rule.md) for details|No||
+|Action|Action to invoke when the matching event is met|See the [CreateRule](2A0_Create_Rule.md) for details|Yes||
+|TargetUrl|Specific target url of the action|See the [CreateRule](2A0_Create_Rule.md) for details|No||
 
 ### Request Sample
 
@@ -67,12 +109,22 @@ JSON
   "InReplyTo": "hnKXm44TTZCw-bfSEw4f0A",
   "To": "https://{UnitFQDN}/{TargetCellName}",
   "ToRelation": null,
-  "Type": "req.relation.build",
+  "Type": "request",
   "Title": "Friend request",
   "Body": "Thank you for the friend approval",
   "Priority": 3,
-  "RequestRelation": "https://{UnitFQDN}/{AppCellName}/__relation/__/{RelationName}",
-  "RequestRelationTarget": "https://{UnitFQDN}/{CellName}"
+  "RequestObjects": [
+    {
+      "RequestType": "relation.add",
+      "ClassUrl": "https://{UnitFQDN}/{AppCellName}/__relation/__/{RelationName}",
+      "TargetUrl": "https://{UnitFQDN}/{CellName}"
+    },
+    {
+      "RequestType": "role.add",
+      "Name": "{RoleName}",
+      "TargetUrl": "https://{UnitFQDN}/{CellName}"
+    }
+  ]
 }
 ```
 
@@ -120,17 +172,25 @@ The response is a JSON object, the correspondence between the key (name) and typ
 |{2}|InReplyTo|string|ID message you are replying<br>Return a 32 character string such as "b5d008e9092f489c8d3c574a768afc33" with UUID|
 |{2}|To|string|Destination cell URL|
 |{2}|ToRelation|string|Relationship names to be sent|
-|{2}|Type|string|Message type<br>message: message<br>relationship registration request(relation): req.relation.build<br>relationship deletion request(relation): req.relation.break<br>relationship registration request(role): req.role.grant<br>relationship deletion request(role): req.role.revoke|
+|{2}|Type|string|Message type<br>message: message<br>request: request|
 |{2}|Title|string|Message Title|
 |{2}|Body|string|Message Body|
 |{2}|Priority|string|Priority<br>(high)1 - 5(low)|
-|{2}|RequestRelation|string|Relation name or relation class URL or role name or role class URL, the registration request<br>Only when message type is other than message|
-|{2}|RequestRelationTarget|string|CellURL of relationships<br>Only when message type is other than message|
+|{2}|RequestObjects|array|Request details<br>Array object {4}|
+|{4}|RequestType|string|Request type|
+|{4}|Name|string|Refer to Request Body for details|
+|{4}|ClassUrl|string|Refer to Request Body for details|
+|{4}|TargetUrl|string|Refer to Request Body for details|
+|{4}|EventType|string|Refer to Request Body for details|
+|{4}|EventSubject|string|Refer to Request Body for details|
+|{4}|EventObject|string|Refer to Request Body for details|
+|{4}|EventInfo|string|Refer to Request Body for details|
+|{4}|Action|string|Refer to Request Body for details|
 |{2}|_Box.Name|string|BoxName for Relation|
-|{2}|Result|array|Transmission result of each destination Cell<br>Array object {4}|
-|{4}|To|string|Destination cell URL|
-|{4}|Code|string|Response Code|
-|{4}|Reason|string|Detailed message|
+|{2}|Result|array|Transmission result of each destination Cell<br>Array object {5}|
+|{5}|To|string|Destination cell URL|
+|{5}|Code|string|Response Code|
+|{5}|Reason|string|Detailed message|
 
 ### Error Messages
 
@@ -151,12 +211,23 @@ Refer to [Error Message List](004_Error_Messages.md)
       "InReplyTo": "xnKXmd4TTZCw-bfSEw4f0AxnKXmd4TTZ",
       "To": "https://{UnitFQDN}/{CellName}",
       "ToRelation": null,
-      "Type": "message",
+      "Type": "request",
       "Title": "Message Sample Title",
       "Body": "Message Sample Body",
       "Priority": 3,
-      "RequestRelation": null,
-      "RequestRelationTarget": null,
+      "RequestObjects": [
+        {
+          "RequestType": "relation.add",
+          "Name": null,
+          "ClassUrl": "https://{UnitFQDN}/{AppCellName}/__relation/__/{RelationName}",
+          "TargetUrl": "https://{UnitFQDN}/{CellName}",
+          "EventType": null,
+          "EventSubject": null,
+          "EventObject": null,
+          "EventInfo": null,
+          "Action": null
+        }
+      ],
       "_Box.Name": null,
       "Result": [
         {
@@ -181,4 +252,3 @@ curl "https://{UnitFQDN}/{CellName}/__message/send" -X POST -i -H 'Authorization
 "To":"https://{UnitFQDN}/{CellName}","Type":"message","Title":"Message Sample Title","Body":"Message Sample Body",\
 "Priority":3}'
 ```
-

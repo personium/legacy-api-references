@@ -56,9 +56,9 @@ Cell Level API は、次のような機能で構成されます。
 
 |Account|操作|
 |:--|:--|
-|基本操作|[登録](212_Create_Account.md) &nbsp; &nbsp; [取得](213_Retrieve_Account.md) &nbsp; &nbsp; [一覧取得](214_Search_Account.md)  &nbsp; &nbsp; [更新](215_Update_Account.md)  &nbsp; &nbsp; [削除](216_Delete_Account.md) |
+|基本操作|[作成](212_Create_Account.md) &nbsp; &nbsp; [取得](213_Retrieve_Account.md) &nbsp; &nbsp; [一覧取得](214_Search_Account.md)  &nbsp; &nbsp; [更新](215_Update_Account.md)  &nbsp; &nbsp; [削除](216_Delete_Account.md) |
 |&nbsp; &nbsp; 他オブジェクトとのリンク|[リンク](217_Register_Account_links.md) &nbsp; &nbsp;  [リンク解除](220_Delete_Account_links.md) &nbsp; &nbsp; [リンク一覧取得](218_Acquire_Account_links_List.md)|
-|&nbsp; &nbsp; 紐づく他オブジェクト操作|[登録](221_Register_Account_Navigation_Property.md) &nbsp; &nbsp; [一覧取得](222_Acquire_Account_Navigation_Property.md)|
+|&nbsp; &nbsp; 紐づく他オブジェクト操作|[作成](221_Register_Account_Navigation_Property.md) &nbsp; &nbsp; [一覧取得](222_Acquire_Account_Navigation_Property.md)|
 
 ### アクセス制御
 
@@ -71,9 +71,9 @@ Cell Level API は、次のような機能で構成されます。
 
 |Role|操作|
 |:--|:--|
-|基本操作|[登録](201_Create_Role.md) &nbsp; &nbsp;  [取得](202_Retrieve_Role.md) &nbsp; &nbsp; [一覧取得](203_Search_Role.md) &nbsp; &nbsp; [更新](204_Update_Role.md) &nbsp; &nbsp; [削除](205_Delete_Role.md)|
+|基本操作|[作成](201_Create_Role.md) &nbsp; &nbsp;  [取得](202_Retrieve_Role.md) &nbsp; &nbsp; [一覧取得](203_Search_Role.md) &nbsp; &nbsp; [更新](204_Update_Role.md) &nbsp; &nbsp; [削除](205_Delete_Role.md)|
 |&nbsp; &nbsp; 他オブジェクトとのリンク|[リンク](206_Create_Role_links.md) &nbsp; &nbsp; [リンク解除](209_Delete_Role_links.md) &nbsp; &nbsp; [リンク一覧取得](207_List_Role_links.md) |
-|&nbsp; &nbsp; 紐づく他オブジェクト操作|[登録](210_Register_Role_Using_NavProp.md) &nbsp; &nbsp; [一覧取得](211_List_Using_Role_NavProp.md)|
+|&nbsp; &nbsp; 紐づく他オブジェクト操作|[作成](210_Register_Role_Using_NavProp.md) &nbsp; &nbsp; [一覧取得](211_List_Using_Role_NavProp.md)|
 
 
 ### Cell間の関係構築
@@ -84,9 +84,9 @@ Cell Level API は、次のような機能で構成されます。
 
 |ExtCell|操作|
 |:--|:--|
-|基本操作|[登録](223_Create_External_Cell.md) &nbsp; &nbsp;  [取得](225_Get_External_Cell.md) &nbsp; &nbsp; [一覧取得](224_List_External_Cell.md) &nbsp; &nbsp; [更新](226_Update_External_Cell.md) &nbsp; &nbsp; [削除](227_Delete_External_Cell.md)|
+|基本操作|[作成](223_Create_External_Cell.md) &nbsp; &nbsp;  [取得](225_Get_External_Cell.md) &nbsp; &nbsp; [一覧取得](224_List_External_Cell.md) &nbsp; &nbsp; [更新](226_Update_External_Cell.md) &nbsp; &nbsp; [削除](227_Delete_External_Cell.md)|
 |&nbsp; &nbsp; 他オブジェクトとのリンク|[リンク](228_Register_External_Cell_links.md) &nbsp; &nbsp; [リンク解除](231_Delete_External_Cell_links.md) &nbsp; &nbsp; [リンク一覧取得](229_List_External_Cell_links.md)|
-|&nbsp; &nbsp; 紐づく他オブジェクト操作|[登録](232_Register_External_Cell_Using_NavProp.md) &nbsp; &nbsp; [一覧取得](233_List_External_Cell_NavProp.md)|
+|&nbsp; &nbsp; 紐づく他オブジェクト操作|[作成](232_Register_External_Cell_Using_NavProp.md) &nbsp; &nbsp; [一覧取得](233_List_External_Cell_NavProp.md)|
 
 #### Relation (Cell制御オブジェクト)
 
@@ -96,9 +96,9 @@ Cell Level API は、次のような機能で構成されます。
 
 |Relation|操作|
 |:--|:--|
-|基本操作|[登録](234_Create_Relation.md) &nbsp; &nbsp;  [取得](236_Retrieve_Relation.md) &nbsp; &nbsp; [一覧取得](235_List_Relation.md) &nbsp; &nbsp; [更新](237_Update_Relation.md) &nbsp; &nbsp; [削除](238_Delete_Relation.md)|
+|基本操作|[作成](234_Create_Relation.md) &nbsp; &nbsp;  [取得](236_Retrieve_Relation.md) &nbsp; &nbsp; [一覧取得](235_List_Relation.md) &nbsp; &nbsp; [更新](237_Update_Relation.md) &nbsp; &nbsp; [削除](238_Delete_Relation.md)|
 |&nbsp; &nbsp;他オブジェクトとのリンク|[リンク](239_Register_Relation_links.md) &nbsp; &nbsp; [リンク解除](242_Delete_Relation_links.md) &nbsp; &nbsp; [リンク一覧取得](240_List_Relation_links.md)|
-|&nbsp; &nbsp;紐づく他オブジェクト操作|[登録](243_Register_Using_Relation_NavProp.md) &nbsp; &nbsp; [一覧取得](244_List_Using_Relation_NavProp.md)|
+|&nbsp; &nbsp;紐づく他オブジェクト操作|[作成](243_Register_Using_Relation_NavProp.md) &nbsp; &nbsp; [一覧取得](244_List_Using_Relation_NavProp.md)|
 
 #### ExtRole (Cell制御オブジェクト)
 
@@ -106,9 +106,9 @@ Cell Level API は、次のような機能で構成されます。
 
 |ExtRole|操作|
 |:--|:--|
-|基本操作|[登録](245_Create_External_Role.md) &nbsp; &nbsp; [取得](247_Get_External_Role.md) &nbsp; &nbsp; [一覧取得](246_List_External_Role.md) &nbsp; &nbsp; [更新](248_Update_External_Role.md) &nbsp; &nbsp; [削除](249_Delete_External_Role.md)|
+|基本操作|[作成](245_Create_External_Role.md) &nbsp; &nbsp; [取得](247_Get_External_Role.md) &nbsp; &nbsp; [一覧取得](246_List_External_Role.md) &nbsp; &nbsp; [更新](248_Update_External_Role.md) &nbsp; &nbsp; [削除](249_Delete_External_Role.md)|
 | &nbsp; &nbsp; 他オブジェクトとのリンク|[リンク](250_Register_External_Role_links.md) &nbsp; &nbsp; ;[リンク解除](253_Delete_External_Role_links.md) &nbsp; &nbsp; [リンク一覧取得](251_Retrieve_External_Role_links.md)|
-| &nbsp; &nbsp; 紐づく他オブジェクト操作作|[登録](254_Register_Using_Role_NavProp.md) &nbsp; &nbsp; [一覧取得](255_List_External_Role_NavProp.md)|
+| &nbsp; &nbsp; 紐づく他オブジェクト操作作|[作成](254_Register_Using_Role_NavProp.md) &nbsp; &nbsp; [一覧取得](255_List_External_Role_NavProp.md)|
 
 
 ### Boxの作成・管理
@@ -122,9 +122,9 @@ Cell Level API は、次のような機能で構成されます。
 
 |Box|操作|
 |:--|:--|
-|基本操作|[登録](256_Create_Box.md) &nbsp; &nbsp; [取得](258_Retrieve_Box.md) &nbsp; &nbsp; [一覧取得](257_Search_Box.md) &nbsp; &nbsp; [更新](259_Update_Box.md) &nbsp; &nbsp; [削除](260_Delete_Box.md) |
+|基本操作|[作成](256_Create_Box.md) &nbsp; &nbsp; [取得](258_Retrieve_Box.md) &nbsp; &nbsp; [一覧取得](257_Search_Box.md) &nbsp; &nbsp; [更新](259_Update_Box.md) &nbsp; &nbsp; [削除](260_Delete_Box.md) |
 |&nbsp; &nbsp;他オブジェクトとのリンク|[リンク](261_Register_Box_links.md) &nbsp; &nbsp; [リンク解除](264_Delete_Box_links.md) &nbsp; &nbsp; [リンク一覧取得](262_List_Box_links.md)|
-|&nbsp; &nbsp;紐づく他オブジェクト操作|[登録](265_Register_Using_Box_NavProp.md) &nbsp; &nbsp; [一覧取得](266_List_Box_NavProp.md)|
+|&nbsp; &nbsp;紐づく他オブジェクト操作|[作成](265_Register_Using_Box_NavProp.md) &nbsp; &nbsp; [一覧取得](266_List_Box_NavProp.md)|
 
 ### Cell間のメッセージ交換
 
@@ -134,7 +134,7 @@ Cell Level API は、次のような機能で構成されます。
 |Cell制御オブジェクト|操作|
 |:--|:--|
 |**送信済メッセージ**|[取得](272_Retrieve_Sent_Message.md) &nbsp; &nbsp; [一覧取得](273_List_Sent_Messages.md) &nbsp; &nbsp; [削除](274_Delete_Sent_Message.md)|
-|**受診メッセージ**|[取得](269_Get_Received_Message.md) &nbsp; &nbsp; [一覧取得](268_List_Received_Messages.md) &nbsp; &nbsp; [削除](270_Delete_an_Incoming_Message.md)|
+|**受信メッセージ**|[取得](269_Get_Received_Message.md) &nbsp; &nbsp; [一覧取得](268_List_Received_Messages.md) &nbsp; &nbsp; [削除](270_Delete_an_Incoming_Message.md)|
 
 ### イベント処理
 
@@ -147,9 +147,9 @@ Cell Level API は、次のような機能で構成されます。
 
 |Rule|操作|
 |:--|:--|
-|基本操作|[登録](2A0_Create_Rule.md) &nbsp; &nbsp; [取得](2A1_Retrieve_Rule.md) &nbsp; &nbsp; [一覧取得](2A2_Search_Rule.md) &nbsp; &nbsp; [更新](2A3_Update_Rule.md) &nbsp; &nbsp; [削除](2A4_Delete_Rule.md) |
+|基本操作|[作成](2A0_Create_Rule.md) &nbsp; &nbsp; [取得](2A1_Retrieve_Rule.md) &nbsp; &nbsp; [一覧取得](2A2_Search_Rule.md) &nbsp; &nbsp; [更新](2A3_Update_Rule.md) &nbsp; &nbsp; [削除](2A4_Delete_Rule.md) |
 |&nbsp; &nbsp; 他オブジェクトとのリンク|[リンク](2A5_Create_Rule_links.md) &nbsp; &nbsp; [リンク解除](2A6_List_Rule_links.md) &nbsp; &nbsp; [リンク一覧取得](2A6_List_Rule_links.md) |
-|&nbsp; &nbsp; 紐づく他オブジェクト操作|[登録](2A8_Register_Rule_Using_NavProp.md) &nbsp; &nbsp; [一覧取得](2A9_List_Using_Rule_NavProp.md)|
+|&nbsp; &nbsp; 紐づく他オブジェクト操作|[作成](2A8_Register_Rule_Using_NavProp.md) &nbsp; &nbsp; [一覧取得](2A9_List_Using_Rule_NavProp.md)|
 
 #### イベントログ操作
 
@@ -227,20 +227,26 @@ OData Service Collection には、スキーマ定義のためのOData Serviceが
 ```
 ##### スキーマ定義用 Entity Set
 
-||作成・登録|取得|更新|削除|その他|
-|:--|:--|:--|:--|:--|:--|
-|**EntityType**|[登録](345_Create_EntityType.md)|[取得](347_Get_EntityType.md)<br>[一覧取得](346_List_EntityType.md)|[更新](348_Update_EntityType.md)|[削除](349_Delete_EntityType.md)||
-|&nbsp;&nbsp;_$links|登録|一覧取得|更新|削除||
-|&nbsp;&nbsp;_NavProp経由||一覧取得||||
-|**AssociationEnd**|[登録](318_Register_AssociationEnd.md)|[取得](320_Get_AssociationEnd.md)<br>[一覧取得](319_List_AssociationEnd.md)|[更新](321_Update_AssociationEnd.md)|[削除](322_Delete_AssociationEnd.md)||
-|&nbsp;&nbsp;_$links|[登録](323_Register_AssociationEnd_links.md)|[一覧取得](324_List_AssociationEnd_links.md)||[削除](325_Delete_AssociationEnd_links.md)||
-|&nbsp;&nbsp;_NavProp経由||一覧取得||||
-|**ComplexType**|[登録](327_Register_ComplexType.md)|[取得](329_Get_ComplexType.md)<br>[一覧取得](328_List_ComplexType.md)|更新|[削除](331_Delete_ComplexType.md)||
-|&nbsp;&nbsp;_$links|登録|一覧取得|更新|削除||
-|**Property**|[登録](355_Register_Property.md)|[取得](357_Get_Property.md)<br>[一覧取得](356_List_Property.md)|更新|[削除](359_Delete_Property.md)||
-|&nbsp;&nbsp;_$links|登録|一覧取得|更新|削除||
-|**ComplexTypeProperty**|[登録](336_Register_ComplexTypeProperty.md)|[取得](338_Get_ComplexTypeProperty.md)<br>[一覧取得](337_List_ComplexTypeProperty.md)|[更新](339_Update_ComplexTypeProperty.md)|[削除](340_Delete_ComplexTypeProperty.md)||
-|&nbsp;&nbsp;_$links|登録|一覧取得|更新|削除||
+|EntityType|操作|
+|:--|:--|
+|基本操作|[作成](345_Create_EntityType.md) &nbsp; &nbsp; [取得](347_Get_EntityType.md) &nbsp; &nbsp; [一覧取得](346_List_EntityType.md) &nbsp; &nbsp; [更新](348_Update_EntityType.md) &nbsp; &nbsp; [削除](349_Delete_EntityType.md) |
+
+|Property|操作|
+|:--|:--|
+|基本操作|[作成](355_Register_Property.md) &nbsp; &nbsp; [取得](357_Get_Property.md) &nbsp; &nbsp; [一覧取得](356_List_Property.md) &nbsp; &nbsp; 更新 &nbsp; &nbsp; [削除](359_Delete_Property.md)|
+
+|AssociationEnd|操作|
+|:--|:--|
+|基本操作|[作成](318_Register_AssociationEnd.md) &nbsp; &nbsp; [取得](320_Get_AssociationEnd.md) &nbsp; &nbsp; [一覧取得](319_List_AssociationEnd.md) &nbsp; &nbsp; [更新](321_Update_AssociationEnd.md) &nbsp; &nbsp; [削除](322_Delete_AssociationEnd.md)|
+|&nbsp; &nbsp; EntityTypeや他のAssociationEndとのリンク|[リンク](323_Register_AssociationEnd_links.md) &nbsp; &nbsp; [リンク解除](325_Delete_AssociationEnd_links.md) &nbsp; &nbsp; [リンク一覧取得](324_List_AssociationEnd_links.md)|
+
+|ComplexType|操作|
+|:--|:--|
+|基本操作|[作成](327_Register_ComplexType.md) &nbsp; &nbsp; [取得](329_Get_ComplexType.md) &nbsp; &nbsp; [一覧取得](328_List_ComplexType.md) &nbsp; &nbsp; 更新 &nbsp; &nbsp; [削除](331_Delete_ComplexType.md)|
+
+|ComplexTypeProperty|操作|
+|:--|:--|
+|基本操作|[作成](336_Register_ComplexTypeProperty.md) &nbsp; &nbsp; [取得](338_Get_ComplexTypeProperty.md) &nbsp; &nbsp; [一覧取得](337_List_ComplexTypeProperty.md) &nbsp; &nbsp; [更新](339_Update_ComplexTypeProperty.md) &nbsp; &nbsp; [削除](340_Delete_ComplexTypeProperty.md)|
 
 
 #### サービスドキュメント取得/スキーマ取得
@@ -259,6 +265,10 @@ PersoniumアプリケーションやCell利用者が作成したサーバサイ�
 
 ## 共通情報
 
+*  [エラーメッセージ一覧](004_Error_Messages.md)
+*  [PersoniumのHTTP実装に関する制限事項](003_Common_Limitations_on_HTTP_Implementation.md)
+*  [CORS対応](002_CORS_Support.md)
+*  [クロスドメインポリシーファイル取得](001_Cross_Domain_Policy_File.md)
 
 ### OData取得共通クエリ
 |クエリ|一件取得使用可|一覧取得使用可|
@@ -273,8 +283,4 @@ PersoniumアプリケーションやCell利用者が作成したサーバサイ�
 |[$inlinecount](407_Inlinecount_Query.md)|○|○|
 |[全文検索(q)クエリ](408_Full_Text_Search_Query.md)|○|○|
 
-### [エラーメッセージ一覧](004_Error_Messages.md)
-### [PersoniumのHTTP実装に関する制限事項](003_Common_Limitations_on_HTTP_Implementation.md)
-### [CORS対応](002_CORS_Support.md)
-### [クロスドメインポリシーファイル取得](001_Cross_Domain_Policy_File.md)
 

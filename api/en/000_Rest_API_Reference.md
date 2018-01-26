@@ -115,8 +115,8 @@ Configured ACL can be retrieved together with other properties, by sending regul
 ### Box creation and management inside the Cell
 
 * [Install Box](302_Box_Installation.md)
-* [Acquire Box Meta Data](303_Progress_of_Bar_File_Installation.md)
-* [Acquire URL](304_Get_Box_URL.md)
+* [Retrieve Box Meta Data](303_Progress_of_Bar_File_Installation.md)
+* [Retrieve URL](304_Get_Box_URL.md)
 * [Recursive Delete](295_Box_Recursive_Delete.md)
 
 #### Box (Cell Control Object)
@@ -199,8 +199,8 @@ These special collections can be created in any path on the WebDAV space provide
 
 |Target|Operations|
 |:--|:--|
-|Collection|[Create](306_Create_Collection.md) &nbsp; &nbsp; [Acquire Settings](305_Get_Property.md) &nbsp; &nbsp; [Change Settings](308_Change_Property.md) &nbsp; &nbsp; [Move/Rename](309_Update_Move_Collection.md) &nbsp; &nbsp; [Delete](310_Delete_Collection.md)|
-|File|[Create/Update](312_Register_and_Update_WebDAV.md) &nbsp; &nbsp; [Acquire](311_Get_WebDav.md) &nbsp; &nbsp; [Acquire Settings](307_Get_Property.md) &nbsp; &nbsp; [Change Settings](313_Change_Property.md) &nbsp; &nbsp; [Delete](314_Delete_WebDAV.md)|
+|Collection|[Create](306_Create_Collection.md) &nbsp; &nbsp; [Retrieve Settings](305_Get_Property.md) &nbsp; &nbsp; [Change Settings](308_Change_Property.md) &nbsp; &nbsp; [Move/Rename](309_Update_Move_Collection.md) &nbsp; &nbsp; [Delete](310_Delete_Collection.md)|
+|File|[Create/Update](312_Register_and_Update_WebDAV.md) &nbsp; &nbsp; [Retrieve](311_Get_WebDav.md) &nbsp; &nbsp; [Retrieve Settings](307_Get_Property.md) &nbsp; &nbsp; [Change Settings](313_Change_Property.md) &nbsp; &nbsp; [Delete](314_Delete_WebDAV.md)|
 |Common|[Configure Access Control](315_Configure_Access_Control.md)|
 
 \* ACL setting (access control setting) is possible for all files and collections (including special collections).  
@@ -220,27 +220,27 @@ These special collections can be created in any path on the WebDAV space provide
 
 #### Schema Definition
 
-||Create|Acquire|Update|Delete|Other|
+||Create|Retrieve|Update|Delete|Other|
 |:--|:--|:--|:--|:--|:--|
-|**EntityType**|[Create](345_Create_EntityType.md)|[Acquire](347_Get_EntityType.md)<br>[Acquire List](346_List_EntityType.md)|[Update](348_Update_EntityType.md)|[Delete](349_Delete_EntityType.md)||
-|_$links|Create|Acquire List|Update|Delete||
-|_via NavProp||Acquire List||||
-|**Property**|[Create](355_Register_Property.md)|[Acquire](357_Get_Property.md)<br>[Acquire List](356_List_Property.md)|Update|[Delete](359_Delete_Property.md)||
-|_$links|Create|Acquire List|Update|Delete||
-|**AssociationEnd**|[Create](318_Register_AssociationEnd.md)|[Acquire](320_Get_AssociationEnd.md)<br>[Acquire List](319_List_AssociationEnd.md)|[Update](321_Update_AssociationEnd.md)|[Delete](322_Delete_AssociationEnd.md)||
-|_$links|[Create](323_Register_AssociationEnd_links.md)|[Acquire List](324_List_AssociationEnd_links.md)||[Delete](325_Delete_AssociationEnd_links.md)||
-|_via NavProp||Acquire List||||
-|**ComplexType**|[Create](327_Register_ComplexType.md)|[Acquire](329_Get_ComplexType.md)<br>[Acquire List](328_List_ComplexType.md)|Update|[Delete](331_Delete_ComplexType.md)||
-|_$links|Create|Acquire List|Update|Delete||
-|**ComplexTypeProperty**|[Create](336_Register_ComplexTypeProperty.md)|[Acquire](338_Get_ComplexTypeProperty.md)<br>[Acquire List](337_List_ComplexTypeProperty.md)|[Update](339_Update_ComplexTypeProperty.md)|[Delete](340_Delete_ComplexTypeProperty.md)||
-|_$links|Create|Acquire List|Update|Delete||
+|**EntityType**|[Create](345_Create_EntityType.md)|[Retrieve](347_Get_EntityType.md)<br>[List](346_List_EntityType.md)|[Update](348_Update_EntityType.md)|[Delete](349_Delete_EntityType.md)||
+|_$links|Create|List|Update|Delete||
+|_via NavProp||List||||
+|**Property**|[Create](355_Register_Property.md)|[Retrieve](357_Get_Property.md)<br>[List](356_List_Property.md)|Update|[Delete](359_Delete_Property.md)||
+|_$links|Create|List|Update|Delete||
+|**AssociationEnd**|[Create](318_Register_AssociationEnd.md)|[Retrieve](320_Get_AssociationEnd.md)<br>[List](319_List_AssociationEnd.md)|[Update](321_Update_AssociationEnd.md)|[Delete](322_Delete_AssociationEnd.md)||
+|_$links|[Create](323_Register_AssociationEnd_links.md)|[List](324_List_AssociationEnd_links.md)||[Delete](325_Delete_AssociationEnd_links.md)||
+|_via NavProp||List||||
+|**ComplexType**|[Create](327_Register_ComplexType.md)|[Retrieve](329_Get_ComplexType.md)<br>[List](328_List_ComplexType.md)|Update|[Delete](331_Delete_ComplexType.md)||
+|_$links|Create|List|Update|Delete||
+|**ComplexTypeProperty**|[Create](336_Register_ComplexTypeProperty.md)|[Retrieve](338_Get_ComplexTypeProperty.md)<br>[List](337_List_ComplexTypeProperty.md)|[Update](339_Update_ComplexTypeProperty.md)|[Delete](340_Delete_ComplexTypeProperty.md)||
+|_$links|Create|List|Update|Delete||
 
-##### Service Document Acquire/Schema Acquire
+##### Service Document Retrieve/Schema Retrieve
 
-||Acquire|
+||Retrieve|
 |:--|:--|
-|Service Document|[Acquire](317_Document_Acquisition_Service.md)|
-|Schema|[Acquire](316_User_Defined_Data_Schema.md)|
+|Service Document|[Retrieve](317_Document_Acquisition_Service.md)|
+|Schema|[Retrieve](316_User_Defined_Data_Schema.md)|
 
 
 ### Engine Service Collection
@@ -248,9 +248,9 @@ You can register Personium application and server side logic created by Cell use
 First, register the user logic as a file, set the service collection and associate with the path, so that  
 You can run the user logic for requests from any path under the collection.
 
-||Create|Acquire|Update|Delete|Other|
+||Create|Retrieve|Update|Delete|Other|
 |:--|:--|:--|:--|:--|:--|
-|Service Collection Source|[Create](381_Create_Service_Collection_Source.md)|[Acquire](382_List_Service_Collection_Source.md)|[Apply Settings](380_Configure_Service_Collection.md)|[Delete](383_Delete_Service_Collection_Source.md)|[Service Execute](384_Service_Execution.md)|
+|Service Collection Source|[Create](381_Create_Service_Collection_Source.md)|[Retrieve](382_List_Service_Collection_Source.md)|[Apply Settings](380_Configure_Service_Collection.md)|[Delete](383_Delete_Service_Collection_Source.md)|[Service Execute](384_Service_Execution.md)|
 
 ## Common Information
 
@@ -274,5 +274,5 @@ You can run the user logic for requests from any path under the collection.
 
 #### [CORS Support](002_CORS_Support.md)
 
-#### [Cross Domain Policy File Acquire](001_Cross_Domain_Policy_File.md)
+#### [Cross Domain Policy File Retrieve](001_Cross_Domain_Policy_File.md)
 

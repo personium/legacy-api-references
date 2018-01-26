@@ -30,7 +30,7 @@ If you want to get the information set, log setting acquisition API to use.
 
 To be managed by WebDAV on, the event log, perform the API for WebDAV access to the event log file.
 
-* [Log File Acquire List](284_Retrieve_Log_File_list.md)
+* [Log File Retrieve List](284_Retrieve_Log_File_list.md)
 * [Log File Acquire](285_Retrieve_Log_File.md)
 * [Delete Log File](286_Delete_Log_File.md)
 

@@ -2,7 +2,7 @@
 
 ## Overview
 
-Acquire cell control object via Navigation Property
+Retrieve cell control object via Navigation Property
 
 ### Required Privileges
 
@@ -22,7 +22,7 @@ Acquire cell control object via Navigation Property
 
 ### Request URL
 
-#### navigationProperty to Role
+#### Navigation Property to Role
 
 ```
 /{CellName}/__ctl/Box(Name='{BoxName}',Schema='SchemaURL')/_Role

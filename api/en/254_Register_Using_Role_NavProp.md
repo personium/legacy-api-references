@@ -21,7 +21,7 @@ write
 
 ### Request URL
 
-#### navigationProperty to Role
+#### Navigation Property to Role
 
 ```
 /{CellName}/__ctl/ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name='{RelationName}',

@@ -2,7 +2,7 @@
 
 ## Overview
 
-Acquire service source information
+Retrieve service source information
 
 ### Required Privileges
 

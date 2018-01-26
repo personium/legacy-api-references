@@ -1,8 +1,8 @@
-# Log File Acquire List
+# Log File Retrieve List
 
 ## Overview
 
-Acquire the list of log files under the specified URL
+Retrieve the list of log files under the specified URL
 
 ### Required Privileges
 

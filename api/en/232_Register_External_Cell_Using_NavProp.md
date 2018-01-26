@@ -21,7 +21,7 @@ write
 
 ### Request URL
 
-#### navigationProperty to Role
+#### Navigation Property to Role
 
 ```
 /{CellName}/__ctl/ExtCell(Url='{ExtCellURL}')/_Role
@@ -172,7 +172,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 
 ## cURL Command
 
-### Role registration via navigationProperty
+### Role registration via Navigation Property
 
 ```sh
 curl "https://{UnitFQDN}/{CellName}/__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{ExtCellName}%2F')/_Role" -X \

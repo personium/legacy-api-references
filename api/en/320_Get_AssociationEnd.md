@@ -2,7 +2,7 @@
 
 ## Overview
 
-Acquire existing AssociationEnd information
+Retrieve existing AssociationEnd information
 
 ### Required Privileges
 

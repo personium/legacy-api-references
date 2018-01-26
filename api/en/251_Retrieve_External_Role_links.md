@@ -1,4 +1,4 @@
-# ExtRole\_$links Acquire List
+# ExtRole\_$links Retrieve List
 
 ## Overview
 

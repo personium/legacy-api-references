@@ -1,8 +1,8 @@
-# Log File Acquire Information
+# Log File Retrieve Information
 
 ## Overview
 
-Acquire Event Log File Information  
+Retrieve Event Log File Information  
 If you exceed the maximum number of generations to hold rotate when the log file, the log file of the oldest is deleted.
 
 ### Required Privileges

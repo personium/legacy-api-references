@@ -2,7 +2,7 @@
 
 ## Overview
 
-Acquire existing EntityType information
+Retrieve existing EntityType information
 
 ### Required Privileges
 

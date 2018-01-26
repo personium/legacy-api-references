@@ -1,4 +1,4 @@
-# Acquire Properties
+# Retrieve Properties
 
 ## Overview
 

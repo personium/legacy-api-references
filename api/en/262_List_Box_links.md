@@ -1,4 +1,4 @@
-# Box\_$links Acquire List
+# Box\_$links Retrieve List
 
 ## Overview
 

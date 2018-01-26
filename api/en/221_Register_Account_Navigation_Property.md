@@ -20,7 +20,7 @@ write
 
 ### Request URL
 
-#### navigationProperty to Role
+#### Navigation Property to Role
 
 ```
 /{CellName}/__ctl/Account(Name='{AccountName}')/_Role
@@ -140,7 +140,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 
 ## cURL Command
 
-### Register via Account and Role navigationProperty
+### Register via Account and Role Navigation Property
 
 ```sh
 curl "https://{UnitFQDN}/{CellName}/__ctl/Account('acount_name')/_Role" -X POST -i -H '\

@@ -1,8 +1,8 @@
-# Acquire service document
+# Retrieve service document
 
 ## Overview
 
-Acquire the service document of OData service to perform schema definition of OData Service Collection.
+Retrieve the service document of OData service to perform schema definition of OData Service Collection.
 
 ### Required Privileges
 

@@ -1,4 +1,4 @@
-# SentMessage Acquire List
+# SentMessage Retrieve List
 
 ## Overview
 
@@ -70,7 +70,7 @@ The following query parameters are available
 |:--|:--|:--|:--|:--|
 |Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
 
-#### OData Acquire List Request Header
+#### OData ListRequest Header
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|

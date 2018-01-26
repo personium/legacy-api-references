@@ -2,7 +2,7 @@
 
 ## Overview
 
-Acquire existing cell information
+Retrieve existing cell information
 
 ### Required Privileges
 

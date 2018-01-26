@@ -2,7 +2,7 @@
 
 ## Overview
 
-Acquire cell control object via Navigation Property
+Retrieve cell control object via Navigation Property
 
 ### Required Privileges
 
@@ -76,7 +76,7 @@ or
 /{CellName}/__ctl/Relation('{RelationName}')/_ExtRole
 ```
 
-#### navigationProperty to Role
+#### Navigation Property to Role
 
 ```
 /{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_Role

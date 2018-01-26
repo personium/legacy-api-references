@@ -2,7 +2,7 @@
 
 ## Overview
 
-Acquire cell control object via Navigation Property
+Retrieve cell control object via Navigation Property
 
 ### Required Privileges
 
@@ -22,7 +22,7 @@ Acquire cell control object via Navigation Property
 
 ### Request URL
 
-#### navigationProperty to Role
+#### Navigation Property to Role
 
 ```
 /{CellName}/__ctl/ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name='{RelationName}',
@@ -172,7 +172,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 
 ## cURL Command
 
-### Through Role's navigationProperty list
+### Through Role's Navigation Property list
 
 ```sh
 curl "https://{UnitFQDN}/{CellName}/__ctl/ExtRole(ExtRole='https%3A%2F%2Fd{UnitFQDN}%2F{CellName}

@@ -6,7 +6,7 @@ Perform a batch operation such as list acquisition, single acquisition, registra
 
 ### Required Privileges
 
-* Acquire list / Acquire one case  
+* Retrieve list / Retrieve one case  
     read
 * Register / Update / Delete  
     write
@@ -162,10 +162,10 @@ Follow the specifications of user data
 
 The following shows an example of a request when acquiring, registering, updating and deleting a context with the following flow
 
-* Acquire "ID: 0000"
+* Retrieve "ID: 0000"
 * Registered as "ID: 0000, Name: John Smith"
 * Updated with "ID: 0000, familyName: Smith, givenName: John"
-* Acquire "ID: 0000"
+* Retrieve "ID: 0000"
 * Register "ID: 0001, Name: John log" via NavigationProperty
 * Delete "ID: 0001"
 * Delete "ID: 0000"
@@ -271,10 +271,10 @@ Refer to [Error Message List](004_Error_Messages.md)
 
 The following shows an example of the response when executing the above example of the request parameter
 
-* Acquire "ID: 0000"
+* Retrieve "ID: 0000"
 * Registered as "ID: 0000, Name: John Smith"
 * Updated with "ID: 0000, familyName: Smith, givenName: John"
-* Acquire "ID: 0000"
+* Retrieve "ID: 0000"
 * Register "ID: 0001, Name: John log" via NavigationProperty
 * Delete "ID: 0001"
 * Delete "ID: 0000"

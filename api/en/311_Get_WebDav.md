@@ -2,7 +2,7 @@
 
 ## Overview
 
-Acquire specific WebDav information  
+Retrieve specific WebDav information  
 Depending on the ETag value specified in the If-None-Match header, the contents to be returned are different  
 When specifying the range with the Range header, return the contents of the specified range
 

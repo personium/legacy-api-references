@@ -91,13 +91,22 @@ GET
 |{2}|InReplyTo|string|受信元メッセージID<br>UUIDで「b5d008e9092f489c8d3c574a768afc33」のような32文字の文字列を返却|
 |{2}|From|string|送信元セルURL|
 |{2}|MulticastTo|string|受信先セルURL<br>複数セルが送信先の場合にCSV形式でセルのURLを返却|
-|{2}|Type|string|メッセージタイプ<br>メッセージ：message<br>関係登録依頼(リレーション)：req.relation.build<br>関係削除依頼(リレーション)：req.relation.break<br>関係登録依頼(ロール)：req.role.grant<br>関係削除依頼(ロール)：req.role.revoke|
+|{2}|Type|string|メッセージタイプ<br>メッセージ：message<br>依頼：request|
 |{2}|Title|string|メッセージタイトル|
 |{2}|Body|string|メッセージ本文|
 |{2}|Priority|string|優先度<br>(高)1&#65374;5(低)|
-|{2}|Status|string|メッセージステータス<br>Typeがmessageの場合<br>　read：既読<br>　unread：未読<br>Typeがreq.relation.build/req.relation.break/req.role.grant/req.role.revokeの場合<br>　approved：承認<br>　rejected：拒否<br>　none：未決|
-|{2}|RequestRelation|string|登録依頼するリレーションクラスURL、またはリレーション名、またはロールクラスURL、またはロール名<br>メッセージタイプがmessage以外の場合のみ|
-|{2}|RequestRelationTarget|string|関係を結ぶCellURL<br>メッセージタイプがmessage以外の場合のみ|
+|{2}|Status|string|メッセージステータス<br>Typeがmessageの場合<br>　read：既読<br>　unread：未読<br>Typeがrequestの場合<br>　approved：承認<br>　rejected：拒否<br>　none：未決|
+|{2}|RequestObjects|array|リクエストの詳細<br>オブジェクト{4}の配列|
+|{4}|RequestType|string|リクエストの種別|
+|{4}|Name|string|詳細は[メッセージ送信](271_Send_Message.md)参照|
+|{4}|ClassUrl|string|詳細は[メッセージ送信](271_Send_Message.md)参照|
+|{4}|TargetUrl|string|詳細は[メッセージ送信](271_Send_Message.md)参照|
+|{4}|EventType|string|詳細は[メッセージ送信](271_Send_Message.md)参照|
+|{4}|EventSubject|string|詳細は[メッセージ送信](271_Send_Message.md)参照|
+|{4}|EventObject|string|詳細は[メッセージ送信](271_Send_Message.md)参照|
+|{4}|EventInfo|string|詳細は[メッセージ送信](271_Send_Message.md)参照|
+|{4}|Action|string|詳細は[メッセージ送信](271_Send_Message.md)参照|
+
 ### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
 
@@ -117,13 +126,24 @@ GET
       "InReplyTo": "xnKXmd4TTZCw-bfSEw4f0AxnKXmd4TTZ",
       "From": "https://{UnitFQDN}/{CellName}/",
       "MulticastTo": null,
-      "Type": "message",
+      "Type": "request",
       "Title": "メッセージサンプルタイトル",
       "Body": "メッセ ージサンプル本文です。",
       "Priority": 3,
       "Status": "unread",
-      "RequestRelation": null,
-      "RequestRelationTarget": null,
+      "RequestObjects": [
+        {
+          "RequestType": "relation.add",
+          "Name": null,
+          "ClassUrl": "https://{UnitFQDN}/{AppCellName}/__relation/__/{RelationName}",
+          "TargetUrl": "https://{UnitFQDN}/{CellName}",
+          "EventType": null,
+          "EventSubject": null,
+          "EventObject": null,
+          "EventInfo": null,
+          "Action": null
+        }
+      ],
       "__published": "/Date(1486683974451)/",
       "__updated": "/Date(1486683974451)/",
       "_Box": {
@@ -150,4 +170,3 @@ GET
 curl "https://{UnitFQDN}/{CellName}/__ctl/ReceivedMessage('{MessageID}')" -X GET -i  -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
-

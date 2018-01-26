@@ -1,18 +1,21 @@
 # Message status change (unread, read, approve)
 
 ## Overview
-* approve Message
-	* When the message type to be approved is message  
-	change message status to read/unread
-	* When the type of the message to approve is req.relation.build or req.role.grant  
-	According to the values of RequestRelation and RequestRelationTarget of the message to be approved, register the relation and change the state of the message to approval/rejection
-	* When the type of the message to approve is req.relation.break or req.role.revoke  
-	According to the values of RequestRelation and RequestRelationTarget of the message to be approved, delete the relation and change the state of the message to approval/rejection
+* approve/reject Message  
+  * When the message type to be approved is message  
+    change message status to read/unread  
+  * When the type of the message to approve is request  
+    * When the RequestType is relation.add/relation.remove  
+      According to the value of the message, link/unlink Relation and ExtCell and change the state of the message to approve/reject  
+    * When the RequestType is role.add/role.remove  
+      According to the value of the message, link/unlink Role and ExtCell and change the state of the message to approve/reject  
+    * When the RequestType is rule.add/rule.remove  
+      According to the value of the message, create/delete the Rule and change the state of the message to approve/reject  
 
 ### Required Privileges
 
 message  
-social(Requires only relationship registration/deletion approval)
+social(Requires only request approval)
 
 ### Restrictions
 
@@ -57,7 +60,7 @@ JSON
 
 |Item Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|Command|Message Command|When Type is message<br> read: read<br> unread: unread<br>When type is req.relation.build or req.relation.break or req.role.grant or req.role.revoke<br> approved: approved <br> rejected: rejected <br>However, if you have already changed to approved or rejected, you can not approve it|Yes||
+|Command|Message Command|When Type is message<br> read: read<br> unread: unread<br>When type is request<br> approved: approved <br> rejected: rejected <br>However, if you have already changed to approved or rejected, you can not approve it|Yes||
 
 ### Request Sample
 
@@ -96,4 +99,3 @@ Refer to [Error Message List](004_Error_Messages.md)
 curl "https://{UnitFQDN}/{CellName}/__message/received/{MessageID}" -X POST -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Command": "approved"}'
 ```
-

@@ -111,12 +111,20 @@ The response is a JSON object, the correspondence between the key (name) and typ
 |{2}|Title|string|Message Title|
 |{2}|Body|string|Message Body|
 |{2}|Priority|string|Priority<br>(high)1 - 5(low)|
-|{2}|RequestRelation|string|Relation name or relation class URL or role name or role class URL, the registration request<br>Only when message type is other than message|
-|{2}|RequestRelationTarget|string|CellURL of relationships<br>Only when message type is other than message|
-|{2}|Result|array|Transmission result of each destination Cell<br>Array object {4}|
-|{4}|To|string|Destination cell URL|
-|{4}|Code|string|Response Code|
-|{4}|Reason|string|Detailed message|
+|{2}|RequestObjects|array|Request details<br>Array object {4}|
+|{4}|RequestType|string|Request type|
+|{4}|Name|string|Refer to [SendMessage](271_Send_Message.md) for details|
+|{4}|ClassUrl|string|Refer to [SendMessage](271_Send_Message.md) for details|
+|{4}|TargetUrl|string|Refer to [SendMessage](271_Send_Message.md) for details|
+|{4}|EventType|string|Refer to [SendMessage](271_Send_Message.md) for details|
+|{4}|EventSubject|string|Refer to [SendMessage](271_Send_Message.md) for details|
+|{4}|EventObject|string|Refer to [SendMessage](271_Send_Message.md) for details|
+|{4}|EventInfo|string|Refer to [SendMessage](271_Send_Message.md) for details|
+|{4}|Action|string|Refer to [SendMessage](271_Send_Message.md) for details|
+|{2}|Result|array|Transmission result of each destination Cell<br>Array object {5}|
+|{5}|To|string|Destination cell URL|
+|{5}|Code|string|Response Code|
+|{5}|Reason|string|Detailed message|
 
 ### Error Messages
 
@@ -138,12 +146,23 @@ Refer to [Error Message List](004_Error_Messages.md)
       "InReplyTo": "xnKXmd4TTZCw-bfSEw4f0AxnKXmd4TTZ",
       "To": "https://{UnitFQDN}/{CellName}",
       "ToRelation": null,
-      "Type": "message",
+      "Type": "request",
       "Title": "Message Sample Title",
       "Body": "Message Sample Body",
       "Priority": 3,
-      "RequestRelation": null,
-      "RequestRelationTarget": null,
+      "RequestObjects": [
+        {
+          "RequestType": "relation.add",
+          "Name": null,
+          "ClassUrl": "https://{UnitFQDN}/{AppCellName}/__relation/__/{RelationName}",
+          "TargetUrl": "https://{UnitFQDN}/{CellName}",
+          "EventType": null,
+          "EventSubject": null,
+          "EventObject": null,
+          "EventInfo": null,
+          "Action": null
+        }
+      ],
       "Result": [
         {
           "To": "https://{UnitFQDN}/{CellName}/",
@@ -170,4 +189,3 @@ Refer to [Error Message List](004_Error_Messages.md)
 curl "https://{UnitFQDN}/{CellName}/__ctl/SentMessage('{MessageID}')" -X GET -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
-

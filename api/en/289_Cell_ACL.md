@@ -95,6 +95,8 @@ For details on the privilege settings within the privilege tag, please refer to 
 |acl|p:|Element|ACL management API editing and viewing privileges||
 |acl-read|p:|Element|ACL management API viewing privileges||
 |propfind|p:|Element|Property acquisition API viewing privileges||
+|rule|p:|Element|Event Processing Rule management API editing and viewing privileges||
+|rule-read|p:|Element|Event Processing Rule management API viewing privileges||
 
 #### DTD notation
 
@@ -109,7 +111,7 @@ Namespace: D:
 <!ELEMENT href (#PCDATA)>
 <!ELEMENT all EMPTY>
 <!ELEMENT privilege (root or auth or auth-read or message or message-read or event or event-read or 
-social or social-read or box or box-read or acl or acl-read or propfind)>
+social or social-read or box or box-read or acl or acl-read or propfind or rule or rule-read)>
 ```
 
 Namespace:xml:
@@ -139,6 +141,8 @@ Namespace: p:
 <!ELEMENT acl EMPTY>
 <!ELEMENT acl-read EMPTY>
 <!ELEMENT propfind EMPTY>
+<!ELEMENT rule EMPTY>
+<!ELEMENT rule-read EMPTY>
 ```
 
 ### Request Sample

@@ -1,6 +1,6 @@
 # Cell削除
 ## 概要
-存在するCellを削除する
+存在するCellを削除する  
 Cellに紐付くBox,Account,Role,ExtCell,ExtRole,Relationがある場合は409となり削除は行わない
 
 ### 必要な権限

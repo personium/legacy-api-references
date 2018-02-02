@@ -132,6 +132,11 @@ Refer to [Error Message List](004_Error_Messages.md)
         "__deferred": {
           "uri": "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_SentMessage"
         }
+      },
+      "_Rule": {
+        "__deferred": {
+          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_Rule"
+        }
       }
     }
   }

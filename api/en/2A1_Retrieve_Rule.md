@@ -1,145 +1,136 @@
-# Rule Retrieval
-
+# Get Rule
 ## Overview
+Acquire existing Rule information
 
-Retrieve a single Event Processing Rule by specifiying its name and the name the box to which the rule is bound.
-
-### Required Privileges
-
+### Required Permissions
 rule-read
 
-### Restrictions
+### Limitations
+* OData restriction
+* Accept of request header is ignored
+* Treat all Content-Type of the request header as application / json
+* Accept only JSON format for request body
+* Content-Type of the response header supports only application / json, and the response body is JSON format
+* $ format query option ignored
 
-* Accept in the request header is ignored
-* Always handles Content-Type in the request header as application/json
-* Only accepts the request body in the JSON format
-* Only application/json is supported for Content-Type in the request header and the JSON format for the response body
-* $formatQuery options ignored
-
-
-## Request
-
+## request
 ### Request URL
-
-Box-bound Rules
 ```
-/{CellName}/__ctl/Rule(Name='{RuleName}',_Box.Name='{BoundBoxName}')
+/{CellName}/__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')
 ```
-
-Rules not bound to any box
+Alternatively,
 ```
 /{CellName}/__ctl/Rule(Name='{RuleName}')
 ```
-
-### Request Method
-
+Alternatively,
+```
+/{CellName}/__ctl/Rule('{RuleName}')
+```
+* When the \ _ Box.Name parameter is omitted, it is assumed that null is specified
+### Method
 GET
 
-### Request Query
+### Request query
 
-|Query Name|Overview|Effective Value|Required|Notes|
+| Query name | Summary | Valid values | Required | Remarks |
 |:--|:--|:--|:--|:--|
-|p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
+| p_cookie_peer | cookie authentication value | cookie authentication value returned from the server at the time of authentication | No | valid only when there is no specification of the authorization header | specify when using cookie authentication information |
+[$ select query] (406_Select_Query.md)
 
-[$select  Query](406_Select_Query.md)
+[$ expand query] (405_Expand_Query.md)
 
-[$expand  Query](405_Expand_Query.md)
-
-[$format  Query](404_Format_Query.md)
+[$ format query] (404_Format_Query.md)
 
 ### Request Header
-
-### Request Body
-
-|Header Name|Overview|Effective Value|Required|Notes|
+| Header name | overview | effective value | required | remarks |
 |:--|:--|:--|:--|:--|
-|X-HTTP-Method-Override|Method override function|User-defined|No|If you specify this value when requesting with the POST method, the specified value will be used as a method.|
-|X-Override|Header override function|${OverwrittenHeaderName}:${Value}|No|Overwrite normal HTTP header value. To overwrite multiple headers, specify multiple X-Override headers.|
-|X-Personium-RequestKey|RequestKey field value output in the event log|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters|No|PCS-${UNIXtime} by default|
-|Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
-|Accept|Specifies the response body format|application/json|No|[application/json] by default|
-|If-None-Match|Specifies the target ETag value|ETag value|Yes|Not compatible|
+| X-HTTP-Method-Override | method override function | optional | No | If you specify this value when requesting with the POST method, the specified value will be used as a method. |
+| X-Override | header override function | $ {overwrite header name}: $ {value} | No | overwrites the value of normal HTTP header. To overwrite multiple headers, specify multiple X-Override headers. |
+| X-Personium-RequestKey | Value of the RequestKey field to be output to the event log | Single byte alphanumeric characters,-(half size hyphen) and _ (half width underscore) Maximum 128 characters | No | PCS-$ { UNIX time}
 
-## Response
-
-### Response Code
-
-200
-
-### Response Header
-
+### OData Request Header
+| Header name | overview | effective value | required | remarks |
+|:--|:--|:--|:--|:--|
+| Authorization | Specify authentication information in OAuth 2.0 format | Bearer {AccessToken} | No | * Authentication token acquired with the authentication token acquisition API Token |
+### OData Registration Request Header
+| Header name | overview | effective value | required | remarks |
+|:--|:--|:--|:--|:--|
+| Content-Type | Specify the format of the request body | application / json | No | treat it as [application / json] when omitted |
+| Accept | Specify the response body format | application / json | No | treat as [application / json] when omitted |
+### Request body
 None
 
-### Response Body
+## Response
+### Status code
+200
+### Response header
+None
 
-The response is a JSON object, the correspondence between the key (name) and type defined in the object (subobject) and the value are as follows
+### Response body
+The response is a JSON object, and the correspondence between the key (name) and type defined in the object (subobject) and the value are as follows.
 
-|Object|Item Name|Data Type|Notes|
+| Object | Item name | Data Type | Remarks |
 |:--|:--|:--|:--|
-|Root|d|object|Object{1}|
-|{1}|results|array|Array object {2}|
-|{2}|__metadata|object|Object{3}|
-|{3}|uri|string|URL to the resource that was created|
-|{3}|etag|string|Etag value|
-|{2}|__published|string|Creation date (UNIX time)|
-|{2}|__updated|string|Update date (UNIX time)|
-|{1}|__count|string|Get number of results in $inlinecount query|
+| Route | d | object | object {1} |
+| {1} | results | array | Array of objects {2}
+| {2} | __metadata | object | object {3} |
+| {3} | uri | string | URL to created resource |
+| {3} | etag | string | Etag value |
+| {2} | __published | string | creation date (UNIX time) |
+| {2} | __updated | string | Update date (UNIX time) |
+| {1} | __count | string | $ inlinecount number of results obtained by query |
 
-### Box specific response body
-
-|Object|Item Name|Data Type|Notes|
+### Rule specific response body
+| Object | Item name | Data Type | Remarks |
 |:--|:--|:--|:--|
-|{3}|type|string|CellCtl.Box|
-|{2}|Name|string|Box Name|
-|{2}|Schema|string|Schema Name|
+| {3} | type | string | CellCtl.Rule |
+| {2} | Name | string | Rule name |
+| {2} | _Box.Name | string | Box name of relation |
+| {2} | EventExternal | boolean ||
+| {2} | EventSubject | string ||
+| {2} | EventType | string ||
+| {2} | EventObject | string ||
+| {2} | EventInfo | string ||
+| {2} | Action | string ||
+| {2} | TargetUrl | string ||
+### Error message list
+[Error message list] (004_Error_Messages.md) is referred to
 
-### Error Messages
-
-Refer to [Error Message List](004_Error_Messages.md)
-
-### Response Sample
-
+### Response sample
 ```JSON
 {
   "d": {
     "results": {
-      "__metadata": {
-        "uri": "https://{UnitFQDN}/{CellName}/__ctl/Rule(Name='{RuleName}')",
-        "etag": "W/\"1-1486368212581\"",
-        "type": "CellCtl.Rule"
-      },
-      "Name": "{RuleName}",
-      "Schema": null,
-      "__published": "/Date(1486368212581)/",
-      "__updated": "/Date(1486368212581)/",
-      "_Role": {
-        "__deferred": {
-          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_Role"
-        }
-      },
-      "_Relation": {
-        "__deferred": {
-          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_Relation"
-        }
-      },
-      "_ReceivedMessage": {
-        "__deferred": {
-          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_ReceivedMessage"
-        }
-      },
-      "_SentMessage": {
-        "__deferred": {
-          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_SentMessage"
+      {
+        "__metadata": {
+          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')",
+          "etag": "W/\"1-1486368212581\"",
+          "type": "CellCtl.Rule"
+        },
+        "Name": "{RuleName}",
+        "_Box.Name": "{BoxName}",
+        "EventExternal": true,
+        "EventSubject": null,
+        "EventType": null,
+        "EventObject": null,
+        "EventInfo": null,
+        "Action": "log",
+        "TargetUrl": null,
+        "__published": "/Date(1486368212581)/",
+        "__updated": "/Date(1486368212581)/",
+        "_Box": {
+          "__deferred": {
+            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')/_Box"
+          }
         }
       }
     }
   }
 }
 ```
-
-
-## cURL Command
+## cURL Sample
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Rule(Name='{RuleName}')" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Rule('{RuleName}')" -X GET -i -H 'Authorization: Bearer {AccessToken}' \
+-H 'Accept: application/json'
 ```

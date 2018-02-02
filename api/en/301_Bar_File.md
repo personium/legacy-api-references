@@ -19,6 +19,7 @@ bar/
  |    +-- 10_relations.json
  |    +-- 20_roles.json
  |    +-- 30_extroles.json
+ |    +-- 50_rules.json
  |    +-- 70_$links.json
  |    +-- 90_rootprops.xml  *Required
  |
@@ -108,8 +109,8 @@ The file describing the information of the roles to be installed<br>\* For items
 
 |Item Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|Roles|Relation list||Yes||
-|Roles/Name|Relation name|-|Yes||
+|Roles|Role list||Yes||
+|Roles/Name|Role name|-|Yes||
 
 ##### Samples
 
@@ -143,6 +144,33 @@ The file describing the information of the ExtRoles to be installed<br>\* For it
     {
       "ExtRole": "https://{UnitFQDN}/{CellName}/__role/__/role2",
       "_Relation.Name": "Relation1"
+    }
+  ]
+}
+```
+#### 50_rules.json
+The file described thr Rule information for install.
+* For items whose "valid value" column is "-", refer to the request body of Rule
+
+|Item Name|Overview|Effective Value|Required|Notes|
+|:--|:--|:--|:--|:--|
+|Rules|Rules list||Yes||
+|Rules/EventExternal| External event flag of matching event|-|No||
+|Rules/EventSubject|Subject of matching event|-|No||
+|Rules/EventType|Type of event to match|-|No||
+|Rules/EventObject|Object of matching event|-|No||
+|Rules/EventInfo|Information on matching events|-|No||
+|Rules/Action|Action when matching an event|-|Yes||
+|Rules/TargetUrl|Url to be processed for action|-|No||
+
+##### Samples
+
+```JSON
+{
+  "Rules": [
+    {
+      "Action": "exec",
+      "TargetUrl": "personium-localbox:/col/srv"
     }
   ]
 }

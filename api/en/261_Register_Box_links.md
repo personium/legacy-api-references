@@ -6,6 +6,14 @@ Link Box with OData resource specified by $ links<br>Get a list of OData resourc
 
 * Role
 * Relation
+* Rule
+
+### Required Privileges
+|Link Object|Required Privileges|
+|:-|:-|
+|Role|box<br>auth|
+|Relation|box<br>social|
+|Rule|box<br>rule|
 
 
 ### Restrictions
@@ -55,6 +63,21 @@ or
 
 ```
 /{CellName}/__ctl/Box('{BoxName}')/$links/_Relation
+```
+
+#### link with Rule
+```
+/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/_Rule
+```
+or 
+
+```
+/{CellName}/__ctl/Box(Name='{BoxName}')/$links/_Rule
+```
+or 
+
+```
+/{CellName}/__ctl/Box('{BoxName}')/$links/_Rule
 ```
 
 If the Schema is omitted, it is assumed that null is specified

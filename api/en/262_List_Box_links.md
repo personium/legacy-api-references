@@ -6,6 +6,15 @@ List OData resources associated with Box<br>You can specify the following OData 
 
 * Role
 * Relation
+* Rule
+
+### Required Privileges
+|Link Object|Required Privileges|
+|:-|:-|
+|Role|box-read<br>auth-read|
+|Relation|box-read<br>social-read|
+|Rule|box-read<br>rule-read|
+
 
 ### Required Privileges
 
@@ -58,6 +67,20 @@ or
 
 ```
 /{CellName}/__ctl/Box('{BoxName}')/$links/_Relation
+```
+#### link with Rule
+```
+/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/_Rule
+```
+or 
+
+```
+/{CellName}/__ctl/Box(Name='{BoxName}')/$links/_Rule
+```
+or 
+
+```
+/{CellName}/__ctl/Box('{BoxName}')/$links/_Rule
 ```
 
 If the Schema is omitted, it is assumed that null is specified

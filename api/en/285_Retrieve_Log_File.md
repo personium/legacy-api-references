@@ -92,7 +92,7 @@ There is a possibility that the rotate size is about 5MB larger than it configur
 Output form is following
 
 ```
-{dateTime},[{level}],{RequestKey},{name},{schema},{subject},{action},{object},{result}
+{dateTime},[{level}],{RequestKey},{external},{schema},{subject},{type},{object},{info}
 ```
 
 |Item Name|Overview|Notes|
@@ -100,12 +100,12 @@ Output form is following
 |dateTime|Log write date and time (ISO8601 UTC format)|YYYY-MM-DDTHH:MM:SS.sssZ|
 |level|log level INFO,WARN,ERROR|String|
 |RequestKey|Value specified on X-Dc-RequestKey header<br>when the X-Dc-RequestKey header is not specified, PCS-$ {UNIX time}|String|
-|name|External events: client<br>internal event: server|String|
+|external|External events:true<br>Internal events:false|String|
 |schema|Schema of box of accepted URL|URL format|
 |subject|Principal events|URL format|
-|action|External events: Action defined in the event reception<br>Internal events: HTTP method name|String|
+|type|External events: Type defined in the event reception<br>Internal events: Type defined for each event|String|
 |object|External events: Object defined in the event reception<br>Internal events:Requested resource path|String|
-|result|External events: Result defined in the event reception<br>Internal events:Requested resource path|String|
+|info|External events: Info defined in the event reception<br>Internal events:HTTP status code|String|
 
 ### Error Messages
 
@@ -124,8 +124,8 @@ https://{UnitFQDN}/servicemanager/#admin,authSchema,/{CellName}/{BoxName}/servic
 Internal Event
 
 ```
-2013-04-18T14:52:39.778Z,[ERROR],PCS-1364350331902,server,https://{UnitFQDN}/appCell/,
-https://{UnitFQDN}/appCell/#staff,POST,/homeClinic/__token,200
+2013-04-18T14:52:39.778Z,[INFO ],"PCS-1364350331902","false","https://{UnitFQDN}/appCell/",
+"https://{UnitFQDN}/appCell/#staff","cellctl.Role.list","https://{UnitFQDN}//homeClinic/__ctl/Role","200"
 ```
 
 

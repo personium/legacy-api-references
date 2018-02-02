@@ -2,11 +2,19 @@
 
 ## Overview
 
-register Role,Relation via Box\_NavProp
+Register the following Cell control object via Navigation Property of Box.
+
+* Role
+* Relation
+* Rule
 
 ### Required Privileges
+|NavigationProperty Object|Required Privileges|
+|:-|:-|
+|Role|box<br>auth|
+|Relation|box<br>social|
+|Rule|box<br>rule|
 
-write
 
 ### Restrictions
 
@@ -55,6 +63,22 @@ or
 
 ```
 /{CellName}/__ctl/Box('{BoxName}')/_Relation
+```
+
+#### NavigationProperty to Rule
+
+```
+/{CellName}/__ctl/Box(Name='{BoxName}',Schema='SchemaURL')/_Rule
+```
+or
+
+```
+/{CellName}/__ctl/Box(Name='{BoxName}')/_Rule
+```
+or
+
+```
+/{CellName}/__ctl/Box('{BoxName}')/_Rule
 ```
 
 If the Schema is omitted, it is assumed that null is specified
@@ -179,5 +203,12 @@ curl
 ```sh
 curl "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_Relation" -X POST -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{RelationName}"}'
+```
+
+### When registering Rule
+```sh
+curl
+"https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_Rule" -X POST -i  -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{RuleName}","Action":"log"}'
 ```
 

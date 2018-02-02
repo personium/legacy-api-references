@@ -6,8 +6,13 @@ Retrieve cell control object via Navigation Property
 
 ### Required Privileges
 
-* When acquire Role<br>auth-read
-* When acquire Relation<br>social-read
+* When acquire Role  
+box-read,auth-read
+* When acquire Relation  
+box-read,social-read
+* When acquire Rule
+box-read,rule-read
+
 
 ### Restrictions
 
@@ -56,6 +61,23 @@ or
 
 ```
 /{CellName}/__ctl/Box('{BoxName}')/_Relation
+```
+
+#### NavigationProperty to Rule
+```
+/{CellName}/__ctl/Box(Name='{BoxName}',Schema='SchemaURL')/_Rule
+```
+
+or 
+
+```
+/{CellName}/__ctl/Box(Name='{BoxName}')/_Rule
+```
+
+or 
+
+```
+/{CellName}/__ctl/Box('{BoxName}')/_Rule
 ```
 
 If the Schema is omitted, it is assumed that null is specified
@@ -153,7 +175,8 @@ Refer to [Error Message List](004_Error_Messages.md)
     "results": [
       {
         "__metadata": {
-          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')",
+          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',
+_Box.Name='{BoxName}')",
           "etag": "W/\"1-1486700131198\"",
           "type": "CellCtl.Relation"
         },
@@ -163,22 +186,26 @@ Refer to [Error Message List](004_Error_Messages.md)
         "__updated": "/Date(1486700131198)/",
         "_Box": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_Box"
+            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',
+_Box.Name='{BoxName}')/_Box"
           }
         },
         "_ExtCell": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_ExtCell"
+            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',
+_Box.Name='{BoxName}')/_ExtCell"
           }
         },
         "_ExtRole": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_ExtRole"
+            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',
+_Box.Name='{BoxName}')/_ExtRole"
           }
         },
         "_Role": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_Role"
+            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',
+_Box.Name='{BoxName}')/_Role"
           }
         }
       }
@@ -190,16 +217,24 @@ Refer to [Error Message List](004_Error_Messages.md)
 
 ## cURL Command
 
+### When acquire Role
+
 ```sh
 curl
-"https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_Role" -X POST -i  -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{RoleName}"}'
+"https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_Role" -X GET -i  -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 
 ### When acquire Relation
 
 ```sh
 curl "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_Relation" -X GET -i -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+```
+### When acquire Rule
+```sh
+curl
+"https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_Rule" -X GET -i  -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

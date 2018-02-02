@@ -1,143 +1,147 @@
 # Create Rule
-
 ## Overview
+Create a new event processing rule.
 
-API for creating a new Event Processing Rule.
-
-## Required Privileges
-
+### Required Permissions
 rule
 
-## Restrictions
+### Limitations
+* Accept of request header is ignored
+* Treat all Content-Type of the request header as application / json
+* Accept only JSON format for request body
+* Content-Type of the response header supports only application / json, and the response body is JSON format
 
-* Accept in the request header is ignored
-* Always handles Content-Type in the request header as application/json
-* Only accepts the request body in the JSON format
-* Only application/json is supported for Content-Type in the request header and the JSON format for the response body
-* $formatQuery options ignored
-
-
-## Request
-
+## request
 ### Request URL
-
 ```
 /{CellName}/__ctl/Rule
 ```
-
-### Request Method
-
+### Method
 POST
 
-### Request Query
+### Request query
 
-|Query Name|Overview|Effective Value|Required|Notes|
+| Query name | Summary | Valid values | Required | Remarks |
 |:--|:--|:--|:--|:--|
-|p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
+| p_cookie_peer | cookie authentication value | cookie authentication value returned from the server at the time of authentication | No | valid only when there is no specification of the authorization header | specify when using cookie authentication information |
 
 ### Request Header
 
-|Header Name|Overview|Effective Value|Required|Notes|
+| Header name | overview | effective value | required | remarks |
 |:--|:--|:--|:--|:--|
-|X-HTTP-Method-Override|Method override function|User-defined|No|If you specify this value when requesting with the POST method, the specified value will be used as a method.|
-|X-Override|Header override function|${OverwrittenHeaderName}:${Value}|No|Overwrite normal HTTP header value. To overwrite multiple headers, specify multiple X-Override headers.|
-|X-Personium-RequestKey|RequestKey field value output in the event log|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters|No|PCS-${UNIXtime} by default|
-|Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
-|Content-Type|Specifies the request body format|application/json|No|[application/json] by default|
-|Accept|Specifies the response body format|application/json|No|[application/json] by default|
-
-### Request Body
-
+| X-HTTP-Method-Override | method override function | optional | No | If you specify this value when requesting with the POST method, the specified value will be used as a method. |
+| X-Override | header override function | $ {overwrite header name}: $ {value} | No | overwrites the value of normal HTTP header. To overwrite multiple headers, specify multiple X-Override headers. |
+| X-Personium-RequestKey | Value of the RequestKey field to be output to the event log | Single byte alphanumeric characters,-(half size hyphen) and _ (half width underscore) Maximum 128 characters | No | PCS-$ { UNIX time}
+| Authorization | Specify authentication information in OAuth 2.0 format | Bearer {AccessToken} | No | * Authentication token acquired with the authentication token acquisition API Token |
+| Content-Type | Specify the format of the request body | application / json | No | treat it as [application / json] when omitted |
+| Accept | Specify the response body format | application / json | No | treat as [application / json] when omitted |
+### Request body
 #### Format
 
 JSON
 
-|Item Name|Overview|Effective Value|Required|Notes|
+| Item name | overview | effective value | required | remarks |
 |:--|:--|:--|:--|:--|
-|_Box.Name|Name of the box to which the rule should be bound.|Valid box name. Request without this key or with this key null value means the Rule should not be bound to any box.|No||
-|Name|Arbitrary name to make the rule to be created identifiable|Should be unique within the scope of the bound box, or the cell (in the case of box-unbound rules)|No|if omitted, an uuid will automatically be assigned.|
-|EventType|Type of the event to trigger the rule|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("\_")<br>null|No||
-|EventSubject|Event Subject prefix to trigger the rule|Since the Event Subject is basically Cell URL, effective value is its substring.|No||
-|EventObject|Event Object prefix to trigger the rule|Event object values vary with the types of events. Meaningful value depends of the type. though any string can be accepted. |No||
-|EventInfo|Event Info prefix to trigger the rule|Event info values vary with the types of events. Meaningful value depends of the type. though any string can be accepted.|No||
-|EventExternal|Flag if the triggering event should be external|Boolean value. Set true to pick external events. |No|default false|
-|Action|Action to invoke when the matching event is met|Valid values are listed in the separate table below|Yes||
-|TargetUrl|Specific target url of the action|Meaning of this field changes with the Action field. |No||
+| _Box.Name | Box name to which the rule should be attached | valid box name. A request not specifying this key or specifying a null value is interpreted as a Rule that is not associated with any Box.| No ||
+| Name | Arbitrary name to identify the rule to be created | When linking to a Box, it is unique within the Box, and if it is not tied to the Box, it must be unique in the cell. When | No | is omitted, the uuid automatically allocates | No ||
+| EventType | Character string for forward match checking for the type of event that triggers a rule | For Evnet Type, the type is defined for internal events as a separate table (not created). For external events, you can specify any Type. | No ||
+| EventSubject | Event Subject for Event Subject to Trigger Rule The string for matching check | Event Subject is basically the URL of Cell, so valid value is the exact match string. | No ||
+| EventObject | Event Object's event object to trigger the rule String for forward match check | Event The value of object depends on the type of event. An arbitrary character string can be set, but the meaningful value depends on the event type. | No ||
+| EventInfo | Event Info matching event check event for event that should trigger rule | Event info value depends on event type. An arbitrary character string can be set, but the meaningful value depends on the event type. | No ||
+| EventExternal | Flag indicating whether the event to trigger the rule is an external event | Boolean. Set to true to detect external events. | No | default value false |
+| Action | Action to be started when the event matches | Valid values ​​are the following table | Yes |||
+| TargetUrl | The value to be specified depends on the value of the concrete target URL | Action for the action. The rules are as follows attached table | No ||
 
 #### Valid Actions
-|Action|Description|TargetUrl|Note|
+| Action | Description | TargetUrl | Remarks |
 |:--|:--|:--|:--|
-|exec|Engine script will be invoked with post method|engine service endpoint url|-|
-|relay|Events will be relayed to TargetUrl|Url to which event info should be relayed.|-|
-|log|Events will be logged at info level|-|-|
-|log.info|Events will be logged at info level|-|-|
-|log.warn|Events will be logged at warn level|-|-|
-|log.error|Events will be logged at error level|-|-|
+| exec | engine script is started and event data is passed by the POST method. | Engine service url | - |
+relay | Relays events to TargetUrl. Relay destination to relay event information Url | - |
+Log log | Event at info level. | - | - |
+Log output of | log.info | Event at info level. | - | - |
+Log the log | warn | Event at the warn level. | - | - |
+Logs the | log.error | Event at error level. | - | - |
 
-### Request Body Sample
+#### EventObject description rule
+| _Box.Name | EventObject | Remarks |
+|:--|:--|:--|
+| Set up | personium-localbox: / ... ||
+| Not set | personium-localcel: / ... ||
 
+#### Rules of TargetUrl description
+| Action | _Box.Name | TargetUrl | Remarks |
+|:--|:--|:--|:--|
+| exec | set up | personium-localbox: / {CollectionName} / {ServiceName} ||
+| exec | not set | personium-localcell: / {BoxName} / {CollectionName} / {ServiceName} ||
+| relay || URL with scheme http, https, personium-localunit ||
+
+### Request sample
 ```JSON
-{
-  "Name":"warninglog", 
-  "EventType":"", 
-  "Action": "log.warn"
-}
+{"Name":"{RuleName}", "EventExternal":true, "Action":"log"}
 ```
 
-
 ## Response
-
-### Successful Response Code
-
+### Status code on success
 201
 
-### Response Header
-
-|Header Name|Overview|Notes|
+### Response header
+| Header name | Overview | Remarks |
 |:--|:--|:--|
-|X-Personium-Version|API version that the request is processed|Version of the API used to process the request|
-|Access-Control-Allow-Origin|Cross domain communication permission header|Return value fixed to "*"|
-|Content-Type|Format of data to be returned||
-|Location|URL to the resource that was created||
-|ETag|Resource version information||
-|DataServiceVersion|OData version||
+| X-Personium-Version | Execution version of API | API version processed request |
+| Access-Control-Allow-Origin | Cross-domain communication permission header | Return value is fixed as "*"
+| Content-Type | Format of data to be returned ||
+| Location | URL to created resource ||
+| ETag | resource version information ||
+| DataServiceVersion | OData version ||
 
-### Response Body
+### Response body
+The response is a JSON object, and the correspondence between the key (name) and type defined in the object (subobject) and the value are as follows.
 
-The response is a JSON object, the correspondence between the key (name) and type defined in the object (subobject) and the value are as follows
-
-|Object|Item Name|Data Type|Notes|
+| Object | Item name | Data Type | Remarks |
 |:--|:--|:--|:--|
-|Root|d|object|Object{1}|
-|{1}|results|array|Array object {2}|
-|{2}|__metadata|object|Object{3}|
-|{3}|uri|string|URL to the resource that was created|
-|{3}|etag|string|Etag value|
-|{2}|__published|string|Creation date (UNIX time)|
-|{2}|__updated|string|Update date (UNIX time)|
-|{1}|__count|string|Get number of results in $inlinecount query|
+| Route | d | object | object {1} |
+| {1} | results | array | Array of objects {2}
+| {2} | __metadata | object | object {3} |
+| {3} | uri | string | URL to created resource |
+| {3} | etag | string | Etag value |
+| {2} | __published | string | creation date (UNIX time) |
+| {2} | __updated | string | Update date (UNIX time) |
+| {1} | __count | string | $ inlinecount number of results obtained by query |
 
-### Box specific response body
+### Rule specific response body
 
-|Object|Item Name|Data Type|Notes|
+| Object | Item name | Data Type | Remarks |
 |:--|:--|:--|:--|
-|{3}|type|string|CellCtl.Box|
-|{2}|Name|string|Box Name|
-|{2}|Schema|string|Schema Name|
+| {3} | type | string | CellCtl.Rule |
+| {2} | Name | string | Rule name |
+| {2} | _Box.Name | string | Box name of relation |
+| {2} | EventExternal | boolean ||
+| {2} | EventSubject | string ||
+| {2} | EventType | string ||
+| {2} | EventObject | string ||
+| {2} | EventInfo | string ||
+| {2} | Action | string ||
+| {2} | TargetUrl | string ||
 
-### Response Body Sample
-
+### Response body sample
 ```JSON
 {
   "d": {
     "results": {
       "__metadata": {
-        "uri": "https://{UnitFQDN}/{CellName}/__ctl/Rule('{BoxName}')",
+        "uri": "https://{UnitFQDN}/{CellName}/__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')",
         "etag": "W/\"1-1486368212581\"",
-        "type": "CellCtl.Box"
+        "type": "CellCtl.Rule"
       },
-      "Name": "{BoxName}",
-      "Schema": null,
+      "Name": "{RuleName}",
+      "_Box.Name": "{BoxName}",
+      "EventExternal": true,
+      "EventSubject": null,
+      "EventType": null,
+      "EventObject": null,
+      "EventInfo": null,
+      "Action": "log",
+      "TargetUrl": null,
       "__published": "/Date(1486368212581)/",
       "__updated": "/Date(1486368212581)/"
     }
@@ -145,16 +149,13 @@ The response is a JSON object, the correspondence between the key (name) and typ
 }
 ```
 
-### Error Responses
+### Error response
+[Error message list](004_Error_Messages.md) is referred to
 
-Refer to [Error Message List](004_Error_Messages.md)
-
-
-## cURL Command
+## cURL Sample
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Rule" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{RuleName}"}'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Rule" -X POST -i \
+-H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' \
+-d '{"Name":"{RuleName}", "EventExternal":true, "Action":"log"}'
 ```
-
-
-

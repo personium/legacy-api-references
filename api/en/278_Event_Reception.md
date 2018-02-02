@@ -8,21 +8,6 @@ This API accepts the requested event
 
 event
 
-### Supported Versions
-
-1.1.7
-
-#### Common Event API
-
-* Log output of the internal event is not supported
-* Set the log file name as "default.log "
-* Rotate will be according to following default settings
-    * Rotate number: 12 generations
-    * Set rotate size: 50MB
-    * Compression method after rotation: zip<br>Configure the log output level to "info" (output for all INFO, WARN, ERROR).
-* Log output configuration reference is not supported
-
-
 ## Request
 
 ### Request URL
@@ -55,19 +40,17 @@ JSON
 
 |Item Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|level|Log output level|"INFO"/"WARN"/"ERROR"|Yes|In case lower case "info"/"warn"/"error" is specified, it is treated as upper case letters.<br>However, lower case letters are deprecated|
-|action|Action of the event|String<br>Number of digits: 0-51200 byte|Yes||
-|object|Object of the eventbr|String<br>Number of digits: 0-51200 byte|Yes||
-|result|Result of the eventbr|String<br>Number of digits: 0-51200 byte|Yes||
+|Type|Type of event|String<br>Number of digits: 0&#45;51200 byte|Yes||
+|Object|Object of the eventbr|String<br>Number of digits: 0&#45;51200 byte|Yes||
+|Info|Information of the event|String<br>Number of digits: 0&#45;51200 byte|Yes||
 
 ### Request Sample
 
 ```JSON
 {
-  "level":"INFO",
-  "action":"authSchema",
-  "object":"/{CellName}/{BoxName}/service_name/token_keeper",
-  "result":"[XXXX2033] Success schema authorization. cellUrl=https://{UnitFQDN}/keeper-d4a57bb26eae481486b07d06487051d1/"
+  "Type":"authSchema",
+  "Object":"/{CellName}/{BoxName}/service_name/token_keeper",
+  "Info":"[XXXX2033] Success schema authorization. cellUrl=https://{UnitFQDN}/keeper-d4a57bb26eae481486b07d06487051d1/"
 }
 ```
 

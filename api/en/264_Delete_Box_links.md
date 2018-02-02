@@ -4,6 +4,13 @@
 
 Delete a list of OData resources associated with Box
 
+### Required Privileges
+|Link Object|Required Privileges|
+|:-|:-|
+|Role|box<br>auth|
+|Relation|box<br>social|
+|Rule|box<br>rule|
+
 ### Restrictions
 
 * Accept in the request header is ignored
@@ -20,19 +27,8 @@ Delete a list of OData resources associated with Box
 #### link with Role
 
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')
-```
-
-or 
-
-```
-/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/_Role(Name='{RoleName}')
-```
-
-or 
-
-```
-/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/_Role('{RoleName}')
+/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/
+_Role(Name='{RoleName}',_Box.Name='{BoxName}')
 ```
 
 or 
@@ -44,49 +40,14 @@ or
 or 
 
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}')/$links/_Role(Name='{RoleName}')
-```
-
-or 
-
-```
-/{CellName}/__ctl/Box(Name='{BoxName}')/$links/_Role('{RoleName}')
-```
-
-or 
-
-```
 /{CellName}/__ctl/Box('{BoxName}')/$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')
-```
-
-or 
-
-```
-/{CellName}/__ctl/Box('{BoxName}')/$links/_Role(Name='{RoleName}')
-```
-
-or 
-
-```
-/{CellName}/__ctl/Box('{BoxName}')/$links/_Role('{RoleName}')
 ```
 
 #### link with Relation
 
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/_Relation(Name='{RelationName}',_Box.Name='{BoxName}')
-```
-
-or 
-
-```
-/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/_Relation(Name='{RelationName}')
-```
-
-or 
-
-```
-/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/_Relation('{RelationName}')
+/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/_Relation(Name='{RelationName}',
+_Box.Name='{BoxName}')
 ```
 
 or 
@@ -98,31 +59,24 @@ or
 or 
 
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}')/$links/_Relation(Name='{RelationName}')
-```
-
-or 
-
-```
-/{CellName}/__ctl/Box(Name='{BoxName}')/$links/_Relation('{RelationName}')
-```
-
-or 
-
-```
 /{CellName}/__ctl/Box('{BoxName}')/$links/_Relation(Name='{RelationName}',_Box.Name='{BoxName}')
 ```
 
+#### link with Rule
+```
+/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/
+_Rule(Name='{RuleName}',_Box.Name='{BoxName}')
+```
+
 or 
 
 ```
-/{CellName}/__ctl/Box('{BoxName}')/$links/_Relation(Name='{RelationName}')
+/{CellName}/__ctl/Box(Name='{BoxName}')/$links/_Rule(Name='{RuleName}',_Box.Name='{BoxName}')
 ```
-
 or 
 
 ```
-/{CellName}/__ctl/Box('{BoxName}')/$links/_Relation('{RelationName}')
+/{CellName}/__ctl/Box('{BoxName}')/$links/_Rule(Name='{RuleName}',_Box.Name='{BoxName}')
 ```
 
 If the Schema is omitted, it is assumed that null is specified

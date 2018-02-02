@@ -34,7 +34,7 @@ DELETE
 | Header name | overview | effective value | required | remarks |
 |:--|:--|:--|:--|:--|
 | X-HTTP-Method-Override | method override function | optional | No | If you specify this value when requesting with the POST method, the specified value will be used as a method. |
-${Value} override} $: ${value} | No | overwrites the value of regular HTTP header. | X-Override | header override function | ${overwrite header name}: ${value} override} To overwrite multiple headers, specify multiple X-Override headers. |
+| X-Override|header override function|${overwrite header name}:${value}|No|Overwrite normal HTTP header value. To overwrite multiple headers, specify multiple X-Override headers.|
 | X-Personium-RequestKey | Value of the RequestKey field to be output to the event log | Single byte alphanumeric characters, - (half size hyphen) and _ (half width underscore) Maximum 128 characters | No | PCS-${ UNIX time}
 | Authorization | Specify authentication information in OAuth 2.0 format | Bearer {AccessToken} | No | * Authentication token acquired with the authentication token acquisition API Token |
 | If-Match | Specify target ETag value | ETag value | No | treat as [*] when omitted |

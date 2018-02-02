@@ -28,7 +28,7 @@ Alternatively,
 ```
 /{CellName}/__ctl/Rule('{RuleName}')
 ```
-* When the \_Box.Name parameter is omitted, it is assumed that null is specified
+When the \_Box.Name parameter is omitted, it is assumed that null is specified
 ### Method
 PUT
 

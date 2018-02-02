@@ -29,7 +29,7 @@ Alternatively,
 ```
 /{CellName}/__ctl/Rule('{RuleName}')/_Box
 ```
-* When the \_Box.Name parameter is omitted, it is assumed that null is specified
+When the \_Box.Name parameter is omitted, it is assumed that null is specified
 ### Method
 POST
 ### Request query
@@ -105,7 +105,7 @@ POST
 }
 ```
 ### Error message list
-[Error message list] (004_Error_Messages.md) is referred to
+[Error message list](004_Error_Messages.md) is referred to
 
 ## cURL Sample
 

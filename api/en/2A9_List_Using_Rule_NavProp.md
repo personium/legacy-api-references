@@ -28,23 +28,23 @@ The following query parameters are available.
 |:--|:--|:--|:--|:--|
 | p_cookie_peer | cookie authentication value | cookie authentication value returned from the server at the time of authentication | No | valid only when there is no specification of the authorization header | specify when using cookie authentication information | _
 
-[$select query] (406_Select_Query.md)
+[$select query](406_Select_Query.md)
 
-[$expand query] (405_Expand_Query.md)
+[$expand query](405_Expand_Query.md)
 
-[$format query] (404_Format_Query.md)
+[$format query](404_Format_Query.md)
 
-[$filter query] (403_Filter_Query.md)
+[$filter query](403_Filter_Query.md)
 
-[$inlinecount query] (407_Inlinecount_Query.md)
+[$inlinecount query](407_Inlinecount_Query.md)
 
-[$orderby query] (400_Orderby_Query.md)
+[$orderby query](400_Orderby_Query.md)
 
-[$top query] (401 _ Top_ Query.md)
+[$top query](401_Top_Query.md)
 
-[$skip query] (402 _ Skip_Query.md)
+[$skip query](402_Skip_Query.md)
 
-[Full Text Search (q) Query] (408_Full_Text_Search_Query.md)
+[Full Text Search (q) Query](408_Full_Text_Search_Query.md)
 ### Request Header
 | Header name | overview | effective value | required | remarks |
 |:--|:--|:--|:--|:--|
@@ -88,6 +88,7 @@ None
 
 ## Response sample
 ```JSON
+{
   "d": {
     "results": [
       {
@@ -131,7 +132,7 @@ None
 }
 ```
 ### Error message list
-[Error message list] (004_Error_Messages.md) is referred to
+[Error message list](004_Error_Messages.md) is referred to
 
 ## cURL Sample
 

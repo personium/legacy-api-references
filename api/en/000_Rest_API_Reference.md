@@ -149,7 +149,7 @@ Configured ACL can be retrieved together with other properties, by sending regul
 |Rule|Operations|
 |:--|:--|
 |Basic Operations|[Create](2A0_Create_Rule.md) &nbsp; &nbsp; [Retrieve](2A1_Retrieve_Rule.md) &nbsp; &nbsp; [List](2A2_Search_Rule.md) &nbsp; &nbsp; [Update](2A3_Update_Rule.md) &nbsp; &nbsp; [Delete](2A4_Delete_Rule.md) |
-|&nbsp; &nbsp; Linking with other objects|[Link](2A5_Create_Rule_links.md) &nbsp; &nbsp; [Unlink](2A6_List_Rule_links.md) &nbsp; &nbsp; [List Links](2A6_List_Rule_links.md) &nbsp; &nbsp; |
+|&nbsp; &nbsp; Linking with other objects|[Link](2A5_Create_Rule_links.md) &nbsp; &nbsp; [Unlink](2A7_Delete_Rule_links.md) &nbsp; &nbsp; [List Links](2A6_List_Rule_links.md) &nbsp; &nbsp; |
 |&nbsp; &nbsp; Bound Object Manipulation|[Create](2A8_Register_Rule_Using_NavProp.md) &nbsp; &nbsp; [List](2A9_List_Using_Rule_NavProp.md)|
 
 

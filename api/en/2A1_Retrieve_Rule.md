@@ -26,7 +26,7 @@ Alternatively,
 ```
 /{CellName}/__ctl/Rule('{RuleName}')
 ```
-* When the \ _ Box.Name parameter is omitted, it is assumed that null is specified
+When the \_Box.Name parameter is omitted, it is assumed that null is specified
 ### Method
 GET
 
@@ -35,11 +35,11 @@ GET
 | Query name | Summary | Valid values | Required | Remarks |
 |:--|:--|:--|:--|:--|
 | p_cookie_peer | cookie authentication value | cookie authentication value returned from the server at the time of authentication | No | valid only when there is no specification of the authorization header | specify when using cookie authentication information |
-[$ select query] (406_Select_Query.md)
+[$select query](406_Select_Query.md)
 
-[$ expand query] (405_Expand_Query.md)
+[$expand query](405_Expand_Query.md)
 
-[$ format query] (404_Format_Query.md)
+[$format query](404_Format_Query.md)
 
 ### Request Header
 | Header name | overview | effective value | required | remarks |
@@ -94,7 +94,7 @@ The response is a JSON object, and the correspondence between the key (name) and
 | {2} | Action | string ||
 | {2} | TargetUrl | string ||
 ### Error message list
-[Error message list] (004_Error_Messages.md) is referred to
+[Error message list](004_Error_Messages.md) is referred to
 
 ### Response sample
 ```JSON

@@ -148,7 +148,7 @@ Cell Level API は、次のような機能で構成されます。
 |Rule|操作|
 |:--|:--|
 |基本操作|[作成](2A0_Create_Rule.md) &nbsp; &nbsp; [取得](2A1_Retrieve_Rule.md) &nbsp; &nbsp; [一覧取得](2A2_Search_Rule.md) &nbsp; &nbsp; [更新](2A3_Update_Rule.md) &nbsp; &nbsp; [削除](2A4_Delete_Rule.md) |
-|&nbsp; &nbsp; 他オブジェクトとのリンク|[リンク](2A5_Create_Rule_links.md) &nbsp; &nbsp; [リンク解除](2A6_List_Rule_links.md) &nbsp; &nbsp; [リンク一覧取得](2A6_List_Rule_links.md) |
+|&nbsp; &nbsp; 他オブジェクトとのリンク|[リンク](2A5_Create_Rule_links.md) &nbsp; &nbsp; [リンク解除](2A7_Delete_Rule_links.md) &nbsp; &nbsp; [リンク一覧取得](2A6_List_Rule_links.md) |
 |&nbsp; &nbsp; 紐づく他オブジェクト操作|[作成](2A8_Register_Rule_Using_NavProp.md) &nbsp; &nbsp; [一覧取得](2A9_List_Using_Rule_NavProp.md)|
 
 #### イベントログ操作

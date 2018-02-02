@@ -56,7 +56,7 @@ None
 None
 
 ### Error message list
-[Error message list] (004_Error_Messages.md) is referred to
+[Error message list](004_Error_Messages.md) is referred to
 
 ## cURL Sample
 

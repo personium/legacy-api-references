@@ -1,8 +1,6 @@
-# Personium REST API リファレンス  
-REST API リファレンスへようこそ。  
-REST API リファレンスでは、Personiumが提供するすべてのREST APIに関する技術的な詳細仕様を記述しています。
-
-リクエストURLの変数については[リクエストURLの変数一覧](005_Variable_of_Request_URL.md)を参照してください。
+# Personium API リファレンス  
+API リファレンスへようこそ。  ここではPersoniumが提供するすべてのAPIに関する技術的な詳細仕様を記述しています。
+本リファレンス内のリクエストURLの変数については[リクエストURLの変数一覧](005_Variable_of_Request_URL.md)を参照してください。
 
 ## Unit Level API
 Unit Level API はCell群をホストするユニットに属するAPIで、Cellの生成や作成したCell群の管理を行うものです。  

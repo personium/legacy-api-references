@@ -56,23 +56,29 @@ JSON
 | Action | Description | TargetUrl | Remarks |
 |:--|:--|:--|:--|
 | exec | engine script is started and event data is passed by the POST method. | Engine service url | - |
-relay | Relays events to TargetUrl. Relay destination to relay event information Url | - |
-Log log | Event at info level. | - | - |
-Log output of | log.info | Event at info level. | - | - |
-Log the log | warn | Event at the warn level. | - | - |
-Logs the | log.error | Event at error level. | - | - |
+| relay | Relays events to TargetUrl. Relay destination to relay event information Url | Any URL| - |
+| log | Log the events at info level. | - | - |
+| log.info | Log the events at info level. | - | - |
+| log.warn | Log the events at warn level. | - | - |
+| log.error | Log the events at error level. | - | - |
 
-#### EventObject description rule
+#### EventObject Allowed Values
+
+Only specific URL can be accepted for EventObject field.
+
 | _Box.Name | EventObject | Remarks |
 |:--|:--|:--|
-| Set up | personium-localbox: / ... ||
-| Not set | personium-localcel: / ... ||
+| specified | personium-localbox: / ... ||
+| Not specified | personium-localcell: / ... ||
 
-#### Rules of TargetUrl description
+#### TargetUrl Allowed Values
+
+Only specific kinds of URL can be accepted for TargetUrl field.
+
 | Action | _Box.Name | TargetUrl | Remarks |
 |:--|:--|:--|:--|
-| exec | set up | personium-localbox: / {CollectionName} / {ServiceName} ||
-| exec | not set | personium-localcell: / {BoxName} / {CollectionName} / {ServiceName} ||
+| exec | specified | personium-localbox: / {CollectionName} / {ServiceName} ||
+| exec | Not specified | personium-localcell: / {BoxName} / {CollectionName} / {ServiceName} ||
 | relay || URL with scheme http, https, personium-localunit ||
 
 ### Request sample

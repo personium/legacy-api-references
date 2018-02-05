@@ -1,7 +1,6 @@
-# Personium REST API Reference
+# Personium API Reference
 
-Welcome to the Personium REST API Reference.  
-The REST API Reference describes technical detailed specifications related to all of the REST APIs provided by Personium.
+Welcome to the Personium API Reference.  This reference describes technical detailed specifications related to all of the APIs provided by Personium.
 
 ## Unit Level API
 The Unit Level API's belong to the unit that hosts a group of cells and provide functions such as creating cells or managing a group of created cells. In principle, Unit Level API's cannot be accessed using the access tokens issued by normal cells and can only be accessed with Unit User Tokens.

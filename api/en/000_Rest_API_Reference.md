@@ -59,7 +59,7 @@ Most of these functions are implemented in the form of Cell Control Objects that
 |Account|Operations|
 |:--|:--|
 |Basic Operations|[Create](212_Create_Account.md) &nbsp; &nbsp; [Retrieve](213_Retrieve_Account.md) &nbsp; &nbsp; [Retrieve List](214_Search_Account.md) &nbsp; &nbsp; [Update](215_Update_Account.md) &nbsp; &nbsp; [Delete](216_Delete_Account.md)|
-|&nbsp; &nbsp; Linking with other objects|[Link](217_Register_Account_links.md) &nbsp; &nbsp; [Unlink](220_Delete_Account_links.md) &nbsp; &nbsp; [List Links](218_Acquire_Account_links_List.md) |
+|&nbsp; &nbsp; Linking with other objects|[Link](217_Register_Account_links.md) &nbsp; &nbsp; [Unlink](220_Delete_Account_links.md) &nbsp; &nbsp; [List Links](218_Acquire_Account_links_List.md) <br> There is no link update. If you want to update, delete it and recreate it.|
 |&nbsp; &nbsp; Bound Object Manipulation|[Create](221_Register_Account_Navigation_Property.md) &nbsp; &nbsp; [Retrieve](222_Acquire_Account_Navigation_Property.md)|
 
 ### Access control
@@ -80,7 +80,7 @@ Configured ACL can be retrieved together with other properties, by sending regul
 |Role|Operations|
 |:--|:--|
 |Basic Operations|[Create](201_Create_Role.md) &nbsp; &nbsp; [Retrieve](202_Retrieve_Role.md) &nbsp; &nbsp; [Retrieve List](203_Search_Role.md) &nbsp; &nbsp; [Update](204_Update_Role.md) &nbsp; &nbsp; [Delete](205_Delete_Role.md)|
-|&nbsp; &nbsp; Linking with other objects|[Link](206_Create_Role_links.md) &nbsp; &nbsp; [Unlink](209_Delete_Role_links.md) &nbsp; &nbsp; [List Links](207_List_Role_links.md) |
+|&nbsp; &nbsp; Linking with other objects|[Link](206_Create_Role_links.md) &nbsp; &nbsp; [Unlink](209_Delete_Role_links.md) &nbsp; &nbsp; [List Links](207_List_Role_links.md) <br> There is no link update. If you want to update, delete it and recreate it.|
 |&nbsp; &nbsp; Bound Object Manipulation|[Create](210_Register_Role_Using_NavProp.md) &nbsp; &nbsp; [Retrieve](211_List_Using_Role_NavProp.md)|
 
 
@@ -91,7 +91,7 @@ Configured ACL can be retrieved together with other properties, by sending regul
 |ExtCell|Operations|
 |:--|:--|
 |Basic Operations|[Create](223_Create_External_Cell.md) &nbsp; &nbsp; [Retrieve](225_Get_External_Cell.md) &nbsp; &nbsp; [Retrieve List](224_List_External_Cell.md) &nbsp; &nbsp; [Update](226_Update_External_Cell.md) &nbsp; &nbsp; [Delete](227_Delete_External_Cell.md)|
-|&nbsp; &nbsp; Linking with other objects|[Link](228_Register_External_Cell_links.md) &nbsp; &nbsp; [Unlink](231_Delete_External_Cell_links.md) &nbsp; &nbsp; [List Links](229_List_External_Cell_links.md) |
+|&nbsp; &nbsp; Linking with other objects|[Link](228_Register_External_Cell_links.md) &nbsp; &nbsp; [Unlink](231_Delete_External_Cell_links.md) &nbsp; &nbsp; [List Links](229_List_External_Cell_links.md) <br> There is no link update. If you want to update, delete it and recreate it.|
 |&nbsp; &nbsp; Bound Object Manipulation|[Create](232_Register_External_Cell_Using_NavProp.md) &nbsp; &nbsp; [Retrieve List](233_List_External_Cell_NavProp.md)|
 
 #### Relation (Cell Control Object)
@@ -99,7 +99,7 @@ Configured ACL can be retrieved together with other properties, by sending regul
 |Relation|Operations|
 |:--|:--|
 |Basic Operations|[Create](234_Create_Relation.md) &nbsp; &nbsp; [Retrieve](236_Retrieve_Relation.md) &nbsp; &nbsp; [Retrieve List](235_List_Relation.md) &nbsp; &nbsp; [Update](237_Update_Relation.md) &nbsp; &nbsp; [Delete](238_Delete_Relation.md)|
-|&nbsp; &nbsp; Linking with other objects|[Link](239_Register_Relation_links.md) &nbsp; &nbsp; [Unlink](242_Delete_Relation_links.md) &nbsp; &nbsp; [List Links](240_List_Relation_links.md) |
+|&nbsp; &nbsp; Linking with other objects|[Link](239_Register_Relation_links.md) &nbsp; &nbsp; [Unlink](242_Delete_Relation_links.md) &nbsp; &nbsp; [List Links](240_List_Relation_links.md) <br> There is no link update. If you want to update, delete it and recreate it.|
 |&nbsp; &nbsp; Bound Object Manipulation|[Create](243_Register_Using_Relation_NavProp.md) &nbsp; &nbsp; [Retrieve List](244_List_Using_Relation_NavProp.md)|
 
 
@@ -108,7 +108,7 @@ Configured ACL can be retrieved together with other properties, by sending regul
 |ExtRole|Operations|
 |:--|:--|
 |Basic Operations|[Create](245_Create_External_Role.md) &nbsp; &nbsp; [Retrieve](247_Get_External_Role.md) &nbsp; &nbsp; [Retrieve List](246_List_External_Role.md) &nbsp; &nbsp; [Update](248_Update_External_Role.md) &nbsp; &nbsp; [Delete](249_Delete_External_Role.md)|
-|&nbsp; &nbsp; Linking with other objects|[Link](250_Register_External_Role_links.md) &nbsp; &nbsp; [Unlink](253_Delete_External_Role_links.md) &nbsp; &nbsp; [List Links](251_Retrieve_External_Role_links.md) |
+|&nbsp; &nbsp; Linking with other objects|[Link](250_Register_External_Role_links.md) &nbsp; &nbsp; [Unlink](253_Delete_External_Role_links.md) &nbsp; &nbsp; [List Links](251_Retrieve_External_Role_links.md) <br> There is no link update. If you want to update, delete it and recreate it.|
 |&nbsp; &nbsp; Bound Object Manipulation|[Create](254_Register_Using_Role_NavProp.md) &nbsp; &nbsp; [Retrieve List](255_List_External_Role_NavProp.md)|
 
 ### Box creation and management inside the Cell
@@ -123,7 +123,7 @@ Configured ACL can be retrieved together with other properties, by sending regul
 |Box|Operations|
 |:--|:--|
 |Basic Operations|[Create](256_Create_Box.md) &nbsp; &nbsp; [Retrieve](258_Retrieve_Box.md) &nbsp; &nbsp; [Retrieve List](257_Search_Box.md) &nbsp; &nbsp; [Update](259_Update_Box.md) &nbsp; &nbsp; [Delete](260_Delete_Box.md)|
-|&nbsp; &nbsp; Linking with other objects|[Link](261_Register_Box_links.md) &nbsp; &nbsp; [Unlink](264_Delete_Box_links.md) &nbsp; &nbsp; [List Links](262_List_Box_links.md) |
+|&nbsp; &nbsp; Linking with other objects|[Link](261_Register_Box_links.md) &nbsp; &nbsp; [Unlink](264_Delete_Box_links.md) &nbsp; &nbsp; [List Links](262_List_Box_links.md) <br> There is no link update. If you want to update, delete it and recreate it.|
 |&nbsp; &nbsp; Bound Object Manipulation|[Create](265_Register_Using_Box_NavProp.md) &nbsp; &nbsp; [Retrieve](266_List_Box_NavProp.md)|
 
 ### Message Exchange between Cells
@@ -148,7 +148,7 @@ Configured ACL can be retrieved together with other properties, by sending regul
 |Rule|Operations|
 |:--|:--|
 |Basic Operations|[Create](2A0_Create_Rule.md) &nbsp; &nbsp; [Retrieve](2A1_Retrieve_Rule.md) &nbsp; &nbsp; [List](2A2_Search_Rule.md) &nbsp; &nbsp; [Update](2A3_Update_Rule.md) &nbsp; &nbsp; [Delete](2A4_Delete_Rule.md) |
-|&nbsp; &nbsp; Linking with other objects|[Link](2A5_Create_Rule_links.md) &nbsp; &nbsp; [Unlink](2A7_Delete_Rule_links.md) &nbsp; &nbsp; [List Links](2A6_List_Rule_links.md) &nbsp; &nbsp; |
+|&nbsp; &nbsp; Linking with other objects|[Link](2A5_Create_Rule_links.md) &nbsp; &nbsp; [Unlink](2A7_Delete_Rule_links.md) &nbsp; &nbsp; [List Links](2A6_List_Rule_links.md) &nbsp; &nbsp; <br> There is no link update. If you want to update, delete it and recreate it.|
 |&nbsp; &nbsp; Bound Object Manipulation|[Create](2A8_Register_Rule_Using_NavProp.md) &nbsp; &nbsp; [List](2A9_List_Using_Rule_NavProp.md)|
 
 
@@ -212,7 +212,7 @@ These special collections can be created in any path on the WebDAV space provide
 |User-defined Entity Set|Operations|
 |:--|:--|
 |Basic Operations|[Create](364_Create_Entity.md) &nbsp; &nbsp; [Retrieve](366_Get_Entity.md) &nbsp; &nbsp; [List](365_List_Entity.md) &nbsp; &nbsp; [Update](367_Update_Entity.md) &nbsp; &nbsp; [Partial Update](369_Partial_Update_Entity.md) &nbsp; &nbsp; [Delete](370_Delete_Entity.md) |
-|&nbsp; &nbsp; Linking with other objects|[Link](373_Register_User_Data_links.md) &nbsp; &nbsp; [Unlink](376_Delete_User_Data_links.md) &nbsp; &nbsp; [List Links](374_User_Data_List_links.md) &nbsp; &nbsp; |
+|&nbsp; &nbsp; Linking with other objects|[Link](373_Register_User_Data_links.md) &nbsp; &nbsp; [Unlink](376_Delete_User_Data_links.md) &nbsp; &nbsp; [List Links](374_User_Data_List_links.md) &nbsp; &nbsp; <br> There is no link update. If you want to update, delete it and recreate it.|
 |&nbsp; &nbsp; Bound Object Manipulation|[Create](377_Register_using_NavProp.md) &nbsp; &nbsp; [List](378_List_using_NavProp.md)|
 
 * [Batch Operation](368_Entity_Bulk_Operations.md)

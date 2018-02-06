@@ -1,4 +1,4 @@
-# ExtRole_NavProp経由取得
+# ExtRoleのNavigation Property経由での他オブジェクト一覧取得
 ## 概要
 セル制御オブジェクトをNavigation Property経由で取得する
 ### 必要な権限

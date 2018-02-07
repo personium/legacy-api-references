@@ -260,12 +260,12 @@ You can run the user logic for requests from any path under the collection.
 |[$format Query](404_Format_Query.md)|Yes|Yes|
 |[$expand Query](405_Expand_Query.md)|Yes|Yes|
 |[$select Query](406_Select_Query.md)|Yes|Yes|
-|[$orderby Query](400_Orderby_Query.md)|Yes|Yes|
-|[$top Query](401_Top_Query.md)|Yes|Yes|
-|[$skip Query](402_Skip_Query.md)|Yes|Yes|
-|[$filter Query](403_Filter_Query.md)|Yes|Yes|
-|[$inlinecount](407_Inlinecount_Query.md)|Yes|Yes|
-|[Full-text Search (q) Query](408_Full_Text_Search_Query.md)|Yes|Yes|
+|[$orderby Query](400_Orderby_Query.md)|No|Yes|
+|[$top Query](401_Top_Query.md)|No|Yes|
+|[$skip Query](402_Skip_Query.md)|No|Yes|
+|[$filter Query](403_Filter_Query.md)|No|Yes|
+|[$inlinecount](407_Inlinecount_Query.md)|No|Yes|
+|[Full-text Search (q) Query](408_Full_Text_Search_Query.md)|No|Yes|
 
 #### [Error Messages](004_Error_Messages.md)
 

@@ -274,9 +274,9 @@ PersoniumアプリケーションやCell利用者が作成したサーバサイ�
 |[$formatクエリ](404_Format_Query.md)|○|○|
 |[$expandクエリ](405_Expand_Query.md)|○|○|
 |[$selectクエリ](406_Select_Query.md)|○|○|
-|[$orderbyクエリ](400_Orderby_Query.md)|○|○|
-|[$topクエリ](401_Top_Query.md)|○|○|
-|[$skipクエリ](402_Skip_Query.md)|○|○|
-|[$filterクエリ](403_Filter_Query.md)|○|○|
-|[$inlinecount](407_Inlinecount_Query.md)|○|○|
-|[全文検索(q)クエリ](408_Full_Text_Search_Query.md)|○|○|
+|[$orderbyクエリ](400_Orderby_Query.md)|×|○|
+|[$topクエリ](401_Top_Query.md)|×|○|
+|[$skipクエリ](402_Skip_Query.md)|×|○|
+|[$filterクエリ](403_Filter_Query.md)|×|○|
+|[$inlinecount](407_Inlinecount_Query.md)|×|○|
+|[全文検索(q)クエリ](408_Full_Text_Search_Query.md)|×|○|

@@ -65,7 +65,7 @@ None
 
 |Item Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|__id|EntityID|Number of digits: 1-200<br>Character type: Half size alphanumeric characters - (hyphen) and _ (underscore): (colon)<br> *However, - (hyphen), _ (underscore) and: (colon) can not be specified as the first character|No|If not specified a unique ID will be assigned<br>Valid value check not supported|
+|__id|EntityID|Number of digits: 1-400<br>String|No|If not specified a unique ID will be assigned|
 
 #### Property
 
@@ -195,5 +195,3 @@ curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeN
 "animalId": "100-1","name": "episode","startedAt": "2010-11-08","episodeType": "care","endedAt": "",\
 "outcome": "During treatment"}'
 ```
-
-

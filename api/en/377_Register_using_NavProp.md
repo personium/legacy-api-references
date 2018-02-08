@@ -73,7 +73,7 @@ POST
 
 |Item Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|__id|EntityID|Number of digits: 1-200<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")|No|If not specified a unique ID will be assigned<br>Valid value check unimplemented|
+|__id|EntityID|Number of digits: 1-400<br>String|No|If not specified a unique ID will be assigned|
 
 * \_It is possible to register dynamic user data in addition to \_id
     * Only character string can be set
@@ -166,5 +166,3 @@ curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeN
 /{NavigationPropertyName}" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' \
 -d '{"__id": "100-1_20101108-111352093"}'
 ```
-
-

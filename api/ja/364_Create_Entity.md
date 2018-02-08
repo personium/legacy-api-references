@@ -45,7 +45,7 @@ POST
 ### リクエストボディ
 |項目名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|__id|EntityのID|桁数：1&#65374;200<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)と:(半角コロン)<br>※ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)と:(半角コロン)は指定不可|×|指定しない場合ユニークなIDが割り当てられます<br>有効値のチェック未対応|
+|__id|EntityのID|桁数：1&#65374;400<br>文字列|×|指定しない場合ユニークなIDが割り当てられます|
 #### プロパティ
 スキーマ定義済みのプロパティと動的（スキーマ未定義）プロパティ、合わせて最大で400個のプロパティを設定可能  
 上記にはComplexTypeで定義されているプロパティ数を含む
@@ -77,11 +77,11 @@ POST
 "episodeType": "care","endedAt": "","outcome": "治療中"}
 ```
 ```JSON
-{"__id": "100-1_20101108-111352093","animalId": "100-1","name": "episode","update": 
+{"__id": "100-1_20101108-111352093","animalId": "100-1","name": "episode","update":
 "SYSUTCDATETIME()"}
 ```
 ```JSON
-{"__id": "100-1_20101108-111352093","animalId": "100-1","name": "episode","update": 
+{"__id": "100-1_20101108-111352093","animalId": "100-1","name": "episode","update":
 "\/Date(1350451322147)\/"}
 ```
 
@@ -153,4 +153,3 @@ curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeN
 "animalId": "100-1","name": "episode","startedAt": "2010-11-08","episodeType": "care","endedAt": \
 "","outcome": "治療中"}'
 ```
-

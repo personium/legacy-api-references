@@ -1,4 +1,4 @@
-# イベントバス接続(Not Implemented Yet)
+# イベントのWebSocket購読
 
 ## 概要
 

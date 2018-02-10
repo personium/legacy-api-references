@@ -138,6 +138,7 @@ Cell Level API は、次のような機能で構成されます。
 
 * [イベントの概要](277_Event_Summary.md)
 * [外部イベント受付](278_Event_Reception.md)
+* [イベントのWebSocket購読](279_Event_Bus_Connect.md)
 
 #### イベント制御ルール　（Cell制御オブジェクト）
 

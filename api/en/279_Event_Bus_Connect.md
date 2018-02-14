@@ -2,10 +2,9 @@
 
 ## Overview
 
-By connecting to the event bus where all the events occurring in the Cell flows, event information can be captured real time.
+By connecting to the event bus where all the events occurring in the Cell flows, these events information can be captured real time.
 This API first requests its clients to send a valid access token. A session can be started only when 
-the access token is valid and has required privilege. Then subscription condition should be specified next.
-After subsription condition(s) is specified, events that match the condition(s) will be sent down to the clients.
+the access token is valid and has required privilege. Then afeter the session starts, subscription conditions can be specified at any moment. After a subsription condition is specified, events that match the condition will be sent down to the clients. More Subscription conditions can be added anytime to subscribe more events. Also any of the subscriptions can be canceled anytime by sending unsubscribing messeage.
 
 ### Required Privileges 
 

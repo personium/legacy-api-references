@@ -79,7 +79,7 @@ Configured ACL can be retrieved together with other properties, by sending regul
 
 |Role|Operations|
 |:--|:--|
-|Basic Operations|[Create](201_Create_Role.md) &nbsp; &nbsp; [Retrieve](202_Retrieve_Role.md) &nbsp; &nbsp; [Retrieve List](203_Search_Role.md) &nbsp; &nbsp; [Update](204_Update_Role.md) &nbsp; &nbsp; [Delete](205_Delete_Role.md)|
+|Basic Operations|[Create](201_Create_Role.md) &nbsp; &nbsp; [Retrieve](203_Search_Role.md) &nbsp; &nbsp; [Retrieve List](202_Retrieve_Role.md) &nbsp; &nbsp; [Update](204_Update_Role.md) &nbsp; &nbsp; [Delete](205_Delete_Role.md)|
 |&nbsp; &nbsp; Linking with other objects|[Link](206_Create_Role_links.md) &nbsp; &nbsp; [Unlink](209_Delete_Role_links.md) &nbsp; &nbsp; [List Links](207_List_Role_links.md) <br> There is no link update. If you want to update, delete it and recreate it.|
 |&nbsp; &nbsp; Bound Object Manipulation|[Create](210_Register_Role_Using_NavProp.md) &nbsp; &nbsp; [Retrieve](211_List_Using_Role_NavProp.md)|
 

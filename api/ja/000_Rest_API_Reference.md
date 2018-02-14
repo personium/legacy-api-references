@@ -69,7 +69,7 @@ Cell Level API は、次のような機能で構成されます。
 
 |Role|操作|
 |:--|:--|
-|基本操作|[作成](201_Create_Role.md) &nbsp; &nbsp;  [取得](202_Retrieve_Role.md) &nbsp; &nbsp; [一覧取得](203_Search_Role.md) &nbsp; &nbsp; [更新](204_Update_Role.md) &nbsp; &nbsp; [削除](205_Delete_Role.md)|
+|基本操作|[作成](201_Create_Role.md) &nbsp; &nbsp;  [取得](203_Search_Role.md) &nbsp; &nbsp; [一覧取得](202_Retrieve_Role.md) &nbsp; &nbsp; [更新](204_Update_Role.md) &nbsp; &nbsp; [削除](205_Delete_Role.md)|
 |&nbsp; &nbsp; 他オブジェクトとのリンク|[リンク](206_Create_Role_links.md) &nbsp; &nbsp; [リンク解除](209_Delete_Role_links.md) &nbsp; &nbsp; [リンク一覧取得](207_List_Role_links.md) <br>リンク更新はありません。更新したい場合は削除して再作成してください。|
 |&nbsp; &nbsp; 紐づく他オブジェクト操作|[作成](210_Register_Role_Using_NavProp.md) &nbsp; &nbsp; [一覧取得](211_List_Using_Role_NavProp.md)|
 

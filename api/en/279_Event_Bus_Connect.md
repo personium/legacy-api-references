@@ -6,20 +6,20 @@ By connecting to the event bus where all the events occurring in the Cell flows,
 This API first requests its clients to send a valid access token. A session can be started only when 
 the access token is valid and has required privilege. Then afeter the session starts, subscription conditions can be specified at any moment. After a subsription condition is specified, events that match the condition will be sent down to the clients. More Subscription conditions can be added anytime to subscribe more events. Also any of the subscriptions can be canceled anytime by sending unsubscribing messeage.
 
-### Required Privileges 
+### Required Privilege 
 
  event-read
 
-## From Connection to the session start
+## Connection and starting the session
 
-### Endpoint URL
+### Connection Endpoint URL
 
     wss:{UnitFQDN}/{CellName}/__event
 
 By connectining to the above URL with Web Socket, it first becomes the status where access token can be accepted.
 At this stage, any request other than sending access token is meaningless.
 
-### Sending an Access Token
+### Starting the session by sending an access token
 
 #### Request
 

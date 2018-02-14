@@ -56,7 +56,7 @@ Cellで発生するイベントが通るイベントバスにWebSocketで接続�
     {"subscribe": {"Type": "${EventType}", "Object": "${EventObject}"}}
 
 * Type, Objectともに前方一致でのマッチを判定します。
-* Type, Objectともに任意の値にマッチさせたい場合は * を指定します。。
+* Type, Objectともに任意の値にマッチさせたい場合は * を指定します。
 
 
 ### レスポンスメッセージ
@@ -87,7 +87,7 @@ Cellで発生するイベントが通るイベントバスにWebSocketで接続�
 
     {"state": "subscriptions"}
 
-状況の取得
+全状況の取得
 
     {"state": "all"}
 
@@ -120,8 +120,6 @@ Cellで発生するイベントが通るイベントバスにWebSocketで接続�
 存在しない購読条件を購読解除しようとしたとき
 
     {response: "error", reason: "subscriptions not found"}
-
-
 
 ## WebSocket詳細仕様
 

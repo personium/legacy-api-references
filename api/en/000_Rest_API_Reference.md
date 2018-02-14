@@ -142,6 +142,7 @@ Configured ACL can be retrieved together with other properties, by sending regul
 
 * [Events Overview](277_Event_Summary.md)
 * [Accept External Events](278_Event_Reception.md)
+* [Web Socket connection to Event Bus](279_Event_Bus_Connect.md)
 
 #### Event Processing Rule (Cell Control Object)
 

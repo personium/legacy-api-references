@@ -1,4 +1,4 @@
-# イベントバスへWebSocket接続
+# イベントバスへの Web Socket 接続
 
 ## 概要
 
@@ -23,15 +23,15 @@ Cellで発生するイベントが通るイベントバスにWebSocketで接続�
 
 #### リクエスト
 
-権限のあるアクセストークンを以下形式で送付することでイベントバス接続セッションを開始します。
+権限のあるアクセストークンを以下形式で送付することでイベントバス接続セッションを開始します。  
 
-    {"access_token":"AA~91WT0GNoVGFHJFQ.......e"}
+    {"access_token":"AA~91WT0GNoVGFHJFQ.......e"}
 
 #### レスポンス
 
-有効なトークンであれば以下の応答が返り、セッション開始となります。セッション開始によりイベント購読可能状態となりますが、まだイベント購読はしていないため何もイベントは流れてきません
+有効なトークンであれば以下の応答が返り、セッション開始となります。セッション開始によりイベント購読可能状態となりますが、まだイベント購読はしていないため何もイベントは流れてきません。
 
-    {"response":"success","expires_in":3600,"timestamp":1518612600}
+    {"response":"success","expires_in":3600,"timestamp":1518612600}
 
 トークンが無効であったり、トークンに必要な権限がない場合はCellはWebSocket接続を切断します。
 
@@ -44,26 +44,38 @@ Cellで発生するイベントが通るイベントバスにWebSocketで接続�
 
 #### リクエスト
 
-    {"subscribe": {"Type": "${EventType}", "Object": "${EventObject}"}}
+    {"subscribe": {"Type": "${EventType}", "Object": "${EventObject}"}}
 
 #### レスポンス
 
-    {"response" : "success"}
+    {"response":"success","timestamp":1518612600}
 
 
 ### Eventの購読解除
 
-    {"unsubscribe": {"Type": "${EventType}", "Object": "${EventObject}"}}
+#### リクエスト
+
+    {"unsubscribe": {"Type": "${EventType}", "Object": "${EventObject}"}}
 
 #### レスポンス
 
-  　{"response" : "success"}
+    {"response":"success","timestamp":1518612600}
 
 
 ### イベントの受け取り
 
 何らかの購読設定がなされている状態で購読購読条件にに合致するイベントがCellで発生すると、以下形式のメッセージがクライアントに送られます。  
-    　{"Type":"chat","RequestKey":null,"Schema":"","External":true,"Object":"fdw","Info":"","cellId":"5ZKpfNSMSwO6GqAgt0O2Jg","Subject":"https:\/\/demo.personium.io\/john.doe\/#me"}
+
+    {
+      "Type":"chat", 
+      "RequestKey":null,
+      "Schema":"",
+      "External":true,
+      "Object":"general",
+      "Info":"Hello World", 
+      "cellId":"5ZKpfNSMSwO6GqAgt0O2Jg", 
+      "Subject":"https:\/\/demo.personium.io\/john.doe\/#me"
+    }
 
 
 ## WebSocket詳細仕様

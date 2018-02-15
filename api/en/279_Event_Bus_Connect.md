@@ -2,9 +2,9 @@
 
 ## Overview
 
-By connecting to the event bus where all the events occurring in the Cell flows, these events information can be captured real time.
-This API first requests its clients to send a valid access token. A session can be started only when 
-the access token is valid and has required privilege. Then afeter the session starts, subscription conditions can be specified at any moment. After a subsription condition is specified, events that match the condition will be sent down to the clients. More Subscription conditions can be added anytime to subscribe more events. Also any of the subscriptions can be canceled anytime by sending unsubscribing messeage.
+By connecting to the event bus where all the events occurring in the Cell flow, these events information can be captured in real time.
+This API first requests its client to send a valid access token. A session can be started only when 
+the access token is valid and has required privileges. Then after the session is established, subscription conditions can be specified at any moment. After a subsription condition is specified, events that match any of the conditions will be sent down to the client. More subscription conditions can be added anytime to subscribe more events. Also any of the subscriptions can be canceled anytime by sending  unsubscribing messeages.
 
 ### Required Privilege 
 
@@ -16,7 +16,7 @@ the access token is valid and has required privilege. Then afeter the session st
 
     wss:{UnitFQDN}/{CellName}/__event
 
-By connectining to the above URL with Web Socket, it first becomes the status where access token can be accepted.
+By connectining to the above URL with Web Socket, it first goes to the status where an access token can be accepted.
 At this stage, any request other than sending access token is meaningless.
 
 ### Starting the session by sending an access token
@@ -33,11 +33,11 @@ If the token is valid and has neccesary privilege, a response in the following f
 
     {"response":"success","expires_in":3600,"timestamp":1518612600}
 
-If the token is invalid or does not have required privilege, the WebSocket connection will be closed by the Cell.
+If the token is invalid or does not have the required privilege, the WebSocket connection will be closed by the Cell.
 
 ## Communication after the session is establised
 
-After the session is establised, the following 4 commands can be sent as request messages.
+After the session is establised, the following 4 commands can be sent from the client as request messages.
 
 1. Event Subscription
 1. Event Unsubscription

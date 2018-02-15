@@ -46,7 +46,7 @@ box-install
     * Therefore, when referring to log details, refer to using the log file acquisition API.
     * In order to use the log file acquisition API, the authority of "log-read" is necessary.
     * Because event logs other than Box installation also mix, it is necessary to filter by the "RequestKey" field value.
-    * The "action" field value obtains the "Requestkey" field value of "MKCOL" and filters it.
+    * The "Type" field value obtains the "Requestkey" field value of "boxinstall" and filters it.
 
 #### Other restrictions
 
@@ -55,23 +55,28 @@ box-install
 
 ##### \*1 Box installation log detailed format
 
-|State|"action"|"object"|"result"|
+|State|"Type"|"Object"|"Info"|
 |:--|:--|:--|:--|
-|Box installation reception|"MKCOL"|BoxURL|Response Code|
-|Box installation process in progress|Processing code|Entry path in bar file|A message corresponding to the processing code|
-|Box Installation Complete|Processing code|BoxURL|A message corresponding to the processing code|
+|Box installation reception|boxinstall|BoxURL|Response Code|
+|Box installation process in progress|PL-BI-1000|BoxURL|Bar installation started.|
+||PL-BI-1001|Entry path in bar file|Installation started.|
+||PL-BI-1003|Entry path in bar file|Installation completed.|
+||PL-BI-1004|Entry path in bar file|Installation failed({cause}).|
+||PL-BI-1005||Unknown error({cause}).|
+|Box Installation Complete|PL-BI-0000|BoxURL|Bar installation completed.|
+||PL-BI-0001|BoxURL|Bar installation failed({cause}).|
 
 ##### Processing code
 
-|Processing code|Message|Description|
-|:--|:--|:--|
-|PL-BI-0000|bar install completed|Box installation complete (normal termination)|
-|PL-BI-0001|bar install failed ({cause})|Box installation complete (abnormal termination)|
-|PL-BI-1000|bar install started|Box installation start|
-|PL-BI-1001|install started|Bar file entry start installation|
-|PL-BI-1003|install completed|Bar file entry installation completed (normal termination)|
-|PL-BI-1004|install failed ({cause})|Bar file entry installation completed (abnormal termination)|
-|PL-BI-1005|Unknown Error ({cause})|Internal error|
+|Processing code|Description|
+|:--|:--|
+|PL-BI-0000|Box installation complete (normal termination)|
+|PL-BI-0001|Box installation complete (abnormal termination)|
+|PL-BI-1000|Box installation start|
+|PL-BI-1001|Bar file entry start installation|
+|PL-BI-1003|Bar file entry installation completed (normal termination)|
+|PL-BI-1004|Bar file entry installation completed (abnormal termination)|
+|PL-BI-1005|Internal error|
 
 
 ## Request

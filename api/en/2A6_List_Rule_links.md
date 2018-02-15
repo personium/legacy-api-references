@@ -39,7 +39,7 @@ The following query parameters are available.
 
 [$orderby query](400_Orderby_Query.md)
 
-[$top query](401_Top_ Query.md)
+[$top query](401_Top_Query.md)
 
 [$skip query](402_Skip_Query.md)
 

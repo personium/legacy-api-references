@@ -79,6 +79,20 @@ event : 外部イベントを送信
       "Timestamp":1518612600
     }
 
+## 外部イベントの送信
+
+以下形式のメッセージを送信することで外部イベントを発火することができます。
+
+    {
+      "Event": {
+        "Type":"chat", 
+        "RequestKey":null,
+        "Object":"general",
+        "Info":"Hello World" 
+      }
+    }
+
+
 ## セッション状態取得
 
 ### リクエストメッセージ

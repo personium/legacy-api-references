@@ -25,13 +25,13 @@ event : 外部イベントを送信
 
 権限のあるアクセストークンを以下形式で送付することでイベントバス接続セッションを開始します。  
 
-    {"AccessToken":"AA~91WT0GNoVGFHJFQ.......e"}
+    {"AccessToken":"AA~91WT0GNoVGFHJFQ.......e"}
 
 #### レスポンスメッセージ
 
 有効なトークンであれば以下の応答が返り、セッション開始となります。セッション開始によりイベント購読可能状態となりますが、まだイベント購読はしていないため何もイベントは流れてきません。
 
-    {"Response":"AccessToken", "Result":"Success", "ExpiresIn":3600, "Timestamp":1518612600}
+    {"Response":"AccessToken", "Result":"Success", "ExpiresIn":3600, "Timestamp":1518612600}
 
 トークンが無効であったり、トークンに必要な権限がない場合はCellはWebSocket接続を切断します。
 
@@ -95,11 +95,23 @@ event : 外部イベントを送信
 
 購読状況の取得時
 
-    {"Response":"State", "Result":"Success", "Subscriptions": [], "Timestamp":1518612600}
+    {
+      "Response":"State", 
+      "Result":"Success", 
+      "Subscriptions": [], 
+      "Timestamp":1518612600
+    }
 
 全状況の取得時
 
-    {"Response":"State", "Result":"Success", "Cell":"${cell_name}", "ExpiresIn": 2986, "Subscriptions": [], "Timestamp":1518612600}
+    {
+      "Response":"State", 
+      "Result":"Success", 
+      "Cell":"${cell_name}", 
+      "ExpiresIn": 2986, 
+      "Subscriptions": [], 
+      "Timestamp":1518612600
+    }
 
 ## イベントの購読解除
 
@@ -112,8 +124,6 @@ event : 外部イベントを送信
     {"Response":"Unsubscribe","Result":"success","Timestamp":1518612600}
 
 ## エラーレスポンスメッセージ
-
-
 
     {"Response": "${CorrespondingRequest}", "Result":"Error", "Reason": "${ErrorMessage}"}
 

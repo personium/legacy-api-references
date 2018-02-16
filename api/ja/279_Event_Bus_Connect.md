@@ -8,8 +8,8 @@ Cellで発生するイベントが通るイベントバスにWebSocketで接続�
 
 ### 必要な権限
 
- event-readまたはevent
-
+ event-read : イベント情報の購読取得
+ event : 外部イベントを送信
 
 ## 接続とセッション開始
 

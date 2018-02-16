@@ -2,13 +2,13 @@
 
 ## 概要
 
-Cellで発生するイベントが通るイベントバスにWebSocketで接続して、発生イベント情報を受け取ります。
+Cellで発生するイベントが通るイベントバスにWebSocketで接続して、発生イベント情報を受け取ったり、バスに外部イベントを送信することができます。
 本APIは最初にアクセストークンの送信を要求します。該当トークンがイベントバス接続可能な権限をもつときのみ接続を許可します。
 次に購読条件を指定します。これにより条件に合致するイベントのみがリアルタイムにクライアントに送信されます。
 
 ### 必要な権限
 
- event-read
+ event-readまたはevent
 
 
 ## 接続とセッション開始
@@ -25,13 +25,13 @@ Cellで発生するイベントが通るイベントバスにWebSocketで接続�
 
 権限のあるアクセストークンを以下形式で送付することでイベントバス接続セッションを開始します。  
 
-    {"access_token":"AA~91WT0GNoVGFHJFQ.......e"}
+    {"AccessToken":"AA~91WT0GNoVGFHJFQ.......e"}
 
 #### レスポンスメッセージ
 
 有効なトークンであれば以下の応答が返り、セッション開始となります。セッション開始によりイベント購読可能状態となりますが、まだイベント購読はしていないため何もイベントは流れてきません。
 
-    {"response":"success","expires_in":3600,"timestamp":1518612600}
+    {"Response":"AccessToken", "Result":"Success", "ExpiresIn":3600, "Timestamp":1518612600}
 
 トークンが無効であったり、トークンに必要な権限がない場合はCellはWebSocket接続を切断します。
 
@@ -53,7 +53,7 @@ Cellで発生するイベントが通るイベントバスにWebSocketで接続�
 
 ### リクエストメッセージ
 
-    {"subscribe": {"Type": "${EventType}", "Object": "${EventObject}"}}
+    {"Subscribe": {"Type": "${EventType}", "Object": "${EventObject}"}}
 
 * Type, Objectともに前方一致でのマッチを判定します。
 * Type, Objectともに任意の値にマッチさせたい場合は * を指定します。
@@ -61,7 +61,7 @@ Cellで発生するイベントが通るイベントバスにWebSocketで接続�
 
 ### レスポンスメッセージ
 
-    {"response":"success","timestamp":1518612600}
+    {"Response":"Subscribe", "Result":"Success","Timestamp":1518612600}
 
 
 ## イベントの受け取り
@@ -71,12 +71,12 @@ Cellで発生するイベントが通るイベントバスにWebSocketで接続�
     {
       "Type":"chat", 
       "RequestKey":null,
-      "Schema":"",
+      "Schema":null,
       "External":true,
       "Object":"general",
       "Info":"Hello World", 
-      "cellId":"5ZKpfNSMSwO6GqAgt0O2Jg", 
-      "Subject":"https:\/\/demo.personium.io\/john.doe\/#me"
+      "Subject":"https:\/\/demo.personium.io\/john.doe\/#me",
+      "Timestamp":1518612600
     }
 
 ## セッション状態取得
@@ -85,41 +85,44 @@ Cellで発生するイベントが通るイベントバスにWebSocketで接続�
 
 購読状況の取得
 
-    {"state": "subscriptions"}
+    {"State": "Subscriptions"}
 
 全状況の取得
 
-    {"state": "all"}
+    {"State": "All"}
 
 ### レスポンスメッセージ
 
 購読状況の取得時
 
-    {response: "success", subscriptions: [] }
+    {"Response":"State", "Result":"Success", "Subscriptions": [], "Timestamp":1518612600}
 
 全状況の取得時
 
-    {response: "success", cell: ${cell_name}, expires_in: 2986, subscriptions: [] }
+    {"Response":"State", "Result":"Success", "Cell":"${cell_name}", "ExpiresIn": 2986, "Subscriptions": [], "Timestamp":1518612600}
 
 ## イベントの購読解除
 
 ### リクエストメッセージ
 
-    {"unsubscribe": {"Type": "${EventType}", "Object": "${EventObject}"}}
+    {"Unsubscribe": {"Type": "${EventType}", "Object": "${EventObject}"}}
 
 ### レスポンスメッセージ
 
-    {"response":"success","timestamp":1518612600}
+    {"Response":"Unsubscribe","Result":"success","Timestamp":1518612600}
 
 ## エラーレスポンスメッセージ
 
-コマンドメッセージのフォーマットが正しくないとき
 
-    {response: "error", reason: "format error"}
 
-存在しない購読条件を購読解除しようとしたとき
+    {"Response": "${CorrespondingRequest}", "Result":"Error", "Reason": "${ErrorMessage}"}
 
-    {response: "error", reason: "subscriptions not found"}
+
+|エラーメッセージ|説明|
+|:--|:--|
+|Format error|コマンドメッセージのフォーマットが正しくないとき|
+|Subscriptions not found|存在しない購読条件を購読解除しようとしたとき|
+
 
 ## WebSocket詳細仕様
 

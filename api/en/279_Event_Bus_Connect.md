@@ -2,13 +2,13 @@
 
 ## Overview
 
-By connecting to the event bus where all the events occurring in the Cell flow, these events information can be captured in real time.
-This API first requests its client to send a valid access token. A session can be started only when 
-the access token is valid and has required privileges. Then after the session is established, subscription conditions can be specified at any moment. After a subsription condition is specified, events that match any of the conditions will be sent down to the client. More subscription conditions can be added anytime to subscribe more events. Also any of the subscriptions can be canceled anytime by sending  unsubscribing messeages.
+By connecting to the event bus where all the events occurring in the Cell flow, these events information can be captured in real time. Also external events can be posted to the bus.
+This API first requests its client to send a valid access token. A session can be started only when the access token is valid and has required privileges. Then after the session is established, subscription conditions can be specified at any moment. After a subsription condition is specified, events that match any of the conditions will be sent down to the client. More subscription conditions can be added anytime to subscribe more events. Also any of the subscriptions can be canceled anytime by sending  unsubscribing messeages.
 
 ### Required Privilege 
 
- event-read
+ **event-read** for subscribing events
+ **event**      for firing external events
 
 ## Connection and starting the session
 
@@ -25,22 +25,23 @@ At this stage, any request other than sending access token is meaningless.
 
 By sending an access token in the following format, an event-bus connection session will be initiated.
 
-    {"access_token":"AA~91WT0GNoVGFHJFQ.......e"}
+    {"AccessToken":"AA~91WT0GNoVGFHJFQ.......e"}
 
 #### Response Message
 
 If the token is valid and has neccesary privilege, a response in the following format will be sent down to the client and the session starts. By starting the session, it becomes the state where events can be subscribed, however no evet will be sent down at this stage since no subscription is made yet.
 
-    {"response":"success","expires_in":3600,"timestamp":1518612600}
+    {"Response":"AccessToken","Result":"Success","ExpiresIn":3600,"Timestamp":1518612600}
 
 If the token is invalid or does not have the required privilege, the WebSocket connection will be closed by the Cell.
 
 ## Communication after the session is establised
 
-After the session is establised, the following 4 commands can be sent from the client as request messages.
+After the session is establised, the following commands can be sent from the client as request messages.
 
 1. Event Subscription
-1. Event Unsubscription
+1. External Event Firing
+1. Cancelation of Event Subscription
 1. Session State Retrieval
 1. Access Token Re-sending
 
@@ -53,14 +54,14 @@ If the request message has any trouble, then an error response message will be r
 
 ### Request Message
 
-    {"subscribe": {"Type": "${EventType}", "Object": "${EventObject}"}}
+    {"Subscribe": {"Type": "${EventType}", "Object": "${EventObject}"}}
 
 * For both Type and Object, matching is made by front match.
 * For both Type and Object, specify * to let them match arbitrary values.
 
 ### Response Message
 
-    {"response":"success","timestamp":1518612600}
+    {"Response":"Subscribe", "Result":"Success","Timestamp":1518612600}
 
 
 ## Receiving Events
@@ -71,13 +72,27 @@ If an event fires in the cell and the event matches one of the subscription cond
     {
       "Type":"chat", 
       "RequestKey":null,
-      "Schema":"",
+      "Schema":null,
       "External":true,
       "Object":"general",
       "Info":"Hello World", 
-      "cellId":"5ZKpfNSMSwO6GqAgt0O2Jg", 
       "Subject":"https:\/\/demo.personium.io\/john.doe\/#me"
     }
+
+## Firing External Events
+
+By sending a message in the following format, an external event can be fired.
+
+    {
+      "Event": {
+        "Type":"chat", 
+        "RequestKey":"client-req-12345",
+        "Object":"general",
+        "Info":"Hello World" 
+      }
+    }
+
+
 
 ## Session State Retrieval
 
@@ -85,42 +100,44 @@ If an event fires in the cell and the event matches one of the subscription cond
 
 Retrieving substcriptions state
 
-    {"state": "subscriptions"}
+    {"State": "Subscriptions"}
 
 Retrieving all the sesseion state information 
 
-    {"state": "all"}
+    {"State": "All"}
 
 ### Response Message
 
 On retrieving substcriptions state
 
-    {response: "success", subscriptions: [] }
+    {"Response": "State", "Result":"Success","Subscriptions": [],"Timestamp":1518612600}
 
 On retrieving all the sesseion state information 
 
-    {response: "success", cell: ${cell_name}, expires_in: 2986, subscriptions: [] }
+    {"Response": "State", "Result":"Success", "Cell": "${cell_name}", "ExpiresIn": 2986, "Subscriptions": [] }
 
 
 ## Unsubsribing events
 
 #### Request Message
 
-    {"unsubscribe": {"Type": "${EventType}", "Object": "${EventObject}"}}
+    {"Unsubscribe": {"Type": "${EventType}", "Object": "${EventObject}"}}
 
 #### Response Message
 
-    {"response":"success","timestamp":1518612600}
+    {"Response":"Unsubscribe", "Result":"Success","Timestamp":1518612600}
 
 ## Error Response Messages
 
-When command message format is invalid
+Erroneous request message will be responded by a error message in the following format .
 
-    {response: "error", reason: "format error"}
+    {"Response": "${CorrespondingRequest}", "Result":"Error", "Reason": "${ErrorMessage}"}
 
-When trying to unsbscribe non-existent subscription condition
 
-    {response: "error", reason: "subscriptions not found"}
+|Error Message|Description|
+|:--|:--|
+|Format error|When command message format is invalid|
+|Subscriptions not found|When trying to unsbscribe non-existent subscription conditionき|
 
 
 ## Web Socket Spec Details

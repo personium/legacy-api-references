@@ -30,12 +30,20 @@ $endif$
       var pathRoot = [ path[0], path[1], '' ].join('/');
       var pathLang = [ path[0], path[1], path[2] , ''].join('/');
 
+      //load style sheets
       document.write('<link rel="stylesheet" href="' + pathRoot + 'personium.css" type="text/css" />');
       document.write('<link rel="stylesheet" href="' + pathLang + 'locale.css" type="text/css" />');
+      //load personium_docs.js
       var ps = document.createElement('script');
       ps.src = pathRoot + 'personium_docs.js';
       var s = document.getElementsByTagName('script')[0];
       s.parentNode.insertBefore(ps, s);
+    
+      //load apiref_versions.js
+      ps2 = document.createElement('script');
+      ps2.src = pathRoot + 'apiref_versions.js';
+      s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ps2, s);
 
   </script>
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
@@ -78,15 +86,7 @@ $endfor$
       </li>
       <li class="submenu">
         <a href="" >API Reference</a>
-        <ul>
-            <li><a href="#" onclick="p.toApiRef(this);return false;">current</a></li>
-            <li><a href="#" onclick="p.toApiRef(this);return false;">1.6.2</a></li>
-            <li><a href="#" onclick="p.toApiRef('1.6.0');return false;">1.6.0-1.6.1</a></li>
-            <li><a href="#" onclick="p.toApiRef(this);return false;">1.5.8</a></li>
-            <li><a href="#" onclick="p.toApiRef(this);return false;">1.5.7</a></li>
-            <li><a href="#" onclick="p.toApiRef(this);return false;">1.5.6</a></li>
-            <li><a href="#" onclick="p.toApiRef(this);return false;">1.5.5</a></li>
-            <li><a href="javascript:p.toApiRef('1.5.2');">1.5.2-1.5.4</a></li>
+        <ul id="api-ref-list">
             <li><a href="javascript:p.toPage('/user_guide/990_Old_Version_API_Ref.html');">older versions</a></li>
         </ul>
       </li>

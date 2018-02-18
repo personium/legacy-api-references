@@ -38,29 +38,34 @@ box-install
 	- そのため、ログ詳細を参照する場合は、ログファイル取得APIを使用して参照する。
 	- ログファイル取得APIを使用するために、"log-read" の権限が必要である。
 	- Boxインストール以外のイベントログも混在するため、"RequestKey" フィールド値でフィルタリングする必要がある。
-	- "action" フィールド値が "MKCOL" の "Requestkey" フィールド値を取得し、フィルタリングする。
+	- "Type" フィールド値が "boxinstall" の "Requestkey" フィールド値を取得し、フィルタリングする。
 
 #### その他制限
 * Boxインストール処理中にBoxインストール対象Boxを含む配下のリソースへのデータ操作はできない。
 * Boxインストール中にエラーが発生した場合のロールバックは行わない。
 
 ##### ※1 Boxインストールのログ詳細フォーマット
-|状態|"action"|"object"|"result"|
+|状態|"Type"|"Object"|"Info"|
 |:--|:--|:--|:--|
-|Boxインストール受付|"MKCOL"|BoxのURL|ステータスコード|
-|Boxインストール処理中|処理コード|barファイル内のエントリパス|処理コードに対応するメッセージ|
-|Boxインストール完了|処理コード|BoxのURL|処理コードに対応するメッセージ|
+|Boxインストール受付|boxinstall|BoxのURL|ステータスコード|
+|Boxインストール処理中|PL-BI-1000|BoxのURL|Bar installation started.|
+||PL-BI-1001|Barファイル内のエントリパス|Installation started.|
+||PL-BI-1003|Barファイル内のエントリパス|Installation completed.|
+||PL-BI-1004|Barファイル内のエントリパス|Installation failed({原因}).|
+||PL-BI-1005||Unknown error({原因}).|
+|Boxインストール完了|PL-BI-0000|BoxのURL|Bar installation completed.|
+||PL-BI-0001|BoxのURL|Bar installation failed({原因}).|
 
 ##### 処理コード
-|処理コード|Message|Description|
-|:--|:--|:--|
-|PL-BI-0000|bar install completed|Boxインストール完了(正常終了)|
-|PL-BI-0001|bar install failed ({原因})|Boxインストール完了(異常終了)|
-|PL-BI-1000|bar install started|Boxインストール開始|
-|PL-BI-1001|install started|barファイル内エントリインストール開始|
-|PL-BI-1003|install completed|barファイル内エントリインストール完了(正常終了)|
-|PL-BI-1004|install failed ({cause})|barファイル内エントリインストール完了(異常終了)|
-|PL-BI-1005|Unknown Error ({原因})|内部エラー|
+|処理コード|Description|
+|:--|:--|
+|PL-BI-0000|Boxインストール完了(正常終了)|
+|PL-BI-0001|Boxインストール完了(異常終了)|
+|PL-BI-1000|Boxインストール開始|
+|PL-BI-1001|barファイル内エントリインストール開始|
+|PL-BI-1003|barファイル内エントリインストール完了(正常終了)|
+|PL-BI-1004|barファイル内エントリインストール完了(異常終了)|
+|PL-BI-1005|内部エラー|
 
 ## リクエスト
 ### リクエストURL

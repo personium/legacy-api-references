@@ -58,6 +58,7 @@ JSON
 |:--|:--|:--|:--|
 |exec|エンジンscript が起動しPOSTメソッドでイベントデータが渡されます。|エンジンサービスのurl|-|
 |relay|イベントをTargetUrlにリレーします。|イベントの情報をリレーすべきリレー先Url|-|
+|relay.event|イベントをTargetUrlの外部イベント受付APIにリレーします。|イベントの情報をリレーすべきリレー先Cell URL|-|
 |log|Eventを info レベルでログ出力します。|-|-|
 |log.info|Eventを info レベルでログ出力します。|-|-|
 |log.warn|Eventを warn レベルでログ出力します。|-|-|
@@ -75,6 +76,7 @@ JSON
 |exec|設定あり|personium-localbox:/{CollectionName}/{ServiceName}||
 |exec|設定なし|personium-localcell:/{BoxName}/{CollectionName}/{ServiceName}||
 |relay||スキームがhttp,https,personium-localunitのURL||
+|relay.event||Cell URL||
 
 
 ### リクエストサンプル

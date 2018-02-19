@@ -33,8 +33,8 @@ POST
 | X-Override | header override function | $ {overwrite header name}: $ {value} | No | overwrites the value of normal HTTP header. To overwrite multiple headers, specify multiple X-Override headers. |
 | X-Personium-RequestKey | Value of the RequestKey field to be output to the event log | Single byte alphanumeric characters,-(half size hyphen) and _ (half width underscore) Maximum 128 characters | No | PCS-$ { UNIX time}
 | Authorization | Specify authentication information in OAuth 2.0 format | Bearer {AccessToken} | No | * Authentication token acquired with the authentication token acquisition API Token |
-| Content-Type | Specify the format of the request body | application / json | No | treat it as [application / json] when omitted |
-| Accept | Specify the response body format | application / json | No | treat as [application / json] when omitted |
+| Content-Type | Specify the format of the request body | application / json | No | treat it as [application/json] when omitted |
+| Accept | Specify the response body format | application / json | No | treat as [application/json] when omitted |
 ### Request body
 #### Format
 
@@ -49,14 +49,15 @@ JSON
 | EventObject | Event Object's event object to trigger the rule String for forward match check | Event The value of object depends on the type of event. An arbitrary character string can be set, but the meaningful value depends on the event type. | No ||
 | EventInfo | Event Info matching event check event for event that should trigger rule | Event info value depends on event type. An arbitrary character string can be set, but the meaningful value depends on the event type. | No ||
 | EventExternal | Flag indicating whether the event to trigger the rule is an external event | Boolean. Set to true to detect external events. | No | default value false |
-| Action | Action to be started when the event matches | Valid values ​​are the following table | Yes |||
+| Action | Action to be started when the event matches | Valid values are the following table | Yes |||
 | TargetUrl | The value to be specified depends on the value of the concrete target URL | Action for the action. The rules are as follows attached table | No ||
 
 #### Valid Actions
 | Action | Description | TargetUrl | Remarks |
 |:--|:--|:--|:--|
 | exec | engine script is started and event data is passed by the POST method. | Engine service url | - |
-| relay | Relays events to TargetUrl. Relay destination to relay event information Url | Any URL| - |
+| relay | Relays events to TargetUrl. | Relay destination to relay event information Url | - |
+| relay.event | Relays events to accept event api of TargetUrl. | Cell URL to relay event information | - |
 | log | Log the events at info level. | - | - |
 | log.info | Log the events at info level. | - | - |
 | log.warn | Log the events at warn level. | - | - |
@@ -68,8 +69,8 @@ Only specific URL can be accepted for EventObject field.
 
 | _Box.Name | EventObject | Remarks |
 |:--|:--|:--|
-| specified | personium-localbox: / ... ||
-| Not specified | personium-localcell: / ... ||
+| specified | personium-localbox:/... ||
+| Not specified | personium-localcell:/... ||
 
 #### TargetUrl Allowed Values
 
@@ -77,9 +78,10 @@ Only specific kinds of URL can be accepted for TargetUrl field.
 
 | Action | _Box.Name | TargetUrl | Remarks |
 |:--|:--|:--|:--|
-| exec | specified | personium-localbox: / {CollectionName} / {ServiceName} ||
-| exec | Not specified | personium-localcell: / {BoxName} / {CollectionName} / {ServiceName} ||
+| exec | specified | personium-localbox:/{CollectionName}/{ServiceName} ||
+| exec | Not specified | personium-localcell:/{BoxName}/{CollectionName}/{ServiceName} ||
 | relay || URL with scheme http, https, personium-localunit ||
+| relay.event || Cell URL ||
 
 ### Request sample
 ```JSON

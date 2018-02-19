@@ -14,8 +14,14 @@
 
 ### Required Privileges
 
-message  
-social(Requires only request approval)
+message
+
+Requires additional privilege when the type of the message is request.
+
+|RequestType|Required Privilege|
+|:--|:--|
+|relation.add<br>relation.remove<br>role.add<br>role.remove|social|
+|rule.add<br>rule.remove|rule|
 
 ### Restrictions
 

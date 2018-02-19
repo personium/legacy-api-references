@@ -12,8 +12,14 @@
       メッセージの値に従い、Ruleを作成/削除し、メッセージの状態を承認/拒否に変更する  
 
 ### 必要な権限
-message  
-social（requestの承認のみ必要）
+message
+
+Typeがrequestの場合はRequestTypeに応じて以下の権限も必要
+
+|RequestType|必要な権限|
+|:-|:-|
+|relation.add<br>relation.remove<br>role.add<br>role.remove|social|
+|rule.add<br>rule.remove|rule|
 ### 制限事項
 * リクエストヘッダのContent-Typeは全てapplication/jsonとして扱う
 * リクエストボディはJSON形式のみ受け付ける

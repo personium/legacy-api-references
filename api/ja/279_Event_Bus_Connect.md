@@ -85,12 +85,10 @@ event : 外部イベントを送信
 以下形式のメッセージを送信することで外部イベントを発火することができます。
 
     {
-      "Event": {
-        "Type":"chat", 
-        "RequestKey":null,
-        "Object":"general",
-        "Info":"Hello World" 
-      }
+      "Type":"chat", 
+      "RequestKey":null,
+      "Object":"general",
+      "Info":"Hello World" 
     }
 
 

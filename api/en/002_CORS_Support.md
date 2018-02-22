@@ -57,7 +57,7 @@ In all the APIs, if you specify the Access-Control-Request-Headers in the reques
 Following is an example of the response header if you specify a "sample" in the Access-Control-Request-Headers.
 
 ```
-Access-Control-Allow-Origin: sample
+Access-Control-Allow-Headers: sample
 ```
 
 ### Reference

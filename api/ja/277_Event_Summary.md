@@ -1,30 +1,208 @@
 # イベントのモデル
 ## 概要
-[イベント受付API](278_Event_Reception.md)にて定義された外部イベント、およびPersonium内部で定義された内部イベントから構成される。
+[イベント受付API](278_Event_Reception.md)にて定義された外部イベント、およびPersonium内部で定義された内部イベントから構成されます。
 
 ![イベントモデル](image/eventmodel.png "イベントモデル")
 
 
-#### 外部イベント
-[イベント受付API](278_Event_Reception.md) にて、受け付けるイベントを表す。  
-イベント受付APIによってイベントが発生し、受け付けたイベントは、イベントバスに出力される。
-また、将来的には、他のセルに対するイベント受付のリレー処理が可能となる予定。  
-#### 内部イベント
-Personium内部で保持する管理データ（OData/WebDAV/Service等）の状態をもとに実行される処理のことを表す。  
-代表的な内部イベントとして、Personium APIのリクエストがある。  
-Personium APIのレスポンス返却時に実行結果をイベントとしてイベントバスに出力する。
+### 外部イベント
+[イベント受付API](278_Event_Reception.md) にて、受け付けるイベントを表します。  
+イベント受付APIによって受け付けたイベントは、イベントバスに出力されます。
+### 内部イベント
+Personium内部で保持する管理データ（OData/WebDAV/Service等）の状態をもとに実行される処理のことを表します。  
+代表的な内部イベントとして、Personium APIのリクエストがあり、Personium APIのレスポンス返却時に実行結果をイベントとしてイベントバスに出力します。
+
+## イベントフォーマット
+イベントは以下の項目から構成されます。
+
+| 項目名 | 説明 |
+|:--|:--|
+| Subject | Authorizationヘッダのトークンにより設定されます |
+| Schema | Authorizationヘッダのトークンにより設定されます |
+| RequestKey | X-Personium-RequestKeyヘッダにより設定されます |
+| External | 外部イベントか内部イベントかを表します |
+| Type | イベントのタイプを表します |
+| Object | イベントの対象を表します |
+| Info | イベントの情報を表します |
+
+### 内部イベント詳細
+Typeは、操作に対して定義されています。
+
+Objectは、基本的には、URLもしくは、キーを含めたURLが設定されます。
+URLは、personium-localcellスキームによるURLであり、キーを含めたURLは、作成後のキーを付与したURLになります。
+例えば、\_\_idが0123のentityを作成した場合、リクエストURLとキーを含めたURLは以下のようになります。
+
+| リクエストURL | キーを含めたURL |
+|:--|:--|
+| http://personium/cell/box/col/entity | personium-localcell:/box/col/entity('0123') |
+
+Objectにおけるキーは、正規化されています。正規化の例をは以下に示します。
+
+| | 正規化 |
+|:--|:--|
+| Role(’role’) | Role(Name=’role’, \_Box.Name=null) |
+| Role(\_Box.Name=null, Name=’role’) | Role(Name=’role’, \_Box.Name=null) |
+| Account(Name=’hoge’) | Account(’hoge’) |
+
+Infoは、基本的には、リクエストのレスポンスコードとリクエストURLが設定されます。リクエストURLは、リクエストされたときのURLであり、引数も含みます。
+更新操作では、変更後のキーが設定されます。変更後のアクセス先を得るためにInfoに設定しています。
+
+| Type | Object | Info |
+|:--|:--|:--|
+| celctl.Role.update | personium-localcell:/\_\_ctl/Role(Name='role1', \_Box.Name=null) | 204,(Name='role2', \_Box.Name=null) |
+
+アクセスするには、http://{FQDN}/{CellName}/\_\_ctl/Role(Name='role2', \_Box.Name=null) のようにする必要があります。
+
+#### Cell Level API
+##### Cell制御オブジェクト
+
+|| 操作 | Type | Object | Info | 備考 |
+|:--|:--|:--|:--|:--|:--|
+| 基本操作 | 作成 | cellctl.xxx.create | キーを含めたURL | 201,リクエストURL ||
+|| 取得 | cellctl.xxx.get | URL | 200,リクエストURL ||
+|| 一覧取得 | cellctl.xxx.list | URL | 200,リクエストURL ||
+|| 更新 | cellctl.xxx.update | URL | 204,変更後のキー ||
+|| 削除 | cellctl.xxx.delete | URL | 204 ||
+| 他オブジェクトとのリンク | リンク | cellctl.xxx.links.yyy.create | キーを含めたURL | 204 ||
+|| リンク解除 | cellctl.xxx.links.yyy.delete | URL | 204 ||
+|| リンク一覧取得 | cellctl.xxx.links.yyy.list | URL | 200,リクエストURL ||
+| 紐づく他オブジェクト操作 | 作成 | cellctl.xxx.navprop.yyy.create | キーを含めたURL | 201,リクエストURL ||
+|| 一覧取得 | cellctl.xxx.navprop.yyy.list | URL | 200,リクエストURL ||
+
+xxxやyyyには、Cell制御オブジェクト名が入ります。
+* Account
+* Role
+* ExtCell
+* Relation
+* ExtRole
+* Box
+* SentMessage
+* ReceivedMessage
+* Rule
+
+##### Boxインストール
+
+| 状態 | Type | Object | Info | 備考 |
+|:--|:--|:--|:--|:--|
+| Boxインストール受付 | boxinstall | URL | 202など | Boxインストールの受付が失敗するとInfoの値は変わります |
+| Boxインストール処理中 | PL-BI-1000 | URL | Bar installation started. ||
+|| PL-BI-1001 | Barファイル内のエントリパス | Installation started. ||
+|| PL-BI-1003 | Barファイル内のエントリパス | Installation completed. ||
+|| PL-BI-1004 | Barファイル内のエントリパス | Installation failed({原因}). ||
+|| PL-BI-1005 || Unknown error({原因}). ||
+| Boxインストール完了 | PL-BI-0000 | URL | Bar installation completed. ||
+|| PL-BI-0001 | URL | Bar installation failed({原因}). ||
+
+##### Cell間のメッセージ交換
+
+|| 操作 | Type | Object | Info | 備考 |
+|:--|:--|:--|:--|:--|:--|
+| メッセージ送信 | 送信 | message.send | 送信メッセージ取得用URL | 201 ||
+|| 受信 | message.receive | 受信メッセージ取得用URL | 201 | メッセージを受信したCellにてイベント化 |
+| 状態変更 | 既読 | message.read | 受信メッセージ取得用URL | 204 ||
+|| 未読 | message.unread | 受信メッセージ取得用URL | 204 ||
+|| 承認 | message.approve | 受信メッセージ取得用URL | 204 ||
+|| 拒否 | message.reject | 受信メッセージ取得用URL | 204 ||
+
+送信メッセージ取得用URLと受信メッセージ取得用URLの例を以下に示します。
+
+|| URL |
+|:--|:--|
+| 送信メッセージ取得用URL | personium-localcell:/\_\_ctl/SentMessage(’12345’) |
+| 受信メッセージ取得用URL | personium-localcell:/\_\_ctl/ReceivedMessage(’12345’) |
+
+メッセージ承認によりCell制御オブジェクトの作成と削除が実行されることがあります。そのイベントは以下になります。
+
+|| 操作 | Type | Object | Info | 備考 |
+|:--|:--|:--|:--|:--|:--|
+| 基本操作 | 作成 | cellctl.ExtCell.create | キーを含めたURL | approved for message 12345 | 12345はメッセージidです |
+|| 作成 | cellctl.Rule.create | キーを含めたURL | approved for message 12345 | 12345はメッセージidです |
+|| 削除 | cellctl.Rule.delete | URL | approved for message 12345 | 12345はメッセージidです |
+| 他オブジェクトとのリンク | リンク | cellctl.Relation.links.ExtCell.create | キーを含めたURL | approved for message 12345 | 12345はメッセージidです |
+|| リンク | cellctl.Role.links.ExtCell.create | キーを含めたURL | approved for message 12345 | 12345はメッセージidです |
+|| リンク解除 | cellctl.Relation.links.ExtCell.delete | URL | approved for message 12345 | 12345はメッセージidです |
+|| リンク解除 | cellctl.Role.links.ExtCell.delete | URL | approved for message 12345 | 12345はメッセージidです |
+
+##### その他機能
+
+|| 操作 | Type | Object | Info | 備考 |
+|:--|:--|:--|:--|:--|:--|
+| エクスポート | 実行 | cell.export | personium-localcell:/ |||
+| インポート | 実行 | cell.import | personium-localcell:/ |||
+
+#### Box Level API
+##### WebDAV基本操作
+
+|| 操作 | Type | Object | Info | 備考 |
+|:--|:--|:--|:--|:--|:--|
+| 基本操作 | 登録更新 | davfile.update | URL | 204 ||
+|| 取得 | davfile.get | URL | 200 ||
+|| 削除 | davfile.delete | URL | 204 ||
+
+##### ODataサービスコレクション
+###### データ操作
+
+|| 操作 | Type | Object | Info | 備考 |
+|:--|:--|:--|:--|:--|:--|
+| 基本操作 | 作成 | odata.create | キーを含めたURL | 201,リクエストURL ||
+|| 取得 | odata.get | URL | 200,リクエストURL ||
+|| 一覧取得 | odata.list | URL | 200,リクエストURL ||
+|| 更新 | odata.update | URL | 204,変更後のキー ||
+|| 部分更新 | odata.patch | URL | 204,変更後のキー ||
+|| 削除 | odata.delete | URL | 204 ||
+| 他EntitySetのEntityとのリンク | リンク | odata.links.create | キーを含めたURL | 204 ||
+|| リンク解除 | odata.links.delete | URL | 204 ||
+|| リンク一覧取得 | odata.links.list | URL | 200,リクエストURL ||
+| 紐づく他EntitySet操作 | 作成 | odata.navprop.create | キーを含めたURL | 201,リクエストURL ||
+|| 一覧取得 | odata.navprop.list | URL | 200,リクエストURL ||
+
+###### スキーマ定義
+
+|| 操作 | Type | Object | Info | 備考 |
+|:--|:--|:--|:--|:--|:--|
+| 基本操作 | 作成 | odata.xxx.create | キーを含めたURL | 201,リクエストURL ||
+|| 取得 | odata.xxx.get | URL | 200,リクエストURL ||
+|| 一覧取得 | odata.xxx.list | URL | 200,リクエストURL ||
+|| 更新 | odata.xxx.update | URL | 204,変更後のキー ||
+|| 部分更新 | odata.xxx.patch | URL | 204,変更後のキー ||
+|| 削除 | odata.xxx.delete | URL | 204 ||
+| EntityTypeや他のAssociationEndとのリンク | リンク | odata.xxx.links.yyy.create | キーを含めたURL | 204 ||
+|| リンク解除 | odata.xxx.links.yyy.delete | URL | 204 ||
+|| リンク一覧取得 | odata.xxx.links.yyy.list | URL | 200,リクエストURL ||
+
+xxxやyyyには、スキーマ定義用EntitySet名が入ります。
+
+##### Engineサービスコレクション
+
+| 操作 | Type | Object | Info | 備考 |
+|:--|:--|:--|:--|:--|
+| サービス実行 | service.exec | URL | 200など | スクリプトの実行結果によりInfoの値は変わます |
+
 
 ## イベントの処理
 イベントバスに出力されたイベントは、ルールの条件と合致するか判定され、合致した場合は、ルールに記述されたアクションを実行される。
 アクションには、以下が指定可能。
 * ログ出力
 * スクリプト実行
+* 中継
 * イベント中継
+
+## ログ出力アクション
+ログ出力アクションは、イベントの内容をイベントログとして出力します。
+ログ出力アクションには、以下の種類があります。
+
+| アクション | 説明 |
+|:--|:--|
+| log<br>log.info | INFOレベルでログを出力します |
+| log.warn | WARNレベルでログを出力します |
+| log.error | ERRORレベルでログを出力します |
+
+イベントにはログ出力レベルはなく、アクションにてレベルを指定します。
 
 ### イベントログフォーマット
 出力形式は以下の通り。
 ```
-{dateTime},[{level}],{RequestKey},{external},{schema},{subject},{type},{object},{info}
+{dateTime},[{level}],{RequestKey},{External},{Schema},{Subject},{Type},{Object},{Info}
 ```
 
 ### イベントログアクセス方法
@@ -68,3 +246,116 @@ Personium APIのレスポンス返却時に実行結果をイベントとして�
 "https://{UnitFQDN}/appCell/","https://{UnitFQDN}/appCell/#staff","odata.get",
 "https://{UnitFQDN}/homeClinic/box/col/blog_20130418","200"
 ```
+
+### スクリプト実行アクション
+スクリプト実行アクションは、イベントの内容を渡して自CellのEngineスクリプトを実行します。
+アクションは、execです。
+
+#### スクリプトへのパラメータ
+JSON形式のBodyとリクエストヘッダでイベントの内容を渡します。
+
+| 項目名 | データソース | 備考 |
+|:--|:--|:--|
+| Subject | JSON ||
+| Schema | JSON ||
+| External | JSON ||
+| Type | JSON ||
+| Object | JSON | httpやhttpsスキームに変換されたURL |
+| Info | JSON ||
+| RequestKey | ヘッダ | x-personium-requestkey |
+
+JSONは、Engineスクリプトの引数のinputフィールドから取得します。
+```
+function(request) {
+  var bodyAsString = request["input"].readAll();
+  var params = JSON.parse(bodyAsString);
+```
+ヘッダは、Engineスクリプトの引数のheadersフィールドから取得します。
+```
+function(request) {
+  var reqHeaders = request["headers"];
+  var requestKey = reqHeaders['x-personium-requestkey'];
+```
+
+#### スクリプト実行時のトークン
+Authorizationヘッダは設定されていないため、\_p.as('client')は利用できません。
+
+トークンが必要であれば、スクリプトにてパスワード認証を行うか、サービスコレクション設定にて、subjectを設定し、\_p.as('serviceSubject')を使用してください。
+
+### 中継アクション
+中継アクションは、イベントの内容を渡して他CellのEngineスクリプトを実行します。
+アクションは、relayです。
+
+#### スクリプトへのパラメータ
+スクリプト実行アクションと同じです。
+
+#### スクリプト実行時のトークン
+Authorizationヘッダには、Engineスクリプトを実行するためにトランスセルトークンが設定されています。
+
+| 項目名 | 設定値 |
+|:--|:--|
+| Subject | https://{FQDN}/{cellName}/#\_engine |
+| Schema | イベントのSchemaと同じ |
+
+このトークンを利用してアクセスするのは避けたほうがよいでしょう。\_p.as('client')は利用できないものと考えてください。
+
+トークンが必要であれば、スクリプトにてパスワード認証を行うか、サービスコレクション設定にて、subjectを設定し、\_p.as('serviceSubject')を使用してください。
+
+#### 事前設定
+スクリプトが実行できるように権限を設定しておく必要があります。
+
+### イベント中継アクション
+イベント中継アクションは、イベントの内容を他Cellの外部イベント受付に中継します。
+アクションは、relay.eventです。
+
+#### リクエスト
+##### リクエストヘッダ
+
+| ヘッダ名 | 設定値 | 備考 |
+|:--|:--|:--|
+| X-Personium-RequestKey | イベントのRequestKey ||
+| Authorization | トランスセルトークン<br>イベントのSubjcetとSchemaを設定<br>中継元のRoleリストを設定 ||
+
+##### リクエストボディ
+
+| 項目名 | 設定値 | 備考 |
+|:--|:--|:--|
+| Type | 以下の表のように変換された値 ||
+| Object | イベントのObject ||
+| Info | イベントのInfo ||
+
+Typeの変換
+
+| External | Type |
+|:--|:--|
+| true | relay.ext. を先頭に追加 |
+| false | relay. を先頭に追加 |
+
+既にTypeがrelay.で始まっていれば、Typeの変換は行われません。
+
+#### イベント中継によるイベント伝播の例
+
+内部イベント
+
+| 項目名 | イベント | イベント中継 | イベント中継 |
+|:--|:--|:--|:--|
+| Subject | {CellURL}#account | <- | <- |
+| Schema | {CellURL} | <- | <- |
+| External | false | true | true |
+| Type | cellctl.Role.create | relay.cellctl.Role.create | <- |
+| Object | https://{FQDN}/{CellName}/\_\_ctl/Role('{RoleName}') | <- | <- |
+| Info | 201,{RequestURL} | <- | <- |
+
+外部イベント
+
+| 項目名 | イベント | イベント中継 | イベント中継 |
+|:--|:--|:--|:--|
+| Subject | {CellURL}#account | <- | <- |
+| Schema | {CellURL} | <- | <- |
+| External | true | true | true |
+| Type | type | relay.ext.type | <- |
+| Object | object | <- | <- |
+| Info | info | <- | <- |
+
+#### 事前設定
+外部イベント受付へのアクセスに必要な権限を設定しておく必要があります。

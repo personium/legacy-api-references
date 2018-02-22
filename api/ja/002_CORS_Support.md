@@ -41,7 +41,7 @@ Access-Control-Allow-Origin: GET, OPTIONS
 すべてのAPIにおいて、リクエストヘッダにAccess-Control-Request-Headersを指定した場合、Access-Control-Allow-Headersを返却します。  
 次に示すのは、Access-Control-Request-Headersに「sample」を指定した場合のレスポンスヘッダの例です。
 ```
-Access-Control-Allow-Origin: sample
+Access-Control-Allow-Headers: sample
 ```
 ### 参考
 CORSの詳細については[こちら](http://www.w3.org/TR/cors/)を参照してください。

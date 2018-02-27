@@ -276,8 +276,6 @@ The maximum size at rotation is set to 50 MB by default, and it can be set by th
 "https://{UnitFQDN}/homeClinic/box/col/blog_20130418","200"
 ```
 
-kokokara
-
 ### Script execution Action
 Script execution action executes an registered [service](384_Service_Execution.md) of one's own cell.
 Value of Action is exec.

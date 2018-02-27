@@ -51,7 +51,10 @@ Infoは、基本的には、リクエストのレスポンスコードとリク�
 |:--|:--|:--|
 | celctl.Role.update | personium-localcell:/\_\_ctl/Role(Name='role1', \_Box.Name=null) | 204,(Name='role2', \_Box.Name=null) |
 
-アクセスするには、http://{FQDN}/{CellName}/\_\_ctl/Role(Name='role2', \_Box.Name=null) のようにする必要があります。
+変更後のオブジェクトにアクセスするには、変更後のキーを使用して以下のURLにする必要があります。
+```
+http://{FQDN}/{CellName}/__ctl/Role(Name='role2', _Box.Name=null)
+```
 
 #### Cell Level API
 ##### Cell制御オブジェクト
@@ -180,14 +183,28 @@ xxxやyyyには、スキーマ定義用EntitySet名が入ります。
 
 
 ## イベントの処理
-イベントバスに出力されたイベントは、ルールの条件と合致するか判定され、合致した場合は、ルールに記述されたアクションを実行される。
+イベントバスに出力されたイベントは、[ルール](2A0_Create_Rule.md)の条件と合致するか判定され、合致した場合は、ルールに記述されたアクションを実行される。
 アクションには、以下が指定可能。
 * ログ出力
 * スクリプト実行
 * 中継
 * イベント中継
 
-## ログ出力アクション
+### ルールとのマッチング
+下記表の通りに項目毎に判定を行い、すべての項目が合致した場合に、ルールに合致したと判定する。
+
+| イベント | ルール | 判定 | 備考 |
+|:--|:--|:--|:--|
+| Subject | EventSubject | 完全一致 | EventSubjectがnullのときは合致と判定 |
+| Schema | \_Box.NameのBoxのSchema | 完全一致 | \_Box.Nameがnullのときは合致と判定 |
+| RequestKey || 判定に使用しません ||
+| External | EventExternal | 完全一致 ||
+| Type | EventType | 前方一致 | EventTypeがnullのときは合致と判定 |
+| Object | EventObject | 前方一致 | EventObjectがnullのときは合致と判定 |
+| Info | EventInfo | 前方一致 | EventInfoがnullのときは合致と判定 |
+
+
+### ログ出力アクション
 ログ出力アクションは、イベントの内容をイベントログとして出力します。
 ログ出力アクションには、以下の種類があります。
 
@@ -199,24 +216,42 @@ xxxやyyyには、スキーマ定義用EntitySet名が入ります。
 
 イベントにはログ出力レベルはなく、アクションにてレベルを指定します。
 
-### イベントログフォーマット
+#### ルール例
+Cell制御オブジェクトのRole操作をログ出力する例
+
+| 項目名 | 設定 | 備考 |
+|:--|:--|:--|
+| \_Box.Name | null ||
+| Name | output\_cellctlRole | 設定しなくてもよいです |
+| EventType | cellctl.Role. ||
+| EventSubject | null ||
+| EventObject | personium-localcell:/\_\_ctl/Role | EventTypeで限定されるので実際には冗長です |
+| EventInfo | null ||
+| EventExternal | false ||
+| Action | log ||
+| TargetUrl | null ||
+
+Roleを操作するとログがINFOレベルで出力されます。
+
+#### イベントログフォーマット
 出力形式は以下の通り。
 ```
 {dateTime},[{level}],{RequestKey},{External},{Schema},{Subject},{Type},{Object},{Info}
 ```
 
-### イベントログアクセス方法
+#### イベントログアクセス方法
 イベントログは、WebDAV上で管理するため、イベントログファイルへのアクセスはWebDAV用のAPIで行う。
 * [ログファイル一覧取得](284_Retrieve_Log_File_list.md)
 * [ログファイル取得](285_Retrieve_Log_File.md)
 * [ログファイル削除](286_Delete_Log_File.md)
 
-### イベントログ保管期間
+#### イベントログ保管期間
 イベント量に応じてイベントログファイルのサイズが増大するため、一定量にてイベントログファイルをローテートする。  
 ローテートされたイベントログファイルの保持世代数は、最大12世代とする。  
 なお、ローテート時の最大サイズは、デフォルト50MBとし、ログ設定更新APIにて設定可能とする。
-### 出力例
-#### 外部イベントの出力例
+
+#### 出力例
+##### 外部イベントの出力例
 ```
 2013-04-18T14:52:39.778Z,[ERROR],"Req_animal-access_1001","true",
 "https://{UnitFQDN}/appCell/","https://{UnitFQDN}/servicemanager/#admin","actionData",
@@ -237,7 +272,7 @@ xxxやyyyには、スキーマ定義用EntitySet名が入ります。
 "https://{UnitFQDN}/appCell/","https://{UnitFQDN}/servicemanager/#admin","actionData",
 "/svc/token_keeper","resultData"
 ```
-#### 内部イベントの出力例
+##### 内部イベントの出力例
 ```
 2013-04-18T14:52:39.779Z,[INFO ],"Req_animal-access_1001","false",
 "https://{UnitFQDN}/appCell/","https://{UnitFQDN}/appCell/#staff","odata.update",
@@ -248,10 +283,27 @@ xxxやyyyには、スキーマ定義用EntitySet名が入ります。
 ```
 
 ### スクリプト実行アクション
-スクリプト実行アクションは、イベントの内容を渡して自CellのEngineスクリプトを実行します。
+スクリプト実行アクションは、イベントの内容を渡して自Cellのサービスを実行します。
 アクションは、execです。
 
-#### スクリプトへのパラメータ
+#### ルール例
+メッセージ受信でサービスを実行する例
+
+| 項目名 | 設定 | 備考 |
+|:--|:--|:--|
+| \_Box.Name | null ||
+| Name | exec\_messagereceive | 設定しなくてもよいです |
+| EventType | message.receive ||
+| EventSubject | null ||
+| EventObject | null ||
+| EventInfo | null ||
+| EventExternal | false ||
+| Action | exec ||
+| TargetUrl | personium-localcell:/box/col/srv ||
+
+メッセージを受信したとき、TargetUrlのサービスが実行されます。サービスにて受信メッセージを確認して必要に応じて承認することができます。
+
+#### サービスへのパラメータ
 JSON形式のBodyとリクエストヘッダでイベントの内容を渡します。
 
 | 項目名 | データソース | 備考 |
@@ -264,13 +316,13 @@ JSON形式のBodyとリクエストヘッダでイベントの内容を渡しま
 | Info | JSON ||
 | RequestKey | ヘッダ | x-personium-requestkey |
 
-JSONは、Engineスクリプトの引数のinputフィールドから取得します。
+JSONは、サービス実行において、引数のinputフィールドから取得します。
 ```
 function(request) {
   var bodyAsString = request["input"].readAll();
   var params = JSON.parse(bodyAsString);
 ```
-ヘッダは、Engineスクリプトの引数のheadersフィールドから取得します。
+ヘッダは、サービス実行において、引数のheadersフィールドから取得します。
 ```
 function(request) {
   var reqHeaders = request["headers"];
@@ -281,16 +333,34 @@ function(request) {
 Authorizationヘッダは設定されていないため、\_p.as('client')は利用できません。
 
 トークンが必要であれば、スクリプトにてパスワード認証を行うか、サービスコレクション設定にて、subjectを設定し、\_p.as('serviceSubject')を使用してください。
+なお、serviceSubjectによるトークンは、Schemaとして、スクリプトが配置されているBoxのSchemaが設定されます。
 
 ### 中継アクション
-中継アクションは、イベントの内容を渡して他CellのEngineスクリプトを実行します。
+中継アクションは、イベントの内容を渡して他Cellのサービスを実行します。
 アクションは、relayです。
+
+#### ルール例
+OData作成操作で中継する例
+
+| 項目名 | 設定 | 備考 |
+|:--|:--|:--|
+| \_Box.Name | null ||
+| Name | relay\_odatacreate | 設定しなくてもよいです |
+| EventType | odata.create ||
+| EventSubject | null ||
+| EventObject | personium-localcell:/box/odatacol/entity ||
+| EventInfo | null ||
+| EventExternal | false ||
+| Action | relay ||
+| TargetUrl | personium-localunit:/otherCell/box/col/srv ||
+
+TypeおよびObjectが合致する内部イベントのとき、TargetUrlへ中継します。
 
 #### スクリプトへのパラメータ
 スクリプト実行アクションと同じです。
 
 #### スクリプト実行時のトークン
-Authorizationヘッダには、Engineスクリプトを実行するためにトランスセルトークンが設定されています。
+Authorizationヘッダには、サービスを実行するためにトランスセルトークンが設定されています。
 
 | 項目名 | 設定値 |
 |:--|:--|
@@ -307,6 +377,23 @@ Authorizationヘッダには、Engineスクリプトを実行するためにト�
 ### イベント中継アクション
 イベント中継アクションは、イベントの内容を他Cellの外部イベント受付に中継します。
 アクションは、relay.eventです。
+
+#### ルール例
+外部イベント受付で中継する例
+
+| 項目名 | 設定 | 備考 |
+|:--|:--|:--|
+| \_Box.Name | null ||
+| Name | relayevent\_eventreceipt | 設定しなくてもよいです |
+| EventType | null ||
+| EventSubject | https://{FQDN}/cell/#account ||
+| EventObject | null ||
+| EventInfo | null ||
+| EventExternal | true ||
+| Action | relay.event ||
+| TargetUrl | https://{FQDN}/otherCell/ ||
+
+Subjectが合致する外部イベントのとき、イベント中継を行います。
 
 #### リクエスト
 ##### リクエストヘッダ
@@ -334,24 +421,55 @@ Typeの変換
 既にTypeがrelay.で始まっていれば、Typeの変換は行われません。
 
 #### イベント中継によるイベント伝播の例
+CellAで起きたイベントをCellBを経由してCellCにイベント中継する例
 
-内部イベント
+##### 内部イベントの場合
 
-| 項目名 | イベント | イベント中継 | イベント中継 |
+###### ルール
+| 項目名 | CellA | CellB |
+|:--|:--|:--|
+| \_Box.Name | null | null |
+| Name | relayevent | relayevent |
+| EventType | cellctl | null |
+| EventSubject | null | https://hosta/CellA/#account |
+| EventObject | null | null |
+| EventInfo | null | null |
+| EventExternal | false | true |
+| Action | relay.event | relay.event |
+| TargetUrl | https://hostb/CellB/ | https://hostc/CellC/ |
+
+###### 伝播されるイベント
+| 項目名 | CellA | CellB | CellC |
 |:--|:--|:--|:--|
-| Subject | {CellURL}#account | <- | <- |
-| Schema | {CellURL} | <- | <- |
+| Subject | https://hosta/CellA/#account | <- | <- |
+| Schema | https://host/AppCell/ | <- | <- |
 | External | false | true | true |
 | Type | cellctl.Role.create | relay.cellctl.Role.create | <- |
-| Object | https://{FQDN}/{CellName}/\_\_ctl/Role('{RoleName}') | <- | <- |
-| Info | 201,{RequestURL} | <- | <- |
+| Object | https://hosta/CellA/\_\_ctl/Role('role') | <- | <- |
+| Info | 201,https://hosta/CellA/\_\_ctl/Role | <- | <- |
 
-外部イベント
+##### 外部イベントの場合
 
-| 項目名 | イベント | イベント中継 | イベント中継 |
+###### ルール
+| 項目名 | CellA | CellB |
+|:--|:--|:--|
+| \_Box.Name | null | BoxB |
+| Name | relayevent | relayevent |
+| EventType | null | null |
+| EventSubject | null | https://hosta/CellA/#account |
+| EventObject | object | null |
+| EventInfo | null | null |
+| EventExternal | true | true |
+| Action | relay.event | relay.event |
+| TargetUrl | https://hostb/CellB/ | https://hostc/CellC/ |
+
+CellBのBoxBのSchemaは、https://host/AppCell/とします。
+
+###### 伝播されるイベント
+| 項目名 | CellA | CellB | CellC |
 |:--|:--|:--|:--|
-| Subject | {CellURL}#account | <- | <- |
-| Schema | {CellURL} | <- | <- |
+| Subject | https://hosta/CellA/#account | <- | <- |
+| Schema | https://hostb/AppCell/ | <- | <- |
 | External | true | true | true |
 | Type | type | relay.ext.type | <- |
 | Object | object | <- | <- |

@@ -14,31 +14,238 @@ Indicates processing that is executed based on the state of management data (ODa
 As a typical internal event, there is a request of Personium API.
 When the response of the Personium API is returned, the execution result is output as an event to the event bus.
 
+## Event Format
+| Item Name | Description |
+|:--|:--|
+| Subject | It is set from token of Authorization header |
+| Schema | It is set from token of Authorization header |
+| RequestKey | It is set from X-Personium-RequestKey header |
+| External | Flag indicating whether the event is an external event |
+| Type | Type of the event |
+| Object | Object of the event |
+| Info | Information of the event |
+
+### Internal Event Definitions
+Type value is defined for each operation.
+Object value basically is set to a URL or a URL with key string. URL is URL with personium-localcell scheme, URL with key string is URL that append key of result of create operation.
+For example, when entity of \_\_id='0123' is created, request url and URL with key string are as follows:
+
+| request url | URL with key string |
+|:--|:--|
+| http://personium/cell/box/col/entity | personium-localcell:/box/col/entity('0123') |
+
+Key string set to Object is normalized. Examples of normalization are below.
+
+| Before | After normalization |
+|:--|:--|
+| Role(’role’) | Role(Name=’role’, \_Box.Name=null) |
+| Role(\_Box.Name=null, Name=’role’) | Role(Name=’role’, \_Box.Name=null) |
+| Account(Name=’hoge’) | Account(’hoge’) |
+
+Info value basically is set to response code and request url. Request url is exact url in Rest API call and includes arguments.
+In update operation, Info is set to updated key string. The key string is used for accessing to updated object.
+
+| Type | Object | Info |
+|:--|:--|:--|
+| celctl.Role.update | personium-localcell:/\_\_ctl/Role(Name='role1', \_Box.Name=null) | 204,(Name='role2', \_Box.Name=null) |
+
+Request URL to updated Role object:
+```
+http://{FQDN}/{CellName}/__ctl/Role(Name='role2', _Box.Name=null)
+```
+
+#### Cell Level API
+##### Cell Control Object
+
+|| Operations | Type | Object | Info | Remarks |
+|:--|:--|:--|:--|:--|:--|
+| Basic Operations | Create | cellctl.xxx.create | URL with key string | 201,Request URL ||
+|| Retrieve | cellctl.xxx.get | URL | 200,Request URL ||
+|| Retrieve List | cellctl.xxx.list | URL | 200,Request URL ||
+|| Update | cellctl.xxx.update | URL | 204,Updated Key string ||
+|| Delete | cellctl.xxx.delete | URL | 204 ||
+| Linking with other objects | Link | cellctl.xxx.links.yyy.create | URL with key string | 204 ||
+|| Unlink | cellctl.xxx.links.yyy.delete | URL | 204 ||
+|| List Links | cellctl.xxx.links.yyy.list | URL | 200,Request URL ||
+| Bound Object Manipulation | Create | cellctl.xxx.navprop.yyy.create | URL with key string | 201,Request URL ||
+|| Retrieve List | cellctl.xxx.navprop.yyy.list | URL | 200,Request URL ||
+
+xxx or yyy is the Cell Control Object Name below.
+* Account
+* Role
+* ExtCell
+* Relation
+* ExtRole
+* Box
+* SentMessage
+* ReceivedMessage
+* Rule
+
+##### Install Box
+
+| State | Type | Object | Info | Remarks |
+|:--|:--|:--|:--|:--|
+| Box installation reception | boxinstall | URL | Response Code ||
+| Box installation process in progress | PL-BI-1000 | URL | Bar installation started. ||
+|| PL-BI-1001 | Entry path in bar file | Installation started. ||
+|| PL-BI-1003 | Entry path in bar file | Installation completed. ||
+|| PL-BI-1004 | Entry path in bar file | Installation failed({cause}). ||
+|| PL-BI-1005 || Unknown error({cause}). ||
+| Box Installation Complete | PL-BI-0000 | URL | Bar installation completed. ||
+|| PL-BI-0001 | URL | Bar installation failed({cause}). ||
+
+##### Message Exchange between Cells
+
+|| Operations | Type | Object | Info | Remarks |
+|:--|:--|:--|:--|:--|:--|
+| Send a message | Send message | message.send | URL to retrieve SentMessage | 201 ||
+|| Receive message | message.receive | URL to retrieve ReceivedMessage | 201 | Event is created on the Cell that revieves message |
+| Change Status | Read | message.read | URL to retrieve ReceivedMessage | 204 ||
+|| Unread | message.unread | URL to retrieve ReceivedMessage | 204 ||
+|| Approve | message.approve | URL to retrieve ReceivedMessage | 204 ||
+|| Reject | message.reject | URL to retrieve ReceivedMessage | 204 ||
+
+Examples of URL to retrieve SentMessage and URL to retrieve ReceivedMessage are as follows.
+
+|| URL |
+|:--|:--|
+| URL to retrieve SentMessage | personium-localcell:/\_\_ctl/SentMessage(’12345’) |
+| URL to retrieve ReceivedMessage | personium-localcell:/\_\_ctl/ReceivedMessage(’12345’) |
+
+On message approval, operations abount Cell Control object is executed.
+
+|| Operations | Type | Object | Info | Remarks |
+|:--|:--|:--|:--|:--|:--|
+| Basic Operations | Create | cellctl.ExtCell.create | URL with key string | approved for message 12345 | 12345 is \_\_id of the message |
+|| Create | cellctl.Rule.create | URL with key string | approved for message 12345 | 12345 is \_\_id of the message |
+|| Delete | cellctl.Rule.delete | URL | approved for message 12345 | 12345 is \_\_id of the message |
+| Linking with other objects | Link | cellctl.Relation.links.ExtCell.create | URL with key string | approved for message 12345 | 12345 is \_\_id of the message |
+|| Link | cellctl.Role.links.ExtCell.create | URL with key string | approved for message 12345 | 12345 is \_\_id of the message |
+|| Unlink | cellctl.Relation.links.ExtCell.delete | URL | approved for message 12345 | 12345 is \_\_id of the message |
+|| Unlink | cellctl.Role.links.ExtCell.delete | URL | approved for message 12345 | 12345 is \_\_id of the message |
+
+##### Other functions
+
+|| Operations | Type | Object | Info | Remarks |
+|:--|:--|:--|:--|:--|:--|
+| Export | Execute | cell.export | personium-localcell:/ |||
+| Import | Execute | cell.import | personium-localcell:/ |||
+
+#### Box Level API
+##### Basic WebDAV Operations
+
+| Target | Operations | Type | Object | Info | Remarks |
+|:--|:--|:--|:--|:--|:--|
+| File | Create/Update | davfile.update | URL | 204 ||
+|| Retrieve | davfile.get | URL | 200 ||
+|| Delete | davfile.delete | URL | 204 ||
+
+##### OData Service Collection
+###### Data Manipulation
+
+|| Operations | Type | Object | Info | Remarks |
+|:--|:--|:--|:--|:--|:--|
+| Basic Operations | Create | odata.create | URL with key string | 201,Request URL ||
+|| Retrieve | odata.get | URL | 200,Request URL ||
+|| Retrieve List | odata.list | URL | 200,Request URL ||
+|| Update | odata.update | URL | 204,Updated key string ||
+|| Partial Update | odata.patch | URL | 204,Updated key string ||
+|| Delete | odata.delete | URL | 204 ||
+| Linking with other objects | Link | odata.links.create | URL with key string | 204 ||
+|| Unlink | odata.links.delete | URL | 204 ||
+|| List Links | odata.links.list | URL | 200,Request URL ||
+| Bound Object Manipulation | Create | odata.navprop.create | URL with key string | 201,Request URL ||
+|| Retrieve List | odata.navprop.list | URL | 200,Request URL ||
+
+###### Schema Definition
+
+|| Operations | Type | Object | Info | Remarks |
+|:--|:--|:--|:--|:--|:--|
+| Basic Operations | Create | odata.xxx.create | URL with key string | 201,Request URL ||
+|| Retrieve | odata.xxx.get | URL | 200,Request URL ||
+|| Retrieve List | odata.xxx.list | URL | 200,Request URL ||
+|| Update | odata.xxx.update | URL | 204,Updated key string ||
+|| Partial Update | odata.xxx.patch | URL | 204,Updated key string ||
+|| Delete | odata.xxx.delete | URL | 204 ||
+| Linking with other objects | Link | odata.xxx.links.yyy.create | URL with key string | 204 ||
+|| Unlink | odata.xxx.links.yyy.delete | URL | 204 ||
+|| List Links | odata.xxx.links.yyy.list | URL | 200,Request URL ||
+
+xxx or yyy is the Schema Definition EntitySet Name.
+
+##### Engine Service Collection
+
+| Operations | Type | Object | Info | Remarks |
+|:--|:--|:--|:--|:--|
+| Service Execute | service.exec | URL | Response Code ||
+
+
 ## Processing events
-It is judged whether or not the event outputted to the event bus matches the condition of the rule, and if it matches, the action described in the rule is executed.
+It is judged whether or not the event outputted to the event bus matches the condition of the [rule](2A0_Create_Rule.md), and if it matches, the action described in the rule is executed.
 For the action, you can specify:
 * Log output
 * Script execution
+* Relay
 * Event relay
 
-### Event log format
+### Matching with Rule
+Event matches with the rule if all items are true.
+
+| Event | Rule | method of judge | Remarks |
+|:--|:--|:--|:--|
+| Subject | EventSubject | perfect matching | If EventSubject is null, the matching result is true. |
+| Schema | Schema of Box naming with \_Box.Name | perfect matching | If \_Box.Name is null, the matching result is true. |
+| RequestKey || It is not used in matching with the rule. ||
+| External | EventExternal | perfect matching ||
+| Type | EventType | forward matching | If EventType is null, the matching result is true. |
+| Object | EventObject | forward matching | If EventObject is null, the matching result is true. |
+| Info | EventInfo | forward matching | If EventInfo is null, the matching result is true. |
+
+### Log output Action
+Log output action output the event to event log file.
+Kinds of log output action are as follows:
+
+| Action | Description |
+|:--|:--|
+| log<br>log.info | Output the event with INFO level. |
+| log.warn | Output the event with WARN level. |
+| log.error | Output the event with ERROR level. |
+
+Event does not include log output level, Log output level is specified by Action.
+
+#### Rule example
+When Role operations were executed, output log with INFO level.
+
+| Item name | Value | Remarks |
+|:--|:--|:--|
+| \_Box.Name | null ||
+| Name | output\_cellctlRole | Not required. |
+| EventType | cellctl.Role. ||
+| EventSubject | null ||
+| EventObject | personium-localcell:/\_\_ctl/Role | Have the same effect as EventType. |
+| EventInfo | null ||
+| EventExternal | false ||
+| Action | log ||
+| TargetUrl | null ||
+
+#### Event log format
 The output format is as follows.
 ```
-{dateTime},[{level}],{RequestKey},{external},{schema},{subject},{type},{object},{info}
+{dateTime},[{level}],{RequestKey},{External},{Schema},{Subject},{Type},{Object},{Info}
 ```
 
-### Event log access method
+#### Event log access method
 Since the event log is managed on the WebDAV, access to the event log file is done with the API for WebDAV.
 * [Get log file list](284_Retrieve_Log_File_list.md)
 * [Get log file](285_Retrieve_Log_File.md)
 * [Delete Log File](286_Delete_Log_File.md)
 
-### Event log retention period
+#### Event log retention period
 Since the size of the event log file increases according to the event amount, the event log file is rotated by a fixed amount.
 The number of generation generations of the rotated event log file is 12 generations maximum.
 The maximum size at rotation is set to 50 MB by default, and it can be set by the log setting update API.
-### Output example
-#### External event output example
+#### Output example
+##### External event output example
 ```
 2013-04-18T14:52:39.778Z,[ERROR],"Req_animal-access_1001","true",
 "https://{UnitFQDN}/appCell/","https://{UnitFQDN}/servicemanager/#admin","actionData",
@@ -59,7 +266,7 @@ The maximum size at rotation is set to 50 MB by default, and it can be set by th
 "https://{UnitFQDN}/appCell/","https://{UnitFQDN}/servicemanager/#admin","actionData",
 "/svc/token_keeper","resultData"
 ```
-#### Example of internal event output
+##### Example of internal event output
 ```
 2013-04-18T14:52:39.779Z,[INFO ],"Req_animal-access_1001","false",
 "https://{UnitFQDN}/appCell/","https://{UnitFQDN}/appCell/#staff","odata.update",
@@ -68,3 +275,192 @@ The maximum size at rotation is set to 50 MB by default, and it can be set by th
 "https://{UnitFQDN}/appCell/","https://{UnitFQDN}/appCell/#staff","odata.get",
 "https://{UnitFQDN}/homeClinic/box/col/blog_20130418","200"
 ```
+
+kokokara
+
+### Script execution Action
+Script execution action executes an registered [service](384_Service_Execution.md) of one's own cell.
+Value of Action is exec.
+
+#### Rule example
+When a message was received, execute the service set to TargetUrl.
+
+| Item name | Value | Remarks |
+|:--|:--|:--|
+| \_Box.Name | null ||
+| Name | exec\_messagereceive | Not required. |
+| EventType | message.receive ||
+| EventSubject | null ||
+| EventObject | null ||
+| EventInfo | null ||
+| EventExternal | false ||
+| Action | exec ||
+| TargetUrl | personium-localcell:/box/col/srv ||
+
+#### Parameters to the service
+The service receives parameters by request body and request header. 
+
+| Item name | Data source | Remarks |
+|:--|:--|:--|
+| Subject | request body ||
+| Schema | request body ||
+| External | request body ||
+| Type | request body ||
+| Object | request body | It is converted to http or https scheme. |
+| Info | request body ||
+| RequestKey | request header | The key of the header is 'x-personium-requestkey'. |
+
+The service gets parameters from request body as follows.
+```
+function(request) {
+  var bodyAsString = request["input"].readAll();
+  var params = JSON.parse(bodyAsString);
+```
+The service gets parameters from request header as follows.
+```
+function(request) {
+  var reqHeaders = request["headers"];
+  var requestKey = reqHeaders['x-personium-requestkey'];
+```
+
+#### Handling token on the service
+Can't use \_p.as('client'), because Authorization header is not set.
+Please use \_p.as('serviceSubject') or password authentication like \_p.as({cellUrl:xxx, userId:xxx, password:xxx}).
+Schema of token created by \_p.as('serviceSubject') is set to schema of the box where the service is placed.
+
+### Relay Action
+Relay action executes an registered service of other cell.
+Value of Action is relay.
+
+#### Rule example
+When an entity of user data was created, execute the service set to TargetUrl.
+
+| Item name | Value | Remarks |
+|:--|:--|:--|
+| \_Box.Name | null ||
+| Name | relay\_odatacreate | Not required |
+| EventType | odata.create ||
+| EventSubject | null ||
+| EventObject | personium-localcell:/box/odatacol/entity ||
+| EventInfo | null ||
+| EventExternal | false ||
+| Action | relay ||
+| TargetUrl | personium-localunit:/otherCell/box/col/srv ||
+
+#### Parameters to the service
+The same as Script execution action.
+
+#### Handling token on the service
+Transcell token is set to Authorization header in order to execute this service.
+
+| Item name | Value |
+|:--|:--|
+| Subject | https://{FQDN}/{cellName}/#\_engine |
+| Schema | Schema of the event |
+
+Please use \_p.as('serviceSubject') or password authentication like \_p.as({cellUrl:xxx, userId:xxx, password:xxx}).
+
+#### Preparation
+Need to set exec privilege to the cell that executes the service.
+
+### Event relay Action
+Event relay action relays the event to the accept event api of other cell.
+Value of Action is relay.event.
+
+#### Rule example
+When the accept event api is called and Subject matches EventSubject, relay the event to TargetUrl.
+
+| Item name | Value | Remarks |
+|:--|:--|:--|
+| \_Box.Name | null ||
+| Name | relayevent\_eventreceipt | Not required. |
+| EventType | null ||
+| EventSubject | https://{FQDN}/cell/#account ||
+| EventObject | null ||
+| EventInfo | null ||
+| EventExternal | true ||
+| Action | relay.event ||
+| TargetUrl | https://{FQDN}/otherCell/ ||
+
+#### Request
+##### Request Header
+
+| Header Name | Value | Remarks |
+|:--|:--|:--|
+| X-Personium-RequestKey | RequestKey of the event ||
+| Authorization | Transcell token<br>Subject and Schema of the event are set<br>Role list when the event was occurred is set ||
+
+##### Request Body
+
+| Item name | Value | Remarks |
+|:--|:--|:--|
+| Type | Converted value below  ||
+| Object | Object of the event ||
+| Info | Info of the event ||
+
+Type conversion
+
+| External | Type |
+|:--|:--|
+| true | Insert 'relay.ext.' at the beginning. |
+| false | Insert 'relay.' at the beginning. |
+
+If Type starts with 'relay.', type conversion is not done.
+
+#### Examples of relay event
+From CellA to CellC via CellB.
+
+##### In case of internal event
+
+###### Rules
+| Item name | CellA | CellB |
+|:--|:--|:--|
+| \_Box.Name | null | null |
+| Name | relayevent | relayevent |
+| EventType | cellctl | null |
+| EventSubject | null | https://hosta/CellA/#account |
+| EventObject | null | null |
+| EventInfo | null | null |
+| EventExternal | false | true |
+| Action | relay.event | relay.event |
+| TargetUrl | https://hostb/CellB/ | https://hostc/CellC/ |
+
+###### Relayed event flow
+| Item name | CellA | CellB | CellC |
+|:--|:--|:--|:--|
+| Subject | https://hosta/CellA/#account | <- | <- |
+| Schema | https://host/AppCell/ | <- | <- |
+| External | false | true | true |
+| Type | cellctl.Role.create | relay.cellctl.Role.create | <- |
+| Object | https://hosta/CellA/\_\_ctl/Role('role') | <- | <- |
+| Info | 201,https://hosta/CellA/\_\_ctl/Role | <- | <- |
+
+##### In case of external event
+
+###### Rules
+| Item name | CellA | CellB |
+|:--|:--|:--|
+| \_Box.Name | null | BoxB |
+| Name | relayevent | relayevent |
+| EventType | null | null |
+| EventSubject | null | https://hosta/CellA/#account |
+| EventObject | object | null |
+| EventInfo | null | null |
+| EventExternal | true | true |
+| Action | relay.event | relay.event |
+| TargetUrl | https://hostb/CellB/ | https://hostc/CellC/ |
+
+Schema of BoxB of CellB is https://host/AppCell/.
+
+###### Relayed event flow
+| Item name | CellA | CellB | CellC |
+|:--|:--|:--|:--|
+| Subject | https://hosta/CellA/#account | <- | <- |
+| Schema | https://hostb/AppCell/ | <- | <- |
+| External | true | true | true |
+| Type | type | relay.ext.type | <- |
+| Object | object | <- | <- |
+| Info | info | <- | <- |
+
+#### Preparation
+Need to set event privilege to the cell that calls the accept event api.

@@ -48,7 +48,7 @@ JSON
 |EventType|ルールをトリガーするイベントのタイプの前方一致検査用文字列|Evnet Typeの値は、内部イベントでは別表(未作成)のようにTypeが定義されています。外部イベントでは任意のTypeを指定可能です。|×||
 |EventSubject|ルールをトリガーすべきイベントのEvent Subject一致検査用文字列|Event Subject は基本的にCellのURLになるので、有効な値はその完全一致文字列となります。|×||
 |EventObject|ルールをトリガーすべきイベントのEvent Object前方一致検査用文字列|Event object の値はイベントのタイプにより異なります。 任意の文字列を設定可能ですが、意味を持つ値はイベントタイプにより異なります。 |×||
-|EventInfo|ルールをトリガーすべきイベントのEvent Info一致検査用文字列|Event info の値はイベントのタイプにより異なります。 任意の文字列を設定可能ですが、意味を持つ値はイベントタイプにより異なります。|×||
+|EventInfo|ルールをトリガーすべきイベントのEvent Info前方一致検査用文字列|Event info の値はイベントのタイプにより異なります。 任意の文字列を設定可能ですが、意味を持つ値はイベントタイプにより異なります。|×||
 |EventExternal|ルールをトリガーすべきイベントが外部イベントであるかどうかを表すフラグ|真偽値。外部イベントを検出したいときは true を設定してください。|×|デフォルト値 false|
 |Action|イベントがマッチしたときに起動すべきアクション|有効な値は以下の別表|〇||
 |TargetUrl|アクションに対する具体的なターゲットURL|Actionの値によって指定すべき値は変わります。規則は以下の別表 |×||
@@ -65,10 +65,11 @@ JSON
 |log.error|Eventを error レベルでログ出力します。|-|-|
 
 #### EventObject記述の規則
-|_Box.Name|EventObject|備考|
-|:--|:--|:--|
-|設定あり|personium-localbox:/...||
-|設定なし|personium-localcel:/...||
+|EventExternal|_Box.Name|EventObject|備考|
+|:--|:--|:--|:--|
+|false|設定あり|personium-localbox:/...||
+|false|設定なし|personium-localcel:/...||
+|true||任意の文字列|
 
 #### TargetUrl記述の規則
 |Action|_Box.Name|TargetUrl|備考|

@@ -47,7 +47,7 @@ JSON
 | EventType | Character string for forward match checking for the type of event that triggers a rule | For Evnet Type, the type is defined for internal events as a separate table (not created). For external events, you can specify any Type. | No ||
 | EventSubject | Event Subject for Event Subject to Trigger Rule The string for matching check | Event Subject is basically the URL of Cell, so valid value is the exact match string. | No ||
 | EventObject | Event Object's event object to trigger the rule String for forward match check | Event The value of object depends on the type of event. An arbitrary character string can be set, but the meaningful value depends on the event type. | No ||
-| EventInfo | Event Info matching event check event for event that should trigger rule | Event info value depends on event type. An arbitrary character string can be set, but the meaningful value depends on the event type. | No ||
+| EventInfo | Character string for forward matching with info of event that triggers a rule | Event info value depends on event type. An arbitrary character string can be set, but the meaningful value depends on the event type. | No ||
 | EventExternal | Flag indicating whether the event to trigger the rule is an external event | Boolean. Set to true to detect external events. | No | default value false |
 | Action | Action to be started when the event matches | Valid values are the following table | Yes |||
 | TargetUrl | The value to be specified depends on the value of the concrete target URL | Action for the action. The rules are as follows attached table | No ||
@@ -65,12 +65,13 @@ JSON
 
 #### EventObject Allowed Values
 
-Only specific URL can be accepted for EventObject field.
+Only specific URL can be accepted for EventObject field when EventExternal is false.
 
-| _Box.Name | EventObject | Remarks |
-|:--|:--|:--|
-| specified | personium-localbox:/... ||
-| Not specified | personium-localcell:/... ||
+| EventExternal | _Box.Name | EventObject | Remarks |
+|:--|:--|:--|:--|
+| false | specified | personium-localbox:/... ||
+| false | Not specified | personium-localcell:/... ||
+| true || Any string ||
 
 #### TargetUrl Allowed Values
 

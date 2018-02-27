@@ -84,12 +84,10 @@ If an event fires in the cell and the event matches one of the subscription cond
 By sending a message in the following format, an external event can be fired.
 
     {
-      "Event": {
         "Type":"chat", 
         "RequestKey":"client-req-12345",
         "Object":"general",
         "Info":"Hello World" 
-      }
     }
 
 

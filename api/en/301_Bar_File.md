@@ -134,8 +134,8 @@ The file describing the information of the ExtRoles to be installed<br>\* For it
 |ExtRoles/ExtRole|Reference destination role URI|-|Yes|null is invalid *1|
 |ExtRoles/_Relation.Name|Relation name|-|Yes|null is invalid|
 
-(*1) Converted to the role class URL during export
-https&#58;//{UnitFQDN}/cell1/__role/box/staff → https&#58;//{UnitFQDN}/cell1/__role/__/staff
+(*1) Converted to the role class URL during export  
+https&#58;//{UnitFQDN}/cell1/__role/box/staff → https&#58;//{UnitFQDN}/cell1/__role/__/staff  
 
 ##### Samples
 

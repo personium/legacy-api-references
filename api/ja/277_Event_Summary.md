@@ -34,7 +34,7 @@ URLは、personium-localcellスキームによるURLであり、キーを含め�
 
 | リクエストURL | キーを含めたURL |
 |:--|:--|
-| http://personium/cell/box/col/entity | personium-localcell:/box/col/entity('0123') |
+| http&#58;//personium/cell/box/col/entity | personium-localcell:/box/col/entity('0123') |
 
 Objectにおけるキーは、正規化されています。正規化の例をは以下に示します。
 
@@ -364,7 +364,7 @@ Authorizationヘッダには、サービスを実行するためにトランス�
 
 | 項目名 | 設定値 |
 |:--|:--|
-| Subject | https://{FQDN}/{cellName}/#\_engine |
+| Subject | https&#58;//{FQDN}/{cellName}/#\_engine |
 | Schema | イベントのSchemaと同じ |
 
 このトークンを利用してアクセスするのは避けたほうがよいでしょう。\_p.as('client')は利用できないものと考えてください。
@@ -386,12 +386,12 @@ Authorizationヘッダには、サービスを実行するためにトランス�
 | \_Box.Name | null ||
 | Name | relayevent\_eventreceipt | 設定しなくてもよいです |
 | EventType | null ||
-| EventSubject | https://{FQDN}/cell/#account ||
+| EventSubject | https&#58;//{FQDN}/cell/#account ||
 | EventObject | null ||
 | EventInfo | null ||
 | EventExternal | true ||
 | Action | relay.event ||
-| TargetUrl | https://{FQDN}/otherCell/ ||
+| TargetUrl | https&#58;//{FQDN}/otherCell/ ||
 
 Subjectが合致する外部イベントのとき、イベント中継を行います。
 
@@ -431,22 +431,22 @@ CellAで起きたイベントをCellBを経由してCellCにイベント中継�
 | \_Box.Name | null | null |
 | Name | relayevent | relayevent |
 | EventType | cellctl | null |
-| EventSubject | null | https://hosta/CellA/#account |
+| EventSubject | null | https&#58;//hosta/CellA/#account |
 | EventObject | null | null |
 | EventInfo | null | null |
 | EventExternal | false | true |
 | Action | relay.event | relay.event |
-| TargetUrl | https://hostb/CellB/ | https://hostc/CellC/ |
+| TargetUrl | https&#58;//hostb/CellB/ | https&#58;//hostc/CellC/ |
 
 ###### 伝播されるイベント
 | 項目名 | CellA | CellB | CellC |
 |:--|:--|:--|:--|
-| Subject | https://hosta/CellA/#account | <- | <- |
-| Schema | https://host/AppCell/ | <- | <- |
+| Subject | https&#58;//hosta/CellA/#account | <- | <- |
+| Schema | https&#58;//host/AppCell/ | <- | <- |
 | External | false | true | true |
 | Type | cellctl.Role.create | relay.cellctl.Role.create | <- |
-| Object | https://hosta/CellA/\_\_ctl/Role('role') | <- | <- |
-| Info | 201,https://hosta/CellA/\_\_ctl/Role | <- | <- |
+| Object | https&#58;//hosta/CellA/\_\_ctl/Role('role') | <- | <- |
+| Info | 201,https&#58;//hosta/CellA/\_\_ctl/Role | <- | <- |
 
 ##### 外部イベントの場合
 
@@ -456,20 +456,20 @@ CellAで起きたイベントをCellBを経由してCellCにイベント中継�
 | \_Box.Name | null | BoxB |
 | Name | relayevent | relayevent |
 | EventType | null | null |
-| EventSubject | null | https://hosta/CellA/#account |
+| EventSubject | null | https&#58;//hosta/CellA/#account |
 | EventObject | object | null |
 | EventInfo | null | null |
 | EventExternal | true | true |
 | Action | relay.event | relay.event |
-| TargetUrl | https://hostb/CellB/ | https://hostc/CellC/ |
+| TargetUrl | https&#58;//hostb/CellB/ | https&#58;//hostc/CellC/ |
 
-CellBのBoxBのSchemaは、https://host/AppCell/とします。
+CellBのBoxBのSchemaは、https&#58;//host/AppCell/とします。
 
 ###### 伝播されるイベント
 | 項目名 | CellA | CellB | CellC |
 |:--|:--|:--|:--|
-| Subject | https://hosta/CellA/#account | <- | <- |
-| Schema | https://hostb/AppCell/ | <- | <- |
+| Subject | https&#58;//hosta/CellA/#account | <- | <- |
+| Schema | https&#58;//hostb/AppCell/ | <- | <- |
 | External | true | true | true |
 | Type | type | relay.ext.type | <- |
 | Object | object | <- | <- |

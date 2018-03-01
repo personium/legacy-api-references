@@ -43,9 +43,9 @@ JSON
 
 |項目名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|_Box.Name|ルールが紐づくべきBox名|有効な box名. このキーを指定しなかったりnull値を指定したリクエストは、いかなるBoxにも紐づかないRuleと解釈されます.|×||
+|\_Box.Name|ルールが紐づくべきBox名|有効な box名. このキーを指定しなかったりnull値を指定したリクエストは、いかなるBoxにも紐づかないRuleと解釈されます.|×||
 |Name|作成するルールを識別するため任意の名前|Boxに紐づく場合はBox内で一意、Boxに紐づかない場合はセルで一意である必要があります。|×|省略時は自動的にuuidが割り当たります|
-|EventType|ルールをトリガーするイベントのタイプの前方一致検査用文字列|Evnet Typeの値は、内部イベントでは別表(未作成)のようにTypeが定義されています。外部イベントでは任意のTypeを指定可能です。|×||
+|EventType|ルールをトリガーするイベントのタイプの前方一致検査用文字列|Evnet Typeの値は、内部イベントでは[別表](277_Event_Summary.md)のようにTypeが定義されています。外部イベントでは任意のTypeを指定可能です。|×||
 |EventSubject|ルールをトリガーすべきイベントのEvent Subject一致検査用文字列|Event Subject は基本的にCellのURLになるので、有効な値はその完全一致文字列となります。|×||
 |EventObject|ルールをトリガーすべきイベントのEvent Object前方一致検査用文字列|Event object の値はイベントのタイプにより異なります。 任意の文字列を設定可能ですが、意味を持つ値はイベントタイプにより異なります。 |×||
 |EventInfo|ルールをトリガーすべきイベントのEvent Info前方一致検査用文字列|Event info の値はイベントのタイプにより異なります。 任意の文字列を設定可能ですが、意味を持つ値はイベントタイプにより異なります。|×||
@@ -65,14 +65,14 @@ JSON
 |log.error|Eventを error レベルでログ出力します。|-|-|
 
 #### EventObject記述の規則
-|EventExternal|_Box.Name|EventObject|備考|
+|EventExternal|\_Box.Name|EventObject|備考|
 |:--|:--|:--|:--|
 |false|設定あり|personium-localbox:/...||
 |false|設定なし|personium-localcel:/...||
 |true||任意の文字列|
 
 #### TargetUrl記述の規則
-|Action|_Box.Name|TargetUrl|備考|
+|Action|\_Box.Name|TargetUrl|備考|
 |:--|:--|:--|:--|
 |exec|設定あり|personium-localbox:/{CollectionName}/{ServiceName}||
 |exec|設定なし|personium-localcell:/{BoxName}/{CollectionName}/{ServiceName}||
@@ -94,7 +94,7 @@ JSON
 |ヘッダ名|概要|備考|
 |:--|:--|:--|
 |X-Personium-Version|APIの実行バージョン|リクエストが処理されたAPIバージョン|
-|Access-Control-Allow-Origin|クロスドメイン通信許可ヘッダ|返却値は"*"固定|
+|Access-Control-Allow-Origin|クロスドメイン通信許可ヘッダ|返却値は"\*"固定|
 |Content-Type|返却されるデータの形式||
 |Location|作成したリソースへのURL||
 |ETag|リソースのバージョン情報||
@@ -107,12 +107,12 @@ JSON
 |:--|:--|:--|:--|
 |ルート|d|object|オブジェクト{1}|
 |{1}|results|array|オブジェクト{2}の配列|
-|{2}|__metadata|object|オブジェクト{3}|
+|{2}|\_\_metadata|object|オブジェクト{3}|
 |{3}|uri|string|作成したリソースへのURL|
 |{3}|etag|string|Etag値|
-|{2}|__published|string|作成日(UNIX時間)|
-|{2}|__updated|string|更新日(UNIX時間)|
-|{1}|__count|string|$inlinecountクエリでの取得結果件数|
+|{2}|\_\_published|string|作成日(UNIX時間)|
+|{2}|\_\_updated|string|更新日(UNIX時間)|
+|{1}|\_\_count|string|$inlinecountクエリでの取得結果件数|
 
 ### Rule固有レスポンスボディ
 
@@ -120,7 +120,7 @@ JSON
 |:--|:--|:--|:--|
 |{3}|type|string|CellCtl.Rule|
 |{2}|Name|string|Rule名|
-|{2}|_Box.Name|string|関係対象のBox名|
+|{2}|\_Box.Name|string|関係対象のBox名|
 |{2}|EventExternal|boolean||
 |{2}|EventSubject|string||
 |{2}|EventType|string||

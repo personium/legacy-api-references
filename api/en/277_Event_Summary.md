@@ -32,7 +32,7 @@ For example, when entity of \_\_id='0123' is created, request url and URL with k
 
 | request url | URL with key string |
 |:--|:--|
-| http://personium/cell/box/col/entity | personium-localcell:/box/col/entity('0123') |
+| http&#58;//personium/cell/box/col/entity | personium-localcell:/box/col/entity('0123') |
 
 Key string set to Object is normalized. Examples of normalization are below.
 
@@ -353,7 +353,7 @@ Transcell token is set to Authorization header in order to execute this service.
 
 | Item name | Value |
 |:--|:--|
-| Subject | https://{FQDN}/{cellName}/#\_engine |
+| Subject | https&#58;//{FQDN}/{cellName}/#\_engine |
 | Schema | Schema of the event |
 
 Please use \_p.as('serviceSubject') or password authentication like \_p.as({cellUrl:xxx, userId:xxx, password:xxx}).
@@ -373,12 +373,12 @@ When the accept event api is called and Subject matches EventSubject, relay the 
 | \_Box.Name | null ||
 | Name | relayevent\_eventreceipt | Not required. |
 | EventType | null ||
-| EventSubject | https://{FQDN}/cell/#account ||
+| EventSubject | https&#58;//{FQDN}/cell/#account ||
 | EventObject | null ||
 | EventInfo | null ||
 | EventExternal | true ||
 | Action | relay.event ||
-| TargetUrl | https://{FQDN}/otherCell/ ||
+| TargetUrl | https&#58;//{FQDN}/otherCell/ ||
 
 #### Request
 ##### Request Header
@@ -416,22 +416,22 @@ From CellA to CellC via CellB.
 | \_Box.Name | null | null |
 | Name | relayevent | relayevent |
 | EventType | cellctl | null |
-| EventSubject | null | https://hosta/CellA/#account |
+| EventSubject | null | https&#58;//hosta/CellA/#account |
 | EventObject | null | null |
 | EventInfo | null | null |
 | EventExternal | false | true |
 | Action | relay.event | relay.event |
-| TargetUrl | https://hostb/CellB/ | https://hostc/CellC/ |
+| TargetUrl | https&#58;//hostb/CellB/ | https&#58;//hostc/CellC/ |
 
 ###### Relayed event flow
 | Item name | CellA | CellB | CellC |
 |:--|:--|:--|:--|
-| Subject | https://hosta/CellA/#account | <- | <- |
-| Schema | https://host/AppCell/ | <- | <- |
+| Subject | https&#58;//hosta/CellA/#account | <- | <- |
+| Schema | https&#58;//host/AppCell/ | <- | <- |
 | External | false | true | true |
 | Type | cellctl.Role.create | relay.cellctl.Role.create | <- |
-| Object | https://hosta/CellA/\_\_ctl/Role('role') | <- | <- |
-| Info | 201,https://hosta/CellA/\_\_ctl/Role | <- | <- |
+| Object | https&#58;//hosta/CellA/\_\_ctl/Role('role') | <- | <- |
+| Info | 201,https&#58;//hosta/CellA/\_\_ctl/Role | <- | <- |
 
 ##### In case of external event
 
@@ -441,20 +441,20 @@ From CellA to CellC via CellB.
 | \_Box.Name | null | BoxB |
 | Name | relayevent | relayevent |
 | EventType | null | null |
-| EventSubject | null | https://hosta/CellA/#account |
+| EventSubject | null | https&#58;//hosta/CellA/#account |
 | EventObject | object | null |
 | EventInfo | null | null |
 | EventExternal | true | true |
 | Action | relay.event | relay.event |
-| TargetUrl | https://hostb/CellB/ | https://hostc/CellC/ |
+| TargetUrl | https&#58;//hostb/CellB/ | https&#58;//hostc/CellC/ |
 
-Schema of BoxB of CellB is https://host/AppCell/.
+Schema of BoxB of CellB is https&#58;//host/AppCell/.
 
 ###### Relayed event flow
 | Item name | CellA | CellB | CellC |
 |:--|:--|:--|:--|
-| Subject | https://hosta/CellA/#account | <- | <- |
-| Schema | https://hostb/AppCell/ | <- | <- |
+| Subject | https&#58;//hosta/CellA/#account | <- | <- |
+| Schema | https&#58;//hostb/AppCell/ | <- | <- |
 | External | true | true | true |
 | Type | type | relay.ext.type | <- |
 | Object | object | <- | <- |

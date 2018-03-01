@@ -42,9 +42,9 @@ JSON
 
 | Item name | overview | effective value | required | remarks |
 |:--|:--|:--|:--|:--|
-| _Box.Name | Box name to which the rule should be attached | valid box name. A request not specifying this key or specifying a null value is interpreted as a Rule that is not associated with any Box.| No ||
+| \_Box.Name | Box name to which the rule should be attached | valid box name. A request not specifying this key or specifying a null value is interpreted as a Rule that is not associated with any Box.| No ||
 | Name | Arbitrary name to identify the rule to be created | When linking to a Box, it is unique within the Box, and if it is not tied to the Box, it must be unique in the cell. When | No | is omitted, the uuid automatically allocates | No ||
-| EventType | Character string for forward match checking for the type of event that triggers a rule | For Evnet Type, the type is defined for internal events as a separate table (not created). For external events, you can specify any Type. | No ||
+| EventType | Character string for forward match checking for the type of event that triggers a rule | For Evnet Type, the type is defined for internal events as a separate [table](277_Event_Summary.md). For external events, you can specify any Type. | No ||
 | EventSubject | Event Subject for Event Subject to Trigger Rule The string for matching check | Event Subject is basically the URL of Cell, so valid value is the exact match string. | No ||
 | EventObject | Event Object's event object to trigger the rule String for forward match check | Event The value of object depends on the type of event. An arbitrary character string can be set, but the meaningful value depends on the event type. | No ||
 | EventInfo | Character string for forward matching with info of event that triggers a rule | Event info value depends on event type. An arbitrary character string can be set, but the meaningful value depends on the event type. | No ||
@@ -67,7 +67,7 @@ JSON
 
 Only specific URL can be accepted for EventObject field when EventExternal is false.
 
-| EventExternal | _Box.Name | EventObject | Remarks |
+| EventExternal | \_Box.Name | EventObject | Remarks |
 |:--|:--|:--|:--|
 | false | specified | personium-localbox:/... ||
 | false | Not specified | personium-localcell:/... ||
@@ -77,7 +77,7 @@ Only specific URL can be accepted for EventObject field when EventExternal is fa
 
 Only specific kinds of URL can be accepted for TargetUrl field.
 
-| Action | _Box.Name | TargetUrl | Remarks |
+| Action | \_Box.Name | TargetUrl | Remarks |
 |:--|:--|:--|:--|
 | exec | specified | personium-localbox:/{CollectionName}/{ServiceName} ||
 | exec | Not specified | personium-localcell:/{BoxName}/{CollectionName}/{ServiceName} ||
@@ -97,7 +97,7 @@ Only specific kinds of URL can be accepted for TargetUrl field.
 | Header name | Overview | Remarks |
 |:--|:--|:--|
 | X-Personium-Version | Execution version of API | API version processed request |
-| Access-Control-Allow-Origin | Cross-domain communication permission header | Return value is fixed as "*"
+| Access-Control-Allow-Origin | Cross-domain communication permission header | Return value is fixed as "\*" |
 | Content-Type | Format of data to be returned ||
 | Location | URL to created resource ||
 | ETag | resource version information ||
@@ -110,12 +110,12 @@ The response is a JSON object, and the correspondence between the key (name) and
 |:--|:--|:--|:--|
 | Route | d | object | object {1} |
 | {1} | results | array | Array of objects {2}
-| {2} | __metadata | object | object {3} |
+| {2} | \_\_metadata | object | object {3} |
 | {3} | uri | string | URL to created resource |
 | {3} | etag | string | Etag value |
-| {2} | __published | string | creation date (UNIX time) |
-| {2} | __updated | string | Update date (UNIX time) |
-| {1} | __count | string | $ inlinecount number of results obtained by query |
+| {2} | \_\_published | string | creation date (UNIX time) |
+| {2} | \_\_updated | string | Update date (UNIX time) |
+| {1} | \_\_count | string | $ inlinecount number of results obtained by query |
 
 ### Rule specific response body
 
@@ -123,7 +123,7 @@ The response is a JSON object, and the correspondence between the key (name) and
 |:--|:--|:--|:--|
 | {3} | type | string | CellCtl.Rule |
 | {2} | Name | string | Rule name |
-| {2} | _Box.Name | string | Box name of relation |
+| {2} | \_Box.Name | string | Box name of relation |
 | {2} | EventExternal | boolean ||
 | {2} | EventSubject | string ||
 | {2} | EventType | string ||

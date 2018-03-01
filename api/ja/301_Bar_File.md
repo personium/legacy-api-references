@@ -127,8 +127,8 @@ bar/
 |ExtRoles/ExtRole|参照先RoleのURI|&#65293;|○|nullは不可 ※1|
 |ExtRoles/_Relation.Name|Relation名|&#65293;|○|nullは不可|
 
-(※ 1) エクスポート時にロールクラスURLへ変換
-https&#58;//{UnitFQDN}/cell1/__role/box/staff → https&#58;//{UnitFQDN}/cell1/__role/__/staff
+(※ 1) エクスポート時にロールクラスURLへ変換  
+https&#58;//{UnitFQDN}/cell1/__role/box/staff → https&#58;//{UnitFQDN}/cell1/__role/__/staff  
 
 ##### サンプル
 ```JSON

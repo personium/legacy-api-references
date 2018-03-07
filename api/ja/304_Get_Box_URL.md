@@ -10,7 +10,7 @@ BoxのURLを取得するために用いるリソースです。スキーマ認�
 かつ  
 利用者がBoxルートをread可能（Boxルートが全公開である場合は利用者認証不要）
 
-※ACLのrequireSchemaAuthz属性については、[アクセス制御モデル](../../user_guide/002_Access_Control.md)内の「スキーマ権限要求レベル」を参照。
+※ACLのrequireSchemaAuthz属性については、[アクセス制御モデル](006_Access_Control.md)内の「スキーマ権限要求レベル」を参照。
 
 ## リクエスト
 ### リクエストURL

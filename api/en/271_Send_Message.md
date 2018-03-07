@@ -249,6 +249,6 @@ Refer to [Error Message List](004_Error_Messages.md)
 ```sh
 curl "https://{UnitFQDN}/{CellName}/__message/send" -X POST -i -H 'Authorization: Bearer {AccessToken}' \
 -H 'Accept: application/json' -d '{"BoxBound":false,"InReplyTo":"xnKXmd4TTZCw-bfSEw4f0AxnKXmd4TTZ",\
-"To":"https://{UnitFQDN}/{CellName}","Type":"message","Title":"Message Sample Title","Body":"Message Sample Body",\
+"To":"https://{UnitFQDN}/{CellName}/","Type":"message","Title":"Message Sample Title","Body":"Message Sample Body",\
 "Priority":3}'
 ```

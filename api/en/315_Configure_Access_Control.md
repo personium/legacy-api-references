@@ -65,7 +65,7 @@ Namespace
 
 Structure of XML  
 The body is XML and follows the following schema.  
-See acl\_model ([access control model](../../user_guide/002_Access_Control.md)) for the contents of privilege setting under the privilege tag.
+See acl\_model ([access control model](006_Access_Control.md)) for the contents of privilege setting under the privilege tag.
 
 |Node name|Namespace|Node type|Overview|Notes|
 |:--|:--|:--|:--|:--|

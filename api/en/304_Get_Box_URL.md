@@ -14,7 +14,7 @@ It is necessary to satisfy either of the followings.
 and  
 The user can read the Box route. (User authentication is unnecessary when the Box route is open to the public)
 
-\*For the requireSchemaAuthz attribute of the ACL, see "Schema Privilege Request Level" in the [access control model](../../user_guide/002_Access_Control.md).
+\*For the requireSchemaAuthz attribute of the ACL, see "Schema Privilege Request Level" in the [access control model](006_Access_Control.md).
 
 
 ## Request

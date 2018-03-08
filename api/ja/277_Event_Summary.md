@@ -36,7 +36,7 @@ URLは、personium-localcellスキームによるURLであり、キーを含め�
 |:--|:--|
 | http&#58;//personium/cell/box/col/entity | personium-localcell:/box/col/entity('0123') |
 
-Objectにおけるキーは、正規化されています。正規化の例をは以下に示します。
+Objectにおけるキーは、正規化されています。正規化の例を以下に示します。
 
 | | 正規化 |
 |:--|:--|
@@ -330,9 +330,16 @@ function(request) {
 ```
 
 #### スクリプト実行時のトークン
-Authorizationヘッダは設定されていないため、\_p.as('client')は利用できません。
+Authorizationヘッダに以下のトークンが設定されます。
 
-トークンが必要であれば、スクリプトにてパスワード認証を行うか、サービスコレクション設定にて、subjectを設定し、\_p.as('serviceSubject')を使用してください。
+| 項目名 | 設定値 |
+|:--|:--|
+| Subject | イベントのSubjectと同じ |
+| Schema | イベントのSchemaと同じ |
+
+\_p.as('client')によるアクセスが可能です。
+
+また、パスワード認証や、サービスコレクション設定にて、subjectを設定し、\_p.as('serviceSubject')を使用することも可能です。
 なお、serviceSubjectによるトークンは、Schemaとして、スクリプトが配置されているBoxのSchemaが設定されます。
 
 ### 中継アクション
@@ -364,7 +371,7 @@ Authorizationヘッダには、サービスを実行するためにトランス�
 
 | 項目名 | 設定値 |
 |:--|:--|
-| Subject | https&#58;//{FQDN}/{cellName}/#\_engine |
+| Subject | イベントのSubjectと同じ |
 | Schema | イベントのSchemaと同じ |
 
 このトークンを利用してアクセスするのは避けたほうがよいでしょう。\_p.as('client')は利用できないものと考えてください。

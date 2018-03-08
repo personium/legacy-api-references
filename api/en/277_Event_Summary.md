@@ -322,8 +322,14 @@ function(request) {
 ```
 
 #### Handling token on the service
-Can't use \_p.as('client'), because Authorization header is not set.
-Please use \_p.as('serviceSubject') or password authentication like \_p.as({cellUrl:xxx, userId:xxx, password:xxx}).
+Access token is set to Authorization header.
+
+| Item name | Value |
+|:--|:--|
+| Subject | Subject of the event |
+| Schema | Schema of the event |
+
+Please use  \_p.as('client'), \_p.as('serviceSubject') or password authentication like \_p.as({cellUrl:xxx, userId:xxx, password:xxx}).
 Schema of token created by \_p.as('serviceSubject') is set to schema of the box where the service is placed.
 
 ### Relay Action
@@ -353,7 +359,7 @@ Transcell token is set to Authorization header in order to execute this service.
 
 | Item name | Value |
 |:--|:--|
-| Subject | https&#58;//{FQDN}/{cellName}/#\_engine |
+| Subject | Subject of the event |
 | Schema | Schema of the event |
 
 Please use \_p.as('serviceSubject') or password authentication like \_p.as({cellUrl:xxx, userId:xxx, password:xxx}).

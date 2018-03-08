@@ -24,11 +24,13 @@ root
 
 * Always handles Content-Type in the request header as application/json
 * Only accepts the request body in the json format
-* Even if processing fails in the middle, rollback is not performed<br>* It is recommended that you export the Cell once before importing the Cell.
-- When importing to a different Unit, the account password will be different value<br>* Need to reset account password with [Account Update](215_Update_Account.md).
-- Currently the following import from a snapshot operations are allowed
- 1. Import onto the original Cell where the snapshot is exported.
- 2. Import onto a different Cell (same or different Unit) only when the original Cell no longer exists.
+* Even if processing fails in the middle, rollback is not performed  
+\* It is recommended that you export the Cell once before importing the Cell.
+- When importing to a different Unit, the account password will be different value  
+\* Need to reset account password with [Account Update](215_Update_Account.md).
+- Currently the following import from a snapshot operations are allowed  
+    1. Import onto the original Cell where the snapshot is exported.  
+    1. Import onto a different Cell (same or different Unit) only when the original Cell no longer exists.  
 
 
 ## Request

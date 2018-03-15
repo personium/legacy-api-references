@@ -6,20 +6,20 @@ APIリファレンスのリクエストURLで使われている変数につい�
 
 |変数名|概要|備考|
 |:--|:--|:--|
-|{UnitFQDN}|Personiumが動作しているサーバのFQDN<br>UnitとはPersoniumサーバ内で、複数のCellから構成されるデータ領域を指す||
+|{UnitFQDN}|Personiumが動作しているサーバのFQDN<br>Unitとは複数のCellをホストするサーバを指す||
 |{CellName}|Cell名<br>Cellとはデータ主体ごとのData Stroreを指す||
 |{BoxName}|Box名<br>Boxとはアプリケーションに用いるデータを格納する領域を指す||
 |{SchemaURL}|SchemaのURL<br>SchemaとはPersonium内に格納されたSchemaを指す||
-|{RoleName}|Role名<br>RoleとはすべてのCellに対して定義される「役割」を指す||
-|{AccountName}|Account名<br>Accountとは特定のCellに属するユーザを指す||
-|{ExtCellURL}|ExtCellのURL<br>ExtCell（外部Cell）とはあるCellの外にある他のCellを指す||
-|{RelationName}|Relation名<br>RelationとはCellとその外部Cellとの関係を示す定義体を指す||
-|{ExtRoleURL}|ExtRoleのURL<br>ExtRole（外部Role）とは特定の関係にある外部Cellにて、特定の役割（Role）を付与された利用者主体を指す||
+|{RoleName}|Role名<br>RoleとはCellに対して定義される有効な「役割」を指す||
+|{AccountName}|Account名<br>AccountとはCellでのユーザ認証手段を表す||
+|{ExtCellURL}|ExtCellのURL<br>ExtCell（外部Cell）とはあるCellから見たとき外にある他のCellを指す||
+|{RelationName}|Relation名<br>Relationとは自身（自Cell）と他者（外部Cell）との関係を示す||
+|{ExtRoleURL}|ExtRoleのURL<br>ExtRole（外部Role）とは特定の関係にある外部Cell群において特定の役割（Role）を付与された利用者主体を指す||
 |{LogName}|ログファイル名||
 |{MessageID}|MessageのID<br>MessageとはCell間で送受信可能なメッセージを指す||
-|{CollectionName}|Collection名<br>CollectionとはCellにあるBoxの中に格納されたデータ集合を指す||
+|{CollectionName}|Collection名<br>Collectionとは通常のファイルシステムでいうところのフォルダ・ディレクトリに相当する||
 |{ResourcePath}|リソースへのパス<br>Box配下のCollectionとファイルが対象となる||
-|{OdataCollectionName}|OdataCollection名<br>OdataCollectionとはユーザーがODataを操作するための特別なコレクションを指す||
+|{OdataCollectionName}|OdataCollection名<br>OdataCollectionとはユーザーがODataプロトコルで任意のリレーショナルデータを扱うための特殊WebDAV拡張コレクションを指す||
 |{EntityTypeName}|EntityType名<br>EntityTypeとはデータの構造をEntityDataModel(EDM)であらわすための定義体を指す|Entityの上位概念|
 |{AssociationEndName}|AssociationEnd名<br>AssociationEndとはAssociationを構成するエンドポイントとなっているEntityTypeを指す||
 |{ComplexTypeName}|ComplexType名<br>ComplexTypeとは下位属性を伴った属性を持つPropertyを指す|ComplexTypePropertyの上位概念|

@@ -1,6 +1,7 @@
 # Personium API Reference
 
 Welcome to the Personium API Reference.  This reference describes technical detailed specifications related to all of the APIs provided by Personium.
+Please refer to [Request URL variable list] (005_Variable_of_Request_URL.md) for the variable of the request URL in this reference.
 
 ## Unit Level API
 The Unit Level API's belong to the unit that hosts a group of cells and provide functions such as creating cells or managing a group of created cells. In principle, Unit Level API's cannot be accessed using the access tokens issued by normal cells and can only be accessed with Unit User Tokens.

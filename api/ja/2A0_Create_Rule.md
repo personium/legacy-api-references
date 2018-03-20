@@ -68,7 +68,7 @@ JSON
 |EventExternal|\_Box.Name|EventObject|備考|
 |:--|:--|:--|:--|
 |false|設定あり|personium-localbox:/...<br>personium-localcell:/\_\_...||
-|false|設定なし|personium-localcel:/...||
+|false|設定なし|personium-localcell:/...||
 |true||任意の文字列|
 
 #### TargetUrl記述の規則

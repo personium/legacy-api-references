@@ -128,8 +128,8 @@ On message approval, operations abount Cell Control object is executed.
 
 || Operations | Type | Object | Info | Remarks |
 |:--|:--|:--|:--|:--|:--|
-| Export | Execute | cell.export | personium-localcell:/ |||
-| Import | Execute | cell.import | personium-localcell:/ |||
+| Export | Execute | cell.export | personium-localcell:/\_\_export |||
+| Import | Execute | cell.import | personium-localcell:/\_\_import |||
 
 #### Box Level API
 ##### Basic WebDAV Operations

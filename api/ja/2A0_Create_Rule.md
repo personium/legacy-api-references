@@ -46,7 +46,7 @@ JSON
 |\_Box.Name|ルールが紐づくべきBox名|有効な box名. このキーを指定しなかったりnull値を指定したリクエストは、いかなるBoxにも紐づかないRuleと解釈されます.|×||
 |Name|作成するルールを識別するため任意の名前|Boxに紐づく場合はBox内で一意、Boxに紐づかない場合はセルで一意である必要があります。|×|省略時は自動的にuuidが割り当たります|
 |EventType|ルールをトリガーするイベントのタイプの前方一致検査用文字列|Evnet Typeの値は、内部イベントでは[別表](277_Event_Summary.md)のようにTypeが定義されています。外部イベントでは任意のTypeを指定可能です。|×||
-|EventSubject|ルールをトリガーすべきイベントのEvent Subject一致検査用文字列|Event Subject は基本的にCellのURLになるので、有効な値はその完全一致文字列となります。|×||
+|EventSubject|ルールをトリガーすべきイベントのEvent Subject一致検査用文字列|Event Subject はアカウントを表すURLになります。有効な値はその完全一致文字列となります。スキームとしては、http、https、personium-localunitが利用可能です。|×||
 |EventObject|ルールをトリガーすべきイベントのEvent Object前方一致検査用文字列|Event object の値はイベントのタイプにより異なります。 任意の文字列を設定可能ですが、意味を持つ値はイベントタイプにより異なります。 |×||
 |EventInfo|ルールをトリガーすべきイベントのEvent Info前方一致検査用文字列|Event info の値はイベントのタイプにより異なります。 任意の文字列を設定可能ですが、意味を持つ値はイベントタイプにより異なります。|×||
 |EventExternal|ルールをトリガーすべきイベントが外部イベントであるかどうかを表すフラグ|真偽値。外部イベントを検出したいときは true を設定してください。|×|デフォルト値 false|
@@ -67,7 +67,7 @@ JSON
 #### EventObject記述の規則
 |EventExternal|\_Box.Name|EventObject|備考|
 |:--|:--|:--|:--|
-|false|設定あり|personium-localbox:/...||
+|false|設定あり|personium-localbox:/...<br>personium-localcell:/\_\_...||
 |false|設定なし|personium-localcel:/...||
 |true||任意の文字列|
 

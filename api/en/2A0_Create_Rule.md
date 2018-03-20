@@ -45,7 +45,7 @@ JSON
 | \_Box.Name | Box name to which the rule should be attached | valid box name. A request not specifying this key or specifying a null value is interpreted as a Rule that is not associated with any Box.| No ||
 | Name | Arbitrary name to identify the rule to be created | When linking to a Box, it is unique within the Box, and if it is not tied to the Box, it must be unique in the cell. When | No | is omitted, the uuid automatically allocates | No ||
 | EventType | Character string for forward match checking for the type of event that triggers a rule | For Evnet Type, the type is defined for internal events as a separate [table](277_Event_Summary.md). For external events, you can specify any Type. | No ||
-| EventSubject | Event Subject for Event Subject to Trigger Rule The string for matching check | Event Subject is basically the URL of Cell, so valid value is the exact match string. | No ||
+| EventSubject | Event Subject for Event Subject to Trigger Rule The string for matching check | Event Subject is the URL to express Account, so valid value is the exact match string. Scheme to be set is http, https or personium-localunit. | No ||
 | EventObject | Event Object's event object to trigger the rule String for forward match check | Event The value of object depends on the type of event. An arbitrary character string can be set, but the meaningful value depends on the event type. | No ||
 | EventInfo | Character string for forward matching with info of event that triggers a rule | Event info value depends on event type. An arbitrary character string can be set, but the meaningful value depends on the event type. | No ||
 | EventExternal | Flag indicating whether the event to trigger the rule is an external event | Boolean. Set to true to detect external events. | No | default value false |
@@ -69,7 +69,7 @@ Only specific URL can be accepted for EventObject field when EventExternal is fa
 
 | EventExternal | \_Box.Name | EventObject | Remarks |
 |:--|:--|:--|:--|
-| false | specified | personium-localbox:/... ||
+| false | specified | personium-localbox:/...<br>personium-localcell:/\_\_... ||
 | false | Not specified | personium-localcell:/... ||
 | true || Any string ||
 

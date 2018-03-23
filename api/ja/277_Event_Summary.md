@@ -130,8 +130,8 @@ xxxやyyyには、Cell制御オブジェクト名が入ります。
 
 || 操作 | Type | Object | Info | 備考 |
 |:--|:--|:--|:--|:--|:--|
-| エクスポート | 実行 | cell.export | personium-localcell:/ |||
-| インポート | 実行 | cell.import | personium-localcell:/ |||
+| エクスポート | 実行 | cell.export | personium-localcell:/\_\_export |||
+| インポート | 実行 | cell.import | personium-localcell:/\_\_import |||
 
 #### Box Level API
 ##### WebDAV基本操作

@@ -8,11 +8,6 @@ Change collection settings
 
 write-properties
 
-### Restrictions
-
-Unpublished
-
-
 ## Request
 
 ### Request URL
@@ -115,10 +110,6 @@ PROPPATCH
 |Code|Message|Overview|
 |:--|:--|:--|
 |207|Multi-Status|Success|
-
-### Response Header
-
-Unpublished
 
 ### Response Body
 

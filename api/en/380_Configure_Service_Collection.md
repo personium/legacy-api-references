@@ -4,10 +4,6 @@
 
 Apply service collection source settings
 
-### Restrictions
-
-Unpublished
-
 ### Required Privileges
 
 write-properties

@@ -83,8 +83,8 @@ See acl\_model ([access control model](006_Access_Control.md)) for the contents 
 |write-properties|D:|Element|Edit property authority||
 |read-acl|D:|Element|ACL setting reference authority||
 |write-acl|D:|Element|ACL setting edit permission||
-|bind|D:|Element|Unpublished|V1.1 series, V1.2 series not supported|
-|unbind|D:|Element|Unpublished|V1.1 series, V1.2 series not supported|
+|bind|D:|Element|Member URL addition authority|Not supported|
+|unbind|D:|Element|Member URL deletion authority|Not supported|
 |exec|D:|Element|Service execution authority||
 
 DTD notation

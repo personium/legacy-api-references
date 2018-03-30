@@ -7,8 +7,6 @@ Relationに紐付いたODataリソースを一覧取得する
 * ExtRole
 * Role
 
-### 必要な権限
-未稿
 ### 制限事項
 * リクエストヘッダのAcceptは無視される
 * リクエストヘッダのContent-Typeは全てapplication/jsonとして扱う

@@ -356,9 +356,6 @@ barファイルのインストール時には、下記サンプルの<prop>配�
 </multistatus>
 ```
 #### contents/{OData}/
-以下のファイルについては、詳細未稿
-* 90_data / {EntityType}/1.json
-
 ##### 00_$metadata.xml
 ユーザODataのスキーマ定義を示す。barファイルにエクスポートする時に、Odata用コレクションに対して$metadataにて取得したXMLデータ。  
 XMLデータの詳細は、[スキーマ取得（$metadata）](316_User_Defined_Data_Schema.md)を参照。  
@@ -436,9 +433,6 @@ Boxインストール時には、Schemaタグの配下をインストール対�
     }
 }
 ```
-
-#### contents / {webdavbcol} /
-※未稿
 
 #### contents/Service/{src.js}
 bar/90_contents/{Service}/{src.js}に格納されたソースファイルを、インストール先Box配下の{Service}/\__src/{src.js}に登録する。

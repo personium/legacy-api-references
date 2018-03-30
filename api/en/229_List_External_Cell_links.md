@@ -7,10 +7,6 @@ List OData resources associated with ExtCell<br>You can specify the following OD
 * Role
 * Relation
 
-### Required Privileges
-
-Unpublished
-
 ### Restrictions
 
 * Accept in the request header is ignored

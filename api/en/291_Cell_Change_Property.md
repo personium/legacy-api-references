@@ -8,11 +8,6 @@ change Cell properties
 
 Only unit users permitted
 
-### Restrictions
-
-Unpublished
-
-
 ## Request
 
 ### Request URL

@@ -5,9 +5,6 @@ UUT（Unit User Token）昇格設定を変更する
 ### 必要な権限
 ユニットユーザのみ可能
 
-### 制限事項
-未稿
-
 ## リクエスト
 ### リクエストURL
 ```
@@ -92,8 +89,6 @@ account2</p:account></p:ownerRepresentativeAccounts>
 |コード|メッセージ|概要|
 |:--|:--|:--|
 |207|MULTI_STATUS|成功|
-### レスポンスヘッダ
-未稿
 
 ### レスポンスボディ
 名前空間

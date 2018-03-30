@@ -7,10 +7,6 @@ You can specify the following OData resources
 
 * Role
 
-### Required Privileges
-
-Unpublished
-
 ### Restrictions
 
 * OData Restrictions

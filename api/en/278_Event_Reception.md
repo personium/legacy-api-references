@@ -2,7 +2,7 @@
 
 ## Overview
 
-This API accepts the requested event
+Accept any external event to be handled by the event processing function of Cell.
 
 ### Required Privileges
 

@@ -7,10 +7,6 @@ List OData resources associated with ExtRole<br>You can specify the following OD
 * Relation
 * Role
 
-### Required Privileges
-
-Unpublished
-
 ### Restrictions
 
 * Accept in the request header is ignored

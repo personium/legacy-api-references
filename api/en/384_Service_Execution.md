@@ -8,12 +8,6 @@ Execute the registered service
 
 exec
 
-### Restrictions
-
-* WebDAV Restrictions
-    * Unpublished
-
-
 ## Request
 
 ### Request URL

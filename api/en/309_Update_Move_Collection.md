@@ -9,13 +9,6 @@ Move / rename WebDAV collection file.
 
 write
 
-### Restrictions
-
-#### WebDAV restriction
-
-Unpublished
-
-
 ## Request
 
 ### Request URL

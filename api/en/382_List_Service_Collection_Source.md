@@ -8,11 +8,6 @@ Retrieve service source information
 
 read
 
-### Restrictions
-
-* WebDAV Restrictions
-    * Unpublished
-
 ## Request
 
 ### Request URL

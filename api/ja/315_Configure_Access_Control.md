@@ -73,8 +73,8 @@ privilegeタグ配下の権限設定の内容については、acl_model（[ア�
 |write-properties|D:|要素|プロパティ編集権限||
 |read-acl|D:|要素|ACL設定参照権限||
 |write-acl|D:|要素|ACL設定編集権限||
-|bind|D:|要素|未稿|V1.1系、V1.2系未対応|
-|unbind|D:|要素|未稿|V1.1系、V1.2系未対応|
+|bind|D:|要素|メンバーURL追加権限|未対応|
+|unbind|D:|要素|メンバーURL削除権限|未対応|
 |exec|D:|要素|サービス実行権限||
 
 

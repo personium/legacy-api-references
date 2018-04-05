@@ -4,8 +4,6 @@ Propertyに紐付いたODataリソースを一覧取得する
 以下のODataリソースを指定することができる
 * EntityType
 
-### 必要な権限
-未稿
 ### 制限事項
 * リクエストヘッダのContent-Typeは全てapplication/jsonとして扱う
 * リクエストボディはJSON形式のみ受け付ける

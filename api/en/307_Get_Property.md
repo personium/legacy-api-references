@@ -12,10 +12,6 @@ read-properties
 
 ### Restrictions
 
-WebDAV restriction
-
-* Unpublished
-
 Restriction on V1.0 series
 
 * Function to specify properties to be returned in the response body (it becomes current allprop)

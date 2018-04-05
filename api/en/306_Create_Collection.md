@@ -8,13 +8,6 @@ Create a collection
 
 write
 
-### Restrictions
-
-WebDAV restriction
-
-* Unpublished
-
-
 ## Request
 
 ### Request URL

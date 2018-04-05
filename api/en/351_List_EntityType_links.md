@@ -7,10 +7,6 @@ You can specify the following OData resources
 
 * AssociationEnd
 
-### Required Privileges
-
-Unpublished
-
 ### Restrictions
 
 * Always handles Content-Type in the request header as application/json

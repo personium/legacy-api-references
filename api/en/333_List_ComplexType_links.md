@@ -8,10 +8,6 @@ You can specify the following OData resources
 
 * Property
 
-### Required Privileges
-
-Unpublished
-
 ### Restrictions
 
 * Always handles Content-Type in the request header as application/json

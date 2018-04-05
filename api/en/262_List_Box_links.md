@@ -16,10 +16,6 @@ List OData resources associated with Box<br>You can specify the following OData 
 |Rule|box-read<br>rule-read|
 
 
-### Required Privileges
-
-Unpublished
-
 ### Restrictions
 
 * Accept in the request header is ignored

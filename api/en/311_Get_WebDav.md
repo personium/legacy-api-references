@@ -10,11 +10,6 @@ When specifying the range with the Range header, return the contents of the spec
 
 read
 
-### Restrictions
-
-Unpublished
-
-
 ## Request
 
 ### Request URL

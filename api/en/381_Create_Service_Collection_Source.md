@@ -8,12 +8,6 @@ Register / update service source information
 
 write
 
-### Restrictions
-
-* WebDAV Restrictions
-    * Unpublished
-
-
 ## Request
 
 ### Request URL

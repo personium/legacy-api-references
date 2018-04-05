@@ -10,10 +10,6 @@ You can specify the following OData resources
 * ExtRole
 * Role
 
-### Required Privileges
-
-Unpublished
-
 ### Restrictions
 
 * Accept in the request header is ignored

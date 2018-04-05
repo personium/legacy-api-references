@@ -8,10 +8,6 @@ This API changes the UUT (Unit User Token) upgraded settings.
 
 Only unit users permitted
 
-### Restrictions
-
-Unpublished  
-
 ## Request
 
 ### Request URL
@@ -114,10 +110,6 @@ None
 |Code|Message|Overview|
 |:--|:--|:--|
 |207|MULTI_STATUS|Success|
-
-### Response Header
-
-Unpublished
 
 ### Response Body
 

@@ -44,6 +44,7 @@ The following query parameters are available
 |:--|:--|:--|:--|:--|
 |p_cookie_peer|Cookie Authentication Value|The cookie authentication value returned from the server during authentication|No|Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used|
 
+<!---
 [$select  Query](406_Select_Query.md)
 
 [$expand  Query](405_Expand_Query.md)
@@ -55,12 +56,15 @@ The following query parameters are available
 [$inlinecount  Query](407_Inlinecount_Query.md)
 
 [$orderby  Query](400_Orderby_Query.md)
+-->
 
 [$top  Query](401_Top_Query.md)
 
 [$skip  Query](402_Skip_Query.md)
 
+<!--
 [Full-text Search (q) Query](408_Full_Text_Search_Query.md)
+-->
 
 ### Request Header
 

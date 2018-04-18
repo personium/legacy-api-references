@@ -1,4 +1,4 @@
-# Property_$links削除
+# Propertyと他オブジェクトとのリンク解除
 ## 概要
  $ linkのPropertyを削除する
 ### 必要な権限

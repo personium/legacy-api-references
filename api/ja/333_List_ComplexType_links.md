@@ -1,8 +1,7 @@
-# ComplexType_$links一覧取得
+# ComplexTypeと他オブジェクトとのリンク一覧取得
 ## 概要
-ComplexTypeに紐付いたODataリソースを一覧取得する
-
-以下のODataリソースを指定することができる
+ComplexTypeに紐付いたODataリソースを一覧取得する  
+以下のODataリソースを指定することができる  
 * Property
 
 ### 制限事項

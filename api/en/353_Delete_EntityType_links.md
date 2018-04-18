@@ -1,4 +1,4 @@
-# EntityType $links remove
+# Unlink EntityType with other objects
 
 ## Overview
 

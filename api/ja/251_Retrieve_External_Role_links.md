@@ -1,6 +1,7 @@
-# ExtRole_$links一覧取得
+# ExtRoleと他オブジェクトとのリンク一覧取得
 ## 概要
-ExtRoleに紐付いたODataリソースを一覧取得する<br>以下のODataリソースを指定することができる
+ExtRoleに紐付いたODataリソースを一覧取得する  
+以下のODataリソースを指定することができる  
 
 * Relation
 * Role

@@ -1,4 +1,4 @@
-# Account_$links削除
+# Accountと他オブジェクトとのリンク解除
 ## 概要
 Accountとの$links情報を削除する
 

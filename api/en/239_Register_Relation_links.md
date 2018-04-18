@@ -1,8 +1,9 @@
-# Relation\_$links registration
+# Link other objects with Relation
 
 ## Overview
 
-Link Relation to the OData resource specified by $links<br>Get a list of OData resources linked with following
+Link Relation to the OData resource specified by $links  
+Get a list of OData resources linked with following  
 
 * Box
 * ExtCell

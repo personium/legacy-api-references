@@ -1,4 +1,4 @@
-# Entity NavProp registration
+# Register of other objects via Entity's Navigation Property
 
 ## Overview
 

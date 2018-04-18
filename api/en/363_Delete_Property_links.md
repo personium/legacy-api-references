@@ -1,4 +1,4 @@
-# Property $links deleted
+# Unlink Property with other objects
 
 ## Overview
 

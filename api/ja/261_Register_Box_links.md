@@ -1,6 +1,7 @@
-# Box_$links登録
+# Boxと他オブジェクトとのリンク
 ## 概要
-Boxに$linksで指定したODataリソースを紐付ける<Br>以下のODataリソースと紐付けることができる
+Boxに$linksで指定したODataリソースを紐付ける  
+以下のODataリソースと紐付けることができる  
 
 * Role
 * Relation

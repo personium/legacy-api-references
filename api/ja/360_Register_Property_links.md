@@ -1,4 +1,4 @@
-# Property_$links登録
+# Propertyと他オブジェクトとのリンク
 ## 概要
 Propertyに$linkで指定したODataリソースを紐付ける  
 以下のODataリソースと紐付けることができる  

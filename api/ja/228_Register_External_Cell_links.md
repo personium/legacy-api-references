@@ -1,6 +1,7 @@
-# Extcell_$links登録
+# Extcellと他オブジェクトとのリンク
 ## 概要
-ExtCellに$linksで指定したODataリソースを紐付ける<br>以下のODataリソースと紐付けることができる
+ExtCellに$linksで指定したODataリソースを紐付ける  
+以下のODataリソースと紐付けることができる  
 * Role
 * Relation
 

@@ -1,6 +1,7 @@
 # Ruleと他オブジェクト（Box）とのリンク
 ## 概要
-Ruleに$linksで指定したODataリソースを紐付ける<Br>以下のODataリソースと紐付けることができる
+Ruleに$linksで指定したODataリソースを紐付ける  
+以下のODataリソースと紐付けることができる  
 * Box
 
 リクエストURLに記載された_Box.Nameがnullの場合（または指定されていない場合）のみBoxに紐付けることができる

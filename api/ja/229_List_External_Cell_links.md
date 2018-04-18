@@ -1,6 +1,7 @@
-# ExtCell_$links一覧取得
+# ExtCellと他オブジェクトとのリンク一覧取得
 ## 概要
-ExtCellに紐付いたODataリソースを一覧取得する<br>以下のODataリソースを指定することができる
+ExtCellに紐付いたODataリソースを一覧取得する  
+以下のODataリソースを指定することができる  
 * Role
 * Relation
 

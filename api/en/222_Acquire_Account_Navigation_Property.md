@@ -1,4 +1,4 @@
-# Acquisition via Account\_NavProp
+# Retrieval of other objects list via Account's Navigation Property
 
 ## Overview
 

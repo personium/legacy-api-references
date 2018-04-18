@@ -1,9 +1,9 @@
-# Role\_$links Retrieve List
+# Retrieve links list from Role to other objects
 
 ## Overview
 
 Get a list of OData resources associated with Role  
-You can specify the following OData resources
+You can specify the following OData resources  
 
 * Account
 * ExtCell

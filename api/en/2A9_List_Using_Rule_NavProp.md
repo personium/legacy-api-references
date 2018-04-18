@@ -1,4 +1,4 @@
-# Acquired via Rule_NavProp
+# Retrieval of other objects list via Rule's Navigation Property
 ## Overview
 Acquire cell control object via Navigation Property
 ### Required Permissions

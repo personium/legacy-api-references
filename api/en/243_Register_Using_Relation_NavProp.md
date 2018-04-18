@@ -1,4 +1,4 @@
-# Registration via Relation\_NavProp
+# Register of other objects via Relation's Navigation Property
 
 ## Overview
 

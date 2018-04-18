@@ -1,4 +1,4 @@
-# Delete ComplexTypeProperty $links
+# Unlink ComplexTypeProperty with other objects
 
 in preparation
 

@@ -1,4 +1,4 @@
-# AccountのNavigation Property経由でのRole登録
+# AccountのNavigation Property経由での他オブジェクト登録
 ## 概要
 AccountのNavigation Property経由でRoleを登録する
 

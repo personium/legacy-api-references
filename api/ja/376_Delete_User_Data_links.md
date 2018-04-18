@@ -1,4 +1,4 @@
-# Entity_$links削除
+# Entityと他オブジェクトとのリンク解除
 ## 概要
 ユーザデータのEntityとの$links情報を削除する
 ### 制限事項

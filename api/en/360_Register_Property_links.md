@@ -1,9 +1,9 @@
-# Property $links registered
+# Link other objects with Property
 
 ## Overview
 
 Link Property to OData resource specified by $links  
-Get a list of OData resources linked with following
+Get a list of OData resources linked with following  
 
 * EntityType
 

@@ -1,4 +1,4 @@
-# Account\_$links registration
+# Link other objects with Account
 
 ## Overview
 

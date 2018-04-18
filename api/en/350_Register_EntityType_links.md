@@ -1,4 +1,4 @@
-# EntityType $links Registration
+# Link other objects with EntityType
 
 ## Overview
 

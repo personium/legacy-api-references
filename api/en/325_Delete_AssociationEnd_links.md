@@ -1,4 +1,4 @@
-# AssociationEnd $links remove
+# Unlink AssociationEnd with other objects
 
 ## Overview
 

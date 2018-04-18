@@ -1,7 +1,7 @@
-# AssociationEnd_$links一覧取得
+# AssociationEndと他オブジェクトとのリンク一覧取得
 ## 概要
 AssociationEndに紐付いたODataリソースを一覧取得する  
-以下のODataリソースを指定することができる
+以下のODataリソースを指定することができる  
 * AssociationEnd
 
 ### 制限事項

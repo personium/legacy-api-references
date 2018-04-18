@@ -1,4 +1,4 @@
-# ComplexType $links deleted
+# Unlink ComplexType with other objects
 
 ## Overview
 

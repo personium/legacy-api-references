@@ -1,10 +1,9 @@
-# Get ComplexType $links list
+# Retrieve links list from ComplexType to other objects
 
 ## Overview
 
-List OData resources associated with ComplexType
-
-You can specify the following OData resources
+List OData resources associated with ComplexType  
+You can specify the following OData resources  
 
 * Property
 

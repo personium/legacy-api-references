@@ -1,8 +1,8 @@
-# ComplexType_$links削除
+# ComplexTypeと他オブジェクトとのリンク解除
 ## 概要
-ComplexType の$link情報を削除する
+ComplexType の$link情報を削除する  
 
-Propertyを削除する際に、使用しているComplexTypeが存在しない場合に限り、ユーザデータの削除が可能。
+Propertyを削除する際に、使用しているComplexTypeが存在しない場合に限り、ユーザデータの削除が可能  
 
 ### 必要な権限
 alter-schema

@@ -1,4 +1,4 @@
-# AssociationEnd_$links削除
+# AssociationEndと他オブジェクトとのリンク解除
 ## 概要
 AssociationEndの$links情報を削除する
 ### 必要な権限

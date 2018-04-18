@@ -1,4 +1,4 @@
-# Role_$links削除
+# Roleと他オブジェクトとのリンク解除
 ## 概要
 Roleとの$links情報を削除する
 

@@ -1,4 +1,4 @@
-# AssociationEnd_$links登録
+# AssociationEndと他オブジェクトとのリンク
 ## 概要
 ユーザーデータスキーマのAssociationEndのリンク情報を登録する  
 

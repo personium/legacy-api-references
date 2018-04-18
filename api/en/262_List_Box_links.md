@@ -1,8 +1,9 @@
-# Box\_$links Retrieve List
+# Retrieve links list from Box to other objects
 
 ## Overview
 
-List OData resources associated with Box<br>You can specify the following OData resources
+List OData resources associated with Box  
+You can specify the following OData resources  
 
 * Role
 * Relation

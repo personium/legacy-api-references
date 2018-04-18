@@ -1,4 +1,4 @@
-# Get An Entity list via NavProp
+# Retrieval of other objects list via Entity's Navigation Property
 
 ## Overview
 

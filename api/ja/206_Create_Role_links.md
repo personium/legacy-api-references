@@ -1,4 +1,4 @@
-# Role_$links登録
+# Roleと他オブジェクトとのリンク
 ## 概要
 Roleに$linksで指定したODataリソースを紐付ける
 * Account

@@ -1,4 +1,4 @@
-# ComplexTypeProperty $links List Acquisition
+# Retrieve links list from ComplexTypeProperty to other objects
 
 in preparation
 

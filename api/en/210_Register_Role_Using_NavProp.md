@@ -1,4 +1,4 @@
-# Registration via Role\_NavProp
+# Register of other objects via Role's Navigation Property
 
 ## Overview
 

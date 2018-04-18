@@ -1,4 +1,4 @@
-# Entity $links deleted
+# Unlink Entity with other objects
 
 ## Overview
 

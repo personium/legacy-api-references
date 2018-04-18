@@ -1,4 +1,4 @@
-# Relation_NavProp経由取得
+# RelationのNavigation Property経由での他オブジェクト一覧取得
 ## 概要
 セル制御オブジェクトをNavigation Property経由で取得する
 

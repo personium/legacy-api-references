@@ -1,4 +1,4 @@
-# Registration via Box\_NavProp
+# Register of other objects via Box's Navigation Property
 
 ## Overview
 

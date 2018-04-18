@@ -1,4 +1,4 @@
-# Registration via ExtCell\_NavProp
+# Register of other objects via ExtCell's Navigation Property
 
 ## Overview
 

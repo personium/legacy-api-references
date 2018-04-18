@@ -1,8 +1,9 @@
-# ExtRole\_$links Retrieve List
+# Retrieve links list from ExtRole to other objects
 
 ## Overview
 
-List OData resources associated with ExtRole<br>You can specify the following OData resources
+List OData resources associated with ExtRole  
+You can specify the following OData resources  
 
 * Relation
 * Role

@@ -1,4 +1,4 @@
-# ExtRole\_$links registration
+# Link other objects with ExtRole
 
 ## Overview
 

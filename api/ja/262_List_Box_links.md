@@ -20,7 +20,6 @@ Boxに紐付いたODataリソースを一覧取得する
 * リクエストヘッダのContent-Typeは全てapplication/jsonとして扱う
 * リクエストボディはJSON形式のみ受け付ける
 * レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはJSON形式とする
-* $formatクエリオプションは無視される
 
 
 ## リクエスト

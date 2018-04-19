@@ -1,4 +1,4 @@
-# Acquisition via Box\_NavProp
+# Retrieval of other objects list via Box's Navigation Property
 
 ## Overview
 

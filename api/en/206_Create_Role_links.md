@@ -1,4 +1,4 @@
-# Role\_$links registration
+# Link other objects with Role
 
 ## Overview
 

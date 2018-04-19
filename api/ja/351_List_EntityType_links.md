@@ -1,7 +1,7 @@
-# EntityType_$links一覧取得
+# EntityTypeと他オブジェクトとのリンク一覧取得
 ## 概要
-EntityTypeに紐付いたODataリソースを一覧取得する
-以下のODataリソースを指定することができる
+EntityTypeに紐付いたODataリソースを一覧取得する  
+以下のODataリソースを指定することができる  
 * AssociationEnd
 
 ### 制限事項

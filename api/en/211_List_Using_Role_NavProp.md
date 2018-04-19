@@ -1,4 +1,4 @@
-# Acquisition via Role\_NavProp
+# Retrieval of other objects list via Role's Navigation Property
 
 ## Overview
 

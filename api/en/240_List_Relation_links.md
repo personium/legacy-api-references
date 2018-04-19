@@ -1,9 +1,9 @@
-# Relation\_$links Retrieve List
+# Retrieve links list from Relation to other objects
 
 ## Overview
 
 List OData resources associated with Relation  
-You can specify the following OData resources
+You can specify the following OData resources  
 
 * Box
 * ExtCell

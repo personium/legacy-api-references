@@ -1,4 +1,4 @@
-# Acquisition via Relation\_NavProp
+# Retrieval of other objects list via Relation's Navigation Property
 
 ## Overview
 

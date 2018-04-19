@@ -1,4 +1,4 @@
-# Entity_NavProp経由一覧取得
+# EntityのNavigation Property経由での他オブジェクト一覧取得
 ## 概要
 ユーザデータのEntity一覧をNavigation Property経由で取得します。
 ### 必要な権限

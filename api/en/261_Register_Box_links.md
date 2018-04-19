@@ -1,8 +1,9 @@
-# Box\_$links registration
+# Link other objects with Box
 
 ## Overview
 
-Link Box with OData resource specified by $ links<br>Get a list of OData resources linked with following
+Link Box with OData resource specified by $ links  
+Get a list of OData resources linked with following  
 
 * Role
 * Relation

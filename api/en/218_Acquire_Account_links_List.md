@@ -1,9 +1,9 @@
-# Account\_$links Retrieve List
+# Retrieve links list from Account to other objects
 
 ## Overview
 
 List OData resources associated with Account  
-You can specify the following OData resources
+You can specify the following OData resources  
 
 * Role
 

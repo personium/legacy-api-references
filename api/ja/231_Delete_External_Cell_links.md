@@ -1,4 +1,4 @@
-# Extcell_$links削除
+# Extcellと他オブジェクトとのリンク解除
 ## 概要
 ExtCellとの$links情報を削除する
 

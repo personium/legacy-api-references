@@ -1,9 +1,9 @@
-# Get EntityType $links list
+# Retrieve links list from EntityType to other objects
 
 ## Overview
 
 List OData resources associated with EntityType  
-You can specify the following OData resources
+You can specify the following OData resources  
 
 * AssociationEnd
 

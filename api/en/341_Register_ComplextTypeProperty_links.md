@@ -1,4 +1,4 @@
-# ComplexTypeProperty $links Registration
+# Link other objects with ComplexTypeProperty
 
 in preparation
 

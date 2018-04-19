@@ -1,4 +1,4 @@
-# Box_NavProp経由登録
+# BoxのNavigation Property経由での他オブジェクト登録
 ## 概要
 以下のCell制御オブジェクトをBoxのNavigation Property経由で登録する
 * Role

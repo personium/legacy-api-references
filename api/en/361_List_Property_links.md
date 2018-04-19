@@ -1,9 +1,9 @@
-# Property $links list acquisition
+# Retrieve links list from Property to other objects
 
 ## Overview
 
 Obtain a list of OData resources associated with Property  
-You can specify the following OData resources
+You can specify the following OData resources  
 
 * EntityType
 

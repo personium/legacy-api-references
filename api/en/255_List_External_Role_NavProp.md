@@ -1,4 +1,4 @@
-# Acquisition via ExtRole\_NavProp
+# Retrieval of other objects list via ExtRole's Navigation Property
 
 ## Overview
 

@@ -1,4 +1,4 @@
-# Registration via ExtRole\_NavProp
+# Register of other objects via ExtRole's Navigation Property
 
 ## Overview
 

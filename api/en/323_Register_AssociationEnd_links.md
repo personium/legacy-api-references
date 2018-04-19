@@ -1,4 +1,4 @@
-# AssociationEnd $links Registration
+# Link other objects with AssociationEnd
 
 ## Overview
 

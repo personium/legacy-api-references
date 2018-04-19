@@ -1,7 +1,7 @@
-# Role_$links一覧取得
+# Roleと他オブジェクトとのリンク一覧取得
 ## 概要
-Roleに紐付いたODataリソースを一覧取得する
-以下のODataリソースを指定することができる
+Roleに紐付いたODataリソースを一覧取得する  
+以下のODataリソースを指定することができる  
 * Account
 * ExtCell
 * ExtRole

@@ -1,6 +1,7 @@
-# Relation_$links登録
+# Relationと他オブジェクトとのリンク
 ## 概要
-Relationに$linksで指定したODataリソースを紐付ける<br>以下のODataリソースと紐付けることができる
+Relationに$linksで指定したODataリソースを紐付ける  
+以下のODataリソースと紐付けることができる  
 
 * Box
 * ExtCell

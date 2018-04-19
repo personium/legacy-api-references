@@ -1,9 +1,9 @@
-# Entity $links list acquisition
+# Retrieve links list from Entity to other objects
 
 ## Overview
 
 A list of OData resources associated with Entity of user data is obtained.  
-You can specify the following OData resources
+You can specify the following OData resources  
 
 * User data
 

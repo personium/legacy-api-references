@@ -1,8 +1,9 @@
-# ExtCell\_$links Retrieve List
+# Retrieve links list from ExtCell to other objects
 
 ## Overview
 
-List OData resources associated with ExtCell<br>You can specify the following OData resources
+List OData resources associated with ExtCell  
+You can specify the following OData resources  
 
 * Role
 * Relation

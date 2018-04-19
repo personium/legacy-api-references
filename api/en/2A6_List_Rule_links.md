@@ -1,6 +1,7 @@
-# Rule_ $links get list
+# Retrieve links list from Rule to other objects
 ## Overview
-Get a list of OData resources associated with Rule <br> You can specify the following OData resources
+Get a list of OData resources associated with Rule  
+You can specify the following OData resources  
 
 * Box
 

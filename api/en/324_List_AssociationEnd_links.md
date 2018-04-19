@@ -1,9 +1,9 @@
-# AssociationEnd $links List Acquisition
+# Retrieve links list from AssociationEnd to other objects
 
 ## Overview
 
 Obtain a list of OData resources associated with AssociationEnd  
-You can specify the following OData resources
+You can specify the following OData resources  
 
 * AssociationEnd
 

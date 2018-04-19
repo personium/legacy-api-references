@@ -1,4 +1,4 @@
-# List acquire via ExtCell\_NavProp
+# Retrieval of other objects list via ExtCell's Navigation Property
 
 ## Overview
 

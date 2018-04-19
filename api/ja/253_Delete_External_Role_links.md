@@ -1,6 +1,6 @@
-# ExtRole_$links削除
+# ExtRoleと他オブジェクトとのリンク解除
 ## 概要
-ExtRoleに紐付いたRoleの$links情報を削除する
+ExtRoleに紐付いたRoleの$links情報を削除する  
 
 ### 制限事項
 * リクエストヘッダのAcceptは無視される

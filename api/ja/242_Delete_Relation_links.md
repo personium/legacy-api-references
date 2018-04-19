@@ -1,7 +1,7 @@
-# Relation_$links削除
+# Relationと他オブジェクトとのリンク解除
 ## 概要
 Relationとの$links情報を削除する  
-以下のODataリソースを指定できる
+以下のODataリソースを指定できる  
 * Box
 * ExtCell
 * ExtRole

@@ -1,4 +1,4 @@
-# ExtRole_$links登録
+# ExtRoleと他オブジェクトとのリンク
 ## 概要
 ExtRoleに$linksで指定したRoleのODataリソースを紐付ける
 ### 制限事項

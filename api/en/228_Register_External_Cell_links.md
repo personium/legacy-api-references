@@ -1,8 +1,9 @@
-# Extcell $links registered
+# Link other objects with Extcel
 
 ## Overview
 
-Link ExtCell to the OData resource specified by $links<br>Get a list of OData resources linked with following
+Link ExtCell to the OData resource specified by $links  
+Get a list of OData resources linked with following  
 
 * Role
 * Relation

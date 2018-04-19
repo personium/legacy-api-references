@@ -1,9 +1,9 @@
-# Relation\_$links delete
+# Unlink Relation with other objects
 
 ## Overview
 
 Delete a list of OData resources associated with Relation  
-You can specify the following OData resources
+You can specify the following OData resources  
 
 * Box
 * ExtCell

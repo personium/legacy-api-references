@@ -1,4 +1,4 @@
-# ExtRole\_$links delete
+# Unlink ExtRole with other objects
 
 ## Overview
 

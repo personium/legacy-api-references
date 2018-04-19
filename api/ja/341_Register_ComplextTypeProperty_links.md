@@ -1,4 +1,4 @@
-# ComplexTypeProperty_$links登録
+# ComplexTypePropertyと他オブジェクトとのリンク
 
 
 準備中

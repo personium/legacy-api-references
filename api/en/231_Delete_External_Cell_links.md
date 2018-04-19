@@ -1,4 +1,4 @@
-# Extcell $links remove
+# Unlink Extcell with other objects
 
 ## Overview
 

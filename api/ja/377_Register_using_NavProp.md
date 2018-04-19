@@ -1,4 +1,4 @@
-# Entity_NavProp経由登録
+# EntityのNavigation Property経由での他オブジェクト登録
 ## 概要
 ユーザデータのEntityをNavigation Property経由で作成します。
 ### 必要な権限

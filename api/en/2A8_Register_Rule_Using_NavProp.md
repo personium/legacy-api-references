@@ -1,4 +1,5 @@
-# Other object registration via # Rule's Navigation Property
+# Register of other objects via Rule's Navigation Property
+
 ## Overview
 
 Register other Cell control objects via Rule's Navigation Property. By doing this, it is possible to register objects linked from the beginning.

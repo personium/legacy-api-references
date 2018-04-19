@@ -1,4 +1,4 @@
-# ComplexTypeProperty_$links削除
+# ComplexTypePropertyと他オブジェクトとのリンク解除
 
 
 準備中

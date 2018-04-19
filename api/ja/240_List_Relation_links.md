@@ -1,7 +1,7 @@
-# Relation_$links一覧取得
+# Relationと他オブジェクトとのリンク一覧取得
 ## 概要
 Relationに紐付いたODataリソースを一覧取得する  
-以下のODataリソースを指定することができる
+以下のODataリソースを指定することができる  
 * Box
 * ExtCell
 * ExtRole

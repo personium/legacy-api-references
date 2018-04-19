@@ -1,4 +1,4 @@
-# Registration via Account\_NavProp
+# Register of other objects via Account's Navigation Property
 
 ## Overview
 

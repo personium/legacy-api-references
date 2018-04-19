@@ -8,7 +8,6 @@ ComplexTypeに紐付いたODataリソースを一覧取得する
 * リクエストヘッダのContent-Typeは全てapplication/jsonとして扱う
 * リクエストボディはJSON形式のみ受け付ける
 * レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはJSON形式とする
-* $formatクエリオプションにatom または xmlを指定した場合、エラーとはならないが、レスポンスボディのデータの保証はない
 
 
 ## リクエスト

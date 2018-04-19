@@ -12,7 +12,6 @@ You can specify the following OData resources
 * Always handles Content-Type in the request header as application/json
 * Only accepts the request body in the JSON format
 * Only application/json is supported for Content-Type in the request header and the JSON format for the response body
-* Response body data is not ensured if atom or xml is specified in the $format query option, although it does not result in an error
 * User data restrictions
     * Property scope of Edm.DateTime type is not properly checked
     * Array of Edm.DateTime type is not supported

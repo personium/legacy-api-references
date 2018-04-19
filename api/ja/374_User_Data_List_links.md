@@ -8,7 +8,6 @@
 * リクエストヘッダのContent-Typeは全てapplication/jsonとして扱う
 * リクエストボディはJSON形式のみ受け付ける
 * レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはJSON形式とする
-* $formatクエリオプションにatom または xmlを指定した場合、エラーとはならないが、レスポンスボディのデータの保証はない
 * ユーザデータ制限事項
 	- Edm.DateTime型のプロパティの有効範囲のチェックが適切に行われない
 	- Edm.DateTime型の配列は未サポート

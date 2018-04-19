@@ -16,7 +16,6 @@ You can specify the following OData resources
 * Always handles Content-Type in the request header as application/json
 * Only accepts the request body in the JSON format
 * Only application/json is supported for Content-Type in the request header and the JSON format for the response body
-* $formatQuery options ignored
 
 
 ## Request

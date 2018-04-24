@@ -82,11 +82,11 @@ RequestType : rule.add / rule.remove
 |RequestType|リクエストの種別|rule.add<br>rule.remove|〇||
 |Name|作成するルールを識別するため任意の名前|詳細は[Rule作成](2A0_Create_Rule.md)を参照|×||
 |EventType|ルールをトリガーするイベントのタイプの前方一致検査用文字列|詳細は[Rule作成](2A0_Create_Rule.md)を参照|×||
-|EventSubject|ルールをトリガーすべきイベントのEvent Subject一致検査用文字列|詳細は[Rule作成](2A0_Create_Rule.md)を参照|×||
+|EventSubject|ルールをトリガーすべきイベントのEvent Subject一致検査用文字列|詳細は[Rule作成](2A0_Create_Rule.md)を参照|×|personium-localunitへ変換可能かチェックは行わない。|
 |EventObject|ルールをトリガーすべきイベントのEvent Object前方一致検査用文字列|詳細は[Rule作成](2A0_Create_Rule.md)を参照|×||
 |EventInfo|ルールをトリガーすべきイベントのEvent Info一致検査用文字列|詳細は[Rule作成](2A0_Create_Rule.md)を参照|×||
 |Action|イベントがマッチしたときに起動すべきアクション|詳細は[Rule作成](2A0_Create_Rule.md)を参照|〇||
-|TargetUrl|アクションに対する具体的なターゲットURL|詳細は[Rule作成](2A0_Create_Rule.md)を参照|×||
+|TargetUrl|アクションに対する具体的なターゲットURL|詳細は[Rule作成](2A0_Create_Rule.md)を参照|×|personium-localunitへ変換可能かチェックは行わない。|
 
 ### リクエストサンプル
 ```JSON

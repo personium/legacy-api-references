@@ -44,13 +44,35 @@ JSON
 |:--|:--|:--|:--|:--|
 | \_Box.Name | Box name to which the rule should be attached | valid box name. A request not specifying this key or specifying a null value is interpreted as a Rule that is not associated with any Box.| No ||
 | Name | Arbitrary name to identify the rule to be created | When linking to a Box, it is unique within the Box, and if it is not tied to the Box, it must be unique in the cell. When | No | is omitted, the uuid automatically allocates | No ||
-| EventType | Character string for forward match checking for the type of event that triggers a rule | For Evnet Type, the type is defined for internal events as a separate [table](277_Event_Summary.md). For external events, you can specify any Type. | No ||
-| EventSubject | Event Subject for Event Subject to Trigger Rule The string for matching check | Event Subject is the URL to express Account, so valid value is the exact match string. Scheme to be set is http, https or personium-localunit. | No ||
-| EventObject | Event Object's event object to trigger the rule String for forward match check | Event The value of object depends on the type of event. An arbitrary character string can be set, but the meaningful value depends on the event type. | No ||
+| EventType | Character string for forward match checking for the type of event that triggers a rule | For Evnet Type, the type is defined for internal events as a separate [table](277_Event_Summary.md). For external events, you can specify any Type. 'timer.oneshot' and 'timer.periodic' are the type of event that is triggered by time.| No ||
+| EventSubject | Character string for perfect match checking for the subject of event that triggers a rule | Event Subject is the URL to express Account, so valid value is the exact match string. Scheme to be set is http, https or personium-localunit. | No | If value of EventSubject is able to be converted to personium-localunit scheme, respond error. Please set using personium-localunit scheme. |
+| EventObject | Event Object's event object to trigger the rule String for forward match check | Event The value of object depends on the type of event. An arbitrary character string can be set, but the meaningful value depends on the event type. When EventType is 'timer.oneshot', set string of epoch time(milliseconds) that this rule will be triggered. When EventType is 'timer.periodic', set string of period(minutes) that this rule will be triggered. | No ||
 | EventInfo | Character string for forward matching with info of event that triggers a rule | Event info value depends on event type. An arbitrary character string can be set, but the meaningful value depends on the event type. | No ||
 | EventExternal | Flag indicating whether the event to trigger the rule is an external event | Boolean. Set to true to detect external events. | No | default value false |
 | Action | Action to be started when the event matches | Valid values are the following table | Yes |||
 | TargetUrl | The value to be specified depends on the value of the concrete target URL | Action for the action. The rules are as follows attached table | No ||
+
+#### Allowed Values for Timer Event
+| EventType | EventObject | EventInfo | EventExternal | Remarks |
+|:--|:--|:--|:--|:--|
+| timer.oneshot | Epoch time on milliseconds(Required) | Required | false | truncated to minutes internally |
+| timer.periodic | minutes(Required) | Required | false | |
+
+Timer event will be created below based on the rule.
+
+| Item name | Value |
+|:--|:--|
+| Subject | EventSubject |
+| Schema | Schema of Box of \_Box.Name |
+| RequestKey | null |
+| External | false |
+| Type | EventType |
+| Object | EventObject |
+| Info | EventInfo |
+
+Therefore, this event matches with the rule.
+
+EventSubject can be set to other cell's subject. However, after the rule was triggerred, Subject of the event is set to null. 
 
 #### Valid Actions
 | Action | Description | TargetUrl | Remarks |
@@ -67,11 +89,12 @@ JSON
 
 Only specific URL can be accepted for EventObject field when EventExternal is false.
 
-| EventExternal | \_Box.Name | EventObject | Remarks |
-|:--|:--|:--|:--|
-| false | specified | personium-localbox:/...<br>personium-localcell:/\_\_... ||
-| false | Not specified | personium-localcell:/... ||
-| true || Any string ||
+| EventExternal | \_Box.Name | EventType | EventObject | Remarks |
+|:--|:--|:--|:--|:--|
+| false | specified | | personium-localbox:/...<br>personium-localcell:/\_\_... ||
+| false | Not specified | | personium-localcell:/... ||
+| false | | timer.oneshot<br>timer.periodic | Numeric string ||
+| true ||| Any string ||
 
 #### TargetUrl Allowed Values
 
@@ -81,8 +104,9 @@ Only specific kinds of URL can be accepted for TargetUrl field.
 |:--|:--|:--|:--|
 | exec | specified | personium-localbox:/{CollectionName}/{ServiceName} ||
 | exec | Not specified | personium-localcell:/{BoxName}/{CollectionName}/{ServiceName} ||
-| relay || URL with scheme http, https, personium-localunit ||
-| relay.event || Cell URL ||
+| relay | specified | URL with scheme http, https, personium-localunit, personium-localcell, personium-localbox.| If value of TargetUrl is able to be converted to personium-localunit scheme, respond error. Please set using personium-localunit scheme. |
+| relay | Not specified | URL with scheme http, https, personium-localunit, personium-localcell. | If value of TargetUrl is able to be converted to personium-localunit scheme, respond error. Please set using personium-localunit scheme. |
+| relay.event || Cell URL.<br>http://...<br>https://...<br>personium-localunit:/{CellName}/<br>personium-localcell:/ | If value of TargetUrl is able to be converted to personium-localunit scheme, respond error. Please set using personium-localunit scheme. |
 
 ### Request sample
 ```JSON

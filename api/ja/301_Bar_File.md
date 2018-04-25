@@ -173,11 +173,11 @@ https&#58;//{UnitFQDN}/cell1/__role/box/staff → https&#58;//{UnitFQDN}/cell1/_
 |項目名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |Links|$linksのリスト||○||
-|Links/FromType|参照元データの種類|"Relation"<br>"Role"<br>&quot;ExtRole&quot;|○|nullは不可|
-|Links/FromName|参照元データの名前|&#65293;(配列形式 ※1)|○|nullは不可<br> （例:{&quot;Name&quot;:&quot;relation1&quot;}]）|
+|Links/FromType|参照元データの種類|"Relation"<br>"Role"<br>"ExtRole"|○|nullは不可|
+|Links/FromName|参照元データの名前|&#65293;(配列形式 ※1)|○|nullは不可<br> （例:{"Name":"relation1"}]）|
 |Links/ToType|参照先データの種類|"Relation"<br>"Role"<br>"ExtRole"|○|nullは不可|
 |Links/ToName|参照先データの名前|&#65293;(配列形式 ※1)|○|nullは不可<br>（例:{"Name":"role"}]）|
-※1 ExtRoleではRelation情報も必要のため、リスト形式とする。ただし、指定するJSONデータのキー名は、&quot;Name&quot; 固定とする。（制限）
+※1 ExtRoleではRelation情報も必要のため、リスト形式とする。ただし、指定するJSONデータのキー名は、"Name" 固定とする。（制限）
 
 ##### サンプル
 ```JSON
@@ -382,7 +382,7 @@ Boxインストール時には、Schemaタグの配下をインストール対�
 
 |項目名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|Links|$linksのリスト||○||
+|Links|$linksのリスト||○|
 |Links/FromType|参照元データの種類|&#65293;|○|nullは不可|
 |Links/FromId|参照元ユーザデータのID|&#65293;(配列形式 ※1)|○|nullは不可<br> （例:{&quot;FromId&quot;:&quot;tanaka_taro&quot;} ）|
 |Links/ToType|参照先データの種類|&#65293;|○|nullは不可|

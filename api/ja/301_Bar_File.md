@@ -382,7 +382,7 @@ Boxインストール時には、Schemaタグの配下をインストール対�
 
 |項目名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|Links|$linksのリスト||○|
+|Links|$linksのリスト||○||
 |Links/FromType|参照元データの種類|&#65293;|○|nullは不可|
 |Links/FromId|参照元ユーザデータのID|&#65293;(配列形式 ※1)|○|nullは不可<br> （例:{&quot;FromId&quot;:&quot;tanaka_taro&quot;} ）|
 |Links/ToType|参照先データの種類|&#65293;|○|nullは不可|

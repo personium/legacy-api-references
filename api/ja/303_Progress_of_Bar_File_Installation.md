@@ -64,11 +64,11 @@ GET
 |オブジェクト|名前(キー)|型|値|備考|
 |:--|:--|:--|:--|:--|
 |ルート|schema|string|Boxが紐づいているスキーマのURL|スキーマなしの場合は null|
-|ルート|installed_at|string|Start time (ISO 8610 UTC format)|statusが以下のいずれかの場合は出力しない。<br>&#183; "Installation in Progress"<br>&#183; "installation failed"|
-|ルート|started_at|string|Start time (ISO 8610 UTC format)|statusが以下の場合は出力しない。<br>&#183; "Ready"<br>|
-|ルート|progress|string|Progress rate (for example, "30%")|statusが以下の場合は出力しない。<br>&#183; "Ready"|
-|ルート|message|object|Object (message format)|statusが以下の場合のみ出力する。<br>&#183; "Installation failed"<br>詳細は [エラーメッセージ一覧](004_Error_Messages.md)を参照|
-|ルート|status|string|以下のいずれかの文字列:  <br>&#183; "ready"<br>&#183; "installation in progress"<br>&#183; "installation failed"|Boxが使用可能な状態を示す<br>Boxインストール処理中を示す<br>Boxインストール完了（異常終了）を示す|
+|ルート|installed_at|string|Start time (ISO 8610 UTC format)|statusが以下のいずれかの場合は出力しない。<br>- "Installation in Progress"<br>- "installation failed"|
+|ルート|started_at|string|Start time (ISO 8610 UTC format)|statusが以下の場合は出力しない。<br>- "Ready"<br>|
+|ルート|progress|string|Progress rate (for example, "30%")|statusが以下の場合は出力しない。<br>- "Ready"|
+|ルート|message|object|Object (message format)|statusが以下の場合のみ出力する。<br>- "Installation failed"<br>詳細は [エラーメッセージ一覧](004_Error_Messages.md)を参照|
+|ルート|status|string|以下のいずれかの文字列:  <br>- "ready"<br>- "installation in progress"<br>- "installation failed"|Boxが使用可能な状態を示す<br>Boxインストール処理中を示す<br>Boxインストール完了（異常終了）を示す|
 
 ### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照

@@ -27,6 +27,12 @@ Personium内部で保持する管理データ（OData/WebDAV/Service等）の状
 
 ### 内部イベント詳細
 Typeは、操作に対して定義されています。
+リンクおよびリンク解除では、エンティティ名の順序を昇順に正規化します。以下に例を示します。
+
+|| 正規化 |
+|:--|:--|
+| cellctl.Role.links.Box.create | cellctl.Box.links.Role.create |
+| cellctl.Relation.links.ExtCell.delete | cellctl.ExtCell.links.Relation.delete |
 
 Objectは、基本的には、URLもしくは、キーを含めたURLが設定されます。
 URLは、personium-localcellスキームによるURLであり、キーを含めたURLは、作成後のキーを付与したURLになります。
@@ -96,6 +102,13 @@ xxxやyyyには、Cell制御オブジェクト名が入ります。
 | Boxインストール完了 | PL-BI-0000 | URL | Bar installation completed. ||
 || PL-BI-0001 | URL | Bar installation failed({原因}). ||
 
+BoxインストールによりCell制御オブジェクトの作成が実行されることがあります。そのイベントは以下になります。
+
+|| 操作 | Type | Object | Info | 備考 |
+|:--|:--|:--|:--|:--|:--|
+| 基本操作 | 作成 | cellctl.xxx.create | キーを含めたURL | box install | |
+| 他オブジェクトとのリンク | リンク | cellctl.xxx.links.yyy.create | キーを含めたURL | box install | |
+
 ##### Cell間のメッセージ交換
 
 || 操作 | Type | Object | Info | 備考 |
@@ -121,10 +134,10 @@ xxxやyyyには、Cell制御オブジェクト名が入ります。
 | 基本操作 | 作成 | cellctl.ExtCell.create | キーを含めたURL | approved for message 12345 | 12345はメッセージidです |
 || 作成 | cellctl.Rule.create | キーを含めたURL | approved for message 12345 | 12345はメッセージidです |
 || 削除 | cellctl.Rule.delete | URL | approved for message 12345 | 12345はメッセージidです |
-| 他オブジェクトとのリンク | リンク | cellctl.Relation.links.ExtCell.create | キーを含めたURL | approved for message 12345 | 12345はメッセージidです |
-|| リンク | cellctl.Role.links.ExtCell.create | キーを含めたURL | approved for message 12345 | 12345はメッセージidです |
-|| リンク解除 | cellctl.Relation.links.ExtCell.delete | URL | approved for message 12345 | 12345はメッセージidです |
-|| リンク解除 | cellctl.Role.links.ExtCell.delete | URL | approved for message 12345 | 12345はメッセージidです |
+| 他オブジェクトとのリンク | リンク | cellctl.ExtCell.links.Relation.create | キーを含めたURL | approved for message 12345 | 12345はメッセージidです |
+|| リンク | cellctl.ExtCell.links.Role.create | キーを含めたURL | approved for message 12345 | 12345はメッセージidです |
+|| リンク解除 | cellctl.ExtCell.links.Relation.delete | URL | approved for message 12345 | 12345はメッセージidです |
+|| リンク解除 | cellctl.ExtCell.links.Relation.delete | URL | approved for message 12345 | 12345はメッセージidです |
 
 ##### その他機能
 

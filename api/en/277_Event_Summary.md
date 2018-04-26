@@ -27,6 +27,13 @@ When the response of the Personium API is returned, the execution result is outp
 
 ### Internal Event Definitions
 Type value is defined for each operation.
+Type value is normalized. Examples of normalization are below.
+
+| Before | After normalization |
+|:--|:--|
+| cellctl.Role.links.Box.create | cellctl.Box.links.Role.create |
+| cellctl.Relation.links.ExtCell.delete | cellctl.ExtCell.links.Relation.delete |
+
 Object value basically is set to a URL or a URL with key string. URL is URL with personium-localcell scheme, URL with key string is URL that append key of result of create operation.
 For example, when entity of \_\_id='0123' is created, request url and URL with key string are as follows:
 
@@ -94,6 +101,13 @@ xxx or yyy is the Cell Control Object Name below.
 | Box Installation Complete | PL-BI-0000 | URL | Bar installation completed. ||
 || PL-BI-0001 | URL | Bar installation failed({cause}). ||
 
+On box installation, operations abount Cell Control object is executed.
+
+|| Operations | Type | Object | Info | Remarks |
+|:--|:--|:--|:--|:--|:--|
+| Basic Operations | Create | cellctl.xxx.create | URL with key string | box install | |
+| Linking with other objects | Link | cellctl.xxx.links.yyy.create | URL with key string | box install | |
+
 ##### Message Exchange between Cells
 
 || Operations | Type | Object | Info | Remarks |
@@ -119,10 +133,10 @@ On message approval, operations abount Cell Control object is executed.
 | Basic Operations | Create | cellctl.ExtCell.create | URL with key string | approved for message 12345 | 12345 is \_\_id of the message |
 || Create | cellctl.Rule.create | URL with key string | approved for message 12345 | 12345 is \_\_id of the message |
 || Delete | cellctl.Rule.delete | URL | approved for message 12345 | 12345 is \_\_id of the message |
-| Linking with other objects | Link | cellctl.Relation.links.ExtCell.create | URL with key string | approved for message 12345 | 12345 is \_\_id of the message |
-|| Link | cellctl.Role.links.ExtCell.create | URL with key string | approved for message 12345 | 12345 is \_\_id of the message |
-|| Unlink | cellctl.Relation.links.ExtCell.delete | URL | approved for message 12345 | 12345 is \_\_id of the message |
-|| Unlink | cellctl.Role.links.ExtCell.delete | URL | approved for message 12345 | 12345 is \_\_id of the message |
+| Linking with other objects | Link | cellctl.ExtCell.links.Relation.create | URL with key string | approved for message 12345 | 12345 is \_\_id of the message |
+|| Link | cellctl.ExtCell.links.Role.create | URL with key string | approved for message 12345 | 12345 is \_\_id of the message |
+|| Unlink | cellctl.ExtCell.links.Relation.delete | URL | approved for message 12345 | 12345 is \_\_id of the message |
+|| Unlink | cellctl.ExtCell.links.Role.delete | URL | approved for message 12345 | 12345 is \_\_id of the message |
 
 ##### Other functions
 

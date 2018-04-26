@@ -95,11 +95,11 @@ Ask the creation / deletion of the specified Rule.
 |RequestType|Request type|rule.add<br>rule.remove|Yes||
 |Name|Arbitrary name to make the rule to be created identifiable|See the [CreateRule](2A0_Create_Rule.md) for details|No||
 |EventType|Type of the event to trigger the rule|See the [CreateRule](2A0_Create_Rule.md) for details|No||
-|EventSubject|Event Subject prefix to trigger the rule|See the [CreateRule](2A0_Create_Rule.md) for details|No||
+|EventSubject|Event Subject to trigger the rule|See the [CreateRule](2A0_Create_Rule.md) for details|No|On message, not check if this item is able to convert to personium-localunit scheme.|
 |EventObject|Event Object prefix to trigger the rule|See the [CreateRule](2A0_Create_Rule.md) for details|No||
 |EventInfo|Event Info prefix to trigger the rule|See the [CreateRule](2A0_Create_Rule.md) for details|No||
 |Action|Action to invoke when the matching event is met|See the [CreateRule](2A0_Create_Rule.md) for details|Yes||
-|TargetUrl|Specific target url of the action|See the [CreateRule](2A0_Create_Rule.md) for details|No||
+|TargetUrl|Specific target url of the action|See the [CreateRule](2A0_Create_Rule.md) for details|No|On message, not check if this item is able to convert to personium-localunit scheme.|
 
 ### Request Sample
 

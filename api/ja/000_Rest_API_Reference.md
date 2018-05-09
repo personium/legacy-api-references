@@ -16,7 +16,7 @@ Unit Level API の大半はUnit制御オブジェクトという形で実現さ�
 
 |Cell|操作|
 |:--|:--|
-|基本操作|[作成](100_Create_Cell.md) &nbsp; &nbsp; [取得](102_Get_Cell.md) &nbsp; &nbsp; [一覧取得](101_List_Cell.md) &nbsp; &nbsp; [更新](103_Update_Cell.md) &nbsp; &nbsp; [削除](104_Delete_Cell.md) &nbsp; &nbsp; |
+|基本操作|[作成](100_Create_Cell.md) &nbsp; &nbsp; [取得](102_Retrieve_Cell.md) &nbsp; &nbsp; [一覧取得](101_List_Cell.md) &nbsp; &nbsp; [更新](103_Update_Cell.md) &nbsp; &nbsp; [削除](104_Delete_Cell.md) &nbsp; &nbsp; |
 
 ### その他API
 
@@ -54,9 +54,9 @@ Cell Level API は、次のような機能で構成されます。
 
 |Account|操作|
 |:--|:--|
-|基本操作|[作成](212_Create_Account.md) &nbsp; &nbsp; [取得](213_Retrieve_Account.md) &nbsp; &nbsp; [一覧取得](214_Search_Account.md)  &nbsp; &nbsp; [更新](215_Update_Account.md)  &nbsp; &nbsp; [削除](216_Delete_Account.md) |
-|&nbsp; &nbsp; 他オブジェクトとのリンク|[リンク](217_Register_Account_links.md) &nbsp; &nbsp;  [リンク解除](220_Delete_Account_links.md) &nbsp; &nbsp; [リンク一覧取得](218_Acquire_Account_links_List.md) <br>リンク更新はありません。更新したい場合は削除して再作成してください。|
-|&nbsp; &nbsp; 紐づく他オブジェクト操作|[作成](221_Register_Account_Navigation_Property.md) &nbsp; &nbsp; [一覧取得](222_Acquire_Account_Navigation_Property.md)|
+|基本操作|[作成](212_Create_Account.md) &nbsp; &nbsp; [取得](213_Retrieve_Account.md) &nbsp; &nbsp; [一覧取得](214_List_Account.md)  &nbsp; &nbsp; [更新](215_Update_Account.md)  &nbsp; &nbsp; [削除](216_Delete_Account.md) |
+|&nbsp; &nbsp; 他オブジェクトとのリンク|[リンク](217_Link_Account.md) &nbsp; &nbsp;  [リンク解除](220_Unlink_Account.md) &nbsp; &nbsp; [リンク一覧取得](218_List_Account_links.md) <br>リンク更新はありません。更新したい場合は削除して再作成してください。|
+|&nbsp; &nbsp; 紐づく他オブジェクト操作|[作成](221_Create_Obj_Via_Account_NP.md) &nbsp; &nbsp; [一覧取得](222_List_Obj_Via_Account_NP.md)|
 
 ### アクセス制御
 
@@ -69,9 +69,9 @@ Cell Level API は、次のような機能で構成されます。
 
 |Role|操作|
 |:--|:--|
-|基本操作|[作成](201_Create_Role.md) &nbsp; &nbsp;  [取得](203_Search_Role.md) &nbsp; &nbsp; [一覧取得](202_Retrieve_Role.md) &nbsp; &nbsp; [更新](204_Update_Role.md) &nbsp; &nbsp; [削除](205_Delete_Role.md)|
-|&nbsp; &nbsp; 他オブジェクトとのリンク|[リンク](206_Create_Role_links.md) &nbsp; &nbsp; [リンク解除](209_Delete_Role_links.md) &nbsp; &nbsp; [リンク一覧取得](207_List_Role_links.md) <br>リンク更新はありません。更新したい場合は削除して再作成してください。|
-|&nbsp; &nbsp; 紐づく他オブジェクト操作|[作成](210_Register_Role_Using_NavProp.md) &nbsp; &nbsp; [一覧取得](211_List_Using_Role_NavProp.md)|
+|基本操作|[作成](201_Create_Role.md) &nbsp; &nbsp;  [取得](203_Retrieve_Role.md) &nbsp; &nbsp; [一覧取得](202_List_Role.md) &nbsp; &nbsp; [更新](204_Update_Role.md) &nbsp; &nbsp; [削除](205_Delete_Role.md)|
+|&nbsp; &nbsp; 他オブジェクトとのリンク|[リンク](206_Link_Role.md) &nbsp; &nbsp; [リンク解除](209_Unlink_Role.md) &nbsp; &nbsp; [リンク一覧取得](207_List_Role_links.md) <br>リンク更新はありません。更新したい場合は削除して再作成してください。|
+|&nbsp; &nbsp; 紐づく他オブジェクト操作|[作成](210_Create_Obj_Via_Role_NP.md) &nbsp; &nbsp; [一覧取得](211_List_Obj_Via_Role_NP.md)|
 
 
 ### Cell間の関係構築
@@ -82,9 +82,9 @@ Cell Level API は、次のような機能で構成されます。
 
 |ExtCell|操作|
 |:--|:--|
-|基本操作|[作成](223_Create_External_Cell.md) &nbsp; &nbsp;  [取得](225_Get_External_Cell.md) &nbsp; &nbsp; [一覧取得](224_List_External_Cell.md) &nbsp; &nbsp; [更新](226_Update_External_Cell.md) &nbsp; &nbsp; [削除](227_Delete_External_Cell.md)|
-|&nbsp; &nbsp; 他オブジェクトとのリンク|[リンク](228_Register_External_Cell_links.md) &nbsp; &nbsp; [リンク解除](231_Delete_External_Cell_links.md) &nbsp; &nbsp; [リンク一覧取得](229_List_External_Cell_links.md) <br>リンク更新はありません。更新したい場合は削除して再作成してください。|
-|&nbsp; &nbsp; 紐づく他オブジェクト操作|[作成](232_Register_External_Cell_Using_NavProp.md) &nbsp; &nbsp; [一覧取得](233_List_External_Cell_NavProp.md)|
+|基本操作|[作成](223_Create_External_Cell.md) &nbsp; &nbsp;  [取得](225_Retrieve_External_Cell.md) &nbsp; &nbsp; [一覧取得](224_List_External_Cell.md) &nbsp; &nbsp; [更新](226_Update_External_Cell.md) &nbsp; &nbsp; [削除](227_Delete_External_Cell.md)|
+|&nbsp; &nbsp; 他オブジェクトとのリンク|[リンク](228_Link_External_Cell.md) &nbsp; &nbsp; [リンク解除](231_Unlink_External_Cell.md) &nbsp; &nbsp; [リンク一覧取得](229_List_External_Cell_links.md) <br>リンク更新はありません。更新したい場合は削除して再作成してください。|
+|&nbsp; &nbsp; 紐づく他オブジェクト操作|[作成](232_Create_Obj_Via_External_Cell_NP.md) &nbsp; &nbsp; [一覧取得](233_List_Obj_Via_External_Cell_NP.md)|
 
 #### Relation (Cell制御オブジェクト)
 
@@ -95,8 +95,8 @@ Cell Level API は、次のような機能で構成されます。
 |Relation|操作|
 |:--|:--|
 |基本操作|[作成](234_Create_Relation.md) &nbsp; &nbsp;  [取得](236_Retrieve_Relation.md) &nbsp; &nbsp; [一覧取得](235_List_Relation.md) &nbsp; &nbsp; [更新](237_Update_Relation.md) &nbsp; &nbsp; [削除](238_Delete_Relation.md)|
-|&nbsp; &nbsp;他オブジェクトとのリンク|[リンク](239_Register_Relation_links.md) &nbsp; &nbsp; [リンク解除](242_Delete_Relation_links.md) &nbsp; &nbsp; [リンク一覧取得](240_List_Relation_links.md) <br>リンク更新はありません。更新したい場合は削除して再作成してください。|
-|&nbsp; &nbsp;紐づく他オブジェクト操作|[作成](243_Register_Using_Relation_NavProp.md) &nbsp; &nbsp; [一覧取得](244_List_Using_Relation_NavProp.md)|
+|&nbsp; &nbsp;他オブジェクトとのリンク|[リンク](239_Link_Relation.md) &nbsp; &nbsp; [リンク解除](242_Unlink_Relation.md) &nbsp; &nbsp; [リンク一覧取得](240_List_Relation_links.md) <br>リンク更新はありません。更新したい場合は削除して再作成してください。|
+|&nbsp; &nbsp;紐づく他オブジェクト操作|[作成](243_Create_Obj_Via_Relation_NP.md) &nbsp; &nbsp; [一覧取得](244_List_Obj_Via_Relation_NP.md)|
 
 #### ExtRole (Cell制御オブジェクト)
 
@@ -104,9 +104,9 @@ Cell Level API は、次のような機能で構成されます。
 
 |ExtRole|操作|
 |:--|:--|
-|基本操作|[作成](245_Create_External_Role.md) &nbsp; &nbsp; [取得](247_Get_External_Role.md) &nbsp; &nbsp; [一覧取得](246_List_External_Role.md) &nbsp; &nbsp; [更新](248_Update_External_Role.md) &nbsp; &nbsp; [削除](249_Delete_External_Role.md)|
-| &nbsp; &nbsp; 他オブジェクトとのリンク|[リンク](250_Register_External_Role_links.md) &nbsp; &nbsp; [リンク解除](253_Delete_External_Role_links.md) &nbsp; &nbsp; [リンク一覧取得](251_Retrieve_External_Role_links.md) <br>リンク更新はありません。更新したい場合は削除して再作成してください。|
-| &nbsp; &nbsp; 紐づく他オブジェクト操作作|[作成](254_Register_Using_Role_NavProp.md) &nbsp; &nbsp; [一覧取得](255_List_External_Role_NavProp.md)|
+|基本操作|[作成](245_Create_External_Role.md) &nbsp; &nbsp; [取得](247_Retrieve_External_Role.md) &nbsp; &nbsp; [一覧取得](246_List_External_Role.md) &nbsp; &nbsp; [更新](248_Update_External_Role.md) &nbsp; &nbsp; [削除](249_Delete_External_Role.md)|
+| &nbsp; &nbsp; 他オブジェクトとのリンク|[リンク](250_Link_External_Role.md) &nbsp; &nbsp; [リンク解除](253_Unlink_External_Role.md) &nbsp; &nbsp; [リンク一覧取得](251_List_External_Role_links.md) <br>リンク更新はありません。更新したい場合は削除して再作成してください。|
+| &nbsp; &nbsp; 紐づく他オブジェクト操作作|[作成](254_Create_Obj_Via_External_Role_NP.md) &nbsp; &nbsp; [一覧取得](255_List_Obj_Via_External_Role_NP.md)|
 
 
 ### Boxの作成・管理
@@ -120,9 +120,9 @@ Cell Level API は、次のような機能で構成されます。
 
 |Box|操作|
 |:--|:--|
-|基本操作|[作成](256_Create_Box.md) &nbsp; &nbsp; [取得](258_Retrieve_Box.md) &nbsp; &nbsp; [一覧取得](257_Search_Box.md) &nbsp; &nbsp; [更新](259_Update_Box.md) &nbsp; &nbsp; [削除](260_Delete_Box.md) |
-|&nbsp; &nbsp;他オブジェクトとのリンク|[リンク](261_Register_Box_links.md) &nbsp; &nbsp; [リンク解除](264_Delete_Box_links.md) &nbsp; &nbsp; [リンク一覧取得](262_List_Box_links.md) <br>リンク更新はありません。更新したい場合は削除して再作成してください。|
-|&nbsp; &nbsp;紐づく他オブジェクト操作|[作成](265_Register_Using_Box_NavProp.md) &nbsp; &nbsp; [一覧取得](266_List_Box_NavProp.md)|
+|基本操作|[作成](256_Create_Box.md) &nbsp; &nbsp; [取得](258_Retrieve_Box.md) &nbsp; &nbsp; [一覧取得](257_List_Box.md) &nbsp; &nbsp; [更新](259_Update_Box.md) &nbsp; &nbsp; [削除](260_Delete_Box.md) |
+|&nbsp; &nbsp;他オブジェクトとのリンク|[リンク](261_Link_Box.md) &nbsp; &nbsp; [リンク解除](264_Unlink_Box.md) &nbsp; &nbsp; [リンク一覧取得](262_List_Box_links.md) <br>リンク更新はありません。更新したい場合は削除して再作成してください。|
+|&nbsp; &nbsp;紐づく他オブジェクト操作|[作成](265_Create_Obj_Via_Box_NP.md) &nbsp; &nbsp; [一覧取得](266_List_Obj_Via_Box_NP.md)|
 
 ### Cell間のメッセージ交換
 
@@ -132,7 +132,7 @@ Cell Level API は、次のような機能で構成されます。
 |Cell制御オブジェクト|操作|
 |:--|:--|
 |**送信済メッセージ**|[取得](272_Retrieve_Sent_Message.md) &nbsp; &nbsp; [一覧取得](273_List_Sent_Messages.md) &nbsp; &nbsp; [削除](274_Delete_Sent_Message.md)|
-|**受信メッセージ**|[取得](269_Get_Received_Message.md) &nbsp; &nbsp; [一覧取得](268_List_Received_Messages.md) &nbsp; &nbsp; [削除](270_Delete_an_Incoming_Message.md)|
+|**受信メッセージ**|[取得](269_Retrieve_Received_Message.md) &nbsp; &nbsp; [一覧取得](268_List_Received_Messages.md) &nbsp; &nbsp; [削除](270_Delete_Received_Message.md)|
 
 ### イベント処理
 
@@ -146,9 +146,9 @@ Cell Level API は、次のような機能で構成されます。
 
 |Rule|操作|
 |:--|:--|
-|基本操作|[作成](2A0_Create_Rule.md) &nbsp; &nbsp; [取得](2A1_Retrieve_Rule.md) &nbsp; &nbsp; [一覧取得](2A2_Search_Rule.md) &nbsp; &nbsp; [更新](2A3_Update_Rule.md) &nbsp; &nbsp; [削除](2A4_Delete_Rule.md) |
-|&nbsp; &nbsp; 他オブジェクトとのリンク|[リンク](2A5_Create_Rule_links.md) &nbsp; &nbsp; [リンク解除](2A7_Delete_Rule_links.md) &nbsp; &nbsp; [リンク一覧取得](2A6_List_Rule_links.md) <br>リンク更新はありません。更新したい場合は削除して再作成してください。|
-|&nbsp; &nbsp; 紐づく他オブジェクト操作|[作成](2A8_Register_Rule_Using_NavProp.md) &nbsp; &nbsp; [一覧取得](2A9_List_Using_Rule_NavProp.md)|
+|基本操作|[作成](2A0_Create_Rule.md) &nbsp; &nbsp; [取得](2A1_Retrieve_Rule.md) &nbsp; &nbsp; [一覧取得](2A2_List_Rule.md) &nbsp; &nbsp; [更新](2A3_Update_Rule.md) &nbsp; &nbsp; [削除](2A4_Delete_Rule.md) |
+|&nbsp; &nbsp; 他オブジェクトとのリンク|[リンク](2A5_Link_Rule.md) &nbsp; &nbsp; [リンク解除](2A7_Unlink_Rule.md) &nbsp; &nbsp; [リンク一覧取得](2A6_List_Rule_links.md) <br>リンク更新はありません。更新したい場合は削除して再作成してください。|
+|&nbsp; &nbsp; 紐づく他オブジェクト操作|[作成](2A8_Create_Obj_Via_Rule_NP.md) &nbsp; &nbsp; [一覧取得](2A9_List_Obj_Via_Rule_NP.md)|
 
 #### イベントログ操作
 
@@ -210,9 +210,9 @@ WebDAVをベースとしたファイルシステム的な考え方のAPI群で�
 
 |ユーザ定義EntitySet|操作|
 |:--|:--|
-|基本操作|[作成](364_Create_Entity.md) &nbsp; &nbsp; [取得](366_Get_Entity.md) &nbsp; &nbsp; [一覧取得](365_List_Entity.md) &nbsp; &nbsp; [更新](367_Update_Entity.md) &nbsp; &nbsp; [部分更新](369_Partial_Update_Entity.md) &nbsp; &nbsp; [削除](370_Delete_Entity.md) |
-|&nbsp; &nbsp; 他EntitySetのEntityとのリンク|[リンク](373_Register_User_Data_links.md) &nbsp; &nbsp; [リンク解除](376_Delete_User_Data_links.md) &nbsp; &nbsp; [リンク一覧取得](374_User_Data_List_links.md) <br>リンク更新はありません。更新したい場合は削除して再作成してください。|
-|&nbsp; &nbsp; 紐づく他EntitySet操作|[作成](377_Register_using_NavProp.md) &nbsp; &nbsp; [一覧取得](378_List_using_NavProp.md)|
+|基本操作|[作成](364_Create_Entity.md) &nbsp; &nbsp; [取得](366_Retrieve_Entity.md) &nbsp; &nbsp; [一覧取得](365_List_Entity.md) &nbsp; &nbsp; [更新](367_Update_Entity.md) &nbsp; &nbsp; [部分更新](369_Partial_Update_Entity.md) &nbsp; &nbsp; [削除](370_Delete_Entity.md) |
+|&nbsp; &nbsp; 他EntitySetのEntityとのリンク|[リンク](373_Link_User_Data.md) &nbsp; &nbsp; [リンク解除](376_Unlink_User_Data.md) &nbsp; &nbsp; [リンク一覧取得](374_List_User_Data_links.md) <br>リンク更新はありません。更新したい場合は削除して再作成してください。|
+|&nbsp; &nbsp; 紐づく他EntitySet操作|[作成](377_Create_Entity_Via_NP.md) &nbsp; &nbsp; [一覧取得](378_List_Entity_Via_NP.md)|
 
 
 ##### [一括操作](368_Entity_Bulk_Operations.md)
@@ -230,16 +230,16 @@ OData Service Collection には、スキーマ定義のためのOData Serviceが
 
 |EntityType|操作|
 |:--|:--|
-|基本操作|[作成](345_Create_EntityType.md) &nbsp; &nbsp; [取得](347_Get_EntityType.md) &nbsp; &nbsp; [一覧取得](346_List_EntityType.md) &nbsp; &nbsp; [更新](348_Update_EntityType.md) &nbsp; &nbsp; [削除](349_Delete_EntityType.md) |
+|基本操作|[作成](345_Create_EntityType.md) &nbsp; &nbsp; [取得](347_Retrieve_EntityType.md) &nbsp; &nbsp; [一覧取得](346_List_EntityType.md) &nbsp; &nbsp; [更新](348_Update_EntityType.md) &nbsp; &nbsp; [削除](349_Delete_EntityType.md) |
 
 |Property|操作|
 |:--|:--|
-|基本操作|[作成](355_Register_Property.md) &nbsp; &nbsp; [取得](357_Get_Property.md) &nbsp; &nbsp; [一覧取得](356_List_Property.md) &nbsp; &nbsp; 更新 &nbsp; &nbsp; [削除](359_Delete_Property.md)|
+|基本操作|[作成](355_Create_Property.md) &nbsp; &nbsp; [取得](357_Retrieve_Property.md) &nbsp; &nbsp; [一覧取得](356_List_Property.md) &nbsp; &nbsp; 更新 &nbsp; &nbsp; [削除](359_Delete_Property.md)|
 
 |AssociationEnd|操作|
 |:--|:--|
-|基本操作|[作成](318_Register_AssociationEnd.md) &nbsp; &nbsp; [取得](320_Get_AssociationEnd.md) &nbsp; &nbsp; [一覧取得](319_List_AssociationEnd.md) &nbsp; &nbsp; [更新](321_Update_AssociationEnd.md) &nbsp; &nbsp; [削除](322_Delete_AssociationEnd.md)|
-|&nbsp; &nbsp; EntityTypeや他のAssociationEndとのリンク|[リンク](323_Register_AssociationEnd_links.md) &nbsp; &nbsp; [リンク解除](325_Delete_AssociationEnd_links.md) &nbsp; &nbsp; [リンク一覧取得](324_List_AssociationEnd_links.md) <br>リンク更新はありません。更新したい場合は削除して再作成してください。|
+|基本操作|[作成](318_Create_AssociationEnd.md) &nbsp; &nbsp; [取得](320_Retrieve_AssociationEnd.md) &nbsp; &nbsp; [一覧取得](319_List_AssociationEnd.md) &nbsp; &nbsp; [更新](321_Update_AssociationEnd.md) &nbsp; &nbsp; [削除](322_Delete_AssociationEnd.md)|
+|&nbsp; &nbsp; EntityTypeや他のAssociationEndとのリンク|[リンク](323_Link_AssociationEnd.md) &nbsp; &nbsp; [リンク解除](325_Unlink_AssociationEnd.md) &nbsp; &nbsp; [リンク一覧取得](324_List_AssociationEnd_links.md) <br>リンク更新はありません。更新したい場合は削除して再作成してください。|
 
 |ComplexType|操作|
 |:--|:--|
@@ -247,7 +247,7 @@ OData Service Collection には、スキーマ定義のためのOData Serviceが
 
 |ComplexTypeProperty|操作|
 |:--|:--|
-|基本操作|[作成](336_Register_ComplexTypeProperty.md) &nbsp; &nbsp; [取得](338_Get_ComplexTypeProperty.md) &nbsp; &nbsp; [一覧取得](337_List_ComplexTypeProperty.md) &nbsp; &nbsp; [更新](339_Update_ComplexTypeProperty.md) &nbsp; &nbsp; [削除](340_Delete_ComplexTypeProperty.md)|
+|基本操作|[作成](336_Create_ComplexTypeProperty.md) &nbsp; &nbsp; [取得](338_Retrieve_ComplexTypeProperty.md) &nbsp; &nbsp; [一覧取得](337_List_ComplexTypeProperty.md) &nbsp; &nbsp; [更新](339_Update_ComplexTypeProperty.md) &nbsp; &nbsp; [削除](340_Delete_ComplexTypeProperty.md)|
 
 
 #### サービスドキュメント取得/スキーマ取得

@@ -179,22 +179,22 @@ Refer to [Error Message List](004_Error_Messages.md)
 ```sh
 curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}" -X ACL -i\
 -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d\
-'<?xml version="1.0" encoding="utf-8" ?>
- <D:acl xmlns:D="DAV:" xml:base="https://{UnitFQDN}/{CellName}/__role/{BoxName}/" 
-xmlns:p="urn:x-personium:xmlns" p:requireSchemaAuthz="none">
-  <D:ace>
-   <D:principal>
-    <D:href>doctor</D:href>
-   </D:principal>
-   <D:grant>
-    <D:privilege>
-     <D:read/>
-    </D:privilege>
-    <D:privilege>
-     <D:write/>
-    </D:privilege>
-   </D:grant>
-  </D:ace>
+'<?xml version="1.0" encoding="utf-8" ?> \
+ <D:acl xmlns:D="DAV:" xml:base="https://{UnitFQDN}/{CellName}/__role/{BoxName}/" \
+xmlns:p="urn:x-personium:xmlns" p:requireSchemaAuthz="none"> \
+  <D:ace> \
+   <D:principal> \
+    <D:href>doctor</D:href> \
+   </D:principal> \
+   <D:grant> \
+    <D:privilege> \
+     <D:read/> \
+    </D:privilege> \
+    <D:privilege> \
+     <D:write/> \
+    </D:privilege> \
+   </D:grant> \
+  </D:ace> \
  </D:acl>'
 ```
 

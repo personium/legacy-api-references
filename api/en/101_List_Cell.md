@@ -1,4 +1,4 @@
-# Cell list acquisition
+# Retrieve List of Cell
 
 ## Overview
 

@@ -1,4 +1,4 @@
-# ComplexTypeProperty list retrieval
+# Retrieve List of ComplexTypeProperty
 
 ## Overview
 

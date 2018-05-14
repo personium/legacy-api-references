@@ -1,4 +1,4 @@
-# Rule removed
+# Delete Rule
 ## Overview
 Delete registered Rule
 

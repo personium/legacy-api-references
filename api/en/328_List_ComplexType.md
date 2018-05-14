@@ -1,4 +1,4 @@
-# Get ComplexType list
+# Retrieve List of ComplexType
 
 ## Overview
 

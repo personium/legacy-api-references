@@ -1,4 +1,4 @@
-# SentMessage Retrieve List
+# Retrieve List of SentMessage
 
 ## Overview
 

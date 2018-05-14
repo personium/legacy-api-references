@@ -1,4 +1,4 @@
-# Get EntityType list
+# Retrieve List of EntityType
 
 ## Overview
 

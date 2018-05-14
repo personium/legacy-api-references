@@ -1,4 +1,4 @@
-# AssociationEnd remove
+# Delete AssociationEnd
 
 ## Overview
 

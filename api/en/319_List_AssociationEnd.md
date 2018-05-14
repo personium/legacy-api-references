@@ -1,4 +1,4 @@
-# AssociationEnd List Acquisition
+# Retrieve List of AssociationEnd
 
 ## Overview
 

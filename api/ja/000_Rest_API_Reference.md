@@ -243,7 +243,7 @@ OData Service Collection には、スキーマ定義のためのOData Serviceが
 
 |ComplexType|操作|
 |:--|:--|
-|基本操作|[作成](327_Register_ComplexType.md) &nbsp; &nbsp; [取得](329_Get_ComplexType.md) &nbsp; &nbsp; [一覧取得](328_List_ComplexType.md) &nbsp; &nbsp; 更新 &nbsp; &nbsp; [削除](331_Delete_ComplexType.md)|
+|基本操作|[作成](327_Create_ComplexType.md) &nbsp; &nbsp; [取得](329_Retrieve_ComplexType.md) &nbsp; &nbsp; [一覧取得](328_List_ComplexType.md) &nbsp; &nbsp; 更新 &nbsp; &nbsp; [削除](331_Delete_ComplexType.md)|
 
 |ComplexTypeProperty|操作|
 |:--|:--|

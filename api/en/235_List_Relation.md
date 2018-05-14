@@ -1,4 +1,4 @@
-# Relation List Acquire
+# Retrieve List of Relation
 
 ## Overview
 

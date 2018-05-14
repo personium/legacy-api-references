@@ -1,4 +1,4 @@
-# Get service collection source
+# Acquire service collection source
 
 ## Overview
 

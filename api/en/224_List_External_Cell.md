@@ -1,4 +1,4 @@
-# ExtCell List Acquire
+# Retrieve List of ExtCell
 
 ## Overview
 

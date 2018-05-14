@@ -1,4 +1,4 @@
-# Account Acquire
+# Acquire Account
 
 ## Overview
 

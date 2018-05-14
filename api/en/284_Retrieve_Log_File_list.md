@@ -1,4 +1,4 @@
-# Log File Retrieve List
+# Retrieve List of Log File
 
 ## Overview
 

@@ -1,4 +1,4 @@
-# ComplexTypeProperty Delete
+# Delete ComplexTypeProperty
 
 ## Overview
 

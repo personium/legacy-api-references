@@ -1,4 +1,4 @@
-# Box Delete
+# Delete Box
 
 ## Overview
 

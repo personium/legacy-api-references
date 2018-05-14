@@ -1,4 +1,4 @@
-# ComplexTypeProperty Update
+# Update ComplexTypeProperty
 
 ## Overview
 

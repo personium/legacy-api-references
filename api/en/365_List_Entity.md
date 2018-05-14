@@ -1,4 +1,4 @@
-# Get Entity list
+# Retrieve List of Entity
 
 ## Overview
 

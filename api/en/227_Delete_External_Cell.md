@@ -1,4 +1,4 @@
-# ExtCell Delete
+# Delete ExtCell
 
 ## Overview
 

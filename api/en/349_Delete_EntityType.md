@@ -1,4 +1,4 @@
-# EntityType Delete
+# Delete EntityType
 
 ## Overview
 

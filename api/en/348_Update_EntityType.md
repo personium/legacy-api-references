@@ -1,4 +1,4 @@
-# EntityType update
+# Update EntityType
 
 ## Overview
 

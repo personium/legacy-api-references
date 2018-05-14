@@ -1,4 +1,4 @@
-# Property Delete
+# Delete Property
 
 ## Overview
 

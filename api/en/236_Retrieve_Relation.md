@@ -1,4 +1,4 @@
-# Relation Acquire
+# Acquire Relation
 
 ## Overview
 

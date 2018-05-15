@@ -1,4 +1,4 @@
-# EntityType registration
+# Create EntityType
 
 ## Overview
 

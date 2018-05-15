@@ -1,4 +1,4 @@
-# Service Collection Source Delete
+# Delete Service Collection Source
 
 ## Overview
 

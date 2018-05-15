@@ -1,4 +1,4 @@
-# Rule update
+# Update Rule
 ## Overview
 Update existing Rule information
 

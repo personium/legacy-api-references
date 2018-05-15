@@ -1,4 +1,4 @@
-# ExtRole Retrieve List
+# Retrieve List of ExtRole
 
 ## Overview
 

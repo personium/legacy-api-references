@@ -1,4 +1,4 @@
-# Get property list
+# Retrieve List of Property
 
 ## Overview
 

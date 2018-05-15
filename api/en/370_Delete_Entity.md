@@ -1,4 +1,4 @@
-# Entity deletion
+# Delete Entity
 
 ## Overview
 

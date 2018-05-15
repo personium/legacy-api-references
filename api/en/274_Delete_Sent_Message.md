@@ -1,4 +1,4 @@
-# SentMessage Delete
+# Delete SentMessage
 
 ## Overview
 

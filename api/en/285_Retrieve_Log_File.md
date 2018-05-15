@@ -1,4 +1,4 @@
-# Log File Acquire
+# Acquire Log File
 
 ## Overview
 

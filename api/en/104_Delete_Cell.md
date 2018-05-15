@@ -1,4 +1,4 @@
-# Cell Delete
+# Delete Cell
 
 ## Overview
 

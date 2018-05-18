@@ -106,7 +106,7 @@ Only specific kinds of URL can be accepted for TargetUrl field.
 | exec | Not specified | personium-localcell:/{BoxName}/{CollectionName}/{ServiceName} ||
 | relay | specified | URL with scheme http, https, personium-localunit, personium-localcell, personium-localbox.| If value of TargetUrl is able to be converted to personium-localunit scheme, respond error. Please set using personium-localunit scheme. |
 | relay | Not specified | URL with scheme http, https, personium-localunit, personium-localcell. | If value of TargetUrl is able to be converted to personium-localunit scheme, respond error. Please set using personium-localunit scheme. |
-| relay.event || Cell URL.<br>http://...<br>https://...<br>personium-localunit:/{CellName}/<br>personium-localcell:/ | If value of TargetUrl is able to be converted to personium-localunit scheme, respond error. Please set using personium-localunit scheme. |
+| relay.event || Cell URL.<br>http&#58;//...<br>https&#58;//...<br>personium-localunit:/{CellName}/<br>personium-localcell:/ | If value of TargetUrl is able to be converted to personium-localunit scheme, respond error. Please set using personium-localunit scheme. |
 
 ### Request sample
 ```JSON

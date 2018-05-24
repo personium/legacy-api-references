@@ -80,14 +80,15 @@ POST
 
 |項目名|概要|書式|必須|有効値|
 |:--|:--|:--|:--|:--|
-|grant_type|認可タイプ|String|○|password<br>urn&#58;x-personium:oidc:google<br>urn&#58;ietf:params:oauth:grant-type:saml2-bearer<br>refresh_token|
+|grant_type|認可タイプ|String|○|password<br>urn&#58;x-personium:oidc:google<br>urn&#58;ietf:params:oauth:grant-type:saml2-bearer<br>authorization_code<br>refresh_token|
 |username|ユーザ名|String|(grant_type=passwordの場合必須)|登録済のユーザ名|
 |password|パスワード|String|(grant_type=passwordの場合必須)|登録済のパスワード|
 |assertion|トランスセルアクセストークン|String|(grant_type=urn&#58;ietf:params:oauth:grant-type:saml2-bearerの場合)|有効なトランスセルアクセストークン|
-|refresh_token|リフレッシュトークン名|String|(grant_type=refresh_tokenの場合)|有効リフレッシュトークン|
-|id_token|トークンID|JSON Web Token|(grant_type=urn&#58;x-personium:oidc:googleの場合)|JWT Formed ID Token|
+|code|Code|String|(grant_type=authorization_codeの場合必須)|有効なCode|
+|refresh_token|リフレッシュトークン名|String|(grant_type=refresh_tokenの場合必須)|有効なリフレッシュトークン|
+|id_token|トークンID|JSON Web Token|(grant_type=urn&#58;x-personium:oidc:googleの場合必須)|JWT Formed ID Token|
 |p_target|発行ターゲット|String|×|（任意の他者セルURL）<br>指定した場合そのセル宛のトランスセルアクセストークンを発行|
-|client_id|アプリのスキーマURI|String|×|多くの場合アプリセルURL<br>client_secretとともに指定した場合アプリ認証済トークンを発行<br>同時にAuthorizationヘッダで同様情報が送信された場合、Authorizationヘッダの設定が優先される|
+|client_id|アプリのスキーマURI|String|(grant_type=authorization_codeの場合必須)|多くの場合アプリセルURL<br>client_secretとともに指定した場合アプリ認証済トークンを発行<br>同時にAuthorizationヘッダで同様情報が送信された場合、Authorizationヘッダの設定が優先される|
 |client_secret|アプリ認証トークン|String|×|アプリセル等から発行されるアプリ認証トークン<br>client_idとともに指定した場合アプリ認証済トークンを発行<br>同時にAuthorizationヘッダで同様情報が送信された場合、Authorizationヘッダの設定が優先される|
 |p_owner|ULUUT昇格実行クエリ|String|×|trueのみ有効|
 |p_cookie|認証クッキー発行オプション<br>指定された場合は認証クッキーを発行する<br>p_targetが指定された場合は、本パラメタの指定は無視する|String|×|trueのみ有効|
@@ -201,4 +202,3 @@ curl "https://{UnitFQDN}/{CellName}/__token" -X POST -i -d \
 'grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&assertion=\
 {SAML_token}&p_target=https://{UnitFQDN}/{CellName}/'
 ```
-

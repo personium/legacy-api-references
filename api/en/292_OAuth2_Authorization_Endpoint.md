@@ -34,13 +34,12 @@ POST : Authentication form request, Authentication Token
 
 |Item Name|Overview|Format|Required|Effective Value|
 |:--|:--|:--|:--|:--|
-|response_type|Response Type|String|Yes|Token|
+|response_type|Response Type|String|Yes|token, code|
 |client_id|Application Cell URL|String|Yes|Application Cell URL of authentication form request|
 |redirect_uri|Client redirect endpoint URL|String|Yes|URL of the redirect script registered under the default BOX of the application cell<br>Query parameters formatted with application/x-www-form-urlencoded can be included<br>It is not possible to include fragments<br>Effective digit length:512byte|
 |state|Random value used to maintain state between request and callback|String|No|Random value<br>Effective digit length:512byte|
 |p_target|Transcell token target|String|No|Cell URL using token to be paid out<br>When specified, pays out a transcell token|
 |p_owner|ULUUT Execute promotion Query|String|No|Valid only for true<br>* When this query is set, authentication information is not returned as cookie|
-|assertion|Access token|String|No|A valid TransCell token<br>In the case of no argument, it does not become token authentication|
 |username|User name|String|No|Registered user name|
 |password|Password|String|No|Registered password|
 
@@ -83,7 +82,7 @@ None
 
 #### Response Code
 
-302  
+303  
 The browser is redirected to redirect\_uri. A fragment indicated by "URL parameter" is stored in redirect\_uri.
 
 ```
@@ -133,6 +132,50 @@ Other than those above
 ```
 
 
+### Request Code Authentication
+
+#### Response Code
+
+303  
+The browser is redirected to redirect\_uri. A fragment indicated by "URL parameter" is stored in redirect\_uri.
+
+```
+{redirect_uri}?code={code}&state={state}
+```
+
+|Item Name|Overview|Notes|
+|:--|:--|:--|
+|redirect_uri|Client redirect endpoint URL|The value of "redirect_uri" in the request|
+|code|Code acquired in the authentication/authorization request form|Code that can be authorized with "grant_type: authorization_code"|
+|state|Value of state set at the time of request|Random value used to maintain state between request and callback|
+
+#### Error Messages
+
+|Item Name|Overview|Notes|
+|:--|:--|:--|
+|redirect_uri|Redirect URL|The URL of the client's redirect split<br>specified by the "redirect_uri" of the request<br>However, in the case of the following error contents, this value is set to "cell URL + __html/error"<br>"Redirect_uri is not in URL format" "cell in client_id and redirect_uri is different"|
+|error|Code indicating error content|See "error"|
+|error_description|Additional information on errors|Set exception message etc|
+|error_uri|Web page URI of additional information on error|Return empty string<br>* Set for future enhancemen|
+|state|Value of state set at the time of request||
+|code|Personium error code||
+
+#### Parameter Check Error
+
+The browser is redirected to redirect\_uri.  
+"Redirect\_uri is not in URL format" "cell in client\_id and redirect\_uri is different" "Authorization processing failure"
+
+```
+{redirect_uri}?code={code}
+```
+
+Other than those above
+
+```
+{redirect_uri}?error={error}&error_description={error_description}&state={state}&code={code}
+```
+
+
 ## cURL Command
 
 ### GET
@@ -149,5 +192,3 @@ curl "https://{UnitFQDN}/{CellName}/__authz" -X POST -i -d 'response_type=token&
 https://{UnitFQDN}/{AppliCellName}&redirect_uri=https://{UnitFQDN}/{AppliCellName}/__/redirect.md&state\
 =0000000111&username={AccountUserName}&password={AccountUserPass}'
 ```
-
-

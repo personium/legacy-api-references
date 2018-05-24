@@ -21,13 +21,12 @@ POST : 認証フォーム リクエスト、トークン認証
 ### リクエストクエリ
 |項目名|概要|書式|必須|有効値|
 |:--|:--|:--|:--|:--|
-|response_type|応答タイプ|String|○|トークン|
+|response_type|応答タイプ|String|○|token, code|
 |client_id|アプリセル URL|String|○|スキーマ認証元のアプリセルURL|
 |redirect_uri|クライアントのリダイレクトエンドポイントURL|String|○|アプリセルのデフォルトBOX配下に登録されたリダイレクトスクリプトのURL<br>application/x-www-form-urlencodedでフォーマットされたクエリパラメータを含める事ができる<br>フラグメントを含める事はできない<br>有効桁長:512byte|
 |state|リクエストとコールバックの間で状態を維持するために使用するランダムな値|String|×|ランダムな値<br>有効桁長:512byte|
 |p_target|トランスセルトークンターゲット|String|×|払い出されるトークンを使うセルURL<br>指定した場合トランスセルトークンを払い出す|
 |p_owner|ULUUT昇格実行クエリ|String|×|trueのみ有効<br>※このクエリを設定した場合、認証情報はCookieで返却されない|
-|assertion|アクセストークン|String|×|有効なトランスセルトークン<br>引数なしの場合トークン認証にはならない|
 |username|ユーザ名|String|×|登録済のユーザ名|
 |password|パスワード|String|×|登録済のパスワード|
 ### リクエストヘッダ
@@ -48,12 +47,9 @@ POST : 認証フォーム リクエスト、トークン認証
 以下のHTMLフォームを返却する。
 ![レスポンスボディ](image/OAuth2ResponseBody.png "レスポンスボディ")
 
-#### エラーメッセージ一覧
-[エラーメッセージ一覧](004_Error_Messages.md)を参照
-
 ### Request Token Authentication
 #### ステータスコード
-302  
+303  
 ブラウザはredirect_uriにリダイレクトされる。redirect_uriに、「URLパラメータ」で示すフラグメントが格納される。
 ```
 {redirect_uri}#access_token={access_token}&token_type=Bearer&expires_in={expires_in}&state={state}
@@ -94,6 +90,38 @@ POST : 認証フォーム リクエスト、トークン認証
 {redirect_uri}#error={error}&error_description={error_description}&state={state}&code={code}
 ```
 
+### Request Code Authentication
+#### ステータスコード
+303  
+ブラウザはredirect_uriにリダイレクトされる。redirect_uriに、「URLパラメータ」で示すクエリが格納される。
+```
+{redirect_uri}?code={code}&state={state}
+```
+|項目名|概要|備考|
+|:--|:--|:--|
+|redirect_uri|クライアントのリダイレクトエンドポイントURL|リクエストの「redirect_uri」の値|
+|code|認証・認可要求フォームで取得したCode|grant_type:authorization_codeで認可可能なCode|
+|state|リクエスト時に設定したstateの値|リクエストとコールバックの間で状態を維持するために使用するランダムな値|
+#### エラーメッセージ一覧
+|項目名|概要|備考|
+|:--|:--|:--|
+|redirect_uri|Redirect URL|リクエストの「redirect_uri」で指定された、<br>クライアントのリダイレクトスプリクトのURL<br>ただし、以下のエラー内容の場合はこの値は「セルのURL + __html/error」に設定される<br>「redirect_uriがURL形式ではない」「client_idとredirect_uriのセルが異なる」|
+|error|エラー内容を示すコード|「error」を参照|
+|error_description|エラーの追加情報|例外メッセージなどを設定する|
+|error_uri|エラーの追加情報のWebページのURI|空文字を返す<br>※今後のエンハンスに備えて設定|
+|state|リクエスト時に設定したstateの値||
+|code|Personiumのエラーコード||
+#### Parameter Check Error
+ブラウザはredirect_uriにリダイレクトされる。  
+「redirect_uriがURL形式ではない」「client_idとredirect_uriのセルが異なる」「認可処理失敗」
+```
+{redirect_uri}?code={code}
+```
+
+上記以外
+```
+{redirect_uri}?error={error}&error_description={error_description}&state={state}&code={code}
+```
 
 ## cURLサンプル
 ### GET
@@ -107,4 +135,3 @@ curl "https://{UnitFQDN}/{CellName}/__authz" -X POST -i -d 'response_type=token&
 https://{UnitFQDN}/{AppliCellName}&redirect_uri=https://{UnitFQDN}/{AppliCellName}/__\
 /redirect.md&state=0000000111&username={AccountUserName}&password={AccountUserPass}'
 ```
-

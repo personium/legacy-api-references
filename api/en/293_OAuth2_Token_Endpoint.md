@@ -86,10 +86,11 @@ POST
 |username|User name|String|Yes(When grant_type = password)|Registered user name|
 |password|Password|String|Yes(When grant_type = password)|Registered password|
 |assertion|Transcell token target|String|Yes(When grant_type=urn&#58;ietf:params:oauth:grant-type:saml2-bearer)|A valid transacell access token|
+|code|Code|String|Yes(When grant_type = authorization_code)|Registered code|
 |refresh_token|Refresh token name|String|Yes(When grant_type=refresh_token)|Effective refresh token|
 |id_token|Token ID|JSON Web Token|Yes(grant_type=urn&#58;x-personium:oidc:For google)|JWT Formed ID Token|
 |p_target|Issue target|String|No|Where to use the token to be paid (cell URL)<br>If specified, it becomes transcellation token authentication|
-|client_id|Application schema URI|String|No|In many cases App store URL<br>When specified with client_secret Is issued application-certified token<br>At the same time, if the same information is transmitted in the Authorization header, the setting of the Authorization header takes precedence|
+|client_id|Application schema URI|String|Yes(When grant_type = authorization_code)|In many cases App store URL<br>When specified with client_secret Is issued application-certified token<br>At the same time, if the same information is transmitted in the Authorization header, the setting of the Authorization header takes precedence|
 |client_secret|Application authentication token|String|No|An application authentication token issued from an application cell or the like<br>When specified with client_id Issue an application-certified token<br>At the same time, if the same information is transmitted in the Authorization header, the setting of the Authorization header takes precedence|
 |p_owner|ULUUT promotion execution Query|String|No|Valid only for true|
 |p_cookie|Authentication cookie issuance option<br>If specified, issue an authentication cookie<br>When p_target is specified, specification of this parameter is ignored|String|No|Valid only for true|
@@ -213,4 +214,3 @@ curl "https://{UnitFQDN}/{CellName}/__token" -X POST -i -d \
 curl "https://{UnitFQDN}/{CellName}/__token" -X POST -i -d 'grant_type=urn:ietf:params:oauth:grant-type:\
 saml2-bearer&assertion={SAML_token}&p_target=https://{UnitFQDN}/{CellName}/'
 ```
-

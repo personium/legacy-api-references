@@ -138,7 +138,7 @@ Other than those above
 ### GET
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__authz?response_type=token&redirect_uri=https://{UnitFQDN}
+curl "https://{UnitFQDN}/{CellName}/__authz?response_type=token&redirect_uri=https://{UnitFQDN}\
 /{AppliCellName}/__/redirect.md&client_id=https://{UnitFQDN}/{AppliCellName}" -X GET -i
 ```
 
@@ -146,7 +146,7 @@ curl "https://{UnitFQDN}/{CellName}/__authz?response_type=token&redirect_uri=htt
 
 ```sh
 curl "https://{UnitFQDN}/{CellName}/__authz" -X POST -i -d 'response_type=token&client_id=\
-https://{UnitFQDN}/{AppliCellName}&redirect_uri=https://{UnitFQDN}/{AppliCellName}/__/redirect.md&state
+https://{UnitFQDN}/{AppliCellName}&redirect_uri=https://{UnitFQDN}/{AppliCellName}/__/redirect.md&state\
 =0000000111&username={AccountUserName}&password={AccountUserPass}'
 ```
 

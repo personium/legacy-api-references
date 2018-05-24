@@ -97,9 +97,9 @@ PROPPATCH
 ## cURLサンプル
 ```sh
 curl "https://{UnitFQDN}/{CellName}" -X PROPPATCH -i -H 'Authorization: Bearer {AccessToken}' \
--H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8" ?>
-<D:propertyupdate xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns"><D:set><D:prop>
-<p:hoge>${hoge}</p:hoge></D:prop></D:set><D:remove><D:prop><p:hoge/></D:prop>
+-H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8" ?>\
+<D:propertyupdate xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns"><D:set><D:prop>\
+<p:hoge>${hoge}</p:hoge></D:prop></D:set><D:remove><D:prop><p:hoge/></D:prop>\
 </D:remove></D:propertyupdate>'
 ```
 

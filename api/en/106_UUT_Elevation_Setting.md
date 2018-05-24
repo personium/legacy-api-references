@@ -174,9 +174,9 @@ Refer to [Error Message List](004_Error_Messages.md)
 
 ```sh
 curl "https://{UnitFQDN}/cell -X PROPPATCH" -H 'Authorization: Bearer {AccessToken}' -d \
-'<?xml version="1.0" encoding="utf-8" ?>
+'<?xml version="1.0" encoding="utf-8" ?>\
 <D:propertyupdate xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" \
-xmlns:Z="http://www.w3.com/standards/z39.50/">
+xmlns:Z="http://www.w3.com/standards/z39.50/">\
 <D:set><D:prop><p:requireSchemaAuthz>confidential</p:requireSchemaAuthz></D:prop></D:set>\
 </D:propertyupdate>'
 ```

@@ -181,7 +181,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 
 ```sh
 curl "https://{UnitFQDN}/{CellName}/__snapshot/CellExport_2017_01.zip" -X PROPFIND -i  -H \
-'Depth:0' -H 'Authorization: Bearer {AccessToken}' -d '<?xml version="1.0" encoding="utf-8"?>
+'Depth:0' -H 'Authorization: Bearer {AccessToken}' -d '<?xml version="1.0" encoding="utf-8"?>\
 <D:propfind xmlns:D="DAV:"><D:allprop/></D:propfind>'
 ```
 

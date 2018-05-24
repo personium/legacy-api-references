@@ -126,9 +126,9 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')\
 /\$links/_{EntityTypeName}" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H \
-'Accept: application/json' -d "{\"uri\":\"https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}
+'Accept: application/json' -d "{\"uri\":\"https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}\
 /{EntityTypeName}('{EntityID}')\"}"
 ```
 

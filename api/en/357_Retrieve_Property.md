@@ -155,7 +155,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata/Property
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata/Property\
 (Name='{PetName}',_EntityType.Name='{EntityTypeName}')"\
  -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```

@@ -175,8 +175,8 @@ Refer to [Error Message List](004_Error_Messages.md)
 ### Through Role's Navigation Property list
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/ExtRole(ExtRole='https%3A%2F%2Fd{UnitFQDN}%2F{CellName}
-%2F__role%2F__%2F{ExtRoleName}',_Relation.Name='{RelationName}',_Relation._Box.Name='{BoxName}')
+curl "https://{UnitFQDN}/{CellName}/__ctl/ExtRole(ExtRole='https%3A%2F%2Fd{UnitFQDN}%2F{CellName}\
+%2F__role%2F__%2F{ExtRoleName}',_Relation.Name='{RelationName}',_Relation._Box.Name='{BoxName}')\
 /_Role" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

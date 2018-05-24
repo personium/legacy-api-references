@@ -93,6 +93,8 @@ JSON
 ## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Rule('{RuleName}')" -X PUT -i -H 'If-Match: *' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{RuleName}", "EventExternal":true, "Action":"log"}'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Rule('{RuleName}')" -X PUT -i -H 'If-Match: *' -H \
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' \
+-d '{"Name":"{RuleName}", "EventExternal":true, "Action":"log"}'
 ```
 

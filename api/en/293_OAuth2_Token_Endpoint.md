@@ -203,7 +203,7 @@ curl "https://{UnitFQDN}/{CellName}/__token" -X POST -i -d \
 
 ```sh
 curl "https://{UnitFQDN}/{CellName}/__token" -X POST -i -d \
-'grant_type=password&username={user_name}&password={pass}&client_id=https://{UnitFQDN}
+'grant_type=password&username={user_name}&password={pass}&client_id=https://{UnitFQDN}\
 /app{CellName}/&client_secret={token_from_app_cell}'
 ```
 

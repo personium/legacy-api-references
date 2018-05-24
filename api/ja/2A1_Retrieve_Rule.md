@@ -132,5 +132,6 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Rule('{RuleName}')" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://{UnitFQDN}/{CellName}/__ctl/Rule('{RuleName}')" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H \
+'Accept: application/json'
 ```

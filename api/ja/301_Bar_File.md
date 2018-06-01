@@ -1,7 +1,7 @@
 # barファイル
 barファイルはBoxインストールAPIのリクエストボディとして指定するファイル形式である。  
 barファイルは、Box配下に定義するOdata/WebDAV/Serviceの各データを格納しており、ZIPファイル形式でアーカイブされる。  
-通常は、BoxエクスポートAPI（未実装）にて、PersoniumからアーカイブされたBox配下のデータ定義がエクスポートされる。
+通常は、[BoxエクスポートAPI](385_Box_Export.md)にて、PersoniumからアーカイブされたBox配下のデータ定義がエクスポートされる。
 
 ### Specifications
 ファイルフォーマットはZIP形式とし、ZIP64形式も許容する。  
@@ -10,9 +10,8 @@ barファイルは、Box配下に定義するOdata/WebDAV/Serviceの各データ
 #### Directory Structure
 barファイル内のディレクトリ構成を以下に示す。  
 Boxインストール時に「★必須」となっているディレクトリ、及びファイルが存在しない場合は、必須のディレクトリ/ファイルがない旨のエラー（400 Bad Request）を返却する。  
-また、barファイルの構造が下記の順序で作成されていない場合はエラーとなる。
 ```
-bar/
+/
  |
  +-- 00_meta/  ★ 必須
  |    |
@@ -64,17 +63,17 @@ bar/
 
 |項目名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|bar_version|barファイルのバージョン|有効なバージョン<br>barファイル形式の変更ごとにバージョンが変わる|○|現状は"1"|
+|bar_version|barファイルのバージョン|有効なバージョン<br>barファイル形式の変更ごとにバージョンが変わる|○|現状は"2"|
 |box_version|Boxのバージョン|有効なバージョン<br>Box形式の変更ごとにバージョンが変わる|○|任意の文字列で良いが"1"を推奨（Box改版機能提供に向けて）|
-|DefaultPath|barファイル内でのBox名|桁数：1&#65374;128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)は指定不可<br>nullは不可|○||
-|schema|Schema名|桁数：1&#65374;1024<br>URIの形式に従う（scheme：http / https / urn）<br>nullは不可|○||
+|default_path|barファイル内でのBox名|桁数：1&#65374;128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)は指定不可<br>nullは不可|○||
+|schema|Schema名|桁数：1&#65374;1024<br>URIの形式に従う（scheme：http / https / urn）|○||
 
 ##### サンプル
 ```JSON
 {
-  "bar_version": "1",
+  "bar_version": "2",
   "box_version": "1",
-  "DefaultPath": "{BoxName}",
+  "default_path": "{BoxName}",
   "schema": "http://app1.example.com"
 }
 ```
@@ -213,7 +212,7 @@ https&#58;//{UnitFQDN}/cell1/__role/box/staff → https&#58;//{UnitFQDN}/cell1/_
 #### 90_rootprops.xml
 barファイルにエクスポートする対象のBox配下の全階層に対して、PROPFINDメソッドで取得したXMLデータを示す。  
 XMLデータの詳細は、[ファイル設定取得（PROPFIND）](307_Get_Property.md)を参照。  
-インストール対象BoxのURLは、「Personium-box:/」と記述する。  
+インストール対象BoxのURLは、「personium-localbox:/」と記述する。  
 barファイルのインストール時には、下記サンプルの<prop>配下にある creationdate及び、getlastmodifiedを除いた全てのデータをインストール対象とする。
 * resourcetype: コレクションの種類を設定
 * acl: 権限を設定
@@ -223,7 +222,7 @@ barファイルのインストール時には、下記サンプルの<prop>配�
 ```xml
 <multistatus xmlns="DAV:">
     <response>
-        <href>Personium-box:/</href>
+        <href>personium-localbox:/</href>
         <propstat>
            <prop>
               <resourcetype>
@@ -245,7 +244,7 @@ barファイルのインストール時には、下記サンプルの<prop>配�
       </propstat>
   </response>
   <response>
-      <href>Personium-box:/odata</href>
+      <href>personium-localbox:/odata</href>
       <propstat>
           <prop>
               <resourcetype>
@@ -274,7 +273,7 @@ barファイルのインストール時には、下記サンプルの<prop>配�
       </propstat>
   </response>
   <response>
-      <href>Personium-box:/dav</href>
+      <href>personium-localbox:/dav</href>
       <propstat>
           <prop>
               <resourcetype>
@@ -302,7 +301,7 @@ barファイルのインストール時には、下記サンプルの<prop>配�
       </propstat>
   </response>
   <response>
-      <href>Personium-box:/dav/testdavfile.txt</href>
+      <href>personium-localbox:/dav/testdavfile.txt</href>
       <propstat>
           <prop>
               <getcontenttype>text/plain</getcontenttype>
@@ -310,7 +309,7 @@ barファイルのインストール時には、下記サンプルの<prop>配�
       </propstat>
   </response>
   <response>
-      <href>Personium-box:/service</href>
+      <href>personium-localbox:/service</href>
       <propstat>
           <prop>
               <resourcetype>
@@ -326,7 +325,7 @@ barファイルのインストール時には、下記サンプルの<prop>配�
         </propstat>
     </response>
     <response>
-        <href>Personium-box:/service/__src</href>
+        <href>personium-localbox:/service/__src</href>
         <propstat>
             <prop>
                 <resourcetype>
@@ -338,7 +337,7 @@ barファイルのインストール時には、下記サンプルの<prop>配�
         </propstat>
     </response>
     <response>
-        <href>Personium-box:/service/__src/ehr.js</href>
+        <href>personium-localbox:/service/__src/ehr.js</href>
         <propstat>
             <prop>
                 <getcontenttype>text/javascript</getcontenttype>
@@ -346,7 +345,7 @@ barファイルのインストール時には、下記サンプルの<prop>配�
         </propstat>
     </response>
     <response>
-        <href>Personium-box:/service/__src/ehr_connector.js</href>
+        <href>personium-localbox:/service/__src/ehr_connector.js</href>
         <propstat>
             <prop>
                 <getcontenttype>text/javascript</getcontenttype>
@@ -444,7 +443,7 @@ bar/90_contents/{Service}/{src.js}に格納されたソースファイルを、�
 ```xml
 <multistatus xmlns="DAV:">
     <response>
-        <href>Personium-box:/service</href>
+        <href>personium-localbox:/service</href>
         <propstat>
             <prop>
                 <resourcetype>
@@ -461,7 +460,7 @@ bar/90_contents/{Service}/{src.js}に格納されたソースファイルを、�
         </propstat>
     </response>
     <response>
-        <href>Personium-box:/service/__src</href>
+        <href>personium-localbox:/service/__src</href>
         <propstat>
             <prop>
                 <resourcetype>
@@ -473,7 +472,7 @@ bar/90_contents/{Service}/{src.js}に格納されたソースファイルを、�
         </propstat>
     </response>
     <response>
-        <href>Personium-box:/service/__src/ehr.js</href>
+        <href>personium-localbox:/service/__src/ehr.js</href>
         <propstat>
             <prop>
                 <getcontenttype>text/javascript</getcontenttype>
@@ -481,7 +480,7 @@ bar/90_contents/{Service}/{src.js}に格納されたソースファイルを、�
         </propstat>
     </response>
     <response>
-        <href>Personium-box:/service/__src/ehr_connector.js</href>
+        <href>personium-localbox:/service/__src/ehr_connector.js</href>
         <propstat>
             <prop>
                 <getcontenttype>text/javascript</getcontenttype>
@@ -490,4 +489,3 @@ bar/90_contents/{Service}/{src.js}に格納されたソースファイルを、�
     </response>
 </multistatus>
 ```
-

@@ -1,17 +1,20 @@
 # bar File
 
-bar is the file format specified as the request body of the box installation API. <br>The bar file stores various data located in Odata/WebDAV/Service defined under the box and is archived in the ZIP format. <br>Normally, archived data definitions under the archived box are exported from Personium through the box export API (unimplemented).
+bar is the file format specified as the request body of the box installation API.  
+The bar file stores various data located in Odata/WebDAV/Service defined under the box and is archived in the ZIP format.  
+Normally, archived data definitions under the archived box are exported from Personium through the [box export API](385_Box_Export.md).
 
 ### Specifications
 
-The file format shall be ZIP, including the ZIP64 format. <br>ZIP file encryption is not supported.
+The file format shall be ZIP, including the ZIP64 format.  
+ZIP file encryption is not supported.
 
 #### Directory Structure
 
-The following example shows the directory structure in the bar file. <br>If directories and files indicated as "Required" do not exist when the box is installed, an error of no required directory/file (400 Bad Request) is returned. <br>An error also occurs if the bar file is not structured in the following sequence.
-
+The following example shows the directory structure in the bar file.  
+If directories and files indicated as "Required" do not exist when the box is installed, an error of no required directory/file (400 Bad Request) is returned.  
 ```
-bar/
+/
  |
  +-- 00_meta/  *Required
  |    |
@@ -66,18 +69,18 @@ The file describing the information of the box to be installed
 
 |Item Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|bar_version|bar file version|Valid version<br>Revised every time the bar file format is changed|Yes|Currently "1"|
+|bar_version|bar file version|Valid version<br>Revised every time the bar file format is changed|Yes|Currently "2"|
 |box_version|Box version|Valid version<br>Revised every time the box format is changed|Yes|Any string can be specified but "1" is recommended (for the provision of the box revision function)|
-|DefaultPath|Box name in the bar file|Number of digits: 1 to 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("\_")<br>null is invalid|Yes||
-|schema|Schema name|Number of digits: 1 to 1024<br>Conforming to the URI format (schema: http / https / urn)<br>null is invalid|Yes||
+|default_path|Box name in the bar file|Number of digits: 1 to 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br>However, the string cannot start with a single-byte hyphen ("-") or underscore ("\_")<br>null is invalid|Yes||
+|schema|Schema name|Number of digits: 1 to 1024<br>Conforming to the URI format (schema: http / https / urn)|Yes||
 
 ##### Samples
 
 ```JSON
 {
-  "bar_version": "1",
+  "bar_version": "2",
   "box_version": "1",
-  "DefaultPath": "{BoxName}",
+  "default_path": "{BoxName}",
   "schema": "http://app1.example.com"
 }
 ```
@@ -226,7 +229,7 @@ The file describing the data relation information of the $links to be installed
 
 #### 90\_rootprops.xml
 
-Shows the XML data acquired with the PROPFIND method for all hierarchical levels under the box to be export to the bar file. <br>For details on XML data, refer to [get file setting API(PROPFIND)](307_Get_Property.md). <br>The URL of the box to be installed is described as "Personium-box:/". <br>When the bar file is installed, the installation targets include all data excluding creationdate and astmodified under the following sample.
+Shows the XML data acquired with the PROPFIND method for all hierarchical levels under the box to be export to the bar file. <br>For details on XML data, refer to [get file setting API(PROPFIND)](307_Get_Property.md). <br>The URL of the box to be installed is described as "personium-localbox:/". <br>When the bar file is installed, the installation targets include all data excluding creationdate and astmodified under the following sample.
 
 * resourcetype: Sets the collection type
 * acl: Sets privileges
@@ -237,7 +240,7 @@ Shows the XML data acquired with the PROPFIND method for all hierarchical levels
 ```xml
 <multistatus xmlns="DAV:">
     <response>
-        <href>Personium-box:/</href>
+        <href>personium-localbox:/</href>
         <propstat>
            <prop>
               <resourcetype>
@@ -259,7 +262,7 @@ Shows the XML data acquired with the PROPFIND method for all hierarchical levels
       </propstat>
   </response>
   <response>
-      <href>Personium-box:/odata</href>
+      <href>personium-localbox:/odata</href>
       <propstat>
           <prop>
               <resourcetype>
@@ -288,7 +291,7 @@ Shows the XML data acquired with the PROPFIND method for all hierarchical levels
       </propstat>
   </response>
   <response>
-      <href>Personium-box:/dav</href>
+      <href>personium-localbox:/dav</href>
       <propstat>
           <prop>
               <resourcetype>
@@ -316,7 +319,7 @@ Shows the XML data acquired with the PROPFIND method for all hierarchical levels
       </propstat>
   </response>
   <response>
-      <href>Personium-box:/dav/testdavfile.txt</href>
+      <href>personium-localbox:/dav/testdavfile.txt</href>
       <propstat>
           <prop>
               <getcontenttype>text/plain</getcontenttype>
@@ -324,7 +327,7 @@ Shows the XML data acquired with the PROPFIND method for all hierarchical levels
       </propstat>
   </response>
   <response>
-      <href>Personium-box:/service</href>
+      <href>personium-localbox:/service</href>
       <propstat>
           <prop>
               <resourcetype>
@@ -340,7 +343,7 @@ Shows the XML data acquired with the PROPFIND method for all hierarchical levels
         </propstat>
     </response>
     <response>
-        <href>Personium-box:/service/__src</href>
+        <href>personium-localbox:/service/__src</href>
         <propstat>
             <prop>
                 <resourcetype>
@@ -352,7 +355,7 @@ Shows the XML data acquired with the PROPFIND method for all hierarchical levels
         </propstat>
     </response>
     <response>
-        <href>Personium-box:/service/__src/ehr.js</href>
+        <href>personium-localbox:/service/__src/ehr.js</href>
         <propstat>
             <prop>
                 <getcontenttype>text/javascript</getcontenttype>
@@ -360,7 +363,7 @@ Shows the XML data acquired with the PROPFIND method for all hierarchical levels
         </propstat>
     </response>
     <response>
-        <href>Personium-box:/service/__src/ehr_connector.js</href>
+        <href>personium-localbox:/service/__src/ehr_connector.js</href>
         <propstat>
             <prop>
                 <getcontenttype>text/javascript</getcontenttype>
@@ -473,7 +476,7 @@ Sample of 90\_rootprops.xml for service registration
 ```xml
 <multistatus xmlns="DAV:">
     <response>
-        <href>Personium-box:/service</href>
+        <href>personium-localbox:/service</href>
         <propstat>
             <prop>
                 <resourcetype>
@@ -490,7 +493,7 @@ Sample of 90\_rootprops.xml for service registration
         </propstat>
     </response>
     <response>
-        <href>Personium-box:/service/__src</href>
+        <href>personium-localbox:/service/__src</href>
         <propstat>
             <prop>
                 <resourcetype>
@@ -502,7 +505,7 @@ Sample of 90\_rootprops.xml for service registration
         </propstat>
     </response>
     <response>
-        <href>Personium-box:/service/__src/ehr.js</href>
+        <href>personium-localbox:/service/__src/ehr.js</href>
         <propstat>
             <prop>
                 <getcontenttype>text/javascript</getcontenttype>
@@ -510,7 +513,7 @@ Sample of 90\_rootprops.xml for service registration
         </propstat>
     </response>
     <response>
-        <href>Personium-box:/service/__src/ehr_connector.js</href>
+        <href>personium-localbox:/service/__src/ehr_connector.js</href>
         <propstat>
             <prop>
                 <getcontenttype>text/javascript</getcontenttype>
@@ -519,5 +522,3 @@ Sample of 90\_rootprops.xml for service registration
     </response>
 </multistatus>
 ```
-
-

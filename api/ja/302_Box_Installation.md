@@ -24,14 +24,12 @@ box-install
 * 既に同名のBoxが存在する場合は、Boxインストールできない。
 * 既に同じscheme URLが設定されたBoxが存在する場合は、Boxインストールできない。
 * メインボックスへのBoxインストールはできない。
-* barファイル："/bar/00_meta/00_manifest.json" のschemaフィールドにnullは指定できない。
 
 #### barファイル制限
 * Boxインストール可能なbarファイルのファイルサイズは以下を上限とする。  
 上限値を超えた場合はBoxインストールできない。
 	- barファイルのファイルサイズ:100MB
 	- barファイル内エントリの圧縮前ファイルサイズ：10MB
-* barファイルは、barファイル に定義されている順序で各エントリが格納されいること。
 
 #### Boxインストールのログ詳細制限
 * Boxインストールのログ詳細は、Boxインストール対象Boxが所属するCellのEventBusへ出力される。 下記※1
@@ -132,6 +130,5 @@ Boxメタデータ取得API用URLの詳細は、[Boxメタデータ取得](303_P
 
 ```sh
 curl "https://{UnitFQDN}/{CellName}/{BoxName}" -X MKCOL -i -H 'Content-type: application/zip' -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' --data-binary @{FileName}
+'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -T "{FilePath}"
 ```
-

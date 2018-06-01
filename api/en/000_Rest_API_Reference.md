@@ -12,8 +12,8 @@ https://{UnitFQDN}/
 ```
 
 #### Unit Control Objects
-Most of the Unit Level API's are implemented in the form of Unit Control Objects. 
-Since they conform with the OData standard, their manipulation can be made in 
+Most of the Unit Level API's are implemented in the form of Unit Control Objects.
+Since they conform with the OData standard, their manipulation can be made in
 a RESTful and standardized manner.
 
 |Cell|Operations|
@@ -69,7 +69,7 @@ Cell-level ACL can be configured with the following API, where multiple pairs of
 
 * [Cell-level ACL Configuralion](289_Cell_ACL.md)
 
-Configured ACL can be retrieved together with other properties, by sending regular WebDAV PROPFIND request to the root URL of the Cell. 
+Configured ACL can be retrieved together with other properties, by sending regular WebDAV PROPFIND request to the root URL of the Cell.
 
 * [Retrieve Properties](290_Cell_Get_Property.md)
 * [Change Properties](291_Cell_Change_Property.md)
@@ -113,6 +113,7 @@ Configured ACL can be retrieved together with other properties, by sending regul
 
 ### Box creation and management inside the Cell
 
+* [Export Box](385_Box_Export.md)
 * [Install Box](302_Box_Installation.md)
 * [Retrieve Box Meta Data](303_Progress_of_Bar_File_Installation.md)
 * [Retrieve URL](304_Get_Box_URL.md)
@@ -153,7 +154,7 @@ Configured ACL can be retrieved together with other properties, by sending regul
 |&nbsp; &nbsp; Bound Object Manipulation|[Create](2A8_Create_Obj_Via_Rule_NP.md) &nbsp; &nbsp; [Retrieve List](2A9_List_Obj_Via_Rule_NP.md)|
 
 
-#### Event Log 
+#### Event Log
 
 * [Retrieve Log File](285_Retrieve_Log_File.md)
 * [List of Log Files](284_Retrieve_Log_File_list.md)
@@ -175,7 +176,7 @@ Snapshot file can be operated with WebDAV interface.
 
 ## Box Level API
 
-The Box Level API is a group of API's that reside on the following Box Root URL and serve for applications and others to manipulate their data. 
+The Box Level API is a group of API's that reside on the following Box Root URL and serve for applications and others to manipulate their data.
 
 #### Box Root URL
 ```
@@ -275,4 +276,3 @@ You can run the user logic for requests from any path under the collection.
 #### [CORS Support](002_CORS_Support.md)
 
 #### [Cross Domain Policy File Retrieve](001_Cross_Domain_Policy_File.md)
-

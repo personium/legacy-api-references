@@ -30,7 +30,6 @@ box-install
 * If you already have a Box with the same name, you can not install Box.
 * If a Box with the same scheme URL already exists, you can not install Box.
 * You can not install Box in the main box.
-* barFile:The schema field of "/bar/00_meta/00_manifest.json" can not be null.
 
 #### bar file limit
 
@@ -38,7 +37,6 @@ box-install
     When exceeding the upper limit value, you can not install Box.
     * File size of bar file: 100MB
     * Before compression file size of entry in bar file: 10MB
-* Each entry is stored in the bar file in the order defined in the bar file.
 
 #### Box installation log detailed limit
 
@@ -161,7 +159,5 @@ For details of URL for [Box metadata acquisition API](303_Progress_of_Bar_File_I
 
 ```sh
 curl "https://{UnitFQDN}/{CellName}/{BoxName}" -X MKCOL -i -H 'Content-type: application/zip' -H\
- 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' --data-binary @{FileName}
+ 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -T "{FilePath}"
 ```
-
-

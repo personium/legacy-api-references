@@ -20,8 +20,8 @@ write
 |:--|:--|:--|
 |{CellName}|Cell Name||
 |{BoxName}|Box Name||
-|{CollectionName}|Service Collection Name|Valid values <br>Number of digits:1-128<br>Usable character types<br>alphanumeric character, period(.), under score(_), hyphen(-)|
-|{ResourceName}|Resource name|Valid values(limit) <br>Number of digits:1-128<br>Usable character types<br>alphanumeric character, period(.), under score(_), hyphen(-)|
+|{CollectionName}|Service Collection Name|Valid values <br>Number of digits:1-256|
+|{ResourceName}|Resource name|Valid values(limit) <br>Number of digits:1-256|
 
 ### Request Method
 

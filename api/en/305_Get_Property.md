@@ -35,7 +35,7 @@ or
 |:--|:--|:--|
 |{CellName}|Cell Name||
 |{BoxName}|Box Name||
-|{CollectionName}|Collection Name|Valid values Number of digits:1-128<br>Usable character types<br>alphanumeric character, period(.), under score(_), hyphen(-)|
+|{CollectionName}|Collection Name|Valid values Number of digits:1-256|
 
 ### Request Method
 

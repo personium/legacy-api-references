@@ -32,7 +32,7 @@ or
 |:--|:--|:--|
 |{CellName}|Cell Name||
 |{BoxName}|Box Name||
-|{ResourcePath}|Path to resource|Valid values Number of digits:1-128<br>Usable character types<br>alphanumeric character, period(.), under score(_), hyphen(-)|
+|{ResourcePath}|Path to resource|Valid values Number of digits:1-256|
 
 ### Request Method
 

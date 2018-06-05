@@ -20,8 +20,8 @@ exec
 |:--|:--|:--|
 |{CellName}|Cell Name||
 |{BoxName}|Box Name||
-|{CollectionName}|Service Collection Name|Valid values <br>Number of digits:1-128<br>Usable character types<br>alphanumeric character, period(.), under score(_), hyphen(-)|
-|{ServiceName}|Specify the name of the registered service|Valid values(limit) <br>Number of digits:1-128<br>Usable character types<br>alphanumeric character, period(.), under score(_), hyphen(-)|
+|{CollectionName}|Service Collection Name|Valid values <br>Number of digits:1-256|
+|{ServiceName}|Specify the name of the registered service|Valid values(limit) <br>Number of digits:1-256|
 
 ### Request Method
 

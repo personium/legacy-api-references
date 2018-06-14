@@ -35,7 +35,7 @@ PROPFIND
 |X-Override|ヘッダオーバライド機能|${上書きするヘッダ名}:${値}|×|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定します。|
 |X-Personium-RequestKey|イベントログに出力するRequestKeyフィールドの値|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字|×|指定がない場合、PCS-${UNIX時間}を設定する|
 |Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
-|Depth|取得するリソースの階層|0:対象のリソース自身<br>1:対象のリソースとそれの直下のリソース|○||
+|Depth|取得するリソースの階層|0:対象のリソース自身<br>1:対象のリソースとそれの直下のリソース|×|デフォルト値は0|
 ### リクエストボディ
 #### 名前空間
 
@@ -167,7 +167,7 @@ PROPFIND
 ## cURLサンプル
 ```sh
 curl "https://{UnitFQDN}/{CellName}" -X PROPFIND -i -H 'Depth:1' -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
+'Authorization: Bearer {AccessToken}' -d \
 '<?xml version="1.0" encoding="utf-8"?><D:propfind xmlns:D="DAV:"><D:allpop/></D:propfind>'
 ```
 

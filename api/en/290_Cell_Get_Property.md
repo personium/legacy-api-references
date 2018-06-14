@@ -45,7 +45,7 @@ PROPFIND
 |X-Override|Header override function|${OverwrittenHeaderName}:${Value}|No|Overwrite normal HTTP header value. To overwrite multiple headers, specify multiple X-Override headers.|
 |X-Personium-RequestKey|RequestKey field value output in the event log|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters|No|PCS-${UNIXtime} by default|
 |Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
-|Depth|To get the hierarchy of a resource|0:Gets target resource only<br>1:Gets target and resources directly under the target|Yes||
+|Depth|To get the hierarchy of a resource|0:Gets target resource only<br>1:Gets target and resources directly under the target|No|The default value is 0|
 
 ### Request Body
 
@@ -197,7 +197,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 
 ```sh
 curl "https://{UnitFQDN}/{CellName}" -X PROPFIND -i -H 'Depth:1' -H 'Authorization: Bearer {AccessToken}' \
--H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8"?><D:propfind xmlns:D="DAV:">\
+-d '<?xml version="1.0" encoding="utf-8"?><D:propfind xmlns:D="DAV:">\
 <D:allpop/></D:propfind>'
 ```
 

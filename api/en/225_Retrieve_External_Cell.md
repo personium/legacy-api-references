@@ -99,7 +99,7 @@ Refer to [Error Message List](004_Error_Messages.md)
   "d": {
     "results": {
       "__metadata": {
-        "uri": "https://{UnitFQDN}/{CellName}/__ctl/ExtCell('https://{UnitFQDN}/{ExtCellName}/')",
+        "uri": "https://{UnitFQDN}/{CellName}/__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{ExtCellName}%2F')",
         "etag": "W/\"1-1486519006899\"",
         "type": "CellCtl.ExtCell"
       },
@@ -108,12 +108,14 @@ Refer to [Error Message List](004_Error_Messages.md)
       "__updated": "/Date(1486519006899)/",
       "_Role": {
         "__deferred": {
-          "uri": "https://{UnitFQDN}/{CellName}/__ctl/ExtCell('https://{UnitFQDN}/{ExtCellName}/')/_Role"
+          "uri": "https://{UnitFQDN}/{CellName}/__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{ExtCellName}%2F')
+/_Role"
         }
       },
       "_Relation": {
         "__deferred": {
-          "uri": "https://{UnitFQDN}/{CellName}/__ctl/ExtCell('https://{UnitFQDN}/{ExtCellName}/')/_Relation"
+          "uri": "https://{UnitFQDN}/{CellName}/__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{ExtCellName}%2F')
+/_Relation"
         }
       }
     }
@@ -128,5 +130,3 @@ Refer to [Error Message List](004_Error_Messages.md)
 curl "https://{UnitFQDN}/{CellName}/__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{CellName}%2F')" -X \
 GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
-
-

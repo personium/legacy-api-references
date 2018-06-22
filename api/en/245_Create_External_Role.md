@@ -129,8 +129,8 @@ Refer to [Error Message List](004_Error_Messages.md)
       "__metadata": {
         "etag": "W/\"1-1371010428917\"",
         "type": "CellCtl.ExtRole",
-        "uri": "https://{UnitFQDN}/{CellName}/__ctl/ExtRole(ExtRole='https://{UnitFQDN}/{CellName}
-/__role/__/roletest',_Relation.Name='relation',_Relation._Box.Name=null)"
+        "uri": "https://{UnitFQDN}/{CellName}/__ctl/ExtRole(ExtRole='https%3A%2F%2F{UnitFQDN}%2F{CellName}
+%2F__role%2F__%2Froletest',_Relation.Name='relation',_Relation._Box.Name=null)"
       },
       "ExtRole": "https://{UnitFQDN}/{CellName}/__role/__/RoleName"
     }
@@ -140,8 +140,8 @@ Refer to [Error Message List](004_Error_Messages.md)
   "d": {
     "results": {
       "__metadata": {
-        "uri": "https://{UnitFQDN}/{CellName}/__ctl/ExtRole(ExtRole='https://{UnitFQDN}/{CellName}
-/__role/__/{ExtRoleName}',_Relation.Name='{RelationName}',_Relation._Box.Name='{BoxName}')",
+        "uri": "https://{UnitFQDN}/{CellName}/__ctl/ExtRole(ExtRole='https%3A%2F%2F{UnitFQDN}%2F{CellName}
+%2F__role%2F__%2F{ExtRoleName}',_Relation.Name='{RelationName}',_Relation._Box.Name='{BoxName}')",
         "etag": "W/\"1-1486717404966\"",
         "type": "CellCtl.ExtRole"
       },
@@ -163,4 +163,3 @@ curl "https://{UnitFQDN}/{CellName}/__ctl/ExtRole" -X POST -i -H 'Authorization:
 -H 'Accept: application/json' -d '{ "ExtRole": "https://{UnitFQDN}/{CellName}/__role/__/{ExtRoleName}", \
 "_Relation.Name": "{RelationName}", "_Relation._Box.Name": "{BoxName}"}'
 ```
-

@@ -54,10 +54,10 @@ JSON
 |TargetUrl|アクションに対する具体的なターゲットURL|Actionの値によって指定すべき値は変わります。規則は以下の別表 |×||
 
 #### タイマーイベント記述の規則
-| EventType | EventObject | EventInfo | EventExternal | 備考 |
-|:--|:--|:--|:--|:--|
-| timer.oneshot | エポックミリ秒(必須) | 必須 | falseのみ | 内部では分に切り捨てられます |
-| timer.periodic | 分(必須) | 必須 | falseのみ | |
+| EventType | EventObject | EventExternal | 備考 |
+|:--|:--|:--|:--|
+| timer.oneshot | エポックミリ秒(必須) | falseのみ | 内部では分に切り捨てられます |
+| timer.periodic | 分(必須) | falseのみ | |
 
 タイマーイベントは次のようにイベント化されます。
 

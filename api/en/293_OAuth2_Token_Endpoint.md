@@ -82,7 +82,7 @@ POST
 
 |Item Name|Overview|Format|Required|Effective Value|
 |:--|:--|:--|:--|:--|
-|grant_type|Authentication type|String|Yes|password<br>urn&#58;x-personium:oidc:google<br>urn&#58;ietf:params:oauth:grant-type:saml2-bearer<br>refresh_token|
+|grant_type|Authentication type|String|Yes|password<br>urn&#58;x-personium:oidc:google<br>urn&#58;ietf:params:oauth:grant-type:saml2-bearer<br>authorization_code<br>refresh_token|
 |username|User name|String|Yes(When grant_type = password)|Registered user name|
 |password|Password|String|Yes(When grant_type = password)|Registered password|
 |assertion|Transcell token target|String|Yes(When grant_type=urn&#58;ietf:params:oauth:grant-type:saml2-bearer)|A valid transacell access token|

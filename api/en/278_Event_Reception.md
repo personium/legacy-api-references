@@ -40,9 +40,9 @@ JSON
 
 |Item Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|Type|Type of event|String<br>Number of digits: 0&#45;51200 byte|Yes||
-|Object|Object of the eventbr|String<br>Number of digits: 0&#45;51200 byte|Yes||
-|Info|Information of the event|String<br>Number of digits: 0&#45;51200 byte|Yes||
+|Type|Type of event|String<br>Number of digits: 0&#45;51200 byte|No||
+|Object|Object of the eventbr|String<br>Number of digits: 0&#45;51200 byte|No||
+|Info|Information of the event|String<br>Number of digits: 0&#45;51200 byte|No||
 
 ### Request Sample
 

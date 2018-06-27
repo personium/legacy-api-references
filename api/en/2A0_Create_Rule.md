@@ -53,10 +53,10 @@ JSON
 | TargetUrl | The value to be specified depends on the value of the concrete target URL | Action for the action. The rules are as follows attached table | No ||
 
 #### Allowed Values for Timer Event
-| EventType | EventObject | EventInfo | EventExternal | Remarks |
-|:--|:--|:--|:--|:--|
-| timer.oneshot | Epoch time on milliseconds(Required) | Required | false | truncated to minutes internally |
-| timer.periodic | minutes(Required) | Required | false | |
+| EventType | EventObject | EventExternal | Remarks |
+|:--|:--|:--|:--|
+| timer.oneshot | Epoch time on milliseconds(Required) | false | truncated to minutes internally |
+| timer.periodic | minutes(Required) | false | |
 
 Timer event will be created below based on the rule.
 

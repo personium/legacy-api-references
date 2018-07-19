@@ -1,6 +1,6 @@
 # ComplexTypeProperty登録
 ## 概要
-ユーザーデータに指定するComplexTypePropertyを定義する
+ユーザデータに指定するComplexTypePropertyを定義する
 
 ### 必要な権限
 alter-schema
@@ -10,7 +10,7 @@ alter-schema
 * レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはJSON形式とする
 * $formatクエリオプションにatom または xmlを指定した場合、エラーとはならないが、レスポンスボディのデータの保証はない
 * 個別の制限
-	- 関連対象のComplexTypeを使用したEntityTypeのユーザーデータが存在する場合は、Nullableがtrueの場合のみ登録可能
+	- 関連対象のComplexTypeを使用したEntityTypeのユーザデータが存在する場合は、Nullableがtrueの場合のみ登録可能
 	- ComplexTypeの階層数が5階層以内となる場合のみ、登録可能
 	- Edm.DateTimeのDefaultValueの有効範囲のチェックが適切に行われない
 * Personiumの仕様として定めている制限

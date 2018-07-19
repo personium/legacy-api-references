@@ -1,6 +1,6 @@
 # EntityType登録
 ## 概要
-ユーザーデータのEntityTypeを登録する
+ユーザデータのEntityTypeを登録する
 
 ### 必要な権限
 alter-schema

@@ -1,6 +1,6 @@
 # AssociationEndと他オブジェクトとのリンク
 ## 概要
-ユーザーデータスキーマのAssociationEndのリンク情報を登録する  
+ユーザデータスキーマのAssociationEndのリンク情報を登録する  
 
 ### 必要な権限
 alter-schema

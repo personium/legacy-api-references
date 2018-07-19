@@ -1,6 +1,6 @@
 # ComplexType登録
 ## 概要
-ユーザーデータのプロパティに指定するComplexTypeの型を定義する
+ユーザデータのプロパティに指定するComplexTypeの型を定義する
 
 ### 必要な権限
 alter-schema

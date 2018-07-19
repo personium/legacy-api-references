@@ -1,6 +1,6 @@
 # Property登録
 ## 概要
-ユーザーデータに指定するプロパティを定義する
+ユーザデータに指定するプロパティを定義する
 ### 必要な権限
 alter-schema
 ### 制限事項
@@ -10,7 +10,7 @@ alter-schema
 	- レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはJSON形式とする
 	- $formatクエリオプションにatom または xmlを指定した場合、エラーとはならないが、レスポンスボディのデータの保証はない
 * 個別の制限
-	- 関連対象のEntityTypeを使用したユーザーデータが存在する場合は、Nullableがtrueの場合のみ登録可能
+	- 関連対象のEntityTypeを使用したユーザデータが存在する場合は、Nullableがtrueの場合のみ登録可能
 	- Edm.DateTime型の配列は使用不可
 	- Edm.DateTimeのDefaultValueの有効範囲のチェックが適切に行われない
 	- 1つのEntityTypeに対して作成出来るのは、DynamicProperty・DeclaredProperty・ComplexTypeProperty合わせて400個まで

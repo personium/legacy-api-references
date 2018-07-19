@@ -19,7 +19,7 @@ APIリファレンスのリクエストURLで使われている変数につい�
 |{MessageID}|MessageのID<br>MessageとはCell間で送受信可能なメッセージを指す||
 |{CollectionName}|Collection名<br>Collectionとは通常のファイルシステムでいうところのフォルダ・ディレクトリに相当する||
 |{ResourcePath}|リソースへのパス<br>Box配下のCollectionとファイルが対象となる||
-|{OdataCollectionName}|OdataCollection名<br>OdataCollectionとはユーザーがODataプロトコルで任意のリレーショナルデータを扱うための特殊WebDAV拡張コレクションを指す||
+|{OdataCollectionName}|OdataCollection名<br>OdataCollectionとはユーザがODataプロトコルで任意のリレーショナルデータを扱うための特殊WebDAV拡張コレクションを指す||
 |{EntityTypeName}|EntityType名<br>EntityTypeとはデータの構造をEntityDataModel(EDM)であらわすための定義体を指す|Entityの上位概念|
 |{AssociationEndName}|AssociationEnd名<br>AssociationEndとはAssociationを構成するエンドポイントとなっているEntityTypeを指す||
 |{ComplexTypeName}|ComplexType名<br>ComplexTypeとは下位属性を伴った属性を持つPropertyを指す|ComplexTypePropertyの上位概念|

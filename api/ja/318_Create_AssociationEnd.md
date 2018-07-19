@@ -1,6 +1,6 @@
 # AssociationEnd登録
 ## 概要
-ユーザーデータのAssociationEndを登録する
+ユーザデータのAssociationEndを登録する
 ### 必要な権限
 alter-schema
 ### 制限事項

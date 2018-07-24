@@ -48,7 +48,7 @@ It returns the request method that is allowed inside the request URL.
 Following is an example of the Access-Control-Allow-Methods response header.
 
 ```
-Access-Control-Allow-Origin: GET, OPTIONS
+Access-Control-Allow-Methods: GET, OPTIONS
 ```
 
 ####  Return of Access-Control-Allow-Headers response header

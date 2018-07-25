@@ -35,7 +35,7 @@ Access-Control-Allow-Methodsレスポンスヘッダの内容は、APIのアク�
 リクエストURLにて許可をしているリクエストメソッドを返却します。  
 次に示すのは、Access-Control-Allow-Methodsのレスポンスヘッダの例です。
 ```
-Access-Control-Allow-Origin: GET, OPTIONS
+Access-Control-Allow-Methods: GET, OPTIONS
 ```
 #### Access-Control-Allow-Headers レスポンスヘッダの返却
 すべてのAPIにおいて、リクエストヘッダにAccess-Control-Request-Headersを指定した場合、Access-Control-Allow-Headersを返却します。  

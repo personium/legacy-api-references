@@ -1,0 +1,68 @@
+# Cellルート取得
+## 概要
+Cellルートとして設定されているHTMLファイルを取得する。
+
+### 前提条件
+対象Cellの[プロパティに設定](./291_Cell_Change_Property.md)が必要。
+```xml
+<p:relayhtmlurl>{htmlが取得可能なURL}</p:relayhtmlurl>
+```
+URLに指定可能なスキームは"http", "https", "personium-localunit", "personium-localcell"。
+
+### 必要な権限
+なし
+
+### 制限事項
+なし
+
+
+## リクエスト
+### リクエストURL
+```
+/{CellName}
+```
+
+### メソッド
+GET
+
+### リクエストクエリ
+なし
+
+### リクエストヘッダ
+|ヘッダ名|概要|有効値|必須|備考|
+|:--|:--|:--|:--|:--|
+|Accept|レスポンスボディの形式を指定する|text/html|×|省略時は[text/html]として扱う|
+
+### リクエストボディ
+なし
+
+### リクエストサンプル
+なし
+
+
+## レスポンス
+### ステータスコード
+200
+
+### レスポンスヘッダ
+|ヘッダ名|概要|備考|
+|:--|:--|:--|
+|Content-Type|返却されるデータの形式||
+|Access-Control-Allow-Origin|クロスドメイン通信許可ヘッダ|返却値は"*"固定|
+|X-Personium-Version|Personium APIの実行バージョン|リクエストが処理されたAPIバージョン|
+
+### レスポンスボディ
+対象Cellのプロパティに設定されているURLから取得したHTML。
+
+### エラーメッセージ一覧
+[エラーメッセージ一覧](004_Error_Messages.md)を参照
+
+### レスポンスサンプル
+なし
+
+
+## cURLサンプル
+
+```sh
+curl "https://{UnitFQDN}/{CellName}" -X GET -i -H 'Accept: text/html'
+```

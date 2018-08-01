@@ -162,6 +162,9 @@ Configured ACL can be retrieved together with other properties, by sending regul
 * [Delete Log File](286_Delete_Log_File.md)
 
 ### Other functions
+#### Cell root access
+* [Get Cell Root](./200_Cell_Root.md)
+
 #### Exporting / Importing the contents inside the Cell
 
 Snapshot file of Cell is created by export execution.  

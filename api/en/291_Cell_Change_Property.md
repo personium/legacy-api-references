@@ -47,6 +47,8 @@ PROPPATCH
 |remove|DAV:|remove property|No|<! ELEMENT set (prop *)>||
 |prop|DAV:|remove property value|No|<! ELEMENT prop ANY>|Delete using the XML tag specified as ANY as a key|
 |prop|DAV:|set property value|No|<! ELEMENT prop ANY>|The XML tag specified as ANY is the key|
+\* "p:relayhtmlurl" and "p:authorizationhtmlurl" are reserved in the system.  
+For details, see [Get Cell Root](./200_Cell_Root.md) and [OAuth2.0 Authorization Endpoint](./292_OAuth2_Authorization_Endpoint.md).
 
 ### Request Sample
 
@@ -120,4 +122,3 @@ curl "https://{UnitFQDN}/{CellName}" -X PROPPATCH -i -H 'Authorization: Bearer {
 <D:propertyupdate xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns"><D:set><D:prop>\
 <p:hoge>${hoge}</p:hoge></D:prop></D:set><D:remove><D:prop><p:hoge/></D:prop></D:remove></D:propertyupdate>'
 ```
-

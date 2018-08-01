@@ -2,8 +2,10 @@
 ## 概要
 OAuth2の認可エンドポイントAPI  
 このAPIは、JSアプリケーション・ネイティブアプリでPersoniumを利用する場合のOAuth2の認可エンドポイントである。
+
 ### 前提条件
 このAPIを実行するためには、アプリセルURLをスキーマに持つBoxを事前に作成しておく必要がある。
+
 ### 制限事項
 リクエストクエリ、リクエストボディの「p_target」パラメータの指定は未サポート
 * p_targetを指定した場合、レスポンスヘッダの「Location」の値が4,096文字を超えるため、nginxでエラーとなる。
@@ -15,9 +17,11 @@ OAuth2の認可エンドポイントAPI
 ```
 {CellName}/__authz
 ```
+
 ### メソッド
-GET : 認証フォーム リクエスト
-POST : 認証フォーム リクエスト、トークン認証  
+GET : 認証フォームリクエスト  
+POST : 認証フォームリクエスト、トークン認証、コード認証  
+
 ### リクエストクエリ
 |項目名|概要|書式|必須|有効値|
 |:--|:--|:--|:--|:--|
@@ -29,25 +33,33 @@ POST : 認証フォーム リクエスト、トークン認証
 |p_owner|ULUUT昇格実行クエリ|String|×|trueのみ有効<br>※このクエリを設定した場合、認証情報はCookieで返却されない|
 |username|ユーザ名|String|×|登録済のユーザ名|
 |password|パスワード|String|×|登録済のパスワード|
+
 ### リクエストヘッダ
 なし
+
 ### リクエストボディ
 リクエストクエリと同じ
 
 
 ## レスポンス
-### Forms Authentication Request
+### 認証フォームリクエスト
+認証フォームはシステムのデフォルト、または任意のhtmlを使用することができる。  
+任意のhtmlを使用する場合、対象Cellの[プロパティに設定](./291_Cell_Change_Property.md)が必要。
+```xml
+<p:authorizationhtmlurl>{htmlが取得可能なURL}</p:authorizationhtmlurl>
+```
+URLに指定可能なスキームは"http","https","personium-localunit","personium-localcell"。
+
 #### ステータスコード
 200
 #### レスポンスヘッダ
 |ヘッダ名|概要|備考|
 |:--|:--|:--|
-|Content-Type|Content-Type of Resource||
+|Content-Type|text/html; charset=UTF-8||
 #### レスポンスボディ
-以下のHTMLフォームを返却する。
-![レスポンスボディ](image/OAuth2ResponseBody.png "レスポンスボディ")
+HTML認証フォームを返却する。
 
-### Request Token Authentication
+### トークン認証
 #### ステータスコード
 303  
 ブラウザはredirect_uriにリダイレクトされる。redirect_uriに、「URLパラメータ」で示すフラグメントが格納される。
@@ -90,7 +102,7 @@ POST : 認証フォーム リクエスト、トークン認証
 {redirect_uri}#error={error}&error_description={error_description}&state={state}&code={code}
 ```
 
-### Request Code Authentication
+### コード認証
 #### ステータスコード
 303  
 ブラウザはredirect_uriにリダイレクトされる。redirect_uriに、「URLパラメータ」で示すクエリが格納される。
@@ -122,6 +134,7 @@ POST : 認証フォーム リクエスト、トークン認証
 ```
 {redirect_uri}?error={error}&error_description={error_description}&state={state}&code={code}
 ```
+
 
 ## cURLサンプル
 ### GET

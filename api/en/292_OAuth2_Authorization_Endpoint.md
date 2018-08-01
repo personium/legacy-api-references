@@ -27,8 +27,8 @@ Request query, specification of "p\_target" parameter of request body is not sup
 
 ### Request Method
 
-GET : Authentication form request  
-POST : Authentication form request, Authentication Token
+GET : Forms Authentication Request  
+POST : Forms Authentication Request, Request Token Authentication, Request Code Authentication
 
 ### Request Query
 
@@ -56,6 +56,13 @@ Same as request query
 
 ### Forms Authentication Request
 
+The authentication form can use the system default, or any html.
+When using any html, it is necessary to [set property](./291_Cell_Change_Property.md) of the target cell.
+```xml
+<p:authorizationhtmlurl>{URL that html can obtain}</p:authorizationhtmlurl>
+```
+The schemes that can be specified as URL are "http", "https", "personium-localunit", "personium-localcell".
+
 #### Response Code
 
 200
@@ -64,11 +71,11 @@ Same as request query
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
-|Content-Type|Content-Type of Resource||
+|Content-Type|text/html; charset=UTF-8||
 
 #### Response Body
 
-Return the following HTML form.<br>![Response body](image/OAuth2ResponseBody.png "Response body")
+Return HTML authentication form.
 
 #### Error Messages
 

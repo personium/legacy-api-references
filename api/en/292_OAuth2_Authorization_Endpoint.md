@@ -56,7 +56,7 @@ Same as request query
 
 ### Forms Authentication Request
 
-The authentication form can use the system default, or any html.
+The authentication form can use the system default, or specified html.  
 When using any html, it is necessary to [set property](./291_Cell_Change_Property.md) of the target cell.
 ```xml
 <p:authorizationhtmlurl>{URL that html can obtain}</p:authorizationhtmlurl>

@@ -16,10 +16,6 @@ The schemes that can be specified as URL are "http", "https", "personium-localun
 
 None
 
-### Restrictions
-
-None
-
 
 ## Request
 
@@ -43,14 +39,6 @@ None
 |:--|:--|:--|:--|:--|
 |Accept|Specifies the response body format|text/html|No|[text/html] by default|
 
-### Request Body
-
-None
-
-### Request Sample
-
-None
-
 
 ## Response
 
@@ -73,10 +61,6 @@ HTML obtained from the URL set in the property of the target cell.
 ### Error Messages
 
 Refer to [Error Message List](004_Error_Messages.md)
-
-### Response Sample
-
-None
 
 
 ## cURL Command

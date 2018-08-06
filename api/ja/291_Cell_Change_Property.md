@@ -34,11 +34,10 @@ PROPPATCH
 |:--|:--|:--|:--|:--|:--|
 |DAV:||XML名前空間設定|○|"DAV:"||
 |urn: x-personium: xmlns||XML名前空間設定|○|"Urn: x-personium: xmlns"||
-|propertyupdate|DAV:|propertyupdate（アクセス制御リスト）のルート|○|<ELEMENT propertyupdate! (Set | remove)>||
+|propertyupdate|DAV:|propertyupdate（アクセス制御リスト）のルート|○|<ELEMENT propertyupdate! (Set &#124; remove)>||
 |set|DAV:|プロパティ設定|×|<! ELEMENT set (prop *)>||
 |remove|DAV:|プロパティ削除|×|<! ELEMENT set (prop *)>||
-|prop|DAV:|プロパティ削除値|×|<! ELEMENT prop ANY>|ANYに指定したXMLがタグをキーとして削除を行う|
-|prop|DAV:|プロパティ設定値|×|<! ELEMENT prop ANY>|ANYに指定したXMLタグがキーとなる|
+|prop|DAV:|プロパティ|×|<! ELEMENT prop ANY>|ANYに指定したXMLタグをキーとして設定または削除を行う|
 ※ "p:relayhtmlurl" 及び "p:authorizationhtmlurl" はシステムで予約されています。  
 詳細は [Cellルート取得](./200_Cell_Root.md) 及び [OAuth2.0 認可エンドポイント](./292_OAuth2_Authorization_Endpoint.md) を参照。
 
@@ -48,12 +47,12 @@ PROPPATCH
     xmlns:p="urn:x-personium:xmlns">
     <D:set>
         <D:prop>
-            <p:hoge>fuga</p:hoge>
+            <p:foo>bar</p:foo>
         </D:prop>
     </D:set>
     <D:remove>
         <D:prop>
-            <p:hoge/>
+            <p:foo/>
         </D:prop>
     </D:remove>
 </D:propertyupdate>
@@ -88,8 +87,8 @@ PROPPATCH
         <href>https://{UnitFQDN}/{CellName}/</href>
         <propstat>
             <prop>
-                <p:hoge xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:">${hoge}</p:hoge>
-                <p:hoge xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:"/>
+                <p:foo xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:">bar</p:foo>
+                <p:foo xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:"/>
             </prop>
             <status>HTTP/1.1 200 OK</status>
         </propstat>
@@ -102,6 +101,6 @@ PROPPATCH
 curl "https://{UnitFQDN}/{CellName}" -X PROPPATCH -i -H 'Authorization: Bearer {AccessToken}' \
 -H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8" ?>\
 <D:propertyupdate xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns"><D:set><D:prop>\
-<p:hoge>${hoge}</p:hoge></D:prop></D:set><D:remove><D:prop><p:hoge/></D:prop>\
+<p:foo>bar</p:foo></D:prop></D:set><D:remove><D:prop><p:foo/></D:prop>\
 </D:remove></D:propertyupdate>'
 ```

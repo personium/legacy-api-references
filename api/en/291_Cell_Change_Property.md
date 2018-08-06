@@ -45,8 +45,7 @@ PROPPATCH
 |propertyupdate|DAV:|propertyupdate (Access Control List) root|Yes|<ELEMENT propertyupdate! (Set &#124; remove)>||
 |set|DAV:|set property|No|<! ELEMENT set (prop *)>||
 |remove|DAV:|remove property|No|<! ELEMENT set (prop *)>||
-|prop|DAV:|remove property value|No|<! ELEMENT prop ANY>|Delete using the XML tag specified as ANY as a key|
-|prop|DAV:|set property value|No|<! ELEMENT prop ANY>|The XML tag specified as ANY is the key|
+|prop|DAV:|property value|No|<! ELEMENT prop ANY>|Set or Delete using the XML tag specified as ANY as a key|
 \* "p:relayhtmlurl" and "p:authorizationhtmlurl" are reserved in the system.  
 For details, see [Get Cell Root](./200_Cell_Root.md) and [OAuth2.0 Authorization Endpoint](./292_OAuth2_Authorization_Endpoint.md).
 
@@ -57,12 +56,12 @@ For details, see [Get Cell Root](./200_Cell_Root.md) and [OAuth2.0 Authorization
     xmlns:p="urn:x-personium:xmlns">
     <D:set>
         <D:prop>
-            <p:hoge>fuga</p:hoge>
+            <p:foo>bar</p:foo>
         </D:prop>
     </D:set>
     <D:remove>
         <D:prop>
-            <p:hoge/>
+            <p:foo/>
         </D:prop>
     </D:remove>
 </D:propertyupdate>
@@ -104,8 +103,8 @@ Refer to [Error Message List](004_Error_Messages.md)
         <href>https://{UnitFQDN}/{CellName}/</href>
         <propstat>
             <prop>
-                <p:hoge xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:">${hoge}</p:hoge>
-                <p:hoge xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:"/>
+                <p:foo xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:">bar</p:foo>
+                <p:foo xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:"/>
             </prop>
             <status>HTTP/1.1 200 OK</status>
         </propstat>
@@ -120,5 +119,5 @@ Refer to [Error Message List](004_Error_Messages.md)
 curl "https://{UnitFQDN}/{CellName}" -X PROPPATCH -i -H 'Authorization: Bearer {AccessToken}' -H \
 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8" ?>\
 <D:propertyupdate xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns"><D:set><D:prop>\
-<p:hoge>${hoge}</p:hoge></D:prop></D:set><D:remove><D:prop><p:hoge/></D:prop></D:remove></D:propertyupdate>'
+<p:foo>bar</p:foo></D:prop></D:set><D:remove><D:prop><p:foo/></D:prop></D:remove></D:propertyupdate>'
 ```

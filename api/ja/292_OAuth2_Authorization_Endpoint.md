@@ -43,7 +43,7 @@ POST : 認証フォームリクエスト、トークン認証、コード認証
 
 ## レスポンス
 ### 認証フォームリクエスト
-認証フォームはシステムのデフォルト、または任意のhtmlを使用することができる。  
+認証フォームはシステムのデフォルト、または指定したhtmlを使用することができる。  
 任意のhtmlを使用する場合、対象Cellの[プロパティに設定](./291_Cell_Change_Property.md)が必要。
 ```xml
 <p:authorizationhtmlurl>{htmlが取得可能なURL}</p:authorizationhtmlurl>

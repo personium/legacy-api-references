@@ -115,7 +115,7 @@ PROPPATCH
 ```xml
 <multistatus xmlns="DAV:">
     <response>
-        <href>https://{CellName}/{BoxName}/{CollectionName}</href>
+        <href>https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}</href>
         <propstat>
             <prop>
                 <p:hoge xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:">foo</p:hoge>

@@ -156,7 +156,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ```xml
 <multistatus xmlns="DAV:">
     <response>
-        <href>https://{CellName}/{BoxName}/{ResourcePath}</href>
+        <href>https://{UnitFQDN}/{CellName}/{BoxName}/{ResourcePath}</href>
         <propstat>
             <prop>
                 <p:hoge xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:">foo</p:hoge>

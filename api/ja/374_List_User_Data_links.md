@@ -104,7 +104,7 @@ GET
   "d": {
     "results": [
       {
-        "uri": "https://{CellName}/{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')"
+        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')"
       }
     ]
   }
@@ -115,7 +115,7 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "https://{CellName}/{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')/\$links\
+curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')/\$links\
 /_{EntityTypeName}" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H \
 'Accept: application/json'
 ```

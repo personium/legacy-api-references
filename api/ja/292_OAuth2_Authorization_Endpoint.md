@@ -44,7 +44,14 @@ POST : 認証フォームリクエスト、トークン認証、コード認証
 ## レスポンス
 ### 認証フォームリクエスト
 認証フォームはシステムのデフォルト、または指定したhtmlを使用することができる。  
-任意のhtmlを使用する場合、対象Cellの[プロパティに設定](./291_Cell_Change_Property.md)が必要。
+htmlを指定する場合、[Unitの設定](../../server-operator/unit_config_list.md)または[対象Cellのプロパティ設定](./291_Cell_Change_Property.md)が必要。2つを同時に設定した場合、対象Cellのプロパティ設定が優先される。  
+
+Unitの設定  
+```
+io.personium.core.cell.authorizationhtmlurl.default={htmlが取得可能なURL}
+```
+
+対象Cellのプロパティ設定  
 ```xml
 <p:authorizationhtmlurl>{htmlが取得可能なURL}</p:authorizationhtmlurl>
 ```

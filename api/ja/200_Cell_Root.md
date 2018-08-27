@@ -3,7 +3,14 @@
 Cellルートとして設定されているHTMLファイルを取得する。
 
 ### 前提条件
-対象Cellの[プロパティに設定](./291_Cell_Change_Property.md)が必要。
+[Unitの設定](../../server-operator/unit_config_list.md)または[対象Cellのプロパティ設定](./291_Cell_Change_Property.md)が必要。2つを同時に設定した場合、対象Cellのプロパティ設定が優先される。  
+
+Unitの設定  
+```
+io.personium.core.cell.relayhtmlurl.default={htmlが取得可能なURL}
+```
+
+対象Cellのプロパティ設定  
 ```xml
 <p:relayhtmlurl>{htmlが取得可能なURL}</p:relayhtmlurl>
 ```

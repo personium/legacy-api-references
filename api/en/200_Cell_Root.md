@@ -6,7 +6,14 @@ Get the HTML file set as the cell route.
 
 ### Precondition
 
-It is necessary to [set property](./291_Cell_Change_Property.md) of target cell.
+[Unit setting](../../server-operator/unit_config_list.md) or [target cell property setting](./291_Cell_Change_Property.md) is required. When both are set, the property setting of the target cell takes precedence.  
+
+Unit setting  
+```
+io.personium.core.cell.relayhtmlurl.default={URL that html can obtain}
+```
+
+Target cell property setting  
 ```xml
 <p:relayhtmlurl>{URL that html can obtain}</p:relayhtmlurl>
 ```

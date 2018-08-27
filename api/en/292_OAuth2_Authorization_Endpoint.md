@@ -56,8 +56,15 @@ Same as request query
 
 ### Forms Authentication Request
 
-The authentication form can use the system default, or specified html.  
-When using any html, it is necessary to [set property](./291_Cell_Change_Property.md) of the target cell.
+The authentication form can use the system default, or the specified html.  
+When specifying html, [Unit setting](../../server-operator/unit_config_list.md) or [Target cell property setting](./291_Cell_Change_Property.md) is required. When both are set, the property setting of the target cell takes precedence.  
+
+Unit setting  
+```
+io.personium.core.cell.authorizationhtmlurl.default={URL that html can obtain}
+```
+
+Target cell property setting  
 ```xml
 <p:authorizationhtmlurl>{URL that html can obtain}</p:authorizationhtmlurl>
 ```

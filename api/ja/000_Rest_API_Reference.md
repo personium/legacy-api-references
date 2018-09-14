@@ -20,7 +20,7 @@ Unit Level API の大半はUnit制御オブジェクトという形で実現さ�
 
 ### その他API
 
-* [Cell再帰的削除](105_Cell_Recursive_Delete.md)
+* [Cell再帰削除](105_Cell_Recursive_Delete.md)
 
 ## Cell Level API
 Cell Level API は、Cellを管理するユーザがアプリ等を通じて操作するAPIで、以下のCellルートURL以下に展開されています。  
@@ -115,7 +115,7 @@ Cell Level API は、次のような機能で構成されます。
 * [Boxインストール](302_Box_Installation.md)
 * [Boxメタデータ取得](303_Progress_of_Bar_File_Installation.md)
 * [URL取得](304_Get_Box_URL.md)
-* [再帰的削除](295_Box_Recursive_Delete.md)
+* [再帰削除](295_Box_Recursive_Delete.md)
 
 #### Box (Cell制御オブジェクト)
 

@@ -88,7 +88,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/" -X DELETE -i -H 'f-Match: *' -H \
+curl "https://{UnitFQDN}/{CellName}/" -X DELETE -i -H \
 'X-Personium-Recursive: true' -H 'Authorization: Bearer {AccessToken}' -H \
 'Accept: application/json'
 ```

@@ -33,7 +33,7 @@ PUT
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
-|If-Match|リソースのバージョン情報を指定する|String|×|バージョン指定しない場合は*（アスタリスク）|
+|If-Match|対象ETag値を指定する|String|×|省略時は[*]として扱う|
 |Content-Type|登録・更新ファイルのコンテンツ形式を指定する|String|○|JSでのリソースを形式で登録・更新する場合<br>Content-Type:text/javascript|
 ### リクエストボディ
 |概要|有効値|必須|備考|

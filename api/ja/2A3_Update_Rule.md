@@ -12,8 +12,6 @@ rule
 	* リクエストボディはJSON形式のみ受け付ける
 	* レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはJSON形式とする
 	* $formatクエリオプションは無視される
-	* If-None-Matchヘッダは無視
-	* Nameのバリデートチェックは未実施
 
 ## リクエスト
 ### リクエストURL

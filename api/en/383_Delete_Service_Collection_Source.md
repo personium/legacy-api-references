@@ -56,7 +56,7 @@ DELETE
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|If-Match|Specify resource version information|String|Yes|If you do not specify a version*(asterisk)|
+|If-Match|Specifies the target ETag value|String|No|[*] by default|
 
 ### Request Body
 

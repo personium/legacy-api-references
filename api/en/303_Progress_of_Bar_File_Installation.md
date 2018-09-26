@@ -10,6 +10,8 @@ Get the metadata of Box. The metadata includes the following information.
     * Box available
     * Box installation process in progress
     * Box installation process terminated abnormally
+* Box name
+* Box URL
 * Box Schema URL
 * Box creation date and time
 
@@ -77,12 +79,18 @@ The correspondence between key (name) and type, and value are as follows.
 
 |Object|Name(Key)|Type|Value|Notes|
 |:--|:--|:--|:--|:--|
-|Root|schema|string|The URL of the schema to which the Box is attached|Null for no schema|
-|Root|installed_at|string|Start time (ISO 8610 UTC format)|Do not output when status is one of the following.<br>- "Installation in Progress"<br>- "installation failed"|
-|Root|started_at|string|Start time (ISO 8610 UTC format)|Do not output when status is below.<br>- "Ready"|
-|Root|progress|string|Progress rate (for example, "30%")|Do not output when status is below.<br>- "Ready"|
-|Root|message|object|Object (message format)|Output only when status is below.<br>- "Installation failed"<br>For details, see the [error message list](004_Error_Messages.md)|
-|Root|status|string|One of the following strings: <br>- "ready"<br>- "installation in progress"<br>- "installation failed"|Box shows usable state<br>Box indicating that the installation process is in progress<br>Box indicates completion of installation (abnormal termination)|
+|Root|box|object|Object (box format)||
+|box|status|string|One of the following strings: <br>- "ready"<br>- "installation in progress"<br>- "installation failed"|Box shows usable state<br>Box indicating that the installation process is in progress<br>Box indicates completion of installation (abnormal termination)|
+|box|started_at|string|Start time (ISO 8610 UTC format)|Do not output when status is below.<br>- "Ready"|
+|box|progress|string|Progress rate (for example, "30%")|Do not output when status is below.<br>- "Ready"|
+|box|message|object|Object (message format)|Output only when status is below.<br>- "Installation failed"<br>For details, see the [error message list](004_Error_Messages.md)|
+|box|name|string|The name of the Box||
+|box|url|string|The URL of the Box||
+|box|schema|string|The URL of the schema to which the Box is attached|Null for no schema|
+|box|installed_at|string|Start time (ISO 8610 UTC format)|Do not output when status is one of the following.<br>- "Installation in Progress"<br>- "installation failed"|
+|Root|cell|object|Object (cell format)||
+|cell|name|string|The name of the Cell||
+|cell|url|string|The URL of the Cell||
 
 ### Error Messages
 
@@ -94,9 +102,17 @@ After creating Box (including when Box installation is completed)
 
 ```JSON
 {
-  "schema": "https://example.com/app1/",
-  "installed_at": "2017-02-13T09:00:00.000Z",
-  "status": "ready"
+  "box": {
+      "status": "ready",
+      "installed_at": "2017-02-13T09:00:00.000Z",
+      "name": "app_box",
+      "url": "https://example.com/cell1/app_box/",
+      "schema": "https://example.com/app1/"
+  },
+  "cell": {
+      "name": "cell1",
+      "url": "https://example.com/cell1/"
+  }
 }
 ```
 
@@ -104,10 +120,18 @@ During Box installation process
 
 ```JSON
 {
-  "schema": "https://example.com/app1/",
-  "started_at": "2017-02-13T09:00:00.000Z",
-  "progress": "81%",
-  "status": "installation in progress"
+  "box": {
+      "status": "installation in progress",
+      "started_at": "2017-02-13T09:00:00.000Z",
+      "progress": "81%",
+      "name": "app_box",
+      "url": "https://example.com/cell1/app_box/",
+      "schema": "https://example.com/app1/"
+  },
+  "cell": {
+      "name": "cell1",
+      "url": "https://example.com/cell1/"
+  }
 }
 ```
 
@@ -116,18 +140,25 @@ When Box installation is completed (abnormal termination)
 
 ```JSON
 {
-  "schema": "https://example.com/app1/",
-  "started_at": "2017-02-13T09:00:00.000Z",
-  "progress": "81%",
-  "message": {
-      "code" : "PR409-OD-0003",
-      "message" : {
-          "lang" : "en",
-          "value" : "The entity already exists."
-      }
+  "box": {
+      "status": "installation failed",
+      "started_at": "2017-02-13T09:00:00.000Z",
+      "progress": "81%",
+      "message": {
+          "code" : "PR409-OD-0003",
+          "message" : {
+              "lang" : "en",
+              "value" : "The entity already exists."
+          }
+      },
+      "name": "app_box",
+      "url": "https://example.com/cell1/app_box/",
+      "schema": "https://example.com/app1/"
   },
-  "status": "installation failed"
-
+  "cell": {
+      "name": "cell1",
+      "url": "https://example.com/cell1/"
+  }
 }
 ```
 

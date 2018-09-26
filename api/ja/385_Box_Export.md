@@ -35,7 +35,7 @@ GET
 |X-Override|ヘッダオーバライド機能|${上書きするヘッダ名}:${値}  override} $: $ {value}|×|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定します。|
 |X-Personium-RequestKey|イベントログに出力するRequestKeyフィールドの値|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字|×|指定がない場合、PCS-${UNIX時間}を設定する|
 |Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
-|Accept|レスポンスボディの形式を指定する|application/x-personium-bar+zip|○||
+|Accept|レスポンスボディの形式を指定する|application/zip+x-personium-bar|○||
 
 ### リクエストボディ
 なし  
@@ -49,7 +49,7 @@ GET
 ### レスポンスヘッダ
 |ヘッダ名|概要|備考|
 |:--|:--|:--|
-|Content-Type|ファイルのContent-Type|application/x-personium-bar+zip|
+|Content-Type|ファイルのContent-Type|application/zip+x-personium-bar|
 |Content-Length|ファイルのContent-Length||
 
 ### レスポンスボディ
@@ -65,5 +65,5 @@ GET
 
 ```sh
 curl "https://{UnitFQDN}/{CellName}/{BoxName}" -X GET -H 'Authorization: Bearer {AccessToken}' \
--H 'Accept: application/x-personium-bar+zip' -o "/home/user/export.bar"
+-H 'Accept: application/zip+x-personium-bar' -o "/home/user/export.bar"
 ```

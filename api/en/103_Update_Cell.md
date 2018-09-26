@@ -16,10 +16,6 @@ Only unit users permitted
     * Only application/json is supported for Content-Type in the request header and the JSON format for the response body
     * Response body data is not ensured if atom or xml is specified in the $format query option, although it does not result in an error
 
-* OData Update Restrictions
-    * If-None-Match header is ignored
-    * Name validation unimplemented
-
 
 ## Request
 

@@ -12,8 +12,6 @@ rule
 * Accept only JSON format for request body
 * Content-Type of the response header supports only application / json, and the response body is JSON format
 * $format query option ignored
-* If-None-Match header ignored
-* Validate check of Name not implemented yet
 
 ## request
 ### Request URL

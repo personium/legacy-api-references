@@ -55,7 +55,7 @@ GET
 |X-Personium-RequestKey|RequestKey field value output in the event log|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters|No|PCS-${UNIXtime} by default|
 |Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
 |Accept|Specifies the response body format|application/json|No|[application/json] by default|
-|If-None-Match|Specifies the target ETag value|ETag value|Yes|Not compatible|
+|If-None-Match|Specifies the target ETag value|ETag value|No|[*] by default|
 
 ### Request Body
 

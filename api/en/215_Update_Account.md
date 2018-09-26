@@ -50,7 +50,7 @@ PUT
 |Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
 |Content-Type|Specifies the request body format|application/json|No|[application/json] by default|
 |Accept|Specifies the response body format|application/json|No|[application/json] by default|
-|If-Match|Specifies the target ETag value|ETag value|Yes||
+|If-Match|Specifies the target ETag value|ETag value|No|[*] by default|
 |X-Personium-Credential|Password|String|No|Number of character:6 - 92<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")|
 
 ### Request Body

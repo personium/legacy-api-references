@@ -40,7 +40,7 @@ GET
 |X-Personium-RequestKey|イベントログに出力するRequestKeyフィールドの値|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字|×|指定がない場合、PCS-${UNIX時間}を設定する|
 |Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
 |Accept|レスポンスボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
-|If-None-Match|対象ETag値を指定する|ETag値|○|未対応|
+|If-None-Match|対象ETag値を指定する|ETag値|×|省略時は[*]として扱う|
 ### リクエストボディ
 なし
 

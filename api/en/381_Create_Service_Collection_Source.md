@@ -50,7 +50,7 @@ PUT
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
-|If-Match|Specify resource version information|String|No|If you do not specify a version *(asterisk)|
+|If-Match|Specifies the target ETag value|String|No|[*] by default|
 |Content-Type|Specify the content format of the registration / update file|String|Yes|When registering / updating resources in JS in the form<br>Content-Type:text/javascript|
 
 ### Request Body

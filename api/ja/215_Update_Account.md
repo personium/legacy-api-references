@@ -39,7 +39,7 @@ PUT
 |Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
 |Content-Type|リクエストボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
 |Accept|レスポンスボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
-|If-Match|対象ETag値を指定する|ETag値|○||
+|If-Match|対象ETag値を指定する|ETag値|×|省略時は[*]として扱う|
 |X-Personium-Credential|パスワード|文字列|×|文字数：6&#65374;32文字<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)|
 ### リクエストボディ
 

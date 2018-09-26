@@ -38,7 +38,7 @@ GET
 |X-Override|Header override function|${OverwrittenHeaderName}:${Value} override} $: $ {value}|No|Overwrite normal HTTP header value. To overwrite multiple headers, specify multiple X-Override headers.|
 |X-Personium-RequestKey|RequestKey field value output in the event log|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters|No||
 |Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
-|Accept|Specifies the response body format|application/x-personium-bar+zip|Yes||
+|Accept|Specifies the response body format|application/zip+x-personium-bar|Yes||
 
 ### Request Body
 None  
@@ -53,7 +53,7 @@ None
 ### Response Header
 |Header Name|Overview|Notes|
 |:--|:--|:--|
-|Content-Type|Content-Type of file|application/x-personium-bar+zip|
+|Content-Type|Content-Type of file|application/zip+x-personium-bar|
 |Content-Length|Content-Length of file||
 
 ### Response Body
@@ -71,5 +71,5 @@ For details of URL for [Box metadata acquisition API](303_Progress_of_Bar_File_I
 
 ```sh
 curl "https://{UnitFQDN}/{CellName}/{BoxName}" -X GET -H 'Authorization: Bearer {AccessToken}' \
--H 'Accept: application/x-personium-bar+zip' -o "/home/user/export.bar"
+-H 'Accept: application/application/zip+x-personium-bar' -o "/home/user/export.bar"
 ```

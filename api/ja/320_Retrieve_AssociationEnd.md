@@ -52,7 +52,7 @@ GET
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |Accept|レスポンスボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
-|If-None-Match|対象ETag値を指定する|ETag値|×|未対応|
+|If-None-Match|対象ETag値を指定する|ETag値|×|省略時は[*]として扱う|
 ### リクエストボディ
 なし
 

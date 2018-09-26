@@ -1,12 +1,14 @@
 # Boxメタデータ取得
 ## 概要
-Boxのメタデータを取得する。メタデータには、以下の情報が含まれる。
+Boxのメタデータを取得する。メタデータには、以下の情報が含まれる。  
 * Boxの状態  
 Boxインストールの状況（インストール結果、進捗率、エラーメッセージ等）
 * Boxの状態は以下の3種類が存在する
 	- Boxが使用可能
 	- Boxインストール処理中
 	- Boxインストールの処理が異常終了
+* Boxの名前
+* BoxのURL
 * BoxのスキーマURL
 * Boxの作成日時
 
@@ -63,12 +65,18 @@ GET
 
 |オブジェクト|名前(キー)|型|値|備考|
 |:--|:--|:--|:--|:--|
-|ルート|schema|string|Boxが紐づいているスキーマのURL|スキーマなしの場合は null|
-|ルート|installed_at|string|Start time (ISO 8610 UTC format)|statusが以下のいずれかの場合は出力しない。<br>- "Installation in Progress"<br>- "installation failed"|
-|ルート|started_at|string|Start time (ISO 8610 UTC format)|statusが以下の場合は出力しない。<br>- "Ready"<br>|
-|ルート|progress|string|Progress rate (for example, "30%")|statusが以下の場合は出力しない。<br>- "Ready"|
-|ルート|message|object|Object (message format)|statusが以下の場合のみ出力する。<br>- "Installation failed"<br>詳細は [エラーメッセージ一覧](004_Error_Messages.md)を参照|
-|ルート|status|string|以下のいずれかの文字列:  <br>- "ready"<br>- "installation in progress"<br>- "installation failed"|Boxが使用可能な状態を示す<br>Boxインストール処理中を示す<br>Boxインストール完了（異常終了）を示す|
+|ルート|box|object|Object (box format)||
+|box|status|string|以下のいずれかの文字列:  <br>- "ready"<br>- "installation in progress"<br>- "installation failed"|Boxが使用可能な状態を示す<br>Boxインストール処理中を示す<br>Boxインストール完了（異常終了）を示す|
+|box|started_at|string|Start time (ISO 8610 UTC format)|statusが以下の場合は出力しない。<br>- "Ready"<br>|
+|box|progress|string|Progress rate (for example, "30%")|statusが以下の場合は出力しない。<br>- "Ready"|
+|box|message|object|Object (message format)|statusが以下の場合のみ出力する。<br>- "Installation failed"<br>詳細は [エラーメッセージ一覧](004_Error_Messages.md)を参照|
+|box|name|string|Boxの名前||
+|box|url|string|BoxのURL||
+|box|schema|string|Boxが紐づいているスキーマのURL|スキーマなしの場合は null|
+|box|installed_at|string|Start time (ISO 8610 UTC format)|statusが以下のいずれかの場合は出力しない。<br>- "Installation in Progress"<br>- "installation failed"|
+|ルート|cell|object|Object (cell format)||
+|cell|name|string|Cellの名前||
+|cell|url|string|CellのURL||
 
 ### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
@@ -77,9 +85,17 @@ GET
 Boxの作成後（Boxインストール完了時を含む）
 ```JSON
 {
-  "schema": "https://example.com/app1/",
-  "installed_at": "2017-02-13T09:00:00.000Z",
-  "status": "ready"
+  "box": {
+      "status": "ready",
+      "installed_at": "2017-02-13T09:00:00.000Z",
+      "name": "app_box",
+      "url": "https://example.com/cell1/app_box/",
+      "schema": "https://example.com/app1/"
+  },
+  "cell": {
+      "name": "cell1",
+      "url": "https://example.com/cell1/"
+  }
 }
 ```
 
@@ -87,10 +103,18 @@ Boxの作成後（Boxインストール完了時を含む）
 Boxインストール処理中の場合
 ```JSON
 {
-  "schema": "https://example.com/app1/",
-  "started_at": "2017-02-13T09:00:00.000Z",
-  "progress": "81%",
-  "status": "installation in progress"
+  "box": {
+      "status": "installation in progress",
+      "started_at": "2017-02-13T09:00:00.000Z",
+      "progress": "81%",
+      "name": "app_box",
+      "url": "https://example.com/cell1/app_box/",
+      "schema": "https://example.com/app1/"
+  },
+  "cell": {
+      "name": "cell1",
+      "url": "https://example.com/cell1/"
+  }
 }
 ```
 
@@ -99,18 +123,25 @@ Boxインストール完了時（異常終了）の場合
 （Boxインストールに失敗後、有効期限以内）
 ```JSON
 {
-  "schema": "https://example.com/app1/",
-  "started_at": "2017-02-13T09:00:00.000Z",
-  "progress": "81%",
-  "message": {
-      "code" : "PR409-OD-0003",
-      "message" : {
-          "lang" : "en",
-          "value" : "The entity already exists."
-      }
+  "box": {
+      "status": "installation failed",
+      "started_at": "2017-02-13T09:00:00.000Z",
+      "progress": "81%",
+      "message": {
+          "code" : "PR409-OD-0003",
+          "message" : {
+              "lang" : "en",
+              "value" : "The entity already exists."
+          }
+      },
+      "name": "app_box",
+      "url": "https://example.com/cell1/app_box/",
+      "schema": "https://example.com/app1/"
   },
-  "status": "installation failed"
-
+  "cell": {
+      "name": "cell1",
+      "url": "https://example.com/cell1/"
+  }
 }
 ```
 

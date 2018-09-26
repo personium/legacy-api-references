@@ -64,7 +64,7 @@ The following query parameters are available
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |Accept|Specify the format of the response body|application/json|No|When omitted, treat it as [application/json]|
-|If-None-Match|Specifies the target ETag value|ETag value|No|Not compatible|
+|If-None-Match|Specifies the target ETag value|ETag value|No|When omitted, treat it as [*]|
 
 ### Request Body
 

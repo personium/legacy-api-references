@@ -163,7 +163,9 @@ Configured ACL can be retrieved together with other properties, by sending regul
 
 ### Other functions
 #### Cell root access
+
 * [Get Cell Root](./200_Cell_Root.md)
+* [Get Cell Metadata](./296_Get_Cell_Metadata.md)
 
 #### Exporting / Importing the contents inside the Cell
 

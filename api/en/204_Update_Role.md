@@ -14,9 +14,6 @@ auth
     * Only accepts the request body in the JSON format
     * Only application/json is supported for Content-Type in the request header and the JSON format for the response body
     * $formatQuery options ignored
-    * If-None-Match header is ignored
-    * Name validation unimplemented
-    * If updating is executed by specifying a nonexistent Role ID, a new creation is made and 204 is returned
 
 
 ## Request

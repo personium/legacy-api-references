@@ -60,7 +60,7 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/__src/{ResourceName}" -X GET -i -H \
+curl "{CellURL}/{BoxName}/{CollectionName}/__src/{ResourceName}" -X GET -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

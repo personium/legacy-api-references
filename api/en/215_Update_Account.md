@@ -104,7 +104,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 Account name update
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Account('{AccountName}')" -X PUT -i -H 'If-Match: *' \
+curl "{CellURL}/__ctl/Account('{AccountName}')" -X PUT -i -H 'If-Match: *' \
 -H 'X-Personium-Credential:password' -H 'Authorization: Bearer {AccessToken}' -H \
 'Accept: application/json' -d '{"Name":"{AccountName}"}'
 ```
@@ -112,7 +112,7 @@ curl "https://{UnitFQDN}/{CellName}/__ctl/Account('{AccountName}')" -X PUT -i -H
 Account name and Account type update
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Account('{AccountName}')" -X PUT -i -H 'If-Match: *' -H \
+curl "{CellURL}/__ctl/Account('{AccountName}')" -X PUT -i -H 'If-Match: *' -H \
 'X-Personium-Credential:password' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' \
 -d '{"Name":"{AccountName}","Type":"oidc:google"}'
 ```

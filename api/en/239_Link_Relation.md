@@ -133,7 +133,7 @@ JSON
 ### Request Sample
 
 ```JSON
-{"uri":"https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')"}
+{"uri":"{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')"}
 ```
 
 
@@ -163,9 +163,9 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/\$links/_Role" \
+curl "{CellURL}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/\$links/_Role" \
 -X POST -i  -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
-"{\"uri\":\"https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')\"}"
+"{\"uri\":\"{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')\"}"
 ```
 
 

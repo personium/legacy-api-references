@@ -115,7 +115,7 @@ GET
   "d": {
     "results": {
       "__metadata": {
-        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}
+        "uri": "{CellURL}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}
 ('{EntityID}')",
         "etag": "W/\"1-1487662179733\"",
         "type": "UserData.{EntityTypeName}"
@@ -139,7 +139,7 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')" \
+curl "{CellURL}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')" \
 -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

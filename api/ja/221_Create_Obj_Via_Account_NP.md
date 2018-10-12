@@ -99,7 +99,7 @@ Account固有レスポンスボディ
       "__metadata": {
         "etag": "1-1349355810698",
         "type": "CellCtl.Account",
-        "uri": "https://{UnitFQDN}/{CellName}/__ctl/Account('{AccountName}')"
+        "uri": "{CellURL}/__ctl/Account('{AccountName}')"
       }
     }
   }
@@ -111,7 +111,7 @@ Account固有レスポンスボディ
 ## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Account('acount_name')/_Role" -X POST -i -H \
+curl "{CellURL}/__ctl/Account('acount_name')/_Role" -X POST -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{RoleName}"}'
 ```
 

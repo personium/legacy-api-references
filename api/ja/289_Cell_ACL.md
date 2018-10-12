@@ -174,7 +174,7 @@ xml:base="https://example.com/testcell1/__role/box1/">
 
 ## cURLサンプル
 ```sh
-curl "https://{UnitFQDN}/{CellName}" -X ACL -i -H 'Authorization: Bearer {AccessToken}' -H \
+curl "{CellURL}" -X ACL -i -H 'Authorization: Bearer {AccessToken}' -H \
 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8" ?><D:acl xmlns:D="DAV:" \
 xmlns:p="urn:x-personium:xmlns" xml:base="http://{UnitFQDN}/{CellName}/__role/{BoxName}/">  \
 <D:ace><D:principal><D:href>{RoleName}</D:href></D:principal><D:grant><D:privilege><p:box-read/>\

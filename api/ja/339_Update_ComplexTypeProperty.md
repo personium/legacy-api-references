@@ -80,7 +80,7 @@ JSON
 ## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/ComplexTypeProperty\
+curl "{CellURL}/{BoxName}/{OdataCollecitonPath}/$metadata/ComplexTypeProperty\
 ('animal')" -X PUT -i -H 'If-Match: *' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: \
 application/json' -d '{"Name":"ComplexTypeProperty"}'
 ```

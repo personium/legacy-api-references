@@ -75,12 +75,12 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Sample
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__snapshot/CellExport_2017_01.zip" -X PUT -i -H \
+curl "{CellURL}/__snapshot/CellExport_2017_01.zip" -X PUT -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{File contents}'
 ```
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__snapshot/CellExport_2017_01.zip" -X PUT -i -H \
+curl "{CellURL}/__snapshot/CellExport_2017_01.zip" -X PUT -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -T "/home/user/CellExport.zip"
 ```
 

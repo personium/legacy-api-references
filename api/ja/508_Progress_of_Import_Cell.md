@@ -105,7 +105,7 @@ Cellインポート異常終了
 
 ## cURLサンプル
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__import" -X GET -i -H 'Authorization: Bearer {AccessToken}' \
+curl "{CellURL}/__import" -X GET -i -H 'Authorization: Bearer {AccessToken}' \
 -H 'Accept: application/json'
 ```
 

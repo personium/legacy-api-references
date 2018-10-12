@@ -50,7 +50,7 @@ JSON
 
 ### リクエストサンプル
 ```JSON
-{"Name":"{BoxName}", "Schema":"https://{UnitFQDN}/{CellName}/"}
+{"Name":"{BoxName}", "Schema":"{CellURL}/"}
 ```
 
 ## レスポンス
@@ -70,7 +70,7 @@ JSON
 ## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')" -X PUT -i -H \
+curl "{CellURL}/__ctl/Box('{BoxName}')" -X PUT -i -H \
 'If-Match: *' -H 'Authorization: Bearer {AccessToken}' -H \
 'Accept: application/json' -d '{"Name":"{BoxName}"}'
 ```

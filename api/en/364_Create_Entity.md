@@ -167,7 +167,7 @@ Refer to [Error Message List](004_Error_Messages.md)
   "d": {
     "results": {
       "__metadata": {
-        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')",
+        "uri": "{CellURL}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')",
         "etag": "W/\"1-1487662179733\"",
         "type": "UserData.{EntityTypeName}"
       },
@@ -190,7 +190,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}" -X POST -i \
+curl "{CellURL}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}" -X POST -i \
 -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"__id": "{EntityID}",\
 "animalId": "100-1","name": "episode","startedAt": "2010-11-08","episodeType": "care","endedAt": "",\
 "outcome": "During treatment"}'

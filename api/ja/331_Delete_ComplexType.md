@@ -69,7 +69,7 @@ DELETE
 ## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata/ComplexType\
+curl "{CellURL}/{BoxName}/{ODataCollecitonName}/\$metadata/ComplexType\
 ('{ComplexTypeName}')" -X DELETE -i -H 'Authorization: Bearer {AccessToken}' -H \
 'Accept: application/json'
 ```

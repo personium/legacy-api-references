@@ -105,7 +105,7 @@ GET
     "results": [
       {
         "__metadata": {
-          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/Property
+          "uri": "{CellURL}/{BoxName}/{ODataCollecitonName}/$metadata/Property
 (Name='{PropertyName}',_EntityType.Name='EntityTypeName')",
           "etag": "W/\"1-1487586946340\"",
           "type": "ODataSvcSchema.Property"
@@ -123,14 +123,14 @@ GET
         "__updated": "/Date(1487586946340)/",
         "_EntityType": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/Property
+            "uri": "{CellURL}/{BoxName}/{ODataCollecitonName}/$metadata/Property
 (Name='{PropertyName}',_EntityType.Name='EntityTypeName')/_EntityType"
           }
         }
       },
       {
         "__metadata": {
-          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/Property
+          "uri": "{CellURL}/{BoxName}/{ODataCollecitonName}/$metadata/Property
 (Name='{PropertyName}',_EntityType.Name='EntityTypeName')",
           "etag": "W/\"1-1487635336196\"",
           "type": "ODataSvcSchema.Property"
@@ -148,7 +148,7 @@ GET
         "__updated": "/Date(1487635336196)/",
         "_EntityType": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/Property
+            "uri": "{CellURL}/{BoxName}/{ODataCollecitonName}/$metadata/Property
 (Name='{PropertyName}',_EntityType.Name='EntityTypeName')/_EntityType"
           }
         }
@@ -162,7 +162,7 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata/Property" -X GET \
+curl "{CellURL}/{BoxName}/{ODataCollecitonName}/\$metadata/Property" -X GET \
 -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

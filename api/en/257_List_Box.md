@@ -114,7 +114,7 @@ Refer to [Error Message List](004_Error_Messages.md)
     "results": [
       {
         "__metadata": {
-          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')",
+          "uri": "{CellURL}/__ctl/Box('{BoxName}')",
           "etag": "W/\"1-1486368212581\"",
           "type": "CellCtl.Box"
         },
@@ -124,33 +124,33 @@ Refer to [Error Message List](004_Error_Messages.md)
         "__updated": "/Date(1486368212581)/",
         "_Role": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_Role"
+            "uri": "{CellURL}/__ctl/Box('{BoxName}')/_Role"
           }
         },
         "_Relation": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_Relation"
+            "uri": "{CellURL}/__ctl/Box('{BoxName}')/_Relation"
           }
         },
         "_ReceivedMessage": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_ReceivedMessage"
+            "uri": "{CellURL}/__ctl/Box('{BoxName}')/_ReceivedMessage"
           }
         },
         "_SentMessage": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_SentMessage"
+            "uri": "{CellURL}/__ctl/Box('{BoxName}')/_SentMessage"
           }
         },
         "_Rule": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_Rule"
+            "uri": "{CellURL}/__ctl/Box('{BoxName}')/_Rule"
           }
         }
       },
       {
         "__metadata": {
-          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')",
+          "uri": "{CellURL}/__ctl/Box('{BoxName}')",
           "etag": "W/\"1-1486461000154\"",
           "type": "CellCtl.Box"
         },
@@ -160,27 +160,27 @@ Refer to [Error Message List](004_Error_Messages.md)
         "__updated": "/Date(1486461000154)/",
         "_Role": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_Role"
+            "uri": "{CellURL}/__ctl/Box('{BoxName}')/_Role"
           }
         },
         "_Relation": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_Relation"
+            "uri": "{CellURL}/__ctl/Box('{BoxName}')/_Relation"
           }
         },
         "_ReceivedMessage": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_ReceivedMessage"
+            "uri": "{CellURL}/__ctl/Box('{BoxName}')/_ReceivedMessage"
           }
         },
         "_SentMessage": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_SentMessage"
+            "uri": "{CellURL}/__ctl/Box('{BoxName}')/_SentMessage"
           }
         },
         "_Rule": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_Rule"
+            "uri": "{CellURL}/__ctl/Box('{BoxName}')/_Rule"
           }
         }
       }
@@ -193,7 +193,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Box" -X GET -i -H 'Authorization: Bearer {AccessToken}'\
+curl "{CellURL}/__ctl/Box" -X GET -i -H 'Authorization: Bearer {AccessToken}'\
  -H 'Accept: application/json'
 ```
 

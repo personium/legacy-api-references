@@ -57,7 +57,7 @@ PUT
 
 ```JSON
 {
-  "Url": "https://{UnitFQDN}/{CellName}/"
+  "Url": "{CellURL}/"
 }
 ```
 
@@ -84,7 +84,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/ExtCell('http%3A%2F%2F{UnitFQDN}%2F{CellName}')" -X \
+curl "{CellURL}/__ctl/ExtCell('http%3A%2F%2F{UnitFQDN}%2F{CellName}')" -X \
 PUT -i -H 'If-Match: *' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'\
  -d '{"Url":"http://{UnitFQDN}/{CellName}/"}'
 ```

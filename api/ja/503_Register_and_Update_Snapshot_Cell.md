@@ -60,11 +60,11 @@ PUT
 
 ## cURLサンプル
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__snapshot/CellExport_2017_01.zip" -X PUT -i -H \
+curl "{CellURL}/__snapshot/CellExport_2017_01.zip" -X PUT -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{ファイル内容}'
 ```
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__snapshot/CellExport_2017_01.zip" -X PUT -i -H \
+curl "{CellURL}/__snapshot/CellExport_2017_01.zip" -X PUT -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -T "/home/user/CellExport.zip"
 ```
 

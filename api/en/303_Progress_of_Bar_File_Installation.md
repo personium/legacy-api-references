@@ -166,7 +166,7 @@ When Box installation is completed (abnormal termination)
 ## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}" -X GET -i -H 'Authorization: Bearer {AccessToken}' \
+curl "{CellURL}/{BoxName}" -X GET -i -H 'Authorization: Bearer {AccessToken}' \
 -H 'Accept: application/json'
 ```
 

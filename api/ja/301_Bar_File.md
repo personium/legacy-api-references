@@ -134,7 +134,7 @@ https&#58;//{UnitFQDN}/cell1/__role/box/staff → https&#58;//{UnitFQDN}/cell1/_
 {
   "ExtRoles": [
     {
-      "ExtRole": "https://{UnitFQDN}/{CellName}/__role/__/role2",
+      "ExtRole": "{CellURL}/__role/__/role2",
       "_Relation.Name": "Relation1"
     }
   ]
@@ -202,7 +202,7 @@ https&#58;//{UnitFQDN}/cell1/__role/box/staff → https&#58;//{UnitFQDN}/cell1/_
         },
       "ToType": "ExtRole",
       "ToName": {
-          "ExtRole": "https://{UnitFQDN}/{CellName}/__role/__/role2",
+          "ExtRole": "{CellURL}/__role/__/role2",
           "_Relation.Name": "Relation1"
         }
     }

@@ -133,7 +133,7 @@ Refer to [Error Message List](004_Error_Messages.md)
   "d": {
     "results": {
       "__metadata": {
-        "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')",
+        "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')",
         "etag": "W/\"1-1487320623218\"",
         "type": "CellCtl.Role"
       },
@@ -142,27 +142,27 @@ Refer to [Error Message List](004_Error_Messages.md)
       "__updated": "/Date(1487320623218)/",
       "_Box": {
         "__deferred": {
-          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_Box"
+          "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_Box"
         }
       },
       "_Account": {
         "__deferred": {
-          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_Account"
+          "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_Account"
         }
       },
       "_ExtCell": {
         "__deferred": {
-          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_ExtCell"
+          "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_ExtCell"
         }
       },
       "_ExtRole": {
         "__deferred": {
-          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_ExtRole"
+          "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_ExtRole"
         }
       },
       "_Relation": {
         "__deferred": {
-          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_Relation"
+          "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_Relation"
         }
       }
     }
@@ -175,7 +175,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ### Role registration via Navigation Property
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{ExtCellName}%2F')/_Role" -X \
+curl "{CellURL}/__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{ExtCellName}%2F')/_Role" -X \
 POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{ "Name": "{RoleName}"}'
 ```
 

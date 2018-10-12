@@ -174,7 +174,7 @@ Refer to [Error Message List](004_Error_Messages.md)
   "d": {
     "results": {
       "__metadata": {
-        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/ComplexTypeProperty
+        "uri": "{CellURL}/{BoxName}/{ODataCollecitonName}/$metadata/ComplexTypeProperty
 (Name='{ComplexTypePropertyName}',_ComplexType.Name='{ComplexTypeName}')",
         "etag": "W/\"1-1487658277593\"",
         "type": "ODataSvcSchema.ComplexTypeProperty"
@@ -196,7 +196,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata/ComplexTypeProperty" \
+curl "{CellURL}/{BoxName}/{ODataCollecitonName}/\$metadata/ComplexTypeProperty" \
 -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
 '{"Name": "{ComplexTypePropertyName}","_ComplexType.Name": "{ComplexTypeName}","Type": "Edm.String",\
 "Nullable": true,"DefaultValue": null,"CollectionKind": "None"}'

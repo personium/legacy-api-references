@@ -192,7 +192,7 @@ Refer to [Error Message List](004_Error_Messages.md)
       "Name": "{RelationName}",
       "_Box.Name": "{BoxName}",
       "__metadata": {
-        "uri": "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')",
+        "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')",
         "type": "CellCtl.relation"
       },
       "__published" : "\/Date(1339128525502)\/",

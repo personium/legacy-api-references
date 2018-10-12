@@ -101,7 +101,7 @@ DELETE
 ## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/\$links\
+curl "{CellURL}/__ctl/Box('{BoxName}')/\$links\
 /_Role(Name='{RoleName}',_Box.Name='{BoxName}')" -X DELETE -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```

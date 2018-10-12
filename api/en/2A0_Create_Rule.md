@@ -162,7 +162,7 @@ The response is a JSON object, and the correspondence between the key (name) and
   "d": {
     "results": {
       "__metadata": {
-        "uri": "https://{UnitFQDN}/{CellName}/__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')",
+        "uri": "{CellURL}/__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')",
         "etag": "W/\"1-1486368212581\"",
         "type": "CellCtl.Rule"
       },
@@ -188,7 +188,7 @@ The response is a JSON object, and the correspondence between the key (name) and
 ## cURL Sample
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Rule" -X POST -i \
+curl "{CellURL}/__ctl/Rule" -X POST -i \
 -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' \
 -d '{"Name":"{RuleName}", "EventExternal":true, "Action":"log"}'
 ```

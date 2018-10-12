@@ -146,14 +146,14 @@ Refer to [Error Message List](004_Error_Messages.md)
   "d": {
     "results": {
       "__metadata": {
-        "uri": "https://{UnitFQDN}/{CellName}/__ctl/ReceivedMessage('c87b42e10df846a9bee842225d1383fe')",
+        "uri": "{CellURL}/__ctl/ReceivedMessage('c87b42e10df846a9bee842225d1383fe')",
         "etag": "W/\"1-1486683974451\"",
         "type": "CellCtl.ReceivedMessage"
       },
       "__id": "c87b42e10df846a9bee842225d1383fe",
       "_Box.Name": "{BoxName}",
       "InReplyTo": "xnKXmd4TTZCw-bfSEw4f0AxnKXmd4TTZ",
-      "From": "https://{UnitFQDN}/{CellName}/",
+      "From": "{CellURL}/",
       "MulticastTo": null,
       "Type": "request",
       "Title": "Message Sample Title",
@@ -165,7 +165,7 @@ Refer to [Error Message List](004_Error_Messages.md)
           "RequestType": "relation.add",
           "Name": null,
           "ClassUrl": "https://{UnitFQDN}/{AppCellName}/__relation/__/{RelationName}",
-          "TargetUrl": "https://{UnitFQDN}/{CellName}",
+          "TargetUrl": "{CellURL}",
           "EventType": null,
           "EventSubject": null,
           "EventObject": null,
@@ -177,12 +177,12 @@ Refer to [Error Message List](004_Error_Messages.md)
       "__updated": "/Date(1486683974451)/",
       "_Box": {
         "__deferred": {
-          "uri": "https://{UnitFQDN}/{CellName}/__ctl/ReceivedMessage('c87b42e10df846a9bee842225d1383fe')/_Box"
+          "uri": "{CellURL}/__ctl/ReceivedMessage('c87b42e10df846a9bee842225d1383fe')/_Box"
         }
       },
       "_AccountRead": {
         "__deferred": {
-          "uri": "https://{UnitFQDN}/{CellName}/__ctl/ReceivedMessage('c87b42e10df846a9bee842225d1383fe')/_AccountRead"
+          "uri": "{CellURL}/__ctl/ReceivedMessage('c87b42e10df846a9bee842225d1383fe')/_AccountRead"
         }
       }
     }
@@ -194,6 +194,6 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/ReceivedMessage('{MessageID}')" -X GET -i  -H \
+curl "{CellURL}/__ctl/ReceivedMessage('{MessageID}')" -X GET -i  -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```

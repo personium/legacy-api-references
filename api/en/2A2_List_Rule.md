@@ -115,7 +115,7 @@ The response is a JSON object, and the correspondence between the key (name) and
     "results": [
       {
         "__metadata": {
-          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')",
+          "uri": "{CellURL}/__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')",
           "etag": "W/\"1-1486368212581\"",
           "type": "CellCtl.Rule"
         },
@@ -132,13 +132,13 @@ The response is a JSON object, and the correspondence between the key (name) and
         "__updated": "/Date(1486368212581)/",
         "_Box": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')/_Box"
+            "uri": "{CellURL}/__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')/_Box"
           }
         }
       },
       {
         "__metadata": {
-          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')",
+          "uri": "{CellURL}/__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')",
           "etag": "W/\"1-1486461000154\"",
           "type": "CellCtl.Rule"
         },
@@ -155,7 +155,7 @@ The response is a JSON object, and the correspondence between the key (name) and
         "__updated": "/Date(1486461000154)/",
         "_Box": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')/_Box"
+            "uri": "{CellURL}/__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')/_Box"
           }
         }
       }
@@ -166,6 +166,6 @@ The response is a JSON object, and the correspondence between the key (name) and
 ## cURL Sample
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Rule" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H \
+curl "{CellURL}/__ctl/Rule" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H \
 'Accept: application/json'
 ```

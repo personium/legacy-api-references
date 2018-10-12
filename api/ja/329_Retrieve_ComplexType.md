@@ -95,7 +95,7 @@ GET
   "d": {
     "results": {
       "__metadata": {
-        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata
+        "uri": "{CellURL}/{BoxName}/{ODataCollecitonName}/$metadata
 /ComplexType('{ComplexTypeName}}')",
         "etag": "W/\"1-1487650447372\"",
         "type": "ODataSvcSchema.ComplexType"
@@ -105,7 +105,7 @@ GET
       "__updated": "/Date(1487650447372)/",
       "_ComplexTypeProperty": {
         "__deferred": {
-          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata
+          "uri": "{CellURL}/{BoxName}/{ODataCollecitonName}/$metadata
 /ComplexType('{ComplexTypeName}')/_ComplexTypeProperty"
         }
       }
@@ -120,7 +120,7 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata/ComplexType\
+curl "{CellURL}/{BoxName}/{ODataCollecitonName}/\$metadata/ComplexType\
 ('{ComplexTypeName}')" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: \
 application/json'
 ```

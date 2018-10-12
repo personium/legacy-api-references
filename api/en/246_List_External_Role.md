@@ -117,25 +117,25 @@ Refer to [Error Message List](004_Error_Messages.md)
     "results": [
       {
         "__metadata": {
-          "uri": "https://{UnitFQDN}/{CellName}/__ctl/ExtRole(ExtRole='https%3A%2F%2F{UnitFQDN}%2F{CellName}
+          "uri": "{CellURL}/__ctl/ExtRole(ExtRole='https%3A%2F%2F{UnitFQDN}%2F{CellName}
 %2F__role%2F__%2F{ExtRoleName}',_Relation.Name='{RelationName}',_Relation._Box.Name='{BoxName}')",
           "etag": "W/\"1-1486717404966\"",
           "type": "CellCtl.ExtRole"
         },
-        "ExtRole": "https://{UnitFQDN}/{CellName}/__role/__/{ExtRoleName}",
+        "ExtRole": "{CellURL}/__role/__/{ExtRoleName}",
         "_Relation.Name": "{RelationName}",
         "_Relation._Box.Name": "{BoxName}",
         "__published": "/Date(1486717404966)/",
         "__updated": "/Date(1486717404966)/",
         "_Role": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/ExtRole(ExtRole='https%3A%2F%2F{UnitFQDN}%2F{CellName}
+            "uri": "{CellURL}/__ctl/ExtRole(ExtRole='https%3A%2F%2F{UnitFQDN}%2F{CellName}
 %2F__role%2F__%2F{ExtRoleName}',_Relation.Name='{RelationName}',_Relation._Box.Name='{BoxName}')/_Role"
           }
         },
         "_Relation": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/ExtRole(ExtRole='https%3A%2F%2F{UnitFQDN}%2F{CellName}
+            "uri": "{CellURL}/__ctl/ExtRole(ExtRole='https%3A%2F%2F{UnitFQDN}%2F{CellName}
 %2F__role%2F__%2F{ExtRoleName}',_Relation.Name='{RelationName}',_Relation._Box.Name='{BoxName}')/_Relation"
           }
         }
@@ -149,6 +149,6 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/ExtRole" -X GET -i -H 'Authorization: Bearer {AccessToken}' \
+curl "{CellURL}/__ctl/ExtRole" -X GET -i -H 'Authorization: Bearer {AccessToken}' \
 -H 'Accept: application/json'
 ```

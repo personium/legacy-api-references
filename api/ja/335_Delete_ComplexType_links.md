@@ -83,7 +83,7 @@ DELETE
 ## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/$metadata/ComplexType('Address')\
+curl "{CellURL}/{BoxName}/{CollectionName}/$metadata/ComplexType('Address')\
 /$links/_Property('PostalCode')" -X DELETE -i -H 'If-Match: *' -H 'Authorization: Bearer \
 {AccessToken}' -H 'Accept: application/json'
 ```

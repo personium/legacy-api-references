@@ -65,7 +65,7 @@ GET
 
 ## cURLサンプル
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__snapshot/{FileName}" -X GET -i -H \
+curl "{CellURL}/__snapshot/{FileName}" -X GET -i -H \
 'Authorization: Bearer {AccessToken}'
 ```
 

@@ -108,7 +108,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')" -X \
+curl "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')" -X \
 PUT -i -H 'If-Match: *' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' \
 -d '{"Name":"{RoleName}","_Box.Name":"{BoxName}"}'
 ```

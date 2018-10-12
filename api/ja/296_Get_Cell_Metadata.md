@@ -63,5 +63,5 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}" -X GET -i -H 'Accept: application/json'
+curl "{CellURL}" -X GET -i -H 'Accept: application/json'
 ```

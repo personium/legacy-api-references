@@ -70,7 +70,7 @@ None
 ## cURL Sample
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')" -X DELETE -i  -H \
+curl "{CellURL}/__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')" -X DELETE -i  -H \
 'If-Match: *' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

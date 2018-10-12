@@ -46,7 +46,7 @@ JSON
 
 ### リクエストサンプル
 ```JSON
-{"uri":"https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')"}
+{"uri":"{CellURL}/__ctl/Box('{BoxName}')"}
 ```
 
 ## レスポンス
@@ -69,8 +69,8 @@ JSON
 ## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Account(Name='{AccountName}')/\$links/_Role" -X \
+curl "{CellURL}/__ctl/Account(Name='{AccountName}')/\$links/_Role" -X \
 POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
-"{\"uri\":\"https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')\"}"
+"{\"uri\":\"{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')\"}"
 ```
 

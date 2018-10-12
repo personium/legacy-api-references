@@ -149,14 +149,14 @@ Refer to [Error Message List](004_Error_Messages.md)
     "results": [
       {
         "__metadata": {
-          "uri": "https://{UnitFQDN}/{CellName}/__ctl/SentMessage('c87b42e10df846a9bee842225d1383fe')",
+          "uri": "{CellURL}/__ctl/SentMessage('c87b42e10df846a9bee842225d1383fe')",
           "etag": "W/\"1-1486683974323\"",
           "type": "CellCtl.SentMessage"
         },
         "__id": "c87b42e10df846a9bee842225d1383fe",
         "_Box.Name": null,
         "InReplyTo": "xnKXmd4TTZCw-bfSEw4f0AxnKXmd4TTZ",
-        "To": "https://{UnitFQDN}/{CellName}",
+        "To": "{CellURL}",
         "ToRelation": null,
         "Type": "request",
         "Title": "Message Sample Title",
@@ -167,7 +167,7 @@ Refer to [Error Message List](004_Error_Messages.md)
             "RequestType": "relation.add",
             "Name": null,
             "ClassUrl": "https://{UnitFQDN}/{AppCellName}/__relation/__/{RelationName}",
-            "TargetUrl": "https://{UnitFQDN}/{CellName}",
+            "TargetUrl": "{CellURL}",
             "EventType": null,
             "EventSubject": null,
             "EventObject": null,
@@ -177,7 +177,7 @@ Refer to [Error Message List](004_Error_Messages.md)
         ],
         "Result": [
           {
-            "To": "https://{UnitFQDN}/{CellName}/",
+            "To": "{CellURL}/",
             "Code": "201",
             "Reason": "Created."
           }
@@ -186,20 +186,20 @@ Refer to [Error Message List](004_Error_Messages.md)
         "__updated": "/Date(1486683974323)/",
         "_Box": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/SentMessage('c87b42e10df846a9bee842225d1383fe')/_Box"
+            "uri": "{CellURL}/__ctl/SentMessage('c87b42e10df846a9bee842225d1383fe')/_Box"
           }
         }
       },
       {
         "__metadata": {
-          "uri": "https://{UnitFQDN}/{CellName}/__ctl/SentMessage('f87358607d0d46deae61eec6bb0ea490')",
+          "uri": "{CellURL}/__ctl/SentMessage('f87358607d0d46deae61eec6bb0ea490')",
           "etag": "W/\"1-1486685761907\"",
           "type": "CellCtl.SentMessage"
         },
         "__id": "f87358607d0d46deae61eec6bb0ea490",
         "_Box.Name": null,
         "InReplyTo": "xnKXmd4TTZCw-bfSEw4f0AxnKXmd4TTZ",
-        "To": "https://{UnitFQDN}/{CellName}",
+        "To": "{CellURL}",
         "ToRelation": null,
         "Type": "message",
         "Title": "Message Sample Title",
@@ -209,7 +209,7 @@ Refer to [Error Message List](004_Error_Messages.md)
         "RequestRelationTarget": null,
         "Result": [
           {
-            "To": "https://{UnitFQDN}/{CellName}/",
+            "To": "{CellURL}/",
             "Code": "201",
             "Reason": "Created."
           }
@@ -218,7 +218,7 @@ Refer to [Error Message List](004_Error_Messages.md)
         "__updated": "/Date(1486685761907)/",
         "_Box": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/SentMessage('f87358607d0d46deae61eec6bb0ea490')/_Box"
+            "uri": "{CellURL}/__ctl/SentMessage('f87358607d0d46deae61eec6bb0ea490')/_Box"
           }
         }
       }
@@ -231,6 +231,6 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/SentMessage" -X GET -i -H \
+curl "{CellURL}/__ctl/SentMessage" -X GET -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```

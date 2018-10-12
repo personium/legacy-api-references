@@ -186,7 +186,7 @@ JSON
   "d": {
     "results": {
       "__metadata": {
-        "uri": "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')",
+        "uri": "{CellURL}/__ctl/Box('{BoxName}')",
         "etag": "W/\"1-1486945452485\"",
         "type": "CellCtl.Box"
       },
@@ -208,7 +208,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ### When registered Box
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_Box" \
+curl "{CellURL}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_Box" \
 -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{BoxName}"}'
 ```
 

@@ -78,13 +78,13 @@ PUT
 ## cURLサンプル
 アカウント名更新
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Account('{AccountName}')" -X PUT -i -H \
+curl "{CellURL}/__ctl/Account('{AccountName}')" -X PUT -i -H \
 'If-Match: *' -H 'X-Personium-Credential:password' -H 'Authorization: Bearer {AccessToken}' -H \
 'Accept: application/json' -d '{"Name":"{AccountName}"}'
 ```
 アカウント名+アカウントタイプ更新
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Account('{AccountName}')" -X PUT -i -H \
+curl "{CellURL}/__ctl/Account('{AccountName}')" -X PUT -i -H \
 'If-Match: *' -H 'X-Personium-Credential:password' -H 'Authorization: Bearer {AccessToken}' -H \
 'Accept: application/json' -d '{"Name":"{AccountName}","Type":"oidc:google"}'
 ```

@@ -131,7 +131,7 @@ Refer to [Error Message List](004_Error_Messages.md)
   "d": {
     "results": [
       {
-        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/$metadata/AssociationEnd
+        "uri": "{CellURL}/{BoxName}/{CollectionName}/$metadata/AssociationEnd
 (Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')"
       }
     ]
@@ -143,7 +143,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/\$metadata/AssociationEnd\
+curl "{CellURL}/{BoxName}/{CollectionName}/\$metadata/AssociationEnd\
 (Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')/\$links/_AssociationEnd" -X \
 GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```

@@ -113,7 +113,7 @@ FromRole="TestEntity:TestAssociationEndFrom" ToRole="TestEntity:TestAssociationE
 ## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollectionName}/\$metadata" -X \
+curl "{CellURL}/{BoxName}/{OdataCollectionName}/\$metadata" -X \
 GET -i -H 'Authorization: Bearer {AccessToken}'
 ```
 

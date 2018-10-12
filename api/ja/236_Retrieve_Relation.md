@@ -101,7 +101,7 @@ GET
     "results": {
       "__metadata": {
         "uri":
-        "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')",
+        "{CellURL}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')",
         "etag": "W/\"1-1486538244016\"",
         "type": "CellCtl.Relation"
       },
@@ -111,25 +111,25 @@ GET
       "__updated": "/Date(1486538244016)/",
       "_Box": {
         "__deferred": {
-          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}'
+          "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}'
 ,_Box.Name='{BoxName}')/_Box"
         }
       },
       "_ExtCell": {
         "__deferred": {
-          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}'
+          "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}'
 ,_Box.Name='{BoxName}')/_ExtCell"
         }
       },
       "_ExtRole": {
         "__deferred": {
-          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}'
+          "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}'
 ,_Box.Name='{BoxName}')/_ExtRole"
         }
       },
       "_Role": {
         "__deferred": {
-          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}'
+          "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}'
 ,_Box.Name='{BoxName}')/_Role"
         }
       }
@@ -142,7 +142,7 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')" \
+curl "{CellURL}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')" \
 -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

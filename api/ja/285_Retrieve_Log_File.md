@@ -86,7 +86,7 @@ currentのログ取得時にログが存在しない場合は、空のレスポ�
 ### レスポンスサンプル
 外部イベント
 ```
-2013-02-04T00:50:12.761Z,[INFO ],"Req_animal-access_1001","true","https://{UnitFQDN}/{CellName}/",
+2013-02-04T00:50:12.761Z,[INFO ],"Req_animal-access_1001","true","{CellURL}/",
 "https://{UnitFQDN}/servicemanager/#admin","authSchema","/{CellName}/{BoxName}/service_name/token_keeper",
 "[XXXX2033] Success schema authorization. cellUrl=https://{UnitFQDN}/keeper-d4a57bb26eae481486b07d06487051d1/"
 ```
@@ -101,7 +101,7 @@ currentのログ取得時にログが存在しない場合は、空のレスポ�
 ## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__log/current/default.log" -X GET -i -H \
+curl "{CellURL}/__log/current/default.log" -X GET -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

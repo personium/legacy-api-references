@@ -139,7 +139,7 @@ DTD表記
 ```xml
 <multistatus xmlns="DAV:">
     <response>
-        <href>https://{UnitFQDN}/{CellName}/__snapshot/CellExport_2017_01.zip</href>
+        <href>{CellURL}/__snapshot/CellExport_2017_01.zip</href>
         <propstat>
             <prop>
                 <creationdate>2017-02-15T01:52:34.635+0000</creationdate>
@@ -157,7 +157,7 @@ DTD表記
 
 ## cURLサンプル
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__snapshot/CellExport_2017_01.zip" -X PROPFIND -i  \
+curl "{CellURL}/__snapshot/CellExport_2017_01.zip" -X PROPFIND -i  \
 -H 'Depth:0' -H 'Authorization: Bearer {AccessToken}' -d '<?xml version="1.0" \
 encoding="utf-8"?><D:propfind xmlns:D="DAV:"><D:allprop/></D:propfind>'
 ```

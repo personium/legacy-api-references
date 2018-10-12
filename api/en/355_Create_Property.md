@@ -186,7 +186,7 @@ Refer to [Error Message List](004_Error_Messages.md)
   "d": {
     "results": {
       "__metadata": {
-        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata
+        "uri": "{CellURL}/{BoxName}/{ODataCollecitonName}/$metadata
 /Property(Name='{PropertyName}',_EntityType.Name='{EntityTypeName}')",
         "etag": "W/\"1-1487635336196\"",
         "type": "ODataSvcSchema.Property"
@@ -211,7 +211,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata/Property" -X POST \
+curl "{CellURL}/{BoxName}/{ODataCollecitonName}/\$metadata/Property" -X POST \
 -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name": "{PetName}",\
 "_EntityType.Name": "{EntityTypeName}","Type": "Edm.String","Nullable": true,"DefaultValue": null,\
 "CollectionKind": "None","IsKey": true,"UniqueKey": null}'

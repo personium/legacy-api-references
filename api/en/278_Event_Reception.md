@@ -80,7 +80,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 
 ## cURL Command
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__event" -X POST -i -H 'Authorization: Bearer {AccessToken}' \
+curl "{CellURL}/__event" -X POST -i -H 'Authorization: Bearer {AccessToken}' \
 -H 'Accept: application/json' -d '{"Type":"authSchema", "Object":"/{CellName}/{BoxName}/service_name/token_keeper", \
 "Info":"[XXXX2033] Success schema authorization. cellUrl=https://{UnitFQDN}/keeper-d4a57bb26eae481486b07d06487051d1/"}'
 ```

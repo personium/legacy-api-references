@@ -57,7 +57,7 @@ JSON
 
 ### Request body sample
 ```JSON
-{"uri":"https://{UnitFQDN}/{CellName}/__ctl/Box(Name='{BoxName}')"}
+{"uri":"{CellURL}/__ctl/Box(Name='{BoxName}')"}
 ```
 
 ## Response
@@ -80,7 +80,7 @@ None
 ## cURL Sample
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Rule('{RuleName}')/\$links/_Box" -X POST -i -H \
+curl "{CellURL}/__ctl/Rule('{RuleName}')/\$links/_Box" -X POST -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
-"{\"uri\":\"https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')\"}"
+"{\"uri\":\"{CellURL}/__ctl/Box('{BoxName}')\"}"
 ```

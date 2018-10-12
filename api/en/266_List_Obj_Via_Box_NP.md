@@ -175,7 +175,7 @@ Refer to [Error Message List](004_Error_Messages.md)
     "results": [
       {
         "__metadata": {
-          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',
+          "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}',
 _Box.Name='{BoxName}')",
           "etag": "W/\"1-1486700131198\"",
           "type": "CellCtl.Relation"
@@ -186,25 +186,25 @@ _Box.Name='{BoxName}')",
         "__updated": "/Date(1486700131198)/",
         "_Box": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',
+            "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}',
 _Box.Name='{BoxName}')/_Box"
           }
         },
         "_ExtCell": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',
+            "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}',
 _Box.Name='{BoxName}')/_ExtCell"
           }
         },
         "_ExtRole": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',
+            "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}',
 _Box.Name='{BoxName}')/_ExtRole"
           }
         },
         "_Role": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',
+            "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}',
 _Box.Name='{BoxName}')/_Role"
           }
         }
@@ -221,20 +221,20 @@ _Box.Name='{BoxName}')/_Role"
 
 ```sh
 curl
-"https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_Role" -X GET -i  -H \
+"{CellURL}/__ctl/Box('{BoxName}')/_Role" -X GET -i  -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 
 ### When acquire Relation
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_Relation" -X GET -i -H \
+curl "{CellURL}/__ctl/Box('{BoxName}')/_Relation" -X GET -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 ### When acquire Rule
 ```sh
 curl
-"https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_Rule" -X GET -i  -H \
+"{CellURL}/__ctl/Box('{BoxName}')/_Rule" -X GET -i  -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

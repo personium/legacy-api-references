@@ -153,7 +153,7 @@ GET
       "Name": "{RelationName}",
       "_Box.Name": "{BoxName}",
       "__metadata": {  
-        "uri": "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}'
+        "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}'
 ,_Box.Name='{BoxName}')",
         "type": "CellCtl.relation"  
       },  

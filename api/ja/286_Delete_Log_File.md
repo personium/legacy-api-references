@@ -65,7 +65,7 @@ DELETE
 ## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__log/archive/{LogName}" -X DELETE -i -H \
+curl "{CellURL}/__log/archive/{LogName}" -X DELETE -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

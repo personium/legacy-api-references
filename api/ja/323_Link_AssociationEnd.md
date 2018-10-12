@@ -32,7 +32,7 @@ POST
 |uri|linkするAssociationEndのuri|存在するAssociationEnd|○||
 ### リクエストサンプル
 ```JSON
-{"uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/AssociationEnd
+{"uri": "{CellURL}/{BoxName}/{ODataCollecitonName}/$metadata/AssociationEnd
 (Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')"}
 ```
 
@@ -52,10 +52,10 @@ POST
 
 ## cURLサンプル
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata/AssociationEnd(Name=\
+curl "{CellURL}/{BoxName}/{ODataCollecitonName}/\$metadata/AssociationEnd(Name=\
 '{AssociationEndName}',_EntityType.Name='{EntityTypeName}')/\$links/_AssociationEnd" -X POST -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -H 'Accept:application/json' -d \
-"{\"uri\": \"https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata/AssociationEnd\
+"{\"uri\": \"{CellURL}/{BoxName}/{ODataCollecitonName}/\$metadata/AssociationEnd\
 (Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')\"}"
 ```
 

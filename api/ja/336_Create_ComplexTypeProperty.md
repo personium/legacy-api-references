@@ -151,7 +151,7 @@ DefaultValueの有効値はTypeの値（型定義）によって異なり、以�
   "d": {
     "results": {
       "__metadata": {
-        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata
+        "uri": "{CellURL}/{BoxName}/{ODataCollecitonName}/$metadata
 /ComplexTypeProperty(Name='{ComplexTypePropertyName}',_ComplexType.Name='{ComplexTypeName}')",
         "etag": "W/\"1-1487658277593\"",
         "type": "ODataSvcSchema.ComplexTypeProperty"
@@ -173,7 +173,7 @@ DefaultValueの有効値はTypeの値（型定義）によって異なり、以�
 ## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata/ComplexTypeProperty" \
+curl "{CellURL}/{BoxName}/{ODataCollecitonName}/\$metadata/ComplexTypeProperty" \
 -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name": "\
 {ComplexTypePropertyName}","_ComplexType.Name": "{ComplexTypeName}","Type": "Edm.String","Nullable": \
 true,"DefaultValue": null,"CollectionKind": "None"}'

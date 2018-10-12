@@ -139,7 +139,7 @@ The response is a JSON object, the correspondence between the key (name) and typ
   "d": {
     "results": {
       "__metadata": {
-        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/$metadata
+        "uri": "{CellURL}/{BoxName}/{CollectionName}/$metadata
 /AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')",
         "etag": "W/\"1-1487652733383\"",
         "type": "ODataSvcSchema.AssociationEnd"
@@ -161,7 +161,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata/AssociationEnd" -X \
+curl "{CellURL}/{BoxName}/{ODataCollecitonName}/\$metadata/AssociationEnd" -X \
 POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
 '{ "Name": "{AssociationEndName}", "Multiplicity": "{Multiplicity}", "_EntityType.Name": "{EntityTypeName}"}'
 ```

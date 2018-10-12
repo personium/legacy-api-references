@@ -46,7 +46,7 @@ POST
 ### リクエストサンプル
 ```JSON
 {
-  "Url": "https://{UnitFQDN}/{CellName}/"
+  "Url": "{CellURL}/"
 }
 ```
 
@@ -91,7 +91,7 @@ POST
   "d": {
     "results": {
       "__metadata": {
-        "uri": "https://{UnitFQDN}/{CellName}/__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{ExtCellName}%2F')",
+        "uri": "{CellURL}/__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{ExtCellName}%2F')",
         "etag": "W/\"1-1486519006899\"",
         "type": "CellCtl.ExtCell"
       },
@@ -106,7 +106,7 @@ POST
 ## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/ExtCell" -X POST -i -H \
+curl "{CellURL}/__ctl/ExtCell" -X POST -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'  -d \
-'{"Url":"https://{UnitFQDN}/{CellName}/"}'
+'{"Url":"{CellURL}/"}'
 ```

@@ -87,15 +87,15 @@ JSON
 ## cURLサンプル
  EntityType
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/EntityType\
+curl "{CellURL}/{BoxName}/{OdataCollecitonPath}/$metadata/EntityType\
 (Name='{EntityTypeName}')/$links/_AssociationEnd" -X POST -i -H 'Authorization: Bearer \
-{AccessToken}' -H 'Accept: application/json' -d '{"uri": "https://{UnitFQDN}/{CellName}\
+{AccessToken}' -H 'Accept: application/json' -d '{"uri": "{CellURL}\
 /{BoxName}/{OdataCollecitonPath}/$metadata/AssociationEnd(Name='assocName_link'\
 ,_EntityType.Name=null)"}'
 ```
  AssociationEnd
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/AssociationEnd\
+curl "{CellURL}/{BoxName}/{OdataCollecitonPath}/$metadata/AssociationEnd\
 (Name='{AssociationEndName}2',_EntityType.Name=Entity)/$links/_AssociationEnd" -X POST -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"uri": "https://{UnitFQDN}\
 /{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/AssociationEnd(Name=\

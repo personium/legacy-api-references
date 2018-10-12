@@ -111,7 +111,7 @@ GET
     "results": [
       {
         "__metadata": {
-          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata
+          "uri": "{CellURL}/{BoxName}/{ODataCollecitonName}/$metadata
 /ComplexTypeProperty(Name='{ComplexTypePropertyName}',_ComplexType.Name='{ComplexTypeName}')",
           "etag": "W/\"1-1487587033861\"",
           "type": "ODataSvcSchema.ComplexTypeProperty"
@@ -126,7 +126,7 @@ GET
         "__updated": "/Date(1487587033861)/",
         "_ComplexType": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata
+            "uri": "{CellURL}/{BoxName}/{ODataCollecitonName}/$metadata
 /ComplexTypeProperty(Name='{ComplexTypePropertyName}',_ComplexType.Name='{ComplexTypeName}')
 /_ComplexType"
           }
@@ -134,7 +134,7 @@ GET
       },
       {
         "__metadata": {
-          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata
+          "uri": "{CellURL}/{BoxName}/{ODataCollecitonName}/$metadata
 /ComplexTypeProperty(Name='{ComplexTypePropertyName}',_ComplexType.Name='{ComplexTypeName}')",
           "etag": "W/\"1-1487658277593\"",
           "type": "ODataSvcSchema.ComplexTypeProperty"
@@ -149,7 +149,7 @@ GET
         "__updated": "/Date(1487658277593)/",
         "_ComplexType": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata
+            "uri": "{CellURL}/{BoxName}/{ODataCollecitonName}/$metadata
 /ComplexTypeProperty(Name='{ComplexTypePropertyName}',_ComplexType.Name='{ComplexTypeName}')
 /_ComplexType"
           }
@@ -163,6 +163,6 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata/ComplexTypeProperty" \
+curl "{CellURL}/{BoxName}/{ODataCollecitonName}/\$metadata/ComplexTypeProperty" \
 -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```

@@ -115,7 +115,7 @@ JSON
   "d": {
     "results": {
       "__metadata": {
-        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/$metadata/EntityType
+        "uri": "{CellURL}/{BoxName}/{CollectionName}/$metadata/EntityType
 ('{EntityTypeName}')",
         "etag": "W/\"1-1487589344011\"",
         "type": "ODataSvcSchema.EntityType"
@@ -132,7 +132,7 @@ JSON
 ## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata/EntityType" -X \
+curl "{CellURL}/{BoxName}/{ODataCollecitonName}/\$metadata/EntityType" -X \
 POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{ "Name": \
 "{EntityTypeName}" }'
 ```

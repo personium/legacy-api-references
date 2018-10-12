@@ -40,7 +40,7 @@ PUT
 
 ## cURLサンプル
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__mypassword" -X PUT -i -H \
+curl "{CellURL}/__mypassword" -X PUT -i -H \
 'X-Personium-Credential: change_password' -H 'Authorization: Bearer {CellLocalToken}' -H \
 'Accept: application/json'
 ```

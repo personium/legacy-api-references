@@ -53,7 +53,7 @@ GET
 |Location|Boxメタデータ取得API用URL|リクエストの指定方法により、以下の値となる<br>schemaクエリを指定<br>schemaクエリで指定されたアプリセルURLに対応するBoxのURL<br>schemaクエリなしで、Authorizationヘッダのみを指定<br>トークンに含まれるスキーマURLに対応するBoxのURL|
 Locationサンプル
 ```
-Location:https://{UnitFQDN}/{CellName}/{BoxName}
+Location:{CellURL}/{BoxName}
 ```
 
 ### レスポンスボディ
@@ -64,18 +64,18 @@ Location:https://{UnitFQDN}/{CellName}/{BoxName}
 
 ### レスポンスサンプル
 ```
-Location:https://{UnitFQDN}/{CellName}/{BoxName}
+Location:{CellURL}/{BoxName}
 ```
 
 ## cURLサンプル
 ### スキーマ認証済
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__box" -X GET -i -H \
+curl "{CellURL}/__box" -X GET -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 ### スキーマ認証未対応
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__box?schema=https://{UnitFQDN}/{CellName}/" -X \
+curl "{CellURL}/__box?schema={CellURL}/" -X \
 GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

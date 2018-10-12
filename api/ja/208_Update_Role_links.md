@@ -201,8 +201,8 @@ JSON
 ## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Role(Name="{RoleName}",_Box.Name=null)/$links/_Box" -X \
+curl "{CellURL}/__ctl/Role(Name="{RoleName}",_Box.Name=null)/$links/_Box" -X \
 PUT -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
-'{"uri":"https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')"}'
+'{"uri":"{CellURL}/__ctl/Box('{BoxName}')"}'
 ```
 

@@ -358,7 +358,7 @@ Content-Type: application/json
       "name": "John Smith",
       "_log": {
         "__deferred": {
-          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('0000')/_log"
+          "uri": "{CellURL}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('0000')/_log"
         }
       }
     }
@@ -401,7 +401,7 @@ DataServiceVersion: 2.0
 curl command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$batch" -X POST -i -H \
+curl "{CellURL}/{BoxName}/{ODataCollecitonName}/\$batch" -X POST -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Content-Type:multipart/mixed; \
 boundary=batch_XAmu9BiJJLBa20sRWIq74jp2UlNAVueztqu' --data-binary @sample.txt
 ```

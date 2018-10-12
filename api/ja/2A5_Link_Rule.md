@@ -58,7 +58,7 @@ JSON
 
 ### リクエストボディサンプル
 ```JSON
-{"uri":"https://{UnitFQDN}/{CellName}/__ctl/Box(Name='{BoxName}')"}
+{"uri":"{CellURL}/__ctl/Box(Name='{BoxName}')"}
 ```
 
 ## レスポンス
@@ -82,7 +82,7 @@ JSON
 ## cURLサンプル
 
 ```sh
-curl  "https://{UnitFQDN}/{CellName}/__ctl/Rule('{RuleName}')/\$links/_Box" -X POST -i -H \
+curl  "{CellURL}/__ctl/Rule('{RuleName}')/\$links/_Box" -X POST -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' \
--d "{\"uri\":\"https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')\"}"
+-d "{\"uri\":\"{CellURL}/__ctl/Box('{BoxName}')\"}"
 ```

@@ -64,7 +64,7 @@ DELETE
 ## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}" -X DELETE -i -H 'X-Personium-Recursive: true' -H \
+curl "{CellURL}/{BoxName}" -X DELETE -i -H 'X-Personium-Recursive: true' -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

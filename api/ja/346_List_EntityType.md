@@ -107,7 +107,7 @@ GET
     "results": [
       {
         "__metadata": {
-          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata
+          "uri": "{CellURL}/{BoxName}/{ODataCollecitonName}/$metadata
 /EntityType('{EntityTypeName}')",
           "etag": "W/\"1-1487586234224\"",
           "type": "ODataSvcSchema.EntityType"
@@ -117,20 +117,20 @@ GET
         "__updated": "/Date(1487586234224)/",
         "_AssociationEnd": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata
+            "uri": "{CellURL}/{BoxName}/{ODataCollecitonName}/$metadata
 /EntityType('{EntityTypeName}')/_AssociationEnd"
           }
         },
         "_Property": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata
+            "uri": "{CellURL}/{BoxName}/{ODataCollecitonName}/$metadata
 /EntityType('{EntityTypeName}')/_Property"
           }
         }
       },
       {
         "__metadata": {
-          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/EntityType
+          "uri": "{CellURL}/{BoxName}/{ODataCollecitonName}/$metadata/EntityType
 ('{EntityTypeName}')",
           "etag": "W/\"1-1487589344011\"",
           "type": "ODataSvcSchema.EntityType"
@@ -140,13 +140,13 @@ GET
         "__updated": "/Date(1487589344011)/",
         "_AssociationEnd": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/EntityType
+            "uri": "{CellURL}/{BoxName}/{ODataCollecitonName}/$metadata/EntityType
 ('{EntityTypeName}')/_AssociationEnd"
           }
         },
         "_Property": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/EntityType
+            "uri": "{CellURL}/{BoxName}/{ODataCollecitonName}/$metadata/EntityType
 ('{EntityTypeName}')/_Property"
           }
         }
@@ -160,7 +160,7 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonName}/\$metadata/EntityType" -X \
+curl "{CellURL}/{BoxName}/{OdataCollecitonName}/\$metadata/EntityType" -X \
 GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

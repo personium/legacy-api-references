@@ -60,22 +60,22 @@ MOVE
 
 コレクション名変更(終端の"/"は必須)
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OldCollectionName}/" -X MOVE -i -H \
-'Destination:https://{UnitFQDN}/{CellName}/{BoxName}/{NewCollectionName}/' -H \
+curl "{CellURL}/{BoxName}/{OldCollectionName}/" -X MOVE -i -H \
+'Destination:{CellURL}/{BoxName}/{NewCollectionName}/' -H \
 'Authorization: Bearer {AccessToken}'
 ```
 
 ファイル名変更
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/{OldFileName}/" -X MOVE -i -H \
-'Destination:https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/{NewFileName}' -H \
+curl "{CellURL}/{BoxName}/{CollectionName}/{OldFileName}/" -X MOVE -i -H \
+'Destination:{CellURL}/{BoxName}/{CollectionName}/{NewFileName}' -H \
 'Authorization: Bearer {AccessToken}'
 ```
 
 ファイル移動
 ```sh
-curl  "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionNameA}/{FileName}" -X MOVE -i -H \
-'Destination:https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionNameB}/{FileName}' -H \
+curl  "{CellURL}/{BoxName}/{CollectionNameA}/{FileName}" -X MOVE -i -H \
+'Destination:{CellURL}/{BoxName}/{CollectionNameB}/{FileName}' -H \
 'Authorization: Bearer {AccessToken}'
 ```
 

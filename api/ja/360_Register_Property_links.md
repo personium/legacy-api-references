@@ -79,9 +79,9 @@ JSON
 ## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/Property\
+curl "{CellURL}/{BoxName}/{OdataCollecitonPath}/$metadata/Property\
 ('property_nameName')/$links/_EntityType" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H \
-'Accept: application/json' -d \'{"uri":"https://{UnitFQDN}/{CellName}/{BoxName}\
+'Accept: application/json' -d \'{"uri":"{CellURL}/{BoxName}\
 /{OdataCollecitonPath}/$metadata/EntityType('Profile')"}'
 ```
 

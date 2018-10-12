@@ -108,7 +108,7 @@ GET
   "d": {
     "results": [
       {
-        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/$metadata/AssociationEnd
+        "uri": "{CellURL}/{BoxName}/{CollectionName}/$metadata/AssociationEnd
 (Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')"
       }
     ]
@@ -118,7 +118,7 @@ GET
 
 ## cURLサンプル
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/\$metadata/AssociationEnd(Name=\
+curl "{CellURL}/{BoxName}/{CollectionName}/\$metadata/AssociationEnd(Name=\
 '{AssociationEndName}',_EntityType.Name='{EntityTypeName}')/\$links/_AssociationEnd" -X GET -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```

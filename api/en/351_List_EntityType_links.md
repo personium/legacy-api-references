@@ -130,10 +130,10 @@ Refer to [Error Message List](004_Error_Messages.md)
    "d": {
     "results": [
       {
-        "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name=null)"
+        "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name=null)"
       },
       {
-        "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='box1')"
+        "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='box1')"
       }
     ]
   }
@@ -144,7 +144,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/$metadata/EntityType(Name='{EntityTypeName}')\
+curl "{CellURL}/{BoxName}/{CollectionName}/$metadata/EntityType(Name='{EntityTypeName}')\
 /$links/_AssociationEnd" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

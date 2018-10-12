@@ -59,7 +59,7 @@ POST
 
 ```JSON
 {
-  "ExtRole": "https://{UnitFQDN}/{CellName}/__role/__/RoleName",
+  "ExtRole": "{CellURL}/__role/__/RoleName",
   "_Relation.Name": "{RelationName}",
   "_Relation._Box.Name": "{BoxName}"
 }
@@ -129,10 +129,10 @@ Refer to [Error Message List](004_Error_Messages.md)
       "__metadata": {
         "etag": "W/\"1-1371010428917\"",
         "type": "CellCtl.ExtRole",
-        "uri": "https://{UnitFQDN}/{CellName}/__ctl/ExtRole(ExtRole='https%3A%2F%2F{UnitFQDN}%2F{CellName}
+        "uri": "{CellURL}/__ctl/ExtRole(ExtRole='https%3A%2F%2F{UnitFQDN}%2F{CellName}
 %2F__role%2F__%2Froletest',_Relation.Name='relation',_Relation._Box.Name=null)"
       },
-      "ExtRole": "https://{UnitFQDN}/{CellName}/__role/__/RoleName"
+      "ExtRole": "{CellURL}/__role/__/RoleName"
     }
   }
 }
@@ -140,12 +140,12 @@ Refer to [Error Message List](004_Error_Messages.md)
   "d": {
     "results": {
       "__metadata": {
-        "uri": "https://{UnitFQDN}/{CellName}/__ctl/ExtRole(ExtRole='https%3A%2F%2F{UnitFQDN}%2F{CellName}
+        "uri": "{CellURL}/__ctl/ExtRole(ExtRole='https%3A%2F%2F{UnitFQDN}%2F{CellName}
 %2F__role%2F__%2F{ExtRoleName}',_Relation.Name='{RelationName}',_Relation._Box.Name='{BoxName}')",
         "etag": "W/\"1-1486717404966\"",
         "type": "CellCtl.ExtRole"
       },
-      "ExtRole": "https://{UnitFQDN}/{CellName}/__role/__/{ExtRoleName}",
+      "ExtRole": "{CellURL}/__role/__/{ExtRoleName}",
       "_Relation.Name": "{RelationName}",
       "_Relation._Box.Name": "{BoxName}",
       "__published": "/Date(1486717404966)/",
@@ -159,7 +159,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/ExtRole" -X POST -i -H 'Authorization: Bearer {AccessToken}' \
--H 'Accept: application/json' -d '{ "ExtRole": "https://{UnitFQDN}/{CellName}/__role/__/{ExtRoleName}", \
+curl "{CellURL}/__ctl/ExtRole" -X POST -i -H 'Authorization: Bearer {AccessToken}' \
+-H 'Accept: application/json' -d '{ "ExtRole": "{CellURL}/__role/__/{ExtRoleName}", \
 "_Relation.Name": "{RelationName}", "_Relation._Box.Name": "{BoxName}"}'
 ```

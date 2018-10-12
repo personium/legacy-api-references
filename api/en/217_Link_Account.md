@@ -59,7 +59,7 @@ JSON
 ### Request Sample
 
 ```JSON
-{"uri":"https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')"}
+{"uri":"{CellURL}/__ctl/Box('{BoxName}')"}
 ```
 
 
@@ -89,8 +89,8 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Account(Name='{AccountName}')/\$links/_Role" -X POST -i -H \
+curl "{CellURL}/__ctl/Account(Name='{AccountName}')/\$links/_Role" -X POST -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
-"{\"uri\":\"https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')\"}"
+"{\"uri\":\"{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')\"}"
 ```
 

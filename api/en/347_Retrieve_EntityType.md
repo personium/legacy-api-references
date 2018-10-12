@@ -115,7 +115,7 @@ Refer to [Error Message List](004_Error_Messages.md)
   "d": {
     "results": {
       "__metadata": {
-        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonName}/$metadata
+        "uri": "{CellURL}/{BoxName}/{OdataCollecitonName}/$metadata
 /EntityType('{EntityTypeName}')",
         "etag": "W/\"1-1487589344011\"",
         "type": "ODataSvcSchema.EntityType"
@@ -125,13 +125,13 @@ Refer to [Error Message List](004_Error_Messages.md)
       "__updated": "/Date(1487589344011)/",
       "_AssociationEnd": {
         "__deferred": {
-          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonName}/$metadata
+          "uri": "{CellURL}/{BoxName}/{OdataCollecitonName}/$metadata
 /EntityType('{EntityTypeName}')/_AssociationEnd"
         }
       },
       "_Property": {
         "__deferred": {
-          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonName}/$metadata
+          "uri": "{CellURL}/{BoxName}/{OdataCollecitonName}/$metadata
 /EntityType('{EntityTypeName}')/_Property"
         }
       }
@@ -144,7 +144,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonName}/$metadata/EntityType('{EntityTypeName}')" \
+curl "{CellURL}/{BoxName}/{OdataCollecitonName}/$metadata/EntityType('{EntityTypeName}')" \
 -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

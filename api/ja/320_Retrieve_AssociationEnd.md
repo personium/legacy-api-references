@@ -95,7 +95,7 @@ GET
   "d": {
     "results": {
       "__metadata": {
-        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/$metadata
+        "uri": "{CellURL}/{BoxName}/{CollectionName}/$metadata
 /AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')",
         "etag": "W/\"1-1487652733383\"",
         "type": "ODataSvcSchema.AssociationEnd"
@@ -107,13 +107,13 @@ GET
       "__updated": "/Date(1487652733383)/",
       "_EntityType": {
         "__deferred": {
-          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/$metadata
+          "uri": "{CellURL}/{BoxName}/{CollectionName}/$metadata
 /AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')/_EntityType"
         }
       },
       "_AssociationEnd": {
         "__deferred": {
-          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/$metadata
+          "uri": "{CellURL}/{BoxName}/{CollectionName}/$metadata
 /AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')/_AssociationEnd"
         }
       }
@@ -126,7 +126,7 @@ GET
 
 ## cURLサンプル
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/\$metadata/AssociationEnd\
+curl "{CellURL}/{BoxName}/{CollectionName}/\$metadata/AssociationEnd\
 (Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')" -X GET -i -H 'Authorization: \
 Bearer {AccessToken}' -H 'Accept: application/json'
 ```

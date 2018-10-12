@@ -99,7 +99,7 @@ JSON
 
 ### リクエストサンプル
 ```JSON
-{"uri":"https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')"}
+{"uri":"{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')"}
 ```
 
 ## レスポンス
@@ -123,9 +123,9 @@ JSON
 ## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')\
+curl "{CellURL}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')\
 /\$links/_Role" -X POST -i  -H 'Authorization: Bearer {AccessToken}' -H \
-'Accept: application/json' -d "{\"uri\":\"https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}'\
+'Accept: application/json' -d "{\"uri\":\"{CellURL}/__ctl/Role(Name='{RoleName}'\
 ,_Box.Name='{BoxName}')\"}"
 ```
 

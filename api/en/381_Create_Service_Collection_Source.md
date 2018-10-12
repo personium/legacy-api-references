@@ -85,7 +85,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/__src/{ResourceName}" -X PUT -i  -H \
+curl "{CellURL}/{BoxName}/{CollectionName}/__src/{ResourceName}" -X PUT -i  -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -H 'Content-Type:text/javascript' \
 -d '[File contents]'
 ```

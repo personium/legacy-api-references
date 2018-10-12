@@ -56,7 +56,7 @@ JSON
 |Url|CellへのURL|桁数：1&#65374;1024<br>URIの形式に従う<br>scheme：http, https|○||
 ### リクエストサンプル
 ```JSON
-{"uri":"https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')"}
+{"uri":"{CellURL}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')"}
 ```
 
 
@@ -77,9 +77,9 @@ JSON
 ## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{ExtCellName}%2F')\
+curl "{CellURL}/__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{ExtCellName}%2F')\
 /\$links/_Relation" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H \
-'Accept: application/json' -d "{\"uri\":\"https://{UnitFQDN}/{CellName}/__ctl/Relation\
+'Accept: application/json' -d "{\"uri\":\"{CellURL}/__ctl/Relation\
 (Name='{RelationName}',_Box.Name='{BoxName}')\"}"
 ```
 

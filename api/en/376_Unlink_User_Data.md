@@ -109,7 +109,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')\
+curl "{CellURL}/{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')\
 /\$links/_{EntityTypeName}('{EntityID}')" -X DELETE -i -H 'Authorization: Bearer {AccessToken}' -H \
 'Accept: application/json'
 ```

@@ -77,7 +77,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 
 ```xml
 <?xml version='1.0' encoding='utf-8'?>
-<service xmlns="http://www.w3.org/2007/app" xml:base="https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonName}
+<service xmlns="http://www.w3.org/2007/app" xml:base="{CellURL}/{BoxName}/{OdataCollecitonName}
 /$metadata/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:app="http://www.w3.org/2007/app">
   <workspace>
     <atom:title>Default </atom:title>
@@ -104,7 +104,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonName}/\$metadata' -X GET -i -H \
+curl "{CellURL}/{BoxName}/{OdataCollecitonName}/\$metadata' -X GET -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/atomsvc+xml'
 ```
 

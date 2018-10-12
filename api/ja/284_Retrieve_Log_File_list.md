@@ -145,7 +145,7 @@ PROPFIND
 <?xml version="1.0" encoding="utf-8"?>
 <multistatus xmlns="DAV:">
     <response>
-        <href>https://{UnitFQDN}/{CellName}/__log/archive</href>
+        <href>{CellURL}/__log/archive</href>
         <propstat>
             <prop>
                 <creationdate>2017-02-03T01:27:31.093+0000</creationdate>
@@ -172,7 +172,7 @@ PROPFIND
 ## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__log/archive" -X PROPFIND -i -H 'Depth:1' -H \
+curl "{CellURL}/__log/archive" -X PROPFIND -i -H 'Depth:1' -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

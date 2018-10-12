@@ -96,6 +96,6 @@ JSON
 
 ## cURLサンプル
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__import" -X POST -i -H \
+curl "{CellURL}/__import" -X POST -i -H \
 'Authorization: Bearer {AccessToken}' -d '{"Name":"CellExport_2017_01"}'
 ```

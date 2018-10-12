@@ -80,7 +80,7 @@ GET
   "d": {
     "results": {
       "__metadata": {
-        "uri": "https://{UnitFQDN}/{CellName}/__ctl/Account('{AccountName}')",
+        "uri": "{CellURL}/__ctl/Account('{AccountName}')",
         "etag": "W/\"1-1486462510467\"",
         "type": "CellCtl.Account"
       },
@@ -92,12 +92,12 @@ GET
       "__updated": "/Date(1486462510467)/",
       "_Role": {
         "__deferred": {
-          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Account('{AccountName}')/_Role"
+          "uri": "{CellURL}/__ctl/Account('{AccountName}')/_Role"
         }
       },
       "_ReceivedMessageRead": {
         "__deferred": {
-          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Account('{AccountName}')/_ReceivedMessageRead"
+          "uri": "{CellURL}/__ctl/Account('{AccountName}')/_ReceivedMessageRead"
         }
       }
     }
@@ -109,7 +109,7 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Account('{AccountName}')" -X GET -i -H \
+curl "{CellURL}/__ctl/Account('{AccountName}')" -X GET -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

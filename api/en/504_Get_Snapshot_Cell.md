@@ -80,6 +80,6 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Sample
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__snapshot/{FileName}" -X GET -i -H 'Authorization: Bearer {AccessToken}'
+curl "{CellURL}/__snapshot/{FileName}" -X GET -i -H 'Authorization: Bearer {AccessToken}'
 ```
 

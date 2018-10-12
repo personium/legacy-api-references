@@ -136,7 +136,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Sample
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__export" -X POST -i -H 'Authorization: Bearer {AccessToken}' \
+curl "{CellURL}/__export" -X POST -i -H 'Authorization: Bearer {AccessToken}' \
 -H 'Accept: application/json' -d '{"Name":"CellExport_2017_01"}'
 ```
 

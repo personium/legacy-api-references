@@ -138,7 +138,7 @@ Refer to [Error Message List](004_Error_Messages.md)
   "d": {
     "results": {
       "__metadata": {
-        "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}
+        "uri": "{CellURL}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}
 ('100-1_20101108-111352093')",
         "etag": "W/\"1-1487929403469\"",
         "type": "UserData.{EntityTypeName}"
@@ -149,7 +149,7 @@ Refer to [Error Message List](004_Error_Messages.md)
       "PetName": null,
       "{NavigationPropertyName}": {
         "__deferred": {
-          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}
+          "uri": "{CellURL}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}
 ('100-1_20101108-111352093')/{NavigationPropertyName}"
         }
       }
@@ -162,7 +162,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')\
+curl "{CellURL}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')\
 /{NavigationPropertyName}" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' \
 -d '{"__id": "100-1_20101108-111352093"}'
 ```

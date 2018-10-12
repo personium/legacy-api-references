@@ -131,7 +131,7 @@ JSON
   "d": {
     "results": {
       "__metadata": {
-        "uri": "https://{UnitFQDN}/{CellName}/__ctl/Relation(Name='{RelationName}',
+        "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}',
 _Box.Name='{BoxName}')",
         "etag": "W/\"2-1486953408036\"",
         "type": "CellCtl.Relation"
@@ -149,18 +149,18 @@ _Box.Name='{BoxName}')",
 #### Roleを登録する場合
 ```sh
 curl
-"https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_Role" -X POST -i  -H \
+"{CellURL}/__ctl/Box('{BoxName}')/_Role" -X POST -i  -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{RoleName}"}'
 ```
 #### Relationを登録する場合
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_Relation" -X POST -i -H \
+curl "{CellURL}/__ctl/Box('{BoxName}')/_Relation" -X POST -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{RelationName}"}'
 ```
 #### Ruleを登録する場合
 ```sh
 curl
-"https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')/_Rule" -X POST -i  -H \
+"{CellURL}/__ctl/Box('{BoxName}')/_Rule" -X POST -i  -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{RuleName}","Action":"log"}'
 ```
 

@@ -122,8 +122,8 @@ JSON
 ## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Role('{RoleName}')/\$links/_Box" -X POST -i -H \
+curl "{CellURL}/__ctl/Role('{RoleName}')/\$links/_Box" -X POST -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
-"{\"uri\":\"https://{UnitFQDN}/{CellName}/__ctl/Box('{BoxName}')\"}"
+"{\"uri\":\"{CellURL}/__ctl/Box('{BoxName}')\"}"
 ```
 

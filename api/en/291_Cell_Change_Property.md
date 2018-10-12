@@ -100,7 +100,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ```xml
 <multistatus xmlns="DAV:">
     <response>
-        <href>https://{UnitFQDN}/{CellName}/</href>
+        <href>{CellURL}/</href>
         <propstat>
             <prop>
                 <p:foo xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:">bar</p:foo>
@@ -116,7 +116,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}" -X PROPPATCH -i -H 'Authorization: Bearer {AccessToken}' -H \
+curl "{CellURL}" -X PROPPATCH -i -H 'Authorization: Bearer {AccessToken}' -H \
 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8" ?>\
 <D:propertyupdate xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns"><D:set><D:prop>\
 <p:foo>bar</p:foo></D:prop></D:set><D:remove><D:prop><p:foo/></D:prop></D:remove></D:propertyupdate>'

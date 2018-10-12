@@ -107,7 +107,7 @@ grant_type=password&username=username&password=pass
 Issuing a transcell access token with account owner authentication by password
 
 ```
-grant_type=password&username=username&password=pass&p_target=https://{UnitFQDN}/{CellName}/
+grant_type=password&username=username&password=pass&p_target={CellURL}/
 ```
 
 Issuing application-authenticated access token by password owner authentication and application authentication token sending
@@ -183,28 +183,28 @@ Refer to [Error Message List](004_Error_Messages.md)
 ### Account holder authentication
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__token" -X POST -i -d \
+curl "{CellURL}/__token" -X POST -i -d \
 'grant_type=password&username={username}&password={password}'
 ```
 
 ### Other cell user authentication
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__token" -X POST -i -d \
+curl "{CellURL}/__token" -X POST -i -d \
 'grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&assertion={token}'
 ```
 
 ### Token Refresh
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__token" -X POST -i -d \
+curl "{CellURL}/__token" -X POST -i -d \
 'grant_type=refresh_token&refresh_token={refresh_token}'
 ```
 
 ### Account holder + Application authentication
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__token" -X POST -i -d \
+curl "{CellURL}/__token" -X POST -i -d \
 'grant_type=password&username={user_name}&password={pass}&client_id=https://{UnitFQDN}\
 /app{CellName}/&client_secret={token_from_app_cell}'
 ```
@@ -212,6 +212,6 @@ curl "https://{UnitFQDN}/{CellName}/__token" -X POST -i -d \
 ### Issuing transcell access token for other cell by other cell user authentication
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__token" -X POST -i -d 'grant_type=urn:ietf:params:oauth:grant-type:\
-saml2-bearer&assertion={SAML_token}&p_target=https://{UnitFQDN}/{CellName}/'
+curl "{CellURL}/__token" -X POST -i -d 'grant_type=urn:ietf:params:oauth:grant-type:\
+saml2-bearer&assertion={SAML_token}&p_target={CellURL}/'
 ```

@@ -8,6 +8,7 @@ APIリファレンスのリクエストURLで使われている変数につい�
 |:--|:--|:--|
 |{UnitFQDN}|Personiumが動作しているサーバのFQDN<br>Unitとは複数のCellをホストするサーバを指す||
 |{CellName}|Cell名<br>Cellとはデータ主体ごとのData Stroreを指す||
+|{CellURL}|Cellにアクセスする為のURL<br>CellURLには"path based cell URL"と"per cell FQDN URL"の2種類が存在し、[プロパティ](../../server-operator/unit_config_list.md)で切替可能|path based cell URL:https://{UnitFQDN}/{CellName}<br>per cell FQDN URL:https://{CellName}.{UnitFQDN}|
 |{BoxName}|Box名<br>Boxとはアプリケーションに用いるデータを格納する領域を指す||
 |{SchemaURL}|SchemaのURL<br>SchemaとはPersonium内に格納されたSchemaを指す||
 |{RoleName}|Role名<br>RoleとはCellに対して定義される有効な「役割」を指す||

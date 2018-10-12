@@ -120,7 +120,7 @@ GET
     "results": [
       {
         "__metadata": {
-          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}
+          "uri": "{CellURL}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}
 ('{EntityID}')",
           "etag": "W/\"2-1487645572476\"",
           "type": "UserData.{EntityTypeName}"
@@ -131,7 +131,7 @@ GET
         "TestProperty": null,
         "_TestEntity": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}
+            "uri": "{CellURL}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}
 ('{EntityID}')/{NavigationPropertyName}"
           }
         }
@@ -146,7 +146,7 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')\
+curl "{CellURL}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')\
 /{NavigationPropertyName}" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H \
 'Accept: application/json'
 ```

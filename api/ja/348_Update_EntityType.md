@@ -82,7 +82,7 @@ JSON
 ## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata/EntityType\
+curl "{CellURL}/{BoxName}/{ODataCollecitonName}/\$metadata/EntityType\
 ('{EntityTypeName}')" -X PUT -i -H 'Authorization: Bearer {AccessToken}' -H \
 'Accept: application/json' -d '{"Name":"{EntityTypeName}"}'
 ```

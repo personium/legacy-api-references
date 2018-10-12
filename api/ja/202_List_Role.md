@@ -102,7 +102,7 @@ GET
     "results": [
       {
         "__metadata": {
-          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',
+          "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',
 _Box.Name='{BoxName}')",
           "etag": "W/\"1-1486349783744\"",
           "type": "CellCtl.Role"
@@ -113,38 +113,38 @@ _Box.Name='{BoxName}')",
         "__updated": "/Date(1486349783744)/",
         "_Box": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',
+            "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',
 _Box.Name='{BoxName}')/_Box"
           }
         },
         "_Account": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',
+            "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',
 _Box.Name='{BoxName}')/_Account"
           }
         },
         "_ExtCell": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',
+            "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',
 _Box.Name='{BoxName}')/_ExtCell"
           }
         },
         "_ExtRole": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',
+            "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',
 _Box.Name='{BoxName}')/_ExtRole"
           }
         },
         "_Relation": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',
+            "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',
 _Box.Name='{BoxName}')/_Relation"
           }
         }
       },
       {
         "__metadata": {
-          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',
+          "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',
 _Box.Name='{BoxName}')",
           "etag": "W/\"1-1486456585171\"",
           "type": "CellCtl.Role"
@@ -155,31 +155,31 @@ _Box.Name='{BoxName}')",
         "__updated": "/Date(1486456585171)/",
         "_Box": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',
+            "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',
 _Box.Name='{BoxName}')/_Box"
           }
         },
         "_Account": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',
+            "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',
 _Box.Name='{BoxName}')/_Account"
           }
         },
         "_ExtCell": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',
+            "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',
 _Box.Name='{BoxName}')/_ExtCell"
           }
         },
         "_ExtRole": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',
+            "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',
 _Box.Name='{BoxName}')/_ExtRole"
           }
         },
         "_Relation": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',
+            "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',
 _Box.Name='{BoxName}')/_Relation"
           }
         }
@@ -195,7 +195,7 @@ _Box.Name='{BoxName}')/_Relation"
 ## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Role" -X GET -i -H 'Authorization: Bearer \
+curl "{CellURL}/__ctl/Role" -X GET -i -H 'Authorization: Bearer \
 {AccessToken}' -H 'Accept: application/json'
 ```
 

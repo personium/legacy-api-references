@@ -73,7 +73,7 @@ DELETE
 ## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')" \
+curl "{CellURL}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')" \
 -X DELETE -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

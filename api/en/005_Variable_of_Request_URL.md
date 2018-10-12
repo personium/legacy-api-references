@@ -8,6 +8,7 @@ Descriptions of the variables used in the API reference request URL
 |:-|:-|:-|
 | {UnitFQDN} | FQDN of server running Personium <br> Unit refers to server hosting multiple cells ||
 | {CellName} | Cell name <br> Cell refers to Data Strore for each data subject ||
+| {CellURL} |URL for accessing Cell<br>CellURL has two kinds of "path based cell URL" and "per cell FQDN URL", and it can be switched by [property](../../server-operator/unit_config_list.md)|path based cell URL:https://{UnitFQDN}/{CellName}<br>per cell FQDN URL:https://{CellName}.{UnitFQDN}|
 | {BoxName} | Box name <br> Box refers to the area where data used for application is stored ||
 | {SchemaURL} | Schema URL <br> Schema refers to Schema stored in Personium ||
 | {RoleName} | Role name <br> Role refers to a valid "role" defined for Cell ||

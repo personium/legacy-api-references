@@ -123,7 +123,7 @@ The response is a JSON object, the correspondence between the key (name) and typ
     "results": [
       {
         "__metadata": {
-          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata
+          "uri": "{CellURL}/{BoxName}/{ODataCollecitonName}/$metadata
 /ComplexType('{ComplexTypeName}')",
           "etag": "W/\"1-1487586982792\"",
           "type": "ODataSvcSchema.ComplexType"
@@ -133,14 +133,14 @@ The response is a JSON object, the correspondence between the key (name) and typ
         "__updated": "/Date(1487586982792)/",
         "_ComplexTypeProperty": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata
+            "uri": "{CellURL}/{BoxName}/{ODataCollecitonName}/$metadata
 /ComplexType('{ComplexTypeName}')/_ComplexTypeProperty"
           }
         }
       },
       {
         "__metadata": {
-          "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata
+          "uri": "{CellURL}/{BoxName}/{ODataCollecitonName}/$metadata
 /ComplexType('{ComplexTypeName}')",
           "etag": "W/\"1-1487650447372\"",
           "type": "ODataSvcSchema.ComplexType"
@@ -150,7 +150,7 @@ The response is a JSON object, the correspondence between the key (name) and typ
         "__updated": "/Date(1487650447372)/",
         "_ComplexTypeProperty": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata
+            "uri": "{CellURL}/{BoxName}/{ODataCollecitonName}/$metadata
 /ComplexType('{ComplexTypeName}')/_ComplexTypeProperty"
           }
         }
@@ -167,7 +167,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/\$metadata/ComplexType" -X \
+curl "{CellURL}/{BoxName}/{ODataCollecitonName}/\$metadata/ComplexType" -X \
 GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

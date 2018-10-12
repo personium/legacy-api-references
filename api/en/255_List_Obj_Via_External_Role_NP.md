@@ -130,7 +130,7 @@ Refer to [Error Message List](004_Error_Messages.md)
     "results": [
       {
         "__metadata": {
-          "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')",
+          "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')",
           "etag": "W/\"1-1486950269621\"",
           "type": "CellCtl.Role"
         },
@@ -140,27 +140,27 @@ Refer to [Error Message List](004_Error_Messages.md)
         "__updated": "/Date(1486950269621)/",
         "_Box": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_Box"
+            "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_Box"
           }
         },
         "_Account": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_Account"
+            "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_Account"
           }
         },
         "_ExtCell": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_ExtCell"
+            "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_ExtCell"
           }
         },
         "_ExtRole": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_ExtRole"
+            "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_ExtRole"
           }
         },
         "_Relation": {
           "__deferred": {
-            "uri": "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_Relation"
+            "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_Relation"
           }
         }
       }
@@ -175,7 +175,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ### Through Role's Navigation Property list
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/ExtRole(ExtRole='https%3A%2F%2Fd{UnitFQDN}%2F{CellName}\
+curl "{CellURL}/__ctl/ExtRole(ExtRole='https%3A%2F%2Fd{UnitFQDN}%2F{CellName}\
 %2F__role%2F__%2F{ExtRoleName}',_Relation.Name='{RelationName}',_Relation._Box.Name='{BoxName}')\
 /_Role" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```

@@ -190,7 +190,7 @@ Roleとの$links情報を削除する
 ## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')\
+curl "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')\
 /\$links/_Box('{BoxName}')" -X DELETE -i -H 'Authorization: Bearer {AccessToken}'
 ```
 

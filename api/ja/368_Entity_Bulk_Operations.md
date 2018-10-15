@@ -18,7 +18,7 @@ ODataEntityに対して、一覧取得や一件取得、登録、更新、削除
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/{BoxName}/{ODataCollecitonName}/$batch
+{CellURL}{BoxName}/{ODataCollecitonName}/$batch
 ```
 |パス|概要|
 |:--|:--|
@@ -143,7 +143,7 @@ POST, GET, PUT, DELETE
 Content-Type: application/http
 Content-Transfer-Encoding:binary
 
-GET /{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('0000')
+GET {CellURL}{BoxName}/{ODataCollecitonName}/{EntityTypeName}('0000')
 Accept-Encoding: gzip
 Accept: application/json
 Content-Length: 0
@@ -155,7 +155,7 @@ Content-Length: 608
 Content-Type: application/http
 Content-Transfer-Encoding: binary
 
-POST /{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}
+POST {CellURL}{BoxName}/{ODataCollecitonName}/{EntityTypeName}
 Content-Type: application/json
 Content-Length: 41
 
@@ -165,7 +165,7 @@ Content-Length: 41
 Content-Type: application/http
 Content-Transfer-Encoding: binary
 
-PUT /{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('0000')
+PUT {CellURL}{BoxName}/{ODataCollecitonName}/{EntityTypeName}('0000')
 Content-Type: application/json
 Content-Length: 87
 If-Match: *
@@ -177,7 +177,7 @@ If-Match: *
 Content-Type: application/http
 Content-Transfer-Encoding:binary
 
-GET /{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('0000')
+GET {CellURL}{BoxName}/{ODataCollecitonName}/{EntityTypeName}('0000')
 Accept-Encoding: gzip
 Accept: application/json
 Content-Length: 0
@@ -189,7 +189,7 @@ Content-Length: 686
 Content-Type: application/http
 Content-Transfer-Encoding: binary
 
-POST /{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('0001')/_log
+POST {CellURL}{BoxName}/{ODataCollecitonName}/{EntityTypeName}('0001')/_log
 Content-Type: application/json
 Content-Length: 37
 
@@ -199,14 +199,14 @@ Content-Length: 37
 Content-Type: application/http
 Content-Transfer-Encoding: binary
 
-DELETE /{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('0001')/_log
+DELETE {CellURL}{BoxName}/{ODataCollecitonName}/{EntityTypeName}('0001')/_log
 Content-Length: 0
 If-Match: *
 --changeset_d4883767-a06e-4632-9608-ae952b443dfc
 Content-Type: application/http
 Content-Transfer-Encoding: binary
 
-DELETE /{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('0000')
+DELETE {CellURL}{BoxName}/{ODataCollecitonName}/{EntityTypeName}('0000')
 Content-Length: 0
 If-Match: *
 --changeset_d4883767-a06e-4632-9608-ae952b443dfc--
@@ -309,7 +309,7 @@ Content-Type: application/json
   "d": {
     "results": {
       "__metadata": {
-        "uri": "http://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('0000')"
+        "uri": "{CellURL}{BoxName}/{ODataCollecitonName}/{EntityTypeName}('0000')"
         "etag": "W/\"1-1370248522812\"",
         "type": "UserData.user",
       },
@@ -319,7 +319,7 @@ Content-Type: application/json
       "name": "田中 太郎",
       "_log": {
         "__deferred": {
-          "uri": "{CellURL}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}
+          "uri": "{CellURL}{BoxName}/{ODataCollecitonName}/{EntityTypeName}
 ('0000')/_log"
         }
       }
@@ -362,7 +362,7 @@ DataServiceVersion: 2.0
 
 curlコマンド
 ```sh
-curl "{CellURL}/{BoxName}/{ODataCollecitonName}/\$batch" -X POST -i -H \
+curl "{CellURL}{BoxName}/{ODataCollecitonName}/\$batch" -X POST -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Content-Type:multipart/mixed; boundary=\
 batch_XAmu9BiJJLBa20sRWIq74jp2UlNAVueztqu' --data-binary @sample.txt
 ```
@@ -372,7 +372,7 @@ sample.txt
 Content-Type: application/http
 Content-Transfer-Encoding:binary
 
-GET /{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')
+GET {CellURL}{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')
 Authorization: Bearer {AccessToken}
 --batch_XAmu9BiJJLBa20sRWIq74jp2UlNAVueztqu
 Content-Type: multipart/mixed; boundary=changeset_76c10b01-3eaf-49c2-bdd7-9fe90df24159
@@ -382,7 +382,7 @@ Content-Length: 608
 Content-Type: application/http
 Content-Transfer-Encoding: binary
 
-POST /{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}
+POST {CellURL}{BoxName}/{ODataCollecitonName}/{EntityTypeName}
 Content-Type: application/json
 Content-Length: 41
 

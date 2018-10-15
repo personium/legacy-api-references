@@ -23,13 +23,13 @@ write
 #### Navigation Property to Role
 
 ```
-/{CellName}/__ctl/Account(Name='{AccountName}')/_Role
+{CellURL}__ctl/Account(Name='{AccountName}')/_Role
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Account('{AccountName}')/_Role
+{CellURL}__ctl/Account('{AccountName}')/_Role
 ```
 
 ### Request Method
@@ -127,7 +127,7 @@ Account specific response body
       "__metadata": {
         "etag": "1-1349355810698",
         "type": "CellCtl.Account",
-        "uri": "{CellURL}/__ctl/Account('{AccountName}')"
+        "uri": "{CellURL}__ctl/Account('{AccountName}')"
       }
     }
   }
@@ -143,7 +143,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ### Register via Account and Role Navigation Property
 
 ```sh
-curl "{CellURL}/__ctl/Account('acount_name')/_Role" -X POST -i -H '\
+curl "{CellURL}__ctl/Account('acount_name')/_Role" -X POST -i -H '\
 Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{RoleName}"}'
 ```
 

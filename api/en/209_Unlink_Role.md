@@ -20,192 +20,192 @@ Delete a list of OData resources associated with Role
 #### Correlating with the Account
 
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_Account(Name='{AccountName}')
+{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_Account(Name='{AccountName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_Account('{AccountName}')
+{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_Account('{AccountName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}')/$links/_Account(Name='{AccountName}')
+{CellURL}__ctl/Role(Name='{RoleName}')/$links/_Account(Name='{AccountName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}')/$links/_Account('{AccountName}')
+{CellURL}__ctl/Role(Name='{RoleName}')/$links/_Account('{AccountName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role('{RoleName}')/$links/_Account(Name='{AccountName}')
+{CellURL}__ctl/Role('{RoleName}')/$links/_Account(Name='{AccountName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role('{RoleName}')/$links/_Account('{AccountName}')
+{CellURL}__ctl/Role('{RoleName}')/$links/_Account('{AccountName}')
 ```
 
 #### Correlating with ExtCell
 
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_ExtCell(Url='{ExtCellURL}')
+{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_ExtCell(Url='{ExtCellURL}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_ExtCell('{ExtCellURL}')
+{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_ExtCell('{ExtCellURL}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role('{RoleName}')/$links/_ExtCell(Url='{ExtCellURL}')
+{CellURL}__ctl/Role('{RoleName}')/$links/_ExtCell(Url='{ExtCellURL}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role('{RoleName}')/$links/_ExtCell('{ExtCellURL}')
+{CellURL}__ctl/Role('{RoleName}')/$links/_ExtCell('{ExtCellURL}')
 ```
 
 #### Correlating with ExtRole
 
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name=
+{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name=
 '{RelationName}',_Relation._Box.Name='{BoxName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name=
+{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name=
 '{RelationName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}')
+{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_ExtRole('{ExtRoleURL}')
+{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_ExtRole('{ExtRoleURL}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name='{RelationName}',
+{CellURL}__ctl/Role(Name='{RoleName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name='{RelationName}',
 _Relation._Box.Name='{BoxName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name='{RelationName}')
+{CellURL}__ctl/Role(Name='{RoleName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name='{RelationName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}')
+{CellURL}__ctl/Role(Name='{RoleName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}')/$links/_ExtRole('{ExtRoleURL}')
+{CellURL}__ctl/Role(Name='{RoleName}')/$links/_ExtRole('{ExtRoleURL}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role('{RoleName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name='{RelationName}',
+{CellURL}__ctl/Role('{RoleName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name='{RelationName}',
 _Relation._Box.Name='{BoxName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role('{RoleName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name='{RelationName}')
+{CellURL}__ctl/Role('{RoleName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name='{RelationName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role('{RoleName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}')
+{CellURL}__ctl/Role('{RoleName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role('{RoleName}')/$links/_ExtRole('{ExtRoleURL}')
+{CellURL}__ctl/Role('{RoleName}')/$links/_ExtRole('{ExtRoleURL}')
 ```
 
 #### Relation with linking
 
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_Relation(Name='{RelationName}',
+{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_Relation(Name='{RelationName}',
 _Box.Name='{BoxName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_Relation(Name='{RelationName}')
+{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_Relation(Name='{RelationName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_Relation('{RelationName}')
+{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_Relation('{RelationName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}')/$links/_Relation(Name='{RelationName}',_Box.Name='{BoxName}')
+{CellURL}__ctl/Role(Name='{RoleName}')/$links/_Relation(Name='{RelationName}',_Box.Name='{BoxName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}')/$links/_Relation(Name='{RelationName}')
+{CellURL}__ctl/Role(Name='{RoleName}')/$links/_Relation(Name='{RelationName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}')/$links/_Relation('{RelationName}')
+{CellURL}__ctl/Role(Name='{RoleName}')/$links/_Relation('{RelationName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role('{RoleName}')/$links/_Relation(Name='{RelationName}',_Box.Name='{BoxName}')
+{CellURL}__ctl/Role('{RoleName}')/$links/_Relation(Name='{RelationName}',_Box.Name='{BoxName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role('{RoleName}')/$links/_Relation(Name='{RelationName}')
+{CellURL}__ctl/Role('{RoleName}')/$links/_Relation(Name='{RelationName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role('{RoleName}')/$links/_Relation('{RelationName}')
+{CellURL}__ctl/Role('{RoleName}')/$links/_Relation('{RelationName}')
 ```
 
 If the \_Box.Name parameter is omitted, it is assumed that null is specified  
@@ -262,7 +262,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/\$links/_Box('{BoxName}')" \
+curl "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/\$links/_Box('{BoxName}')" \
 -X DELETE -i -H 'Authorization: Bearer {AccessToken}'
 ```
 

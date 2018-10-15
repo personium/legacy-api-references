@@ -24,73 +24,73 @@ write
 #### NavigationProperty to Box
 
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_Box
+{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_Box
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}')/_Box
+{CellURL}__ctl/Relation(Name='{RelationName}')/_Box
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Relation('{RelationName}')/_Box
+{CellURL}__ctl/Relation('{RelationName}')/_Box
 ```
 
 #### NavigationProperty to ExCel
 
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_ExtCell
+{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_ExtCell
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}')/_ExtCell
+{CellURL}__ctl/Relation(Name='{RelationName}')/_ExtCell
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Relation('{RelationName}')/_ExtCell
+{CellURL}__ctl/Relation('{RelationName}')/_ExtCell
 ```
 
 #### NavigationProperty to ExtRole
 
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_ExtRole
+{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_ExtRole
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}')/_ExtRole
+{CellURL}__ctl/Relation(Name='{RelationName}')/_ExtRole
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Relation('{RelationName}')/_ExtRole
+{CellURL}__ctl/Relation('{RelationName}')/_ExtRole
 ```
 
 #### Navigation Property to Role
 
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_Role
+{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_Role
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}')/_Role
+{CellURL}__ctl/Relation(Name='{RelationName}')/_Role
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Relation('{RelationName}')/_Role
+{CellURL}__ctl/Relation('{RelationName}')/_Role
 ```
 
 If the \_Box.Name parameter is omitted, it is assumed that null is specified
@@ -186,7 +186,7 @@ JSON
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}/__ctl/Box('{BoxName}')",
+        "uri": "{CellURL}__ctl/Box('{BoxName}')",
         "etag": "W/\"1-1486945452485\"",
         "type": "CellCtl.Box"
       },
@@ -208,7 +208,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ### When registered Box
 
 ```sh
-curl "{CellURL}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_Box" \
+curl "{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_Box" \
 -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{BoxName}"}'
 ```
 

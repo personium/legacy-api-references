@@ -22,7 +22,7 @@ alter-schema
 ### Request URL
 
 ```
-/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/EntityType('{EntityTypeName}')
+{CellURL}{BoxName}/{ODataCollecitonName}/$metadata/EntityType('{EntityTypeName}')
 ```
 
 ### Request Method
@@ -101,7 +101,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/{BoxName}/{OdataCollecitonName}/\$metadata/EntityType('{EntityTypeName}')" \
+curl "{CellURL}{BoxName}/{OdataCollecitonName}/\$metadata/EntityType('{EntityTypeName}')" \
 -X DELETE -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

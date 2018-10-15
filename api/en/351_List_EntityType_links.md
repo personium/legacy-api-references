@@ -21,7 +21,7 @@ You can specify the following OData resources
 $links with AssociationEnd
 
 ```
-/{CellName}/{BoxName}/{CollectionName}/EntityType('{EntityTypeName}')/$links/_AssociationEnd
+{CellURL}{BoxName}/{CollectionName}/EntityType('{EntityTypeName}')/$links/_AssociationEnd
 ```
 
 ### Request Method
@@ -130,10 +130,10 @@ Refer to [Error Message List](004_Error_Messages.md)
    "d": {
     "results": [
       {
-        "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name=null)"
+        "uri": "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name=null)"
       },
       {
-        "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='box1')"
+        "uri": "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='box1')"
       }
     ]
   }
@@ -144,7 +144,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/{BoxName}/{CollectionName}/$metadata/EntityType(Name='{EntityTypeName}')\
+curl "{CellURL}{BoxName}/{CollectionName}/$metadata/EntityType(Name='{EntityTypeName}')\
 /$links/_AssociationEnd" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

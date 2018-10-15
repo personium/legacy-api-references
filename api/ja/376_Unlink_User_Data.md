@@ -12,7 +12,7 @@
 ### リクエストURL
 #### ユーザデータとの$links
 ```
-/{CellName}/{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')/$links/_{EntityTypeName}
+{CellURL}{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')/$links/_{EntityTypeName}
 ('{EntityID}')
 ```
 ### メソッド
@@ -69,7 +69,7 @@ JSON
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')\
+curl "{CellURL}{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')\
 /\$links/_{EntityTypeName}('{EntityID}')" -X DELETE -i -H 'Authorization: Bearer {AccessToken}' -H \
 'Accept: application/json'
 ```

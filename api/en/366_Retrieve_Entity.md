@@ -27,7 +27,7 @@ read
 ### Request URL
 
 ```
-/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}({EntityID})}
+{CellURL}{BoxName}/{ODataCollecitonName}/{EntityTypeName}({EntityID})}
 ```
 
 |Path|Overview|
@@ -148,7 +148,7 @@ Refer to [Error Message List](004_Error_Messages.md)
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')",
+        "uri": "{CellURL}{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')",
         "etag": "W/\"1-1487662179733\"",
         "type": "UserData.{EntityTypeName}"
       },
@@ -171,7 +171,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')" -X \
+curl "{CellURL}{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')" -X \
 GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

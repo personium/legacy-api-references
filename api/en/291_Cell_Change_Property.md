@@ -13,7 +13,7 @@ Only unit users permitted
 ### Request URL
 
 ```
-/{CellName}
+{CellURL}
 ```
 
 ### Request Method
@@ -100,7 +100,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ```xml
 <multistatus xmlns="DAV:">
     <response>
-        <href>{CellURL}/</href>
+        <href>{CellURL}</href>
         <propstat>
             <prop>
                 <p:foo xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:">bar</p:foo>

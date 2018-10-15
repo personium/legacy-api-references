@@ -24,7 +24,7 @@ No
 ### リクエストURL
 ユーザデータとの$links
 ```
-/{CellName}/{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')/$links/_{EntityTypeName}
+{CellURL}{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')/$links/_{EntityTypeName}
 ```
 ### メソッド
 POST
@@ -60,7 +60,7 @@ JSON
 |uri|紐付けるODataリソースのURI|桁数：1&#65374;1024<br>URIの形式に従う<br>scheme：http / https / urn|○||
 ### リクエストサンプル
 ```JSON
-{"uri":"{CellURL}/{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')"}
+{"uri":"{CellURL}{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')"}
 
 ```
 
@@ -88,9 +88,9 @@ JSON
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')\
+curl "{CellURL}{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')\
 /\$links/_{EntityTypeName}" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H \
-'Accept: application/json' -d "{\"uri\":\"{CellURL}/{BoxName}/{CollectionName}\
+'Accept: application/json' -d "{\"uri\":\"{CellURL}{BoxName}/{CollectionName}\
 /{EntityTypeName}('{EntityID}')\"}"
 ```
 

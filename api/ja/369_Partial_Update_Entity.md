@@ -19,7 +19,7 @@ write
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}({EntityID})}
+{CellURL}{BoxName}/{ODataCollecitonName}/{EntityTypeName}({EntityID})}
 ```
 |パス|概要|
 |:--|:--|
@@ -107,7 +107,7 @@ MERGE
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}\
+curl "{CellURL}{BoxName}/{ODataCollecitonName}/{EntityTypeName}\
 ('{EntityID}')" -X MERGE -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' \
 -d '{"name": "episode","outcome": "治療後"}'
 ```

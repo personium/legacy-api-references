@@ -16,7 +16,7 @@ read-acl
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/{BoxName}
+{CellURL}{BoxName}
 ```
 ### メソッド
 GET  
@@ -64,6 +64,6 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/{BoxName}" -X GET -H 'Authorization: Bearer {AccessToken}' \
+curl "{CellURL}{BoxName}" -X GET -H 'Authorization: Bearer {AccessToken}' \
 -H 'Accept: application/zip+x-personium-bar' -o "/home/user/export.bar"
 ```

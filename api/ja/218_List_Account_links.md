@@ -15,11 +15,11 @@ Accountに紐付いたODataリソースを一覧取得する
 ### リクエストURL
 Roleと紐付いている場合
 ```
-/{CellName}/__ctl/Account(Name='{AccountName}')/$links/_Role
+{CellURL}__ctl/Account(Name='{AccountName}')/$links/_Role
 ```
 または、
 ```
-/{CellName}/__ctl/Account('{AccountName}')/$links/_Role
+{CellURL}__ctl/Account('{AccountName}')/$links/_Role
 ```
 ### メソッド
 GET
@@ -89,10 +89,10 @@ GET
   "d": {
     "results": [
       {
-        "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')"
+        "uri": "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')"
       },
       {
-        "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name=null)"
+        "uri": "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name=null)"
       }
     ]
   }
@@ -103,7 +103,7 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/__ctl/Account(Name='{AccountName}')/\$links/_Role" \
+curl "{CellURL}__ctl/Account(Name='{AccountName}')/\$links/_Role" \
 -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

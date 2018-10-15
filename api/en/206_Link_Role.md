@@ -31,73 +31,73 @@ Only when the \_Box.Name described in the request URL is null (or if it is not s
 #### Association with the account
 
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_Account
+{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_Account
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}')/$links/_Account
+{CellURL}__ctl/Role(Name='{RoleName}')/$links/_Account
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role('{RoleName}')/$links/_Account
+{CellURL}__ctl/Role('{RoleName}')/$links/_Account
 ```
 
 #### Association with the ExtCell
 
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_ExtCell
+{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_ExtCell
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}')/$links/_ExtCell
+{CellURL}__ctl/Role(Name='{RoleName}')/$links/_ExtCell
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role('{RoleName}')/$links/_ExtCell
+{CellURL}__ctl/Role('{RoleName}')/$links/_ExtCell
 ```
 
 #### Association with the ExtRole
 
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_ExtRole
+{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_ExtRole
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}')/$links/_ExtRole
+{CellURL}__ctl/Role(Name='{RoleName}')/$links/_ExtRole
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role('{RoleName}')/$links/_ExtRole
+{CellURL}__ctl/Role('{RoleName}')/$links/_ExtRole
 ```
 
 #### Association with the relation
 
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_Relation
+{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_Relation
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}')/$links/_Relation
+{CellURL}__ctl/Role(Name='{RoleName}')/$links/_Relation
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role('{RoleName}')/$links/_Relation
+{CellURL}__ctl/Role('{RoleName}')/$links/_Relation
 ```
 
 If the \_Box.Name parameter is omitted, it is assumed that null is specified
@@ -167,9 +167,9 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/__ctl/Role('{RoleName}')/\$links/_Box" -X POST -i -H \
+curl "{CellURL}__ctl/Role('{RoleName}')/\$links/_Box" -X POST -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
-"{\"uri\":\"{CellURL}/__ctl/Box('{BoxName}')\"}"
+"{\"uri\":\"{CellURL}__ctl/Box('{BoxName}')\"}"
 ```
 
 

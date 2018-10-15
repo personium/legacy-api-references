@@ -21,7 +21,7 @@ read
 ### Request URL
 
 ```
-/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')
+{CellURL}{BoxName}/{ODataCollecitonName}/$metadata/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')
 ```
 
 ### Request Method
@@ -113,7 +113,7 @@ The response is a JSON object, the correspondence between the key (name) and typ
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}/{BoxName}/{CollectionName}/$metadata/AssociationEnd
+        "uri": "{CellURL}{BoxName}/{CollectionName}/$metadata/AssociationEnd
 (Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')",
         "etag": "W/\"1-1487652733383\"",
         "type": "ODataSvcSchema.AssociationEnd"
@@ -125,13 +125,13 @@ The response is a JSON object, the correspondence between the key (name) and typ
       "__updated": "/Date(1487652733383)/",
       "_EntityType": {
         "__deferred": {
-          "uri": "{CellURL}/{BoxName}/{CollectionName}/$metadata/AssociationEnd
+          "uri": "{CellURL}{BoxName}/{CollectionName}/$metadata/AssociationEnd
 (Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')/_EntityType"
         }
       },
       "_AssociationEnd": {
         "__deferred": {
-          "uri": "{CellURL}/{BoxName}/{CollectionName}/$metadata/AssociationEnd
+          "uri": "{CellURL}{BoxName}/{CollectionName}/$metadata/AssociationEnd
 (Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')/_AssociationEnd"
         }
       }
@@ -147,7 +147,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/{BoxName}/{CollectionName}/\$metadata/AssociationEnd\
+curl "{CellURL}{BoxName}/{CollectionName}/\$metadata/AssociationEnd\
 (Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')" -X GET -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```

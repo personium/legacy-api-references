@@ -8,7 +8,7 @@ UUT（Unit User Token）昇格設定を変更する
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}
+{CellURL}
 ```
 |Path|概要|
 |:--|:--|

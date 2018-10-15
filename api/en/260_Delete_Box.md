@@ -20,13 +20,13 @@ box
 ### Request URL
 
 ```
-/{CellName}/__ctl/Box('{BoxName}')
+{CellURL}__ctl/Box('{BoxName}')
 ```
 
 or 
 
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}')
+{CellURL}__ctl/Box(Name='{BoxName}')
 ```
 
 ### Request Method
@@ -79,7 +79,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/__ctl/Box('{BoxName}')" -X DELETE -i  -H 'If-Match: *' -H \
+curl "{CellURL}__ctl/Box('{BoxName}')" -X DELETE -i  -H 'If-Match: *' -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

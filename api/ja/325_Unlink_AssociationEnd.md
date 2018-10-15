@@ -13,7 +13,7 @@ alter-schema
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/{BoxName}/{CollectionName}/AssociationEnd(Name='{AssociationEndName}',
+{CellURL}{BoxName}/{CollectionName}/AssociationEnd(Name='{AssociationEndName}',
 _EntityType.Name='{EntityTypeName}')/$links/_AssociationEnd(Name='{AssociationEndName}',
 _EntityType.Name='{EntityTypeName}')
 ```
@@ -62,7 +62,7 @@ DELETE
 
 ## cURLサンプル
 ```sh
-curl "{CellURL}/{BoxName}/{CollectionName}/\$metadata/AssociationEnd(Name=\
+curl "{CellURL}{BoxName}/{CollectionName}/\$metadata/AssociationEnd(Name=\
 '{AssociationEndName}',_EntityType.Name='{EntityTypeName}')/\$links/_AssociationEnd(Name=\
 '{AssociationEndName}',_EntityType.Name='{EntityTypeName}')" -X DELETE -i -H 'Authorization: Bearer \
 {AccessToken}' -H 'Accept: application/json'

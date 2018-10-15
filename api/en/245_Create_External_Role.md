@@ -23,7 +23,7 @@ auth
 ### Request URL
 
 ```
-/{CellName}/__ctl/ExtRole
+{CellURL}__ctl/ExtRole
 ```
 
 ### Request Method
@@ -51,7 +51,7 @@ POST
 
 |Item Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|ExtRole|External Role Name(URL)|Number of digits: 1-1024<br>Follow URI format<br>scheme:http / https / urn<br>When associated with Box:/{Application CellName}/\_\_role/\_\_/{RoleName}<br>* However, if Schema information is not registered in Box, it is considered not to be associated with Box<br>When not associated with Box:/{CellName}/\_\_role/\_\_/{RoleName}|Yes||
+|ExtRole|External Role Name(URL)|Number of digits: 1-1024<br>Follow URI format<br>scheme:http / https / urn<br>When associated with Box:/{Application CellName}/\_\_role/\_\_/{RoleName}<br>* However, if Schema information is not registered in Box, it is considered not to be associated with Box<br>When not associated with Box:{CellURL}\_\_role/\_\_/{RoleName}|Yes||
 |_Relation.Name|Relation name of relationbr|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("\_")<br> and +(plus) and :(colon)<br>However, the string cannot start with a underscore ("\_") or colon (:)<br>Relation which registered by Relation register API|Yes||
 |_Relation._Box.Name|Box Name aassociated wirh Relation|Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Box name associated with Relation registered by Relation registration API<br>null|No||
 
@@ -59,7 +59,7 @@ POST
 
 ```JSON
 {
-  "ExtRole": "{CellURL}/__role/__/RoleName",
+  "ExtRole": "{CellURL}__role/__/RoleName",
   "_Relation.Name": "{RelationName}",
   "_Relation._Box.Name": "{BoxName}"
 }
@@ -129,10 +129,10 @@ Refer to [Error Message List](004_Error_Messages.md)
       "__metadata": {
         "etag": "W/\"1-1371010428917\"",
         "type": "CellCtl.ExtRole",
-        "uri": "{CellURL}/__ctl/ExtRole(ExtRole='https%3A%2F%2F{UnitFQDN}%2F{CellName}
+        "uri": "{CellURL}__ctl/ExtRole(ExtRole='https%3A%2F%2F{UnitFQDN}%2F{CellName}
 %2F__role%2F__%2Froletest',_Relation.Name='relation',_Relation._Box.Name=null)"
       },
-      "ExtRole": "{CellURL}/__role/__/RoleName"
+      "ExtRole": "{CellURL}__role/__/RoleName"
     }
   }
 }
@@ -140,12 +140,12 @@ Refer to [Error Message List](004_Error_Messages.md)
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}/__ctl/ExtRole(ExtRole='https%3A%2F%2F{UnitFQDN}%2F{CellName}
+        "uri": "{CellURL}__ctl/ExtRole(ExtRole='https%3A%2F%2F{UnitFQDN}%2F{CellName}
 %2F__role%2F__%2F{ExtRoleName}',_Relation.Name='{RelationName}',_Relation._Box.Name='{BoxName}')",
         "etag": "W/\"1-1486717404966\"",
         "type": "CellCtl.ExtRole"
       },
-      "ExtRole": "{CellURL}/__role/__/{ExtRoleName}",
+      "ExtRole": "{CellURL}__role/__/{ExtRoleName}",
       "_Relation.Name": "{RelationName}",
       "_Relation._Box.Name": "{BoxName}",
       "__published": "/Date(1486717404966)/",
@@ -159,7 +159,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/__ctl/ExtRole" -X POST -i -H 'Authorization: Bearer {AccessToken}' \
--H 'Accept: application/json' -d '{ "ExtRole": "{CellURL}/__role/__/{ExtRoleName}", \
+curl "{CellURL}__ctl/ExtRole" -X POST -i -H 'Authorization: Bearer {AccessToken}' \
+-H 'Accept: application/json' -d '{ "ExtRole": "{CellURL}__role/__/{ExtRoleName}", \
 "_Relation.Name": "{RelationName}", "_Relation._Box.Name": "{BoxName}"}'
 ```

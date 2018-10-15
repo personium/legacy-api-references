@@ -59,7 +59,7 @@ Infoは、基本的には、リクエストのレスポンスコードとリク�
 
 変更後のオブジェクトにアクセスするには、変更後のキーを使用して以下のURLにする必要があります。
 ```
-http://{FQDN}/{CellName}/__ctl/Role(Name='role2', _Box.Name=null)
+http://{FQDN}{CellURL}__ctl/Role(Name='role2', _Box.Name=null)
 ```
 
 #### Cell Level API

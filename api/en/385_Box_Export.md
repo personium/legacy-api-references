@@ -18,7 +18,7 @@ read-acl
 
 ### Request URL
 ```
-/{CellName}/{BoxName}
+{CellURL}{BoxName}
 ```
 
 ### Request Method
@@ -70,6 +70,6 @@ For details of URL for [Box metadata acquisition API](303_Progress_of_Bar_File_I
 ## cURL Command
 
 ```sh
-curl "{CellURL}/{BoxName}" -X GET -H 'Authorization: Bearer {AccessToken}' \
+curl "{CellURL}{BoxName}" -X GET -H 'Authorization: Bearer {AccessToken}' \
 -H 'Accept: application/application/zip+x-personium-bar' -o "/home/user/export.bar"
 ```

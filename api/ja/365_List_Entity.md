@@ -15,7 +15,7 @@ read
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}
+{CellURL}{BoxName}/{ODataCollecitonName}/{EntityTypeName}
 ```
 |パス|概要|
 |:--|:--|
@@ -123,7 +123,7 @@ GET
     "results": [
       {
         "__metadata": {
-          "uri": "{CellURL}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}
+          "uri": "{CellURL}{BoxName}/{ODataCollecitonName}/{EntityTypeName}
 ('{EntityID}')",
           "etag": "W/\"1-1487662179733\"",
           "type": "UserData.{EntityTypeName}"
@@ -141,7 +141,7 @@ GET
       },
       {
         "__metadata": {
-          "uri": "{CellURL}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}
+          "uri": "{CellURL}{BoxName}/{ODataCollecitonName}/{EntityTypeName}
 ('{EntityID}')",
           "etag": "W/\"1-1487664427226\"",
           "type": "UserData.{EntityTypeName}"
@@ -160,7 +160,7 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}" -X GET -i -H \
+curl "{CellURL}{BoxName}/{ODataCollecitonName}/{EntityTypeName}" -X GET -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

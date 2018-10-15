@@ -13,7 +13,7 @@ write
 ### Request URL
 
 ```
-/{CellName}/{BoxName}/{CollectionName}
+{CellURL}{BoxName}/{CollectionName}
 ```
 
 |Path|Overview|Notes|
@@ -82,7 +82,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/{BoxName}/{CollectionName}" -X DELETE -i -H \
+curl "{CellURL}{BoxName}/{CollectionName}" -X DELETE -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

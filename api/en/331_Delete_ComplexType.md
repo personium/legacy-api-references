@@ -23,7 +23,7 @@ alter-schema
 ### Request URL
 
 ```
-/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/ComplexType('{ComplexTypeName}')
+{CellURL}{BoxName}/{ODataCollecitonName}/$metadata/ComplexType('{ComplexTypeName}')
 ```
 
 ### Request Method
@@ -87,7 +87,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/{BoxName}/{ODataCollecitonName}/\$metadata/ComplexType('{ComplexTypeName}')"\
+curl "{CellURL}{BoxName}/{ODataCollecitonName}/\$metadata/ComplexType('{ComplexTypeName}')"\
  -X DELETE -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

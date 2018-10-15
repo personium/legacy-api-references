@@ -21,7 +21,7 @@ alter-schema
 ### Request URL
 
 ```
-/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/Property('{PropertyName}')
+{CellURL}{BoxName}/{OdataCollecitonPath}/$metadata/Property('{PropertyName}')
 ```
 
 ### Request Method
@@ -104,7 +104,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/{BoxName}/{OdataCollecitonPath}/$metadata/Property('animal')" -X \
+curl "{CellURL}{BoxName}/{OdataCollecitonPath}/$metadata/Property('animal')" -X \
 PUT -i -H 'If-Match: *' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
 '{"Name":"{PropertyName}"}'
 ```

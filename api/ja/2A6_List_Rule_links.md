@@ -16,7 +16,7 @@ box-read
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')/$links/_Box
+{CellURL}__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')/$links/_Box
 ```
 
 ### メソッド
@@ -94,7 +94,7 @@ GET
   "d": {
     "results": [
       {
-        "uri": "{CellURL}/__ctl/Box(Name='{BoxName}')"
+        "uri": "{CellURL}__ctl/Box(Name='{BoxName}')"
       }
     ]
   }
@@ -104,6 +104,6 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')/\$links/_Box" -X GET -i -H \
+curl "{CellURL}__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')/\$links/_Box" -X GET -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```

@@ -25,19 +25,19 @@ Update OData resources associated with ExternalCell<br>You can specify the follo
 #### $links with ExtCell
 
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_ExtCell('{ExtCellURL}')
+{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_ExtCell('{ExtCellURL}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}')/$links/_ExtCell('{ExtCellURL}')
+{CellURL}__ctl/Relation(Name='{RelationName}')/$links/_ExtCell('{ExtCellURL}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Relation('{RelationName}')/$links/_ExtCell('{ExtCellURL}')
+{CellURL}__ctl/Relation('{RelationName}')/$links/_ExtCell('{ExtCellURL}')
 ```
 
 ### Request Method
@@ -77,7 +77,7 @@ JSON
 ### Request Sample
 
 ```JSON
-{"uri":"{CellURL}/__ctl/Box('{BoxName}')"}
+{"uri":"{CellURL}__ctl/Box('{BoxName}')"}
 ```
 
 
@@ -115,8 +115,8 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_Box('{BoxName}')" \
+curl "{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_Box('{BoxName}')" \
 -X PUT -i -H 'If-Match:*' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
-'{"uri":"{CellURL}/__ctl/Box('update_{BoxName}')"}'
+'{"uri":"{CellURL}__ctl/Box('update_{BoxName}')"}'
 ```
 

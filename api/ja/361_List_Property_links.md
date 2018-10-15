@@ -14,7 +14,7 @@ Propertyに紐付いたODataリソースを一覧取得する
 ### リクエストURL
 EntityTypeとの$links
 ```
-/{CellName}/{BoxName}/{CollectionName}/$metadata/Property(Name='{PropertyName}',_EntityType.Name=
+{CellURL}{BoxName}/{CollectionName}/$metadata/Property(Name='{PropertyName}',_EntityType.Name=
 '{EntityTypeName}')/$links/_EntityType
 ```
 ### メソッド
@@ -98,10 +98,10 @@ GET
    "d": {
     "results": [
       {
-        "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name=null)"
+        "uri": "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name=null)"
       },
       {
-        "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='box1')"
+        "uri": "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='box1')"
       }
     ]
   }
@@ -112,7 +112,7 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/{BoxName}/{OdataCollecitonPath}/$metadata/Property\
+curl "{CellURL}{BoxName}/{OdataCollecitonPath}/$metadata/Property\
 ('Property_Name')/$links/_EntityType" -X GET -i -H 'Authorization: Bearer {AccessToken}' \
 -H 'Accept: application/json'
 ```

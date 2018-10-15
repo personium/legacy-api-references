@@ -18,13 +18,13 @@ root
 ### Request URL
 
 ```
-/{CellName}/__snapshot
+{CellURL}__snapshot
 ```
 
 or
 
 ```
-/{CellName}/__snapshot/{FileName}
+{CellURL}__snapshot/{FileName}
 ```
 
 ### Request Method
@@ -160,7 +160,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ```xml
 <multistatus xmlns="DAV:">
     <response>
-        <href>{CellURL}/__snapshot/CellExport_2017_01.zip</href>
+        <href>{CellURL}__snapshot/CellExport_2017_01.zip</href>
         <propstat>
             <prop>
                 <creationdate>2017-02-15T01:52:34.635+0000</creationdate>
@@ -180,7 +180,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Sample
 
 ```sh
-curl "{CellURL}/__snapshot/CellExport_2017_01.zip" -X PROPFIND -i  -H \
+curl "{CellURL}__snapshot/CellExport_2017_01.zip" -X PROPFIND -i  -H \
 'Depth:0' -H 'Authorization: Bearer {AccessToken}' -d '<?xml version="1.0" encoding="utf-8"?>\
 <D:propfind xmlns:D="DAV:"><D:allprop/></D:propfind>'
 ```

@@ -14,15 +14,15 @@ social
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')
+{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}')
+{CellURL}__ctl/Relation(Name='{RelationName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Relation('{RelationName}')
+{CellURL}__ctl/Relation('{RelationName}')
 ```
 ※ \_Box.Nameパラメタを省略した場合は、nullが指定されたものとする
 ### メソッド
@@ -74,7 +74,7 @@ PUT
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')" \
+curl "{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')" \
 -X PUT -i -H 'If-Match:*' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' \
 -d '{"Name":"{RelationName}","_Box.Name":"{BoxName}"}'
 ```

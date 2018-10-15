@@ -14,11 +14,11 @@ Release the link with Box linked from Rule.
 ## request
 ### Request URL
 ```
-/{CellName}/__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')/$links/_Box(Name='{BoxName}')
+{CellURL}__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')/$links/_Box(Name='{BoxName}')
 ```
 Alternatively,
 ```
-/{CellName}/__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')/$links/_Box('{BoxName}')
+{CellURL}__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')/$links/_Box('{BoxName}')
 ```
 
 ### Method
@@ -61,6 +61,6 @@ None
 ## cURL Sample
 
 ```sh
-curl "{CellURL}/__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')/\$links/_Box(Name='{BoxName}')" \
+curl "{CellURL}__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')/\$links/_Box(Name='{BoxName}')" \
 -X DELETE -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```

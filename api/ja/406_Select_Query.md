@@ -23,12 +23,12 @@ $select={propertyName}
 ## cURLサンプル
 例：Box一覧を取得する際、Nameプロパティのみ返却する場合:
 ```sh
-curl "{CellURL}/__ctl/Box?\$select=Name" -X GET -i -H \
+curl "{CellURL}__ctl/Box?\$select=Name" -X GET -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 例：Box一覧を取得する際、全プロパティを返却する場合:
 ```
-curl "{CellURL}/__ctl/Box?\$select=*" -X GET -i -H \
+curl "{CellURL}__ctl/Box?\$select=*" -X GET -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

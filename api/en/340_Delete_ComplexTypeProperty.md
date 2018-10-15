@@ -34,7 +34,7 @@ alter-schema
 ### Request URL
 
 ```
-/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/ComplexTypeProperty(Name='{ComplexTypePropertyName}',
+{CellURL}{BoxName}/{ODataCollecitonName}/$metadata/ComplexTypeProperty(Name='{ComplexTypePropertyName}',
 _ComplexType.Name='{ComplexTypeName}')
 ```
 
@@ -103,7 +103,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/{BoxName}/{ODataCollecitonName}/\$metadata/ComplexTypeProperty\
+curl "{CellURL}{BoxName}/{ODataCollecitonName}/\$metadata/ComplexTypeProperty\
 (Name='{ComplexTypePropertyName}',_ComplexType.Name='{ComplexTypeName}')" -X DELETE -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```

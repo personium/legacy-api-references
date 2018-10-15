@@ -27,7 +27,7 @@ Cell Level API は、Cellを管理するユーザがアプリ等を通じて操�
 
 #### Cell Root URL
 ```
-{CellURL}/
+{CellURL}
 ```
 
 Cell Level API は、次のような機能で構成されます。
@@ -182,7 +182,7 @@ Box Level API は、アプリケーション等がデータを操作するため
 
 #### Box Root URL
 ```
-{CellURL}/{BoxName}/
+{CellURL}{BoxName}/
 ```
 WebDAVをベースとしたファイルシステム的な考え方のAPI群で、通常のファイルシステムと同様にファイルの配置・取得、フォルダ（Collection）の作成・管理、ファイルやフォルダの一覧取得、アクセス制御の設定・参照等が可能です。
 

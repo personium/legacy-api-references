@@ -82,7 +82,7 @@ box-install
 ### Request URL
 
 ```
-/{CellName}/{BoxName}
+{CellURL}{BoxName}
 ```
 
 ### Request Method
@@ -134,7 +134,7 @@ For the file structure of the bar file, see the [ bar file ](301_Bar_File.md).
 Location sample
 
 ```
-Location:{CellURL}/{BoxName}
+Location:{CellURL}{BoxName}
 ```
 
 For details of URL for [Box metadata acquisition API](303_Progress_of_Bar_File_Installation.md), see Box metadata acquisition.
@@ -150,7 +150,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ### Response Sample
 
 ```
-Location: {CellURL}/{BoxName}
+Location: {CellURL}{BoxName}
 ```
 
 For details of URL for [Box metadata acquisition API](303_Progress_of_Bar_File_Installation.md), see Box metadata acquisition.
@@ -158,6 +158,6 @@ For details of URL for [Box metadata acquisition API](303_Progress_of_Bar_File_I
 ## cURL Command
 
 ```sh
-curl "{CellURL}/{BoxName}" -X MKCOL -i -H 'Content-type: application/zip' -H\
+curl "{CellURL}{BoxName}" -X MKCOL -i -H 'Content-type: application/zip' -H\
  'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -T "{FilePath}"
 ```

@@ -13,7 +13,7 @@ alter-schema
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/AssociationEnd(Name='{AssociationEndName}',
+{CellURL}{BoxName}/{ODataCollecitonName}/$metadata/AssociationEnd(Name='{AssociationEndName}',
 _EntityType.Name='{EntityTypeName}')
 ```
 ### メソッド
@@ -71,7 +71,7 @@ JSON
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/{BoxName}/{ODataCollecitonName}/\$metadata/AssociationEnd\
+curl "{CellURL}{BoxName}/{ODataCollecitonName}/\$metadata/AssociationEnd\
 (Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')" -X PUT -i  -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '\
 {"Name":"{AssociationEndName}","Multiplicity":"{Multiplicity}","_EntityType.Name":"{EntityTypeName}"}'

@@ -23,7 +23,7 @@ URLに指定可能なスキームは"http", "https", "personium-localunit", "per
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}
+{CellURL}
 ```
 
 ### メソッド

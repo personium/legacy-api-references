@@ -19,7 +19,7 @@
 ### リクエストURL
 #### ユーザデータとの$links
 ```
-/{CellName}/{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')/$links/_{EntityTypeName}
+{CellURL}{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')/$links/_{EntityTypeName}
 ```
 ### メソッド
 GET
@@ -104,7 +104,7 @@ GET
   "d": {
     "results": [
       {
-        "uri": "{CellURL}/{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')"
+        "uri": "{CellURL}{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')"
       }
     ]
   }
@@ -115,7 +115,7 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')/\$links\
+curl "{CellURL}{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')/\$links\
 /_{EntityTypeName}" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H \
 'Accept: application/json'
 ```

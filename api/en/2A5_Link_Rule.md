@@ -21,11 +21,11 @@ Only when the _Box.Name described in the request URL is null (or if it is not sp
 ## request
 ### Request URL
 ```
-/{CellName}/__ctl/Rule(Name='{RuleName}')/$links/_Box
+{CellURL}__ctl/Rule(Name='{RuleName}')/$links/_Box
 ```
 Alternatively,
 ```
-/{CellName}/__ctl/Rule('{RuleName}')/$links/_Box
+{CellURL}__ctl/Rule('{RuleName}')/$links/_Box
 ```
 
 When the \_Box.Name parameter is omitted, it is assumed that null is specified
@@ -57,7 +57,7 @@ JSON
 
 ### Request body sample
 ```JSON
-{"uri":"{CellURL}/__ctl/Box(Name='{BoxName}')"}
+{"uri":"{CellURL}__ctl/Box(Name='{BoxName}')"}
 ```
 
 ## Response
@@ -80,7 +80,7 @@ None
 ## cURL Sample
 
 ```sh
-curl "{CellURL}/__ctl/Rule('{RuleName}')/\$links/_Box" -X POST -i -H \
+curl "{CellURL}__ctl/Rule('{RuleName}')/\$links/_Box" -X POST -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
-"{\"uri\":\"{CellURL}/__ctl/Box('{BoxName}')\"}"
+"{\"uri\":\"{CellURL}__ctl/Box('{BoxName}')\"}"
 ```

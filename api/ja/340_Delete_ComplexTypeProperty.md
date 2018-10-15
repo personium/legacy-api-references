@@ -23,7 +23,7 @@ ComplexTypePropertyAを削除する場合は、 EntityTypeAのデータが存在
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/ComplexTypeProperty(Name='
+{CellURL}{BoxName}/{ODataCollecitonName}/$metadata/ComplexTypeProperty(Name='
 {ComplexTypePropertyName}',_ComplexType.Name='{ComplexTypeName}')
 ```
 ### メソッド
@@ -68,7 +68,7 @@ DELETE
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/{BoxName}/{ODataCollecitonName}/\$metadata/ComplexTypeProperty\
+curl "{CellURL}{BoxName}/{ODataCollecitonName}/\$metadata/ComplexTypeProperty\
 (Name='{ComplexTypePropertyName}',_ComplexType.Name='{ComplexTypeName}')" -X DELETE -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```

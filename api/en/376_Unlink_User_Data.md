@@ -20,7 +20,7 @@ Delete $links information with Entity of user data
 #### $links with user data
 
 ```
-/{CellName}/{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')/$links/_{EntityTypeName}('{EntityID}')
+{CellURL}{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')/$links/_{EntityTypeName}('{EntityID}')
 ```
 
 ### Request Method
@@ -109,7 +109,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')\
+curl "{CellURL}{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')\
 /\$links/_{EntityTypeName}('{EntityID}')" -X DELETE -i -H 'Authorization: Bearer {AccessToken}' -H \
 'Accept: application/json'
 ```

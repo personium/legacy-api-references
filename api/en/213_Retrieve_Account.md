@@ -21,13 +21,13 @@ auth-read
 ### Request URL
 
 ```
-/{CellName}/__ctl/Account(Name='aoount_name')
+{CellURL}__ctl/Account(Name='aoount_name')
 ```
 
 or 
 
 ```
-/{CellName}/__ctl/Account('{AccountName}')
+{CellURL}__ctl/Account('{AccountName}')
 ```
 
 ### Request Method
@@ -106,7 +106,7 @@ Refer to [Error Message List](004_Error_Messages.md)
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}/__ctl/Account('{AccountName}')",
+        "uri": "{CellURL}__ctl/Account('{AccountName}')",
         "etag": "W/\"1-1486462510467\"",
         "type": "CellCtl.Account"
       },
@@ -118,12 +118,12 @@ Refer to [Error Message List](004_Error_Messages.md)
       "__updated": "/Date(1486462510467)/",
       "_Role": {
         "__deferred": {
-          "uri": "{CellURL}/__ctl/Account('{AccountName}')/_Role"
+          "uri": "{CellURL}__ctl/Account('{AccountName}')/_Role"
         }
       },
       "_ReceivedMessageRead": {
         "__deferred": {
-          "uri": "{CellURL}/__ctl/Account('{AccountName}')/_ReceivedMessageRead"
+          "uri": "{CellURL}__ctl/Account('{AccountName}')/_ReceivedMessageRead"
         }
       }
     }
@@ -135,7 +135,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/__ctl/Account('{AccountName}')" -X GET -i -H \
+curl "{CellURL}__ctl/Account('{AccountName}')" -X GET -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

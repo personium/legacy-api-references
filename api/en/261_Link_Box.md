@@ -33,52 +33,52 @@ Get a list of OData resources linked with following
 #### link with Role
 
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/_Role
+{CellURL}__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/_Role
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}')/$links/_Role
+{CellURL}__ctl/Box(Name='{BoxName}')/$links/_Role
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Box('{BoxName}')/$links/_Role
+{CellURL}__ctl/Box('{BoxName}')/$links/_Role
 ```
 
 #### link with Relation
 
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/_Relation
+{CellURL}__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/_Relation
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}')/$links/_Relation
+{CellURL}__ctl/Box(Name='{BoxName}')/$links/_Relation
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Box('{BoxName}')/$links/_Relation
+{CellURL}__ctl/Box('{BoxName}')/$links/_Relation
 ```
 
 #### link with Rule
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/_Rule
+{CellURL}__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/_Rule
 ```
 or 
 
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}')/$links/_Rule
+{CellURL}__ctl/Box(Name='{BoxName}')/$links/_Rule
 ```
 or 
 
 ```
-/{CellName}/__ctl/Box('{BoxName}')/$links/_Rule
+{CellURL}__ctl/Box('{BoxName}')/$links/_Rule
 ```
 
 If the Schema is omitted, it is assumed that null is specified
@@ -117,7 +117,7 @@ JSON
 ### Request Sample
 
 ```JSON
-{"uri":"{CellURL}/__ctl/Role(Name='{RoleName}')"}
+{"uri":"{CellURL}__ctl/Role(Name='{RoleName}')"}
 ```
 
 
@@ -147,8 +147,8 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/__ctl/Box('{BoxName}')/\$links/_Role" -X POST -i -H \
+curl "{CellURL}__ctl/Box('{BoxName}')/\$links/_Role" -X POST -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
-"{\"uri\":\"{CellURL}/__ctl/Role(Name='{RoleName}')\"}"
+"{\"uri\":\"{CellURL}__ctl/Role(Name='{RoleName}')\"}"
 ```
 

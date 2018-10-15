@@ -23,13 +23,13 @@ alter-schema
 $links with AssociationEnd
 
 ```
-/{CellName}/{BoxName}/{CollectionName}/EntityType('{EntityTypeName}')/$links
+{CellURL}{BoxName}/{CollectionName}/EntityType('{EntityTypeName}')/$links
 /_AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')
 or
-/{CellName}/{BoxName}/{CollectionName}/EntityType('{EntityTypeName}')/$links
+{CellURL}{BoxName}/{CollectionName}/EntityType('{EntityTypeName}')/$links
 /_AssociationEnd(Name='{AssociationEndName}')
 or
-/{CellName}/{BoxName}/{CollectionName}/EntityType('{EntityTypeName}')/$links
+{CellURL}{BoxName}/{CollectionName}/EntityType('{EntityTypeName}')/$links
 /_AssociationEnd('{AssociationEndName}')
 ```
 
@@ -101,7 +101,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/{BoxName}/{CollectionName}/$metadata/EntityType\
+curl "{CellURL}{BoxName}/{CollectionName}/$metadata/EntityType\
 (Name='{EntityTypeName}')/$links/_AssociationEnd(Name='a{AssociationEndName}',_EntityType.Name='{EntityTypeName}')" \
 -X DELETE -i -H 'If-Match: *' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```

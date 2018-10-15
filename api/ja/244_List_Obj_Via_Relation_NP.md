@@ -20,51 +20,51 @@ social-read
 ### リクエストURL
 #### BoxへのnavigationProperty
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_Box
+{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_Box
 ```
 または、
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}')/_Box
+{CellURL}__ctl/Relation(Name='{RelationName}')/_Box
 ```
 または、
 ```
-/{CellName}/__ctl/Relation('{RelationName}')/_Box
+{CellURL}__ctl/Relation('{RelationName}')/_Box
 ```
 #### ExtCellへのnavigationProperty
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_ExtCell
+{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_ExtCell
 ```
 または、
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}')/_ExtCell
+{CellURL}__ctl/Relation(Name='{RelationName}')/_ExtCell
 ```
 または、
 ```
-/{CellName}/__ctl/Relation('{RelationName}')/_ExtCell
+{CellURL}__ctl/Relation('{RelationName}')/_ExtCell
 ```
 #### ExtRoleへのnavigationProperty
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_ExtRole
+{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_ExtRole
 ```
 または、
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}')/_ExtRole
+{CellURL}__ctl/Relation(Name='{RelationName}')/_ExtRole
 ```
 または、
 ```
-/{CellName}/__ctl/Relation('{RelationName}')/_ExtRole
+{CellURL}__ctl/Relation('{RelationName}')/_ExtRole
 ```
 #### RoleへのnavigationProperty
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_Role
+{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_Role
 ```
 または、
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}')/_Role
+{CellURL}__ctl/Relation(Name='{RelationName}')/_Role
 ```
 または、
 ```
-/{CellName}/__ctl/Relation('{RelationName}')/_Role
+{CellURL}__ctl/Relation('{RelationName}')/_Role
 ```
 ※ \_Box.Nameパラメタを省略した場合は、nullが指定されたものとする  
 
@@ -153,7 +153,7 @@ GET
       "Name": "{RelationName}",
       "_Box.Name": "{BoxName}",
       "__metadata": {  
-        "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}'
+        "uri": "{CellURL}__ctl/Relation(Name='{RelationName}'
 ,_Box.Name='{BoxName}')",
         "type": "CellCtl.relation"  
       },  

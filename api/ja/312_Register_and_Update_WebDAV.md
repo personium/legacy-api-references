@@ -7,7 +7,7 @@ write
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/{BoxName}/{ResourcePath}
+{CellURL}{BoxName}/{ResourcePath}
 ```
 |パス|概要|備考|
 |:--|:--|:--|
@@ -59,7 +59,7 @@ PUT
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/{BoxName}/{ResourcePath}" -X PUT -i -H \
+curl "{CellURL}{BoxName}/{ResourcePath}" -X PUT -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{【ファイル内容】}'
 ```
 

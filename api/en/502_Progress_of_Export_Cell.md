@@ -21,7 +21,7 @@ root
 ### Request URL
 
 ```
-/{CellName}/__export
+{CellURL}__export
 ```
 
 ### Request Method
@@ -104,7 +104,7 @@ Cell export processing in progress
 ## cURL Sample
 
 ```sh
-curl "{CellURL}/__export" -X GET -i -H 'Authorization: Bearer {AccessToken}'
+curl "{CellURL}__export" -X GET -i -H 'Authorization: Bearer {AccessToken}'
 ```
 
 

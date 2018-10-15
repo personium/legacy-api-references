@@ -18,7 +18,7 @@ alter-schema
 ### リクエストURL
 ```
 Propertyとの$links
-/{CellName}/{BoxName}/{CollectionName}/$metadata/ComplexType('{ComplextypeName}')/$links/_Property
+{CellURL}{BoxName}/{CollectionName}/$metadata/ComplexType('{ComplextypeName}')/$links/_Property
 ```
 ### メソッド
 POST
@@ -87,7 +87,7 @@ JSON
 ## cURLサンプル
  EntityType
 ```sh
-curl "{CellURL}/{BoxName}/{OdataCollecitonPath}/$metadata/EntityType\
+curl "{CellURL}{BoxName}/{OdataCollecitonPath}/$metadata/EntityType\
 (Name='{EntityTypeName}')/$links/_AssociationEnd" -X POST -i -H 'Authorization: Bearer \
 {AccessToken}' -H 'Accept: application/json' -d '{"uri": "{CellURL}\
 /{BoxName}/{OdataCollecitonPath}/$metadata/AssociationEnd(Name='assocName_link'\
@@ -95,10 +95,10 @@ curl "{CellURL}/{BoxName}/{OdataCollecitonPath}/$metadata/EntityType\
 ```
  AssociationEnd
 ```sh
-curl "{CellURL}/{BoxName}/{OdataCollecitonPath}/$metadata/AssociationEnd\
+curl "{CellURL}{BoxName}/{OdataCollecitonPath}/$metadata/AssociationEnd\
 (Name='{AssociationEndName}2',_EntityType.Name=Entity)/$links/_AssociationEnd" -X POST -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"uri": "https://{UnitFQDN}\
-/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/AssociationEnd(Name=\
+{CellURL}{BoxName}/{OdataCollecitonPath}/$metadata/AssociationEnd(Name=\
 '{AssociationEndName}_link',_EntityType.Name=Entity2)"}'
 ```
 

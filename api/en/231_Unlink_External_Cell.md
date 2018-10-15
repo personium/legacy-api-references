@@ -19,73 +19,73 @@ Delete a list of OData resources associated with ExtCell
 #### Correlating with the role
 
 ```
-/{CellName}/__ctl/ExtCell(Url='{ExtCellURL}')/$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')
+{CellURL}__ctl/ExtCell(Url='{ExtCellURL}')/$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/ExtCell(Url='{ExtCellURL}')/$links/_Role(Name='{RoleName}')
+{CellURL}__ctl/ExtCell(Url='{ExtCellURL}')/$links/_Role(Name='{RoleName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/ExtCell(Url='{ExtCellURL}')/$links/_Role('{RoleName}')
+{CellURL}__ctl/ExtCell(Url='{ExtCellURL}')/$links/_Role('{RoleName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/ExtCell('{ExtCellURL}')/$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')
+{CellURL}__ctl/ExtCell('{ExtCellURL}')/$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/ExtCell('{ExtCellURL}')/$links/_Role(Name='{RoleName}')
+{CellURL}__ctl/ExtCell('{ExtCellURL}')/$links/_Role(Name='{RoleName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/ExtCell('{ExtCellURL}')/$links/_Role('{RoleName}')
+{CellURL}__ctl/ExtCell('{ExtCellURL}')/$links/_Role('{RoleName}')
 ```
 
 #### Correlating with the relation
 
 ```
-/{CellName}/__ctl/ExtCell(Url='{ExtCellURL}')/$links/_Relation(Name='{RelationName}',_Box.Name='{BoxName}')
+{CellURL}__ctl/ExtCell(Url='{ExtCellURL}')/$links/_Relation(Name='{RelationName}',_Box.Name='{BoxName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/ExtCell(Url='{ExtCellURL}')/$links/_Relation(Name='{RelationName}')
+{CellURL}__ctl/ExtCell(Url='{ExtCellURL}')/$links/_Relation(Name='{RelationName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/ExtCell(Url='{ExtCellURL}')/$links/_Relation('{RelationName}')
+{CellURL}__ctl/ExtCell(Url='{ExtCellURL}')/$links/_Relation('{RelationName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/ExtCell('{ExtCellURL}')/$links/_Relation(Name='{RelationName}',_Box.Name='{BoxName}')
+{CellURL}__ctl/ExtCell('{ExtCellURL}')/$links/_Relation(Name='{RelationName}',_Box.Name='{BoxName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/ExtCell('{ExtCellURL}')/$links/_Relation(Name='{RelationName}')
+{CellURL}__ctl/ExtCell('{ExtCellURL}')/$links/_Relation(Name='{RelationName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/ExtCell('{ExtCellURL}')/$links/_Relation('{RelationName}')
+{CellURL}__ctl/ExtCell('{ExtCellURL}')/$links/_Relation('{RelationName}')
 ```
 
 If the \_Box.Name parameter is omitted, it is assumed that null is specified
@@ -141,7 +141,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{ExtCellName}%2F')\
+curl "{CellURL}__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{ExtCellName}%2F')\
 /\$links/_Relation(Name='{RelationName}',_Box.Name='{BoxName}')" -X DELETE -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```

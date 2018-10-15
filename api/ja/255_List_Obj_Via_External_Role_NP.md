@@ -19,12 +19,12 @@ social-read
 ### リクエストURL
 #### RoleへのnavigationProperty
 ```
-/{CellName}/__ctl/ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name='{RelationName}',
+{CellURL}__ctl/ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name='{RelationName}',
 _Relation._Box.Name='{BoxName}')/_Role
 ```
 #### RelationへのnavigationProperty
 ```
-/{CellName}/__ctl/ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name='{RelationName}',
+{CellURL}__ctl/ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name='{RelationName}',
 _Relation._Box.Name='{BoxName}')/_Relation
 ```
 ※ \_Relation.\_Box.Nameパラメタを省略した場合は、nullが指定されたものとする  
@@ -106,7 +106,7 @@ GET
     "results": [
       {
         "__metadata": {
-          "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',
+          "uri": "{CellURL}__ctl/Role(Name='{RoleName}',
 _Box.Name='{BoxName}')",
           "etag": "W/\"1-1486950269621\"",
           "type": "CellCtl.Role"
@@ -117,31 +117,31 @@ _Box.Name='{BoxName}')",
         "__updated": "/Date(1486950269621)/",
         "_Box": {
           "__deferred": {
-            "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',
+            "uri": "{CellURL}__ctl/Role(Name='{RoleName}',
 _Box.Name='{BoxName}')/_Box"
           }
         },
         "_Account": {
           "__deferred": {
-            "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',
+            "uri": "{CellURL}__ctl/Role(Name='{RoleName}',
 _Box.Name='{BoxName}')/_Account"
           }
         },
         "_ExtCell": {
           "__deferred": {
-            "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',
+            "uri": "{CellURL}__ctl/Role(Name='{RoleName}',
 _Box.Name='{BoxName}')/_ExtCell"
           }
         },
         "_ExtRole": {
           "__deferred": {
-            "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',
+            "uri": "{CellURL}__ctl/Role(Name='{RoleName}',
 _Box.Name='{BoxName}')/_ExtRole"
           }
         },
         "_Relation": {
           "__deferred": {
-            "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',
+            "uri": "{CellURL}__ctl/Role(Name='{RoleName}',
 _Box.Name='{BoxName}')/_Relation"
           }
         }
@@ -155,7 +155,7 @@ _Box.Name='{BoxName}')/_Relation"
 
 #### RoleのnavigationProperty経由一覧
 ```sh
-curl "{CellURL}/__ctl/ExtRole(ExtRole='https%3A%2F%2Fd{UnitFQDN}\
+curl "{CellURL}__ctl/ExtRole(ExtRole='https%3A%2F%2Fd{UnitFQDN}\
 %2F{CellName}%2F__role%2F__%2F{ExtRoleName}',_Relation.Name='{RelationName}',\
 _Relation._Box.Name='{BoxName}')/_Role" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H \
 'Accept: application/json'

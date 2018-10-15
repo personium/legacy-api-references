@@ -15,7 +15,7 @@ read
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/AssociationEnd
+{CellURL}{BoxName}/{ODataCollecitonName}/$metadata/AssociationEnd
 ```
 ### メソッド
 GET
@@ -110,7 +110,7 @@ GET
     "results": [
       {
         "__metadata": {
-          "uri": "{CellURL}/{BoxName}/{ODataCollecitonName}/$metadata
+          "uri": "{CellURL}{BoxName}/{ODataCollecitonName}/$metadata
 /AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')",
           "etag": "W/\"2-1487587131996\"",
           "type": "ODataSvcSchema.AssociationEnd"
@@ -122,20 +122,20 @@ GET
         "__updated": "/Date(1487587131996)/",
         "_EntityType": {
           "__deferred": {
-            "uri": "{CellURL}/{BoxName}/{ODataCollecitonName}/$metadata
+            "uri": "{CellURL}{BoxName}/{ODataCollecitonName}/$metadata
 /AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')/_EntityType"
           }
         },
         "_AssociationEnd": {
           "__deferred": {
-            "uri": "{CellURL}/{BoxName}/{ODataCollecitonName}/$metadata
+            "uri": "{CellURL}{BoxName}/{ODataCollecitonName}/$metadata
 /AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')/_AssociationEnd"
           }
         }
       },
       {
         "__metadata": {
-          "uri": "{CellURL}/{BoxName}/{ODataCollecitonName}/$metadata
+          "uri": "{CellURL}{BoxName}/{ODataCollecitonName}/$metadata
 /AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')",
           "etag": "W/\"1-1487652733383\"",
           "type": "ODataSvcSchema.AssociationEnd"
@@ -147,13 +147,13 @@ GET
         "__updated": "/Date(1487652733383)/",
         "_EntityType": {
           "__deferred": {
-            "uri": "{CellURL}/{BoxName}/{ODataCollecitonName}/$metadata
+            "uri": "{CellURL}{BoxName}/{ODataCollecitonName}/$metadata
 /AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')/_EntityType"
           }
         },
         "_AssociationEnd": {
           "__deferred": {
-            "uri": "{CellURL}/{BoxName}/{ODataCollecitonName}/$metadata
+            "uri": "{CellURL}{BoxName}/{ODataCollecitonName}/$metadata
 /AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')/_AssociationEnd"
           }
         }
@@ -167,7 +167,7 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/{BoxName}/{ODataCollecitonName}/\$metadata/AssociationEnd" -X \
+curl "{CellURL}{BoxName}/{ODataCollecitonName}/\$metadata/AssociationEnd" -X \
 GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

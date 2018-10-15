@@ -19,7 +19,7 @@ write
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}({EntityID})}
+{CellURL}{BoxName}/{ODataCollecitonName}/{EntityTypeName}({EntityID})}
 ```
 |パス|概要|
 |:--|:--|
@@ -73,7 +73,7 @@ DELETE
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')" \
+curl "{CellURL}{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')" \
 -X DELETE -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

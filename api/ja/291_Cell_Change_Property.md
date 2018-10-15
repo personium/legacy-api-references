@@ -8,7 +8,7 @@
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}
+{CellURL}
 ```
 
 ### メソッド
@@ -84,7 +84,7 @@ PROPPATCH
 ```xml
 <multistatus xmlns="DAV:">
     <response>
-        <href>{CellURL}/</href>
+        <href>{CellURL}</href>
         <propstat>
             <prop>
                 <p:foo xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:">bar</p:foo>

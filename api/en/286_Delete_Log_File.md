@@ -24,7 +24,7 @@ log
 #### rotated log file
 
 ```
-/{CellName}/__log/archive/{LogName}
+{CellURL}__log/archive/{LogName}
 ```
 
 \*{LogName} specifies the file name returned by the log file information acquisition API.
@@ -80,7 +80,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/__log/archive/{LogName}" -X DELETE -i -H \
+curl "{CellURL}__log/archive/{LogName}" -X DELETE -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

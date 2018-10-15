@@ -14,11 +14,11 @@ box
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/__ctl/Box('{BoxName}')
+{CellURL}__ctl/Box('{BoxName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}')
+{CellURL}__ctl/Box(Name='{BoxName}')
 ```
 ### メソッド
 DELETE
@@ -54,7 +54,7 @@ DELETE
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/__ctl/Box('{BoxName}')" -X DELETE -i  -H \
+curl "{CellURL}__ctl/Box('{BoxName}')" -X DELETE -i  -H \
 'If-Match: *' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

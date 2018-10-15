@@ -14,7 +14,7 @@ rule
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/__ctl/Rule
+{CellURL}__ctl/Rule
 ```
 ### メソッド
 POST
@@ -101,7 +101,7 @@ EventSubjectには、他CellのSubjectを設定することも可能ですが、
 |exec|設定なし|personium-localcell:/{BoxName}/{CollectionName}/{ServiceName}||
 |relay|設定あり|スキームがhttp,https,personium-localunit,personium-localcell,personium-localboxのURL|httpもしくはhttpsのURLの場合、personium-localunitで指定可能なURLの場合はエラーとなります。personium-localunitにて指定してください。|
 |relay|設定なし|スキームがhttp,https,personium-localunit,personium-localcellのURL|httpもしくはhttpsのURLの場合、personium-localunitで指定可能なURLの場合はエラーとなります。personium-localunitにて指定してください。|
-|relay.event||Cell URL<br>http&#58;//...<br>https&#58;//...<br>personium-localunit:/{CellName}/<br>personium-localcell:/|httpもしくはhttpsのURLの場合、personium-localunitで指定可能なURLの場合はエラーとなります。personium-localunitにて指定してください。|
+|relay.event||Cell URL<br>http&#58;//...<br>https&#58;//...<br>personium-localunit:{CellURL}<br>personium-localcell:/|httpもしくはhttpsのURLの場合、personium-localunitで指定可能なURLの場合はエラーとなります。personium-localunitにて指定してください。|
 
 
 ### リクエストサンプル
@@ -160,7 +160,7 @@ EventSubjectには、他CellのSubjectを設定することも可能ですが、
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}/__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')",
+        "uri": "{CellURL}__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')",
         "etag": "W/\"1-1486368212581\"",
         "type": "CellCtl.Rule"
       },
@@ -185,7 +185,7 @@ EventSubjectには、他CellのSubjectを設定することも可能ですが、
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/__ctl/Rule" -X POST -i \
+curl "{CellURL}__ctl/Rule" -X POST -i \
 -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' \
 -d '{"Name":"{RuleName}", "EventExternal":true, "Action":"log"}'
 ```

@@ -8,7 +8,7 @@ write
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/{BoxName}/{ResourcePath}/
+{CellURL}{BoxName}/{ResourcePath}/
 ```
 ### メソッド
 MOVE
@@ -60,22 +60,22 @@ MOVE
 
 コレクション名変更(終端の"/"は必須)
 ```sh
-curl "{CellURL}/{BoxName}/{OldCollectionName}/" -X MOVE -i -H \
-'Destination:{CellURL}/{BoxName}/{NewCollectionName}/' -H \
+curl "{CellURL}{BoxName}/{OldCollectionName}/" -X MOVE -i -H \
+'Destination:{CellURL}{BoxName}/{NewCollectionName}/' -H \
 'Authorization: Bearer {AccessToken}'
 ```
 
 ファイル名変更
 ```sh
-curl "{CellURL}/{BoxName}/{CollectionName}/{OldFileName}/" -X MOVE -i -H \
-'Destination:{CellURL}/{BoxName}/{CollectionName}/{NewFileName}' -H \
+curl "{CellURL}{BoxName}/{CollectionName}/{OldFileName}/" -X MOVE -i -H \
+'Destination:{CellURL}{BoxName}/{CollectionName}/{NewFileName}' -H \
 'Authorization: Bearer {AccessToken}'
 ```
 
 ファイル移動
 ```sh
-curl  "{CellURL}/{BoxName}/{CollectionNameA}/{FileName}" -X MOVE -i -H \
-'Destination:{CellURL}/{BoxName}/{CollectionNameB}/{FileName}' -H \
+curl  "{CellURL}{BoxName}/{CollectionNameA}/{FileName}" -X MOVE -i -H \
+'Destination:{CellURL}{BoxName}/{CollectionNameB}/{FileName}' -H \
 'Authorization: Bearer {AccessToken}'
 ```
 

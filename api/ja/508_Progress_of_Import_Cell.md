@@ -17,7 +17,7 @@ root
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/__import
+{CellURL}__import
 ```
 
 ### メソッド
@@ -105,7 +105,7 @@ Cellインポート異常終了
 
 ## cURLサンプル
 ```sh
-curl "{CellURL}/__import" -X GET -i -H 'Authorization: Bearer {AccessToken}' \
+curl "{CellURL}__import" -X GET -i -H 'Authorization: Bearer {AccessToken}' \
 -H 'Accept: application/json'
 ```
 

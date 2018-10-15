@@ -8,7 +8,7 @@ read
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata
+{CellURL}{BoxName}/{ODataCollecitonName}/$metadata
 ```
 ### メソッド
 GET
@@ -50,7 +50,7 @@ GET
 ### レスポンスサンプル
 ```xml
 <?xml version='1.0' encoding='utf-8'?>
-<service xmlns="http://www.w3.org/2007/app" xml:base="{CellURL}/{BoxName}
+<service xmlns="http://www.w3.org/2007/app" xml:base="{CellURL}{BoxName}
 /{OdataCollecitonName}/$metadata/" xmlns:atom="http://www.w3.org/2005/Atom" 
 xmlns:app="http://www.w3.org/2007/app">
   <workspace>
@@ -78,7 +78,7 @@ xmlns:app="http://www.w3.org/2007/app">
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/{BoxName}/{OdataCollecitonName}/\$metadata' -X GET -i -H \
+curl "{CellURL}{BoxName}/{OdataCollecitonName}/\$metadata' -X GET -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/atomsvc+xml'
 ```
 

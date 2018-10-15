@@ -14,11 +14,11 @@ V1.0系での制限
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/{BoxName}
+{CellURL}{BoxName}
 ```
 または、
 ```
-/{CellName}/{BoxName}/{CollectionName}
+{CellURL}{BoxName}/{CollectionName}
 ```
 
 
@@ -175,7 +175,7 @@ DTD表記
 ```xml
 <multistatus xmlns="DAV:">
     <response>
-        <href>{CellURL}/{BoxName}/{CollectionName}</href>
+        <href>{CellURL}{BoxName}/{CollectionName}</href>
         <propstat>
             <prop>
                 <creationdate>2017-02-15T01:52:34.635+0000</creationdate>
@@ -194,7 +194,7 @@ DTD表記
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/{BoxName}/{CollectionName}" -X PROPFIND -i  -H 'Depth:1' -H \
+curl "{CellURL}{BoxName}/{CollectionName}" -X PROPFIND -i  -H 'Depth:1' -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
 '<?xml version="1.0" encoding="utf-8"?><D:propfind xmlns:D="DAV:"><D:allprop/></D:propfind>'
 ```

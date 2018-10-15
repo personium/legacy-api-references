@@ -20,13 +20,13 @@ Get a list of OData resources linked with following
 When linking with Role
 
 ```
-/{CellName}/__ctl/Account(Name='{AccountName}')/$links/_Role
+{CellURL}__ctl/Account(Name='{AccountName}')/$links/_Role
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Account('{AccountName}')/$links/_Role
+{CellURL}__ctl/Account('{AccountName}')/$links/_Role
 ```
 
 ### Request Method
@@ -59,7 +59,7 @@ JSON
 ### Request Sample
 
 ```JSON
-{"uri":"{CellURL}/__ctl/Box('{BoxName}')"}
+{"uri":"{CellURL}__ctl/Box('{BoxName}')"}
 ```
 
 
@@ -89,8 +89,8 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/__ctl/Account(Name='{AccountName}')/\$links/_Role" -X POST -i -H \
+curl "{CellURL}__ctl/Account(Name='{AccountName}')/\$links/_Role" -X POST -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
-"{\"uri\":\"{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')\"}"
+"{\"uri\":\"{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')\"}"
 ```
 

@@ -22,7 +22,7 @@ social-read
 ### Request URL
 
 ```
-/{CellName}/__ctl/Relation
+{CellURL}__ctl/Relation
 ```
 
 ### Request Method
@@ -122,7 +122,7 @@ The response is a JSON object, the correspondence between the key (name) and typ
       {
         "__metadata": {
           "uri":
-          "{CellURL}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')",
+          "{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')",
           "etag": "W/\"1-1486538244016\"",
           "type": "CellCtl.Relation"
         },
@@ -132,28 +132,28 @@ The response is a JSON object, the correspondence between the key (name) and typ
         "__updated": "/Date(1486538244016)/",
         "_Box": {
           "__deferred": {
-            "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_Box"
+            "uri": "{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_Box"
           }
         },
         "_ExtCell": {
           "__deferred": {
-            "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_ExtCell"
+            "uri": "{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_ExtCell"
           }
         },
         "_ExtRole": {
           "__deferred": {
-            "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_ExtRole"
+            "uri": "{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_ExtRole"
           }
         },
         "_Role": {
           "__deferred": {
-            "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_Role"
+            "uri": "{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_Role"
           }
         }
       },
       {
         "__metadata": {
-          "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')",
+          "uri": "{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')",
           "etag": "W/\"1-1486538757303\"",
           "type": "CellCtl.Relation"
         },
@@ -163,22 +163,22 @@ The response is a JSON object, the correspondence between the key (name) and typ
         "__updated": "/Date(1486538757303)/",
         "_Box": {
           "__deferred": {
-            "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_Box"
+            "uri": "{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_Box"
           }
         },
         "_ExtCell": {
           "__deferred": {
-            "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_ExtCell"
+            "uri": "{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_ExtCell"
           }
         },
         "_ExtRole": {
           "__deferred": {
-            "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_ExtRole"
+            "uri": "{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_ExtRole"
           }
         },
         "_Role": {
           "__deferred": {
-            "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_Role"
+            "uri": "{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_Role"
           }
         }
       }
@@ -194,7 +194,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/__ctl/Relation" -X GET -i  -H 'Authorization: Bearer {AccessToken}' \
+curl "{CellURL}__ctl/Relation" -X GET -i  -H 'Authorization: Bearer {AccessToken}' \
 -H 'Accept: application/json'
 ```
 

@@ -7,7 +7,7 @@ write
 ## リクエスト
 ### リクエストURL
 ```
-/{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/__src/{ResourceName}
+/{UnitFQDN}{CellURL}{BoxName}/{CollectionName}/__src/{ResourceName}
 ```
 |パス|概要|備考|
 |:--|:--|:--|
@@ -57,7 +57,7 @@ DELETE
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/{BoxName}/{CollectionName}/__src/{ResourceName}" -X DELETE -i \
+curl "{CellURL}{BoxName}/{CollectionName}/__src/{ResourceName}" -X DELETE -i \
 -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

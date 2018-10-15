@@ -20,15 +20,15 @@ Register other Cell control objects via Rule's Navigation Property. By doing thi
 ### Request URL
 #### navigationProperty to Box
 ```
-/{CellName}/__ctl/Rule(Name='{RuleName}',_Box.Name=null)/_Box
+{CellURL}__ctl/Rule(Name='{RuleName}',_Box.Name=null)/_Box
 ```
 Alternatively,
 ```
-/{CellName}/__ctl/Rule(Name='{RuleName}')/_Box
+{CellURL}__ctl/Rule(Name='{RuleName}')/_Box
 ```
 Alternatively,
 ```
-/{CellName}/__ctl/Rule('{RuleName}')/_Box
+{CellURL}__ctl/Rule('{RuleName}')/_Box
 ```
 When the \_Box.Name parameter is omitted, it is assumed that null is specified
 ### Method
@@ -54,7 +54,7 @@ POST
 
 ### Request sample
 ```JSON
-{"Name":"{BoxName}", "Schema":"{CellURL}/"}
+{"Name":"{BoxName}", "Schema":"{CellURL}"}
 ```
 ## Response
 ### Status code
@@ -93,7 +93,7 @@ POST
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}/__ctl/Box('{BoxName}')",
+        "uri": "{CellURL}__ctl/Box('{BoxName}')",
         "etag": "W/\"1-1486368212581\"",
         "type": "CellCtl.Box"
       },
@@ -111,6 +111,6 @@ POST
 ## cURL Sample
 
 ```sh
-curl "{CellURL}/__ctl/Rule('{RuleName}')/_Box" -X POST -i -H \
+curl "{CellURL}__ctl/Rule('{RuleName}')/_Box" -X POST -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{BoxName}"}'
 ```

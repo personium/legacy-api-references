@@ -26,13 +26,13 @@ Retrieve cell control object via Navigation Property
 #### Navigation Property to Role
 
 ```
-/{CellName}/__ctl/Account(Name='{AccountName}')/_Role
+{CellURL}__ctl/Account(Name='{AccountName}')/_Role
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Account('{AccountName}')/_Role
+{CellURL}__ctl/Account('{AccountName}')/_Role
 ```
 
 ### Request Method
@@ -126,7 +126,7 @@ None
     "results": [
       {
         "__metadata": {
-          "uri": "{CellURL}/__ctl/Role(Name='Role3',_Box.Name=null)",
+          "uri": "{CellURL}__ctl/Role(Name='Role3',_Box.Name=null)",
           "etag": "W/\"1-1486515294719\"",
           "type": "CellCtl.Role"
         },
@@ -136,27 +136,27 @@ None
         "__updated": "/Date(1486515294719)/",
         "_Box": {
           "__deferred": {
-            "uri": "{CellURL}/__ctl/Role(Name='Role3',_Box.Name=null)/_Box"
+            "uri": "{CellURL}__ctl/Role(Name='Role3',_Box.Name=null)/_Box"
           }
         },
         "_Account": {
           "__deferred": {
-            "uri": "{CellURL}/__ctl/Role(Name='Role3',_Box.Name=null)/_Account"
+            "uri": "{CellURL}__ctl/Role(Name='Role3',_Box.Name=null)/_Account"
           }
         },
         "_ExtCell": {
           "__deferred": {
-            "uri": "{CellURL}/__ctl/Role(Name='Role3',_Box.Name=null)/_ExtCell"
+            "uri": "{CellURL}__ctl/Role(Name='Role3',_Box.Name=null)/_ExtCell"
           }
         },
         "_ExtRole": {
           "__deferred": {
-            "uri": "{CellURL}/__ctl/Role(Name='Role3',_Box.Name=null)/_ExtRole"
+            "uri": "{CellURL}__ctl/Role(Name='Role3',_Box.Name=null)/_ExtRole"
           }
         },
         "_Relation": {
           "__deferred": {
-            "uri": "{CellURL}/__ctl/Role(Name='Role3',_Box.Name=null)/_Relation"
+            "uri": "{CellURL}__ctl/Role(Name='Role3',_Box.Name=null)/_Relation"
           }
         }
       }
@@ -174,7 +174,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ### List of via Account's Navigation Property
 
 ```sh
-curl "{CellURL}/__ctl/Account('{AccountName}')/_Role" -X GET -i -H \
+curl "{CellURL}__ctl/Account('{AccountName}')/_Role" -X GET -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

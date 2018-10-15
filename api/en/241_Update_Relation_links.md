@@ -25,153 +25,153 @@ Update OData resources associated with Relation<br>You can specify the following
 #### Correlating with Box
 
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_Box('{BoxName}')
+{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_Box('{BoxName}')
 ```
 
 #### Correlating with ExtCell
 
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_ExtCell('{ExtCellURL}')
+{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_ExtCell('{ExtCellURL}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}')/$links/_ExtCell('{ExtCellURL}')
+{CellURL}__ctl/Relation(Name='{RelationName}')/$links/_ExtCell('{ExtCellURL}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Relation('{RelationName}')/$links/_ExtCell('{ExtCellURL}')
+{CellURL}__ctl/Relation('{RelationName}')/$links/_ExtCell('{ExtCellURL}')
 ```
 
 #### Linking with ExtRole
 
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}'
+{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}'
 ,_Relation.Name='{RelationName}',_Relation._Box.Name='{BoxName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name=
+{CellURL}__ctl/Relation(Name='{RelationName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name=
 '{RelationName}',_Relation._Box.Name='{BoxName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Relation('{RelationName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name=
+{CellURL}__ctl/Relation('{RelationName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name=
 '{RelationName}',_Relation._Box.Name='{BoxName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_ExtRole(ExtRole=
+{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_ExtRole(ExtRole=
 '{ExtRoleURL}',_Relation.Name='{RelationName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name=
+{CellURL}__ctl/Relation(Name='{RelationName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name=
 '{RelationName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Relation('{RelationName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name=
+{CellURL}__ctl/Relation('{RelationName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name=
 '{RelationName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_ExtRole(ExtRole=
+{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_ExtRole(ExtRole=
 '{ExtRoleURL}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}')
+{CellURL}__ctl/Relation(Name='{RelationName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Relation('{RelationName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}')
+{CellURL}__ctl/Relation('{RelationName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_ExtRole('{ExtRoleURL}')
+{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_ExtRole('{ExtRoleURL}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Relation('{RelationName}')/$links/_ExtRole('{ExtRoleURL}')
+{CellURL}__ctl/Relation('{RelationName}')/$links/_ExtRole('{ExtRoleURL}')
 ```
 
 #### Correlating with the Role
 
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_Role(Name='{RoleName}'
+{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_Role(Name='{RoleName}'
 ,_Box.Name='{BoxName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}')/$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')
+{CellURL}__ctl/Relation(Name='{RelationName}')/$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Relation('{RelationName}')/$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')
+{CellURL}__ctl/Relation('{RelationName}')/$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_Role(Name='{RoleName}')
+{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_Role(Name='{RoleName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}')/$links/_Role(Name='{RoleName}')
+{CellURL}__ctl/Relation(Name='{RelationName}')/$links/_Role(Name='{RoleName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Relation('{RelationName}')/$links/_Role(Name='{RoleName}')
+{CellURL}__ctl/Relation('{RelationName}')/$links/_Role(Name='{RoleName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_Role('{RoleName}')
+{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_Role('{RoleName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}')/$links/_Role('{RoleName}')
+{CellURL}__ctl/Relation(Name='{RelationName}')/$links/_Role('{RoleName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Relation('{RelationName}')/$links/_Role('{RoleName}')
+{CellURL}__ctl/Relation('{RelationName}')/$links/_Role('{RoleName}')
 ```
 
 If the \_Box.Name, \_Relation.Name, \_Relation.\_Box.Name parameter is omitted, it is assumed that null is specified  
@@ -210,7 +210,7 @@ JSON
 ### Request Sample
 
 ```JSON
-{"uri":"{CellURL}/__ctl/Box('{BoxName}')"}
+{"uri":"{CellURL}__ctl/Box('{BoxName}')"}
 ```
 
 
@@ -241,8 +241,8 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')\
+curl "{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')\
 /$links/_Box('{BoxName}')" -X PUT -i -H 'If-Match:*' -H 'Authorization: Bearer {AccessToken}' -H \
-'Accept: application/json' -d '{"uri":"{CellURL}/__ctl/Box('update_{BoxName}')"}'
+'Accept: application/json' -d '{"uri":"{CellURL}__ctl/Box('update_{BoxName}')"}'
 ```
 

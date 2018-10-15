@@ -22,7 +22,7 @@ social
 ### Request URL
 
 ```
-/{CellName}/__ctl/Relation
+{CellURL}__ctl/Relation
 ```
 
 ### Request Method
@@ -129,7 +129,7 @@ Refer to [Error Message List](004_Error_Messages.md)
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')",
+        "uri": "{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')",
         "etag": "W/\"1-1486538244016\"",
         "type": "CellCtl.Relation"
       },
@@ -146,7 +146,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/__ctl/Relation" -X POST -i -H 'Authorization: Bearer {AccessToken}' \
+curl "{CellURL}__ctl/Relation" -X POST -i -H 'Authorization: Bearer {AccessToken}' \
 -H 'Accept: application/json' -d '{ "Name":"{RelationName}", "_Box.Name": "{BoxName}" }'
 ```
 

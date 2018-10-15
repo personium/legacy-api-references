@@ -30,54 +30,54 @@ box-read,rule-read
 #### Navigation Property to Role
 
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}',Schema='SchemaURL')/_Role
+{CellURL}__ctl/Box(Name='{BoxName}',Schema='SchemaURL')/_Role
 ```
 
 or 
 
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}')/_Role
+{CellURL}__ctl/Box(Name='{BoxName}')/_Role
 ```
 
 or 
 
 ```
-/{CellName}/__ctl/Box('{BoxName}')/_Role
+{CellURL}__ctl/Box('{BoxName}')/_Role
 ```
 
 #### NavigationProperty to Relation
 
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}',Schema='SchemaURL')/_Relation
+{CellURL}__ctl/Box(Name='{BoxName}',Schema='SchemaURL')/_Relation
 ```
 
 or 
 
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}')/_Relation
+{CellURL}__ctl/Box(Name='{BoxName}')/_Relation
 ```
 
 or 
 
 ```
-/{CellName}/__ctl/Box('{BoxName}')/_Relation
+{CellURL}__ctl/Box('{BoxName}')/_Relation
 ```
 
 #### NavigationProperty to Rule
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}',Schema='SchemaURL')/_Rule
+{CellURL}__ctl/Box(Name='{BoxName}',Schema='SchemaURL')/_Rule
 ```
 
 or 
 
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}')/_Rule
+{CellURL}__ctl/Box(Name='{BoxName}')/_Rule
 ```
 
 or 
 
 ```
-/{CellName}/__ctl/Box('{BoxName}')/_Rule
+{CellURL}__ctl/Box('{BoxName}')/_Rule
 ```
 
 If the Schema is omitted, it is assumed that null is specified
@@ -175,7 +175,7 @@ Refer to [Error Message List](004_Error_Messages.md)
     "results": [
       {
         "__metadata": {
-          "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}',
+          "uri": "{CellURL}__ctl/Relation(Name='{RelationName}',
 _Box.Name='{BoxName}')",
           "etag": "W/\"1-1486700131198\"",
           "type": "CellCtl.Relation"
@@ -186,25 +186,25 @@ _Box.Name='{BoxName}')",
         "__updated": "/Date(1486700131198)/",
         "_Box": {
           "__deferred": {
-            "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}',
+            "uri": "{CellURL}__ctl/Relation(Name='{RelationName}',
 _Box.Name='{BoxName}')/_Box"
           }
         },
         "_ExtCell": {
           "__deferred": {
-            "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}',
+            "uri": "{CellURL}__ctl/Relation(Name='{RelationName}',
 _Box.Name='{BoxName}')/_ExtCell"
           }
         },
         "_ExtRole": {
           "__deferred": {
-            "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}',
+            "uri": "{CellURL}__ctl/Relation(Name='{RelationName}',
 _Box.Name='{BoxName}')/_ExtRole"
           }
         },
         "_Role": {
           "__deferred": {
-            "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}',
+            "uri": "{CellURL}__ctl/Relation(Name='{RelationName}',
 _Box.Name='{BoxName}')/_Role"
           }
         }
@@ -221,20 +221,20 @@ _Box.Name='{BoxName}')/_Role"
 
 ```sh
 curl
-"{CellURL}/__ctl/Box('{BoxName}')/_Role" -X GET -i  -H \
+"{CellURL}__ctl/Box('{BoxName}')/_Role" -X GET -i  -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 
 ### When acquire Relation
 
 ```sh
-curl "{CellURL}/__ctl/Box('{BoxName}')/_Relation" -X GET -i -H \
+curl "{CellURL}__ctl/Box('{BoxName}')/_Relation" -X GET -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 ### When acquire Rule
 ```sh
 curl
-"{CellURL}/__ctl/Box('{BoxName}')/_Rule" -X GET -i  -H \
+"{CellURL}__ctl/Box('{BoxName}')/_Rule" -X GET -i  -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

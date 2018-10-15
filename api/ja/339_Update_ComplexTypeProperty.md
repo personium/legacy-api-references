@@ -15,7 +15,7 @@ alter-schema
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/ComplexTypeProperty('ComplexTypeProperty')
+{CellURL}{BoxName}/{OdataCollecitonPath}/$metadata/ComplexTypeProperty('ComplexTypeProperty')
 ```
 ### メソッド
 PUT
@@ -80,7 +80,7 @@ JSON
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/{BoxName}/{OdataCollecitonPath}/$metadata/ComplexTypeProperty\
+curl "{CellURL}{BoxName}/{OdataCollecitonPath}/$metadata/ComplexTypeProperty\
 ('animal')" -X PUT -i -H 'If-Match: *' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: \
 application/json' -d '{"Name":"ComplexTypeProperty"}'
 ```

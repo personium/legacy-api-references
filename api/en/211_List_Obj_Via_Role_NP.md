@@ -27,73 +27,73 @@ Retrieve cell control object via Navigation Property
 #### NavigationProperty to Account
 
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_Account
+{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_Account
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}')/_Account
+{CellURL}__ctl/Role(Name='{RoleName}')/_Account
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role('{RoleName}')/_Account
+{CellURL}__ctl/Role('{RoleName}')/_Account
 ```
 
 #### NavigationProperty to ExCell
 
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_ExtCell
+{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_ExtCell
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}')/_ExtCell
+{CellURL}__ctl/Role(Name='{RoleName}')/_ExtCell
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role('{RoleName}')/_ExtCell
+{CellURL}__ctl/Role('{RoleName}')/_ExtCell
 ```
 
 #### NavigationProperty to ExtRole
 
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_ExtRole
+{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_ExtRole
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}')/_ExtRole
+{CellURL}__ctl/Role(Name='{RoleName}')/_ExtRole
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role('{RoleName}')/_ExtRole
+{CellURL}__ctl/Role('{RoleName}')/_ExtRole
 ```
 
 #### NavigationProperty to Relation
 
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_Relation
+{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_Relation
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}')/_Relation
+{CellURL}__ctl/Role(Name='{RoleName}')/_Relation
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role('{RoleName}')/_Relation
+{CellURL}__ctl/Role('{RoleName}')/_Relation
 ```
 
 If the \_Box.Name parameter is omitted, it is assumed that null is specified
@@ -188,7 +188,7 @@ None
     "results": [
       {
         "__metadata": {
-          "uri": "{CellURL}/__ctl/Account('{AccountName}')",
+          "uri": "{CellURL}__ctl/Account('{AccountName}')",
           "etag": "W/\"1-1486462510467\"",
           "type": "CellCtl.Account"
         },
@@ -200,12 +200,12 @@ None
         "__updated": "/Date(1486462510467)/",
         "_Role": {
           "__deferred": {
-            "uri": "{CellURL}/__ctl/Account('{AccountName}')/_Role"
+            "uri": "{CellURL}__ctl/Account('{AccountName}')/_Role"
           }
         },
         "_ReceivedMessageRead": {
           "__deferred": {
-            "uri": "{CellURL}/__ctl/Account('{AccountName}')/_ReceivedMessageRead"
+            "uri": "{CellURL}__ctl/Account('{AccountName}')/_ReceivedMessageRead"
           }
         }
       }
@@ -223,7 +223,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ### Account and Role via Navigation Property list
 
 ```sh
-curl "{CellURL}/__ctl/Role('{RoleName}')/_Account" -X GET -i -H \
+curl "{CellURL}__ctl/Role('{RoleName}')/_Account" -X GET -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

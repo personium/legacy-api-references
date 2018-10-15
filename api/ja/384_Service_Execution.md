@@ -7,7 +7,7 @@ exec
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/{BoxName}/{CollectionName}/{ServiceName}
+{CellURL}{BoxName}/{CollectionName}/{ServiceName}
 ```
 |パス|概要|備考|
 |:--|:--|:--|
@@ -48,7 +48,7 @@ GET / POST / PUT / DELETE
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/{BoxName}/{CollectionName}/{ServiceName}" -X GET -i -H \
+curl "{CellURL}{BoxName}/{CollectionName}/{ServiceName}" -X GET -i -H \
 "Authorization:Bearer {AccessToken}" -H "Accept:application/json"
 ```
 

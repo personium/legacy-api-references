@@ -18,7 +18,7 @@ log
 ### リクエストURL
 #### ローテートされたログファイル
 ```
-/{CellName}/__log/archive/{LogName}
+{CellURL}__log/archive/{LogName}
 ```
 ※{LogName}は、ログファイル情報取得API で返却されたファイル名を指定する。
 
@@ -65,7 +65,7 @@ DELETE
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/__log/archive/{LogName}" -X DELETE -i -H \
+curl "{CellURL}__log/archive/{LogName}" -X DELETE -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

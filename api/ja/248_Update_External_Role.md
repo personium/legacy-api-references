@@ -14,12 +14,12 @@ auth
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/__ctl/ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name='{RelationName}'
+{CellURL}__ctl/ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name='{RelationName}'
 ,_Relation._Box.Name='{BoxName}')
 ```
 または、
 ```
-/{CellName}/__ctl/ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name='{RelationName}')
+{CellURL}__ctl/ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name='{RelationName}')
 ```
 ※ \_Relation.\_Box.Nameパラメタを省略した場合は、nullが指定されたものとする
 ### メソッド
@@ -47,7 +47,7 @@ PUT
 ### リクエストサンプル
 ```JSON
 {
-  "ExtRole": "{CellURL}/__role/__/roletest",
+  "ExtRole": "{CellURL}__role/__/roletest",
   "_Relation.Name": "{RelationName}",
   "_Relation._Box.Name": "{BoxName}"  
 }
@@ -65,10 +65,10 @@ PUT
 ## cURLサンプル
 
 ```sh
-curl curl "{CellURL}/__ctl/ExtRole(ExtRole='https%3A%2F%2F{UnitFQDN}%2F{CellName}\
+curl curl "{CellURL}__ctl/ExtRole(ExtRole='https%3A%2F%2F{UnitFQDN}%2F{CellName}\
 %2F__role%2F__%2F{ExtRoleName}',_Relation.Name='{RelationName}',_Relation._Box.Name='{BoxName}')" -X \
 PUT -i -H 'If-Match: *' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
-'{ "ExtRole": "{CellURL}/__role/__/{ExtRoleName}", \
+'{ "ExtRole": "{CellURL}__role/__/{ExtRoleName}", \
 "_Relation.Name":"{RelationName}","_Relation._Box.Name": "{BoxName}"}'
 ```
 

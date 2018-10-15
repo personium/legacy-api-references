@@ -17,7 +17,7 @@ alter-schema
 ### リクエストURL
 EntityTypeとの$links
 ```
-/{CellName}/{BoxName}/{CollectionName}/$metadata/Property(Name='{PropertyName}',
+{CellURL}{BoxName}/{CollectionName}/$metadata/Property(Name='{PropertyName}',
 _EntityType.Name='{EntityTypeName}')/$links/_EntityType
 ```
 ### メソッド
@@ -79,9 +79,9 @@ JSON
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/{BoxName}/{OdataCollecitonPath}/$metadata/Property\
+curl "{CellURL}{BoxName}/{OdataCollecitonPath}/$metadata/Property\
 ('property_nameName')/$links/_EntityType" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H \
-'Accept: application/json' -d \'{"uri":"{CellURL}/{BoxName}\
+'Accept: application/json' -d \'{"uri":"{CellURL}{BoxName}\
 /{OdataCollecitonPath}/$metadata/EntityType('Profile')"}'
 ```
 

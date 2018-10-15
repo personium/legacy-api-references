@@ -26,39 +26,39 @@ Boxに$linksで指定したODataリソースを紐付ける
 ### リクエストURL
 #### Roleとの紐付け
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/_Role
+{CellURL}__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/_Role
 ```
 または、
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}')/$links/_Role
+{CellURL}__ctl/Box(Name='{BoxName}')/$links/_Role
 ```
 または、
 ```
-/{CellName}/__ctl/Box('{BoxName}')/$links/_Role
+{CellURL}__ctl/Box('{BoxName}')/$links/_Role
 ```
 #### Relationとの紐付け
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/_Relation
+{CellURL}__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/_Relation
 ```
 または、
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}')/$links/_Relation
+{CellURL}__ctl/Box(Name='{BoxName}')/$links/_Relation
 ```
 または、
 ```
-/{CellName}/__ctl/Box('{BoxName}')/$links/_Relation
+{CellURL}__ctl/Box('{BoxName}')/$links/_Relation
 ```
 #### Ruleとの紐付け
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/_Rule
+{CellURL}__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/_Rule
 ```
 または、
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}')/$links/_Rule
+{CellURL}__ctl/Box(Name='{BoxName}')/$links/_Rule
 ```
 または、
 ```
-/{CellName}/__ctl/Box('{BoxName}')/$links/_Rule
+{CellURL}__ctl/Box('{BoxName}')/$links/_Rule
 ```
 
 ※ Schemaパラメタを省略した場合は、nullが指定されたものとする
@@ -92,7 +92,7 @@ JSON
 
 ### リクエストサンプル
 ```JSON
-{"uri":"{CellURL}/__ctl/Role(Name='{RoleName}')"}
+{"uri":"{CellURL}__ctl/Role(Name='{RoleName}')"}
 ```
 
 ## レスポンス
@@ -116,8 +116,8 @@ JSON
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/__ctl/Box('{BoxName}')/\$links/_Role" -X POST -i -H \
+curl "{CellURL}__ctl/Box('{BoxName}')/\$links/_Role" -X POST -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
-"{\"uri\":\"{CellURL}/__ctl/Role(Name='{RoleName}')\"}"
+"{\"uri\":\"{CellURL}__ctl/Role(Name='{RoleName}')\"}"
 ```
 

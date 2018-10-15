@@ -25,7 +25,7 @@ alter-schema
 ### Request URL
 
 ```
-/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/EntityType
+{CellURL}{BoxName}/{ODataCollecitonName}/$metadata/EntityType
 ```
 
 ### Request Method
@@ -136,7 +136,7 @@ Refer to [Error Message List](004_Error_Messages.md)
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}/{BoxName}/{CollectionName}/$metadata/EntityType
+        "uri": "{CellURL}{BoxName}/{CollectionName}/$metadata/EntityType
 ('{EntityTypeName}')",
         "etag": "W/\"1-1487589344011\"",
         "type": "ODataSvcSchema.EntityType"
@@ -153,7 +153,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/{BoxName}/{ODataCollecitonName}/\$metadata/EntityType" -X POST -i \
+curl "{CellURL}{BoxName}/{ODataCollecitonName}/\$metadata/EntityType" -X POST -i \
 -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{ "Name": "{EntityTypeName}" }'
 ```
 

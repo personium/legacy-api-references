@@ -25,25 +25,25 @@ Retrieve cell control object via Navigation Property
 #### Navigation Property to Role
 
 ```
-/{CellName}/__ctl/ExtCell(Url='{ExtCellURL}')/_Role
+{CellURL}__ctl/ExtCell(Url='{ExtCellURL}')/_Role
 ```
 
 or 
 
 ```
-/{CellName}/__ctl/ExtCell('{ExtCellURL}')/_Role
+{CellURL}__ctl/ExtCell('{ExtCellURL}')/_Role
 ```
 
 #### Navigation Property to Relation
 
 ```
-/{CellName}/__ctl/ExtCell(Url='{ExtCellURL}')/_Relation
+{CellURL}__ctl/ExtCell(Url='{ExtCellURL}')/_Relation
 ```
 
 or 
 
 ```
-/{CellName}/__ctl/ExtCell('{ExtCellURL}')/_Relation
+{CellURL}__ctl/ExtCell('{ExtCellURL}')/_Relation
 ```
 
 \* URL encoding required for {ExtCellURL}
@@ -143,7 +143,7 @@ Refer to [Error Message List](004_Error_Messages.md)
     "results": [
       {
         "__metadata": {
-          "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')",
+          "uri": "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')",
           "etag": "W/\"1-1487320623218\"",
           "type": "CellCtl.Role"
         },
@@ -153,27 +153,27 @@ Refer to [Error Message List](004_Error_Messages.md)
         "__updated": "/Date(1487320623218)/",
         "_Box": {
           "__deferred": {
-            "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_Box"
+            "uri": "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_Box"
           }
         },
         "_Account": {
           "__deferred": {
-            "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_Account"
+            "uri": "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_Account"
           }
         },
         "_ExtCell": {
           "__deferred": {
-            "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_ExtCell"
+            "uri": "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_ExtCell"
           }
         },
         "_ExtRole": {
           "__deferred": {
-            "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_ExtRole"
+            "uri": "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_ExtRole"
           }
         },
         "_Relation": {
           "__deferred": {
-            "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_Relation"
+            "uri": "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_Relation"
           }
         }
       }
@@ -187,7 +187,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ### Through Role's Navigation Property list
 
 ```sh
-curl "{CellURL}/__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{ExtCellName}%2F')/_Role" \
+curl "{CellURL}__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{ExtCellName}%2F')/_Role" \
 -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

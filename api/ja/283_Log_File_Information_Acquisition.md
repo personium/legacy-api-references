@@ -19,22 +19,22 @@ log-read
 ### リクエストURL
 #### 最新のログファイル一覧取得
 ```
-/{CellName}/__log/current
+{CellURL}__log/current
 ```
 
 #### 最新のログファイル情報取得
 ```
-/{CellName}/__log/current/default.log
+{CellURL}__log/current/default.log
 ```
 
 #### ローテートされたログファイル一覧取得
 ```
-/{CellName}/__log/archive
+{CellURL}__log/archive
 ```
 
 #### ローテートされたログファイル情報取得
 ```
-/{CellName}/__log/archive/default.log.{Timestamp}
+{CellURL}__log/archive/default.log.{Timestamp}
 ```
 
 ### メソッド
@@ -139,7 +139,7 @@ PROPFIND
 ```xml
 <multistatus xmlns="DAV:">
     <response>
-        <href>{CellURL}/__log/archive</href>
+        <href>{CellURL}__log/archive</href>
         <propstat>
             <prop>
                 <creationdate>2017-02-03T01:27:31.093+0000</creationdate>
@@ -156,7 +156,7 @@ PROPFIND
 
 ## cURLサンプル
 ```sh
-curl "{CellURL}/__log/archive" -X PROPFIND -i -H 'Depth:1' -H \
+curl "{CellURL}__log/archive" -X PROPFIND -i -H 'Depth:1' -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
 '<?xml version="1.0" encoding="utf-8"?><D:propfind xmlns:D="DAV:"><D:allprop/></D:propfind>'
 ```

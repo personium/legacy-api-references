@@ -15,7 +15,7 @@ message
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/__message/send
+{CellURL}__message/send
 ```
 ### メソッド
 POST
@@ -180,7 +180,7 @@ RequestType : rule.add / rule.remove
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}/__ctl/SentMessage
+        "uri": "{CellURL}__ctl/SentMessage
 ('3afcc60e35fc49ee9a4e4f6c1ebee426')",
         "etag": "W/\"1-1486638759524\"",
         "type": "CellCtl.SentMessage"
@@ -209,7 +209,7 @@ RequestType : rule.add / rule.remove
       "_Box.Name": null,
       "Result": [
         {
-          "To": "{CellURL}/",
+          "To": "{CellURL}",
           "Code": "201",
           "Reason": "Created."
         }
@@ -223,9 +223,9 @@ RequestType : rule.add / rule.remove
 
 ## cURLサンプル
 ```sh
-curl "{CellURL}/__message/send" -X POST -i -H \
+curl "{CellURL}__message/send" -X POST -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
 '{"BoxBound":false,"InReplyTo":"xnKXmd4TTZCw-bfSEw4f0AxnKXmd4TTZ",\
-"To":"{CellURL}/","Type":"message","Title":"メッセージサンプルタイトル",\
+"To":"{CellURL}","Type":"message","Title":"メッセージサンプルタイトル",\
 "Body":"メッセージサンプル本文です。","Priority":3}'
 ```

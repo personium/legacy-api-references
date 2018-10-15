@@ -10,7 +10,7 @@ root
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/__snapshot/{FileName}
+{CellURL}__snapshot/{FileName}
 ```
 ### メソッド
 GET
@@ -65,7 +65,7 @@ GET
 
 ## cURLサンプル
 ```sh
-curl "{CellURL}/__snapshot/{FileName}" -X GET -i -H \
+curl "{CellURL}__snapshot/{FileName}" -X GET -i -H \
 'Authorization: Bearer {AccessToken}'
 ```
 

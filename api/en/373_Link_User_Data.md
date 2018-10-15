@@ -34,7 +34,7 @@ No
 $links with user data
 
 ```
-/{CellName}/{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')/$links/_{EntityTypeName}
+{CellURL}{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')/$links/_{EntityTypeName}
 ```
 
 ### Request Method
@@ -89,7 +89,7 @@ JSON
 ### Request Sample
 
 ```JSON
-{"uri":"{CellURL}/{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')"}
+{"uri":"{CellURL}{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')"}
 ```
 
 
@@ -126,9 +126,9 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')\
+curl "{CellURL}{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')\
 /\$links/_{EntityTypeName}" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H \
-'Accept: application/json' -d "{\"uri\":\"{CellURL}/{BoxName}/{CollectionName}\
+'Accept: application/json' -d "{\"uri\":\"{CellURL}{BoxName}/{CollectionName}\
 /{EntityTypeName}('{EntityID}')\"}"
 ```
 

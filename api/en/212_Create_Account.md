@@ -21,7 +21,7 @@ auth
 ### Request URL
 
 ```
-/{CellName}/__ctl/Account
+{CellURL}__ctl/Account
 ```
 
 ### Request Method
@@ -134,7 +134,7 @@ ID/PWaccount for authentication
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}/__ctl/Account('{AccountName}')",
+        "uri": "{CellURL}__ctl/Account('{AccountName}')",
         "etag": "W/\"1-1486462510467\"",
         "type": "CellCtl.Account"
       },
@@ -156,7 +156,7 @@ Googleaccount for authentication
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}/__ctl/Account('{AccountName}')",
+        "uri": "{CellURL}__ctl/Account('{AccountName}')",
         "etag": "W/\"1-1486462510467\"",
         "type": "CellCtl.Account"
       },
@@ -178,7 +178,7 @@ ID/PW authentication +Googleaccount for authentication
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}/__ctl/Account('{AccountName}')",
+        "uri": "{CellURL}__ctl/Account('{AccountName}')",
         "etag": "W/\"1-1486462510467\"",
         "type": "CellCtl.Account"
       },
@@ -199,21 +199,21 @@ ID/PW authentication +Googleaccount for authentication
 ID/PWaccount for authentication
 
 ```sh
-curl "{CellURL}/__ctl/Account" -X POST -i -H 'X-Personium-Credential:password' -H \
+curl "{CellURL}__ctl/Account" -X POST -i -H 'X-Personium-Credential:password' -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{AccountName}"}'
 ```
 
 Googleaccount for authentication
 
 ```sh
-curl "{CellURL}/__ctl/Account" -X POST -i -H 'X-Personium-Credential:password' -H \
+curl "{CellURL}__ctl/Account" -X POST -i -H 'X-Personium-Credential:password' -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{AccountName}","Type":"oidc:google"}'
 ```
 
 ID/PW authentication +Googleaccount for authentication
 
 ```sh
-curl "{CellURL}/__ctl/Account" -X POST -i -H 'X-Personium-Credential:password' -H \
+curl "{CellURL}__ctl/Account" -X POST -i -H 'X-Personium-Credential:password' -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
 '{"Name":"{AccountName}","Type":"basic oidc:google"}'
 ```

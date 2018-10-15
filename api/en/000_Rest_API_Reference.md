@@ -30,7 +30,7 @@ Cell Level API's are deployed under the following root URL.
 
 #### Cell Root URL
 ```
-{CellURL}/
+{CellURL}
 ```
 
 Cell Level API's provides the following features:
@@ -185,7 +185,7 @@ The Box Level API is a group of API's that reside on the following Box Root URL 
 
 #### Box Root URL
 ```
-{CellURL}/{BoxName}/
+{CellURL}{BoxName}/
 ```
 Box Level API's are based on an idea of WebDAV file system.  Like ordinary file systems, it is possible to arrange / retrieve files, create / manage folders (collection), get list of files and folders, set / refer to access control, etc.
 

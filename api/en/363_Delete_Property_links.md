@@ -23,7 +23,7 @@ alter-schema
 When Linking with EntityType
 
 ```
-/{CellName}/{BoxName}/{CollectionName}/$metadata/Property(Name='{PropertyName}',_EntityType.Name='{EntityTypeName}')
+{CellURL}{BoxName}/{CollectionName}/$metadata/Property(Name='{PropertyName}',_EntityType.Name='{EntityTypeName}')
 /$links/_EntityType('{EntityTypeName}')
 ```
 
@@ -97,7 +97,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/{BoxName}/{OdataCollecitonPath}/$metadata/Property('Property_Name')\
+curl "{CellURL}{BoxName}/{OdataCollecitonPath}/$metadata/Property('Property_Name')\
 /$links/_EntityType('Profile')" -X DELETE -i -H 'If-Match: *' -H 'Authorization: Bearer {AccessToken}' -H \
 'Accept: application/json'
 ```

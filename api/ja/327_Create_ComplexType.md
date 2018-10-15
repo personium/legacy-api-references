@@ -15,7 +15,7 @@ alter-schema
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/ComplexType
+{CellURL}{BoxName}/{ODataCollecitonName}/$metadata/ComplexType
 ```
 ### メソッド
 POST
@@ -111,7 +111,7 @@ JSON
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}/{BoxName}/{ODataCollecitonName}/$metadata
+        "uri": "{CellURL}{BoxName}/{ODataCollecitonName}/$metadata
 /ComplexType('{ComplexTypeName}')",
         "etag": "W/\"1-1487650447372\"",
         "type": "ODataSvcSchema.ComplexType"
@@ -130,7 +130,7 @@ JSON
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/{BoxName}/{ODataCollecitonName}/\$metadata/ComplexType" -X \
+curl "{CellURL}{BoxName}/{ODataCollecitonName}/\$metadata/ComplexType" -X \
 POST -i -H  'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
 '{"Name": "{ComplexTypeName}"}'
 ```

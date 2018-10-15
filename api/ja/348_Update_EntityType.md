@@ -15,7 +15,7 @@ alter-schema
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/EntityType('{EntityName}')
+{CellURL}{BoxName}/{ODataCollecitonName}/$metadata/EntityType('{EntityName}')
 ```
 ### メソッド
 PUT
@@ -82,7 +82,7 @@ JSON
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/{BoxName}/{ODataCollecitonName}/\$metadata/EntityType\
+curl "{CellURL}{BoxName}/{ODataCollecitonName}/\$metadata/EntityType\
 ('{EntityTypeName}')" -X PUT -i -H 'Authorization: Bearer {AccessToken}' -H \
 'Accept: application/json' -d '{"Name":"{EntityTypeName}"}'
 ```

@@ -9,7 +9,7 @@ root
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/__snapshot/{FileName}
+{CellURL}__snapshot/{FileName}
 ```
 
 ### メソッド
@@ -55,7 +55,7 @@ DELETE
 
 ## cURLサンプル
 ```sh
-curl "{CellURL}/__snapshot/{FileName}" -X DELETE -i -H \
+curl "{CellURL}__snapshot/{FileName}" -X DELETE -i -H \
 'Authorization: Bearer {AccessToken}'
 ```
 

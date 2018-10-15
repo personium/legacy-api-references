@@ -18,51 +18,51 @@ Roleに紐付いたODataリソースを一覧取得する
 ### リクエストURL
 #### Association with the account
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_Account
+{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_Account
 ```
 または、
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}')/$links/_Account
+{CellURL}__ctl/Role(Name='{RoleName}')/$links/_Account
 ```
 または、
 ```
-/{CellName}/__ctl/Role('{RoleName}')/$links/_Account
+{CellURL}__ctl/Role('{RoleName}')/$links/_Account
 ```
 #### Association with the ExtCell
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_ExtCell
+{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_ExtCell
 ```
 または、
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}')/$links/_ExtCell
+{CellURL}__ctl/Role(Name='{RoleName}')/$links/_ExtCell
 ```
 または、
 ```
-/{CellName}/__ctl/Role('{RoleName}')/$links/_ExtCell
+{CellURL}__ctl/Role('{RoleName}')/$links/_ExtCell
 ```
 #### Association with the ExtRole
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_ExtRole
+{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_ExtRole
 ```
 または、
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}')/$links/_ExtRole
+{CellURL}__ctl/Role(Name='{RoleName}')/$links/_ExtRole
 ```
 または、
 ```
-/{CellName}/__ctl/Role('{RoleName}')/$links/_ExtRole
+{CellURL}__ctl/Role('{RoleName}')/$links/_ExtRole
 ```
 #### Association with the relation
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_Relation
+{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/$links/_Relation
 ```
 または、
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}')/$links/_Relation
+{CellURL}__ctl/Role(Name='{RoleName}')/$links/_Relation
 ```
 または、
 ```
-/{CellName}/__ctl/Role('{RoleName}')/$links/_Relation
+{CellURL}__ctl/Role('{RoleName}')/$links/_Relation
 ```
 ※ \_Box.Nameパラメタを省略した場合は、nullが指定されたものとする
 ### メソッド
@@ -132,7 +132,7 @@ GET
   "d": {
     "results": [
       {
-        "uri": "{CellURL}/__ctl/Box('{BoxName}')"
+        "uri": "{CellURL}__ctl/Box('{BoxName}')"
       }
     ]
   }
@@ -143,7 +143,7 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')\
+curl "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')\
 /\$links/_Box" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

@@ -19,116 +19,116 @@ Relationとの$links情報を削除する
 ### リクエストURL
 #### Linking with Box
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_Box('{BoxName}')
+{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_Box('{BoxName}')
 ```
 #### Linking with ExtCell
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links
+{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links
 /_ExtCell('{ExtCellURL}')
 ```
 または、
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}')/$links/_ExtCell('{ExtCellURL}')
+{CellURL}__ctl/Relation(Name='{RelationName}')/$links/_ExtCell('{ExtCellURL}')
 ```
 または、
 ```
-/{CellName}/__ctl/Relation('{RelationName}')/$links/_ExtCell('{ExtCellURL}')
+{CellURL}__ctl/Relation('{RelationName}')/$links/_ExtCell('{ExtCellURL}')
 ```
 #### Linking with ExtRole
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links
+{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links
 /_ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name='{RelationName}',_Relation._Box.Name='{BoxName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}'
+{CellURL}__ctl/Relation(Name='{RelationName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}'
 ,_Relation.Name='{RelationName}',_Relation._Box.Name='{BoxName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Relation('{RelationName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}'
+{CellURL}__ctl/Relation('{RelationName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}'
 ,_Relation.Name='{RelationName}',_Relation._Box.Name='{BoxName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links
+{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links
 /_ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name='{RelationName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}'
+{CellURL}__ctl/Relation(Name='{RelationName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}'
 ,_Relation.Name='{RelationName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Relation('{RelationName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}'
+{CellURL}__ctl/Relation('{RelationName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}'
 ,_Relation.Name='{RelationName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links
+{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links
 /_ExtRole(ExtRole='{ExtRoleURL}')
 ```
 または、
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}')
+{CellURL}__ctl/Relation(Name='{RelationName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}')
 ```
 または、
 ```
-/{CellName}/__ctl/Relation('{RelationName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}')
+{CellURL}__ctl/Relation('{RelationName}')/$links/_ExtRole(ExtRole='{ExtRoleURL}')
 ```
 または、
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links
+{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links
 /_ExtRole('{ExtRoleURL}')
 ```
 または、
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}')/$links/_ExtRole('{ExtRoleURL}')
+{CellURL}__ctl/Relation(Name='{RelationName}')/$links/_ExtRole('{ExtRoleURL}')
 ```
 または、
 ```
-/{CellName}/__ctl/Relation('{RelationName}')/$links/_ExtRole('{ExtRoleURL}')
+{CellURL}__ctl/Relation('{RelationName}')/$links/_ExtRole('{ExtRoleURL}')
 ```
 #### Linking with Role
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links
+{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links
 /_Role(Name='{RoleName}',_Box.Name='{BoxName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}')/$links/_Role(Name='{RoleName}'
+{CellURL}__ctl/Relation(Name='{RelationName}')/$links/_Role(Name='{RoleName}'
 ,_Box.Name='{BoxName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Relation('{RelationName}')/$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')
+{CellURL}__ctl/Relation('{RelationName}')/$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links
+{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links
 /_Role(Name='{RoleName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}')/$links/_Role(Name='{RoleName}')
+{CellURL}__ctl/Relation(Name='{RelationName}')/$links/_Role(Name='{RoleName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Relation('{RelationName}')/$links/_Role(Name='{RoleName}')
+{CellURL}__ctl/Relation('{RelationName}')/$links/_Role(Name='{RoleName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links
+{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links
 /_Role('{RoleName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}')/$links/_Role('{RoleName}')
+{CellURL}__ctl/Relation(Name='{RelationName}')/$links/_Role('{RoleName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Relation('{RelationName}')/$links/_Role('{RoleName}')
+{CellURL}__ctl/Relation('{RelationName}')/$links/_Role('{RoleName}')
 ```
 ※ \_Box.Name, \_Relation.Name, \_Relation.\_Box.Nameパラメタを省略した場合は、nullが指定されたものとする  
 ※ ExtCellのキーはURLエンコードした文字列を指定する
@@ -167,7 +167,7 @@ DELETE
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')\
+curl "{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')\
 /\$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')" -X DELETE -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```

@@ -36,13 +36,13 @@ log-read
 #### Recent log file
 
 ```
-/{CellName}/__log/current/{LogName}
+{CellURL}__log/current/{LogName}
 ```
 
 #### Log file that is rotated
 
 ```
-/{CellName}/__log/archive/{LogName}
+{CellURL}__log/archive/{LogName}
 ```
 
 \*{LogName} specifies the file name returned by the log file information acquisition API.
@@ -116,8 +116,8 @@ Refer to [Error Message List](004_Error_Messages.md)
 External Events
 
 ```
-2013-02-04T00:50:12.761Z,[INFO ],Req_animal-access_1001,client,{CellURL}/,
-https://{UnitFQDN}/servicemanager/#admin,authSchema,/{CellName}/{BoxName}/service_name/token_keeper,
+2013-02-04T00:50:12.761Z,[INFO ],Req_animal-access_1001,client,{CellURL},
+https://{UnitFQDN}/servicemanager/#admin,authSchema,{CellURL}{BoxName}/service_name/token_keeper,
 [XXXX2033] Success schema authorization. cellUrl=https://{UnitFQDN}/keeper-d4a57bb26eae481486b07d06487051d1/
 ```
 
@@ -132,7 +132,7 @@ Internal Event
 ## cURL Command
 
 ```sh
-curl "{CellURL}/__log/current/default.log" -X GET -i -H \
+curl "{CellURL}__log/current/default.log" -X GET -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

@@ -30,7 +30,7 @@ read
 ### Request URL
 
 ```
-/{CellName}/{BoxName}
+{CellURL}{BoxName}
 ```
 
 ### Request Method
@@ -166,7 +166,7 @@ When Box installation is completed (abnormal termination)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/{BoxName}" -X GET -i -H 'Authorization: Bearer {AccessToken}' \
+curl "{CellURL}{BoxName}" -X GET -i -H 'Authorization: Bearer {AccessToken}' \
 -H 'Accept: application/json'
 ```
 

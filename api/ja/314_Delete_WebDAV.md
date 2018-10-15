@@ -8,7 +8,7 @@ write
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/{BoxName}/{ResourcePath}
+{CellURL}{BoxName}/{ResourcePath}
 ```
 
 
@@ -68,7 +68,7 @@ DELETE
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/{BoxName}/{ResourcePath}" -X DELETE -i -H \
+curl "{CellURL}{BoxName}/{ResourcePath}" -X DELETE -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

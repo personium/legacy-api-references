@@ -21,7 +21,7 @@ read
 ### Request URL
 
 ```
-/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/Property(Name='property_name',
+{CellURL}{BoxName}/{ODataCollecitonName}/$metadata/Property(Name='property_name',
 _EntityType.Name='{EntityTypeName}')
 ```
 
@@ -124,7 +124,7 @@ Refer to [Error Message List](004_Error_Messages.md)
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}/{BoxName}/{ODataCollecitonName}/$metadata
+        "uri": "{CellURL}{BoxName}/{ODataCollecitonName}/$metadata
 /Property(Name='{PetName}',_EntityType.Name='{EntityTypeName}')",
         "etag": "W/\"1-1487635336196\"",
         "type": "ODataSvcSchema.Property"
@@ -142,7 +142,7 @@ Refer to [Error Message List](004_Error_Messages.md)
       "__updated": "/Date(1487635336196)/",
       "_EntityType": {
         "__deferred": {
-          "uri": "{CellURL}/{BoxName}/{ODataCollecitonName}/$metadata
+          "uri": "{CellURL}{BoxName}/{ODataCollecitonName}/$metadata
 /Property(Name='{PetName}',_EntityType.Name='{EntityTypeName}')/_EntityType"
         }
       }
@@ -155,7 +155,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/{BoxName}/{ODataCollecitonName}/\$metadata/Property\
+curl "{CellURL}{BoxName}/{ODataCollecitonName}/\$metadata/Property\
 (Name='{PetName}',_EntityType.Name='{EntityTypeName}')"\
  -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```

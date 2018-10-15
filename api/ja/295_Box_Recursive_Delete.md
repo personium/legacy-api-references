@@ -23,7 +23,7 @@ Box
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/{BoxName}
+{CellURL}{BoxName}
 ```
 
 ### メソッド
@@ -64,7 +64,7 @@ DELETE
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/{BoxName}" -X DELETE -i -H 'X-Personium-Recursive: true' -H \
+curl "{CellURL}{BoxName}" -X DELETE -i -H 'X-Personium-Recursive: true' -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

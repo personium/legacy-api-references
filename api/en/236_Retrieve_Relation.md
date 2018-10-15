@@ -22,19 +22,19 @@ social-read
 ### Request URL
 
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')
+{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')
 ```
 
 or 
 
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}')
+{CellURL}__ctl/Relation(Name='{RelationName}')
 ```
 
 or 
 
 ```
-/{CellName}/__ctl/Relation('{RelationName}')
+{CellURL}__ctl/Relation('{RelationName}')
 ```
 
 If the \_Box.Name parameter is omitted, it is assumed that null is specified
@@ -128,7 +128,7 @@ Refer to [Error Message List](004_Error_Messages.md)
     "results": {
       "__metadata": {
         "uri":
-        "{CellURL}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')",
+        "{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')",
         "etag": "W/\"1-1486538244016\"",
         "type": "CellCtl.Relation"
       },
@@ -138,22 +138,22 @@ Refer to [Error Message List](004_Error_Messages.md)
       "__updated": "/Date(1486538244016)/",
       "_Box": {
         "__deferred": {
-          "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_Box"
+          "uri": "{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_Box"
         }
       },
       "_ExtCell": {
         "__deferred": {
-          "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_ExtCell"
+          "uri": "{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_ExtCell"
         }
       },
       "_ExtRole": {
         "__deferred": {
-          "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_ExtRole"
+          "uri": "{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_ExtRole"
         }
       },
       "_Role": {
         "__deferred": {
-          "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_Role"
+          "uri": "{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_Role"
         }
       }
     }
@@ -165,7 +165,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')" -X \
+curl "{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')" -X \
 GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

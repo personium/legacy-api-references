@@ -58,7 +58,7 @@ In update operation, Info is set to updated key string. The key string is used f
 
 Request URL to updated Role object:
 ```
-http://{FQDN}/{CellName}/__ctl/Role(Name='role2', _Box.Name=null)
+http://{FQDN}{CellURL}__ctl/Role(Name='role2', _Box.Name=null)
 ```
 
 #### Cell Level API

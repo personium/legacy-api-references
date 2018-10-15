@@ -14,11 +14,11 @@ write-acl
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/{BoxName}
+{CellURL}{BoxName}
 ```
 または、
 ```
-/{CellName}/{BoxName}/{ResourcePath}
+{CellURL}{BoxName}/{ResourcePath}
 ```
 
 |パス|概要|備考|
@@ -116,7 +116,7 @@ or write-acl or exec or bind or unbind)>
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <D:acl xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns"
-       xml:base="{CellURL}/__role/{BoxName}/"
+       xml:base="{CellURL}__role/{BoxName}/"
        p:requireSchemaAuthz="public">
     <D:ace>
         <D:principal>
@@ -160,10 +160,10 @@ or write-acl or exec or bind or unbind)>
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/{BoxName}/{CollectionName}" -X ACL -i \
+curl "{CellURL}{BoxName}/{CollectionName}" -X ACL -i \
 -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
 '<?xml version="1.0" encoding="utf-8" ?> \
- <D:acl xmlns:D="DAV:" xml:base="{CellURL}/__role/{BoxName}/" xmlns:p= \
+ <D:acl xmlns:D="DAV:" xml:base="{CellURL}__role/{BoxName}/" xmlns:p= \
 "urn:x-personium:xmlns" p:requireSchemaAuthz="none"> \
   <D:ace> \
    <D:principal> \

@@ -16,7 +16,7 @@ auth
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/__ctl/Role
+{CellURL}__ctl/Role
 ```
 ### メソッド
 POST
@@ -96,7 +96,7 @@ POST
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')",
+        "uri": "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')",
         "etag": "W/\"1-1486456585171\"",
         "type": "CellCtl.Role"
       },
@@ -114,7 +114,7 @@ POST
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/__ctl/Role" -X POST -i -H 'Authorization: Bearer \
+curl "{CellURL}__ctl/Role" -X POST -i -H 'Authorization: Bearer \
 {AccessToken}' -H 'Accept: application/json' -d '{ "Name": "{RoleName}", "_Box.Name": "{BoxName}"}'
 ```
 

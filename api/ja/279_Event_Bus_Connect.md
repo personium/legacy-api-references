@@ -15,7 +15,7 @@ event : 外部イベントを送信
 
 ### 接続エンドポイントURL
 
-    wss:{UnitFQDN}/{CellName}/__event
+    wss:{UnitFQDN}{CellURL}__event
 
 まず上記URLにWebSocketでの接続を行ってください。アクセストークンを受け付ける状態となります。この状態ではアクセストークン送付以外のいかなるメッセージ送信も意味を持ちません。
 

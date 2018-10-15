@@ -21,13 +21,13 @@ You can specify the following OData resources
 When associated with Role
 
 ```
-/{CellName}/__ctl/Account(Name='{AccountName}')/$links/_Role
+{CellURL}__ctl/Account(Name='{AccountName}')/$links/_Role
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Account('{AccountName}')/$links/_Role
+{CellURL}__ctl/Account('{AccountName}')/$links/_Role
 ```
 
 ### Request Method
@@ -113,10 +113,10 @@ Refer to [Error Message List](004_Error_Messages.md)
   "d": {
     "results": [
       {
-        "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')"
+        "uri": "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')"
       },
       {
-        "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name=null)"
+        "uri": "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name=null)"
       }
     ]
   }
@@ -127,7 +127,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/__ctl/Account(Name='{AccountName}')/\$links/_Role" -X GET -i \
+curl "{CellURL}__ctl/Account(Name='{AccountName}')/\$links/_Role" -X GET -i \
 -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

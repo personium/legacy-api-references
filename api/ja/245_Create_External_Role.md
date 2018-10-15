@@ -14,7 +14,7 @@ auth
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/__ctl/ExtRole
+{CellURL}__ctl/ExtRole
 ```
 ### メソッド
 POST
@@ -40,7 +40,7 @@ POST
 ### リクエストサンプル
 ```JSON
 {
-  "ExtRole": "{CellURL}/__role/__/RoleName",
+  "ExtRole": "{CellURL}__role/__/RoleName",
   "_Relation.Name": "{RelationName}",
   "_Relation._Box.Name": "{BoxName}"  
 }
@@ -98,10 +98,10 @@ POST
       "__metadata": {
         "etag": "W/\"1-1371010428917\"",
         "type": "CellCtl.ExtRole",
-        "uri": "{CellURL}/__ctl/ExtRole(ExtRole='https%3A%2F%2F{UnitFQDN}%2F{CellName}
+        "uri": "{CellURL}__ctl/ExtRole(ExtRole='https%3A%2F%2F{UnitFQDN}%2F{CellName}
 %2F__role%2F__%2Froletest',_Relation.Name='relation',_Relation._Box.Name=null)"
       },
-      "ExtRole": "{CellURL}/__role/__/RoleName"
+      "ExtRole": "{CellURL}__role/__/RoleName"
     }
   }
 }
@@ -109,12 +109,12 @@ POST
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}/__ctl/ExtRole(ExtRole='https%3A%2F%2F{UnitFQDN}%2F{CellName}
+        "uri": "{CellURL}__ctl/ExtRole(ExtRole='https%3A%2F%2F{UnitFQDN}%2F{CellName}
 %2F__role%2F__%2F{ExtRoleName}',_Relation.Name='{RelationName}',_Relation._Box.Name='{BoxName}')",
         "etag": "W/\"1-1486717404966\"",
         "type": "CellCtl.ExtRole"
       },
-      "ExtRole": "{CellURL}/__role/__/{ExtRoleName}",
+      "ExtRole": "{CellURL}__role/__/{ExtRoleName}",
       "_Relation.Name": "{RelationName}",
       "_Relation._Box.Name": "{BoxName}",
       "__published": "/Date(1486717404966)/",
@@ -128,8 +128,8 @@ POST
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/__ctl/ExtRole" -X POST -i -H \
+curl "{CellURL}__ctl/ExtRole" -X POST -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
-'{ "ExtRole": "{CellURL}/__role/__/{ExtRoleName}", "_Relation.Name": \
+'{ "ExtRole": "{CellURL}__role/__/{ExtRoleName}", "_Relation.Name": \
 "{RelationName}", "_Relation._Box.Name": "{BoxName}"}'
 ```

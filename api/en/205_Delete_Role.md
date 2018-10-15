@@ -21,19 +21,19 @@ auth
 ### Request URL
 
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')
+{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}')
+{CellURL}__ctl/Role(Name='{RoleName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role('{RoleName}')
+{CellURL}__ctl/Role('{RoleName}')
 ```
 
 If the \_Box.Name parameter is omitted, it is assumed that null is specified
@@ -96,7 +96,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')" -X \
+curl "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')" -X \
 DELETE -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

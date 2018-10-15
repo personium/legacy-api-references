@@ -21,7 +21,7 @@ message
 ### Request URL
 
 ```
-/{CellName}/__message/send
+{CellURL}__message/send
 ```
 
 ### Request Method
@@ -203,7 +203,7 @@ Refer to [Error Message List](004_Error_Messages.md)
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}/__ctl/SentMessage('3afcc60e35fc49ee9a4e4f6c1ebee426')",
+        "uri": "{CellURL}__ctl/SentMessage('3afcc60e35fc49ee9a4e4f6c1ebee426')",
         "etag": "W/\"1-1486638759524\"",
         "type": "CellCtl.SentMessage"
       },
@@ -231,7 +231,7 @@ Refer to [Error Message List](004_Error_Messages.md)
       "_Box.Name": null,
       "Result": [
         {
-          "To": "{CellURL}/",
+          "To": "{CellURL}",
           "Code": "201",
           "Reason": "Created."
         }
@@ -247,8 +247,8 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/__message/send" -X POST -i -H 'Authorization: Bearer {AccessToken}' \
+curl "{CellURL}__message/send" -X POST -i -H 'Authorization: Bearer {AccessToken}' \
 -H 'Accept: application/json' -d '{"BoxBound":false,"InReplyTo":"xnKXmd4TTZCw-bfSEw4f0AxnKXmd4TTZ",\
-"To":"{CellURL}/","Type":"message","Title":"Message Sample Title","Body":"Message Sample Body",\
+"To":"{CellURL}","Type":"message","Title":"Message Sample Title","Body":"Message Sample Body",\
 "Priority":3}'
 ```

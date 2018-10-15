@@ -20,7 +20,7 @@ alter-schema
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/Property
+{CellURL}{BoxName}/{ODataCollecitonName}/$metadata/Property
 ```
 ### メソッド
 POST
@@ -141,7 +141,7 @@ DefaultValueの有効値はTypeの値（型定義）によって異なり、以�
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}/{BoxName}/{ODataCollecitonName}/$metadata/Property
+        "uri": "{CellURL}{BoxName}/{ODataCollecitonName}/$metadata/Property
 (Name='{PropertyName}',_EntityType.Name='{EntityTypeName}')",
         "etag": "W/\"1-1487635336196\"",
         "type": "ODataSvcSchema.Property"
@@ -166,7 +166,7 @@ DefaultValueの有効値はTypeの値（型定義）によって異なり、以�
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/{BoxName}/{ODataCollecitonName}/\$metadata/Property" -X \
+curl "{CellURL}{BoxName}/{ODataCollecitonName}/\$metadata/Property" -X \
 POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name": \
 "{PetName}","_EntityType.Name": "{EntityTypeName}","Type": "Edm.String","Nullable": true,\
 "DefaultValue": null,"CollectionKind": "None","IsKey": true,"UniqueKey": null}'

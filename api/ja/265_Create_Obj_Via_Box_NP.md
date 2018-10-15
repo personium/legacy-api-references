@@ -24,39 +24,39 @@
 ### リクエストURL
 #### RoleへのnavigationProperty
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}',Schema='SchemaURL')/_Role
+{CellURL}__ctl/Box(Name='{BoxName}',Schema='SchemaURL')/_Role
 ```
 または、
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}')/_Role
+{CellURL}__ctl/Box(Name='{BoxName}')/_Role
 ```
 または、
 ```
-/{CellName}/__ctl/Box('{BoxName}')/_Role
+{CellURL}__ctl/Box('{BoxName}')/_Role
 ```
 #### RelationへのnavigationProperty
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}',Schema='SchemaURL')/_Relation
+{CellURL}__ctl/Box(Name='{BoxName}',Schema='SchemaURL')/_Relation
 ```
 または、
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}')/_Relation
+{CellURL}__ctl/Box(Name='{BoxName}')/_Relation
 ```
 または、
 ```
-/{CellName}/__ctl/Box('{BoxName}')/_Relation
+{CellURL}__ctl/Box('{BoxName}')/_Relation
 ```
 #### RuleへのnavigationProperty
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}',Schema='SchemaURL')/_Rule
+{CellURL}__ctl/Box(Name='{BoxName}',Schema='SchemaURL')/_Rule
 ```
 または、
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}')/_Rule
+{CellURL}__ctl/Box(Name='{BoxName}')/_Rule
 ```
 または、
 ```
-/{CellName}/__ctl/Box('{BoxName}')/_Rule
+{CellURL}__ctl/Box('{BoxName}')/_Rule
 ```
 ※ Schemaパラメタを省略した場合は、nullが指定されたものとする
 ### メソッド
@@ -131,7 +131,7 @@ JSON
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}',
+        "uri": "{CellURL}__ctl/Relation(Name='{RelationName}',
 _Box.Name='{BoxName}')",
         "etag": "W/\"2-1486953408036\"",
         "type": "CellCtl.Relation"
@@ -149,18 +149,18 @@ _Box.Name='{BoxName}')",
 #### Roleを登録する場合
 ```sh
 curl
-"{CellURL}/__ctl/Box('{BoxName}')/_Role" -X POST -i  -H \
+"{CellURL}__ctl/Box('{BoxName}')/_Role" -X POST -i  -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{RoleName}"}'
 ```
 #### Relationを登録する場合
 ```sh
-curl "{CellURL}/__ctl/Box('{BoxName}')/_Relation" -X POST -i -H \
+curl "{CellURL}__ctl/Box('{BoxName}')/_Relation" -X POST -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{RelationName}"}'
 ```
 #### Ruleを登録する場合
 ```sh
 curl
-"{CellURL}/__ctl/Box('{BoxName}')/_Rule" -X POST -i  -H \
+"{CellURL}__ctl/Box('{BoxName}')/_Rule" -X POST -i  -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{RuleName}","Action":"log"}'
 ```
 

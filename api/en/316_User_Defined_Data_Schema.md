@@ -14,7 +14,7 @@ read
 ### Request URL
 
 ```
-/{CellName}/{BoxName}/{OdataCollectionName}/$metadata
+{CellURL}{BoxName}/{OdataCollectionName}/$metadata
 ```
 
 ### Request Method
@@ -113,7 +113,7 @@ FromRole="TestEntity:TestAssociationEndFrom" ToRole="TestEntity:TestAssociationE
 ## cURL Command
 
 ```sh
-curl "{CellURL}/{BoxName}/{OdataCollectionName}/\$metadata" -X \
+curl "{CellURL}{BoxName}/{OdataCollectionName}/\$metadata" -X \
 GET -i -H 'Authorization: Bearer {AccessToken}'
 ```
 

@@ -21,7 +21,7 @@ alter-schema
 ### Request URL
 
 ```
-/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/ComplexType
+{CellURL}{BoxName}/{ODataCollecitonName}/$metadata/ComplexType
 ```
 
 ### Request Method
@@ -130,7 +130,7 @@ The response is a JSON object, the correspondence between the key (name) and typ
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}/{BoxName}/{ODataCollecitonName}/$metadata
+        "uri": "{CellURL}{BoxName}/{ODataCollecitonName}/$metadata
 /ComplexType('{ComplexTypeName}')",
         "etag": "W/\"1-1487650447372\"",
         "type": "ODataSvcSchema.ComplexType"
@@ -150,7 +150,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/{BoxName}/{ODataCollecitonName}/\$metadata/ComplexType" -X \
+curl "{CellURL}{BoxName}/{ODataCollecitonName}/\$metadata/ComplexType" -X \
 POST -i -H  'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name": "{ComplexTypeName}"}'
 ```
 

@@ -17,11 +17,11 @@ ExtRoleに紐付いたODataリソースを一覧取得する
 ### リクエストURL
 #### Roleとの$links
 ```
-/{CellName}/__ctl/ExtRole(ExtRole='{ExtRoleURL}')/$links/_Role
+{CellURL}__ctl/ExtRole(ExtRole='{ExtRoleURL}')/$links/_Role
 ```
 #### Relationとの$links
 ```
-/{CellName}/__ctl/ExtRole(ExtRole='{ExtRoleURL}')/$links/_Relation
+{CellURL}__ctl/ExtRole(ExtRole='{ExtRoleURL}')/$links/_Relation
 ```
 
 ※ {ExtRoleURL}についてはURLエンコードが必要です。  
@@ -101,10 +101,10 @@ GET
   "d": {
     "results": [
       {
-        "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')"
+        "uri": "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')"
       },
       {
-        "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name=null)"
+        "uri": "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name=null)"
       }
     ]
   }
@@ -114,7 +114,7 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/__ctl/ExtRole(ExtRole='https%3A%2F%2F{UnitFQDN}%2F\
+curl "{CellURL}__ctl/ExtRole(ExtRole='https%3A%2F%2F{UnitFQDN}%2F\
 {CellName}%2F__role%2F__%2F{ExtRoleName}',_Relation.Name='{RelationName}',\
 _Relation._Box.Name='{BoxName}')/\$links/_Role" -X GET -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'

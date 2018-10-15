@@ -105,7 +105,7 @@ grant_type=password&username=username&password=pass
 
 パスワードによるアカウント所有者認証でトランスセルアクセストークン発行
 ```
-grant_type=password&username=username&password=pass&p_target={CellURL}/
+grant_type=password&username=username&password=pass&p_target={CellURL}
 ```
 
 パスワードによるアカウント所有者認証とアプリ認証トークン送付によるアプリ認証済アクセストークン発行
@@ -178,28 +178,28 @@ WxZe0AQFtEnFYyWMoQ",
 ## cURLサンプル
 #### アカウント所有者認証
 ```sh
-curl "{CellURL}/__token" -X POST -i -d \
+curl "{CellURL}__token" -X POST -i -d \
 'grant_type=password&username={username}&password={password}'
 ```
 #### 他セルユーザ認証
 ```sh
-curl "{CellURL}/__token" -X POST -i -d \
+curl "{CellURL}__token" -X POST -i -d \
 'grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&assertion={token}'
 ```
 #### トークンリフレッシュ
 ```sh
-curl "{CellURL}/__token" -X POST -i -d \
+curl "{CellURL}__token" -X POST -i -d \
 'grant_type=refresh_token&refresh_token={refresh_token}'
 ```
 #### アカウント所有者 + アプリ認証
 ```sh
-curl "{CellURL}/__token" -X POST -i -d \
+curl "{CellURL}__token" -X POST -i -d \
 'grant_type=password&username={user_name}&password={pass}&client_id=\
 https://{UnitFQDN}/app{CellName}/&client_secret={token_from_app_cell}'
 ```
 #### 他セルユーザ認証 による他セル向けトランスセルアクセストークン発行
 ```sh
-curl "{CellURL}/__token" -X POST -i -d \
+curl "{CellURL}__token" -X POST -i -d \
 'grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&assertion=\
-{SAML_token}&p_target={CellURL}/'
+{SAML_token}&p_target={CellURL}'
 ```

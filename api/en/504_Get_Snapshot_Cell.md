@@ -14,7 +14,7 @@ root
 ### Request URL
 
 ```
-/{CellName}/__snapshot/{FileName}
+{CellURL}__snapshot/{FileName}
 ```
 
 ### Request Method
@@ -80,6 +80,6 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Sample
 
 ```sh
-curl "{CellURL}/__snapshot/{FileName}" -X GET -i -H 'Authorization: Bearer {AccessToken}'
+curl "{CellURL}__snapshot/{FileName}" -X GET -i -H 'Authorization: Bearer {AccessToken}'
 ```
 

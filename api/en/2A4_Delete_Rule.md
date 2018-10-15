@@ -16,15 +16,15 @@ rule
 ## request
 ### Request URL
 ```
-/{CellName}/__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')
+{CellURL}__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')
 ```
 Alternatively,
 ```
-/{CellName}/__ctl/Rule(Name='{RuleName}')
+{CellURL}__ctl/Rule(Name='{RuleName}')
 ```
 Alternatively,
 ```
-/{CellName}/__ctl/Rule('{RuleName}')
+{CellURL}__ctl/Rule('{RuleName}')
 ```
 When the \_Box.Name parameter is omitted, it is assumed that null is specified
 ### Method
@@ -70,7 +70,7 @@ None
 ## cURL Sample
 
 ```sh
-curl "{CellURL}/__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')" -X DELETE -i  -H \
+curl "{CellURL}__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')" -X DELETE -i  -H \
 'If-Match: *' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

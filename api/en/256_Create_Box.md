@@ -22,7 +22,7 @@ box
 ### Request URL
 
 ```
-/{CellName}/__ctl/Box
+{CellURL}__ctl/Box
 ```
 
 ### Request Method
@@ -60,7 +60,7 @@ JSON
 ### Request Sample
 
 ```JSON
-{"Name":"{BoxName}", "Schema":"{CellURL}/"}
+{"Name":"{BoxName}", "Schema":"{CellURL}"}
 ```
 
 
@@ -115,7 +115,7 @@ Refer to [Error Message List](004_Error_Messages.md)
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}/__ctl/Box('{BoxName}')",
+        "uri": "{CellURL}__ctl/Box('{BoxName}')",
         "etag": "W/\"1-1486368212581\"",
         "type": "CellCtl.Box"
       },
@@ -132,7 +132,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/__ctl/Box" -X POST -i -H 'Authorization: Bearer {AccessToken}' \
+curl "{CellURL}__ctl/Box" -X POST -i -H 'Authorization: Bearer {AccessToken}' \
 -H 'Accept: application/json' -d '{"Name":"{BoxName}"}'
 ```
 

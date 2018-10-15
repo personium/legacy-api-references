@@ -21,13 +21,13 @@ auth
 ### Request URL
 
 ```
-/{CellName}/__ctl/Account(Name='{AccountName}')
+{CellURL}__ctl/Account(Name='{AccountName}')
 ```
 
 or 
 
 ```
-/{CellName}/__ctl/Account('{AccountName}')
+{CellURL}__ctl/Account('{AccountName}')
 ```
 
 ### Request Method
@@ -76,7 +76,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/__ctl/Account('{AccountName}')" -X DELETE -i -H \
+curl "{CellURL}__ctl/Account('{AccountName}')" -X DELETE -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

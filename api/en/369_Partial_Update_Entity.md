@@ -27,7 +27,7 @@ write
 ### Request URL
 
 ```
-/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}({EntityID})}
+{CellURL}{BoxName}/{ODataCollecitonName}/{EntityTypeName}({EntityID})}
 ```
 
 |Path|Overview|
@@ -149,7 +149,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')" \
+curl "{CellURL}{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')" \
 -X MERGE -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"name": \
 "episode","outcome": "After treatment"}'
 ```

@@ -13,7 +13,7 @@ exec
 ### Request URL
 
 ```
-/{CellName}/{BoxName}/{CollectionName}/{ServiceName}
+{CellURL}{BoxName}/{CollectionName}/{ServiceName}
 ```
 
 |Path|Overview|Notes|
@@ -72,7 +72,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/{BoxName}/{CollectionName}/{ServiceName}" -X GET -i -H \
+curl "{CellURL}{BoxName}/{CollectionName}/{ServiceName}" -X GET -i -H \
 "Authorization:Bearer {AccessToken}" -H "Accept:application/json"
 ```
 

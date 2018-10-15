@@ -14,7 +14,7 @@ write
 ### Request URL
 
 ```
-/{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/__src/{ResourceName}
+/{UnitFQDN}{CellURL}{BoxName}/{CollectionName}/__src/{ResourceName}
 ```
 
 |Path|Overview|Notes|
@@ -87,7 +87,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/{BoxName}/{CollectionName}/__src/{ResourceName}" -X \
+curl "{CellURL}{BoxName}/{CollectionName}/__src/{ResourceName}" -X \
 DELETE -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

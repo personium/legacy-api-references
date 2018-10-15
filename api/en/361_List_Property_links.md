@@ -21,7 +21,7 @@ You can specify the following OData resources
 $links with EntityType
 
 ```
-/{CellName}/{BoxName}/{CollectionName}/$metadata/Property(Name='{PropertyName}',
+{CellURL}{BoxName}/{CollectionName}/$metadata/Property(Name='{PropertyName}',
 _EntityType.Name='{EntityTypeName}')/$links/_EntityType
 ```
 
@@ -131,10 +131,10 @@ Refer to [Error Message List](004_Error_Messages.md)
    "d": {
     "results": [
       {
-        "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name=null)"
+        "uri": "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name=null)"
       },
       {
-        "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='box1')"
+        "uri": "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='box1')"
       }
     ]
   }
@@ -145,7 +145,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/{BoxName}/{OdataCollecitonPath}/$metadata/Property('Property_Name')\
+curl "{CellURL}{BoxName}/{OdataCollecitonPath}/$metadata/Property('Property_Name')\
 /$links/_EntityType" \
 -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```

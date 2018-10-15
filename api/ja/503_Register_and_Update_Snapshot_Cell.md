@@ -9,7 +9,7 @@ root
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/__snapshot/{FileName}
+{CellURL}__snapshot/{FileName}
 ```
 
 ### メソッド
@@ -60,11 +60,11 @@ PUT
 
 ## cURLサンプル
 ```sh
-curl "{CellURL}/__snapshot/CellExport_2017_01.zip" -X PUT -i -H \
+curl "{CellURL}__snapshot/CellExport_2017_01.zip" -X PUT -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{ファイル内容}'
 ```
 ```sh
-curl "{CellURL}/__snapshot/CellExport_2017_01.zip" -X PUT -i -H \
+curl "{CellURL}__snapshot/CellExport_2017_01.zip" -X PUT -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -T "/home/user/CellExport.zip"
 ```
 

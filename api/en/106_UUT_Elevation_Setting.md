@@ -13,7 +13,7 @@ Only unit users permitted
 ### Request URL
 
 ```
-/{CellName}
+{CellURL}
 ```
 
 |Path|Overview|

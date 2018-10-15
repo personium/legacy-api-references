@@ -14,7 +14,7 @@ write-properties
 ### Request URL
 
 ```
-/{CellName}/{BoxName}/{CollectionName}
+{CellURL}{BoxName}/{CollectionName}
 ```
 
 |Path|Overview|Notes|
@@ -169,7 +169,7 @@ DTD notation
 ```xml
 <multistatus xmlns="DAV:">
     <response>
-        <href>{CellURL}/{BoxName}/{CollectionName}</href>
+        <href>{CellURL}{BoxName}/{CollectionName}</href>
         <propstat>
             <prop>
                 <p:service language="JavaScript" xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:">
@@ -189,7 +189,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/{BoxName}/{CollectionName}" -X PROPPATCH -i -H \
+curl "{CellURL}{BoxName}/{CollectionName}" -X PROPPATCH -i -H \
 "Authorization:Bearer {AccessToken}" -H "Accept:application/json" -d \
 "<?xml version=\"1.0\" encoding=\"utf-8\" ?><D:propertyupdate xmlns:D=\"DAV:\" xmlns:p=\"urn:x-personium:xmlns\">\
 <D:set><D:prop><p:service language=\"JavaScript\"><p:path name=\"sample\" src=\"sample.js\"/></p:service></D:prop>\

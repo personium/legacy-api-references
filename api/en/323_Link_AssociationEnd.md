@@ -14,7 +14,7 @@ alter-schema
 ### Request URL
 
 ```
-/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/AssociationEnd(Name='{AssociationEndName}', 
+{CellURL}{BoxName}/{ODataCollecitonName}/$metadata/AssociationEnd(Name='{AssociationEndName}', 
 _EntityType.Name='{EntityTypeName}')/$links/_AssociationEnd
 ```
 
@@ -42,7 +42,7 @@ None
 ### Request Sample
 
 ```JSON
-{"uri": "{CellURL}/{BoxName}/{ODataCollecitonName}/$metadata/AssociationEnd
+{"uri": "{CellURL}{BoxName}/{ODataCollecitonName}/$metadata/AssociationEnd
 (Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')"}
 ```
 
@@ -75,10 +75,10 @@ None
 ## cURL Command
 
 ```sh
-curl "{CellURL}/{BoxName}/{ODataCollecitonName}/\$metadata/AssociationEnd\
+curl "{CellURL}{BoxName}/{ODataCollecitonName}/\$metadata/AssociationEnd\
 (Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')/\$links/_AssociationEnd" -X POST \
 -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -H 'Accept:application/json' \
--d "{\"uri\": \"{CellURL}/{BoxName}/{ODataCollecitonName}/\$metadata/AssociationEnd\
+-d "{\"uri\": \"{CellURL}{BoxName}/{ODataCollecitonName}/\$metadata/AssociationEnd\
 (Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')\"}"
 ```
 

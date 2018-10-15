@@ -32,53 +32,53 @@ Register the following Cell control object via Navigation Property of Box.
 #### Navigation Property to Role
 
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}',Schema='SchemaURL')/_Role
+{CellURL}__ctl/Box(Name='{BoxName}',Schema='SchemaURL')/_Role
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}')/_Role
+{CellURL}__ctl/Box(Name='{BoxName}')/_Role
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Box('{BoxName}')/_Role
+{CellURL}__ctl/Box('{BoxName}')/_Role
 ```
 
 #### NavigationProperty to Relation
 
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}',Schema='SchemaURL')/_Relation
+{CellURL}__ctl/Box(Name='{BoxName}',Schema='SchemaURL')/_Relation
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}')/_Relation
+{CellURL}__ctl/Box(Name='{BoxName}')/_Relation
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Box('{BoxName}')/_Relation
+{CellURL}__ctl/Box('{BoxName}')/_Relation
 ```
 
 #### NavigationProperty to Rule
 
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}',Schema='SchemaURL')/_Rule
+{CellURL}__ctl/Box(Name='{BoxName}',Schema='SchemaURL')/_Rule
 ```
 or
 
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}')/_Rule
+{CellURL}__ctl/Box(Name='{BoxName}')/_Rule
 ```
 or
 
 ```
-/{CellName}/__ctl/Box('{BoxName}')/_Rule
+{CellURL}__ctl/Box('{BoxName}')/_Rule
 ```
 
 If the Schema is omitted, it is assumed that null is specified
@@ -174,7 +174,7 @@ Refer to [Error Message List](004_Error_Messages.md)
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')",
+        "uri": "{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')",
         "etag": "W/\"2-1486953408036\"",
         "type": "CellCtl.Relation"
       },
@@ -194,21 +194,21 @@ Refer to [Error Message List](004_Error_Messages.md)
 
 ```sh
 curl
-"{CellURL}/__ctl/Box('{BoxName}')/_Role" -X POST -i  -H \
+"{CellURL}__ctl/Box('{BoxName}')/_Role" -X POST -i  -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{RoleName}"}'
 ```
 
 ### When registering Relation
 
 ```sh
-curl "{CellURL}/__ctl/Box('{BoxName}')/_Relation" -X POST -i -H \
+curl "{CellURL}__ctl/Box('{BoxName}')/_Relation" -X POST -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{RelationName}"}'
 ```
 
 ### When registering Rule
 ```sh
 curl
-"{CellURL}/__ctl/Box('{BoxName}')/_Rule" -X POST -i  -H \
+"{CellURL}__ctl/Box('{BoxName}')/_Rule" -X POST -i  -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{RuleName}","Action":"log"}'
 ```
 

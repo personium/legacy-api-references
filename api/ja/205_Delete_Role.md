@@ -18,15 +18,15 @@ auth
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')
+{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}')
+{CellURL}__ctl/Role(Name='{RoleName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Role('{RoleName}')
+{CellURL}__ctl/Role('{RoleName}')
 ```
 ※ \_Box.Nameパラメタを省略した場合は、nullが指定されたものとする
 ### メソッド
@@ -67,7 +67,7 @@ DELETE
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')" -X \
+curl "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')" -X \
 DELETE -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

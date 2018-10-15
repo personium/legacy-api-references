@@ -14,11 +14,11 @@ Ruleから紐づいたBoxとのリンクを解除する。
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')/$links/_Box(Name='{BoxName}')
+{CellURL}__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')/$links/_Box(Name='{BoxName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')/$links/_Box('{BoxName}')
+{CellURL}__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')/$links/_Box('{BoxName}')
 ```
 
 ### メソッド
@@ -62,6 +62,6 @@ DELETE
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')/\$links/_Box(Name='{BoxName}')" \
+curl "{CellURL}__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')/\$links/_Box(Name='{BoxName}')" \
 -X DELETE -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```

@@ -22,7 +22,7 @@ The user can read the Box route. (User authentication is unnecessary when the Bo
 ### Request URL
 
 ```
-/{CellName}/__box
+{CellURL}__box
 ```
 
 ### Request Method
@@ -67,7 +67,7 @@ None
 Location sample
 
 ```
-Location:{CellURL}/{BoxName}
+Location:{CellURL}{BoxName}
 ```
 
 ### Response Body
@@ -81,7 +81,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ### Response Sample
 
 ```
-Location:{CellURL}/{BoxName}
+Location:{CellURL}{BoxName}
 ```
 
 
@@ -90,14 +90,14 @@ Location:{CellURL}/{BoxName}
 ### Schema authenticated
 
 ```sh
-curl "{CellURL}/__box" -X GET -i -H 'Authorization: Bearer {AccessToken}' \
+curl "{CellURL}__box" -X GET -i -H 'Authorization: Bearer {AccessToken}' \
 -H 'Accept: application/json'
 ```
 
 ### Schema authentication not supported
 
 ```sh
-curl "{CellURL}/__box?schema={CellURL}/" -X GET -i -H\
+curl "{CellURL}__box?schema={CellURL}" -X GET -i -H\
  'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

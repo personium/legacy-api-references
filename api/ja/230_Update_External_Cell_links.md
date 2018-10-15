@@ -20,16 +20,16 @@ Extcellに紐付いたODataリソースを更新する<br>以下のODataリソ�
 ### リクエストURL
 #### ExtCellとの$links
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/
+{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/
 _ExtCell('{ExtCellURL}')
 ```
 または、
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}')/$links/_ExtCell('{ExtCellURL}')
+{CellURL}__ctl/Relation(Name='{RelationName}')/$links/_ExtCell('{ExtCellURL}')
 ```
 または、
 ```
-/{CellName}/__ctl/Relation('{RelationName}')/$links/_ExtCell('{ExtCellURL}')
+{CellURL}__ctl/Relation('{RelationName}')/$links/_ExtCell('{ExtCellURL}')
 ```
 ### メソッド
 PUT
@@ -61,7 +61,7 @@ JSON
 |Url|CellへのURL|桁数：1&#65374;1024<br>URIの形式に従う<br>scheme：http, https<br>トレイリングスラッシュ(URL終端の/)必須|○||
 ### リクエストサンプル
 ```JSON
-{"uri":"{CellURL}/__ctl/Box('{BoxName}')"}
+{"uri":"{CellURL}__ctl/Box('{BoxName}')"}
 ```
 
 ## レスポンス
@@ -95,9 +95,9 @@ JSON
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')\
+curl "{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')\
 /$links/_Box('{BoxName}')" -X PUT -i -H 'If-Match:*' -H 'Authorization: Bearer {AccessToken}' \
--H 'Accept: application/json' -d '{"uri":"{CellURL}/\
+-H 'Accept: application/json' -d '{"uri":"{CellURL}\
 __ctl/Box('update_{BoxName}')"}'
 ```
 

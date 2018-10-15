@@ -24,73 +24,73 @@ write
 #### NavigationProperty to Account
 
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_Account
+{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_Account
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}')/_Account
+{CellURL}__ctl/Role(Name='{RoleName}')/_Account
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role('{RoleName}')/_Account
+{CellURL}__ctl/Role('{RoleName}')/_Account
 ```
 
 #### NavigationProperty to ExCel
 
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_ExtCell
+{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_ExtCell
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}')/_ExtCell
+{CellURL}__ctl/Role(Name='{RoleName}')/_ExtCell
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role('{RoleName}')/_ExtCell
+{CellURL}__ctl/Role('{RoleName}')/_ExtCell
 ```
 
 #### NavigationProperty to ExtRole
 
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_ExtRole
+{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_ExtRole
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}')/_ExtRole
+{CellURL}__ctl/Role(Name='{RoleName}')/_ExtRole
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role('{RoleName}')/_ExtRole
+{CellURL}__ctl/Role('{RoleName}')/_ExtRole
 ```
 
 #### NavigationProperty to Relation
 
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_Relation
+{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_Relation
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}')/_Relation
+{CellURL}__ctl/Role(Name='{RoleName}')/_Relation
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Role('{RoleName}')/_Relation
+{CellURL}__ctl/Role('{RoleName}')/_Relation
 ```
 
 If the \_Box.Name parameter is omitted, it is assumed that null is specified
@@ -182,7 +182,7 @@ POST
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')",
+        "uri": "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')",
         "etag": "W/\"1-1486515294719\"",
         "type": "CellCtl.Role"
       },
@@ -205,7 +205,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 #### Relation registration via Navigation Property
 
 ```sh
-curl "{CellURL}/__ctl/Role('{RoleName}')/_Relation" -X POST -i -H \
+curl "{CellURL}__ctl/Role('{RoleName}')/_Relation" -X POST -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{RelationName}"}'
 ```
 

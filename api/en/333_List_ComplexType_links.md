@@ -21,7 +21,7 @@ You can specify the following OData resources
 $links with Property
 
 ```
-/{CellName}/{BoxName}/{CollectionName}/$metadata/ComplexType('{ComplextypeName}')/$links/_Property
+{CellURL}{BoxName}/{CollectionName}/$metadata/ComplexType('{ComplextypeName}')/$links/_Property
 ```
 
 ### Request Method
@@ -130,10 +130,10 @@ Refer to [Error Message List](004_Error_Messages.md)
   "d": {
     "results": [
       {
-        "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name=null)"
+        "uri": "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name=null)"
       },
       {
-        "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='box1')"
+        "uri": "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='box1')"
       }
     ]
   }
@@ -144,7 +144,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/{BoxName}/{CollectionName}/$metadata/ComplexType('Address')\
+curl "{CellURL}{BoxName}/{CollectionName}/$metadata/ComplexType('Address')\
 /$links/_Property" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

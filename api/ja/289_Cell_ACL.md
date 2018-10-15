@@ -15,7 +15,7 @@ ACL設定を行うと、既存のACL設定を上書きされる形で更新さ�
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}
+{CellURL}
 ```
 ### メソッド
 ACL
@@ -176,7 +176,7 @@ xml:base="https://example.com/testcell1/__role/box1/">
 ```sh
 curl "{CellURL}" -X ACL -i -H 'Authorization: Bearer {AccessToken}' -H \
 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8" ?><D:acl xmlns:D="DAV:" \
-xmlns:p="urn:x-personium:xmlns" xml:base="http://{UnitFQDN}/{CellName}/__role/{BoxName}/">  \
+xmlns:p="urn:x-personium:xmlns" xml:base="{CellURL}__role/{BoxName}/">  \
 <D:ace><D:principal><D:href>{RoleName}</D:href></D:principal><D:grant><D:privilege><p:box-read/>\
 </D:privilege><D:privilege><p:auth/></D:privilege></D:grant></D:ace></D:acl>'
 ```

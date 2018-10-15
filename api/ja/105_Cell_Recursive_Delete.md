@@ -26,7 +26,7 @@
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}
+{CellURL}
 ```
 ### メソッド
 DELETE
@@ -70,7 +70,7 @@ DELETE
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/" -X DELETE -i -H 'X-Personium-Recursive: true' \
+curl "{CellURL}" -X DELETE -i -H 'X-Personium-Recursive: true' \
 -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

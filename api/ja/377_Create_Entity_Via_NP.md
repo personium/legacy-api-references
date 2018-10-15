@@ -19,7 +19,7 @@ write
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')
+{CellURL}{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')
 /{NavigationPropertyName}
 ```
 |パス|概要|
@@ -110,7 +110,7 @@ POST
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}
+        "uri": "{CellURL}{BoxName}/{ODataCollecitonName}/{EntityTypeName}
 ('100-1_20101108-111352093')",
         "etag": "W/\"1-1487929403469\"",
         "type": "UserData.{EntityTypeName}"
@@ -121,7 +121,7 @@ POST
       "PetName": null,
       "{NavigationPropertyName}": {
         "__deferred": {
-          "uri": "{CellURL}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}
+          "uri": "{CellURL}{BoxName}/{ODataCollecitonName}/{EntityTypeName}
 ('100-1_20101108-111352093')/{NavigationPropertyName}"
         }
       }
@@ -134,7 +134,7 @@ POST
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')\
+curl "{CellURL}{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')\
 /{NavigationPropertyName}" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H \
 'Accept: application/json' -d '{"__id": "100-1_20101108-111352093"}'
 

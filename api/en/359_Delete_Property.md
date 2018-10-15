@@ -21,7 +21,7 @@ alter-schema
 ### Request URL
 
 ```
-/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/Property(Name='{PropertyName}',_EntityType.Name='{EntityTypeNamee}')
+{CellURL}{BoxName}/{ODataCollecitonName}/$metadata/Property(Name='{PropertyName}',_EntityType.Name='{EntityTypeNamee}')
 ```
 
 ### Request Method
@@ -93,7 +93,7 @@ None
 ## cURL Command
 
 ```sh
-curl "{CellURL}/{BoxName}/{ODataCollecitonName}/\$metadata/Property(Name=\
+curl "{CellURL}{BoxName}/{ODataCollecitonName}/\$metadata/Property(Name=\
 '{PropertyName}',_EntityType.Name='{EntityTypeName}')" -X DELETE -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```

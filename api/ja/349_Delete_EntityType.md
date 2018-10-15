@@ -16,7 +16,7 @@ alter-schema
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/EntityType('{EntityTypeName}')
+{CellURL}{BoxName}/{ODataCollecitonName}/$metadata/EntityType('{EntityTypeName}')
 ```
 
 ### メソッド
@@ -85,7 +85,7 @@ DELETE
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/{BoxName}/{OdataCollecitonName}/\$metadata/EntityType\
+curl "{CellURL}{BoxName}/{OdataCollecitonName}/\$metadata/EntityType\
 ('{EntityTypeName}')" -X DELETE -i -H 'Authorization: Bearer {AccessToken}' -H \
 'Accept: application/json'
 ```

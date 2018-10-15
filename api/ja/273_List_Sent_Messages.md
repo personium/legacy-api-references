@@ -13,7 +13,7 @@ message または message-read
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/__ctl/SentMessage
+{CellURL}__ctl/SentMessage
 ```
 ### メソッド
 GET
@@ -117,7 +117,7 @@ GET
     "results": [
       {
         "__metadata": {
-          "uri": "{CellURL}/__ctl/SentMessage
+          "uri": "{CellURL}__ctl/SentMessage
 ('c87b42e10df846a9bee842225d1383fe')",
           "etag": "W/\"1-1486683974323\"",
           "type": "CellCtl.SentMessage"
@@ -146,7 +146,7 @@ GET
         ],
         "Result": [
           {
-            "To": "{CellURL}/",
+            "To": "{CellURL}",
             "Code": "201",
             "Reason": "Created."
           }
@@ -155,14 +155,14 @@ GET
         "__updated": "/Date(1486683974323)/",
         "_Box": {
           "__deferred": {
-            "uri": "{CellURL}/__ctl/SentMessage
+            "uri": "{CellURL}__ctl/SentMessage
 ('c87b42e10df846a9bee842225d1383fe')/_Box"
           }
         }
       },
       {
         "__metadata": {
-          "uri": "{CellURL}/__ctl/SentMessage
+          "uri": "{CellURL}__ctl/SentMessage
 ('f87358607d0d46deae61eec6bb0ea490')",
           "etag": "W/\"1-1486685761907\"",
           "type": "CellCtl.SentMessage"
@@ -178,7 +178,7 @@ GET
         "Priority": 3,
         "Result": [
           {
-            "To": "{CellURL}/",
+            "To": "{CellURL}",
             "Code": "201",
             "Reason": "Created."
           }
@@ -187,7 +187,7 @@ GET
         "__updated": "/Date(1486685761907)/",
         "_Box": {
           "__deferred": {
-            "uri": "{CellURL}/__ctl/SentMessage
+            "uri": "{CellURL}__ctl/SentMessage
 ('f87358607d0d46deae61eec6bb0ea490')/_Box"
           }
         }
@@ -201,6 +201,6 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/__ctl/SentMessage" -X GET -i -H \
+curl "{CellURL}__ctl/SentMessage" -X GET -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```

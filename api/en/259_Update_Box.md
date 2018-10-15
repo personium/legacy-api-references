@@ -22,13 +22,13 @@ box
 ### Request URL
 
 ```
-/{CellName}/__ctl/Box('{BoxName}')
+{CellURL}__ctl/Box('{BoxName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}')
+{CellURL}__ctl/Box(Name='{BoxName}')
 ```
 
 ### Request Method
@@ -67,7 +67,7 @@ JSON
 ### Request Body Sample
 
 ```JSON
-{"Name":"{BoxName}", "Schema":"{CellURL}/"}
+{"Name":"{BoxName}", "Schema":"{CellURL}"}
 ```
 
 
@@ -93,7 +93,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/__ctl/Box('{BoxName}')" -X PUT -i -H 'If-Match: *' -H \
+curl "{CellURL}__ctl/Box('{BoxName}')" -X PUT -i -H 'If-Match: *' -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{BoxName}"}'
 ```
 

@@ -15,11 +15,11 @@ auth
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/__ctl/Account(Name='{AccountName}')
+{CellURL}__ctl/Account(Name='{AccountName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Account('{AccountName}')
+{CellURL}__ctl/Account('{AccountName}')
 ```
 ### メソッド
 DELETE
@@ -58,6 +58,6 @@ DELETE
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/__ctl/Account('{AccountName}')" -X DELETE -i -H \
+curl "{CellURL}__ctl/Account('{AccountName}')" -X DELETE -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```

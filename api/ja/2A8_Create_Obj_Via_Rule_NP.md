@@ -19,15 +19,15 @@ RuleのNavigation Property経由での他のCell制御オブジェクトを登�
 ### リクエストURL
 #### BoxへのnavigationProperty
 ```
-/{CellName}/__ctl/Rule(Name='{RuleName}',_Box.Name=null)/_Box
+{CellURL}__ctl/Rule(Name='{RuleName}',_Box.Name=null)/_Box
 ```
 または、
 ```
-/{CellName}/__ctl/Rule(Name='{RuleName}')/_Box
+{CellURL}__ctl/Rule(Name='{RuleName}')/_Box
 ```
 または、
 ```
-/{CellName}/__ctl/Rule('{RuleName}')/_Box
+{CellURL}__ctl/Rule('{RuleName}')/_Box
 ```
 ※ \_Box.Nameパラメタを省略した場合は、nullが指定されたものとする
 ### メソッド
@@ -53,7 +53,7 @@ POST
 
 ### リクエストサンプル
 ```JSON
-{"Name":"{BoxName}", "Schema":"{CellURL}/"}
+{"Name":"{BoxName}", "Schema":"{CellURL}"}
 ```
 
 ## レスポンス
@@ -93,7 +93,7 @@ POST
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}/__ctl/Box('{BoxName}')",
+        "uri": "{CellURL}__ctl/Box('{BoxName}')",
         "etag": "W/\"1-1486368212581\"",
         "type": "CellCtl.Box"
       },
@@ -112,6 +112,6 @@ POST
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/__ctl/Rule('{RuleName}')/_Box" -X POST -i -H \
+curl "{CellURL}__ctl/Rule('{RuleName}')/_Box" -X POST -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{BoxName}"}'
 ```

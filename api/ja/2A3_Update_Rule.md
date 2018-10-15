@@ -16,15 +16,15 @@ rule
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')
+{CellURL}__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Rule(Name='{RuleName}')
+{CellURL}__ctl/Rule(Name='{RuleName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Rule('{RuleName}')
+{CellURL}__ctl/Rule('{RuleName}')
 ```
 ※ \_Box.Nameパラメタを省略した場合は、nullが指定されたものとする
 ### メソッド
@@ -91,7 +91,7 @@ JSON
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/__ctl/Rule('{RuleName}')" -X PUT -i -H 'If-Match: *' -H \
+curl "{CellURL}__ctl/Rule('{RuleName}')" -X PUT -i -H 'If-Match: *' -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' \
 -d '{"Name":"{RuleName}", "EventExternal":true, "Action":"log"}'
 ```

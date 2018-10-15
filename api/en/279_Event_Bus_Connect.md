@@ -14,7 +14,7 @@ This API first requests its client to send a valid access token. A session can b
 
 ### Connection Endpoint URL
 
-    wss:{UnitFQDN}/{CellName}/__event
+    wss:{UnitFQDN}{CellURL}__event
 
 By connectining to the above URL with Web Socket, it first goes to the status where an access token can be accepted.
 At this stage, any request other than sending access token is meaningless.

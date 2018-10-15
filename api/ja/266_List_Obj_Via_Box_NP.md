@@ -18,39 +18,39 @@
 ### リクエストURL
 #### RoleへのnavigationProperty
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}',Schema='SchemaURL')/_Role
+{CellURL}__ctl/Box(Name='{BoxName}',Schema='SchemaURL')/_Role
 ```
 または、
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}')/_Role
+{CellURL}__ctl/Box(Name='{BoxName}')/_Role
 ```
 または、
 ```
-/{CellName}/__ctl/Box('{BoxName}')/_Role
+{CellURL}__ctl/Box('{BoxName}')/_Role
 ```
 #### RelationへのnavigationProperty
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}',Schema='SchemaURL')/_Relation
+{CellURL}__ctl/Box(Name='{BoxName}',Schema='SchemaURL')/_Relation
 ```
 または、
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}')/_Relation
+{CellURL}__ctl/Box(Name='{BoxName}')/_Relation
 ```
 または、
 ```
-/{CellName}/__ctl/Box('{BoxName}')/_Relation
+{CellURL}__ctl/Box('{BoxName}')/_Relation
 ```
 #### RuleへのnavigationProperty
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}',Schema='SchemaURL')/_Rule
+{CellURL}__ctl/Box(Name='{BoxName}',Schema='SchemaURL')/_Rule
 ```
 または、
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}')/_Rule
+{CellURL}__ctl/Box(Name='{BoxName}')/_Rule
 ```
 または、
 ```
-/{CellName}/__ctl/Box('{BoxName}')/_Rule
+{CellURL}__ctl/Box('{BoxName}')/_Rule
 ```
 ※ Schemaパラメタを省略した場合は、nullが指定されたものとする
 ### メソッド
@@ -129,7 +129,7 @@ GET
     "results": [
       {
         "__metadata": {
-          "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}'
+          "uri": "{CellURL}__ctl/Relation(Name='{RelationName}'
 ,_Box.Name='{BoxName}')",
           "etag": "W/\"1-1486700131198\"",
           "type": "CellCtl.Relation"
@@ -140,25 +140,25 @@ GET
         "__updated": "/Date(1486700131198)/",
         "_Box": {
           "__deferred": {
-            "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}'
+            "uri": "{CellURL}__ctl/Relation(Name='{RelationName}'
 ,_Box.Name='{BoxName}')/_Box"
           }
         },
         "_ExtCell": {
           "__deferred": {
-            "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}'
+            "uri": "{CellURL}__ctl/Relation(Name='{RelationName}'
 ,_Box.Name='{BoxName}')/_ExtCell"
           }
         },
         "_ExtRole": {
           "__deferred": {
-            "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}'
+            "uri": "{CellURL}__ctl/Relation(Name='{RelationName}'
 ,_Box.Name='{BoxName}')/_ExtRole"
           }
         },
         "_Role": {
           "__deferred": {
-            "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}'
+            "uri": "{CellURL}__ctl/Relation(Name='{RelationName}'
 ,_Box.Name='{BoxName}')/_Role"
           }
         }
@@ -173,18 +173,18 @@ GET
 #### Roleを取得する場合
 ```sh
 curl
-"{CellURL}/__ctl/Box('{BoxName}')/_Role" -X GET -i  -H \
+"{CellURL}__ctl/Box('{BoxName}')/_Role" -X GET -i  -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 #### Relationを取得する場合
 ```sh
-curl "{CellURL}/__ctl/Box('{BoxName}')/_Relation" -X GET -i -H \
+curl "{CellURL}__ctl/Box('{BoxName}')/_Relation" -X GET -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 #### Ruleを取得する場合
 ```sh
 curl
-"{CellURL}/__ctl/Box('{BoxName}')/_Rule" -X GET -i  -H \
+"{CellURL}__ctl/Box('{BoxName}')/_Rule" -X GET -i  -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

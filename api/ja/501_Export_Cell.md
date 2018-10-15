@@ -10,12 +10,12 @@ Cellエクスポートの状況を確認するには[Cellエクスポート状�
 ```
 Cellエクスポートの呼び出し例（クライアントでのポーリングを10秒とした場合)
  1. Cellエクスポート受付
-    -- POST /{CellName}/__export
+    -- POST {CellURL}__export
  2. Cellエクスポート状態確認
-    -- GET /{CellName}/__export -> "処理中"で返却。
+    -- GET {CellURL}__export -> "処理中"で返却。
     -- 10秒ポーリング
  3. Cellエクスポート完了
-    -- GET /{CellName}/__export -> "受付可能"で返却。
+    -- GET {CellURL}__export -> "受付可能"で返却。
  4. Cellエクスポート正常終了確認
     -- PROPFIND /{cell}/__snapshot -> ファイル拡張子が".zip"の場合正常終了。".error"の場合異常終了。
  ※上記 2. の処理はループして処理完了までポーリングする。
@@ -59,7 +59,7 @@ Cellエクスポートに失敗した場合、Cellスナップショット領域
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/__export
+{CellURL}__export
 ```
 
 ### メソッド
@@ -115,7 +115,7 @@ JSON
 
 ## cURLサンプル
 ```sh
-curl "{CellURL}/__export" -X POST -i -H 'Authorization: Bearer {AccessToken}' \
+curl "{CellURL}__export" -X POST -i -H 'Authorization: Bearer {AccessToken}' \
 -H 'Accept: application/json' -d '{"Name":"CellExport_2017_01"}'
 ```
 

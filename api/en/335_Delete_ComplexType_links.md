@@ -24,7 +24,7 @@ alter-schema
 
 ```
 $links with Property
-/{CellName}/{BoxName}/{CollectionName}/$metadata/ComplexType('{ComplextypeName}')/$links/_Property('{PropertyName}')
+{CellURL}{BoxName}/{CollectionName}/$metadata/ComplexType('{ComplextypeName}')/$links/_Property('{PropertyName}')
 ```
 
 ### Request Method
@@ -97,7 +97,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/{BoxName}/{CollectionName}/$metadata/ComplexType('Address')\
+curl "{CellURL}{BoxName}/{CollectionName}/$metadata/ComplexType('Address')\
 /$links/_Property('PostalCode')" -X DELETE -i -H 'If-Match: *' -H 'Authorization: Bearer {AccessToken}' \
 -H 'Accept: application/json'
 ```

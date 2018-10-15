@@ -16,7 +16,7 @@ box
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/__ctl/Box
+{CellURL}__ctl/Box
 ```
 ### メソッド
 POST
@@ -48,7 +48,7 @@ JSON
 
 ### リクエストサンプル
 ```JSON
-{"Name":"{BoxName}", "Schema":"{CellURL}/"}
+{"Name":"{BoxName}", "Schema":"{CellURL}"}
 ```
 
 ## レスポンス
@@ -97,7 +97,7 @@ JSON
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}/__ctl/Box('{BoxName}')",
+        "uri": "{CellURL}__ctl/Box('{BoxName}')",
         "etag": "W/\"1-1486368212581\"",
         "type": "CellCtl.Box"
       },
@@ -113,7 +113,7 @@ JSON
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/__ctl/Box" -X POST -i -H 'Authorization: Bearer {AccessToken}' \
+curl "{CellURL}__ctl/Box" -X POST -i -H 'Authorization: Bearer {AccessToken}' \
 -H 'Accept: application/json' -d '{"Name":"{BoxName}"}'
 ```
 

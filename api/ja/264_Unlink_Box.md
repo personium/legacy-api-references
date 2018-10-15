@@ -19,42 +19,42 @@ Boxとの$links情報を削除する
 ### リクエストURL
 #### Roleとの紐付け
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/
+{CellURL}__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/
 _Role(Name='{RoleName}',_Box.Name='{BoxName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}')/$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')
+{CellURL}__ctl/Box(Name='{BoxName}')/$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Box('{BoxName}')/$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')
+{CellURL}__ctl/Box('{BoxName}')/$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')
 ```
 #### Relationとの紐付け
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/_Relation(Name='{RelationName}',
+{CellURL}__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/_Relation(Name='{RelationName}',
 _Box.Name='{BoxName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}')/$links/_Relation(Name='{RelationName}',_Box.Name='{BoxName}')
+{CellURL}__ctl/Box(Name='{BoxName}')/$links/_Relation(Name='{RelationName}',_Box.Name='{BoxName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Box('{BoxName}')/$links/_Relation(Name='{RelationName}',_Box.Name='{BoxName}')
+{CellURL}__ctl/Box('{BoxName}')/$links/_Relation(Name='{RelationName}',_Box.Name='{BoxName}')
 ```
 #### Ruleとの紐付け
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/
+{CellURL}__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/
 _Rule(Name='{RuleName}',_Box.Name='{BoxName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}')/$links/_Rule(Name='{RuleName}',_Box.Name='{BoxName}')
+{CellURL}__ctl/Box(Name='{BoxName}')/$links/_Rule(Name='{RuleName}',_Box.Name='{BoxName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Box('{BoxName}')/$links/_Rule(Name='{RuleName}',_Box.Name='{BoxName}')
+{CellURL}__ctl/Box('{BoxName}')/$links/_Rule(Name='{RuleName}',_Box.Name='{BoxName}')
 ```
 ※ Schemaパラメタを省略した場合は、nullが指定されたものとする
 
@@ -101,7 +101,7 @@ DELETE
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/__ctl/Box('{BoxName}')/\$links\
+curl "{CellURL}__ctl/Box('{BoxName}')/\$links\
 /_Role(Name='{RoleName}',_Box.Name='{BoxName}')" -X DELETE -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```

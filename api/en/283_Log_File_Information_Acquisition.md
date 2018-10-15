@@ -25,25 +25,25 @@ log-read
 #### Recent log file list
 
 ```
-/{CellName}/__log/current
+{CellURL}__log/current
 ```
 
 #### Recent log file
 
 ```
-/{CellName}/__log/current/default.log
+{CellURL}__log/current/default.log
 ```
 
 #### List of log file that is rotated
 
 ```
-/{CellName}/__log/archive
+{CellURL}__log/archive
 ```
 
 #### Log file that is rotated
 
 ```
-/{CellName}/__log/archive/default.log.{Timestamp}
+{CellURL}__log/archive/default.log.{Timestamp}
 ```
 
 ### Request Method
@@ -162,7 +162,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ```xml
 <multistatus xmlns="DAV:">
     <response>
-        <href>{CellURL}/__log/archive</href>
+        <href>{CellURL}__log/archive</href>
         <propstat>
             <prop>
                 <creationdate>2017-02-03T01:27:31.093+0000</creationdate>
@@ -181,7 +181,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/__log/archive" -X PROPFIND -i -H 'Depth:1' -H \
+curl "{CellURL}__log/archive" -X PROPFIND -i -H 'Depth:1' -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
 '<?xml version="1.0" encoding="utf-8"?><D:propfind xmlns:D="DAV:"><D:allprop/></D:propfind>'
 ```

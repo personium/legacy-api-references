@@ -23,7 +23,7 @@ read
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/{BoxName}
+{CellURL}{BoxName}
 ```
 ### メソッド
 GET
@@ -149,7 +149,7 @@ Boxインストール完了時（異常終了）の場合
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/{BoxName}" -X GET -i -H \
+curl "{CellURL}{BoxName}" -X GET -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

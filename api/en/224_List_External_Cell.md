@@ -22,7 +22,7 @@ auth-read
 ### Request URL
 
 ```
-/{CellName}/__ctl/ExtCell
+{CellURL}__ctl/ExtCell
 ```
 
 ### Request Method
@@ -113,7 +113,7 @@ Refer to [Error Message List](004_Error_Messages.md)
       {
         "__metadata": {
           "uri":
-          "{CellURL}/__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{ExtCellName1}%2F')",
+          "{CellURL}__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{ExtCellName1}%2F')",
           "etag": "W/\"1-1486519006899\"",
           "type": "CellCtl.ExtCell"
         },
@@ -122,20 +122,20 @@ Refer to [Error Message List](004_Error_Messages.md)
         "__updated": "/Date(1486519006899)/",
         "_Role": {
           "__deferred": {
-            "uri": "{CellURL}/__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{ExtCellName1}%2F')
+            "uri": "{CellURL}__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{ExtCellName1}%2F')
 /_Role"
           }
         },
         "_Relation": {
           "__deferred": {
-            "uri": "{CellURL}/__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{ExtCellName1}%2F')
+            "uri": "{CellURL}__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{ExtCellName1}%2F')
 /_Relation"
           }
         }
       },
       {
         "__metadata": {
-          "uri": "{CellURL}/__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{ExtCellName2}%2F')",
+          "uri": "{CellURL}__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{ExtCellName2}%2F')",
           "etag": "W/\"1-1486520191416\"",
           "type": "CellCtl.ExtCell"
         },
@@ -144,13 +144,13 @@ Refer to [Error Message List](004_Error_Messages.md)
         "__updated": "/Date(1486520191416)/",
         "_Role": {
           "__deferred": {
-            "uri": "{CellURL}/__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{ExtCellName2}%2F')
+            "uri": "{CellURL}__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{ExtCellName2}%2F')
 /_Role"
           }
         },
         "_Relation": {
           "__deferred": {
-            "uri": "{CellURL}/__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{ExtCellName2}%2F')
+            "uri": "{CellURL}__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{ExtCellName2}%2F')
 /_Relation"
           }
         }
@@ -164,6 +164,6 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/__ctl/ExtCell" -X GET -i -H \
+curl "{CellURL}__ctl/ExtCell" -X GET -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```

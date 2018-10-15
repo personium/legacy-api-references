@@ -22,13 +22,13 @@ Restriction on V1.0 series
 ### Request URL
 
 ```
-/{CellName}/{BoxName}
+{CellURL}{BoxName}
 ```
 
 or
 
 ```
-/{CellName}/{BoxName}/{CollectionName}
+{CellURL}{BoxName}/{CollectionName}
 ```
 
 |Path|Overview|Notes|
@@ -197,7 +197,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ```xml
 <multistatus xmlns="DAV:">
     <response>
-        <href>{CellURL}/{BoxName}</href>
+        <href>{CellURL}{BoxName}</href>
         <propstat>
             <prop>
                 <creationdate>2017-02-15T01:52:34.635+0000</creationdate>
@@ -217,7 +217,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/{BoxName}/{CollectionName}" -X PROPFIND -i  -H \
+curl "{CellURL}{BoxName}/{CollectionName}" -X PROPFIND -i  -H \
 'Depth:1' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
 '<?xml version="1.0" encoding="utf-8"?><D:propfind xmlns:D="DAV:"><D:allprop/></D:propfind>'
 ```

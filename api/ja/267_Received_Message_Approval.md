@@ -30,7 +30,7 @@ Typeがrequestの場合はRequestTypeに応じて以下の権限も必要
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/__message/received/{MessageID}
+{CellURL}__message/received/{MessageID}
 ```
 ### メソッド
 POST
@@ -79,6 +79,6 @@ JSON
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/__message/received/{MessageID}" -X POST -i -H \
+curl "{CellURL}__message/received/{MessageID}" -X POST -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Command": "approved"}'
 ```

@@ -17,7 +17,7 @@ None
 ### Request URL
 
 ```
-/{CellName}
+{CellURL}
 ```
 
 ### Request Method

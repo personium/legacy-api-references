@@ -14,13 +14,13 @@ alter-schema
 ### リクエストURL
 AssociationEndとの$Links
 ```
-/{CellName}/{BoxName}/{CollectionName}/EntityType('{EntityTypeName}')/$links/_AssociationEnd
+{CellURL}{BoxName}/{CollectionName}/EntityType('{EntityTypeName}')/$links/_AssociationEnd
 (Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')
 または、
-/{CellName}/{BoxName}/{CollectionName}/EntityType('{EntityTypeName}')/$links/_AssociationEnd
+{CellURL}{BoxName}/{CollectionName}/EntityType('{EntityTypeName}')/$links/_AssociationEnd
 (Name='{AssociationEndName}')
 または、
-/{CellName}/{BoxName}/{CollectionName}/EntityType('{EntityTypeName}')/$links/_AssociationEnd
+{CellURL}{BoxName}/{CollectionName}/EntityType('{EntityTypeName}')/$links/_AssociationEnd
 ('{AssociationEndName}')
 ```
 ### メソッド
@@ -68,7 +68,7 @@ DELETE
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/{BoxName}/{CollectionName}/$metadata/EntityType(Name=\
+curl "{CellURL}{BoxName}/{CollectionName}/$metadata/EntityType(Name=\
 '{EntityTypeName}')/$links/_AssociationEnd(Name='a{AssociationEndName}',_EntityType.Name=\
 '{EntityTypeName}')" -X DELETE -i -H 'If-Match: *' -H 'Authorization: Bearer {AccessToken}' -H \
 'Accept: application/json'

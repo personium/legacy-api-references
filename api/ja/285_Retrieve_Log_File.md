@@ -28,11 +28,11 @@ log-read
 ### リクエストURL
 #### 最新のログファイルを取得
 ```
-/{CellName}/__log/current/{LogName}
+{CellURL}__log/current/{LogName}
 ```
 #### ローテートされたログファイルを取得
 ```
-/{CellName}/__log/archive/{LogName}
+{CellURL}__log/archive/{LogName}
 ```
 ※{LogName}は、ログファイル情報取得API で返却されたファイル名を指定する。
 ### メソッド
@@ -86,8 +86,8 @@ currentのログ取得時にログが存在しない場合は、空のレスポ�
 ### レスポンスサンプル
 外部イベント
 ```
-2013-02-04T00:50:12.761Z,[INFO ],"Req_animal-access_1001","true","{CellURL}/",
-"https://{UnitFQDN}/servicemanager/#admin","authSchema","/{CellName}/{BoxName}/service_name/token_keeper",
+2013-02-04T00:50:12.761Z,[INFO ],"Req_animal-access_1001","true","{CellURL}",
+"https://{UnitFQDN}/servicemanager/#admin","authSchema","{CellURL}{BoxName}/service_name/token_keeper",
 "[XXXX2033] Success schema authorization. cellUrl=https://{UnitFQDN}/keeper-d4a57bb26eae481486b07d06487051d1/"
 ```
 
@@ -101,7 +101,7 @@ currentのログ取得時にログが存在しない場合は、空のレスポ�
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/__log/current/default.log" -X GET -i -H \
+curl "{CellURL}__log/current/default.log" -X GET -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

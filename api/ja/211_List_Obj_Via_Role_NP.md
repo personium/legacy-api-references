@@ -19,51 +19,51 @@
 ### リクエストURL
 #### AccountへのnavigationProperty
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_Account
+{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_Account
 ```
 または、
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}')/_Account
+{CellURL}__ctl/Role(Name='{RoleName}')/_Account
 ```
 または、
 ```
-/{CellName}/__ctl/Role('{RoleName}')/_Account
+{CellURL}__ctl/Role('{RoleName}')/_Account
 ```
 #### ExtCellへのnavigationProperty
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_ExtCell
+{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_ExtCell
 ```
 または、
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}')/_ExtCell
+{CellURL}__ctl/Role(Name='{RoleName}')/_ExtCell
 ```
 または、
 ```
-/{CellName}/__ctl/Role('{RoleName}')/_ExtCell
+{CellURL}__ctl/Role('{RoleName}')/_ExtCell
 ```
 #### ExtRoleへのnavigationProperty
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_ExtRole
+{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_ExtRole
 ```
 または、
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}')/_ExtRole
+{CellURL}__ctl/Role(Name='{RoleName}')/_ExtRole
 ```
 または、
 ```
-/{CellName}/__ctl/Role('{RoleName}')/_ExtRole
+{CellURL}__ctl/Role('{RoleName}')/_ExtRole
 ```
 #### RelationへのnavigationProperty
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_Relation
+{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_Relation
 ```
 または、
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}')/_Relation
+{CellURL}__ctl/Role(Name='{RoleName}')/_Relation
 ```
 または、
 ```
-/{CellName}/__ctl/Role('{RoleName}')/_Relation
+{CellURL}__ctl/Role('{RoleName}')/_Relation
 ```
 ※ \_Box.Nameパラメタを省略した場合は、nullが指定されたものとする
 ### メソッド
@@ -138,7 +138,7 @@ GET
     "results": [
       {
         "__metadata": {
-          "uri": "{CellURL}/__ctl/Account('{AccountName}')",
+          "uri": "{CellURL}__ctl/Account('{AccountName}')",
           "etag": "W/\"1-1486462510467\"",
           "type": "CellCtl.Account"
         },
@@ -150,12 +150,12 @@ GET
         "__updated": "/Date(1486462510467)/",
         "_Role": {
           "__deferred": {
-            "uri": "{CellURL}/__ctl/Account('{AccountName}')/_Role"
+            "uri": "{CellURL}__ctl/Account('{AccountName}')/_Role"
           }
         },
         "_ReceivedMessageRead": {
           "__deferred": {
-            "uri": "{CellURL}/__ctl/Account('{AccountName}')/_ReceivedMessageRead"
+            "uri": "{CellURL}__ctl/Account('{AccountName}')/_ReceivedMessageRead"
           }
         }
       }
@@ -171,7 +171,7 @@ GET
 
 #### AccountとRoleのnavigationProperty経由一覧
 ```sh
-curl "{CellURL}/__ctl/Role('{RoleName}')/_Account" -X GET -i -H \
+curl "{CellURL}__ctl/Role('{RoleName}')/_Account" -X GET -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

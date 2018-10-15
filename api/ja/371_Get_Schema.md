@@ -14,7 +14,7 @@ read
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/{BoxName}/{odataname}/$metadata
+{CellURL}{BoxName}/{odataname}/$metadata
 ```
 ### メソッド
 GET
@@ -303,12 +303,12 @@ FromRole="TestEntity:TestAssociationEndFrom" ToRole="TestEntity:TestAssociationE
 ## cURLサンプル
 ### SchemaのAtom ServiceDocumentの場合
 ```sh
-curl "{CellURL}/{BoxName}/{ODataCollecitonName}/\$metadata" -X GET -i -H \
+curl "{CellURL}{BoxName}/{ODataCollecitonName}/\$metadata" -X GET -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept:application/atomsvc+xml'
 ```
 ### ユーザデータの場合
 ```sh
-curl "{CellURL}/{BoxName}/{ODataCollecitonName}/\$metadata" -X GET -i -H \
+curl "{CellURL}{BoxName}/{ODataCollecitonName}/\$metadata" -X GET -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept:application/xml'
 ```
 

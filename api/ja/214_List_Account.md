@@ -15,7 +15,7 @@ auth-read
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/__ctl/Account
+{CellURL}__ctl/Account
 ```
 ### メソッド
 GET
@@ -97,7 +97,7 @@ GET
     "results": [
       {
         "__metadata": {
-          "uri": "{CellURL}/__ctl/Account('{AccountName}')",
+          "uri": "{CellURL}__ctl/Account('{AccountName}')",
           "etag": "W/\"1-1486462510467\"",
           "type": "CellCtl.Account"
         },
@@ -109,18 +109,18 @@ GET
         "__updated": "/Date(1486462510467)/",
         "_Role": {
           "__deferred": {
-            "uri": "{CellURL}/__ctl/Account('{AccountName}')/_Role"
+            "uri": "{CellURL}__ctl/Account('{AccountName}')/_Role"
           }
         },
         "_ReceivedMessageRead": {
           "__deferred": {
-            "uri": "{CellURL}/__ctl/Account('{AccountName}')/_ReceivedMessageRead"
+            "uri": "{CellURL}__ctl/Account('{AccountName}')/_ReceivedMessageRead"
           }
         }
       },
       {
         "__metadata": {
-          "uri": "{CellURL}/__ctl/Account('{AccountName}')",
+          "uri": "{CellURL}__ctl/Account('{AccountName}')",
           "etag": "W/\"1-1486465908803\"",
           "type": "CellCtl.Account"
         },
@@ -132,12 +132,12 @@ GET
         "__updated": "/Date(1486465908803)/",
         "_Role": {
           "__deferred": {
-            "uri": "{CellURL}/__ctl/Account('{AccountName}')/_Role"
+            "uri": "{CellURL}__ctl/Account('{AccountName}')/_Role"
           }
         },
         "_ReceivedMessageRead": {
           "__deferred": {
-            "uri": "{CellURL}/__ctl/Account('{AccountName}')/_ReceivedMessageRead"
+            "uri": "{CellURL}__ctl/Account('{AccountName}')/_ReceivedMessageRead"
           }
         }
       }
@@ -149,7 +149,7 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/__ctl/Account" -X GET -i -H \
+curl "{CellURL}__ctl/Account" -X GET -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

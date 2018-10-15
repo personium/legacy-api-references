@@ -12,7 +12,7 @@ ExtRoleに$linksで指定したRoleのODataリソースを紐付ける
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/__ctl/ExtRole(ExtRole='{ExtRoleURL}')/$links/_Role
+{CellURL}__ctl/ExtRole(ExtRole='{ExtRoleURL}')/$links/_Role
 ```
 ※ {ExtRoleURL}についてはURLエンコードが必要
 ※ \_Box.Nameパラメタを省略した場合は、nullが指定されたものとする
@@ -40,7 +40,7 @@ JSON
 |Url|CellへのURL|桁数：1&#65374;1024<br>URIの形式に従う<br>scheme：http, https|○||
 ### リクエストサンプル
 ```JSON
-{"uri":"{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')"}
+{"uri":"{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')"}
 ```
 
 
@@ -62,9 +62,9 @@ JSON
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/__ctl/ExtRole(ExtRole='https%3A%2F%2F{UnitFQDN}%2F{CellName}\
+curl "{CellURL}__ctl/ExtRole(ExtRole='https%3A%2F%2F{UnitFQDN}%2F{CellName}\
 %2F__role%2F__%2F{ExtRoleName}',_Relation.Name='{RelationName}',_Relation._Box.Name='{BoxName}')\
 /\$links/_Role" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' \
--d "{\"uri\":\"{CellURL}/__ctl/Role(Name='{RoleName}')\"}"
+-d "{\"uri\":\"{CellURL}__ctl/Role(Name='{RoleName}')\"}"
 ```
 

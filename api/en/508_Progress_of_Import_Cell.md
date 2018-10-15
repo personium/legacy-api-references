@@ -23,7 +23,7 @@ root
 ### Request URL
 
 ```
-/{CellName}/__import
+{CellURL}__import
 ```
 
 ### Request Method
@@ -125,7 +125,7 @@ Cell Import Abnormal termination
 ## cURL Sample
 
 ```sh
-curl "{CellURL}/__import" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H \
+curl "{CellURL}__import" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H \
 'Accept: application/json'
 ```
 

@@ -16,15 +16,15 @@ auth
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')
+{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}')
+{CellURL}__ctl/Role(Name='{RoleName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Role('{RoleName}')
+{CellURL}__ctl/Role('{RoleName}')
 ```
 ※ \_Box.Nameパラメタを省略した場合は、nullが指定されたものとする
 ### メソッド
@@ -76,7 +76,7 @@ PUT
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')" -X \
+curl "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')" -X \
 PUT -i -H 'If-Match: *' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' \
 -d '{"Name":"{RoleName}","_Box.Name":"{BoxName}"}'
 ```

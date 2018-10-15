@@ -23,25 +23,25 @@ You can specify the following OData resources
 #### Correlating with the role
 
 ```
-/{CellName}/__ctl/ExtCell(Url='{ExtCellURL}')/$links/_Role
+{CellURL}__ctl/ExtCell(Url='{ExtCellURL}')/$links/_Role
 ```
 
 or
 
 ```
-/{CellName}/__ctl/ExtCell('{ExtCellURL}')/$links/_Role
+{CellURL}__ctl/ExtCell('{ExtCellURL}')/$links/_Role
 ```
 
 #### Correlating with the relation
 
 ```
-/{CellName}/__ctl/ExtCell(Url='{ExtCellURL}')/$links/_Relation
+{CellURL}__ctl/ExtCell(Url='{ExtCellURL}')/$links/_Relation
 ```
 
 or
 
 ```
-/{CellName}/__ctl/ExtCell('{ExtCellURL}')/$links/_Relation
+{CellURL}__ctl/ExtCell('{ExtCellURL}')/$links/_Relation
 ```
 
 If the \_Box.Name parameter is omitted, it is assumed that null is specified
@@ -129,7 +129,7 @@ Refer to [Error Message List](004_Error_Messages.md)
   "d": {
     "results": [
       {
-        "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')"
+        "uri": "{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')"
       }
     ]
   }
@@ -140,7 +140,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{ExtCellName}%2F')/\$links/_Relation" \
+curl "{CellURL}__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{ExtCellName}%2F')/\$links/_Relation" \
 -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

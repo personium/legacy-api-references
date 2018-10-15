@@ -22,7 +22,7 @@ auth
 ### Request URL
 
 ```
-/{CellName}/__ctl/Role
+{CellURL}__ctl/Role
 ```
 
 ### Request Method
@@ -115,7 +115,7 @@ The response is a JSON object, the correspondence between the key (name) and typ
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')",
+        "uri": "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')",
         "etag": "W/\"1-1486456585171\"",
         "type": "CellCtl.Role"
       },
@@ -135,7 +135,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/__ctl/Role" -X POST -i -H 'Authorization: Bearer {AccessToken}' \
+curl "{CellURL}__ctl/Role" -X POST -i -H 'Authorization: Bearer {AccessToken}' \
 -H 'Accept: application/json' -d '{ "Name": "{RoleName}", "_Box.Name": "{BoxName}"}'
 ```
 

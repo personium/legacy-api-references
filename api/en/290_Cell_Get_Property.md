@@ -24,7 +24,7 @@ Restrictions in V 1.0
 ### Request URL
 
 ```
-/{CellName}
+{CellURL}
 ```
 
 ### Request Method

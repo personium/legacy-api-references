@@ -7,12 +7,12 @@ Import cell data from Cell snapshot file.<br>The Cell snapshot file uses a speci
 ```
 Call Import example of Cell Import (When polling on client is set to 10 seconds)
  1. Cell import reception
-    -- POST /{CellName}/__import
+    -- POST {CellURL}__import
  2. Cell import status check
     -- GET / {CellName} / __ import -> "Processing"being returned.
     -- Polling for 10 seconds
  3. Cell Import Complete
-    -- GET /{CellName}/__import -> "Acceptable"being returned.
+    -- GET {CellURL}__import -> "Acceptable"being returned.
     * The process in the above 2 loops and polls until completion of processing.
 ```
 
@@ -38,7 +38,7 @@ root
 ### Request URL
 
 ```
-/{CellName}/__import
+{CellURL}__import
 ```
 
 ### Request Method
@@ -107,6 +107,6 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Sample
 
 ```sh
-curl "{CellURL}/__import" -X POST -i -H 'Authorization: Bearer {AccessToken}' -d \
+curl "{CellURL}__import" -X POST -i -H 'Authorization: Bearer {AccessToken}' -d \
 '{"Name":"CellExport_2017_01"}'
 ```

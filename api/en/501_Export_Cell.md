@@ -13,12 +13,12 @@ An example of calling from acceptance at the client to completion of processing 
 ```
 Call export call example (with 10 seconds polling on the client)
  1. Cell export reception
-    -- POST /{CellName}/__export
+    -- POST {CellURL}__export
  2. Cell export status check
-    -- GET /{CellName}/__export -> return "in progress"
+    -- GET {CellURL}__export -> return "in progress"
     -- wait 10 seconds
  3. Cell export finished
-    -- GET /{CellName}/__export -> return "acceptable"
+    -- GET {CellURL}__export -> return "acceptable"
  4. confirm Cell export finished successfully
     -- PROPFIND /{cell}/__snapshot -> when the file suffix is ".zip" exported successfully, ".error" error occured.
  * The process in the above 2 loops and polls until completion of processing.
@@ -67,7 +67,7 @@ If the Cell export fails, a file with the extension ". Error" is generated in th
 ### Request URL
 
 ```
-/{CellName}/__export
+{CellURL}__export
 ```
 
 ### Request Method
@@ -136,7 +136,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Sample
 
 ```sh
-curl "{CellURL}/__export" -X POST -i -H 'Authorization: Bearer {AccessToken}' \
+curl "{CellURL}__export" -X POST -i -H 'Authorization: Bearer {AccessToken}' \
 -H 'Accept: application/json' -d '{"Name":"CellExport_2017_01"}'
 ```
 

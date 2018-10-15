@@ -18,51 +18,51 @@ Relationに紐付いたODataリソースを一覧取得する
 ### リクエストURL
 #### Correlating with Box
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_Box
+{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_Box
 ```
 または、
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}')/$links/_Box
+{CellURL}__ctl/Relation(Name='{RelationName}')/$links/_Box
 ```
 または、
 ```
-/{CellName}/__ctl/Relation('{RelationName}')/$links/_Box
+{CellURL}__ctl/Relation('{RelationName}')/$links/_Box
 ```
 #### Correlating with ExtCell
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_ExtCell
+{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_ExtCell
 ```
 または、
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}')/$links/_ExtCell
+{CellURL}__ctl/Relation(Name='{RelationName}')/$links/_ExtCell
 ```
 または、
 ```
-/{CellName}/__ctl/Relation('{RelationName}')/$links/_ExtCell
+{CellURL}__ctl/Relation('{RelationName}')/$links/_ExtCell
 ```
 #### Correlating with ExtRole
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_ExtRole
+{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_ExtRole
 ```
 または、
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}')/$links/_ExtRole
+{CellURL}__ctl/Relation(Name='{RelationName}')/$links/_ExtRole
 ```
 または、
 ```
-/{CellName}/__ctl/Relation('{RelationName}')/$links/_ExtRole
+{CellURL}__ctl/Relation('{RelationName}')/$links/_ExtRole
 ```
 #### Correlating with the role
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_Role
+{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_Role
 ```
 または、
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}')/$links/_Role
+{CellURL}__ctl/Relation(Name='{RelationName}')/$links/_Role
 ```
 または、
 ```
-/{CellName}/__ctl/Relation('{RelationName}')/$links/_Role
+{CellURL}__ctl/Relation('{RelationName}')/$links/_Role
 ```
 ※ \_Box.Nameパラメタを省略した場合は、nullが指定されたものとする
 ### メソッド
@@ -132,7 +132,7 @@ GET
   "d": {
     "results": [
       {
-        "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')"
+        "uri": "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')"
       }
     ]
   }
@@ -143,7 +143,7 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')\
+curl "{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')\
 /\$links/_Role" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

@@ -32,14 +32,14 @@ $select={propertyName}
 Example: When returning only Name property when acquiring Box list:
 
 ```sh
-curl "{CellURL}/__ctl/Box?\$select=Name" -X GET -i -H \
+curl "{CellURL}__ctl/Box?\$select=Name" -X GET -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 
 Example: When returning all the properties when acquiring the Box list:
 
 ```
-curl "{CellURL}/__ctl/Box?\$select=*" -X GET -i -H \
+curl "{CellURL}__ctl/Box?\$select=*" -X GET -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

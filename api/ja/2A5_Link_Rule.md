@@ -22,11 +22,11 @@ Ruleに$linksで指定したODataリソースを紐付ける
 ### リクエストURL
 
 ```
-/{CellName}/__ctl/Rule(Name='{RuleName}')/$links/_Box
+{CellURL}__ctl/Rule(Name='{RuleName}')/$links/_Box
 ```
 または、
 ```
-/{CellName}/__ctl/Rule('{RuleName}')/$links/_Box
+{CellURL}__ctl/Rule('{RuleName}')/$links/_Box
 ```
 
 ※ \_Box.Nameパラメタを省略した場合は、nullが指定されたものとする
@@ -58,7 +58,7 @@ JSON
 
 ### リクエストボディサンプル
 ```JSON
-{"uri":"{CellURL}/__ctl/Box(Name='{BoxName}')"}
+{"uri":"{CellURL}__ctl/Box(Name='{BoxName}')"}
 ```
 
 ## レスポンス
@@ -82,7 +82,7 @@ JSON
 ## cURLサンプル
 
 ```sh
-curl  "{CellURL}/__ctl/Rule('{RuleName}')/\$links/_Box" -X POST -i -H \
+curl  "{CellURL}__ctl/Rule('{RuleName}')/\$links/_Box" -X POST -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' \
--d "{\"uri\":\"{CellURL}/__ctl/Box('{BoxName}')\"}"
+-d "{\"uri\":\"{CellURL}__ctl/Box('{BoxName}')\"}"
 ```

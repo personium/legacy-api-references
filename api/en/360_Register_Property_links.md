@@ -26,7 +26,7 @@ alter-schema
 $links with EntityType
 
 ```
-/{CellName}/{BoxName}/{CollectionName}/$metadata/Property(Name='{PropertyName}',_EntityType.Name='{EntityTypeName}')
+{CellURL}{BoxName}/{CollectionName}/$metadata/Property(Name='{PropertyName}',_EntityType.Name='{EntityTypeName}')
 /$links/_EntityType
 ```
 
@@ -115,9 +115,9 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/{BoxName}/{OdataCollecitonPath}/$metadata/Property('property_nameName')\
+curl "{CellURL}{BoxName}/{OdataCollecitonPath}/$metadata/Property('property_nameName')\
 /$links/_EntityType" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
-'{"uri":"{CellURL}/{BoxName}/{OdataCollecitonPath}/$metadata/EntityType('Profile')"}'
+'{"uri":"{CellURL}{BoxName}/{OdataCollecitonPath}/$metadata/EntityType('Profile')"}'
 ```
 
 

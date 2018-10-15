@@ -17,7 +17,7 @@ alter-schema
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/ComplexType('{ComplexTypeName}')
+{CellURL}{BoxName}/{ODataCollecitonName}/$metadata/ComplexType('{ComplexTypeName}')
 ```
 ### メソッド
 DELETE
@@ -69,7 +69,7 @@ DELETE
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/{BoxName}/{ODataCollecitonName}/\$metadata/ComplexType\
+curl "{CellURL}{BoxName}/{ODataCollecitonName}/\$metadata/ComplexType\
 ('{ComplexTypeName}')" -X DELETE -i -H 'Authorization: Bearer {AccessToken}' -H \
 'Accept: application/json'
 ```

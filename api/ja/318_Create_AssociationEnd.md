@@ -15,7 +15,7 @@ alter-schema
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/AssociationEnd
+{CellURL}{BoxName}/{ODataCollecitonName}/$metadata/AssociationEnd
 ```
 ### メソッド
 POST
@@ -104,7 +104,7 @@ JSON
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}/{BoxName}/{CollectionName}/$metadata
+        "uri": "{CellURL}{BoxName}/{CollectionName}/$metadata
 /AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')",
         "etag": "W/\"1-1487652733383\"",
         "type": "ODataSvcSchema.AssociationEnd"
@@ -124,7 +124,7 @@ JSON
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/{BoxName}/{ODataCollecitonName}/\$metadata/AssociationEnd" \
+curl "{CellURL}{BoxName}/{ODataCollecitonName}/\$metadata/AssociationEnd" \
 -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
 '{ "Name": "{AssociationEndName}", "Multiplicity": "{Multiplicity}", "_EntityType.Name": \
 "{EntityTypeName}"}'

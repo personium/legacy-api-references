@@ -13,7 +13,7 @@ message
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/__ctl/SentMessage('{MessageID}')
+{CellURL}__ctl/SentMessage('{MessageID}')
 ```
 ### メソッド
 DELETE
@@ -56,7 +56,7 @@ DELETE
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/__ctl/SentMessage('{MessageID}')" -X DELETE -i  -H \
+curl "{CellURL}__ctl/SentMessage('{MessageID}')" -X DELETE -i  -H \
 'If-Match: *' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

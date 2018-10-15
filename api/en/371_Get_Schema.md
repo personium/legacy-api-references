@@ -22,7 +22,7 @@ read
 ### Request URL
 
 ```
-/{CellName}/{BoxName}/{odataname}/$metadata
+{CellURL}{BoxName}/{odataname}/$metadata
 ```
 
 ### Request Method
@@ -353,14 +353,14 @@ FromRole="TestEntity:TestAssociationEndFrom" ToRole="TestEntity:TestAssociationE
 ### For Schema's Atom ServiceDocument
 
 ```sh
-curl "{CellURL}/{BoxName}/{ODataCollecitonName}/\$metadata" -X GET -i -H \
+curl "{CellURL}{BoxName}/{ODataCollecitonName}/\$metadata" -X GET -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept:application/atomsvc+xml'
 ```
 
 ### For user data
 
 ```sh
-curl "{CellURL}/{BoxName}/{ODataCollecitonName}/\$metadata" -X GET -i -H \
+curl "{CellURL}{BoxName}/{ODataCollecitonName}/\$metadata" -X GET -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept:application/xml'
 ```
 

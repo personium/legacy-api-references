@@ -14,7 +14,7 @@ rule
 ## request
 ### Request URL
 ```
-/{CellName}/__ctl/Rule
+{CellURL}__ctl/Rule
 ```
 ### Method
 POST
@@ -106,7 +106,7 @@ Only specific kinds of URL can be accepted for TargetUrl field.
 | exec | Not specified | personium-localcell:/{BoxName}/{CollectionName}/{ServiceName} ||
 | relay | specified | URL with scheme http, https, personium-localunit, personium-localcell, personium-localbox.| If value of TargetUrl is able to be converted to personium-localunit scheme, respond error. Please set using personium-localunit scheme. |
 | relay | Not specified | URL with scheme http, https, personium-localunit, personium-localcell. | If value of TargetUrl is able to be converted to personium-localunit scheme, respond error. Please set using personium-localunit scheme. |
-| relay.event || Cell URL.<br>http&#58;//...<br>https&#58;//...<br>personium-localunit:/{CellName}/<br>personium-localcell:/ | If value of TargetUrl is able to be converted to personium-localunit scheme, respond error. Please set using personium-localunit scheme. |
+| relay.event || Cell URL.<br>http&#58;//...<br>https&#58;//...<br>personium-localunit:{CellURL}<br>personium-localcell:/ | If value of TargetUrl is able to be converted to personium-localunit scheme, respond error. Please set using personium-localunit scheme. |
 
 ### Request sample
 ```JSON
@@ -162,7 +162,7 @@ The response is a JSON object, and the correspondence between the key (name) and
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}/__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')",
+        "uri": "{CellURL}__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')",
         "etag": "W/\"1-1486368212581\"",
         "type": "CellCtl.Rule"
       },
@@ -188,7 +188,7 @@ The response is a JSON object, and the correspondence between the key (name) and
 ## cURL Sample
 
 ```sh
-curl "{CellURL}/__ctl/Rule" -X POST -i \
+curl "{CellURL}__ctl/Rule" -X POST -i \
 -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' \
 -d '{"Name":"{RuleName}", "EventExternal":true, "Action":"log"}'
 ```

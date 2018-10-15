@@ -9,7 +9,7 @@ read
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/{BoxName}/{OdataCollectionName}/$metadata
+{CellURL}{BoxName}/{OdataCollectionName}/$metadata
 ```
 ### メソッド
 GET
@@ -102,7 +102,7 @@ FromRole="TestEntity:TestAssociationEndFrom" ToRole="TestEntity:TestAssociationE
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/{BoxName}/{OdataCollectionName}/\$metadata" -X GET -i -H \
+curl "{CellURL}{BoxName}/{OdataCollectionName}/\$metadata" -X GET -i -H \
 'Authorization: Bearer {AccessToken}'
 ```
 

@@ -16,19 +16,19 @@ ExtCellに紐付いたODataリソースを一覧取得する
 ### リクエストURL
 #### Correlating with the role
 ```
-/{CellName}/__ctl/ExtCell(Url='{ExtCellURL}')/$links/_Role
+{CellURL}__ctl/ExtCell(Url='{ExtCellURL}')/$links/_Role
 ```
 または、
 ```
-/{CellName}/__ctl/ExtCell('{ExtCellURL}')/$links/_Role
+{CellURL}__ctl/ExtCell('{ExtCellURL}')/$links/_Role
 ```
 #### Correlating with the relation
 ```
-/{CellName}/__ctl/ExtCell(Url='{ExtCellURL}')/$links/_Relation
+{CellURL}__ctl/ExtCell(Url='{ExtCellURL}')/$links/_Relation
 ```
 または、
 ```
-/{CellName}/__ctl/ExtCell('{ExtCellURL}')/$links/_Relation
+{CellURL}__ctl/ExtCell('{ExtCellURL}')/$links/_Relation
 ```
 ※ \_Box.Nameパラメタを省略した場合は、nullが指定されたものとする
 ### メソッド
@@ -98,7 +98,7 @@ GET
   "d": {
     "results": [
       {
-        "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}'
+        "uri": "{CellURL}__ctl/Relation(Name='{RelationName}'
 ,_Box.Name='{BoxName}')"
       }
     ]
@@ -110,7 +110,7 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{ExtCellName}%2F')\
+curl "{CellURL}__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{ExtCellName}%2F')\
 /\$links/_Relation" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

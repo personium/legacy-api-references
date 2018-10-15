@@ -16,7 +16,7 @@ social-read
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/__ctl/Relation
+{CellURL}__ctl/Relation
 ```
 ### メソッド
 GET
@@ -103,7 +103,7 @@ GET
       {
         "__metadata": {
           "uri":
-          "{CellURL}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')",
+          "{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')",
           "etag": "W/\"1-1486538244016\"",
           "type": "CellCtl.Relation"
         },
@@ -113,32 +113,32 @@ GET
         "__updated": "/Date(1486538244016)/",
         "_Box": {
           "__deferred": {
-            "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}'
+            "uri": "{CellURL}__ctl/Relation(Name='{RelationName}'
 ,_Box.Name='{BoxName}')/_Box"
           }
         },
         "_ExtCell": {
           "__deferred": {
-            "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}'
+            "uri": "{CellURL}__ctl/Relation(Name='{RelationName}'
 ,_Box.Name='{BoxName}')/_ExtCell"
           }
         },
         "_ExtRole": {
           "__deferred": {
-            "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}'
+            "uri": "{CellURL}__ctl/Relation(Name='{RelationName}'
 ,_Box.Name='{BoxName}')/_ExtRole"
           }
         },
         "_Role": {
           "__deferred": {
-            "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}'
+            "uri": "{CellURL}__ctl/Relation(Name='{RelationName}'
 ,_Box.Name='{BoxName}')/_Role"
           }
         }
       },
       {
         "__metadata": {
-          "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}'
+          "uri": "{CellURL}__ctl/Relation(Name='{RelationName}'
 ,_Box.Name='{BoxName}')",
           "etag": "W/\"1-1486538757303\"",
           "type": "CellCtl.Relation"
@@ -149,25 +149,25 @@ GET
         "__updated": "/Date(1486538757303)/",
         "_Box": {
           "__deferred": {
-            "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}'
+            "uri": "{CellURL}__ctl/Relation(Name='{RelationName}'
 ,_Box.Name='{BoxName}')/_Box"
           }
         },
         "_ExtCell": {
           "__deferred": {
-            "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}'
+            "uri": "{CellURL}__ctl/Relation(Name='{RelationName}'
 ,_Box.Name='{BoxName}')/_ExtCell"
           }
         },
         "_ExtRole": {
           "__deferred": {
-            "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}'
+            "uri": "{CellURL}__ctl/Relation(Name='{RelationName}'
 ,_Box.Name='{BoxName}')/_ExtRole"
           }
         },
         "_Role": {
           "__deferred": {
-            "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}'
+            "uri": "{CellURL}__ctl/Relation(Name='{RelationName}'
 ,_Box.Name='{BoxName}')/_Role"
           }
         }
@@ -182,7 +182,7 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/__ctl/Relation" -X GET -i  -H 'Authorization: Bearer \
+curl "{CellURL}__ctl/Relation" -X GET -i  -H 'Authorization: Bearer \
 {AccessToken}' -H 'Accept: application/json'
 ```
 

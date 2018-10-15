@@ -18,7 +18,7 @@ alter-schema
 ### リクエストURL
 ```
 Propertyとの$links
-/{CellName}/{BoxName}/{CollectionName}/$metadata/ComplexType('{ComplextypeName}')/$links
+{CellURL}{BoxName}/{CollectionName}/$metadata/ComplexType('{ComplextypeName}')/$links
 /_Property('{PropertyName}')
 ```
 ### メソッド
@@ -83,7 +83,7 @@ DELETE
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/{BoxName}/{CollectionName}/$metadata/ComplexType('Address')\
+curl "{CellURL}{BoxName}/{CollectionName}/$metadata/ComplexType('Address')\
 /$links/_Property('PostalCode')" -X DELETE -i -H 'If-Match: *' -H 'Authorization: Bearer \
 {AccessToken}' -H 'Accept: application/json'
 ```

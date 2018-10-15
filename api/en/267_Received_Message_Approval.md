@@ -36,7 +36,7 @@ Requires additional privilege when the type of the message is request.
 ### Request URL
 
 ```
-/{CellName}/__message/received/{MessageID}
+{CellURL}__message/received/{MessageID}
 ```
 
 ### Request Method
@@ -102,6 +102,6 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/__message/received/{MessageID}" -X POST -i -H \
+curl "{CellURL}__message/received/{MessageID}" -X POST -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Command": "approved"}'
 ```

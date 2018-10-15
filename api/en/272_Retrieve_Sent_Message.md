@@ -21,7 +21,7 @@ message or message-read
 ### Request URL
 
 ```
-/{CellName}/__ctl/SentMessage('{MessageID}')
+{CellURL}__ctl/SentMessage('{MessageID}')
 ```
 
 ### Request Method
@@ -137,7 +137,7 @@ Refer to [Error Message List](004_Error_Messages.md)
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}/__ctl/SentMessage('c87b42e10df846a9bee842225d1383fe')",
+        "uri": "{CellURL}__ctl/SentMessage('c87b42e10df846a9bee842225d1383fe')",
         "etag": "W/\"1-1486683974323\"",
         "type": "CellCtl.SentMessage"
       },
@@ -165,7 +165,7 @@ Refer to [Error Message List](004_Error_Messages.md)
       ],
       "Result": [
         {
-          "To": "{CellURL}/",
+          "To": "{CellURL}",
           "Code": "201",
           "Reason": "Created."
         }
@@ -174,7 +174,7 @@ Refer to [Error Message List](004_Error_Messages.md)
       "__updated": "/Date(1486683974323)/",
       "_Box": {
         "__deferred": {
-          "uri": "{CellURL}/__ctl/SentMessage('c87b42e10df846a9bee842225d1383fe')/_Box"
+          "uri": "{CellURL}__ctl/SentMessage('c87b42e10df846a9bee842225d1383fe')/_Box"
         }
       }
     }
@@ -186,6 +186,6 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/__ctl/SentMessage('{MessageID}')" -X GET -i -H \
+curl "{CellURL}__ctl/SentMessage('{MessageID}')" -X GET -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```

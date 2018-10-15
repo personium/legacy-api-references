@@ -19,37 +19,37 @@ Delete a list of OData resources associated with Account
 link with Role
 
 ```
-/{CellName}/__ctl/Account(Name='{AccountName}')/$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')
+{CellURL}__ctl/Account(Name='{AccountName}')/$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Account(Name='{AccountName}')/$links/_Role(Name='{RoleName}')
+{CellURL}__ctl/Account(Name='{AccountName}')/$links/_Role(Name='{RoleName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Account(Name='{AccountName}')/$links/_Role('{RoleName}')
+{CellURL}__ctl/Account(Name='{AccountName}')/$links/_Role('{RoleName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Account('{AccountName}')/$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')
+{CellURL}__ctl/Account('{AccountName}')/$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Account('{AccountName}')/$links/_Role(Name='{RoleName}')
+{CellURL}__ctl/Account('{AccountName}')/$links/_Role(Name='{RoleName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Account('{AccountName}')/$links/_Role('{RoleName}')
+{CellURL}__ctl/Account('{AccountName}')/$links/_Role('{RoleName}')
 ```
 
 ### Request Method
@@ -103,7 +103,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/__ctl/Account('{AccountName}')/\$links/_Role('{RoleName}')" -X \
+curl "{CellURL}__ctl/Account('{AccountName}')/\$links/_Role('{RoleName}')" -X \
 DELETE -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

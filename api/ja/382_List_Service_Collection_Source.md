@@ -7,7 +7,7 @@ read
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/{BoxName}/{CollectionName}/__src/{ResourceName}
+{CellURL}{BoxName}/{CollectionName}/__src/{ResourceName}
 ```
 
 |パス|概要|備考|
@@ -60,7 +60,7 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/{BoxName}/{CollectionName}/__src/{ResourceName}" -X GET -i -H \
+curl "{CellURL}{BoxName}/{CollectionName}/__src/{ResourceName}" -X GET -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

@@ -26,39 +26,39 @@ Boxに紐付いたODataリソースを一覧取得する
 ### リクエストURL
 #### Roleとの紐付け
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/_Role
+{CellURL}__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/_Role
 ```
 または、
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}')/$links/_Role
+{CellURL}__ctl/Box(Name='{BoxName}')/$links/_Role
 ```
 または、
 ```
-/{CellName}/__ctl/Box('{BoxName}')/$links/_Role
+{CellURL}__ctl/Box('{BoxName}')/$links/_Role
 ```
 #### Relationとの紐付け
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/_Relation
+{CellURL}__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/_Relation
 ```
 または、
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}')/$links/_Relation
+{CellURL}__ctl/Box(Name='{BoxName}')/$links/_Relation
 ```
 または、
 ```
-/{CellName}/__ctl/Box('{BoxName}')/$links/_Relation
+{CellURL}__ctl/Box('{BoxName}')/$links/_Relation
 ```
 #### Ruleとの紐付け
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/_Rule
+{CellURL}__ctl/Box(Name='{BoxName}',Schema='{SchemaURL}')/$links/_Rule
 ```
 または、
 ```
-/{CellName}/__ctl/Box(Name='{BoxName}')/$links/_Rule
+{CellURL}__ctl/Box(Name='{BoxName}')/$links/_Rule
 ```
 または、
 ```
-/{CellName}/__ctl/Box('{BoxName}')/$links/_Rule
+{CellURL}__ctl/Box('{BoxName}')/$links/_Rule
 ```
 ※ Schemaパラメタを省略した場合は、nullが指定されたものとする
 
@@ -135,7 +135,7 @@ GET
   "d": {
     "results": [
       {
-        "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')"
+        "uri": "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')"
       }
     ]
   }
@@ -145,7 +145,7 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/__ctl/Box('{BoxName}')/\$links/_Role" -X GET -i -H \
+curl "{CellURL}__ctl/Box('{BoxName}')/\$links/_Role" -X GET -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

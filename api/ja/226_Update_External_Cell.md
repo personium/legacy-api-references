@@ -16,7 +16,7 @@ auth
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/__ctl/ExtCell('http%3A%2F%2F{UnitFQDN}%2F{CellName}')
+{CellURL}__ctl/ExtCell('http%3A%2F%2F{UnitFQDN}%2F{CellName}')
 ```
 ### メソッド
 PUT
@@ -47,7 +47,7 @@ PUT
 ### リクエストサンプル
 ```JSON
 {
-  "Url": "{CellURL}/"
+  "Url": "{CellURL}"
 }
 ```
 
@@ -67,8 +67,8 @@ PUT
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/__ctl/ExtCell('http%3A%2F%2F{UnitFQDN}%2F{CellName}')" -X \
+curl "{CellURL}__ctl/ExtCell('http%3A%2F%2F{UnitFQDN}%2F{CellName}')" -X \
 PUT -i -H 'If-Match: *' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' \
--d '{"Url":"http://{UnitFQDN}/{CellName}/"}'
+-d '{"Url":"{CellURL}"}'
 ```
 

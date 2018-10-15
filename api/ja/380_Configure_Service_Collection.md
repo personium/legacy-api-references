@@ -7,7 +7,7 @@ write-properties
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/{BoxName}/{CollectionName}
+{CellURL}{BoxName}/{CollectionName}
 ```
 |パス|概要|備考|
 |:--|:--|:--|
@@ -131,7 +131,7 @@ DTD表記
 ```xml
 <multistatus xmlns="DAV:">
     <response>
-        <href>{CellURL}/{BoxName}/{CollectionName}</href>
+        <href>{CellURL}{BoxName}/{CollectionName}</href>
         <propstat>
             <prop>
                 <p:service language="JavaScript" xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:">
@@ -149,7 +149,7 @@ DTD表記
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/{BoxName}/{CollectionName}" -X PROPPATCH -i -H \
+curl "{CellURL}{BoxName}/{CollectionName}" -X PROPPATCH -i -H \
 "Authorization:Bearer {AccessToken}" -H "Accept:application/json" -d "<?xml version=\"1.0\" \
 encoding=\"utf-8\" ?><D:propertyupdate xmlns:D=\"DAV:\" xmlns:p=\"urn:x-personium:xmlns\"><D:set>\
 <D:prop><p:service language=\"JavaScript\"><p:path name=\"sample\" src=\"sample.js\"/></p:service>\

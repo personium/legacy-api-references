@@ -24,14 +24,14 @@ write
 #### Navigation Property to Role
 
 ```
-/{CellName}/__ctl/ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name='{RelationName}',
+{CellURL}__ctl/ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name='{RelationName}',
 _Relation._Box.Name='{BoxName}')/_Role
 ```
 
 #### NavigationProperty to Relation
 
 ```
-/{CellName}/__ctl/ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name='{RelationName}',
+{CellURL}__ctl/ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name='{RelationName}',
 _Relation._Box.Name='{BoxName}')/_Relation
 ```
 
@@ -131,7 +131,7 @@ Refer to [Error Message List](004_Error_Messages.md)
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')",
+        "uri": "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')",
         "etag": "W/\"1-1486950269621\"",
         "type": "CellCtl.Role"
       },
@@ -150,7 +150,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ### When registering Role
 
 ```sh
-curl "{CellURL}/__ctl/ExtRole(ExtRole='https%3A%2F%2F{UnitFQDN}%2F{CellName}\
+curl "{CellURL}__ctl/ExtRole(ExtRole='https%3A%2F%2F{UnitFQDN}%2F{CellName}\
 %2F__role%2F__%2F{ExtRoleName}',_Relation.Name='{RelationName}',_Relation._Box.Name='{BoxName}')\
 /_Role" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
 '{ "Name": "{RoleName}", "_Box.Name": "{BoxName}"}'

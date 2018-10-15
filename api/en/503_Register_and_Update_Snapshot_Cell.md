@@ -14,7 +14,7 @@ root
 ### Request URL
 
 ```
-/{CellName}/__snapshot/{FileName}
+{CellURL}__snapshot/{FileName}
 ```
 
 ### Request Method
@@ -75,12 +75,12 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Sample
 
 ```sh
-curl "{CellURL}/__snapshot/CellExport_2017_01.zip" -X PUT -i -H \
+curl "{CellURL}__snapshot/CellExport_2017_01.zip" -X PUT -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{File contents}'
 ```
 
 ```sh
-curl "{CellURL}/__snapshot/CellExport_2017_01.zip" -X PUT -i -H \
+curl "{CellURL}__snapshot/CellExport_2017_01.zip" -X PUT -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -T "/home/user/CellExport.zip"
 ```
 

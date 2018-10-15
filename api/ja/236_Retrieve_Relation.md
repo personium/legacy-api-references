@@ -14,15 +14,15 @@ social-read
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')
+{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}')
+{CellURL}__ctl/Relation(Name='{RelationName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Relation('{RelationName}')
+{CellURL}__ctl/Relation('{RelationName}')
 ```
 ※ \_Box.Nameパラメタを省略した場合は、nullが指定されたものとする
 
@@ -101,7 +101,7 @@ GET
     "results": {
       "__metadata": {
         "uri":
-        "{CellURL}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')",
+        "{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')",
         "etag": "W/\"1-1486538244016\"",
         "type": "CellCtl.Relation"
       },
@@ -111,25 +111,25 @@ GET
       "__updated": "/Date(1486538244016)/",
       "_Box": {
         "__deferred": {
-          "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}'
+          "uri": "{CellURL}__ctl/Relation(Name='{RelationName}'
 ,_Box.Name='{BoxName}')/_Box"
         }
       },
       "_ExtCell": {
         "__deferred": {
-          "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}'
+          "uri": "{CellURL}__ctl/Relation(Name='{RelationName}'
 ,_Box.Name='{BoxName}')/_ExtCell"
         }
       },
       "_ExtRole": {
         "__deferred": {
-          "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}'
+          "uri": "{CellURL}__ctl/Relation(Name='{RelationName}'
 ,_Box.Name='{BoxName}')/_ExtRole"
         }
       },
       "_Role": {
         "__deferred": {
-          "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}'
+          "uri": "{CellURL}__ctl/Relation(Name='{RelationName}'
 ,_Box.Name='{BoxName}')/_Role"
         }
       }
@@ -142,7 +142,7 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')" \
+curl "{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')" \
 -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

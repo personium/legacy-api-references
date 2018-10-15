@@ -22,7 +22,7 @@ Updating the ACL configuration overwrites existing ACL settings.
 ### Request URL
 
 ```
-/{CellName}
+{CellURL}
 ```
 
 ### Request Method
@@ -198,7 +198,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ```sh
 curl "{CellURL}" -X ACL -i -H 'Authorization: Bearer {AccessToken}' -H \
 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8" ?><D:acl xmlns:D="DAV:" \
-xmlns:p="urn:x-personium:xmlns" xml:base="http://{UnitFQDN}/{CellName}/__role/{BoxName}/">  \
+xmlns:p="urn:x-personium:xmlns" xml:base="{CellURL}__role/{BoxName}/">  \
 <D:ace><D:principal><D:href>{RoleName}</D:href></D:principal><D:grant><D:privilege><p:box-read/>\
 </D:privilege><D:privilege><p:auth/></D:privilege></D:grant></D:ace></D:acl>'
 ```

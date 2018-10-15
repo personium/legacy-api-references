@@ -35,13 +35,13 @@ log-read
 #### Recent log file
 
 ```
-/{CellName}/__log/current
+{CellURL}__log/current
 ```
 
 #### Log file that is rotated
 
 ```
-/{CellName}/__log/archive
+{CellURL}__log/archive
 ```
 
 ### Request Method
@@ -191,7 +191,7 @@ The body is XML and follows the following schema.
 <?xml version="1.0" encoding="utf-8"?>
 <multistatus xmlns="DAV:">
     <response>
-        <href>{CellURL}/__log/archive</href>
+        <href>{CellURL}__log/archive</href>
         <propstat>
             <prop>
                 <creationdate>2017-02-03T01:27:31.093+0000</creationdate>
@@ -221,7 +221,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/__log/archive" -X PROPFIND -i -H 'Depth:1' -H \
+curl "{CellURL}__log/archive" -X PROPFIND -i -H 'Depth:1' -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

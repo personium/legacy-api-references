@@ -14,15 +14,15 @@ auth-read
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')
+{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Role(Name='{RoleName}')
+{CellURL}__ctl/Role(Name='{RoleName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Role('{RoleName}')
+{CellURL}__ctl/Role('{RoleName}')
 ```
 ※ \_Box.Nameパラメタを省略した場合は、nullが指定されたものとする
 ### メソッド
@@ -93,7 +93,7 @@ GET
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')",
+        "uri": "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')",
         "etag": "W/\"1-1486349783744\"",
         "type": "CellCtl.Role"
       },
@@ -103,31 +103,31 @@ GET
       "__updated": "/Date(1486349783744)/",
       "_Box": {
         "__deferred": {
-          "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')
+          "uri": "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')
 /_Box"
         }
       },
       "_Account": {
         "__deferred": {
-          "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}'
+          "uri": "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}'
 /_Account"
         }
       },
       "_ExtCell": {
         "__deferred": {
-          "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')
+          "uri": "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')
 /_ExtCell"
         }
       },
       "_ExtRole": {
         "__deferred": {
-          "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')
+          "uri": "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')
 /_ExtRole"
         }
       },
       "_Relation": {
         "__deferred": {
-          "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')
+          "uri": "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')
 /_Relation"
         }
       }
@@ -140,7 +140,7 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')" -X GET \
+curl "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')" -X GET \
 -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

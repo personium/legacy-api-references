@@ -21,13 +21,13 @@ auth
 ### Request URL
 
 ```
-/{CellName}/__ctl/Account(Name='{AccountName}')
+{CellURL}__ctl/Account(Name='{AccountName}')
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Account('{AccountName}')
+{CellURL}__ctl/Account('{AccountName}')
 ```
 
 ### Request Method
@@ -104,7 +104,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 Account name update
 
 ```sh
-curl "{CellURL}/__ctl/Account('{AccountName}')" -X PUT -i -H 'If-Match: *' \
+curl "{CellURL}__ctl/Account('{AccountName}')" -X PUT -i -H 'If-Match: *' \
 -H 'X-Personium-Credential:password' -H 'Authorization: Bearer {AccessToken}' -H \
 'Accept: application/json' -d '{"Name":"{AccountName}"}'
 ```
@@ -112,7 +112,7 @@ curl "{CellURL}/__ctl/Account('{AccountName}')" -X PUT -i -H 'If-Match: *' \
 Account name and Account type update
 
 ```sh
-curl "{CellURL}/__ctl/Account('{AccountName}')" -X PUT -i -H 'If-Match: *' -H \
+curl "{CellURL}__ctl/Account('{AccountName}')" -X PUT -i -H 'If-Match: *' -H \
 'X-Personium-Credential:password' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' \
 -d '{"Name":"{AccountName}","Type":"oidc:google"}'
 ```

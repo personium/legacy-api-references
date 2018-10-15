@@ -13,27 +13,27 @@ Accountとの$links情報を削除する
 ### リクエストURL
 Roleとの紐付け
 ```
-/{CellName}/__ctl/Account(Name='{AccountName}')/$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')
+{CellURL}__ctl/Account(Name='{AccountName}')/$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Account(Name='{AccountName}')/$links/_Role(Name='{RoleName}')
+{CellURL}__ctl/Account(Name='{AccountName}')/$links/_Role(Name='{RoleName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Account(Name='{AccountName}')/$links/_Role('{RoleName}')
+{CellURL}__ctl/Account(Name='{AccountName}')/$links/_Role('{RoleName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Account('{AccountName}')/$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')
+{CellURL}__ctl/Account('{AccountName}')/$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Account('{AccountName}')/$links/_Role(Name='{RoleName}')
+{CellURL}__ctl/Account('{AccountName}')/$links/_Role(Name='{RoleName}')
 ```
 または、
 ```
-/{CellName}/__ctl/Account('{AccountName}')/$links/_Role('{RoleName}')
+{CellURL}__ctl/Account('{AccountName}')/$links/_Role('{RoleName}')
 ```
 
 ### メソッド
@@ -78,7 +78,7 @@ DELETE
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/__ctl/Account('{AccountName}')/\$links/_Role('{RoleName}')" \
+curl "{CellURL}__ctl/Account('{AccountName}')/\$links/_Role('{RoleName}')" \
 -X DELETE -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

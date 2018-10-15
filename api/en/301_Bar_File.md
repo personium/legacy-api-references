@@ -146,7 +146,7 @@ https&#58;//{UnitFQDN}/cell1/__role/box/staff → https&#58;//{UnitFQDN}/cell1/_
 {
   "ExtRoles": [
     {
-      "ExtRole": "{CellURL}/__role/__/role2",
+      "ExtRole": "{CellURL}__role/__/role2",
       "_Relation.Name": "Relation1"
     }
   ]
@@ -219,7 +219,7 @@ The file describing the data relation information of the $links to be installed
         },
       "ToType": "ExtRole",
       "ToName": {
-          "ExtRole": "{CellURL}/__role/__/role2",
+          "ExtRole": "{CellURL}__role/__/role2",
           "_Relation.Name": "Relation1"
         }
     }

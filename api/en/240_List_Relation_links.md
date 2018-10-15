@@ -25,73 +25,73 @@ You can specify the following OData resources
 #### Correlating with Box
 
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_Box
+{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_Box
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}')/$links/_Box
+{CellURL}__ctl/Relation(Name='{RelationName}')/$links/_Box
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Relation('{RelationName}')/$links/_Box
+{CellURL}__ctl/Relation('{RelationName}')/$links/_Box
 ```
 
 #### Correlating with ExtCell
 
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_ExtCell
+{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_ExtCell
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}')/$links/_ExtCell
+{CellURL}__ctl/Relation(Name='{RelationName}')/$links/_ExtCell
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Relation('{RelationName}')/$links/_ExtCell
+{CellURL}__ctl/Relation('{RelationName}')/$links/_ExtCell
 ```
 
 #### Correlating with ExtRole
 
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_ExtRole
+{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_ExtRole
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}')/$links/_ExtRole
+{CellURL}__ctl/Relation(Name='{RelationName}')/$links/_ExtRole
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Relation('{RelationName}')/$links/_ExtRole
+{CellURL}__ctl/Relation('{RelationName}')/$links/_ExtRole
 ```
 
 #### Correlating with the role
 
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_Role
+{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_Role
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Relation(Name='{RelationName}')/$links/_Role
+{CellURL}__ctl/Relation(Name='{RelationName}')/$links/_Role
 ```
 
 or
 
 ```
-/{CellName}/__ctl/Relation('{RelationName}')/$links/_Role
+{CellURL}__ctl/Relation('{RelationName}')/$links/_Role
 ```
 
 If the \_Box.Name parameter is omitted, it is assumed that null is specified
@@ -179,7 +179,7 @@ Refer to [Error Message List](004_Error_Messages.md)
   "d": {
     "results": [
       {
-        "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')"
+        "uri": "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')"
       }
     ]
   }
@@ -190,7 +190,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/\$links/_Role" \
+curl "{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/\$links/_Role" \
 -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

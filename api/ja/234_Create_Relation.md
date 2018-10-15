@@ -16,7 +16,7 @@ social
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/__ctl/Relation
+{CellURL}__ctl/Relation
 ```
 ### メソッド
 POST
@@ -97,7 +97,7 @@ POST
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}/__ctl/Relation(Name='{RelationName}'
+        "uri": "{CellURL}__ctl/Relation(Name='{RelationName}'
 ,_Box.Name='{BoxName}')",
         "etag": "W/\"1-1486538244016\"",
         "type": "CellCtl.Relation"
@@ -115,7 +115,7 @@ POST
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/__ctl/Relation" -X POST -i -H \
+curl "{CellURL}__ctl/Relation" -X POST -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' \
 -d '{ "Name":"{RelationName}", "_Box.Name": "{BoxName}" }'
 ```

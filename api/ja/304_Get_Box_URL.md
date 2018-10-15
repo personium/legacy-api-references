@@ -15,7 +15,7 @@ BoxのURLを取得するために用いるリソースです。スキーマ認�
 ## リクエスト
 ### リクエストURL
 ```
-/{CellName}/__box
+{CellURL}__box
 ```
 ### メソッド
 GET
@@ -53,7 +53,7 @@ GET
 |Location|Boxメタデータ取得API用URL|リクエストの指定方法により、以下の値となる<br>schemaクエリを指定<br>schemaクエリで指定されたアプリセルURLに対応するBoxのURL<br>schemaクエリなしで、Authorizationヘッダのみを指定<br>トークンに含まれるスキーマURLに対応するBoxのURL|
 Locationサンプル
 ```
-Location:{CellURL}/{BoxName}
+Location:{CellURL}{BoxName}
 ```
 
 ### レスポンスボディ
@@ -64,18 +64,18 @@ Location:{CellURL}/{BoxName}
 
 ### レスポンスサンプル
 ```
-Location:{CellURL}/{BoxName}
+Location:{CellURL}{BoxName}
 ```
 
 ## cURLサンプル
 ### スキーマ認証済
 ```sh
-curl "{CellURL}/__box" -X GET -i -H \
+curl "{CellURL}__box" -X GET -i -H \
 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 ### スキーマ認証未対応
 ```sh
-curl "{CellURL}/__box?schema={CellURL}/" -X \
+curl "{CellURL}__box?schema={CellURL}" -X \
 GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

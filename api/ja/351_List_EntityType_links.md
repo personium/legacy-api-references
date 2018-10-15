@@ -14,7 +14,7 @@ EntityTypeに紐付いたODataリソースを一覧取得する
 ### リクエストURL
 AssociationEndとの$links
 ```
-/{CellName}/{BoxName}/{CollectionName}/EntityType('{EntityTypeName}')/$links/_AssociationEnd
+{CellURL}{BoxName}/{CollectionName}/EntityType('{EntityTypeName}')/$links/_AssociationEnd
 ```
 ### メソッド
 GET
@@ -97,10 +97,10 @@ GET
    "d": {
     "results": [
       {
-        "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name=null)"
+        "uri": "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name=null)"
       },
       {
-        "uri": "{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='box1')"
+        "uri": "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='box1')"
       }
     ]
   }
@@ -111,7 +111,7 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/{BoxName}/{CollectionName}/$metadata/EntityType(Name=\
+curl "{CellURL}{BoxName}/{CollectionName}/$metadata/EntityType(Name=\
 '{EntityTypeName}')/$links/_AssociationEnd" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H \
 'Accept: application/json'
 ```

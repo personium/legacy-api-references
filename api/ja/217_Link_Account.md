@@ -14,11 +14,11 @@ Accountに$linksで指定したODataリソースを紐付ける
 ### リクエストURL
 Roleと紐付ける場合
 ```
-/{CellName}/__ctl/Account(Name='{AccountName}')/$links/_Role
+{CellURL}__ctl/Account(Name='{AccountName}')/$links/_Role
 ```
 または、
 ```
-/{CellName}/__ctl/Account('{AccountName}')/$links/_Role
+{CellURL}__ctl/Account('{AccountName}')/$links/_Role
 ```
 
 ### メソッド
@@ -46,7 +46,7 @@ JSON
 
 ### リクエストサンプル
 ```JSON
-{"uri":"{CellURL}/__ctl/Box('{BoxName}')"}
+{"uri":"{CellURL}__ctl/Box('{BoxName}')"}
 ```
 
 ## レスポンス
@@ -69,8 +69,8 @@ JSON
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}/__ctl/Account(Name='{AccountName}')/\$links/_Role" -X \
+curl "{CellURL}__ctl/Account(Name='{AccountName}')/\$links/_Role" -X \
 POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
-"{\"uri\":\"{CellURL}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')\"}"
+"{\"uri\":\"{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')\"}"
 ```
 

@@ -13,7 +13,7 @@ read
 ### Request URL
 
 ```
-/{CellName}/{BoxName}/{CollectionName}/__src/{ResourceName}
+{CellURL}{BoxName}/{CollectionName}/__src/{ResourceName}
 ```
 
 |Path|Overview|Notes|
@@ -82,7 +82,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}/{BoxName}/{CollectionName}/__src/{ResourceName}" -X GET -i \
+curl "{CellURL}{BoxName}/{CollectionName}/__src/{ResourceName}" -X GET -i \
 -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
 ```
 

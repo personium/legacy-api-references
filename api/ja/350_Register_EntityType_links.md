@@ -8,10 +8,10 @@ alter-schema
 ### リクエストURL
 ```
 EntityType
-/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/EntityType(Name='{EntityTypeName}')
+{CellURL}{BoxName}/{OdataCollecitonPath}/$metadata/EntityType(Name='{EntityTypeName}')
 /$links/_AssociationEnd
 AssociationEnd
-/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/AssociationEnd(Name='{AssociationEndName}', 
+{CellURL}{BoxName}/{OdataCollecitonPath}/$metadata/AssociationEnd(Name='{AssociationEndName}', 
 _EntityType.Name='{EntityTypeName}')/$links/_AssociationEnd
 ```
 ### メソッド
@@ -29,7 +29,7 @@ POST
 |uri|linkするAssociationEndのuri|存在するAssociationEnd|○||
 ### リクエストサンプル
 ```JSON
-{"uri": "{CellURL}/{BoxName}/{OdataCollecitonPath}/$metadata
+{"uri": "{CellURL}{BoxName}/{OdataCollecitonPath}/$metadata
 /AssociationEnd(Name='{AssociationEndName}',_EntityType.Name=null)"}
 ```
 
@@ -52,20 +52,20 @@ POST
 
 EntityType
 ```sh
-curl "{CellURL}/{BoxName}/{OdataCollecitonPath}/$metadata/EntityType(Name='\
+curl "{CellURL}{BoxName}/{OdataCollecitonPath}/$metadata/EntityType(Name='\
 {EntityTypeName}')/$links/_AssociationEnd" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H \
 'Accept: application/json' -H 'Accept:application/json' -d '{"uri": \
-"{CellURL}/{BoxName}/{OdataCollecitonPath}/$metadata/AssociationEnd(Name=\
+"{CellURL}{BoxName}/{OdataCollecitonPath}/$metadata/AssociationEnd(Name=\
 '{AssociationEndName}_link',_EntityType.Name=null)"}'
 
 ```
 
 AssociationEnd
 ```sh
-curl "{CellURL}/{BoxName}/{OdataCollecitonPath}/$metadata/AssociationEnd(Name=\
+curl "{CellURL}{BoxName}/{OdataCollecitonPath}/$metadata/AssociationEnd(Name=\
 '{AssociationEndName}2',_EntityType.Name=Entity)/$links/_AssociationEnd" -X POST -i -H 'Authorization\
 : Bearer {AccessToken}' -H 'Accept: application/json' -H 'Accept:application/json' -d '{"uri": \
-"{CellURL}/{BoxName}/{OdataCollecitonPath}/$metadata/AssociationEnd(Name=\
+"{CellURL}{BoxName}/{OdataCollecitonPath}/$metadata/AssociationEnd(Name=\
 '{AssociationEndName}_link',_EntityType.Name=Entity2)"}'
 ```
 

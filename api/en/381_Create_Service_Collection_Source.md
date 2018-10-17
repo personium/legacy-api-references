@@ -64,7 +64,10 @@ PUT
 
 ### Response Code
 
-204
+|Code|Message|Overview|
+|:--|:--|:--|
+|201|Created|Successful registration|
+|204|No Content|Update success|
 
 ### Response Header
 

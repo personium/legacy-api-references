@@ -98,7 +98,7 @@ JSON
 
 ### リクエストサンプル
 ```JSON
-{"uri":"https://{UnitFQDN}/Cell/__ctl/Box('{BoxName}')"}
+{"uri":"https://cell1.unit1.example/__ctl/Box('Box2')"}
 ```
 
 ## レスポンス
@@ -122,8 +122,8 @@ JSON
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}__ctl/Role('{RoleName}')/\$links/_Box" -X POST -i -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
-"{\"uri\":\"{CellURL}__ctl/Box('{BoxName}')\"}"
+curl "https://cell1.unit1.example/__ctl/Role('role1')/\$links/_Box" -X POST -i -H \
+'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json' -d \
+"{\"uri\":\"https://cell1.unit1.example/__ctl/Box('box2')\"}"
 ```
 

@@ -76,7 +76,7 @@ JSON
 
 ```JSON
 {
-  "Name":"{CellName}",
+  "Name":"role1",
   "_Box.Name": "{BoxName}"
 }
 ```

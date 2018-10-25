@@ -103,72 +103,72 @@ GET
       {
         "__metadata": {
           "uri":
-          "{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')",
+          "https://cell1.unit1.example/__ctl/Relation(Name='relation1',_Box.Name='box1')",
           "etag": "W/\"1-1486538244016\"",
           "type": "CellCtl.Relation"
         },
-        "Name": "{RelationName}",
-        "_Box.Name": "{BoxName}",
+        "Name": "relation1",
+        "_Box.Name": "box1",
         "__published": "/Date(1486538244016)/",
         "__updated": "/Date(1486538244016)/",
         "_Box": {
           "__deferred": {
-            "uri": "{CellURL}__ctl/Relation(Name='{RelationName}'
-,_Box.Name='{BoxName}')/_Box"
+            "uri": "https://cell1.unit1.example/__ctl/Relation(Name='relation1'
+,_Box.Name='box1')/_Box"
           }
         },
         "_ExtCell": {
           "__deferred": {
-            "uri": "{CellURL}__ctl/Relation(Name='{RelationName}'
-,_Box.Name='{BoxName}')/_ExtCell"
+            "uri": "https://cell1.unit1.example/__ctl/Relation(Name='relation1'
+,_Box.Name='box1')/_ExtCell"
           }
         },
         "_ExtRole": {
           "__deferred": {
-            "uri": "{CellURL}__ctl/Relation(Name='{RelationName}'
-,_Box.Name='{BoxName}')/_ExtRole"
+            "uri": "https://cell1.unit1.example/__ctl/Relation(Name='relation1'
+,_Box.Name='box1')/_ExtRole"
           }
         },
         "_Role": {
           "__deferred": {
-            "uri": "{CellURL}__ctl/Relation(Name='{RelationName}'
-,_Box.Name='{BoxName}')/_Role"
+            "uri": "https://cell1.unit1.example/__ctl/Relation(Name='relation1'
+,_Box.Name='box1')/_Role"
           }
         }
       },
       {
         "__metadata": {
-          "uri": "{CellURL}__ctl/Relation(Name='{RelationName}'
-,_Box.Name='{BoxName}')",
+          "uri": "https://cell1.unit1.example/__ctl/Relation(Name='relation2'
+,_Box.Name='box2')",
           "etag": "W/\"1-1486538757303\"",
           "type": "CellCtl.Relation"
         },
-        "Name": "{RelationName}",
-        "_Box.Name": "{BoxName}",
+        "Name": "relation2",
+        "_Box.Name": "box2",
         "__published": "/Date(1486538757303)/",
         "__updated": "/Date(1486538757303)/",
         "_Box": {
           "__deferred": {
-            "uri": "{CellURL}__ctl/Relation(Name='{RelationName}'
-,_Box.Name='{BoxName}')/_Box"
+            "uri": "https://cell1.unit1.example/__ctl/Relation(Name='relation2'
+,_Box.Name='box2')/_Box"
           }
         },
         "_ExtCell": {
           "__deferred": {
-            "uri": "{CellURL}__ctl/Relation(Name='{RelationName}'
-,_Box.Name='{BoxName}')/_ExtCell"
+            "uri": "https://cell1.unit1.example/__ctl/Relation(Name='relation2'
+,_Box.Name='box2')/_ExtCell"
           }
         },
         "_ExtRole": {
           "__deferred": {
-            "uri": "{CellURL}__ctl/Relation(Name='{RelationName}'
-,_Box.Name='{BoxName}')/_ExtRole"
+            "uri": "https://cell1.unit1.example/__ctl/Relation(Name='relation2'
+,_Box.Name='box2')/_ExtRole"
           }
         },
         "_Role": {
           "__deferred": {
-            "uri": "{CellURL}__ctl/Relation(Name='{RelationName}'
-,_Box.Name='{BoxName}')/_Role"
+            "uri": "https://cell1.unit1.example/__ctl/Relation(Name='relation2'
+,_Box.Name='box2')/_Role"
           }
         }
       }
@@ -182,7 +182,7 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}__ctl/Relation" -X GET -i  -H 'Authorization: Bearer \
-{AccessToken}' -H 'Accept: application/json'
+curl "https://cell1.unit1.example/__ctl/Relation" -X GET -i  \
+-H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json'
 ```
 

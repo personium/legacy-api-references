@@ -21,7 +21,7 @@ auth-read
 ### Request URL
 
 ```
-{CellURL}__ctl/Account(Name='aoount_name')
+{CellURL}__ctl/Account(Name='{AccountName}')
 ```
 
 or 

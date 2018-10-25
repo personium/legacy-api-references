@@ -134,7 +134,7 @@ rule or rule-read)>
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <D:acl xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" 
-xml:base="https://example.com/testcell1/__role/box1/">
+xml:base="https://cell1.unit1.example/__role/box1/">
     <D:ace>
         <D:principal>
             <D:all/>
@@ -174,9 +174,9 @@ xml:base="https://example.com/testcell1/__role/box1/">
 
 ## cURLサンプル
 ```sh
-curl "{CellURL}" -X ACL -i -H 'Authorization: Bearer {AccessToken}' -H \
-'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8" ?><D:acl xmlns:D="DAV:" \
-xmlns:p="urn:x-personium:xmlns" xml:base="{CellURL}__role/{BoxName}/">  \
+curl "https://cell1.unit1.example/" -X ACL -i -H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' \
+-H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8" ?><D:acl xmlns:D="DAV:" \
+xmlns:p="urn:x-personium:xmlns" xml:base="https://cell1.unit1.example/__role/box1/">  \
 <D:ace><D:principal><D:href>{RoleName}</D:href></D:principal><D:grant><D:privilege><p:box-read/>\
 </D:privilege><D:privilege><p:auth/></D:privilege></D:grant></D:ace></D:acl>'
 ```

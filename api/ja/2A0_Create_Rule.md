@@ -106,7 +106,7 @@ EventSubjectには、他CellのSubjectを設定することも可能ですが、
 
 ### リクエストサンプル
 ```JSON
-{"Name":"{RuleName}", "EventExternal":true, "Action":"log"}
+{"Name":"rule1", "EventExternal":true, "Action":"log"}
 ```
 
 ## レスポンス
@@ -160,12 +160,12 @@ EventSubjectには、他CellのSubjectを設定することも可能ですが、
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')",
+        "uri": "https://cell1.unit1.example/__ctl/Rule(Name='rule1',_Box.Name='box1')",
         "etag": "W/\"1-1486368212581\"",
         "type": "CellCtl.Rule"
       },
-      "Name": "{RuleName}",
-      "_Box.Name": "{BoxName}",
+      "Name": "rule1",
+      "_Box.Name": "box1",
       "EventExternal": true,
       "EventSubject": null,
       "EventType": null,
@@ -185,7 +185,7 @@ EventSubjectには、他CellのSubjectを設定することも可能ですが、
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}__ctl/Rule" -X POST -i \
--H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' \
--d '{"Name":"{RuleName}", "EventExternal":true, "Action":"log"}'
+curl "https://cell1.unit1.example/__ctl/Rule" -X POST -i \
+-H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json' \
+-d '{"Name":"rule1", "EventExternal":true, "Action":"log"}'
 ```

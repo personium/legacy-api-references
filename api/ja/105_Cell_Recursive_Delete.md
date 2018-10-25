@@ -70,7 +70,7 @@ DELETE
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}" -X DELETE -i -H 'X-Personium-Recursive: true' \
--H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://cell1.unit1.example/" -X DELETE -i -H 'X-Personium-Recursive: true' \
+-H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json'
 ```
 

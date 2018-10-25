@@ -86,7 +86,7 @@ POST
 |password|パスワード|String|(grant_type=passwordの場合必須)|登録済のパスワード|
 |assertion|トランスセルアクセストークン|String|(grant_type=urn&#58;ietf:params:oauth:grant-type:saml2-bearerの場合)|有効なトランスセルアクセストークン|
 |code|Code|String|(grant_type=authorization_codeの場合必須)|有効なCode|
-|refresh_token|リフレッシュトークン名|String|(grant_type=refresh_tokenの場合必須)|有効なリフレッシュトークン|
+|refresh_token|リフレッシュトークン|String|(grant_type=refresh_tokenの場合必須)|有効なリフレッシュトークン|
 |id_token|トークンID|JSON Web Token|(grant_type=urn&#58;x-personium:oidc:googleの場合必須)|JWT Formed ID Token|
 |p_target|発行ターゲット|String|×|（任意の他者セルURL）<br>指定した場合そのセル宛のトランスセルアクセストークンを発行|
 |client_id|アプリのスキーマURI|String|(grant_type=authorization_codeの場合必須)|多くの場合アプリセルURL<br>client_secretとともに指定した場合アプリ認証済トークンを発行<br>同時にAuthorizationヘッダで同様情報が送信された場合、Authorizationヘッダの設定が優先される|
@@ -105,15 +105,13 @@ grant_type=password&username=username&password=pass
 
 パスワードによるアカウント所有者認証でトランスセルアクセストークン発行
 ```
-grant_type=password&username=username&password=pass&p_target={CellURL}
+grant_type=password&username=username&password=pass&p_target=https://cell1.unit1.example/
 ```
 
 パスワードによるアカウント所有者認証とアプリ認証トークン送付によるアプリ認証済アクセストークン発行
 ```
-grant_type=password&username=username&password=pass&client_id=https://{UnitFQDN}/app{CellName}
-/&client_secret=
-WjzDmvJSLvM9qVuJL1xxP6hSxt64HijoIea0P5R2CVloXJ2HEvEILl7UOtEtjSDdjlvyx9wrosPBhDRU97Qnn6EQIQ3MwaqtI
-x7HjuX36_ZBC6qxcgscCDmdtGb4nHgo
+grant_type=password&username=username&password=pass&client_id=https://app-cell1.unit1.example/
+&client_secret=WjzDmvJ...(省略)...4nHgo
 
 ```
 
@@ -124,12 +122,12 @@ grant_type=urn:x-personium:oidc:google&id_token=IDTOKEN
 
 トランスセルアクセストークンによる他セルユーザ認証
 ```
-grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&assertion={token}
+grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&assertion=WjzDmvJ...(省略)...4nHgo
 ```
 
 リフレッシュトークンによるトークンのリフレッシュ
 ```
-grant_type=refresh_token&refresh_token={token}
+grant_type=refresh_token&refresh_token=RA~uELM...(省略)...yWMoQ
 ```
 
 パスワードによるアカウント所有者認証でクッキーも発行
@@ -163,11 +161,9 @@ grant_type=password&username=username&password=pass&p_cookie=true
 ### レスポンスサンプル
 ```JSON
 {
-  "access_token": "AA~osIZ4CZ8cZmxf5NidEueHej_6Lj-ww0c_kJZd4HbHBqFyZ0OZBrS29miYr9Jh19b0o39c
-TJdH2Va3xSMMbu6Eg",
+  "access_token": "AA~PBDc...(省略)...FrTjA",
   "refresh_token_expires_in": 86400,
-  "refresh_token": "RA~uELMJkVpzTtsl1ueh2KlrT9UiOx85-dmg7nGX01YaogoQ86qgfv2VMUxQXSP95uNY9Mu
-WxZe0AQFtEnFYyWMoQ",
+  "refresh_token": "RA~uELM...(省略)...yWMoQ",
   "token_type": "Bearer",
   "expires_in": 3600
 }
@@ -178,28 +174,28 @@ WxZe0AQFtEnFYyWMoQ",
 ## cURLサンプル
 #### アカウント所有者認証
 ```sh
-curl "{CellURL}__token" -X POST -i -d \
-'grant_type=password&username={username}&password={password}'
+curl "https://cell1.unit1.example/__token" -X POST -i \
+-d 'grant_type=password&username=user1&password=pass'
 ```
 #### 他セルユーザ認証
 ```sh
-curl "{CellURL}__token" -X POST -i -d \
-'grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&assertion={token}'
+curl "https://cell1.unit1.example/__token" -X POST -i \
+-d 'grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&assertion=WjzDmvJ...(省略)...4nHgo'
 ```
 #### トークンリフレッシュ
 ```sh
-curl "{CellURL}__token" -X POST -i -d \
-'grant_type=refresh_token&refresh_token={refresh_token}'
+curl "https://cell1.unit1.example/__token" -X POST -i \
+-d 'grant_type=refresh_token&refresh_token=RA~uELM...(省略)...yWMoQ'
 ```
 #### アカウント所有者 + アプリ認証
 ```sh
-curl "{CellURL}__token" -X POST -i -d \
-'grant_type=password&username={user_name}&password={pass}&client_id=\
-https://{UnitFQDN}/app{CellName}/&client_secret={token_from_app_cell}'
+curl "https://cell1.unit1.example/__token" -X POST -i \
+-d 'grant_type=password&username=name1&password=pass&client_id=\
+https://app-cell1.unit1.example/&client_secret=WjzDmvJ...(省略)...4nHgo'
 ```
 #### 他セルユーザ認証 による他セル向けトランスセルアクセストークン発行
 ```sh
-curl "{CellURL}__token" -X POST -i -d \
-'grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&assertion=\
-{SAML_token}&p_target={CellURL}'
+curl "https://cell1.unit1.example/__token" -X POST -i \
+-d 'grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&assertion=\
+WjzDmvJ...(省略)...4nHgo&p_target=https://cell1.unit1.example/'
 ```

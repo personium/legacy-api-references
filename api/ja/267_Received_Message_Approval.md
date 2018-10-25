@@ -79,6 +79,7 @@ JSON
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}__message/received/{MessageID}" -X POST -i -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Command": "approved"}'
+curl "https://cell1.unit1.example/__message/received/c87b42e10df846a9bee842225d1383fe" -X POST \
+-i -H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json' \
+-d '{"Command": "approved"}'
 ```

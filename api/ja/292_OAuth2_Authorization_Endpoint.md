@@ -146,12 +146,14 @@ HTML認証フォームを返却する。
 ## cURLサンプル
 ### GET
 ```sh
-curl "{CellURL}__authz?response_type=token&redirect_uri=https://{UnitFQDN}/\
-{AppliCellName}/__/redirect.md&client_id=https://{UnitFQDN}/{AppliCellName}" -X GET -i
+curl "https://cell1.unit1.example/__authz?response_type=token&\
+redirect_uri=https://app-cell1.unit1.example/__/redirect.md&\
+client_id=https://app-cell1.unit1.example" -X GET -i
 ```
 ### POST
 ```sh
-curl "{CellURL}__authz" -X POST -i -d 'response_type=token&client_id=\
-https://{UnitFQDN}/{AppliCellName}&redirect_uri=https://{UnitFQDN}/{AppliCellName}/__\
-/redirect.md&state=0000000111&username={AccountUserName}&password={AccountUserPass}'
+curl "https://cell1.unit1.example/__authz" -X POST -i \
+-d 'response_type=token&client_id=https://app-cell1.unit1.example/&\
+redirect_uri=https://app-cell1.unit1.example/__/redirect.md&\
+state=0000000111&username=account1&password=pass'
 ```

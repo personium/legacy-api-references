@@ -102,85 +102,85 @@ GET
     "results": [
       {
         "__metadata": {
-          "uri": "{CellURL}__ctl/Role(Name='{RoleName}',
-_Box.Name='{BoxName}')",
+          "uri": "https://cell1.unit1.example/__ctl/Role(Name='role1',
+_Box.Name='box1')",
           "etag": "W/\"1-1486349783744\"",
           "type": "CellCtl.Role"
         },
-        "Name": "{RoleName}",
-        "_Box.Name": "{BoxName}",
+        "Name": "role1",
+        "_Box.Name": "box1",
         "__published": "/Date(1486349783744)/",
         "__updated": "/Date(1486349783744)/",
         "_Box": {
           "__deferred": {
-            "uri": "{CellURL}__ctl/Role(Name='{RoleName}',
-_Box.Name='{BoxName}')/_Box"
+            "uri": "https://cell1.unit1.example/__ctl/Role(Name='role1',
+_Box.Name='box1')/_Box"
           }
         },
         "_Account": {
           "__deferred": {
-            "uri": "{CellURL}__ctl/Role(Name='{RoleName}',
-_Box.Name='{BoxName}')/_Account"
+            "uri": "https://cell1.unit1.example/__ctl/Role(Name='role1',
+_Box.Name='box1')/_Account"
           }
         },
         "_ExtCell": {
           "__deferred": {
-            "uri": "{CellURL}__ctl/Role(Name='{RoleName}',
-_Box.Name='{BoxName}')/_ExtCell"
+            "uri": "https://cell1.unit1.example/__ctl/Role(Name='role1',
+_Box.Name='box1')/_ExtCell"
           }
         },
         "_ExtRole": {
           "__deferred": {
-            "uri": "{CellURL}__ctl/Role(Name='{RoleName}',
-_Box.Name='{BoxName}')/_ExtRole"
+            "uri": "https://cell1.unit1.example/__ctl/Role(Name='role1',
+_Box.Name='box1')/_ExtRole"
           }
         },
         "_Relation": {
           "__deferred": {
-            "uri": "{CellURL}__ctl/Role(Name='{RoleName}',
-_Box.Name='{BoxName}')/_Relation"
+            "uri": "https://cell1.unit1.example/__ctl/Role(Name='role1',
+_Box.Name='box1')/_Relation"
           }
         }
       },
       {
         "__metadata": {
-          "uri": "{CellURL}__ctl/Role(Name='{RoleName}',
-_Box.Name='{BoxName}')",
+          "uri": "https://cell1.unit1.example/__ctl/Role(Name='role2',
+_Box.Name='box2')",
           "etag": "W/\"1-1486456585171\"",
           "type": "CellCtl.Role"
         },
-        "Name": "{RoleName}",
-        "_Box.Name": "{BoxName}",
+        "Name": "role2",
+        "_Box.Name": "box2",
         "__published": "/Date(1486456585171)/",
         "__updated": "/Date(1486456585171)/",
         "_Box": {
           "__deferred": {
-            "uri": "{CellURL}__ctl/Role(Name='{RoleName}',
-_Box.Name='{BoxName}')/_Box"
+            "uri": "https://cell1.unit1.example/__ctl/Role(Name='role2',
+_Box.Name='box2')/_Box"
           }
         },
         "_Account": {
           "__deferred": {
-            "uri": "{CellURL}__ctl/Role(Name='{RoleName}',
-_Box.Name='{BoxName}')/_Account"
+            "uri": "https://cell1.unit1.example/__ctl/Role(Name='role2',
+_Box.Name='box2')/_Account"
           }
         },
         "_ExtCell": {
           "__deferred": {
-            "uri": "{CellURL}__ctl/Role(Name='{RoleName}',
-_Box.Name='{BoxName}')/_ExtCell"
+            "uri": "https://cell1.unit1.example/__ctl/Role(Name='role2',
+_Box.Name='box2')/_ExtCell"
           }
         },
         "_ExtRole": {
           "__deferred": {
-            "uri": "{CellURL}__ctl/Role(Name='{RoleName}',
-_Box.Name='{BoxName}')/_ExtRole"
+            "uri": "https://cell1.unit1.example/__ctl/Role(Name='role2',
+_Box.Name='box2')/_ExtRole"
           }
         },
         "_Relation": {
           "__deferred": {
-            "uri": "{CellURL}__ctl/Role(Name='{RoleName}',
-_Box.Name='{BoxName}')/_Relation"
+            "uri": "https://cell1.unit1.example/__ctl/Role(Name='role2',
+_Box.Name='box2')/_Relation"
           }
         }
       }
@@ -195,7 +195,7 @@ _Box.Name='{BoxName}')/_Relation"
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}__ctl/Role" -X GET -i -H 'Authorization: Bearer \
-{AccessToken}' -H 'Accept: application/json'
+curl "https://cell1.unit1.example/__ctl/Role" -X GET -i -H 'Authorization: Bearer \
+AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json'
 ```
 

@@ -143,8 +143,9 @@ xmlns:Z="http://www.w3.com/standards/z39.50/"/>
 
 ## cURLサンプル
 ```sh
-curl "https://{UnitFQDN}/cell -X PROPPATCH" -H 'Authorization: Bearer {AccessToken}' -d \
-'<?xml version="1.0" encoding="utf-8" ?>\
+curl "https://unit1.example/cell/ -X PROPPATCH" \
+-H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' \
+-d '<?xml version="1.0" encoding="utf-8" ?>\
 <D:propertyupdate xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" \
 xmlns:Z="http://www.w3.com/standards/z39.50/">\
 <D:set><D:prop><p:requireSchemaAuthz>confidential</p:requireSchemaAuthz></D:prop></D:set>\

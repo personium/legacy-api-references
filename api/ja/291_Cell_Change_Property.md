@@ -84,7 +84,7 @@ PROPPATCH
 ```xml
 <multistatus xmlns="DAV:">
     <response>
-        <href>{CellURL}</href>
+        <href>https://cell1.unit1.example/</href>
         <propstat>
             <prop>
                 <p:foo xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:">bar</p:foo>
@@ -98,8 +98,9 @@ PROPPATCH
 
 ## cURLサンプル
 ```sh
-curl "{CellURL}" -X PROPPATCH -i -H 'Authorization: Bearer {AccessToken}' \
--H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8" ?>\
+curl "https://cell1.unit1.example/" -X PROPPATCH -i \
+-H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json' \
+-d '<?xml version="1.0" encoding="utf-8" ?>\
 <D:propertyupdate xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns"><D:set><D:prop>\
 <p:foo>bar</p:foo></D:prop></D:set><D:remove><D:prop><p:foo/></D:prop>\
 </D:remove></D:propertyupdate>'

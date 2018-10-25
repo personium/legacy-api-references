@@ -55,7 +55,7 @@ GET
 {
   "cell": {
       "name": "cell1",
-      "url": "https://example.com/cell1/"
+      "url": "https://cell1.unit1.example/"
   }
 }
 ```
@@ -63,5 +63,5 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}" -X GET -i -H 'Accept: application/json'
+curl "https://cell1.unit1.example/" -X GET -i -H 'Accept: application/json'
 ```

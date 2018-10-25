@@ -13,7 +13,7 @@ auth-read
 ## リクエスト
 ### リクエストURL
 ```
-{CellURL}__ctl/Account(Name='aoount_name')
+{CellURL}__ctl/Account(Name='{AccountName}')
 ```
 または、
 ```
@@ -80,11 +80,11 @@ GET
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}__ctl/Account('{AccountName}')",
+        "uri": "https://cell1.unit1.example/__ctl/Account('account1')",
         "etag": "W/\"1-1486462510467\"",
         "type": "CellCtl.Account"
       },
-      "Name": "{AccountName}",
+      "Name": "account1",
       "LastAuthenticated": null,
       "Type": "basic",
       "Cell": null,
@@ -92,12 +92,12 @@ GET
       "__updated": "/Date(1486462510467)/",
       "_Role": {
         "__deferred": {
-          "uri": "{CellURL}__ctl/Account('{AccountName}')/_Role"
+          "uri": "https://cell1.unit1.example/__ctl/Account('account1')/_Role"
         }
       },
       "_ReceivedMessageRead": {
         "__deferred": {
-          "uri": "{CellURL}__ctl/Account('{AccountName}')/_ReceivedMessageRead"
+          "uri": "https://cell1.unit1.example/__ctl/Account('account1')/_ReceivedMessageRead"
         }
       }
     }
@@ -109,7 +109,7 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}__ctl/Account('{AccountName}')" -X GET -i -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://cell1.unit1.example/__ctl/Account('account1')" -X GET -i \
+-H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json'
 ```
 

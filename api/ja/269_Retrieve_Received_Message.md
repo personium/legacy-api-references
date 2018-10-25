@@ -116,15 +116,15 @@ GET
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}__ctl/ReceivedMessage
+        "uri": "https://cell1.unit1.example/__ctl/ReceivedMessage
 ('c87b42e10df846a9bee842225d1383fe')",
         "etag": "W/\"1-1486683974451\"",
         "type": "CellCtl.ReceivedMessage"
       },
       "__id": "c87b42e10df846a9bee842225d1383fe",
-      "_Box.Name": "{BoxName}",
+      "_Box.Name": "box1",
       "InReplyTo": "xnKXmd4TTZCw-bfSEw4f0AxnKXmd4TTZ",
-      "From": "{CellURL}",
+      "From": "https://cell2.unit1.example/",
       "MulticastTo": null,
       "Type": "request",
       "Title": "メッセージサンプルタイトル",
@@ -135,8 +135,8 @@ GET
         {
           "RequestType": "relation.add",
           "Name": null,
-          "ClassUrl": "https://{UnitFQDN}/{AppCellName}/__relation/__/{RelationName}",
-          "TargetUrl": "{CellURL}",
+          "ClassUrl": "https://app-cell1.unit1.example/__relation/__/relation1",
+          "TargetUrl": "https://cell1.unit1.example/",
           "EventType": null,
           "EventSubject": null,
           "EventObject": null,
@@ -148,13 +148,13 @@ GET
       "__updated": "/Date(1486683974451)/",
       "_Box": {
         "__deferred": {
-          "uri": "{CellURL}__ctl/ReceivedMessage
+          "uri": "https://cell1.unit1.example/__ctl/ReceivedMessage
 ('c87b42e10df846a9bee842225d1383fe')/_Box"
         }
       },
       "_AccountRead": {
         "__deferred": {
-          "uri": "{CellURL}__ctl/ReceivedMessage
+          "uri": "https://cell1.unit1.example/__ctl/ReceivedMessage
 ('c87b42e10df846a9bee842225d1383fe')/_AccountRead"
         }
       }
@@ -167,6 +167,6 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}__ctl/ReceivedMessage('{MessageID}')" -X GET -i  -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://cell1.unit1.example/__ctl/ReceivedMessage('c87b42e10df846a9bee842225d1383fe')" \
+-X GET -i  -H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json'
 ```

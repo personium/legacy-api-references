@@ -39,7 +39,7 @@ JSON
 
 ### リクエストサンプル
 ```JSON
-{"Name":"{CellName}"}
+{"Name":"cell1"}
 ```
 
 
@@ -84,11 +84,11 @@ JSON
   "d": {
     "results": {
       "__metadata": {
-        "uri": "https://{UnitFQDN}/__ctl/Cell(Name='{CellName}')",
+        "uri": "https://unit1.example/__ctl/Cell(Name='cell1')",
         "etag": "W/\"1-1486427790039\"",
         "type": "UnitCtl.Cell"
       },
-      "Name": "{CellName}",
+      "Name": "cell1",
       "__published": "/Date(1486427790039)/",
       "__updated": "/Date(1486427790039)/"
     }
@@ -100,7 +100,8 @@ JSON
 ## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/__ctl/Cell" -X POST -i -H 'Authorization: Bearer {AccessToken}' \
--H 'Accept: application/json' -d '{"Name":"{CellName}"}'
+curl "https://unit1.example/__ctl/Cell" -X POST -i \
+-H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' \
+-H 'Accept: application/json' -d '{"Name":"cell1"}'
 ```
 

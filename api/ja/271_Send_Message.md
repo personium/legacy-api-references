@@ -93,7 +93,7 @@ RequestType : rule.add / rule.remove
 {
   "BoxBound": true,
   "InReplyTo": "hnKXm44TTZCw-bfSEw4f0A",
-  "To": "https://{UnitFQDN}/{TargetCellName}",
+  "To": "https://cell2.unit1.example/",
   "ToRelation": null,
   "Type": "request",
   "Title": "友人登録依頼です",
@@ -102,13 +102,13 @@ RequestType : rule.add / rule.remove
   "RequestObjects": [
     {
       "RequestType": "relation.add",
-      "ClassUrl": "https://{UnitFQDN}/{AppCellName}/__relation/__/{RelationName}",
-      "TargetUrl": "{CellURL}"
+      "ClassUrl": "https://app-cell1.unit1.example/__relation/__/relation1",
+      "TargetUrl": "https://cell2.unit1.example/"
     },
     {
       "RequestType": "role.add",
-      "Name": "{RoleName}",
-      "TargetUrl": "{CellURL}"
+      "Name": "role1",
+      "TargetUrl": "https://cell2.unit1.example/"
     }
   ]
 }
@@ -180,14 +180,14 @@ RequestType : rule.add / rule.remove
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}__ctl/SentMessage
+        "uri": "https://cell1.unit1.example/__ctl/SentMessage
 ('3afcc60e35fc49ee9a4e4f6c1ebee426')",
         "etag": "W/\"1-1486638759524\"",
         "type": "CellCtl.SentMessage"
       },
       "__id": "3afcc60e35fc49ee9a4e4f6c1ebee426",
       "InReplyTo": "xnKXmd4TTZCw-bfSEw4f0AxnKXmd4TTZ",
-      "To": "{CellURL}",
+      "To": "https://cell2.unit1.example/",
       "ToRelation": null,
       "Type": "request",
       "Title": "メッセージサンプルタイトル",
@@ -197,8 +197,8 @@ RequestType : rule.add / rule.remove
         {
           "RequestType": "relation.add",
           "Name": null,
-          "ClassUrl": "https://{UnitFQDN}/{AppCellName}/__relation/__/{RelationName}",
-          "TargetUrl": "{CellURL}",
+          "ClassUrl": "https://app-cell1.unit1.example/__relation/__/relation1",
+          "TargetUrl": "https://cell2.unit1.example/",
           "EventType": null,
           "EventSubject": null,
           "EventObject": null,
@@ -209,7 +209,7 @@ RequestType : rule.add / rule.remove
       "_Box.Name": null,
       "Result": [
         {
-          "To": "{CellURL}",
+          "To": "https://cell2.unit1.example/",
           "Code": "201",
           "Reason": "Created."
         }
@@ -223,9 +223,9 @@ RequestType : rule.add / rule.remove
 
 ## cURLサンプル
 ```sh
-curl "{CellURL}__message/send" -X POST -i -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
-'{"BoxBound":false,"InReplyTo":"xnKXmd4TTZCw-bfSEw4f0AxnKXmd4TTZ",\
-"To":"{CellURL}","Type":"message","Title":"メッセージサンプルタイトル",\
+curl "https://cell1.unit1.example/__message/send" -X POST -i \
+-H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json' \
+-d '{"BoxBound":false,"InReplyTo":"xnKXmd4TTZCw-bfSEw4f0AxnKXmd4TTZ",\
+"To":"https://cell2.unit1.example/","Type":"message","Title":"メッセージサンプルタイトル",\
 "Body":"メッセージサンプル本文です。","Priority":3}'
 ```

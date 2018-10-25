@@ -35,6 +35,6 @@ XML形式
 
 ## cURLサンプル
 ```sh
-curl "https://{UnitFQDN}/crossdomain.xml" -X GET -i
+curl "https://unit1.example/crossdomain.xml" -X GET -i
 ```
 

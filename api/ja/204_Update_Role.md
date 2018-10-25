@@ -56,8 +56,8 @@ PUT
 ### リクエストサンプル
 ```JSON
 {
-  "Name": "{RoleName}",
-  "_Box.Name": "{BoxName}"  
+  "Name": "role2",
+  "_Box.Name": "box2"  
 }
 ```
 
@@ -76,8 +76,8 @@ PUT
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')" -X \
-PUT -i -H 'If-Match: *' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' \
--d '{"Name":"{RoleName}","_Box.Name":"{BoxName}"}'
+curl "https://cell1.unit1.example/__ctl/Role(Name='role1',_Box.Name='box1')" -X \
+PUT -i -H 'If-Match: *' -H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json' \
+-d '{"Name":"role2","_Box.Name":"box2"}'
 ```
 

@@ -52,13 +52,13 @@ PUT
 アカウント名更新
 ```JSON
 {
-  "Name": "{AccountName}"
+  "Name": "account2"
 }
 ```
 アカウント名+アカウントタイプ更新
 ```JSON
 {
-  "Name": "{AccountName}","Type":"oidc:google"
+  "Name": "account2","Type":"oidc:google"
 }
 ```
 
@@ -78,14 +78,15 @@ PUT
 ## cURLサンプル
 アカウント名更新
 ```sh
-curl "{CellURL}__ctl/Account('{AccountName}')" -X PUT -i -H \
-'If-Match: *' -H 'X-Personium-Credential:password' -H 'Authorization: Bearer {AccessToken}' -H \
-'Accept: application/json' -d '{"Name":"{AccountName}"}'
+curl "https://cell1.unit1.example/__ctl/Account('account1')" -X PUT -i -H \
+'If-Match: *' -H 'X-Personium-Credential:password' -H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H \
+'Accept: application/json' -d '{"Name":"account2"}'
 ```
 アカウント名+アカウントタイプ更新
 ```sh
-curl "{CellURL}__ctl/Account('{AccountName}')" -X PUT -i -H \
-'If-Match: *' -H 'X-Personium-Credential:password' -H 'Authorization: Bearer {AccessToken}' -H \
-'Accept: application/json' -d '{"Name":"{AccountName}","Type":"oidc:google"}'
+curl "https://cell1.unit1.example/__ctl/Account('account1')" -X PUT -i \
+-H 'If-Match: *' -H 'X-Personium-Credential:password' \
+-H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' \
+-H 'Accept: application/json' -d '{"Name":"account2","Type":"oidc:google"}'
 ```
 

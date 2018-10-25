@@ -88,7 +88,7 @@ POST
 |password|Password|String|Yes(When grant_type = password)|Registered password|
 |assertion|Transcell token target|String|Yes(When grant_type=urn&#58;ietf:params:oauth:grant-type:saml2-bearer)|A valid transacell access token|
 |code|Code|String|Yes(When grant_type = authorization_code)|Registered code|
-|refresh_token|Refresh token name|String|Yes(When grant_type=refresh_token)|Effective refresh token|
+|refresh_token|Refresh token|String|Yes(When grant_type=refresh_token)|Effective refresh token|
 |id_token|Token ID|JSON Web Token|Yes(grant_type=urn&#58;x-personium:oidc:For google)|JWT Formed ID Token|
 |p_target|Issue target|String|No|Where to use the token to be paid (cell URL)<br>If specified, it becomes transcellation token authentication|
 |client_id|Application schema URI|String|Yes(When grant_type = authorization_code)|In many cases App store URL<br>When specified with client_secret Is issued application-certified token<br>At the same time, if the same information is transmitted in the Authorization header, the setting of the Authorization header takes precedence|

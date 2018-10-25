@@ -117,7 +117,7 @@ GET
     "results": [
       {
         "__metadata": {
-          "uri": "{CellURL}__ctl/SentMessage
+          "uri": "https://cell1.unit1.example/__ctl/SentMessage
 ('c87b42e10df846a9bee842225d1383fe')",
           "etag": "W/\"1-1486683974323\"",
           "type": "CellCtl.SentMessage"
@@ -125,7 +125,7 @@ GET
         "__id": "c87b42e10df846a9bee842225d1383fe",
         "_Box.Name": null,
         "InReplyTo": "xnKXmd4TTZCw-bfSEw4f0AxnKXmd4TTZ",
-        "To": "{CellURL}",
+        "To": "https://cell2.unit1.example/",
         "ToRelation": null,
         "Type": "request",
         "Title": "メッセージサンプルタイトル",
@@ -135,8 +135,8 @@ GET
           {
             "RequestType": "relation.add",
             "Name": null,
-            "ClassUrl": "https://{UnitFQDN}/{AppCellName}/__relation/__/{RelationName}",
-            "TargetUrl": "{CellURL}",
+            "ClassUrl": "https://app-cell1.unit1.example/__relation/__/relation1",
+            "TargetUrl": "https://cell2.unit1.example/",
             "EventType": null,
             "EventSubject": null,
             "EventObject": null,
@@ -146,7 +146,7 @@ GET
         ],
         "Result": [
           {
-            "To": "{CellURL}",
+            "To": "https://cell2.unit1.example/",
             "Code": "201",
             "Reason": "Created."
           }
@@ -155,14 +155,14 @@ GET
         "__updated": "/Date(1486683974323)/",
         "_Box": {
           "__deferred": {
-            "uri": "{CellURL}__ctl/SentMessage
+            "uri": "https://cell1.unit1.example/__ctl/SentMessage
 ('c87b42e10df846a9bee842225d1383fe')/_Box"
           }
         }
       },
       {
         "__metadata": {
-          "uri": "{CellURL}__ctl/SentMessage
+          "uri": "https://cell1.unit1.example/__ctl/SentMessage
 ('f87358607d0d46deae61eec6bb0ea490')",
           "etag": "W/\"1-1486685761907\"",
           "type": "CellCtl.SentMessage"
@@ -170,7 +170,7 @@ GET
         "__id": "f87358607d0d46deae61eec6bb0ea490",
         "_Box.Name": null,
         "InReplyTo": "xnKXmd4TTZCw-bfSEw4f0AxnKXmd4TTZ",
-        "To": "{CellURL}",
+        "To": "https://cell3.unit1.example/",
         "ToRelation": null,
         "Type": "message",
         "Title": "メッセージサンプルタイトル",
@@ -178,7 +178,7 @@ GET
         "Priority": 3,
         "Result": [
           {
-            "To": "{CellURL}",
+            "To": "https://cell1.unit3.example/",
             "Code": "201",
             "Reason": "Created."
           }
@@ -187,7 +187,7 @@ GET
         "__updated": "/Date(1486685761907)/",
         "_Box": {
           "__deferred": {
-            "uri": "{CellURL}__ctl/SentMessage
+            "uri": "https://cell1.unit1.example/__ctl/SentMessage
 ('f87358607d0d46deae61eec6bb0ea490')/_Box"
           }
         }
@@ -201,6 +201,6 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}__ctl/SentMessage" -X GET -i -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://cell1.unit1.example/__ctl/SentMessage" -X GET -i \
+-H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json'
 ```

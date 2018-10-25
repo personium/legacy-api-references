@@ -139,7 +139,7 @@ PROPFIND
 ```xml
 <multistatus xmlns="DAV:">
     <response>
-        <href>{CellURL}__log/archive</href>
+        <href>https://cell1.unit1.example/__log/archive</href>
         <propstat>
             <prop>
                 <creationdate>2017-02-03T01:27:31.093+0000</creationdate>
@@ -156,8 +156,8 @@ PROPFIND
 
 ## cURLサンプル
 ```sh
-curl "{CellURL}__log/archive" -X PROPFIND -i -H 'Depth:1' -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
-'<?xml version="1.0" encoding="utf-8"?><D:propfind xmlns:D="DAV:"><D:allprop/></D:propfind>'
+curl "https://cell1.unit1.example/__log/archive" -X PROPFIND -i -H 'Depth:1' \
+-H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json' \
+-d '<?xml version="1.0" encoding="utf-8"?><D:propfind xmlns:D="DAV:"><D:allprop/></D:propfind>'
 ```
 

@@ -97,11 +97,11 @@ GET
     "results": [
       {
         "__metadata": {
-          "uri": "{CellURL}__ctl/Account('{AccountName}')",
+          "uri": "https://cell1.unit1.example/__ctl/Account('account1')",
           "etag": "W/\"1-1486462510467\"",
           "type": "CellCtl.Account"
         },
-        "Name": "{AccountName}",
+        "Name": "account1",
         "LastAuthenticated": null,
         "Type": "basic",
         "Cell": null,
@@ -109,22 +109,22 @@ GET
         "__updated": "/Date(1486462510467)/",
         "_Role": {
           "__deferred": {
-            "uri": "{CellURL}__ctl/Account('{AccountName}')/_Role"
+            "uri": "https://cell1.unit1.example/__ctl/Account('account1')/_Role"
           }
         },
         "_ReceivedMessageRead": {
           "__deferred": {
-            "uri": "{CellURL}__ctl/Account('{AccountName}')/_ReceivedMessageRead"
+            "uri": "https://cell1.unit1.example/__ctl/Account('account1')/_ReceivedMessageRead"
           }
         }
       },
       {
         "__metadata": {
-          "uri": "{CellURL}__ctl/Account('{AccountName}')",
+          "uri": "https://cell1.unit1.example/__ctl/Account('account2')",
           "etag": "W/\"1-1486465908803\"",
           "type": "CellCtl.Account"
         },
-        "Name": "{AccountName}",
+        "Name": "account2",
         "LastAuthenticated": null,
         "Type": "basic",
         "Cell": null,
@@ -132,12 +132,12 @@ GET
         "__updated": "/Date(1486465908803)/",
         "_Role": {
           "__deferred": {
-            "uri": "{CellURL}__ctl/Account('{AccountName}')/_Role"
+            "uri": "https://cell1.unit1.example/__ctl/Account('account2')/_Role"
           }
         },
         "_ReceivedMessageRead": {
           "__deferred": {
-            "uri": "{CellURL}__ctl/Account('{AccountName}')/_ReceivedMessageRead"
+            "uri": "https://cell1.unit1.example/__ctl/Account('account2')/_ReceivedMessageRead"
           }
         }
       }
@@ -149,7 +149,7 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}__ctl/Account" -X GET -i -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://cell1.unit1.example/__ctl/Account" -X GET -i \
+-H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json'
 ```
 

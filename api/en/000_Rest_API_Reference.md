@@ -22,6 +22,7 @@ a RESTful and standardized manner.
 
 #### Other API's
 
+*  [Get Unit Metadata](107_Get_Unit_Metadata.md)
 *  [Cell Recursive Deletion](105_Cell_Recursive_Delete.md)
 
 ## Cell Level API

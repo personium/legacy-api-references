@@ -11,6 +11,8 @@ Boxインストールの状況（インストール結果、進捗率、エラ�
 * BoxのURL
 * BoxのスキーマURL
 * Boxの作成日時
+* [Cellメタデータ](296_Get_Cell_Metadata.md)
+* [Unitメタデータ](107_Get_Unit_Metadata.md)
 
 ### 必要な権限
 read
@@ -77,6 +79,9 @@ GET
 |ルート|cell|object|Object (cell format)||
 |cell|name|string|Cellの名前||
 |cell|url|string|CellのURL||
+|ルート|unit|object|Object (unit format)||
+|unit|url|string|UnitのURL||
+|unit|path_based_cellurl_enabled|boolean|true:path based cell url<br>false:per cell fqdn url||
 
 ### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
@@ -86,15 +91,19 @@ Boxの作成後（Boxインストール完了時を含む）
 ```JSON
 {
   "box": {
-      "status": "ready",
-      "installed_at": "2017-02-13T09:00:00.000Z",
-      "name": "app-box1",
-      "url": "https://cell1.unit1.example/app-box1/",
-      "schema": "https://app-cell1.unit1.example/"
+    "status": "ready",
+    "installed_at": "2017-02-13T09:00:00.000Z",
+    "name": "app_box",
+    "url": "https://example.com/cell1/app_box/",
+    "schema": "https://example.com/app1/"
   },
   "cell": {
-      "name": "cell1",
-      "url": "https://cell1.unit1.example/"
+    "name": "cell1",
+    "url": "https://example.com/cell1/"
+  },
+  "unit": {
+    "url": "https://example.com/",
+    "path_based_cellurl_enabled": true
   }
 }
 ```
@@ -104,16 +113,20 @@ Boxインストール処理中の場合
 ```JSON
 {
   "box": {
-      "status": "installation in progress",
-      "started_at": "2017-02-13T09:00:00.000Z",
-      "progress": "81%",
-      "name": "app-box1",
-      "url": "https://cell1.unit1.example/app-box1/",
-      "schema": "https://app-cell1.unit1.example/"
+    "status": "installation in progress",
+    "started_at": "2017-02-13T09:00:00.000Z",
+    "progress": "81%",
+    "name": "app_box",
+    "url": "https://example.com/cell1/app_box/",
+    "schema": "https://example.com/app1/"
   },
   "cell": {
-      "name": "cell1",
-      "url": "https://cell1.unit1.example/"
+    "name": "cell1",
+    "url": "https://example.com/cell1/"
+  },
+  "unit": {
+    "url": "https://example.com/",
+    "path_based_cellurl_enabled": true
   }
 }
 ```
@@ -124,23 +137,27 @@ Boxインストール完了時（異常終了）の場合
 ```JSON
 {
   "box": {
-      "status": "installation failed",
-      "started_at": "2017-02-13T09:00:00.000Z",
-      "progress": "81%",
-      "message": {
-          "code" : "PR409-OD-0003",
-          "message" : {
-              "lang" : "en",
-              "value" : "The entity already exists."
-          }
-      },
-      "name": "app_box",
-      "url": "https://cell1.unit1.example/app-box1/",
-      "schema": "https://app-cell1.unit1.example/"
+    "status": "installation failed",
+    "started_at": "2017-02-13T09:00:00.000Z",
+    "progress": "81%",
+    "message": {
+      "code" : "PR409-OD-0003",
+      "message" : {
+        "lang" : "en",
+        "value" : "The entity already exists."
+      }
+    },
+    "name": "app_box",
+    "url": "https://example.com/cell1/app_box/",
+    "schema": "https://example.com/app1/"
   },
   "cell": {
-      "name": "cell1",
-      "url": "https://cell1.unit1.example/"
+    "name": "cell1",
+    "url": "https://example.com/cell1/"
+  },
+  "unit": {
+    "url": "https://example.com/",
+    "path_based_cellurl_enabled": true
   }
 }
 ```

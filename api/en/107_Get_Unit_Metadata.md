@@ -1,12 +1,11 @@
-# Get Cell Metadata
+# Get Unit Metadata
 
 ## Overview
 
-Get the metadata of Cell. The metadata includes the following information.
+Get the metadata of Unit. The metadata includes the following information.
 
-* Cell name
-* Cell URL
-* [Unit Metadata](107_Get_Unit_Metadata.md)
+* Unit URL
+* URL format for accessing cell in Unit
 
 ### Required Privileges
 
@@ -18,7 +17,7 @@ None
 ### Request URL
 
 ```
-{CellURL}
+/{UnitFQDN}
 ```
 
 ### Request Method
@@ -33,7 +32,7 @@ None
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|Accept|Specifies the response body format|application/json|Yes||
+|Accept|Specifies the response body format|application/json|No|[application/json] by default|
 
 
 ## Response
@@ -57,9 +56,6 @@ The correspondence between key (name) and type, and value are as follows.
 
 |Object|Name(Key)|Type|Value|Notes|
 |:--|:--|:--|:--|:--|
-|Root|cell|object|Object (cell format)||
-|cell|name|string|The name of the Cell||
-|cell|url|string|The URL of the Cell||
 |Root|unit|object|Object (unit format)||
 |unit|url|string|The URL of the Unit||
 |unit|path_based_cellurl_enabled|boolean|true:path based cell url<br>false:per cell fqdn url||
@@ -72,10 +68,6 @@ Refer to [Error Message List](004_Error_Messages.md)
 
 ```JSON
 {
-  "cell": {
-    "name": "cell1",
-    "url": "https://example.com/cell1/"
-  },
   "unit": {
     "url": "https://example.com/",
     "path_based_cellurl_enabled": true
@@ -86,5 +78,5 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}" -X GET -i -H 'Accept: application/json'
+curl "https://{UnitFQDN}" -X GET -i -H 'Accept: application/json'
 ```

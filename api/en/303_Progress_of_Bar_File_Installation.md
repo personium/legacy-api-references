@@ -14,6 +14,8 @@ Get the metadata of Box. The metadata includes the following information.
 * Box URL
 * Box Schema URL
 * Box creation date and time
+* [Cell Metadata](296_Get_Cell_Metadata.md)
+* [Unit Metadata](107_Get_Unit_Metadata.md)
 
 ### Required Privileges
 
@@ -91,6 +93,9 @@ The correspondence between key (name) and type, and value are as follows.
 |Root|cell|object|Object (cell format)||
 |cell|name|string|The name of the Cell||
 |cell|url|string|The URL of the Cell||
+|Root|unit|object|Object (unit format)||
+|unit|url|string|The URL of the Unit||
+|unit|path_based_cellurl_enabled|boolean|true:path based cell url<br>false:per cell fqdn url||
 
 ### Error Messages
 
@@ -103,15 +108,19 @@ After creating Box (including when Box installation is completed)
 ```JSON
 {
   "box": {
-      "status": "ready",
-      "installed_at": "2017-02-13T09:00:00.000Z",
-      "name": "app_box",
-      "url": "https://example.com/cell1/app_box/",
-      "schema": "https://example.com/app1/"
+    "status": "ready",
+    "installed_at": "2017-02-13T09:00:00.000Z",
+    "name": "app_box",
+    "url": "https://example.com/cell1/app_box/",
+    "schema": "https://example.com/app1/"
   },
   "cell": {
-      "name": "cell1",
-      "url": "https://example.com/cell1/"
+    "name": "cell1",
+    "url": "https://example.com/cell1/"
+  },
+  "unit": {
+    "url": "https://example.com/",
+    "path_based_cellurl_enabled": true
   }
 }
 ```
@@ -121,16 +130,20 @@ During Box installation process
 ```JSON
 {
   "box": {
-      "status": "installation in progress",
-      "started_at": "2017-02-13T09:00:00.000Z",
-      "progress": "81%",
-      "name": "app_box",
-      "url": "https://example.com/cell1/app_box/",
-      "schema": "https://example.com/app1/"
+    "status": "installation in progress",
+    "started_at": "2017-02-13T09:00:00.000Z",
+    "progress": "81%",
+    "name": "app_box",
+    "url": "https://example.com/cell1/app_box/",
+    "schema": "https://example.com/app1/"
   },
   "cell": {
-      "name": "cell1",
-      "url": "https://example.com/cell1/"
+    "name": "cell1",
+    "url": "https://example.com/cell1/"
+  },
+  "unit": {
+    "url": "https://example.com/",
+    "path_based_cellurl_enabled": true
   }
 }
 ```
@@ -141,23 +154,27 @@ When Box installation is completed (abnormal termination)
 ```JSON
 {
   "box": {
-      "status": "installation failed",
-      "started_at": "2017-02-13T09:00:00.000Z",
-      "progress": "81%",
-      "message": {
-          "code" : "PR409-OD-0003",
-          "message" : {
-              "lang" : "en",
-              "value" : "The entity already exists."
-          }
-      },
-      "name": "app_box",
-      "url": "https://example.com/cell1/app_box/",
-      "schema": "https://example.com/app1/"
+    "status": "installation failed",
+    "started_at": "2017-02-13T09:00:00.000Z",
+    "progress": "81%",
+    "message": {
+      "code" : "PR409-OD-0003",
+      "message" : {
+        "lang" : "en",
+        "value" : "The entity already exists."
+      }
+    },
+    "name": "app_box",
+    "url": "https://example.com/cell1/app_box/",
+    "schema": "https://example.com/app1/"
   },
   "cell": {
-      "name": "cell1",
-      "url": "https://example.com/cell1/"
+    "name": "cell1",
+    "url": "https://example.com/cell1/"
+  },
+  "unit": {
+    "url": "https://example.com/",
+    "path_based_cellurl_enabled": true
   }
 }
 ```

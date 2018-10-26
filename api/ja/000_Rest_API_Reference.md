@@ -20,6 +20,7 @@ Unit Level API の大半はUnit制御オブジェクトという形で実現さ�
 
 ### その他API
 
+* [Unitメタデータ取得](107_Get_Unit_Metadata.md)
 * [Cell再帰削除](105_Cell_Recursive_Delete.md)
 
 ## Cell Level API

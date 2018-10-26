@@ -1,9 +1,8 @@
-# Cellメタデータ取得
+# Unitメタデータ取得
 ## 概要
-Cellのメタデータを取得する。メタデータには、以下の情報が含まれる。  
-* Cellの名前
-* CellのURL
-* [Unitメタデータ](107_Get_Unit_Metadata.md)
+Unitのメタデータを取得する。メタデータには、以下の情報が含まれる。  
+* UnitのURL
+* Unit内のセルにアクセスする際のURL形式
 
 ### 必要な権限
 なし
@@ -12,7 +11,7 @@ Cellのメタデータを取得する。メタデータには、以下の情報�
 ## リクエスト
 ### リクエストURL
 ```
-{CellURL}
+/{UnitFQDN}
 ```
 
 ### メソッド
@@ -24,7 +23,7 @@ GET
 ### リクエストヘッダ
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|Accept|レスポンスボディの形式を指定する|application/json|○||
+|Accept|レスポンスボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
 
 
 ## レスポンス
@@ -44,9 +43,6 @@ GET
 
 |オブジェクト|名前(キー)|型|値|備考|
 |:--|:--|:--|:--|:--|
-|ルート|cell|object|Object (cell format)||
-|cell|name|string|Cellの名前||
-|cell|url|string|CellのURL||
 |ルート|unit|object|Object (unit format)||
 |unit|url|string|UnitのURL||
 |unit|path_based_cellurl_enabled|boolean|true:path based cell url<br>false:per cell fqdn url||
@@ -57,10 +53,6 @@ GET
 ### レスポンスサンプル
 ```JSON
 {
-  "cell": {
-    "name": "cell1",
-    "url": "https://example.com/cell1/"
-  },
   "unit": {
     "url": "https://example.com/",
     "path_based_cellurl_enabled": true
@@ -71,5 +63,5 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}" -X GET -i -H 'Accept: application/json'
+curl "https://{UnitFQDN}" -X GET -i -H 'Accept: application/json'
 ```

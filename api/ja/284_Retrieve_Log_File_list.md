@@ -144,19 +144,19 @@ PROPFIND
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <multistatus xmlns="DAV:">
-    <response>
-        <href>https://cell1.unit1.example/__log/archive</href>
-        <propstat>
-            <prop>
-                <creationdate>2017-02-03T01:27:31.093+0000</creationdate>
-                <getlastmodified>Fri, 03 Feb 2017 01:27:31 GMT</getlastmodified>
-                <resourcetype>
-                    <collection/>
-                </resourcetype>
-            </prop>
-            <status>HTTP/1.1 200 OK</status>
-        </propstat>
-    </response>
+  <response>
+    <href>https://cell1.unit1.example/__log/archive</href>
+    <propstat>
+      <prop>
+        <creationdate>2017-02-03T01:27:31.093+0000</creationdate>
+        <getlastmodified>Fri, 03 Feb 2017 01:27:31 GMT</getlastmodified>
+        <resourcetype>
+          <collection/>
+        </resourcetype>
+      </prop>
+      <status>HTTP/1.1 200 OK</status>
+    </propstat>
+  </response>
 </multistatus>
 ```
 なお、ログファイルのローテート時にファイルのZIP圧縮有無を指定可能とする予定（ログ設定更新API）

@@ -170,20 +170,20 @@ DTD表記
 ### レスポンスサンプル
 ```xml
 <multistatus xmlns="DAV:">
-    <response>
-        <href>{CellURL}{BoxName}/{ResourcePath}</href>
-        <propstat>
-            <prop>
-                <creationdate>2017-02-15T01:52:34.635+0000</creationdate>
-                <getlastmodified>Wed, 15 Feb 2017 01:52:34 GMT</getlastmodified>
-                <resourcetype>
-                    <collection/>
-                </resourcetype>
-                <acl xmlns:p="urn:x-personium:xmlns"/>
-            </prop>
-            <status>HTTP/1.1 200 OK</status>
-        </propstat>
-    </response>
+  <response>
+    <href>{CellURL}{BoxName}/{ResourcePath}</href>
+    <propstat>
+      <prop>
+        <creationdate>2017-02-15T01:52:34.635+0000</creationdate>
+        <getlastmodified>Wed, 15 Feb 2017 01:52:34 GMT</getlastmodified>
+        <resourcetype>
+          <collection/>
+        </resourcetype>
+        <acl xmlns:p="urn:x-personium:xmlns"/>
+      </prop>
+      <status>HTTP/1.1 200 OK</status>
+    </propstat>
+  </response>
 </multistatus>
 ```
 

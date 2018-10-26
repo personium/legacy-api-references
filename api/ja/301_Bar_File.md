@@ -221,137 +221,136 @@ barファイルのインストール時には、下記サンプルの<prop>配�
 ##### サンプル
 ```xml
 <multistatus xmlns="DAV:">
-    <response>
-        <href>personium-localbox:/</href>
-        <propstat>
-           <prop>
-              <resourcetype>
-                  <collection/>
-              </resourcetype>
-              <acl xml:base="https://cell1.unit1.example/__role/__/" xmlns:p="urn:x-personium:xmlns">
-                  <ace>
-                      <principal>
-                          <href>admin</href>
-                      </principal>
-                      <grant>
-                          <privilege>
-                              <all/>
-                          </privilege>
-                      </grant>
-                  </ace>
-              </acl>
-          </prop>
-      </propstat>
+  <response>
+    <href>personium-localbox:/</href>
+    <propstat>
+      <prop>
+        <resourcetype>
+          <collection/>
+        </resourcetype>
+        <acl xml:base="https://cell1.unit1.example/__role/__/" xmlns:p="urn:x-personium:xmlns">
+          <ace>
+            <principal>
+              <href>admin</href>
+            </principal>
+            <grant>
+              <privilege>
+                <all/>
+              </privilege>
+            </grant>
+          </ace>
+        </acl>
+      </prop>
+    </propstat>
   </response>
   <response>
-      <href>personium-localbox:/odata</href>
-      <propstat>
-          <prop>
-              <resourcetype>
-                  <collection/>
-                  <p:service xmlns:p="urn:x-personium:xmlns"/>
-              </resourcetype>
-              <acl xml:base="https://cell1.unit1.example/__role/__/" xmlns:p="urn:x-personium:xmlns">
-                  <ace>
-                      <principal>
-                          <href>user</href>
-                      </principal>
-                      <grant>
-                          <privilege>
-                              <read/>
-                          </privilege>
-                          <privilege>
-                              <write/>
-                          </privilege>
-                          <privilege>
-                              <read-properties/>
-                          </privilege>
-                      </grant>
-                  </ace>
-              </acl>
-          </prop>
-      </propstat>
+    <href>personium-localbox:/odata</href>
+    <propstat>
+      <prop>
+        <resourcetype>
+          <collection/>
+          <p:service xmlns:p="urn:x-personium:xmlns"/>
+        </resourcetype>
+        <acl xml:base="https://cell1.unit1.example/__role/__/" xmlns:p="urn:x-personium:xmlns">
+          <ace>
+            <principal>
+              <href>user</href>
+            </principal>
+            <grant>
+              <privilege>
+                <read/>
+              </privilege>
+              <privilege>
+                <write/>
+              </privilege>
+              <privilege>
+                <read-properties/>
+              </privilege>
+            </grant>
+          </ace>
+        </acl>
+      </prop>
+    </propstat>
   </response>
   <response>
-      <href>personium-localbox:/dav</href>
-      <propstat>
-          <prop>
-              <resourcetype>
-                  <collection/>
-              </resourcetype>
-              <acl xml:base="https://cell1.unit1.example/__role/__/" xmlns:p="urn:x-personium:xmlns">
-                  <ace>
-                      <principal>
-                          <href>user</href>
-                      </principal>
-                      <grant>
-                          <privilege>
-                              <read/>
-                          </privilege>
-                          <privilege>
-                              <write/>
-                          </privilege>
-                          <privilege>
-                              <read-properties/>
-                          </privilege>
-                      </grant>
-                  </ace>
-              </acl>
-          </prop>
-      </propstat>
+    <href>personium-localbox:/dav</href>
+    <propstat>
+      <prop>
+        <resourcetype>
+          <collection/>
+        </resourcetype>
+        <acl xml:base="https://cell1.unit1.example/__role/__/" xmlns:p="urn:x-personium:xmlns">
+          <ace>
+            <principal>
+              <href>user</href>
+            </principal>
+            <grant>
+              <privilege>
+                <read/>
+              </privilege>
+              <privilege>
+                <write/>
+              </privilege>
+              <privilege>
+                <read-properties/>
+              </privilege>
+            </grant>
+          </ace>
+        </acl>
+      </prop>
+    </propstat>
   </response>
   <response>
-      <href>personium-localbox:/dav/testdavfile.txt</href>
-      <propstat>
-          <prop>
-              <getcontenttype>text/plain</getcontenttype>
-          </prop>
-      </propstat>
+    <href>personium-localbox:/dav/testdavfile.txt</href>
+    <propstat>
+      <prop>
+        <getcontenttype>text/plain</getcontenttype>
+      </prop>
+    </propstat>
   </response>
   <response>
-      <href>personium-localbox:/service</href>
-      <propstat>
-          <prop>
-              <resourcetype>
-                  <collection/>
-                  <p:service xmlns:p="urn:x-personium:xmlns"/>
-              </resourcetype>
-             <acl xml:base="https://cell1.unit1.example/__role/__/" xmlns:p="urn:x-personium:xmlns"/>
-              <p:service language="JavaScript" xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns">
-                  <p:path name="ehr" src="ehr.js"/>
-                  <p:path name="ehr_connector" src="ehr_connector.js"/>
-              </p:service>
-            </prop>
-        </propstat>
-    </response>
-    <response>
-        <href>personium-localbox:/service/__src</href>
-        <propstat>
-            <prop>
-                <resourcetype>
-                    <collection/>
-                </resourcetype>
-                <acl xml:base="https://cell1.unit1.example/__role/__/"
-                 xmlns:p="urn:x-personium:xmlns"/>
-            </prop>
-        </propstat>
-    </response>
-    <response>
-        <href>personium-localbox:/service/__src/ehr.js</href>
-        <propstat>
-            <prop>
-                <getcontenttype>text/javascript</getcontenttype>
-            </prop>
-        </propstat>
-    </response>
-    <response>
-        <href>personium-localbox:/service/__src/ehr_connector.js</href>
-        <propstat>
-            <prop>
-                <getcontenttype>text/javascript</getcontenttype>
-            </prop>
-        </propstat>
-    </response>
+    <href>personium-localbox:/service</href>
+    <propstat>
+      <prop>
+        <resourcetype>
+          <collection/>
+          <p:service xmlns:p="urn:x-personium:xmlns"/>
+        </resourcetype>
+        <acl xml:base="https://cell1.unit1.example/__role/__/" xmlns:p="urn:x-personium:xmlns"/>
+        <p:service language="JavaScript" xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns">
+          <p:path name="ehr" src="ehr.js"/>
+          <p:path name="ehr_connector" src="ehr_connector.js"/>
+        </p:service>
+      </prop>
+    </propstat>
+  </response>
+  <response>
+    <href>personium-localbox:/service/__src</href>
+    <propstat>
+      <prop>
+        <resourcetype>
+          <collection/>
+        </resourcetype>
+        <acl xml:base="https://cell1.unit1.example/__role/__/" xmlns:p="urn:x-personium:xmlns"/>
+      </prop>
+    </propstat>
+  </response>
+  <response>
+    <href>personium-localbox:/service/__src/ehr.js</href>
+    <propstat>
+      <prop>
+        <getcontenttype>text/javascript</getcontenttype>
+      </prop>
+    </propstat>
+  </response>
+  <response>
+    <href>personium-localbox:/service/__src/ehr_connector.js</href>
+    <propstat>
+      <prop>
+        <getcontenttype>text/javascript</getcontenttype>
+      </prop>
+    </propstat>
+  </response>
 </multistatus>
 ```
 #### contents/{OData}/
@@ -424,12 +423,12 @@ xmlns:p = 'urn: x-personium: xmlns'>
 
 ```JSON
 {
-    "__id": "entity1",
-    "name": "pochi",
-    "address": {
-        "country": "japan",
-        "city": "tokyo"
-    }
+  "__id": "entity1",
+  "name": "pochi",
+  "address": {
+    "country": "japan",
+    "city": "tokyo"
+  }
 }
 ```
 
@@ -442,50 +441,48 @@ bar/90_contents/{Service}/{src.js}に格納されたソースファイルを、�
 サービス登録用90_rootprops.xmlのサンプル
 ```xml
 <multistatus xmlns="DAV:">
-    <response>
-        <href>personium-localbox:/service</href>
-        <propstat>
-            <prop>
-                <resourcetype>
-                    <collection/>
-                    <p:service xmlns:p="urn:x-personium:xmlns"/>
-                </resourcetype>
-                <acl xml:base="https://cell1.unit1.example/__role/__/"
-                xmlns:p="urn:x-personium:xmlns"/>
-                <p:service language="JavaScript" xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns">
-                    <p:path name="ehr" src="ehr.js"/>
-                    <p:path name="ehr_connector" src="ehr_connector.js"/>
-                </p:service>
-            </prop>
-        </propstat>
-    </response>
-    <response>
-        <href>personium-localbox:/service/__src</href>
-        <propstat>
-            <prop>
-                <resourcetype>
-                    <collection/>
-                </resourcetype>
-                <acl xml:base="https://cell1.unit1.example/__role/__/"
-                 xmlns:p="urn:x-personium:xmlns"/>
-            </prop>
-        </propstat>
-    </response>
-    <response>
-        <href>personium-localbox:/service/__src/ehr.js</href>
-        <propstat>
-            <prop>
-                <getcontenttype>text/javascript</getcontenttype>
-            </prop>
-        </propstat>
-    </response>
-    <response>
-        <href>personium-localbox:/service/__src/ehr_connector.js</href>
-        <propstat>
-            <prop>
-                <getcontenttype>text/javascript</getcontenttype>
-            </prop>
-        </propstat>
-    </response>
+  <response>
+    <href>personium-localbox:/service</href>
+    <propstat>
+      <prop>
+        <resourcetype>
+          <collection/>
+          <p:service xmlns:p="urn:x-personium:xmlns"/>
+        </resourcetype>
+        <acl xml:base="https://cell1.unit1.example/__role/__/" xmlns:p="urn:x-personium:xmlns"/>
+        <p:service language="JavaScript" xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns">
+          <p:path name="ehr" src="ehr.js"/>
+          <p:path name="ehr_connector" src="ehr_connector.js"/>
+        </p:service>
+      </prop>
+    </propstat>
+  </response>
+  <response>
+    <href>personium-localbox:/service/__src</href>
+    <propstat>
+      <prop>
+        <resourcetype>
+          <collection/>
+        </resourcetype>
+        <acl xml:base="https://cell1.unit1.example/__role/__/" xmlns:p="urn:x-personium:xmlns"/>
+      </prop>
+    </propstat>
+  </response>
+  <response>
+    <href>personium-localbox:/service/__src/ehr.js</href>
+    <propstat>
+      <prop>
+        <getcontenttype>text/javascript</getcontenttype>
+      </prop>
+    </propstat>
+  </response>
+  <response>
+    <href>personium-localbox:/service/__src/ehr_connector.js</href>
+    <propstat>
+      <prop>
+        <getcontenttype>text/javascript</getcontenttype>
+      </prop>
+    </propstat>
+  </response>
 </multistatus>
 ```

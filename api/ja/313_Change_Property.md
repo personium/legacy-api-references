@@ -62,16 +62,16 @@ PROPPATCH
 ```xml
 <D:propertyupdate xmlns:D="DAV:"
     xmlns:p="urn:x-personium:xmlns">
-    <D:set>
-        <D:prop>
-            <p:hoge>fuga</p:hoge>
-        </D:prop>
-    </D:set>
-    <D:remove>
-        <D:prop>
-            <p:hoge/>
-        </D:prop>
-    </D:remove>
+  <D:set>
+    <D:prop>
+      <p:hoge>fuga</p:hoge>
+    </D:prop>
+  </D:set>
+  <D:remove>
+    <D:prop>
+      <p:hoge/>
+    </D:prop>
+  </D:remove>
 </D:propertyupdate>
 ```
 
@@ -114,16 +114,16 @@ PROPPATCH
 ### レスポンスサンプル
 ```xml
 <multistatus xmlns="DAV:">
-    <response>
-        <href>{CellURL}{BoxName}/{ResourcePath}</href>
-        <propstat>
-            <prop>
-                <p:hoge xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:">foo</p:hoge>
-                <p:hoge xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:"/>
-            </prop>
-            <status>HTTP/1.1 200 OK</status>
-        </propstat>
-    </response>
+  <response>
+    <href>{CellURL}{BoxName}/{ResourcePath}</href>
+    <propstat>
+      <prop>
+        <p:hoge xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:">foo</p:hoge>
+        <p:hoge xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:"/>
+      </prop>
+      <status>HTTP/1.1 200 OK</status>
+    </propstat>
+  </response>
 </multistatus>
 ```
 

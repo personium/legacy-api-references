@@ -145,21 +145,21 @@ PROPFIND
 ### レスポンスサンプル
 ```xml
 <multistatus xmlns="DAV:">
-    <response>
-        <href>https://cell1.unit1.example/</href>
-        <propstat>
-            <prop>
-                <creationdate>2017-02-03T01:27:31.130+0000</creationdate>
-                <getlastmodified>Fri, 03 Feb 2017 01:27:31 GMT</getlastmodified>
-                <resourcetype>
-                    <collection/>
-                </resourcetype>
-                <p:cellstatus xmlns:p="urn:x-personium:xmlns">normal</p:cellstatus>
-                <acl xmlns:p="urn:x-personium:xmlns"/>
-            </prop>
-            <status>HTTP/1.1 200 OK</status>
-        </propstat>
-    </response>
+  <response>
+    <href>https://cell1.unit1.example/</href>
+    <propstat>
+      <prop>
+        <creationdate>2017-02-03T01:27:31.130+0000</creationdate>
+        <getlastmodified>Fri, 03 Feb 2017 01:27:31 GMT</getlastmodified>
+        <resourcetype>
+          <collection/>
+        </resourcetype>
+        <p:cellstatus xmlns:p="urn:x-personium:xmlns">normal</p:cellstatus>
+        <acl xmlns:p="urn:x-personium:xmlns"/>
+      </prop>
+      <status>HTTP/1.1 200 OK</status>
+    </propstat>
+  </response>
 </multistatus>
 ```
 

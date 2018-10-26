@@ -111,7 +111,7 @@ barファイルのファイル構成については [bar ファイル](301_Bar_F
 |X-Personium-Version|APIの実行バージョン|リクエストが処理されたAPIバージョン|
 Locationサンプル
 ```
-Location:{CellURL}{BoxName}
+Location: https://cell1.unit1.example/box1
 ```
 Boxメタデータ取得API用URLの詳細は、[Boxメタデータ取得](303_Progress_of_Bar_File_Installation.md)を参照。
 ### レスポンスボディ
@@ -120,15 +120,10 @@ Boxメタデータ取得API用URLの詳細は、[Boxメタデータ取得](303_P
 ### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
 
-### レスポンスサンプル
-```
-Location: {CellURL}{BoxName}
-```
-Boxメタデータ取得API用URLの詳細は、[Boxメタデータ取得](303_Progress_of_Bar_File_Installation.md)を参照。
-
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}{BoxName}" -X MKCOL -i -H 'Content-type: application/zip' -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -T "{FilePath}"
+curl "https://cell1.unit1.example/box1" -X MKCOL -i -H 'Content-type: application/zip' \
+-H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json' \
+-T "/tmp/sample.bar"
 ```

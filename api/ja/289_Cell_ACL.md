@@ -135,23 +135,23 @@ rule or rule-read)>
 <?xml version="1.0" encoding="utf-8" ?>
 <D:acl xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" 
 xml:base="https://cell1.unit1.example/__role/box1/">
-    <D:ace>
-        <D:principal>
-            <D:all/>
-        </D:principal>
-        <D:grant>
-           <D:privilege><p:auth/></D:privilege>
-           <D:privilege><p:box/></D:privilege>
-        </D:grant>
-    </D:ace>
-    <D:ace>
-        <D:principal>
-            <D:href>role</D:href>
-        </D:principal>
-        <D:grant>
-            <D:privilege><p:root/></D:privilege>
-        </D:grant>
-    </D:ace>
+  <D:ace>
+    <D:principal>
+      <D:all/>
+    </D:principal>
+    <D:grant>
+      <D:privilege><p:auth/></D:privilege>
+      <D:privilege><p:box/></D:privilege>
+    </D:grant>
+  </D:ace>
+  <D:ace>
+    <D:principal>
+      <D:href>role</D:href>
+    </D:principal>
+    <D:grant>
+      <D:privilege><p:root/></D:privilege>
+    </D:grant>
+  </D:ace>
 </D:acl>
 ```
 

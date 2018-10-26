@@ -82,13 +82,13 @@ DTD表記
 ```xml
 <D:propertyupdate xmlns:D="DAV:"
     xmlns:p="urn:x-personium:xmlns">
-    <D:set>
-        <D:prop>
-          <p:service language="JavaScript">
-            <p:path name="${name}" src="${src}"/>
-          </p:service>
-        </D:prop>
-    </D:set>
+  <D:set>
+    <D:prop>
+      <p:service language="JavaScript">
+        <p:path name="${name}" src="${src}"/>
+      </p:service>
+    </D:prop>
+  </D:set>
 </D:propertyupdate>
 ```
 
@@ -130,17 +130,17 @@ DTD表記
 ### レスポンスサンプル
 ```xml
 <multistatus xmlns="DAV:">
-    <response>
-        <href>{CellURL}{BoxName}/{CollectionName}</href>
-        <propstat>
-            <prop>
-                <p:service language="JavaScript" xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:">
-                    <p:path name="sample" src="sample.js"/>
-                </p:service>
-            </prop>
-            <status>HTTP/1.1 200 OK</status>
-        </propstat>
-    </response>
+  <response>
+    <href>{CellURL}{BoxName}/{CollectionName}</href>
+    <propstat>
+      <prop>
+        <p:service language="JavaScript" xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:">
+          <p:path name="sample" src="sample.js"/>
+        </p:service>
+      </prop>
+      <status>HTTP/1.1 200 OK</status>
+    </propstat>
+  </response>
 </multistatus>
 ```
 ### エラーメッセージ一覧

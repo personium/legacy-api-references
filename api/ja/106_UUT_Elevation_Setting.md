@@ -120,22 +120,22 @@ account2</p:account></p:ownerRepresentativeAccounts>
 ### レスポンスサンプル
 ```xml
 <multistatus xmlns="DAV:">
-    <response>
-        <href>http://localhost:9998/testcell1/box1/patchcol</href>
-        <propstat>
-            <prop>
-                <Z:Author xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" 
+  <response>
+    <href>http://localhost:9998/testcell1/box1/patchcol</href>
+    <propstat>
+      <prop>
+        <Z:Author xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" 
 xmlns:Z="http://www.w3.com/standards/z39.50/">Author1 update</Z:Author>
-                <p:hoge xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" 
+        <p:hoge xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" 
 xmlns:Z="http://www.w3.com/standards/z39.50/">fuga</p:hoge>
-                <Z:Author xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" 
+        <Z:Author xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" 
 xmlns:Z="http://www.w3.com/standards/z39.50/"/>
-                <p:hoge xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" 
+        <p:hoge xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" 
 xmlns:Z="http://www.w3.com/standards/z39.50/"/>
-            </prop>
-            <status>HTTP/1.1 200 OK</status>
-        </propstat>
-    </response>
+      </prop>
+      <status>HTTP/1.1 200 OK</status>
+    </propstat>
+  </response>
 </multistatus>   
 ```
 ### エラーメッセージ一覧

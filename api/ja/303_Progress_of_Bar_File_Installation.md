@@ -88,13 +88,13 @@ Boxの作成後（Boxインストール完了時を含む）
   "box": {
       "status": "ready",
       "installed_at": "2017-02-13T09:00:00.000Z",
-      "name": "app_box",
-      "url": "https://example.com/cell1/app_box/",
-      "schema": "https://example.com/app1/"
+      "name": "app-box1",
+      "url": "https://cell1.unit1.example/app-box1/",
+      "schema": "https://app-cell1.unit1.example/"
   },
   "cell": {
       "name": "cell1",
-      "url": "https://example.com/cell1/"
+      "url": "https://cell1.unit1.example/"
   }
 }
 ```
@@ -107,13 +107,13 @@ Boxインストール処理中の場合
       "status": "installation in progress",
       "started_at": "2017-02-13T09:00:00.000Z",
       "progress": "81%",
-      "name": "app_box",
-      "url": "https://example.com/cell1/app_box/",
-      "schema": "https://example.com/app1/"
+      "name": "app-box1",
+      "url": "https://cell1.unit1.example/app-box1/",
+      "schema": "https://app-cell1.unit1.example/"
   },
   "cell": {
       "name": "cell1",
-      "url": "https://example.com/cell1/"
+      "url": "https://cell1.unit1.example/"
   }
 }
 ```
@@ -135,12 +135,12 @@ Boxインストール完了時（異常終了）の場合
           }
       },
       "name": "app_box",
-      "url": "https://example.com/cell1/app_box/",
-      "schema": "https://example.com/app1/"
+      "url": "https://cell1.unit1.example/app-box1/",
+      "schema": "https://app-cell1.unit1.example/"
   },
   "cell": {
       "name": "cell1",
-      "url": "https://example.com/cell1/"
+      "url": "https://cell1.unit1.example/"
   }
 }
 ```
@@ -149,7 +149,7 @@ Boxインストール完了時（異常終了）の場合
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}{BoxName}" -X GET -i -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://cell1.unit1.example/box1" -X GET -i \
+-H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json'
 ```
 

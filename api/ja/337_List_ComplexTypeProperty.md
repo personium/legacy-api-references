@@ -111,13 +111,13 @@ GET
     "results": [
       {
         "__metadata": {
-          "uri": "{CellURL}{BoxName}/{ODataCollecitonName}/$metadata
-/ComplexTypeProperty(Name='{ComplexTypePropertyName}',_ComplexType.Name='{ComplexTypeName}')",
+          "uri": "https://cell1.unit1.example/box1/odata-collection1/$metadata
+/ComplexTypeProperty(Name='complex-type-property1',_ComplexType.Name='complex-type1')",
           "etag": "W/\"1-1487587033861\"",
           "type": "ODataSvcSchema.ComplexTypeProperty"
         },
-        "Name": "{ComplexTypePropertyName}",
-        "_ComplexType.Name": "{ComplexTypeName}",
+        "Name": "complex-type-property1",
+        "_ComplexType.Name": "complex-type1",
         "Type": "Edm.String",
         "Nullable": true,
         "DefaultValue": null,
@@ -126,21 +126,21 @@ GET
         "__updated": "/Date(1487587033861)/",
         "_ComplexType": {
           "__deferred": {
-            "uri": "{CellURL}{BoxName}/{ODataCollecitonName}/$metadata
-/ComplexTypeProperty(Name='{ComplexTypePropertyName}',_ComplexType.Name='{ComplexTypeName}')
+            "uri": "https://cell1.unit1.example/box1/odata-collection1/$metadata
+/ComplexTypeProperty(Name='complex-type-property1',_ComplexType.Name='complex-type1')
 /_ComplexType"
           }
         }
       },
       {
         "__metadata": {
-          "uri": "{CellURL}{BoxName}/{ODataCollecitonName}/$metadata
-/ComplexTypeProperty(Name='{ComplexTypePropertyName}',_ComplexType.Name='{ComplexTypeName}')",
+          "uri": "https://cell1.unit1.example/box1/odata-collection1/$metadata
+/ComplexTypeProperty(Name='complex-type-property2',_ComplexType.Name='complex-type2')",
           "etag": "W/\"1-1487658277593\"",
           "type": "ODataSvcSchema.ComplexTypeProperty"
         },
-        "Name": "{ComplexTypePropertyName}",
-        "_ComplexType.Name": "{ComplexTypeName}",
+        "Name": "complex-type-property2",
+        "_ComplexType.Name": "complex-type2",
         "Type": "Edm.String",
         "Nullable": true,
         "DefaultValue": null,
@@ -149,8 +149,8 @@ GET
         "__updated": "/Date(1487658277593)/",
         "_ComplexType": {
           "__deferred": {
-            "uri": "{CellURL}{BoxName}/{ODataCollecitonName}/$metadata
-/ComplexTypeProperty(Name='{ComplexTypePropertyName}',_ComplexType.Name='{ComplexTypeName}')
+            "uri": "https://cell1.unit1.example/box1/odata-collection1/$metadata
+/ComplexTypeProperty(Name='complex-type-property2',_ComplexType.Name='complex-type2')
 /_ComplexType"
           }
         }
@@ -163,6 +163,6 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}{BoxName}/{ODataCollecitonName}/\$metadata/ComplexTypeProperty" \
--X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://cell1.unit1.example/box1/odata-collection1/\$metadata/ComplexTypeProperty" \
+-X GET -i -H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json'
 ```

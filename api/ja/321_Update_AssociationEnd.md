@@ -53,7 +53,7 @@ JSON
 |_EntityType.Name|関係対象のEntityType名|桁数：1&#65374;128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)は指定不可<br>説明：EntityType登録APIにて登録済みのEntityType|○||
 ### リクエストサンプル
 ```JSON
-{"Name":"{AssociationEndName}","Multiplicity":"{Multiplicity}","_EntityType.Name":"{EntityTypeName}"}
+{"Name":"association-end2","Multiplicity":"*","_EntityType.Name":"entity-type2"}
 ```
 
 
@@ -71,9 +71,9 @@ JSON
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}{BoxName}/{ODataCollecitonName}/\$metadata/AssociationEnd\
-(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')" -X PUT -i  -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '\
-{"Name":"{AssociationEndName}","Multiplicity":"{Multiplicity}","_EntityType.Name":"{EntityTypeName}"}'
+curl "https://cell1.unit1.example/box1/odata-collection1/\$metadata/AssociationEnd\
+(Name='association-end1',_EntityType.Name='entity-type1')" -X PUT -i \
+-H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json' \
+-d '{"Name":"association-end2","Multiplicity":"*","_EntityType.Name":"entity-type2"}'
 ```
 

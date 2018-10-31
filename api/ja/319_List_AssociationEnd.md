@@ -110,51 +110,51 @@ GET
     "results": [
       {
         "__metadata": {
-          "uri": "{CellURL}{BoxName}/{ODataCollecitonName}/$metadata
-/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')",
+          "uri": "https://cell1.unit1.example/box1/odata-collection1/$metadata
+/AssociationEnd(Name='association-end1',_EntityType.Name='entity-type1')",
           "etag": "W/\"2-1487587131996\"",
           "type": "ODataSvcSchema.AssociationEnd"
         },
-        "Name": "{AssociationEndName}",
-        "Multiplicity": "{Multiplicity}",
-        "_EntityType.Name": "{EntityTypeName}",
+        "Name": "association-end1",
+        "Multiplicity": "1",
+        "_EntityType.Name": "entity-type1",
         "__published": "/Date(1487587131996)/",
         "__updated": "/Date(1487587131996)/",
         "_EntityType": {
           "__deferred": {
-            "uri": "{CellURL}{BoxName}/{ODataCollecitonName}/$metadata
-/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')/_EntityType"
+            "uri": "https://cell1.unit1.example/box1/odata-collection1/$metadata
+/AssociationEnd(Name='association-end1',_EntityType.Name='entity-type1')/_EntityType"
           }
         },
         "_AssociationEnd": {
           "__deferred": {
-            "uri": "{CellURL}{BoxName}/{ODataCollecitonName}/$metadata
-/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')/_AssociationEnd"
+            "uri": "https://cell1.unit1.example/box1/odata-collection1/$metadata
+/AssociationEnd(Name='association-end1',_EntityType.Name='entity-type1')/_AssociationEnd"
           }
         }
       },
       {
         "__metadata": {
-          "uri": "{CellURL}{BoxName}/{ODataCollecitonName}/$metadata
-/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')",
+          "uri": "https://cell1.unit1.example/box1/odata-collection1/$metadata
+/AssociationEnd(Name='association-end2',_EntityType.Name='entity-type2')",
           "etag": "W/\"1-1487652733383\"",
           "type": "ODataSvcSchema.AssociationEnd"
         },
-        "Name": "{AssociationEndName}",
-        "Multiplicity": "{Multiplicity}",
-        "_EntityType.Name": "{EntityTypeName}",
+        "Name": "association-end2",
+        "Multiplicity": "*",
+        "_EntityType.Name": "entity-type2",
         "__published": "/Date(1487652733383)/",
         "__updated": "/Date(1487652733383)/",
         "_EntityType": {
           "__deferred": {
-            "uri": "{CellURL}{BoxName}/{ODataCollecitonName}/$metadata
-/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')/_EntityType"
+            "uri": "https://cell1.unit1.example/box1/odata-collection1/$metadata
+/AssociationEnd(Name='association-end2',_EntityType.Name='entity-type2')/_EntityType"
           }
         },
         "_AssociationEnd": {
           "__deferred": {
-            "uri": "{CellURL}{BoxName}/{ODataCollecitonName}/$metadata
-/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')/_AssociationEnd"
+            "uri": "https://cell1.unit1.example/box1/odata-collection1/$metadata
+/AssociationEnd(Name='association-end2',_EntityType.Name='entity-type2')/_AssociationEnd"
           }
         }
       }
@@ -167,7 +167,7 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}{BoxName}/{ODataCollecitonName}/\$metadata/AssociationEnd" -X \
-GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://cell1.unit1.example/box1/odata-collection1/\$metadata/AssociationEnd" -X GET -i \
+-H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json'
 ```
 

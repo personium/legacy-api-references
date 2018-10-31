@@ -93,13 +93,13 @@ GET
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}{BoxName}/{ODataCollecitonName}/$metadata/Property
-(Name='{PetName}',_EntityType.Name='{EntityTypeName}')",
+        "uri": "https://cell1.unit1.example/box1/odata-collection1/$metadata/Property
+(Name='property1',_EntityType.Name='entity-type1')",
         "etag": "W/\"1-1487635336196\"",
         "type": "ODataSvcSchema.Property"
       },
-      "Name": "{PetName}",
-      "_EntityType.Name": "{EntityTypeName}",
+      "Name": "property1",
+      "_EntityType.Name": "entity-type1",
       "Type": "Edm.String",
       "Nullable": true,
       "DefaultValue": null,
@@ -111,8 +111,8 @@ GET
       "__updated": "/Date(1487635336196)/",
       "_EntityType": {
         "__deferred": {
-          "uri": "{CellURL}{BoxName}/{ODataCollecitonName}/$metadata/Property
-(Name='{PetName}',_EntityType.Name='{EntityTypeName}')/_EntityType"
+          "uri": "https://cell1.unit1.example/box1/odata-collection1/$metadata/Property
+(Name='property1',_EntityType.Name='entity-type1')/_EntityType"
         }
       }
     }
@@ -124,8 +124,8 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}{BoxName}/{ODataCollecitonName}/\$metadata/Property\
-(Name='{PetName}',_EntityType.Name='{EntityTypeName}')" \
--X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://cell1.unit1.example/box1/odata-collection1/\$metadata/Property\
+(Name='property1',_EntityType.Name='entity-type1')" -X GET -i \
+-H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json'
 ```
 

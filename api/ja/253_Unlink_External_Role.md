@@ -13,16 +13,18 @@ ExtRoleに紐付いたRoleの$links情報を削除する
 ## リクエスト
 ### リクエストURL
 ```
-{CellURL}__ctl/ExtRole(ExtRole='{ExtRoleURL}')/$links/_Role(Name='{RoleName}',
-_Box.Name='{BoxName}')
+{CellURL}__ctl/ExtRole(ExtRole='https%3A%2F%2F{CellName}.{UnitFQDN}%2F__role%2F__%2F{RoleName}',
+_Relation.Name='{RelationName}')/$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')
 ```
 または、
 ```
-{CellURL}__ctl/ExtRole(ExtRole='{ExtRoleURL}')/$links/_Role(Name='{RoleName}')
+{CellURL}__ctl/ExtRole(ExtRole='https%3A%2F%2F{CellName}.{UnitFQDN}%2F__role%2F__%2F{RoleName}',
+_Relation.Name='{RelationName}')/$links/_Role(Name='{RoleName}')
 ```
 または、
 ```
-{CellURL}__ctl/ExtRole(ExtRole='{ExtRoleURL}')/$links/_Role('{RoleName}')
+{CellURL}__ctl/ExtRole(ExtRole='https%3A%2F%2F{CellName}.{UnitFQDN}%2F__role%2F__%2F{RoleName}',
+_Relation.Name='{RelationName}')/$links/_Role('{RoleName}')
 ```
 ※ {ExtRoleURL}についてはURLエンコードが必要
 ※ \_Box.Nameパラメタを省略した場合は、nullが指定されたものとする

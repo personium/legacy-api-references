@@ -19,73 +19,73 @@ Delete a list of OData resources associated with ExtCell
 #### Correlating with the role
 
 ```
-{CellURL}__ctl/ExtCell(Url='{ExtCellURL}')/$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')
+{CellURL}__ctl/ExtCell(Url='https%3A%2F%2F{CellName}.{UnitFQDN}%2F')/$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')
 ```
 
 or
 
 ```
-{CellURL}__ctl/ExtCell(Url='{ExtCellURL}')/$links/_Role(Name='{RoleName}')
+{CellURL}__ctl/ExtCell(Url='https%3A%2F%2F{CellName}.{UnitFQDN}%2F')/$links/_Role(Name='{RoleName}')
 ```
 
 or
 
 ```
-{CellURL}__ctl/ExtCell(Url='{ExtCellURL}')/$links/_Role('{RoleName}')
+{CellURL}__ctl/ExtCell(Url='https%3A%2F%2F{CellName}.{UnitFQDN}%2F')/$links/_Role('{RoleName}')
 ```
 
 or
 
 ```
-{CellURL}__ctl/ExtCell('{ExtCellURL}')/$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')
+{CellURL}__ctl/ExtCell('https%3A%2F%2F{CellName}.{UnitFQDN}%2F')/$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')
 ```
 
 or
 
 ```
-{CellURL}__ctl/ExtCell('{ExtCellURL}')/$links/_Role(Name='{RoleName}')
+{CellURL}__ctl/ExtCell('https%3A%2F%2F{CellName}.{UnitFQDN}%2F')/$links/_Role(Name='{RoleName}')
 ```
 
 or
 
 ```
-{CellURL}__ctl/ExtCell('{ExtCellURL}')/$links/_Role('{RoleName}')
+{CellURL}__ctl/ExtCell('https%3A%2F%2F{CellName}.{UnitFQDN}%2F')/$links/_Role('{RoleName}')
 ```
 
 #### Correlating with the relation
 
 ```
-{CellURL}__ctl/ExtCell(Url='{ExtCellURL}')/$links/_Relation(Name='{RelationName}',_Box.Name='{BoxName}')
+{CellURL}__ctl/ExtCell(Url='https%3A%2F%2F{CellName}.{UnitFQDN}%2F')/$links/_Relation(Name='{RelationName}',_Box.Name='{BoxName}')
 ```
 
 or
 
 ```
-{CellURL}__ctl/ExtCell(Url='{ExtCellURL}')/$links/_Relation(Name='{RelationName}')
+{CellURL}__ctl/ExtCell(Url='https%3A%2F%2F{CellName}.{UnitFQDN}%2F')/$links/_Relation(Name='{RelationName}')
 ```
 
 or
 
 ```
-{CellURL}__ctl/ExtCell(Url='{ExtCellURL}')/$links/_Relation('{RelationName}')
+{CellURL}__ctl/ExtCell(Url='https%3A%2F%2F{CellName}.{UnitFQDN}%2F')/$links/_Relation('{RelationName}')
 ```
 
 or
 
 ```
-{CellURL}__ctl/ExtCell('{ExtCellURL}')/$links/_Relation(Name='{RelationName}',_Box.Name='{BoxName}')
+{CellURL}__ctl/ExtCell('https%3A%2F%2F{CellName}.{UnitFQDN}%2F')/$links/_Relation(Name='{RelationName}',_Box.Name='{BoxName}')
 ```
 
 or
 
 ```
-{CellURL}__ctl/ExtCell('{ExtCellURL}')/$links/_Relation(Name='{RelationName}')
+{CellURL}__ctl/ExtCell('https%3A%2F%2F{CellName}.{UnitFQDN}%2F')/$links/_Relation(Name='{RelationName}')
 ```
 
 or
 
 ```
-{CellURL}__ctl/ExtCell('{ExtCellURL}')/$links/_Relation('{RelationName}')
+{CellURL}__ctl/ExtCell('https%3A%2F%2F{CellName}.{UnitFQDN}%2F')/$links/_Relation('{RelationName}')
 ```
 
 If the \_Box.Name parameter is omitted, it is assumed that null is specified

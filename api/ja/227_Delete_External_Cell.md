@@ -16,7 +16,7 @@ auth
 ## リクエスト
 ### リクエストURL
 ```
-{CellURL}__ctl/ExtCell('http%3A%2F%2F{UnitFQDN}%2F{CellName}')
+{CellURL}__ctl/ExtCell('https%3A%2F%2F{CellName}.{UnitFQDN}%2F')
 ```
 ### メソッド
 DELETE

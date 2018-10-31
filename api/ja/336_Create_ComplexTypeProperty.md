@@ -90,7 +90,7 @@ DefaultValueの有効値はTypeの値（型定義）によって異なり、以�
 
 ### リクエストサンプル
 ```JSON
-{"Name": "{ComplexTypePropertyName}","_ComplexType.Name": "{ComplexTypeName}","Type": "Edm.String",
+{"Name": "complex-type-property1","_ComplexType.Name": "complex-type1","Type": "Edm.String",
 "Nullable": true,"DefaultValue": null,"CollectionKind": "None"}
 ```
 
@@ -151,13 +151,13 @@ DefaultValueの有効値はTypeの値（型定義）によって異なり、以�
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}{BoxName}/{ODataCollecitonName}/$metadata
-/ComplexTypeProperty(Name='{ComplexTypePropertyName}',_ComplexType.Name='{ComplexTypeName}')",
+        "uri": "https://cell1.unit1.example/box1/odata-collection1//$metadata
+/ComplexTypeProperty(Name='complex-type-property1',_ComplexType.Name='complex-type1')",
         "etag": "W/\"1-1487658277593\"",
         "type": "ODataSvcSchema.ComplexTypeProperty"
       },
-      "Name": "{ComplexTypePropertyName}",
-      "_ComplexType.Name": "{ComplexTypeName}",
+      "Name": "complex-type-property1",
+      "_ComplexType.Name": "complex-type1",
       "Type": "Edm.String",
       "Nullable": true,
       "DefaultValue": null,
@@ -173,9 +173,9 @@ DefaultValueの有効値はTypeの値（型定義）によって異なり、以�
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}{BoxName}/{ODataCollecitonName}/\$metadata/ComplexTypeProperty" \
--X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name": "\
-{ComplexTypePropertyName}","_ComplexType.Name": "{ComplexTypeName}","Type": "Edm.String","Nullable": \
-true,"DefaultValue": null,"CollectionKind": "None"}'
+curl "https://cell1.unit1.example/box1/odata-collection1/\$metadata/ComplexTypeProperty" \
+-X POST -i -H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json' \
+-d '{"Name": "complex-type-property1","_ComplexType.Name": "complex-type1",\
+"Type": "Edm.String","Nullable": true,"DefaultValue": null,"CollectionKind": "None"}'
 ```
 

@@ -76,8 +76,8 @@ DefaultValueの有効値はTypeの値（型定義）によって異なり、以�
 ### リクエストサンプル
 ```JSON
 {
-   "Name": "{PropertyName}",
-  "_EntityType.Name": "{EntityTypeName}",
+   "Name": "property1",
+  "_EntityType.Name": "entity-type1",
   "Type": "Edm.String",
   "Nullable": true,
   "DefaultValue": null,
@@ -141,13 +141,13 @@ DefaultValueの有効値はTypeの値（型定義）によって異なり、以�
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}{BoxName}/{ODataCollecitonName}/$metadata/Property
-(Name='{PropertyName}',_EntityType.Name='{EntityTypeName}')",
+        "uri": "https://cell1.unit1.example/box1/odata-collection1/$metadata/Property
+(Name='property1',_EntityType.Name='entity-type1')",
         "etag": "W/\"1-1487635336196\"",
         "type": "ODataSvcSchema.Property"
       },
-      "Name": "{PropertyName}",
-      "_EntityType.Name": "{EntityTypeName}",
+      "Name": "property1",
+      "_EntityType.Name": "entity-type1",
       "Type": "Edm.String",
       "Nullable": true,
       "DefaultValue": null,
@@ -166,9 +166,9 @@ DefaultValueの有効値はTypeの値（型定義）によって異なり、以�
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}{BoxName}/{ODataCollecitonName}/\$metadata/Property" -X \
-POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name": \
-"{PetName}","_EntityType.Name": "{EntityTypeName}","Type": "Edm.String","Nullable": true,\
+curl "https://cell1.unit1.example/box1/odata-collection1/\$metadata/Property" -X POST -i \
+-H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json' \
+-d '{"Name": "property1","_EntityType.Name": "entity-type1","Type": "Edm.String","Nullable": true,\
 "DefaultValue": null,"CollectionKind": "None","IsKey": true,"UniqueKey": null}'
 ```
 

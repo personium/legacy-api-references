@@ -23,25 +23,25 @@ You can specify the following OData resources
 #### Correlating with the role
 
 ```
-{CellURL}__ctl/ExtCell(Url='{ExtCellURL}')/$links/_Role
+{CellURL}__ctl/ExtCell(Url='https%3A%2F%2F{CellName}.{UnitFQDN}%2F')/$links/_Role
 ```
 
 or
 
 ```
-{CellURL}__ctl/ExtCell('{ExtCellURL}')/$links/_Role
+{CellURL}__ctl/ExtCell('https%3A%2F%2F{CellName}.{UnitFQDN}%2F')/$links/_Role
 ```
 
 #### Correlating with the relation
 
 ```
-{CellURL}__ctl/ExtCell(Url='{ExtCellURL}')/$links/_Relation
+{CellURL}__ctl/ExtCell(Url='https%3A%2F%2F{CellName}.{UnitFQDN}%2F')/$links/_Relation
 ```
 
 or
 
 ```
-{CellURL}__ctl/ExtCell('{ExtCellURL}')/$links/_Relation
+{CellURL}__ctl/ExtCell('https%3A%2F%2F{CellName}.{UnitFQDN}%2F')/$links/_Relation
 ```
 
 If the \_Box.Name parameter is omitted, it is assumed that null is specified

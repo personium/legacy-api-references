@@ -175,7 +175,7 @@ DTD表記
 ```xml
 <multistatus xmlns="DAV:">
   <response>
-    <href>{CellURL}{BoxName}/{CollectionName}</href>
+    <href>https://cell1.unit1.example/box1/collection1</href>
     <propstat>
       <prop>
         <creationdate>2017-02-15T01:52:34.635+0000</creationdate>
@@ -194,8 +194,8 @@ DTD表記
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}{BoxName}/{CollectionName}" -X PROPFIND -i  -H 'Depth:1' -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
-'<?xml version="1.0" encoding="utf-8"?><D:propfind xmlns:D="DAV:"><D:allprop/></D:propfind>'
+curl "https://cell1.unit1.example/box1/collection1" -X PROPFIND -i  -H 'Depth:1' \
+-H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json' \
+-d '<?xml version="1.0" encoding="utf-8"?><D:propfind xmlns:D="DAV:"><D:allprop/></D:propfind>'
 ```
 

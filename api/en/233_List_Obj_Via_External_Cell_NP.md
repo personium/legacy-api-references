@@ -25,25 +25,25 @@ Retrieve cell control object via Navigation Property
 #### Navigation Property to Role
 
 ```
-{CellURL}__ctl/ExtCell(Url='{ExtCellURL}')/_Role
+{CellURL}__ctl/ExtCell(Url='https%3A%2F%2F{CellName}.{UnitFQDN}%2F')/_Role
 ```
 
 or 
 
 ```
-{CellURL}__ctl/ExtCell('{ExtCellURL}')/_Role
+{CellURL}__ctl/ExtCell('https%3A%2F%2F{CellName}.{UnitFQDN}%2F')/_Role
 ```
 
 #### Navigation Property to Relation
 
 ```
-{CellURL}__ctl/ExtCell(Url='{ExtCellURL}')/_Relation
+{CellURL}__ctl/ExtCell(Url='https%3A%2F%2F{CellName}.{UnitFQDN}%2F')/_Relation
 ```
 
 or 
 
 ```
-{CellURL}__ctl/ExtCell('{ExtCellURL}')/_Relation
+{CellURL}__ctl/ExtCell('https%3A%2F%2F{CellName}.{UnitFQDN}%2F')/_Relation
 ```
 
 \* URL encoding required for {ExtCellURL}

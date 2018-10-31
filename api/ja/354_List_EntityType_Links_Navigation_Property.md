@@ -50,7 +50,7 @@ JSON
 |Name|Property名|桁数：1&#65374;128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)は指定不可|○||
 ### リクエストサンプル
 ```JSON
-{"Name":"animal"}   
+{"Name":"property2"}   
 ```
 
 
@@ -68,8 +68,8 @@ JSON
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}{BoxName}/{OdataCollecitonPath}/$metadata/Property('animal')" \
--X PUT -i -H 'If-Match: *' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' \
--d '{"Name":"{PropertyName}"}'
+curl "https://cell1.unit1.example/box1/odata-collection1/\$metadata/Property('property1')" \
+-X PUT -i -H 'If-Match: *' -H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' \
+-H 'Accept: application/json' -d '{"Name":"property2"}'
 ```
 

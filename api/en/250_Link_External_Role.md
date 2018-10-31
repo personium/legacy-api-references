@@ -18,11 +18,17 @@ Link ExtRole with OData resource of Role specified by $ links
 ### Request URL
 
 ```
-{CellURL}__ctl/ExtRole(ExtRole='{ExtRoleURL}')/$links/_Role
+{CellURL}__ctl/ExtRole(ExtRole='https%3A%2F%2F{CellName}.{UnitFQDN}%2F__role%2F__%2F{RoleName}',
+_Relation.Name='{RelationName}',_Relation._Box.Name='{BoxName}')/$links/_Role
 ```
 
-\* URL encoding required for {ExtRoleURL}  
-If the \_Box.Name is omitted, it is assumed that null is specified
+or
+
+```
+{CellURL}__ctl/ExtRole(ExtRole='https%3A%2F%2F{CellName}.{UnitFQDN}%2F__role%2F__%2F{RoleName}',
+_Relation.Name='{RelationName}')/$links/_Role
+```
+\* If the \_Box.Name is omitted, it is assumed that null is specified
 
 ### Request Method
 

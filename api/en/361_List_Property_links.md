@@ -118,7 +118,7 @@ The response is a JSON object, the correspondence between the key (name) and typ
 |:--|:--|:--|:--|
 |Root|d|object|Object{1}|
 |{1}|results|array|Array object {2}|
-|{2}|_uri|string|URI of the linked OData resource|
+|{2}|uri|string|URI of the linked OData resource|
 
 ### Error Messages
 

@@ -63,7 +63,7 @@ JSON
 
 ### リクエストサンプル
 ```JSON
-{"Name":"animal"}   
+{"Name":"complex-type-property2"}   
 ```
 
 ## レスポンス
@@ -80,8 +80,9 @@ JSON
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}{BoxName}/{OdataCollecitonPath}/$metadata/ComplexTypeProperty\
-('animal')" -X PUT -i -H 'If-Match: *' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: \
-application/json' -d '{"Name":"ComplexTypeProperty"}'
+curl "https://cell1.unit1.example/box1/odata-collection1/\$metadata/ComplexTypeProperty\
+('complex-type-property1')" -X PUT -i -H 'If-Match: *' \
+-H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json' \
+-d '{"Name":"complex-type-property2"}'
 ```
 

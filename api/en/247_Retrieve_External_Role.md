@@ -26,8 +26,17 @@ auth-read
 ### Request URL
 
 ```
-{CellURL}__ctl/ExtRole
+{CellURL}__ctl/ExtRole(ExtRole='https%3A%2F%2F{CellName}.{UnitFQDN}%2F__role%2F__%2F{RoleName}',
+_Relation.Name='{RelationName}',_Relation._Box.Name='{BoxName}')
 ```
+or
+
+```
+{CellURL}__ctl/ExtRole(ExtRole='https%3A%2F%2F{CellName}.{UnitFQDN}%2F__role%2F__%2F{RoleName}',
+_Relation.Name='{RelationName}')
+```
+
+If the \_Relation.\_Box.Name parameter is omitted, it is assumed that null is specified
 
 ### Request Method
 

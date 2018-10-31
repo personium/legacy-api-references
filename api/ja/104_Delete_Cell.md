@@ -16,12 +16,12 @@ Cellに紐付くBox,Account,Role,ExtCell,ExtRole,Relationがある場合は409�
 ## リクエスト
 ### リクエストURL
 ```
-/_ctl/Cell(Name='{CellName}')
+{UnitURL}_ctl/Cell(Name='{CellName}')
 ```
 
 または、
 ```
-/_ctl/Cell('{CellName}')
+{UnitURL}_ctl/Cell('{CellName}')
 ```
 
 ### メソッド

@@ -17,7 +17,7 @@ None
 ### Request URL
 
 ```
-/{UnitFQDN}
+{UnitURL}
 ```
 
 ### Request Method

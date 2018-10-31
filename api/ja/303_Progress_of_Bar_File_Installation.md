@@ -93,16 +93,16 @@ Boxの作成後（Boxインストール完了時を含む）
   "box": {
     "status": "ready",
     "installed_at": "2017-02-13T09:00:00.000Z",
-    "name": "app_box",
-    "url": "https://example.com/cell1/app_box/",
-    "schema": "https://example.com/app1/"
+    "name": "app-box1",
+    "url": "https://cell1.example.com/app-box1/",
+    "schema": "https://app-cell1.example.com/"
   },
   "cell": {
     "name": "cell1",
-    "url": "https://example.com/cell1/"
+    "url": "https://cell1.unit1.example/"
   },
   "unit": {
-    "url": "https://example.com/",
+    "url": "https://unit1.example/",
     "path_based_cellurl_enabled": true
   }
 }
@@ -116,16 +116,16 @@ Boxインストール処理中の場合
     "status": "installation in progress",
     "started_at": "2017-02-13T09:00:00.000Z",
     "progress": "81%",
-    "name": "app_box",
-    "url": "https://example.com/cell1/app_box/",
-    "schema": "https://example.com/app1/"
+    "name": "app-box1",
+    "url": "https://cell1.unit1.example/app-box1/",
+    "schema": "https://app-cell1.unit1.example/"
   },
   "cell": {
     "name": "cell1",
-    "url": "https://example.com/cell1/"
+    "url": "https://cell1.unit1.example/"
   },
   "unit": {
-    "url": "https://example.com/",
+    "url": "https://unit1.example/",
     "path_based_cellurl_enabled": true
   }
 }
@@ -147,16 +147,16 @@ Boxインストール完了時（異常終了）の場合
         "value" : "The entity already exists."
       }
     },
-    "name": "app_box",
-    "url": "https://example.com/cell1/app_box/",
-    "schema": "https://example.com/app1/"
+    "name": "app-box1",
+    "url": "https://cell1.unit1.example/app-box1/",
+    "schema": "https://app-cell1.unit1.example/"
   },
   "cell": {
     "name": "cell1",
-    "url": "https://example.com/cell1/"
+    "url": "https://cell1.unit1.example/"
   },
   "unit": {
-    "url": "https://example.com/",
+    "url": "https://unit1.example/",
     "path_based_cellurl_enabled": true
   }
 }

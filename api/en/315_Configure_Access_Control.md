@@ -130,23 +130,23 @@ namespace xml:
 <D:acl xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns"
        xml:base="{CellURL}__role/{BoxName}/"
        p:requireSchemaAuthz="public">
-    <D:ace>
-        <D:principal>
-            <D:all/>
-        </D:principal>
-        <D:grant>
-            <D:privilege><D:read/></D:privilege>
-        </D:grant>
-    </D:ace>
-    <D:ace>
-        <D:principal>
-            <D:href>role</D:href>
-        </D:principal>
-        <D:grant>
-            <D:privilege><D:read/></D:privilege>
-            <D:privilege><D:write/></D:privilege>
-        </D:grant>
-    </D:ace>
+  <D:ace>
+    <D:principal>
+      <D:all/>
+    </D:principal>
+    <D:grant>
+      <D:privilege><D:read/></D:privilege>
+    </D:grant>
+  </D:ace>
+  <D:ace>
+    <D:principal>
+      <D:href>role</D:href>
+    </D:principal>
+    <D:grant>
+      <D:privilege><D:read/></D:privilege>
+      <D:privilege><D:write/></D:privilege>
+    </D:grant>
+  </D:ace>
 </D:acl>
 ```
 

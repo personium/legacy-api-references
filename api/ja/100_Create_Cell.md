@@ -14,7 +14,7 @@
 ## リクエスト
 ### リクエストURL
 ```
-/__ctl/Cell
+{UnitURL}__ctl/Cell
 ```
 ### メソッド
 POST

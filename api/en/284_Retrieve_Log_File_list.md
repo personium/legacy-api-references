@@ -190,19 +190,19 @@ The body is XML and follows the following schema.
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <multistatus xmlns="DAV:">
-    <response>
-        <href>{CellURL}__log/archive</href>
-        <propstat>
-            <prop>
-                <creationdate>2017-02-03T01:27:31.093+0000</creationdate>
-                <getlastmodified>Fri, 03 Feb 2017 01:27:31 GMT</getlastmodified>
-                <resourcetype>
-                    <collection/>
-                </resourcetype>
-            </prop>
-            <status>HTTP/1.1 200 OK</status>
-        </propstat>
-    </response>
+  <response>
+    <href>{CellURL}__log/archive</href>
+    <propstat>
+      <prop>
+        <creationdate>2017-02-03T01:27:31.093+0000</creationdate>
+        <getlastmodified>Fri, 03 Feb 2017 01:27:31 GMT</getlastmodified>
+        <resourcetype>
+          <collection/>
+        </resourcetype>
+      </prop>
+      <status>HTTP/1.1 200 OK</status>
+    </propstat>
+  </response>
 </multistatus>
 ```
 

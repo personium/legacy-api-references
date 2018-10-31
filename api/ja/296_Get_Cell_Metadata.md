@@ -59,10 +59,10 @@ GET
 {
   "cell": {
     "name": "cell1",
-    "url": "https://example.com/cell1/"
+    "url": "https://cell1.unit1.example/"
   },
   "unit": {
-    "url": "https://example.com/",
+    "url": "https://unit1.example/",
     "path_based_cellurl_enabled": true
   }
 }

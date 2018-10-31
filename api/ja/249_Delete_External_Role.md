@@ -16,12 +16,13 @@ auth
 ## リクエスト
 ### リクエストURL
 ```
-{CellURL}__ctl/ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name='{RelationName}',
-_Relation._Box.Name='{BoxName}')
+{CellURL}__ctl/ExtRole(ExtRole='https%3A%2F%2F{CellName}.{UnitFQDN}%2F__role%2F__%2F{RoleName}',
+_Relation.Name='{RelationName}',_Relation._Box.Name='{BoxName}')
 ```
 または、
 ```
-{CellURL}__ctl/ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name='{RelationName}')
+{CellURL}__ctl/ExtRole(ExtRole='https%3A%2F%2F{CellName}.{UnitFQDN}%2F__role%2F__%2F{RoleName}',
+_Relation.Name='{RelationName}')
 ```
 ※ \_Relation.\_Box.Nameパラメタを省略した場合は、nullが指定されたものとする
 ### メソッド

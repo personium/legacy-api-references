@@ -25,15 +25,15 @@ Retrieve cell control object via Navigation Property
 #### Navigation Property to Role
 
 ```
-{CellURL}__ctl/ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name='{RelationName}',
-_Relation._Box.Name='{BoxName}')/_Role
+{CellURL}__ctl/ExtRole(ExtRole='https%3A%2F%2F{CellName}.{UnitFQDN}%2F__role%2F__%2F{RoleName}',
+_Relation.Name='{RelationName},_Relation._Box.Name='{BoxName}')/_Role
 ```
 
 #### NavigationProperty to Relation
 
 ```
-{CellURL}__ctl/ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name='{RelationName}',
-_Relation._Box.Name='{BoxName}')/_Relation
+{CellURL}__ctl/ExtRole(ExtRole='https%3A%2F%2F{CellName}.{UnitFQDN}%2F__role%2F__%2F{RoleName}',
+_Relation.Name='{RelationName},_Relation._Box.Name='{BoxName}')/_Relation
 ```
 
 If the \_Relation.\_Box.Name parameter is omitted, it is assumed that null is specified  

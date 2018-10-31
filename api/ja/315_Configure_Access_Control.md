@@ -64,7 +64,7 @@ privilegeタグ配下の権限設定の内容については、acl_model（[ア�
 |ace|D:|要素|ACE（アクセス制御エレメント）を表し、principalとgrantが一対で子となる|「invert」「deny」「protected」「inherited」はV1.1系未対応|
 |principal|D:|要素|権限設定対象を表し、hrefまたはallが子となる||
 |grant|D:|要素|権限付与設定を表し、1つ以上複数のprivilegeが子となる||
-|href|D:|要素|権限設定対象ロール表し、ロールリソースURLを入力するテキストノード|権限設定対象ロールのリソースURLを指定する acl要素内のxml:base属性の設定によって、URLを短縮する事が出来る|
+|href|D:|要素|権限設定対象ロールを表し、ロールリソースURLを入力するテキストノード|権限設定対象ロールのリソースURLを指定する acl要素内のxml:base属性の設定によって、URLを短縮する事が出来る|
 |all|D:|要素|全アクセス主体権限設定||
 |privilege|D:|要素|権限設定を表し、以下の要素のいづれか一つが子となる||
 |read|D:|要素|参照権限||
@@ -116,7 +116,7 @@ or write-acl or exec or bind or unbind)>
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <D:acl xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns"
-       xml:base="{CellURL}__role/{BoxName}/"
+       xml:base="https://cell1.unit1.example/__role/box1/"
        p:requireSchemaAuthz="public">
   <D:ace>
     <D:principal>
@@ -128,7 +128,7 @@ or write-acl or exec or bind or unbind)>
   </D:ace>
   <D:ace>
     <D:principal>
-      <D:href>role</D:href>
+      <D:href>role1</D:href>
     </D:principal>
     <D:grant>
       <D:privilege><D:read/></D:privilege>
@@ -160,24 +160,11 @@ or write-acl or exec or bind or unbind)>
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}{BoxName}/{CollectionName}" -X ACL -i \
--H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
-'<?xml version="1.0" encoding="utf-8" ?> \
- <D:acl xmlns:D="DAV:" xml:base="{CellURL}__role/{BoxName}/" xmlns:p= \
-"urn:x-personium:xmlns" p:requireSchemaAuthz="none"> \
-  <D:ace> \
-   <D:principal> \
-    <D:href>doctor</D:href> \
-   </D:principal> \
-   <D:grant> \
-    <D:privilege> \
-     <D:read/> \
-    </D:privilege> \
-    <D:privilege> \
-     <D:write/> \
-    </D:privilege> \
-   </D:grant> \
-  </D:ace> \
- </D:acl>'
+curl "https://cell1.unit1.example/box1/collection1" -X ACL -i \
+-H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json' \
+-d '<?xml version="1.0" encoding="utf-8" ?><D:acl xmlns:D="DAV:" \
+xml:base="https://cell1.unit1.example/__role/box1/" xmlns:p="urn:x-personium:xmlns" \
+p:requireSchemaAuthz="none"><D:ace><D:principal><D:href>role1</D:href></D:principal><D:grant>\
+<D:privilege><D:read/></D:privilege><D:privilege><D:write/></D:privilege></D:grant></D:ace></D:acl>'
 ```
 

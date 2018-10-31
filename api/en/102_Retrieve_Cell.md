@@ -22,13 +22,13 @@ Only unit users permitted
 ### Request URL
 
 ```
-/__ctl/Cell(Name='{CellName}')
+{UnitURL}__ctl/Cell(Name='{CellName}')
 ```
 
 or
 
 ```
-/__ctl/Cell('{CellName}')
+{UnitURL}__ctl/Cell('{CellName}')
 ```
 
 ### Request Method

@@ -16,7 +16,7 @@ auth-read
 ## リクエスト
 ### リクエストURL
 ```
-{CellURL}__ctl/ExtCell('{CellURL}')
+{CellURL}__ctl/ExtCell('https%3A%2F%2F{CellName}.{UnitFQDN}%2F')
 ```
 ### メソッド
 GET

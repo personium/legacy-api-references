@@ -16,11 +16,11 @@
 ## リクエスト
 ### リクエストURL
 ```
-/__ctl/Cell(Name='{CellName}')
+{UnitURL}__ctl/Cell(Name='{CellName}')
 ```
 または、
 ```
-/__ctl/Cell('{CellName}')
+{UnitURL}__ctl/Cell('{CellName}')
 ```
 
 ### メソッド

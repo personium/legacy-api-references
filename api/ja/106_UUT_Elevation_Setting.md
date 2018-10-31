@@ -143,7 +143,7 @@ xmlns:Z="http://www.w3.com/standards/z39.50/"/>
 
 ## cURLサンプル
 ```sh
-curl "https://unit1.example/cell/ -X PROPPATCH" \
+curl "https://cell1.unit1.example/ -X PROPPATCH" \
 -H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' \
 -d '<?xml version="1.0" encoding="utf-8" ?>\
 <D:propertyupdate xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" \

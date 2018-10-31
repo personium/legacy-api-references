@@ -54,16 +54,16 @@ For details, see [Get Cell Root](./200_Cell_Root.md) and [OAuth2.0 Authorization
 ```xml
 <D:propertyupdate xmlns:D="DAV:"
     xmlns:p="urn:x-personium:xmlns">
-    <D:set>
-        <D:prop>
-            <p:foo>bar</p:foo>
-        </D:prop>
-    </D:set>
-    <D:remove>
-        <D:prop>
-            <p:foo/>
-        </D:prop>
-    </D:remove>
+  <D:set>
+    <D:prop>
+      <p:foo>bar</p:foo>
+    </D:prop>
+  </D:set>
+  <D:remove>
+    <D:prop>
+      <p:foo/>
+    </D:prop>
+  </D:remove>
 </D:propertyupdate>
 ```
 
@@ -99,16 +99,16 @@ Refer to [Error Message List](004_Error_Messages.md)
 
 ```xml
 <multistatus xmlns="DAV:">
-    <response>
-        <href>{CellURL}</href>
-        <propstat>
-            <prop>
-                <p:foo xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:">bar</p:foo>
-                <p:foo xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:"/>
-            </prop>
-            <status>HTTP/1.1 200 OK</status>
-        </propstat>
-    </response>
+  <response>
+    <href>{CellURL}</href>
+    <propstat>
+      <prop>
+        <p:foo xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:">bar</p:foo>
+        <p:foo xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:"/>
+      </prop>
+      <status>HTTP/1.1 200 OK</status>
+    </propstat>
+  </response>
 </multistatus>
 ```
 

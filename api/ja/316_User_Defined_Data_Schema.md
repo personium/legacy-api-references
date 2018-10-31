@@ -102,7 +102,7 @@ FromRole="TestEntity:TestAssociationEndFrom" ToRole="TestEntity:TestAssociationE
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}{BoxName}/{OdataCollectionName}/\$metadata" -X GET -i -H \
-'Authorization: Bearer {AccessToken}'
+curl "https://cell1.unit1.example/box1/odata-collection1/\$metadata" -X GET -i \
+-H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA'
 ```
 

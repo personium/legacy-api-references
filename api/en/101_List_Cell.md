@@ -22,7 +22,7 @@ Only unit users permitted
 ### Request URL
 
 ```
-/__ctl/Cell
+{UnitURL}__ctl/Cell
 ```
 
 ### Request Method

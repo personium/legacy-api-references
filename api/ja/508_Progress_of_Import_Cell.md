@@ -105,7 +105,7 @@ Cellインポート異常終了
 
 ## cURLサンプル
 ```sh
-curl "{CellURL}__import" -X GET -i -H 'Authorization: Bearer {AccessToken}' \
+curl "https://cell1.unit1.example/__import" -X GET -i -H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' \
 -H 'Accept: application/json'
 ```
 

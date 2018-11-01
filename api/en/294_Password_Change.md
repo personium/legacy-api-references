@@ -65,8 +65,9 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}__mypassword" -X PUT -i -H 'X-Personium-Credential: change_password' \
--H 'Authorization: Bearer {CellLocalToken}' -H 'Accept: application/json'
+curl "https://cell1.unit1.example/__mypassword" -X PUT -i -H \
+'X-Personium-Credential: change_password' -H 'Authorization: Bearer AA~4l...(snip)........auMhw' -H \
+'Accept: application/json'
 ```
 
 

@@ -65,7 +65,7 @@ When registering Role
 
 ```JSON
 {
-  "Name": "{AccountName}"
+  "Name": "account1"
 }
 ```
 
@@ -119,7 +119,7 @@ Account specific response body
 {
   "d": {
     "results": {
-      "Name": "{AccountName}",
+      "Name": "account1",
       "__published": "/Date(1349355810698)/",
       "Cell": null,
       "__updated": "/Date(1349355810698)/",
@@ -127,7 +127,7 @@ Account specific response body
       "__metadata": {
         "etag": "1-1349355810698",
         "type": "CellCtl.Account",
-        "uri": "{CellURL}__ctl/Account('{AccountName}')"
+        "uri": "https://cell1.unit1.example/__ctl/Account('account1')"
       }
     }
   }
@@ -143,8 +143,9 @@ Refer to [Error Message List](004_Error_Messages.md)
 ### Register via Account and Role Navigation Property
 
 ```sh
-curl "{CellURL}__ctl/Account('acount_name')/_Role" -X POST -i -H '\
-Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{RoleName}"}'
+curl "https://cell1.unit1.example/__ctl/Account('account1')/_Role" -X POST -i \
+-H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' -H 'Accept: application/json' \
+-d '{"Name":"role1"}'
 ```
 
 

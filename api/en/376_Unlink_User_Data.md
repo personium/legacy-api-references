@@ -109,8 +109,8 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')\
-/\$links/_{EntityTypeName}('{EntityID}')" -X DELETE -i -H 'Authorization: Bearer {AccessToken}' -H \
+curl "https://cell1.unit1.example/box1/odata-collection1/entity-type1('{100-1_20101108-111352093}')\
+/\$links/_entity-type1('{100-1_20101108-111352093}')" -X DELETE -i -H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' -H \
 'Accept: application/json'
 ```
 

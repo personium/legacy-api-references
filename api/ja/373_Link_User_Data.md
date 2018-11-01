@@ -60,7 +60,7 @@ JSON
 |uri|紐付けるODataリソースのURI|桁数：1&#65374;1024<br>URIの形式に従う<br>scheme：http / https / urn|○||
 ### リクエストサンプル
 ```JSON
-{"uri":"{CellURL}{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')"}
+{"uri":"https://cell1.unit1.example/box1/odata-collection1/entity-type1('{100-1_20101108-111352093}')"}
 
 ```
 
@@ -88,9 +88,9 @@ JSON
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')\
-/\$links/_{EntityTypeName}" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H \
-'Accept: application/json' -d "{\"uri\":\"{CellURL}{BoxName}/{CollectionName}\
-/{EntityTypeName}('{EntityID}')\"}"
+curl "https://cell1.unit1.example/box1/odata-collection1/entity-type1('{100-1_20101108-111352093}')\
+/\$links/_entity-type1" -X POST -i -H 'Authorization: Bearer {AA~PBDc...(省略)...FrTjA}' -H \
+'Accept: application/json' -d "{\"uri\":\"https://cell1.unit1.example/box1/odata-collection1\
+/entity-type1('{100-1_20101108-111352093}')\"}"
 ```
 

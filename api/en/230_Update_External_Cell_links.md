@@ -77,7 +77,7 @@ JSON
 ### Request Sample
 
 ```JSON
-{"uri":"{CellURL}__ctl/Box('{BoxName}')"}
+{"uri":"https://cell1.unit1.example/__ctl/Box('box3')"}
 ```
 
 
@@ -115,8 +115,9 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/$links/_Box('{BoxName}')" \
--X PUT -i -H 'If-Match:*' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
-'{"uri":"{CellURL}__ctl/Box('update_{BoxName}')"}'
+curl "https://cell1.unit1.example/__ctl/Relation(Name='relation1',_Box.Name='box1')\
+/$links/_Box('box2')" -X PUT -i -H 'If-Match:*' \
+-H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' -H 'Accept: application/json' \
+-d '{"uri":"https://cell1.unit1.example/\__ctl/Box('box3')"}'
 ```
 

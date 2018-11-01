@@ -23,8 +23,8 @@ $orderby={propertyName} {option}, ...
 Example: To obtain cell information in descending order of cell name:
 
 ```sh
-curl "https://{UnitFQDN}/__ctl/Cell?\$orderby=Name%20desc" -X GET -i -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://unit1.example/__ctl/Cell?\$orderby=Name%20desc" -X GET -i -H \
+'Authorization: Bearer AA~PBDc...(snip)...FrTjA' -H 'Accept: application/json'
 ```
 
 ## Operation details

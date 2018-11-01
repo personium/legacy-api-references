@@ -107,8 +107,8 @@ Valid values of DefaultValue differ depending on Type value (type definition), a
 
 ```JSON
 {
-   "Name": "{PropertyName}",
-  "_EntityType.Name": "{EntityTypeName}",
+   "Name": "property1",
+  "_EntityType.Name": "entity-type1",
   "Type": "Edm.String",
   "Nullable": true,
   "DefaultValue": null,
@@ -186,13 +186,13 @@ Refer to [Error Message List](004_Error_Messages.md)
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}{BoxName}/{ODataCollecitonName}/$metadata
-/Property(Name='{PropertyName}',_EntityType.Name='{EntityTypeName}')",
+        "uri": "https://cell1.unit1.example/box1/odata-collection1/$metadata/Property
+(Name='property1',_EntityType.Name='entity-type1')",
         "etag": "W/\"1-1487635336196\"",
         "type": "ODataSvcSchema.Property"
       },
-      "Name": "{PropertyName}",
-      "_EntityType.Name": "{EntityTypeName}",
+      "Name": "property1",
+      "_EntityType.Name": "entity-type1",
       "Type": "Edm.String",
       "Nullable": true,
       "DefaultValue": null,
@@ -211,10 +211,10 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}{BoxName}/{ODataCollecitonName}/\$metadata/Property" -X POST \
--i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name": "{PetName}",\
-"_EntityType.Name": "{EntityTypeName}","Type": "Edm.String","Nullable": true,"DefaultValue": null,\
-"CollectionKind": "None","IsKey": true,"UniqueKey": null}'
+curl "https://cell1.unit1.example/box1/odata-collection1/\$metadata/Property" -X POST -i \
+-H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' -H 'Accept: application/json' \
+-d '{"Name": "property1","_EntityType.Name": "entity-type1","Type": "Edm.String","Nullable": true,\
+"DefaultValue": null,"CollectionKind": "None","IsKey": true,"UniqueKey": null}'
 ```
 
 

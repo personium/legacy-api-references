@@ -69,7 +69,7 @@ JSON
 
 ### Request sample
 ```JSON
-{"Name":"{RuleName}", "EventExternal":true, "Action":"log"}
+{"Name":"rule2", "EventExternal":true, "Action":"log"}
 ```
 ## Response
 ### Status code
@@ -91,7 +91,7 @@ None
 
 ## cURL Sample
 ```sh
-curl "{CellURL}__ctl/Rule('{RuleName}')" -X PUT -i -H 'If-Match: *' -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{RuleName}", \
-"EventExternal":true, "Action":"log"}'
+curl "https://cell1.unit1.example/__ctl/Rule('rule1')" -X PUT -i -H 'If-Match: *' -H \
+'Authorization: Bearer AA~PBDc...(snip)...FrTjA' -H 'Accept: application/json' \
+-d '{"Name":"rule2", "EventExternal":true, "Action":"log"}'
 ```

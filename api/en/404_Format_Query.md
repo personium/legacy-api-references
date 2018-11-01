@@ -20,7 +20,7 @@ Query options for $format Valid values are shown in the table below.
 Example: When acquiring the cell list in JSON format:
 
 ```sh
-curl "https://{UnitFQDN}/__ctl/Cell?\$format=JSON" -X GET -i -H 'Authorization: Bearer {AccessToken}'
+curl "https://unit1.example/__ctl/Cell?\$format=JSON" -X GET -i -H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA'
 ```
 
 

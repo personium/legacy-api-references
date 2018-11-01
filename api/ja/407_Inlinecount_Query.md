@@ -10,7 +10,7 @@
 ## cURLサンプル
 例：セル一覧を取得結果件数を含め取得する場合:
 ```sh
-curl "https://{UnitFQDN}/__ctl/Cell?\$inlinecount=allpages" -X GET -i -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://unit1.example/__ctl/Cell?\$inlinecount=allpages" -X GET -i -H \
+'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json'
 ```
 

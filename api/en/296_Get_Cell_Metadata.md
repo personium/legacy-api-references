@@ -70,21 +70,19 @@ Refer to [Error Message List](004_Error_Messages.md)
 
 ### Response Sample
 
-```JSON
 {
   "cell": {
     "name": "cell1",
-    "url": "https://example.com/cell1/"
+    "url": "https://cell1.unit1.example/"
   },
   "unit": {
-    "url": "https://example.com/",
+    "url": "https://unit1.example/",
     "path_based_cellurl_enabled": true
   }
 }
 ```
 
 ## cURL Command
-
 ```sh
-curl "{CellURL}" -X GET -i -H 'Accept: application/json'
+curl "https://cell1.unit1.example/" -X GET -i -H 'Accept: application/json'
 ```

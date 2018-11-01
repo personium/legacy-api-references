@@ -147,32 +147,35 @@ Refer to [Error Message List](004_Error_Messages.md)
     "results": [
       {
         "__metadata": {
-          "uri": "{CellURL}{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')",
+          "uri": "https://cell1.unit1.example/box1/odata-collection1/entity-type1
+('100-1_20101108-111352093')",
           "etag": "W/\"2-1487645572476\"",
-          "type": "UserData.{EntityTypeName}"
+          "type": "UserData.entity-type1"
         },
-        "__id": "{EntityID}",
+        "__id": "100-1_20101108-111352093",
         "__published": "/Date(1487645572476)/",
         "__updated": "/Date(1487645572476)/",
         "TestProperty": null,
         "_TestEntity": {
           "__deferred": {
-            "uri": "{CellURL}{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')
-/{NavigationPropertyName}"
+            "uri": "https://cell1.unit1.example/box1/odata-collection1/entity-type1
+('100-1_20101108-111352093')/navigation-property1"
           }
         }
       }
     ]
   }
 }
+
 ```
 
 
 ## cURL Command
 
 ```sh
-curl "{CellURL}{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')\
-/{NavigationPropertyName}" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://cell1.unit1.example/box1/odata-collection1/entity-type1('100-1_20101108-111352093')\
+/navigation-property1" -X GET -i -H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' -H \
+'Accept: application/json'
 ```
 
 

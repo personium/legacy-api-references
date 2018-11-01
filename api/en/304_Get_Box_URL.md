@@ -67,7 +67,7 @@ None
 Location sample
 
 ```
-Location:{CellURL}{BoxName}
+Location:https://cell1.unit1.example/box1
 ```
 
 ### Response Body
@@ -81,7 +81,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ### Response Sample
 
 ```
-Location:{CellURL}{BoxName}
+Location:https://cell1.unit1.example/box1
 ```
 
 
@@ -90,14 +90,14 @@ Location:{CellURL}{BoxName}
 ### Schema authenticated
 
 ```sh
-curl "{CellURL}__box" -X GET -i -H 'Authorization: Bearer {AccessToken}' \
--H 'Accept: application/json'
+curl "https://cell1.unit1.example/__box" -X GET -i \
+-H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' -H 'Accept: application/json'
 ```
 
 ### Schema authentication not supported
 
 ```sh
-curl "{CellURL}__box?schema={CellURL}" -X GET -i -H\
- 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://cell1.unit1.example/__box?schema=https://app-cell1.unit1.example/" -X GET -i \
+-H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' -H 'Accept: application/json'
 ```
 

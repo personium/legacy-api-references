@@ -80,8 +80,8 @@ The file describing the information of the box to be installed
 {
   "bar_version": "2",
   "box_version": "1",
-  "default_path": "{BoxName}",
-  "schema": "http://app1.example.com"
+  "default_path": "box1",
+  "schema": "http://app-cell1.unit1.example"
 }
 ```
 
@@ -146,7 +146,7 @@ https&#58;//{UnitFQDN}/cell1/__role/box/staff → https&#58;//{UnitFQDN}/cell1/_
 {
   "ExtRoles": [
     {
-      "ExtRole": "{CellURL}__role/__/role2",
+      "ExtRole": "https://cell1.unit1.example/__role/__/role2",
       "_Relation.Name": "Relation1"
     }
   ]
@@ -219,7 +219,7 @@ The file describing the data relation information of the $links to be installed
         },
       "ToType": "ExtRole",
       "ToName": {
-          "ExtRole": "{CellURL}__role/__/role2",
+          "ExtRole": "https://cell1.unit1.example/__role/__/role2",
           "_Relation.Name": "Relation1"
         }
     }
@@ -246,7 +246,7 @@ Shows the XML data acquired with the PROPFIND method for all hierarchical levels
         <resourcetype>
           <collection/>
         </resourcetype>
-        <acl xml:base="https://{UnitFQDN}/cell/__role/__/" xmlns:p="urn:x-personium:xmlns">
+         <acl xml:base="https://cell1.unit1.example/__role/__/" xmlns:p="urn:x-personium:xmlns">
           <ace>
             <principal>
               <href>admin</href>
@@ -269,7 +269,7 @@ Shows the XML data acquired with the PROPFIND method for all hierarchical levels
           <collection/>
           <p:service xmlns:p="urn:x-personium:xmlns"/>
         </resourcetype>
-        <acl xml:base="https://{UnitFQDN}/cell/__role/__/" xmlns:p="urn:x-personium:xmlns">
+        <acl xml:base="https://cell1.unit1.example/__role/__/" xmlns:p="urn:x-personium:xmlns">
           <ace>
             <principal>
               <href>user</href>
@@ -297,7 +297,7 @@ Shows the XML data acquired with the PROPFIND method for all hierarchical levels
         <resourcetype>
                   <collection/>
         </resourcetype>
-        <acl xml:base="https://{UnitFQDN}/cell/__role/__/" xmlns:p="urn:x-personium:xmlns">
+         <acl xml:base="https://cell1.unit1.example/__role/__/" xmlns:p="urn:x-personium:xmlns">
           <ace>
             <principal>
               <href>user</href>
@@ -334,7 +334,7 @@ Shows the XML data acquired with the PROPFIND method for all hierarchical levels
           <collection/>
           <p:service xmlns:p="urn:x-personium:xmlns"/>
         </resourcetype>
-        <acl xml:base="https://{UnitFQDN}/cell/__role/__/" xmlns:p="urn:x-personium:xmlns"/>
+        <acl xml:base="https://cell1.unit1.example/__role/__/" xmlns:p="urn:x-personium:xmlns"/>
         <p:service language="JavaScript" xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns">
           <p:path name="ehr" src="ehr.js"/>
           <p:path name="ehr_connector" src="ehr_connector.js"/>
@@ -349,7 +349,7 @@ Shows the XML data acquired with the PROPFIND method for all hierarchical levels
         <resourcetype>
           <collection/>
         </resourcetype>
-        <acl xml:base="https://{UnitFQDN}/cell/__role/__/" xmlns:p="urn:x-personium:xmlns"/>
+        <acl xml:base="https://cell1.unit1.example/__role/__/" xmlns:p="urn:x-personium:xmlns"/>
       </prop>
     </propstat>
   </response>
@@ -482,7 +482,7 @@ Sample of 90\_rootprops.xml for service registration
           <collection/>
           <p:service xmlns:p="urn:x-personium:xmlns"/>
         </resourcetype>
-        <acl xml:base="https://{UnitFQDN}/cell/__role/__/" xmlns:p="urn:x-personium:xmlns"/>
+        <acl xml:base="https://cell1.unit1.example/__role/__/" xmlns:p="urn:x-personium:xmlns"/>
         <p:service language="JavaScript" xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns">
           <p:path name="ehr" src="ehr.js"/>
           <p:path name="ehr_connector" src="ehr_connector.js"/>
@@ -497,7 +497,7 @@ Sample of 90\_rootprops.xml for service registration
         <resourcetype>
           <collection/>
         </resourcetype>
-        <acl xml:base="https://{UnitFQDN}/cell/__role/__/" xmlns:p="urn:x-personium:xmlns"/>
+        <acl xml:base="https://cell1.unit1.example/__role/__/" xmlns:p="urn:x-personium:xmlns"/>
       </prop>
     </propstat>
   </response>

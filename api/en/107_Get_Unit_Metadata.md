@@ -78,5 +78,5 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}" -X GET -i -H 'Accept: application/json'
+curl "https://unit1.example/" -X GET -i -H 'Accept: application/json'
 ```

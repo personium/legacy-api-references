@@ -64,6 +64,6 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}{BoxName}" -X GET -H 'Authorization: Bearer {AccessToken}' \
+curl "https://cell1.unit1.example/box1" -X GET -H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' \
 -H 'Accept: application/zip+x-personium-bar' -o "/home/user/export.bar"
 ```

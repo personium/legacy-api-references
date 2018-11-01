@@ -119,8 +119,8 @@ JSON
 
 ```JSON
 {
-  "Name":"{RelationName}",
-  "_Box.Name":"{BoxName}"
+  "Name":"relation1",
+  "_Box.Name":"box1"
 }
 ```
 
@@ -174,14 +174,14 @@ Refer to [Error Message List](004_Error_Messages.md)
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')",
+        "uri": "https://cell1.unit1.example/__ctl/Relation(Name='relation1',_Box.Name='box1')",
         "etag": "W/\"2-1486953408036\"",
         "type": "CellCtl.Relation"
       },
-      "Name": "{RelationName}",
+      "Name": "relation1",
       "__published": "/Date(1486953408036)/",
       "__updated": "/Date(1486953408036)/",
-      "_Box.Name": "{BoxName}"
+      "_Box.Name": "box1"
     }
   }
 }
@@ -194,21 +194,23 @@ Refer to [Error Message List](004_Error_Messages.md)
 
 ```sh
 curl
-"{CellURL}__ctl/Box('{BoxName}')/_Role" -X POST -i  -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{RoleName}"}'
+"https://cell1.unit1.example/__ctl/Box('box1')/_Role" -X POST -i \
+-H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' -H 'Accept: application/json' \
+-d '{"Name":"role1"}'
 ```
 
 ### When registering Relation
 
 ```sh
-curl "{CellURL}__ctl/Box('{BoxName}')/_Relation" -X POST -i -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{RelationName}"}'
+curl "https://cell1.unit1.example/__ctl/Box('box1')/_Relation" -X POST -i \
+-H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' -H 'Accept: application/json' \
+-d '{"Name":"relation1"}'
 ```
-
 ### When registering Rule
 ```sh
 curl
-"{CellURL}__ctl/Box('{BoxName}')/_Rule" -X POST -i  -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{RuleName}","Action":"log"}'
+"https://cell1.unit1.example/__ctl/Box('box1')/_Rule" -X POST -i \
+-H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' -H 'Accept: application/json' \
+-d '{"Name":"rule1","Action":"log"}'
 ```
 

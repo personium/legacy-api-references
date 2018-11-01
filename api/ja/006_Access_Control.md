@@ -300,7 +300,7 @@ ACL設定をPROPFINDで出力した際、xml:base属性は以下の様に出力�
 <?xml version="1.0" encoding="utf-8" ?>
 <D:acl xmlns:D="DAV:" xml:base="http://localhost:8080/testcell1/__role/box1/"
     xmlns:p="urn:x-personium:xmlns"
-    p:requireSchemaAuthz="{レベル値}">
+    p:requireSchemaAuthz="none">
   <D:ace>
     <D:principal>
       <D:all/>

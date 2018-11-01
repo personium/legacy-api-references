@@ -128,32 +128,36 @@ Refer to [Error Message List](004_Error_Messages.md)
     "results": {
       "__metadata": {
         "uri":
-        "{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')",
+        "https://cell1.unit1.example/__ctl/Relation(Name='relation1',_Box.Name='box1')",
         "etag": "W/\"1-1486538244016\"",
         "type": "CellCtl.Relation"
       },
-      "Name": "{RelationName}",
-      "_Box.Name": "{BoxName}",
+      "Name": "relation1",
+      "_Box.Name": "box1",
       "__published": "/Date(1486538244016)/",
       "__updated": "/Date(1486538244016)/",
       "_Box": {
         "__deferred": {
-          "uri": "{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_Box"
+          "uri": "https://cell1.unit1.example/__ctl/Relation(Name='relation1'
+,_Box.Name='box1')/_Box"
         }
       },
       "_ExtCell": {
         "__deferred": {
-          "uri": "{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_ExtCell"
+          "uri": "https://cell1.unit1.example/__ctl/Relation(Name='relation1'
+,_Box.Name='box1')/_ExtCell"
         }
       },
       "_ExtRole": {
         "__deferred": {
-          "uri": "{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_ExtRole"
+          "uri": "https://cell1.unit1.example/__ctl/Relation(Name='relation1'
+,_Box.Name='box1')/_ExtRole"
         }
       },
       "_Role": {
         "__deferred": {
-          "uri": "{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')/_Role"
+          "uri": "https://cell1.unit1.example/__ctl/Relation(Name='relation1'
+,_Box.Name='box1')/_Role"
         }
       }
     }
@@ -165,7 +169,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')" -X \
-GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://cell1.unit1.example/__ctl/Relation(Name='relation1',_Box.Name='box1')" -X GET -i \
+-H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' -H 'Accept: application/json'
 ```
 

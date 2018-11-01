@@ -39,9 +39,9 @@ You can specify up to 10 navigation properties when acquiring one case
 Expand and acquire information associated with navigation properties
 
 ```
-curl "{CellURL}{BoxName}/{ODataCollecitonName}/{EntityTypeName}\
-('{EntityID}')?\$expand={NavigationPropertyName}" -X GET -i -H 'Authorization: Bearer {AccessToken}' \
--H 'Accept: application/json'
+curl "https://cell1.unit1.example/box1/odata-collection1/entity-type1\
+('100-1_20101108-111352093')?\$expand={NavigationPropertyName}" -X GET -i -H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA'\
+ -H 'Accept: application/json'
 ```
 
 ### Restrictions

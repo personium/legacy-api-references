@@ -128,7 +128,7 @@ namespace xml:
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <D:acl xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns"
-       xml:base="{CellURL}__role/{BoxName}/"
+       xml:base="https://cell1.unit1.example/__role/box1/"
        p:requireSchemaAuthz="public">
   <D:ace>
     <D:principal>
@@ -177,25 +177,12 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}{BoxName}/{CollectionName}" -X ACL -i\
--H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d\
-'<?xml version="1.0" encoding="utf-8" ?> \
- <D:acl xmlns:D="DAV:" xml:base="{CellURL}__role/{BoxName}/" \
-xmlns:p="urn:x-personium:xmlns" p:requireSchemaAuthz="none"> \
-  <D:ace> \
-   <D:principal> \
-    <D:href>doctor</D:href> \
-   </D:principal> \
-   <D:grant> \
-    <D:privilege> \
-     <D:read/> \
-    </D:privilege> \
-    <D:privilege> \
-     <D:write/> \
-    </D:privilege> \
-   </D:grant> \
-  </D:ace> \
- </D:acl>'
+curl "https://cell1.unit1.example/box1/collection1" -X ACL -i \
+-H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' -H 'Accept: application/json' \
+-d '<?xml version="1.0" encoding="utf-8" ?><D:acl xmlns:D="DAV:" \
+xml:base="https://cell1.unit1.example/__role/box1/" xmlns:p="urn:x-personium:xmlns" \
+p:requireSchemaAuthz="none"><D:ace><D:principal><D:href>role1</D:href></D:principal><D:grant>\
+<D:privilege><D:read/></D:privilege><D:privilege><D:write/></D:privilege></D:grant></D:ace></D:acl>'
 ```
 
 

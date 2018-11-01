@@ -27,8 +27,8 @@ $expand={NavigationPropertyName}
 ## cURLサンプル
 ナビゲーションプロパティに紐付く情報を展開して取得する
 ```
-curl "{CellURL}{BoxName}/{ODataCollecitonName}/{EntityTypeName}\
-('{EntityID}')?\$expand={NavigationPropertyName}" -X GET -i -H 'Authorization: Bearer {AccessToken}'\
+curl "https://cell1.unit1.example/box1/odata-collection1/entity-type1\
+('100-1_20101108-111352093')?\$expand={NavigationPropertyName}" -X GET -i -H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA'\
  -H 'Accept: application/json'
 ```
 ## 制限事項

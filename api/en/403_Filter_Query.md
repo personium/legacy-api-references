@@ -71,7 +71,7 @@ If an integer value is specified, it converts it to UNIX time and performs a sea
 Example: When acquiring a cell whose cell name is sample:
 
 ```sh
-curl "https://{UnitFQDN}/__ctl/Cell?\$filter=Name%20eq%20'sample'" -X GET -i -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://unit1.example/__ctl/Cell?\$filter=Name%20eq%20'sample'" -X GET -i -H \
+'Authorization: Bearer AA~PBDc...(snip)...FrTjA' -H 'Accept: application/json'
 ```
 

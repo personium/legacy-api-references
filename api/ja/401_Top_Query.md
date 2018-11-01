@@ -17,7 +17,7 @@ $top={number}
 ## cURLサンプル
 例：セルを10件取得する場合:
 ```sh
-curl "https://{UnitFQDN}/__ctl/Cell?\$top=10" -X GET -i -H 'Authorization: Bearer {AccessToken}' \
+curl "https://unit1.example/__ctl/Cell?\$top=10" -X GET -i -H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' \
 -H 'Accept: application/json'
 ```
 ## 制限事項

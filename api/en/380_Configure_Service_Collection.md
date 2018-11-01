@@ -169,7 +169,7 @@ DTD notation
 ```xml
 <multistatus xmlns="DAV:">
   <response>
-    <href>{CellURL}{BoxName}/{CollectionName}</href>
+    <href>https://cell1.unit1.example/box1/odata-collection1</href>
     <propstat>
       <prop>
         <p:service language="JavaScript" xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:">
@@ -189,11 +189,11 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}{BoxName}/{CollectionName}" -X PROPPATCH -i -H \
-"Authorization:Bearer {AccessToken}" -H "Accept:application/json" -d \
-"<?xml version=\"1.0\" encoding=\"utf-8\" ?><D:propertyupdate xmlns:D=\"DAV:\" xmlns:p=\"urn:x-personium:xmlns\">\
-<D:set><D:prop><p:service language=\"JavaScript\"><p:path name=\"sample\" src=\"sample.js\"/></p:service></D:prop>\
-</D:set></D:propertyupdate>"
+curl "https://cell1.unit1.example/box1/odata-collection1" -X PROPPATCH -i -H \
+"Authorization:Bearer AA~PBDc...(snip)...FrTjA" -H "Accept:application/json" -d "<?xml version=\"1.0\" \
+encoding=\"utf-8\" ?><D:propertyupdate xmlns:D=\"DAV:\" xmlns:p=\"urn:x-personium:xmlns\"><D:set>\
+<D:prop><p:service language=\"JavaScript\"><p:path name=\"sample\" src=\"sample.js\"/></p:service>\
+</D:prop></D:set></D:propertyupdate>"
 ```
 
 

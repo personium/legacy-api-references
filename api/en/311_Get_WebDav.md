@@ -106,9 +106,9 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}{BoxName}/{CollectionName}" -X GET -i -H \
-'If-None-Match:"1-1372742704414"' -H 'Range:bytes=10-20 ' -H 'Authorization: Bearer {AccessToken}' \
--H 'Accept: application/json'
+curl "https://cell1.unit1.example/box1/{ResourcePath}" -X GET -i \
+-H 'If-None-Match:"1-1372742704414"' -H 'Range:bytes=10-20' \
+-H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' -H 'Accept: application/json'
 ```
 
 

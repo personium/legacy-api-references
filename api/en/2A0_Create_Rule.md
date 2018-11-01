@@ -110,7 +110,7 @@ Only specific kinds of URL can be accepted for TargetUrl field.
 
 ### Request sample
 ```JSON
-{"Name":"{RuleName}", "EventExternal":true, "Action":"log"}
+{"Name":"rule1", "EventExternal":true, "Action":"log"}
 ```
 
 ## Response
@@ -162,12 +162,12 @@ The response is a JSON object, and the correspondence between the key (name) and
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')",
+        "uri": "https://cell1.unit1.example/__ctl/Rule(Name='rule1',_Box.Name='box1')",
         "etag": "W/\"1-1486368212581\"",
         "type": "CellCtl.Rule"
       },
-      "Name": "{RuleName}",
-      "_Box.Name": "{BoxName}",
+      "Name": "rule1",
+      "_Box.Name": "box1",
       "EventExternal": true,
       "EventSubject": null,
       "EventType": null,
@@ -188,7 +188,7 @@ The response is a JSON object, and the correspondence between the key (name) and
 ## cURL Sample
 
 ```sh
-curl "{CellURL}__ctl/Rule" -X POST -i \
--H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' \
--d '{"Name":"{RuleName}", "EventExternal":true, "Action":"log"}'
+curl "https://cell1.unit1.example/__ctl/Rule" -X POST -i \
+-H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' -H 'Accept: application/json' \
+-d '{"Name":"rule1", "EventExternal":true, "Action":"log"}'
 ```

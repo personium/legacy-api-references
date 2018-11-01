@@ -196,10 +196,10 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}" -X ACL -i -H 'Authorization: Bearer {AccessToken}' -H \
-'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8" ?><D:acl xmlns:D="DAV:" \
-xmlns:p="urn:x-personium:xmlns" xml:base="{CellURL}__role/{BoxName}/">  \
-<D:ace><D:principal><D:href>{RoleName}</D:href></D:principal><D:grant><D:privilege><p:box-read/>\
+curl "https://cell1.unit1.example/" -X ACL -i -H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' \
+-H 'Accept: application/json' -d '<?xml version="1.0" encoding="utf-8" ?><D:acl xmlns:D="DAV:" \
+xmlns:p="urn:x-personium:xmlns" xml:base="https://cell1.unit1.example/__role/box1/">  \
+<D:ace><D:principal><D:href>role1</D:href></D:principal><D:grant><D:privilege><p:box-read/>\
 </D:privilege><D:privilege><p:auth/></D:privilege></D:grant></D:ace></D:acl>'
 ```
 

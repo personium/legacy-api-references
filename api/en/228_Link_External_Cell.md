@@ -81,7 +81,7 @@ JSON
 ### Request Sample
 
 ```JSON
-{"uri":"{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')"}
+{"uri":"https://cell1.unit1.example/__ctl/Relation(Name='relation1',_Box.Name='box1')"}
 ```
 
 
@@ -111,8 +111,9 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{ExtCellName}%2F')/\$links/_Relation" \
--X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
-"{\"uri\":\"{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')\"}"
+curl "https://cell1.unit1.example/__ctl/ExtCell('https%3A%2F%2Fcell2.unit1.example%2F')\
+/\$links/_Relation" -X POST -i -H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' \
+-H 'Accept: application/json' -d "{\"uri\":\"https://cell1.unit1.example/__ctl/Relation\
+(Name='relation1',_Box.Name='box1')\"}"
 ```
 

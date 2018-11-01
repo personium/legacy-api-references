@@ -56,7 +56,7 @@ POST
 
 ```JSON
 {
-  "Url": "{CellURL}"
+  "Url": "https://cell2.unit1.example/"
 }
 ```
 
@@ -109,11 +109,11 @@ Refer to [Error Message List](004_Error_Messages.md)
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{ExtCellName}%2F')",
+        "uri": "https://cell1.unit1.example/__ctl/ExtCell('https%3A%2F%2Fcell2.unit1.example%2F')",
         "etag": "W/\"1-1486519006899\"",
         "type": "CellCtl.ExtCell"
       },
-      "Url": "https://{UnitFQDN}/{ExtCellName}/",
+      "Url": "https://cell2.unit1.example/",
       "__published": "/Date(1486519006899)/",
       "__updated": "/Date(1486519006899)/"
     }
@@ -125,6 +125,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}__ctl/ExtCell" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H \
-'Accept: application/json'  -d '{"Url":"{CellURL}"}'
+curl "https://cell1.unit1.example/__ctl/ExtCell" -X POST -i \
+-H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' -H 'Accept: application/json' \
+-d '{"Url":"https://cell2.unit1.example/"}'
 ```

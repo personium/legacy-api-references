@@ -89,7 +89,7 @@ JSON
 ### Request Sample
 
 ```JSON
-{"uri":"{CellURL}{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')"}
+{"uri":"https://cell1.unit1.example/box1/odata-collection1/entity-type1('{100-1_20101108-111352093}')"}
 ```
 
 
@@ -126,10 +126,10 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}{BoxName}/{CollectionName}/{EntityTypeName}('{EntityID}')\
-/\$links/_{EntityTypeName}" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H \
-'Accept: application/json' -d "{\"uri\":\"{CellURL}{BoxName}/{CollectionName}\
-/{EntityTypeName}('{EntityID}')\"}"
+curl "https://cell1.unit1.example/box1/odata-collection1/entity-type1('{100-1_20101108-111352093}')\
+/\$links/_entity-type1" -X POST -i -H 'Authorization: Bearer {AA~PBDc...(snip)...FrTjA}' -H \
+'Accept: application/json' -d "{\"uri\":\"https://cell1.unit1.example/box1/odata-collection1\
+/entity-type1('{100-1_20101108-111352093}')\"}"
 ```
 
 

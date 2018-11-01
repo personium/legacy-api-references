@@ -115,12 +115,12 @@ The response is a JSON object, and the correspondence between the key (name) and
     "results": [
       {
         "__metadata": {
-          "uri": "{CellURL}__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')",
+          "uri": "https://cell1.unit1.example/__ctl/Rule(Name='rule1',_Box.Name='box1')",
           "etag": "W/\"1-1486368212581\"",
           "type": "CellCtl.Rule"
         },
-        "Name": "{RuleName}",
-        "_Box.Name": "{BoxName}",
+        "Name": "rule1",
+        "_Box.Name": "box1",
         "EventExternal": true,
         "EventSubject": null,
         "EventType": null,
@@ -132,18 +132,18 @@ The response is a JSON object, and the correspondence between the key (name) and
         "__updated": "/Date(1486368212581)/",
         "_Box": {
           "__deferred": {
-            "uri": "{CellURL}__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')/_Box"
+            "uri": "https://cell1.unit1.example/__ctl/Rule(Name='rule1',_Box.Name='box1')/_Box"
           }
         }
       },
       {
         "__metadata": {
-          "uri": "{CellURL}__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')",
+          "uri": "https://cell1.unit1.example/__ctl/Rule(Name='rule2',_Box.Name='box2')",
           "etag": "W/\"1-1486461000154\"",
           "type": "CellCtl.Rule"
         },
-        "Name": "{RuleName}",
-        "_Box.Name": "{BoxName}",
+        "Name": "rule2",
+        "_Box.Name": "box2",
         "EventExternal": true,
         "EventSubject": null,
         "EventType": null,
@@ -155,7 +155,7 @@ The response is a JSON object, and the correspondence between the key (name) and
         "__updated": "/Date(1486461000154)/",
         "_Box": {
           "__deferred": {
-            "uri": "{CellURL}__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')/_Box"
+            "uri": "https://cell1.unit1.example/__ctl/Rule(Name='rule2',_Box.Name='box2')/_Box"
           }
         }
       }
@@ -166,6 +166,7 @@ The response is a JSON object, and the correspondence between the key (name) and
 ## cURL Sample
 
 ```sh
-curl "{CellURL}__ctl/Rule" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H \
-'Accept: application/json'
+curl "https://cell1.unit1.example/__ctl/Rule" -X GET -i \
+-H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' -H 'Accept: application/json'
 ```
+

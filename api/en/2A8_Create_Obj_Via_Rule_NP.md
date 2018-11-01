@@ -54,7 +54,7 @@ POST
 
 ### Request sample
 ```JSON
-{"Name":"{BoxName}", "Schema":"{CellURL}"}
+{"Name":"box1", "Schema":"https://cell1.unit1.example/"}
 ```
 ## Response
 ### Status code
@@ -93,11 +93,11 @@ POST
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}__ctl/Box('{BoxName}')",
+        "uri": "https://cell1.unit1.example/__ctl/Box('box1')",
         "etag": "W/\"1-1486368212581\"",
         "type": "CellCtl.Box"
       },
-      "Name": "{BoxName}",
+      "Name": "box1",
       "Schema": null,
       "__published": "/Date(1486368212581)/",
       "__updated": "/Date(1486368212581)/"
@@ -111,6 +111,6 @@ POST
 ## cURL Sample
 
 ```sh
-curl "{CellURL}__ctl/Rule('{RuleName}')/_Box" -X POST -i -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{BoxName}"}'
+curl "https://cell1.unit1.example/__ctl/Rule('rule1')/_Box" -X POST -i -H \
+'Authorization: Bearer AA~PBDc...(snip)...FrTjA' -H 'Accept: application/json' -d '{"Name":"box1"}'
 ```

@@ -68,8 +68,7 @@ None
 For details of URL for [Box metadata acquisition API](303_Progress_of_Bar_File_Installation.md), see Box metadata acquisition.
 
 ## cURL Command
-
 ```sh
-curl "{CellURL}{BoxName}" -X GET -H 'Authorization: Bearer {AccessToken}' \
--H 'Accept: application/application/zip+x-personium-bar' -o "/home/user/export.bar"
+curl "https://cell1.unit1.example/box1" -X GET -H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' \
+-H 'Accept: application/zip+x-personium-bar' -o "/home/user/export.bar"
 ```

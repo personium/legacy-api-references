@@ -107,16 +107,14 @@ grant_type=password&username=username&password=pass
 Issuing a transcell access token with account owner authentication by password
 
 ```
-grant_type=password&username=username&password=pass&p_target={CellURL}
+grant_type=password&username=username&password=pass&p_target=https://cell1.unit1.example/
 ```
 
 Issuing application-authenticated access token by password owner authentication and application authentication token sending
 
 ```
-grant_type=password&username=username&password=pass&client_id=https://{UnitFQDN}/app{CellName}
-/&client_secret=
-WjzDmvJSLvM9qVuJL1xxP6hSxt64HijoIea0P5R2CVloXJ2HEvEILl7UOtEtjSDdjlvyx9wrosPBhDRU97Qnn6EQIQ3MwaqtI
-x7HjuX36_ZBC6qxcgscCDmdtGb4nHgo
+grant_type=password&username=username&password=pass&client_id=https://app-cell1.unit1.example/
+&client_secret=WjzDmvJ...(snip)...4nHgo
 
 ```
 
@@ -129,7 +127,7 @@ grant_type=urn:x-personium:oidc:google&id_token=IDTOKEN
 Refreshing tokens with refresh tokens
 
 ```
-grant_type=refresh_token&refresh_token={token}
+grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&assertion=WjzDmvJ...(snip)...4nHgo
 ```
 
 Cookies are also issued by password owner authentication
@@ -166,9 +164,9 @@ grant_type=password&username=username&password=pass&p_cookie=true
 
 ```JSON
 {
-  "access_token": "AA~osIZ4CZ8cZmxf5NidEueHej_6Lj-ww0c_kJZd4HbHBqFyZ0OZBrS29miYr9Jh19b0o39cTJdH2Va3xSMMbu6Eg",
+  "access_token": "AA~PBDc...(snip)...FrTjA",
   "refresh_token_expires_in": 86400,
-  "refresh_token": "RA~uELMJkVpzTtsl1ueh2KlrT9UiOx85-dmg7nGX01YaogoQ86qgfv2VMUxQXSP95uNY9MuWxZe0AQFtEnFYyWMoQ",
+  "refresh_token": "RA~uELM...(snip)...yWMoQ",
   "token_type": "Bearer",
   "expires_in": 3600
 }
@@ -183,35 +181,35 @@ Refer to [Error Message List](004_Error_Messages.md)
 ### Account holder authentication
 
 ```sh
-curl "{CellURL}__token" -X POST -i -d \
-'grant_type=password&username={username}&password={password}'
+curl "https://cell1.unit1.example/__token" -X POST -i \
+-d 'grant_type=password&username=user1&password=pass'
 ```
 
 ### Other cell user authentication
 
 ```sh
-curl "{CellURL}__token" -X POST -i -d \
-'grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&assertion={token}'
+curl "https://cell1.unit1.example/__token" -X POST -i \
+-d 'grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&assertion=WjzDmvJ...(snip)...4nHgo'
 ```
 
 ### Token Refresh
 
 ```sh
-curl "{CellURL}__token" -X POST -i -d \
-'grant_type=refresh_token&refresh_token={refresh_token}'
+curl "https://cell1.unit1.example/__token" -X POST -i \
+-d 'grant_type=refresh_token&refresh_token=RA~uELM...(snip)...yWMoQ'
 ```
 
 ### Account holder + Application authentication
 
 ```sh
-curl "{CellURL}__token" -X POST -i -d \
-'grant_type=password&username={user_name}&password={pass}&client_id=https://{UnitFQDN}\
-/app{CellName}/&client_secret={token_from_app_cell}'
+curl "https://cell1.unit1.example/__token" -X POST -i \
+-d 'grant_type=password&username=name1&password=pass&client_id=\
+https://app-cell1.unit1.example/&client_secret=WjzDmvJ...(snip)...4nHgo'
 ```
 
 ### Issuing transcell access token for other cell by other cell user authentication
-
 ```sh
-curl "{CellURL}__token" -X POST -i -d 'grant_type=urn:ietf:params:oauth:grant-type:\
-saml2-bearer&assertion={SAML_token}&p_target={CellURL}'
+curl "https://cell1.unit1.example/__token" -X POST -i \
+-d 'grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&assertion=\
+WjzDmvJ...(snip)...4nHgo&p_target=https://cell1.unit1.example/'
 ```

@@ -110,16 +110,16 @@ After creating Box (including when Box installation is completed)
   "box": {
     "status": "ready",
     "installed_at": "2017-02-13T09:00:00.000Z",
-    "name": "app_box",
-    "url": "https://example.com/cell1/app_box/",
-    "schema": "https://example.com/app1/"
+    "name": "app-box1",
+    "url": "https://cell1.example.com/app-box1/",
+    "schema": "https://app-cell1.example.com/"
   },
   "cell": {
     "name": "cell1",
-    "url": "https://example.com/cell1/"
+    "url": "https://cell1.unit1.example/"
   },
   "unit": {
-    "url": "https://example.com/",
+    "url": "https://unit1.example/",
     "path_based_cellurl_enabled": true
   }
 }
@@ -133,16 +133,16 @@ During Box installation process
     "status": "installation in progress",
     "started_at": "2017-02-13T09:00:00.000Z",
     "progress": "81%",
-    "name": "app_box",
-    "url": "https://example.com/cell1/app_box/",
-    "schema": "https://example.com/app1/"
+    "name": "app-box1",
+    "url": "https://cell1.unit1.example/app-box1/",
+    "schema": "https://app-cell1.unit1.example/"
   },
   "cell": {
     "name": "cell1",
-    "url": "https://example.com/cell1/"
+    "url": "https://cell1.unit1.example/"
   },
   "unit": {
-    "url": "https://example.com/",
+    "url": "https://unit1.example/",
     "path_based_cellurl_enabled": true
   }
 }
@@ -150,7 +150,6 @@ During Box installation process
 
 When Box installation is completed (abnormal termination)  
 (After expiration of Box installation, within the expiration date)
-
 ```JSON
 {
   "box": {
@@ -164,16 +163,16 @@ When Box installation is completed (abnormal termination)
         "value" : "The entity already exists."
       }
     },
-    "name": "app_box",
-    "url": "https://example.com/cell1/app_box/",
-    "schema": "https://example.com/app1/"
+    "name": "app-box1",
+    "url": "https://cell1.unit1.example/app-box1/",
+    "schema": "https://app-cell1.unit1.example/"
   },
   "cell": {
     "name": "cell1",
-    "url": "https://example.com/cell1/"
+    "url": "https://cell1.unit1.example/"
   },
   "unit": {
-    "url": "https://example.com/",
+    "url": "https://unit1.example/",
     "path_based_cellurl_enabled": true
   }
 }
@@ -183,7 +182,7 @@ When Box installation is completed (abnormal termination)
 ## cURL Command
 
 ```sh
-curl "{CellURL}{BoxName}" -X GET -i -H 'Authorization: Bearer {AccessToken}' \
--H 'Accept: application/json'
+curl "https://cell1.unit1.example/box1" -X GET -i \
+-H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' -H 'Accept: application/json'
 ```
 

@@ -1,4 +1,4 @@
-# Get file setting
+# Retrieve file setting
 
 ## Overview
 

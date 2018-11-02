@@ -1,4 +1,4 @@
-# Message status change (unread, read, approve)
+# Change Message status  (unread, read, approve)
 
 ## Overview
 * approve/reject Message  

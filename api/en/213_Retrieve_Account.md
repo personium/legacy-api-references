@@ -1,4 +1,4 @@
-# Acquire Account
+# Retrieve Account
 
 ## Overview
 

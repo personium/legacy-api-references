@@ -1,4 +1,4 @@
-# Log File Retrieve Information
+# Retrieve Log File Information
 
 ## Overview
 

@@ -1,4 +1,4 @@
-# Register of other objects via Rule's Navigation Property
+# Create other objects via Rule's Navigation Property
 
 ## Overview
 

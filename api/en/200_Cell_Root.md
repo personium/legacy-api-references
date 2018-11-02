@@ -1,4 +1,4 @@
-# Get Cell Root
+# Retrieve Cell Root
 
 ## Overview
 

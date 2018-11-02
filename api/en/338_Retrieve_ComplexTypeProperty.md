@@ -1,4 +1,4 @@
-# Acquire ComplexTypeProperty
+# Retrieve ComplexTypeProperty
 
 ## Overview
 

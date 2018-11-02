@@ -1,4 +1,4 @@
-# Service Collection Source Settings
+# Apply Settings Service Collection Source
 
 ## Overview
 

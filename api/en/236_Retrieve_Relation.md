@@ -1,4 +1,4 @@
-# Acquire Relation
+# Retrieve Relation
 
 ## Overview
 

@@ -1,4 +1,4 @@
-# Acquisition of collection settings
+# Retrieve of collection settings
 
 ## Overview
 

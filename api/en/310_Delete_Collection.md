@@ -1,4 +1,4 @@
-# Delete Collection
+# Delete collection
 
 ## Overview
 

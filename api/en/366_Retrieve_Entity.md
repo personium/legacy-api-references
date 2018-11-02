@@ -1,4 +1,4 @@
-# Acquire Entity
+# Retrieve Entity
 
 ## Overview
 

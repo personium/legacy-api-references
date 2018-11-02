@@ -1,4 +1,4 @@
-# Acquire ExtRole
+# Retrieve ExtRole
 
 ## Overview
 

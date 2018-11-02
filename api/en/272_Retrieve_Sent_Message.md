@@ -1,4 +1,4 @@
-# Acquire SentMessage
+# Retrieve SentMessage
 
 ## Overview
 

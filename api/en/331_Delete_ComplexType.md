@@ -1,4 +1,4 @@
-# ComplexType delete
+# Delete ComplexType
 
 ## Overview
 

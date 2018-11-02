@@ -1,4 +1,4 @@
-# Get cell import status
+# Retrieve cell import status
 
 ## Overview
 

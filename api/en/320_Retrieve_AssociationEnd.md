@@ -1,4 +1,4 @@
-# Acquire AssociationEnd
+# Retrieve AssociationEnd
 
 ## Overview
 

@@ -1,4 +1,4 @@
-# Get Cell Metadata
+# Retrieve Cell Metadata
 
 ## Overview
 

@@ -1,4 +1,4 @@
-# File acquisition
+# Retrieve file
 
 ## Overview
 

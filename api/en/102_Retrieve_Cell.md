@@ -1,4 +1,4 @@
-# Acquire Cell
+# Retrieve Cell
 
 ## Overview
 

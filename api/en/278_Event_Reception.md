@@ -1,4 +1,4 @@
-# Accept Event
+# Accept External Event
 
 ## Overview
 

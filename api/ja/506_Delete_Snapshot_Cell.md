@@ -55,7 +55,7 @@ DELETE
 
 ## cURLサンプル
 ```sh
-curl "{CellURL}__snapshot/{FileName}" -X DELETE -i -H \
-'Authorization: Bearer {AccessToken}'
+curl "https://cell1.unit1.example/__snapshot/{FileName}" -X DELETE -i -H \
+'Authorization: Bearer AA~PBDc...(省略)...FrTjA'
 ```
 

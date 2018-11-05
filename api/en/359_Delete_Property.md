@@ -93,9 +93,9 @@ None
 ## cURL Command
 
 ```sh
-curl "{CellURL}{BoxName}/{ODataCollecitonName}/\$metadata/Property(Name=\
-'{PropertyName}',_EntityType.Name='{EntityTypeName}')" -X DELETE -i -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://cell1.unit1.example/box1/odata-collection1/\$metadata/Property(Name='property1',\
+_EntityType.Name='entity-type1')" -X DELETE -i -H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' \
+-H 'Accept: application/json'
 ```
 
 

@@ -20,19 +20,19 @@ social
 ### リクエストURL
 #### RoleへのnavigationProperty
 ```
-{CellURL}__ctl/ExtCell(Url='{ExtCellURL}')/_Role
+{CellURL}__ctl/ExtCell(Url='https%3A%2F%2F{CellName}.{UnitFQDN}%2F')/_Role
 ```
 または、
 ```
-{CellURL}__ctl/ExtCell('{ExtCellURL}')/_Role
+{CellURL}__ctl/ExtCell('https%3A%2F%2F{CellName}.{UnitFQDN}%2F')/_Role
 ```
 #### RelationへのnavigationProperty
 ```
-{CellURL}__ctl/ExtCell(Url='{ExtCellURL}')/_Relation
+{CellURL}__ctl/ExtCell(Url='https%3A%2F%2F{CellName}.{UnitFQDN}%2F')/_Relation
 ```
 または、
 ```
-{CellURL}__ctl/ExtCell('{ExtCellURL}')/_Relation
+{CellURL}__ctl/ExtCell('https%3A%2F%2F{CellName}.{UnitFQDN}%2F')/_Relation
 ```
 ### メソッド
 POST
@@ -57,7 +57,7 @@ POST
 #### リクエストサンプル
 ```JSON
 {
-  "Name": "{RoleName}"
+  "Name": "role1"
 }
 ```
 
@@ -102,41 +102,41 @@ ExtCell固有レスポンスボディ
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')",
+        "uri": "https://cell1.unit1.example/__ctl/Role(Name='role1',_Box.Name='box1')",
         "etag": "W/\"1-1487320623218\"",
         "type": "CellCtl.Role"
       },
-      "Name": "{RoleName}",
+      "Name": "role1",
       "__published": "/Date(1487320623218)/",
       "__updated": "/Date(1487320623218)/",
       "_Box": {
         "__deferred": {
-          "uri": "{CellURL}__ctl/Role(Name='{RoleName}'
-,_Box.Name='{BoxName}')/_Box"
+          "uri": "https://cell1.unit1.example/__ctl/Role(Name='role1'
+,_Box.Name='box1')/_Box"
         }
       },
       "_Account": {
         "__deferred": {
-          "uri": "{CellURL}__ctl/Role(Name='{RoleName}'
-,_Box.Name='{BoxName}')/_Account"
+          "uri": "https://cell1.unit1.example/__ctl/Role(Name='role1'
+,_Box.Name='box1')/_Account"
         }
       },
       "_ExtCell": {
         "__deferred": {
-          "uri": "{CellURL}__ctl/Role(Name='{RoleName}'
-,_Box.Name='{BoxName}')/_ExtCell"
+          "uri": "https://cell1.unit1.example/__ctl/Role(Name='role1'
+,_Box.Name='box1')/_ExtCell"
         }
       },
       "_ExtRole": {
         "__deferred": {
-          "uri": "{CellURL}__ctl/Role(Name='{RoleName}'
-,_Box.Name='{BoxName}')/_ExtRole"
+          "uri": "https://cell1.unit1.example/__ctl/Role(Name='role1'
+,_Box.Name='box1')/_ExtRole"
         }
       },
       "_Relation": {
         "__deferred": {
-          "uri": "{CellURL}__ctl/Role(Name='{RoleName}'
-,_Box.Name='{BoxName}')/_Relation"
+          "uri": "https://cell1.unit1.example/__ctl/Role(Name='role1'
+,_Box.Name='box1')/_Relation"
         }
       }
     }
@@ -147,8 +147,8 @@ ExtCell固有レスポンスボディ
 ## cURLサンプル
 #### RoleのnavigationProperty経由登録
 ```sh
-curl "{CellURL}__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{ExtCellName}%2F')\
-/_Role" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '\
-{ "Name": "{RoleName}"}'
+curl "https://cell1.unit1.example/__ctl/ExtCell('https%3A%2F%2Fcell2.unit1.example%2F')\
+/_Role" -X POST -i -H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' \
+-H 'Accept: application/json' -d '{"Name": "role1"}'
 ```
 

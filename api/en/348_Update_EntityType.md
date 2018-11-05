@@ -77,7 +77,7 @@ JSON
 ### Request Sample
 
 ```JSON
-{"Name":"{EntityTypeName}"}
+{"Name":"entity-type2"}
 ```
 
 
@@ -103,7 +103,8 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}{BoxName}/{ODataCollecitonName}/\$metadata/EntityType('{EntityTypeName}')"\
- -X PUT -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{EntityTypeName}"}'
+curl "https://cell1.unit1.example/box1/odata-collection1/\$metadata/EntityType('entity-type1')" \
+-X PUT -i -H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' -H 'Accept: application/json' \
+-d '{"Name":"entity-type2"}'
 ```
 

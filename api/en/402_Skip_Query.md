@@ -14,7 +14,7 @@ $skip={number}
 Example: When acquiring information from the 11th cell by omitting acquisition of 10 cells:
 
 ```sh
-curl "https://{UnitFQDN}/__ctl/Cell?\$skip=10" -X GET -i -H 'Authorization: Bearer {AccessToken}' \
+curl "https://unit1.example/__ctl/Cell?\$skip=10" -X GET -i -H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' \
 -H 'Accept: application/json'
 ```
 

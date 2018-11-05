@@ -42,8 +42,8 @@ None
 ### Request Sample
 
 ```JSON
-{"uri": "{CellURL}{BoxName}/{ODataCollecitonName}/$metadata/AssociationEnd
-(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')"}
+{"uri": "https://cell1.unit1.example/box1/odata-collection2/$metadata/AssociationEnd
+(Name='association-end2',_EntityType.Name='entity-type2')"}
 ```
 
 
@@ -75,11 +75,11 @@ None
 ## cURL Command
 
 ```sh
-curl "{CellURL}{BoxName}/{ODataCollecitonName}/\$metadata/AssociationEnd\
-(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')/\$links/_AssociationEnd" -X POST \
--i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -H 'Accept:application/json' \
--d "{\"uri\": \"{CellURL}{BoxName}/{ODataCollecitonName}/\$metadata/AssociationEnd\
-(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')\"}"
+curl "https://cell1.unit1.example/box1/odata-collection1/\$metadata/AssociationEnd\
+(Name='association-end1',_EntityType.Name='entity-type1')/\$links/_AssociationEnd" -X POST -i \
+-H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' -H 'Accept: application/json' \
+-d "{\"uri\": \"https://cell1.unit1.example/box1/odata-collection2/\$metadata/AssociationEnd\
+(Name='association-end2',_EntityType.Name='entity-type2')\"}"
 ```
 
 

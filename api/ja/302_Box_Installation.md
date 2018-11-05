@@ -8,11 +8,11 @@ barファイルを使って指定されたパスにBoxをインストールす�
 ```
 Boxインストールの呼び出し例（クライアントでのポーリングを30秒とした場合)
  1. Boxインストール受付
-    -- MKCOL /{Cell}/{Box}
+    -- MKCOL /cell1/box1
  2. Boxインストール状況確認
-    -- GET /{Cell}/{Box}  -> "処理中" で返却。
+    -- GET /cell1/box1  -> "処理中" で返却。
     -- 30秒ポーリング
- 3. GET /{Cell}/{Box}  -> "処理完了" で返却。
+ 3. GET /cell1/box1  -> "処理完了" で返却。
  ※上記 2. の処理をループして処理完了までポーリングする。
 ```
 
@@ -111,7 +111,7 @@ barファイルのファイル構成については [bar ファイル](301_Bar_F
 |X-Personium-Version|APIの実行バージョン|リクエストが処理されたAPIバージョン|
 Locationサンプル
 ```
-Location:{CellURL}{BoxName}
+Location: https://cell1.unit1.example/box1
 ```
 Boxメタデータ取得API用URLの詳細は、[Boxメタデータ取得](303_Progress_of_Bar_File_Installation.md)を参照。
 ### レスポンスボディ
@@ -120,15 +120,10 @@ Boxメタデータ取得API用URLの詳細は、[Boxメタデータ取得](303_P
 ### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
 
-### レスポンスサンプル
-```
-Location: {CellURL}{BoxName}
-```
-Boxメタデータ取得API用URLの詳細は、[Boxメタデータ取得](303_Progress_of_Bar_File_Installation.md)を参照。
-
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}{BoxName}" -X MKCOL -i -H 'Content-type: application/zip' -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -T "{FilePath}"
+curl "https://cell1.unit1.example/box1" -X MKCOL -i -H 'Content-type: application/zip' \
+-H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json' \
+-T "/tmp/sample.bar"
 ```

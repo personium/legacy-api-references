@@ -93,9 +93,9 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}{BoxName}/{CollectionName}/\$metadata/AssociationEnd\
-(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')/\$links/_AssociationEnd\
-(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')" -X DELETE -i -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://cell1.unit1.example/box1/odata-collection1/\$metadata/AssociationEnd\
+(Name='association-end1',_EntityType.Name='entity-type1')/\$links/_AssociationEnd\
+(Name='association-end2',_EntityType.Name='entity-type2')" -X DELETE -i \
+-H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' -H 'Accept: application/json'
 ```
 

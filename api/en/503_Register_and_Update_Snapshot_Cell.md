@@ -75,13 +75,13 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Sample
 
 ```sh
-curl "{CellURL}__snapshot/CellExport_2017_01.zip" -X PUT -i -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{File contents}'
+curl "https://cell1.unit1.example/__snapshot/CellExport_2017_01.zip" -X PUT -i -H \
+'Authorization: Bearer AA~PBDc...(snip)...FrTjA' -H 'Accept: application/json' -d '{File contents}'
 ```
 
 ```sh
-curl "{CellURL}__snapshot/CellExport_2017_01.zip" -X PUT -i -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -T "/home/user/CellExport.zip"
+curl "https://cell1.unit1.example/__snapshot/CellExport_2017_01.zip" -X PUT -i -H \
+'Authorization: Bearer AA~PBDc...(snip)...FrTjA' -H 'Accept: application/json' -T "/home/user/CellExport.zip"
 ```
 
 

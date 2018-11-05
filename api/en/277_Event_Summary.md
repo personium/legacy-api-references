@@ -58,7 +58,7 @@ In update operation, Info is set to updated key string. The key string is used f
 
 Request URL to updated Role object:
 ```
-http://{FQDN}{CellURL}__ctl/Role(Name='role2', _Box.Name=null)
+{CellURL}__ctl/Role(Name='role2', _Box.Name=null)
 ```
 
 #### Cell Level API
@@ -262,32 +262,32 @@ The maximum size at rotation is set to 50 MB by default, and it can be set by th
 ##### External event output example
 ```
 2013-04-18T14:52:39.778Z,[ERROR],"Req_animal-access_1001","true",
-"https://{UnitFQDN}/appCell/","https://{UnitFQDN}/servicemanager/#admin","actionData",
+"https://app-cell1.unit1.example/","https://unitadmin.unit1.example/#admin","actionData",
 "/svc/token_keeper","resultData"
 2013-04-18T14:52:40.688Z,[INFO ],"Req_animal-access_2001","true",
-"https://{UnitFQDN}/appCell/","https://{UnitFQDN}/servicemanager/#admin","action",
+"https://app-cell1.unit1.example/","https://unitadmin.unit1.example/#admin","action",
 "/svc/token_keeper","result"
 2013-04-18T15:01:46.994Z,[INFO ],"Req_animal-access_2001","true",
-"https://{UnitFQDN}/appCell/","https://{UnitFQDN}/servicemanager/#admin","action",
+"https://app-cell1.unit1.example/","https://unitadmin.unit1.example/#admin","action",
 "/svc/token_keeper","result"
 2013-04-18T15:06:19.294Z,[ERROR],"Req_animal-access_1001","true",
-"https://{UnitFQDN}/appCell/","https://{UnitFQDN}/servicemanager/#admin","actionData",
+"https://app-cell1.unit1.example/","https://unitadmin.unit1.example/#admin","actionData",
 "/svc/token_keeper","resultData"
 2013-04-18T15:06:23.360Z,[INFO ],"Req_animal-access_2001","true",
-"https://{UnitFQDN}/appCell/","https://{UnitFQDN}/servicemanager/#admin","action",
+"https://app-cell1.unit1.example/","https://unitadmin.unit1.example/#admin","action",
 "/svc/token_keeper","result"
 2013-04-18T15:09:18.073Z,[ERROR],"Req_animal-access_1001","true",
-"https://{UnitFQDN}/appCell/","https://{UnitFQDN}/servicemanager/#admin","actionData",
+"https://app-cell1.unit1.example/","https://unitadmin.unit1.example/#admin","actionData",
 "/svc/token_keeper","resultData"
 ```
 ##### Example of internal event output
 ```
 2013-04-18T14:52:39.779Z,[INFO ],"Req_animal-access_1001","false",
-"https://{UnitFQDN}/appCell/","https://{UnitFQDN}/appCell/#staff","odata.update",
-"https://{UnitFQDN}/homeClinic/box/col/put_blog","204"
+"https://app-cell1.unit1.example/","https://app-cell1.unit1.example/#staff","odata.update",
+"https://homeClinic.unit1.example/box/col/put_blog","204"
 2013-04-18T14:52:39.780Z,[INFO ],"Req_animal-access_1001","false",
-"https://{UnitFQDN}/appCell/","https://{UnitFQDN}/appCell/#staff","odata.get",
-"https://{UnitFQDN}/homeClinic/box/col/blog_20130418","200"
+"https://app-cell1.unit1.example/","https://app-cell1.unit1.example/#staff","odata.get",
+"https://homeClinic.unit1.example/box/col/blog_20130418","200"
 ```
 
 ### Script execution Action
@@ -393,12 +393,12 @@ When the accept event api is called and Subject matches EventSubject, relay the 
 | \_Box.Name | null ||
 | Name | relayevent\_eventreceipt | Not required. |
 | EventType | null ||
-| EventSubject | https&#58;//{FQDN}/cell/#account ||
+| EventSubject | https&#58;//cell1.unit1.example/#account ||
 | EventObject | null ||
 | EventInfo | null ||
 | EventExternal | true ||
 | Action | relay.event ||
-| TargetUrl | https&#58;//{FQDN}/otherCell/ ||
+| TargetUrl | https&#58;//cell2.unit1.example/ ||
 
 #### Request
 ##### Request Header
@@ -426,55 +426,55 @@ Type conversion
 If Type starts with 'relay.', type conversion is not done.
 
 #### Examples of relay event
-From CellA to CellC via CellB.
+From cell1 to cell3 via cell2.
 
 ##### In case of internal event
 
 ###### Rules
-| Item name | CellA | CellB |
+| Item name | cell1 | cell2 |
 |:--|:--|:--|
 | \_Box.Name | null | null |
 | Name | relayevent | relayevent |
 | EventType | cellctl | null |
-| EventSubject | null | https&#58;//hosta/CellA/#account |
+| EventSubject | null | https&#58;//cell1.unit1.example/#account |
 | EventObject | null | null |
 | EventInfo | null | null |
 | EventExternal | false | true |
 | Action | relay.event | relay.event |
-| TargetUrl | https&#58;//hostb/CellB/ | https&#58;//hostc/CellC/ |
+| TargetUrl | https&#58;//cell2.unit1.example/ | https&#58;//cell3.unit1.example/ |
 
 ###### Relayed event flow
-| Item name | CellA | CellB | CellC |
+| Item name | cell1 | cell2 | cell3 |
 |:--|:--|:--|:--|
-| Subject | https&#58;//hosta/CellA/#account | <- | <- |
-| Schema | https&#58;//host/AppCell/ | <- | <- |
+| Subject | https&#58;//cell1.unit1.example/#account | <- | <- |
+| Schema | https&#58;//app-cell1.unit1.example/ | <- | <- |
 | External | false | true | true |
 | Type | cellctl.Role.create | relay.cellctl.Role.create | <- |
-| Object | https&#58;//hosta/CellA/\_\_ctl/Role('role') | <- | <- |
-| Info | 201,https&#58;//hosta/CellA/\_\_ctl/Role | <- | <- |
+| Object | https&#58;//cell1.unit1.example/\_\_ctl/Role('role') | <- | <- |
+| Info | 201,https&#58;//cell1.unit1.example/\_\_ctl/Role | <- | <- |
 
 ##### In case of external event
 
 ###### Rules
-| Item name | CellA | CellB |
+| Item name | cell1 | cell2 |
 |:--|:--|:--|
-| \_Box.Name | null | BoxB |
+| \_Box.Name | null | box2 |
 | Name | relayevent | relayevent |
 | EventType | null | null |
-| EventSubject | null | https&#58;//hosta/CellA/#account |
+| EventSubject | null | https&#58;//cell1.unit1.example/#account |
 | EventObject | object | null |
 | EventInfo | null | null |
 | EventExternal | true | true |
 | Action | relay.event | relay.event |
-| TargetUrl | https&#58;//hostb/CellB/ | https&#58;//hostc/CellC/ |
+| TargetUrl | https&#58;//cell2.unit2.example/ | https&#58;//cell3.unit3.example/ |
 
-Schema of BoxB of CellB is https&#58;//host/AppCell/.
+Schema of BoxB of CellB is https&#58;//app-cell1.unit1.example/.
 
 ###### Relayed event flow
-| Item name | CellA | CellB | CellC |
+| Item name cell1 | cell2 | cell3 |
 |:--|:--|:--|:--|
-| Subject | https&#58;//hosta/CellA/#account | <- | <- |
-| Schema | https&#58;//hostb/AppCell/ | <- | <- |
+| Subject | https&#58;//cell1.unit1.example/#account | <- | <- |
+| Schema | https&#58;//app-cell1.unit1.example/ | <- | <- |
 | External | true | true | true |
 | Type | type | relay.ext.type | <- |
 | Object | object | <- | <- |

@@ -75,9 +75,9 @@ JSON
 
 ```JSON
 {
-   "Name": "{AssociationEndName}",
-  "Multiplicity": "{Multiplicity}",
-  "_EntityType.Name": "{EntityTypeName}"
+   "Name": "association-end1",
+  "Multiplicity": "1",
+  "_EntityType.Name": "entity-type1"  
 }
 ```
 
@@ -139,14 +139,14 @@ The response is a JSON object, the correspondence between the key (name) and typ
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}{BoxName}/{CollectionName}/$metadata
-/AssociationEnd(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')",
+        "uri": "https://cell1.unit1.example/box1/odata-collection1/$metadata
+/AssociationEnd(Name='association-end1',_EntityType.Name='entity-type1')",
         "etag": "W/\"1-1487652733383\"",
         "type": "ODataSvcSchema.AssociationEnd"
       },
-      "Name": "{AssociationEndName}",
-      "Multiplicity": "{Multiplicity}",
-      "_EntityType.Name": "{EntityTypeName}",
+      "Name": "association-end1",
+      "Multiplicity": "1",
+      "_EntityType.Name": "entity-type1",
       "__published": "/Date(1487652733383)/",
       "__updated": "/Date(1487652733383)/"
     }
@@ -161,8 +161,8 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}{BoxName}/{ODataCollecitonName}/\$metadata/AssociationEnd" -X \
-POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
-'{ "Name": "{AssociationEndName}", "Multiplicity": "{Multiplicity}", "_EntityType.Name": "{EntityTypeName}"}'
+curl "https://cell1.unit1.example/box1/odata-collection1/\$metadata/AssociationEnd" -X POST -i \
+-H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' -H 'Accept: application/json' \
+-d '{ "Name": "association-end1", "Multiplicity": "1", "_EntityType.Name": "entity-type1"}'
 ```
 

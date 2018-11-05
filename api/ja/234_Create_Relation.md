@@ -47,8 +47,8 @@ POST
 ### リクエストサンプル
 ```JSON
 {
-  "Name": "{RelationName}",
-  "_Box.Name": "{BoxName}"  
+  "Name": "relation1",
+  "_Box.Name": "box1"  
 }
 ```
 
@@ -97,13 +97,13 @@ POST
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}__ctl/Relation(Name='{RelationName}'
-,_Box.Name='{BoxName}')",
+        "uri": "https://cell1.unit1.example/__ctl/Relation(Name='relation1'
+,_Box.Name='box1')",
         "etag": "W/\"1-1486538244016\"",
         "type": "CellCtl.Relation"
       },
-      "Name": "{RelationName}",
-      "_Box.Name": "{BoxName}",
+      "Name": "relation1",
+      "_Box.Name": "box1",
       "__published": "/Date(1486538244016)/",
       "__updated": "/Date(1486538244016)/"
     }
@@ -115,8 +115,8 @@ POST
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}__ctl/Relation" -X POST -i -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' \
--d '{ "Name":"{RelationName}", "_Box.Name": "{BoxName}" }'
+curl "https://cell1.unit1.example/__ctl/Relation" -X POST -i \
+-H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json' \
+-d '{ "Name":"relation1", "_Box.Name": "box1" }'
 ```
 

@@ -11,7 +11,7 @@ Unitのメタデータを取得する。メタデータには、以下の情報�
 ## リクエスト
 ### リクエストURL
 ```
-/{UnitFQDN}
+{UnitURL}
 ```
 
 ### メソッド
@@ -54,7 +54,7 @@ GET
 ```JSON
 {
   "unit": {
-    "url": "https://example.com/",
+    "url": "https://unit1.example/",
     "path_based_cellurl_enabled": true
   }
 }
@@ -63,5 +63,5 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}" -X GET -i -H 'Accept: application/json'
+curl "https://unit1.example/" -X GET -i -H 'Accept: application/json'
 ```

@@ -115,12 +115,12 @@ GET
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}{BoxName}/{ODataCollecitonName}/{EntityTypeName}
+        "uri": "https://cell1.unit1.example/box1/odata-collection1/entity-type1
 ('{EntityID}')",
         "etag": "W/\"1-1487662179733\"",
-        "type": "UserData.{EntityTypeName}"
+        "type": "UserData.entity-type1"
       },
-      "__id": "{EntityID}",
+      "__id": "100-1_20101108-111352093",
       "__published": "/Date(1487662179733)/",
       "__updated": "/Date(1487662179733)/",
       "PetName": null,
@@ -139,7 +139,7 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')" \
--X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://cell1.unit1.example/box1/odata-collection1/entity-type1('{100-1_20101108-111352093}')" \
+-X GET -i -H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json'
 ```
 

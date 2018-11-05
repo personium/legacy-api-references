@@ -124,12 +124,12 @@ POST
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}{BoxName}/{ODataCollecitonName}/{EntityTypeName}
-('{EntityID}')",
+        "uri": "https://cell1.unit1.example/box1/collection1/entity-type1
+('100-1_20101108-111352093')",
         "etag": "W/\"1-1487662179733\"",
-        "type": "UserData.{EntityTypeName}"
+        "type": "UserData.entity-type1"
       },
-      "__id": "{EntityID}",
+      "__id": "100-1_20101108-111352093",
       "__published": "/Date(1487662179733)/",
       "__updated": "/Date(1487662179733)/",
       "PetName": null,
@@ -148,8 +148,8 @@ POST
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}{BoxName}/{ODataCollecitonName}/{EntityTypeName}" -X POST -i -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"__id": "{EntityID}",\
+curl "https://cell1.unit1.example/box1/odata-collection1/entity-type1" -X POST -i -H \
+'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json' -d '{"__id": "100-1_20101108-111352093",\
 "animalId": "100-1","name": "episode","startedAt": "2010-11-08","episodeType": "care","endedAt": \
 "","outcome": "治療中"}'
 ```

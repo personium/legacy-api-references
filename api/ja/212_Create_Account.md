@@ -44,19 +44,19 @@ POST
 ID/PW認証用アカウント
 ```JSON
 {
-  "Name": "{AccountName}"
+  "Name": "account1"
 }
 ```
 Google認証用アカウント
 ```JSON
 {
-  "Name": "{AccountName}","Type":"oidc:google"
+  "Name": "account1","Type":"oidc:google"
 }
 ```
 ID/PW認証＋Google認証用アカウント
 ```JSON
 {
-  "Name": "{AccountName}","Type":"basic oidc:google"
+  "Name": "account1","Type":"basic oidc:google"
 }
 ```
 
@@ -108,11 +108,11 @@ ID/PW認証用アカウント
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}__ctl/Account('{AccountName}')",
+        "uri": "https://cell1.unit1.example/__ctl/Account('account1')",
         "etag": "W/\"1-1486462510467\"",
         "type": "CellCtl.Account"
       },
-      "Name": "{AccountName}",
+      "Name": "account1",
       "LastAuthenticated": null,
       "Type": "basic",
       "Cell": null,
@@ -128,11 +128,11 @@ Google認証用アカウント
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}__ctl/Account('{AccountName}')",
+        "uri": "https://cell1.unit1.example/__ctl/Account('account1')",
         "etag": "W/\"1-1486462510467\"",
         "type": "CellCtl.Account"
       },
-      "Name": "{AccountName}",
+      "Name": "account1",
       "LastAuthenticated": null,
       "Type": "oidc:google",
       "Cell": null,
@@ -148,11 +148,11 @@ ID/PW認証＋Google認証用アカウント
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}__ctl/Account('{AccountName}')",
+        "uri": "https://cell1.unit1.example/__ctl/Account('account1')",
         "etag": "W/\"1-1486462510467\"",
         "type": "CellCtl.Account"
       },
-      "Name": "{AccountName}",
+      "Name": "account1",
       "LastAuthenticated": null,
       "Type": "basic oidc:google",
       "Cell": null,
@@ -167,19 +167,19 @@ ID/PW認証＋Google認証用アカウント
 ## cURLサンプル
 ID/PW認証用アカウント
 ```sh
-curl "{CellURL}__ctl/Account" -X POST -i -H \
-'X-Personium-Credential:password' -H 'Authorization: Bearer {AccessToken}' \
--H 'Accept: application/json' -d '{"Name":"{AccountName}"}'
+curl "https://cell1.unit1.example/__ctl/Account" -X POST -i -H \
+'X-Personium-Credential:password' -H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' \
+-H 'Accept: application/json' -d '{"Name":"account1"}'
 ```
 Google認証用アカウント
 ```sh
-curl "{CellURL}__ctl/Account" -X POST -i -H \
-'X-Personium-Credential:password' -H 'Authorization: Bearer {AccessToken}' \
--H 'Accept: application/json' -d '{"Name":"{AccountName}","Type":"oidc:google"}'
+curl "https://cell1.unit1.example/__ctl/Account" -X POST -i -H \
+'X-Personium-Credential:password' -H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' \
+-H 'Accept: application/json' -d '{"Name":"account1","Type":"oidc:google"}'
 ```
 ID/PW認証＋Google認証用アカウント
 ```sh
-curl "{CellURL}__ctl/Account" -X POST -i -H \
-'X-Personium-Credential:password' -H 'Authorization: Bearer {AccessToken}' \
--H 'Accept: application/json' -d '{"Name":"{AccountName}","Type":"basic oidc:google"}'
+curl "https://cell1.unit1.example/__ctl/Account" -X POST -i -H \
+'X-Personium-Credential:password' -H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' \
+-H 'Accept: application/json' -d '{"Name":"account1","Type":"basic oidc:google"}'
 ```

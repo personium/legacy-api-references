@@ -61,7 +61,7 @@ JSON
 |Url|CellへのURL|桁数：1&#65374;1024<br>URIの形式に従う<br>scheme：http, https<br>トレイリングスラッシュ(URL終端の/)必須|○||
 ### リクエストサンプル
 ```JSON
-{"uri":"{CellURL}__ctl/Box('{BoxName}')"}
+{"uri":"https://cell1.unit1.example/__ctl/Box('box3')"}
 ```
 
 ## レスポンス
@@ -95,9 +95,9 @@ JSON
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')\
-/$links/_Box('{BoxName}')" -X PUT -i -H 'If-Match:*' -H 'Authorization: Bearer {AccessToken}' \
--H 'Accept: application/json' -d '{"uri":"{CellURL}\
-__ctl/Box('update_{BoxName}')"}'
+curl "https://cell1.unit1.example/__ctl/Relation(Name='relation1',_Box.Name='box1')\
+/$links/_Box('box2')" -X PUT -i -H 'If-Match:*' \
+-H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json' \
+-d '{"uri":"https://cell1.unit1.example/\__ctl/Box('box3')"}'
 ```
 

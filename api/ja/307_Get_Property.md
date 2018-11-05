@@ -170,28 +170,28 @@ DTD表記
 ### レスポンスサンプル
 ```xml
 <multistatus xmlns="DAV:">
-    <response>
-        <href>{CellURL}{BoxName}/{ResourcePath}</href>
-        <propstat>
-            <prop>
-                <creationdate>2017-02-15T01:52:34.635+0000</creationdate>
-                <getlastmodified>Wed, 15 Feb 2017 01:52:34 GMT</getlastmodified>
-                <resourcetype>
-                    <collection/>
-                </resourcetype>
-                <acl xmlns:p="urn:x-personium:xmlns"/>
-            </prop>
-            <status>HTTP/1.1 200 OK</status>
-        </propstat>
-    </response>
+  <response>
+    <href>https://cell1.unit1.example/box1/{ResourcePath}</href>
+    <propstat>
+      <prop>
+        <creationdate>2017-02-15T01:52:34.635+0000</creationdate>
+        <getlastmodified>Wed, 15 Feb 2017 01:52:34 GMT</getlastmodified>
+        <resourcetype>
+          <collection/>
+        </resourcetype>
+        <acl xmlns:p="urn:x-personium:xmlns"/>
+      </prop>
+      <status>HTTP/1.1 200 OK</status>
+    </propstat>
+  </response>
 </multistatus>
 ```
 
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}{BoxName}/{ResourcePath}" -X PROPFIND -i  -H 'Depth:1' -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
-'<?xml version="1.0" encoding="utf-8"?><D:propfind xmlns:D="DAV:"><D:allprop/></D:propfind>'
+curl "https://cell1.unit1.example/box1/{ResourcePath}" -X PROPFIND -i \
+-H 'Depth:1' -H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json' \
+-d '<?xml version="1.0" encoding="utf-8"?><D:propfind xmlns:D="DAV:"><D:allprop/></D:propfind>'
 ```
 

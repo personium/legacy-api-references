@@ -57,7 +57,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/crossdomain.xml" -X GET -i
+curl "https://unit1.example/crossdomain.xml" -X GET -i
 ```
 
 

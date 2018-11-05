@@ -16,19 +16,19 @@ ExtCellに紐付いたODataリソースを一覧取得する
 ### リクエストURL
 #### Correlating with the role
 ```
-{CellURL}__ctl/ExtCell(Url='{ExtCellURL}')/$links/_Role
+{CellURL}__ctl/ExtCell(Url='https%3A%2F%2F{CellName}.{UnitFQDN}%2F')/$links/_Role
 ```
 または、
 ```
-{CellURL}__ctl/ExtCell('{ExtCellURL}')/$links/_Role
+{CellURL}__ctl/ExtCell('https%3A%2F%2F{CellName}.{UnitFQDN}%2F')/$links/_Role
 ```
 #### Correlating with the relation
 ```
-{CellURL}__ctl/ExtCell(Url='{ExtCellURL}')/$links/_Relation
+{CellURL}__ctl/ExtCell(Url='https%3A%2F%2F{CellName}.{UnitFQDN}%2F')/$links/_Relation
 ```
 または、
 ```
-{CellURL}__ctl/ExtCell('{ExtCellURL}')/$links/_Relation
+{CellURL}__ctl/ExtCell('https%3A%2F%2F{CellName}.{UnitFQDN}%2F')/$links/_Relation
 ```
 ※ \_Box.Nameパラメタを省略した場合は、nullが指定されたものとする
 ### メソッド
@@ -98,8 +98,8 @@ GET
   "d": {
     "results": [
       {
-        "uri": "{CellURL}__ctl/Relation(Name='{RelationName}'
-,_Box.Name='{BoxName}')"
+        "uri": "https://cell1.unit1.example/__ctl/Relation(Name='relation1'
+,_Box.Name='box1')"
       }
     ]
   }
@@ -110,7 +110,8 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{ExtCellName}%2F')\
-/\$links/_Relation" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://cell1.unit1.example/__ctl/ExtCell('https%3A%2F%2Fcell2.unit1.example/%2F')\
+/\$links/_Relation" -X GET -i -H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' \
+-H 'Accept: application/json'
 ```
 

@@ -104,7 +104,7 @@ Cell export processing in progress
 ## cURL Sample
 
 ```sh
-curl "{CellURL}__export" -X GET -i -H 'Authorization: Bearer {AccessToken}'
+curl "https://cell1.unit1.example/__export" -X GET -i -H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA'
 ```
 
 

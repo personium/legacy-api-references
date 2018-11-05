@@ -89,10 +89,10 @@ GET
   "d": {
     "results": [
       {
-        "uri": "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')"
+        "uri": "https://cell1.unit1.example/__ctl/Role(Name='role1',_Box.Name='box1')"
       },
       {
-        "uri": "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name=null)"
+        "uri": "https://cell1.unit1.example/__ctl/Role(Name='role2',_Box.Name=null)"
       }
     ]
   }
@@ -103,7 +103,7 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}__ctl/Account(Name='{AccountName}')/\$links/_Role" \
--X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://cell1.unit1.example/__ctl/Account(Name='account1')/\$links/_Role" -X GET -i \
+-H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json'
 ```
 

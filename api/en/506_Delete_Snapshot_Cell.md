@@ -68,10 +68,9 @@ Refer to [Error Message List](004_Error_Messages.md)
 
 
 ## cURL Sample
-
 ```sh
-curl "{CellURL}__snapshot/{FileName}" -X DELETE -i -H \
-'Authorization: Bearer {AccessToken}'
+curl "https://cell1.unit1.example/__snapshot/{FileName}" -X DELETE -i -H \
+'Authorization: Bearer AA~PBDc...(snip)...FrTjA'
 ```
 
 

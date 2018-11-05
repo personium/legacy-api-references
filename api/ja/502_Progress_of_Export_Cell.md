@@ -85,6 +85,6 @@ Cellエクスポート処理中の場合
 
 ## cURLサンプル
 ```sh
-curl "{CellURL}__export" -X GET -i -H 'Authorization: Bearer {AccessToken}'
+curl "https://cell1.unit1.example/__export" -X GET -i -H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA'
 ```
 

@@ -14,53 +14,53 @@ ExtCellとの$links情報を削除する
 ### リクエストURL
 #### Correlating with the role
 ```
-{CellURL}__ctl/ExtCell(Url='{ExtCellURL}')/$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')
+{CellURL}__ctl/ExtCell(Url='https%3A%2F%2F{CellName}.{UnitFQDN}%2F')/$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')
 ```
 または、
 ```
-{CellURL}__ctl/ExtCell(Url='{ExtCellURL}')/$links/_Role(Name='{RoleName}')
+{CellURL}__ctl/ExtCell(Url='https%3A%2F%2F{CellName}.{UnitFQDN}%2F')/$links/_Role(Name='{RoleName}')
 ```
 または、
 ```
-{CellURL}__ctl/ExtCell(Url='{ExtCellURL}')/$links/_Role('{RoleName}')
+{CellURL}__ctl/ExtCell(Url='https%3A%2F%2F{CellName}.{UnitFQDN}%2F')/$links/_Role('{RoleName}')
 ```
 または、
 ```
-{CellURL}__ctl/ExtCell('{ExtCellURL}')/$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')
+{CellURL}__ctl/ExtCell('https%3A%2F%2F{CellName}.{UnitFQDN}%2F')/$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')
 ```
 または、
 ```
-{CellURL}__ctl/ExtCell('{ExtCellURL}')/$links/_Role(Name='{RoleName}')
+{CellURL}__ctl/ExtCell('https%3A%2F%2F{CellName}.{UnitFQDN}%2F')/$links/_Role(Name='{RoleName}')
 ```
 または、
 ```
-{CellURL}__ctl/ExtCell('{ExtCellURL}')/$links/_Role('{RoleName}')
+{CellURL}__ctl/ExtCell('https%3A%2F%2F{CellName}.{UnitFQDN}%2F')/$links/_Role('{RoleName}')
 ```
 #### Correlating with the relation
 ```
-{CellURL}__ctl/ExtCell(Url='{ExtCellURL}')/$links/_Relation(Name='{RelationName}'
+{CellURL}__ctl/ExtCell(Url='https%3A%2F%2F{CellName}.{UnitFQDN}%2F')/$links/_Relation(Name='{RelationName}'
 ,_Box.Name='{BoxName}')
 ```
 または、
 ```
-{CellURL}__ctl/ExtCell(Url='{ExtCellURL}')/$links/_Relation(Name='{RelationName}')
+{CellURL}__ctl/ExtCell(Url='https%3A%2F%2F{CellName}.{UnitFQDN}%2F')/$links/_Relation(Name='{RelationName}')
 ```
 または、
 ```
-{CellURL}__ctl/ExtCell(Url='{ExtCellURL}')/$links/_Relation('{RelationName}')
+{CellURL}__ctl/ExtCell(Url='https%3A%2F%2F{CellName}.{UnitFQDN}%2F')/$links/_Relation('{RelationName}')
 ```
 または、
 ```
-{CellURL}__ctl/ExtCell('{ExtCellURL}')/$links/_Relation(Name='{RelationName}'
+{CellURL}__ctl/ExtCell('https%3A%2F%2F{CellName}.{UnitFQDN}%2F')/$links/_Relation(Name='{RelationName}'
 ,_Box.Name='{BoxName}')
 ```
 または、
 ```
-{CellURL}__ctl/ExtCell('{ExtCellURL}')/$links/_Relation(Name='{RelationName}')
+{CellURL}__ctl/ExtCell('https%3A%2F%2F{CellName}.{UnitFQDN}%2F')/$links/_Relation(Name='{RelationName}')
 ```
 または、
 ```
-{CellURL}__ctl/ExtCell('{ExtCellURL}')/$links/_Relation('{RelationName}')
+{CellURL}__ctl/ExtCell('https%3A%2F%2F{CellName}.{UnitFQDN}%2F')/$links/_Relation('{RelationName}')
 ```
 ※ \_Box.Nameパラメタを省略した場合は、nullが指定されたものとする
 
@@ -98,8 +98,8 @@ DELETE
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{ExtCellName}%2F')\
-/\$links/_Relation(Name='{RelationName}',_Box.Name='{BoxName}')" -X DELETE -i -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://cell1.unit1.example/__ctl/ExtCell('https%3A%2F%2Fcell2.unit1.example%2F')\
+/\$links/_Relation(Name='relation1',_Box.Name='box1')" -X DELETE -i \
+-H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json'
 ```
 

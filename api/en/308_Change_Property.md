@@ -89,16 +89,16 @@ PROPPATCH
 ```xml
 <D:propertyupdate xmlns:D="DAV:"
     xmlns:p="urn:x-personium:xmlns">
-    <D:set>
-        <D:prop>
-            <p:hoge>fuga</p:hoge>
-        </D:prop>
-    </D:set>
-    <D:remove>
-        <D:prop>
-            <p:hoge/>
-        </D:prop>
-    </D:remove>
+  <D:set>
+    <D:prop>
+      <p:property-key1>property-value1</p:property-key1>
+    </D:prop>
+  </D:set>
+  <D:remove>
+    <D:prop>
+      <p:property-key2/>
+    </D:prop>
+  </D:remove>
 </D:propertyupdate>
 ```
 
@@ -155,16 +155,18 @@ Refer to [Error Message List](004_Error_Messages.md)
 
 ```xml
 <multistatus xmlns="DAV:">
-    <response>
-        <href>{CellURL}{BoxName}/{ResourcePath}</href>
-        <propstat>
-            <prop>
-                <p:hoge xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:">foo</p:hoge>
-                <p:hoge xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:"/>
-            </prop>
-            <status>HTTP/1.1 200 OK</status>
-        </propstat>
-    </response>
+  <response>
+    <href>https://cell1.unit1.example/box1/collection1</href>
+    <propstat>
+      <prop>
+        <p:property-key1 xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:">\
+          property-value1
+        </p:property-key1>
+        <p:property-key2 xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:"/>
+      </prop>
+      <status>HTTP/1.1 200 OK</status>
+    </propstat>
+  </response>
 </multistatus>
 ```
 
@@ -172,10 +174,11 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}{BoxName}/{ResourcePath}' -X PROPPATCH -i -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
-'<?xml version="1.0" encoding="utf-8" ?><D:propertyupdate xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns"><D:set>\
-<D:prop><p:hoge>${hoge}</p:hoge></D:prop></D:set><D:remove><D:prop><p:hoge/></D:prop></D:remove></D:propertyupdate>'
-```
+curl "https://cell1.unit1.example/box1/collection1" -X PROPPATCH -i \
+-H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' -H 'Accept: application/json' \
+-d '<?xml version="1.0" encoding="utf-8" ?><D:propertyupdate xmlns:D="DAV:" xmlns:p=\
+"urn:x-personium:xmlns"><D:set><D:prop><p:property-key1>property-value1</p:property-key1>\
+</D:prop></D:set><D:remove><D:prop><p:property-key2/></D:prop></D:remove></D:propertyupdate>'
+````
 
 

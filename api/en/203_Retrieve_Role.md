@@ -125,41 +125,41 @@ Refer to [Error Message List](004_Error_Messages.md)
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')",
+        "uri": "https://cell1.unit1.example/__ctl/Role(Name='role1',_Box.Name='box1')",
         "etag": "W/\"1-1486349783744\"",
         "type": "CellCtl.Role"
       },
-      "Name": "{RoleName}",
-      "_Box.Name": "{BoxName}",
+      "Name": "role1",
+      "_Box.Name": "box1",
       "__published": "/Date(1486349783744)/",
       "__updated": "/Date(1486349783744)/",
       "_Box": {
         "__deferred": {
-          "uri": "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')
+          "uri": "https://cell1.unit1.example/__ctl/Role(Name='role1',_Box.Name='box1')
 /_Box"
         }
       },
       "_Account": {
         "__deferred": {
-          "uri": "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}'
+          "uri": "https://cell1.unit1.example/__ctl/Role(Name='role1',_Box.Name='box1')
 /_Account"
         }
       },
       "_ExtCell": {
         "__deferred": {
-          "uri": "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')
+          "uri": "https://cell1.unit1.example/__ctl/Role(Name='role1',_Box.Name='box1')
 /_ExtCell"
         }
       },
       "_ExtRole": {
         "__deferred": {
-          "uri": "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')
+          "uri": "https://cell1.unit1.example/__ctl/Role(Name='role1',_Box.Name='box1')
 /_ExtRole"
         }
       },
       "_Relation": {
         "__deferred": {
-          "uri": "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')
+          "uri": "https://cell1.unit1.example/__ctl/Role(Name='role1',_Box.Name='box1')
 /_Relation"
         }
       }
@@ -172,8 +172,8 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')" -X GET \
--i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://cell1.unit1.example/__ctl/Role(Name='role1',_Box.Name='box1')" -X GET \
+-i -H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' -H 'Accept: application/json'
 ```
 
 

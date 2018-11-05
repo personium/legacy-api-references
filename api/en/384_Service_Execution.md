@@ -72,8 +72,8 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}{BoxName}/{CollectionName}/{ServiceName}" -X GET -i -H \
-"Authorization:Bearer {AccessToken}" -H "Accept:application/json"
+curl "https://cell1.unit1.example/box1/collection1/service1" -X GET -i -H \
+"Authorization:Bearer AA~PBDc...(snip)...FrTjA" -H "Accept:application/json"
 ```
 
 

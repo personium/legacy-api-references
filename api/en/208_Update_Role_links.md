@@ -247,7 +247,7 @@ JSON
 ### Request Sample
 
 ```JSON
-{"uri":"https://{UnitFQDN}/Cell/__ctl/Box('{BoxName}')"}
+{"uri":"https://cell1.unit1.example/__ctl/Box('box2')"}
 ```
 
 
@@ -279,9 +279,9 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}__ctl/Role(Name="{RoleName}",_Box.Name=null)/$links/_Box" -X \
-PUT -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
-'{"uri":"{CellURL}__ctl/Box('{BoxName}')"}'
+curl "https://cell1.unit1.example/__ctl/Role(Name="role1",_Box.Name=null)/$links/_Box" -X \
+PUT -i -H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' -H 'Accept: application/json' -d \
+'{"uri":"https://cell1.unit1.example/__ctl/Box('box2')"}'
 ```
 
 

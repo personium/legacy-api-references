@@ -103,9 +103,9 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}{BoxName}/{ODataCollecitonName}/\$metadata/ComplexTypeProperty\
-(Name='{ComplexTypePropertyName}',_ComplexType.Name='{ComplexTypeName}')" -X DELETE -i -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://cell1.unit1.example/box1/odata-collection1/\$metadata/ComplexTypeProperty\
+(Name='complex-type-property1',_ComplexType.Name='complex-type1')" -X DELETE -i \
+-H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' -H 'Accept: application/json'
 ```
 
 

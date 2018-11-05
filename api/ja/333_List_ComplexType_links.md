@@ -101,7 +101,7 @@ GET
 |:--|:--|:--|:--|
 |ルート|d|object|オブジェクト{1}|
 |{1}|results|array|オブジェクト{2}の配列|
-|{2}|_uri|string|紐付いているODataリソースへのURL|
+|{2}|uri|string|紐付いているODataリソースへのURL|
 
 ### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
@@ -112,10 +112,12 @@ GET
   "d": {
     "results": [
       {
-        "uri": "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name=null)"
+        "uri": "https://cell1.unit1.example/box1/odata-collection1/$metadata/Property
+(Name='property1',_EntityType.Name='entity-type1')"
       },
       {
-        "uri": "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='box1')"
+        "uri": "https://cell1.unit1.example/box1/odata-collection1/$metadata/Property
+(Name='property2',_EntityType.Name=null)"
       }
     ]
   }
@@ -125,7 +127,8 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}{BoxName}/{CollectionName}/$metadata/ComplexType('Address')\
-/$links/_Property" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://cell1.unit1.example/box1/odata-collection1/$metadata/ComplexType('complex-type1')\
+/$links/_Property" -X GET -i -H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' \
+-H 'Accept: application/json'
 ```
 

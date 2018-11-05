@@ -59,7 +59,7 @@ Infoは、基本的には、リクエストのレスポンスコードとリク�
 
 変更後のオブジェクトにアクセスするには、変更後のキーを使用して以下のURLにする必要があります。
 ```
-http://{FQDN}{CellURL}__ctl/Role(Name='role2', _Box.Name=null)
+{CellURL}__ctl/Role(Name='role2', _Box.Name=null)
 ```
 
 #### Cell Level API
@@ -267,32 +267,32 @@ Roleを操作するとログがINFOレベルで出力されます。
 ##### 外部イベントの出力例
 ```
 2013-04-18T14:52:39.778Z,[ERROR],"Req_animal-access_1001","true",
-"https://{UnitFQDN}/appCell/","https://{UnitFQDN}/servicemanager/#admin","actionData",
+"https://app-cell1.unit1.example/","https://unitadmin.unit1.example/#admin","actionData",
 "/svc/token_keeper","resultData"
 2013-04-18T14:52:40.688Z,[INFO ],"Req_animal-access_2001","true",
-"https://{UnitFQDN}/appCell/","https://{UnitFQDN}/servicemanager/#admin","action",
+"https://app-cell1.unit1.example/","https://unitadmin.unit1.example/#admin","action",
 "/svc/token_keeper","result"
 2013-04-18T15:01:46.994Z,[INFO ],"Req_animal-access_2001","true",
-"https://{UnitFQDN}/appCell/","https://{UnitFQDN}/servicemanager/#admin","action",
+"https://app-cell1.unit1.example/","https://unitadmin.unit1.example/#admin","action",
 "/svc/token_keeper","result"
 2013-04-18T15:06:19.294Z,[ERROR],"Req_animal-access_1001","true",
-"https://{UnitFQDN}/appCell/","https://{UnitFQDN}/servicemanager/#admin","actionData",
+"https://app-cell1.unit1.example/","https://unitadmin.unit1.example/#admin","actionData",
 "/svc/token_keeper","resultData"
 2013-04-18T15:06:23.360Z,[INFO ],"Req_animal-access_2001","true",
-"https://{UnitFQDN}/appCell/","https://{UnitFQDN}/servicemanager/#admin","action",
+"https://app-cell1.unit1.example/","https://unitadmin.unit1.example/#admin","action",
 "/svc/token_keeper","result"
 2013-04-18T15:09:18.073Z,[ERROR],"Req_animal-access_1001","true",
-"https://{UnitFQDN}/appCell/","https://{UnitFQDN}/servicemanager/#admin","actionData",
+"https://app-cell1.unit1.example/","https://unitadmin.unit1.example/#admin","actionData",
 "/svc/token_keeper","resultData"
 ```
 ##### 内部イベントの出力例
 ```
 2013-04-18T14:52:39.779Z,[INFO ],"Req_animal-access_1001","false",
-"https://{UnitFQDN}/appCell/","https://{UnitFQDN}/appCell/#staff","odata.update",
-"https://{UnitFQDN}/homeClinic/box/col/put_blog","204"
+"https://app-cell1.unit1.example/","https://app-cell1.unit1.example/#staff","odata.update",
+"https://homeClinic.unit1.example/box/col/put_blog","204"
 2013-04-18T14:52:39.780Z,[INFO ],"Req_animal-access_1001","false",
-"https://{UnitFQDN}/appCell/","https://{UnitFQDN}/appCell/#staff","odata.get",
-"https://{UnitFQDN}/homeClinic/box/col/blog_20130418","200"
+"https://app-cell1.unit1.example/","https://app-cell1.unit1.example/#staff","odata.get",
+"https://homeClinic.unit1.example/box/col/blog_20130418","200"
 ```
 
 ### スクリプト実行アクション
@@ -406,12 +406,12 @@ Authorizationヘッダには、サービスを実行するためにトランス�
 | \_Box.Name | null ||
 | Name | relayevent\_eventreceipt | 設定しなくてもよいです |
 | EventType | null ||
-| EventSubject | https&#58;//{FQDN}/cell/#account ||
+| EventSubject | https&#58;//cell1.unit1.example/#account ||
 | EventObject | null ||
 | EventInfo | null ||
 | EventExternal | true ||
 | Action | relay.event ||
-| TargetUrl | https&#58;//{FQDN}/otherCell/ ||
+| TargetUrl | https&#58;//cell2.unit1.example/ ||
 
 Subjectが合致する外部イベントのとき、イベント中継を行います。
 
@@ -441,55 +441,55 @@ Typeの変換
 既にTypeがrelay.で始まっていれば、Typeの変換は行われません。
 
 #### イベント中継によるイベント伝播の例
-CellAで起きたイベントをCellBを経由してCellCにイベント中継する例
+cell1で起きたイベントをcell2を経由してcell3にイベント中継する例
 
 ##### 内部イベントの場合
 
 ###### ルール
-| 項目名 | CellA | CellB |
+| 項目名 | cell1 | cell2 |
 |:--|:--|:--|
 | \_Box.Name | null | null |
 | Name | relayevent | relayevent |
 | EventType | cellctl | null |
-| EventSubject | null | https&#58;//hosta/CellA/#account |
+| EventSubject | null | https&#58;//cell1.unit1.example/#account |
 | EventObject | null | null |
 | EventInfo | null | null |
 | EventExternal | false | true |
 | Action | relay.event | relay.event |
-| TargetUrl | https&#58;//hostb/CellB/ | https&#58;//hostc/CellC/ |
+| TargetUrl | https&#58;//cell2.unit1.example/ | https&#58;//cell3.unit1.example/ |
 
 ###### 伝播されるイベント
-| 項目名 | CellA | CellB | CellC |
+| 項目名 | cell1 | cell2 | cell3 |
 |:--|:--|:--|:--|
-| Subject | https&#58;//hosta/CellA/#account | <- | <- |
-| Schema | https&#58;//host/AppCell/ | <- | <- |
+| Subject | https&#58;//cell1.unit1.example/#account | <- | <- |
+| Schema | https&#58;//app-cell1.unit1.example/ | <- | <- |
 | External | false | true | true |
 | Type | cellctl.Role.create | relay.cellctl.Role.create | <- |
-| Object | https&#58;//hosta/CellA/\_\_ctl/Role('role') | <- | <- |
-| Info | 201,https&#58;//hosta/CellA/\_\_ctl/Role | <- | <- |
+| Object | https&#58;//cell1.unit1.example/\_\_ctl/Role('role') | <- | <- |
+| Info | 201,https&#58;//cell1.unit1.example/\_\_ctl/Role | <- | <- |
 
 ##### 外部イベントの場合
 
 ###### ルール
-| 項目名 | CellA | CellB |
+| 項目名 | cell1 | cell2 |
 |:--|:--|:--|
-| \_Box.Name | null | BoxB |
+| \_Box.Name | null | box2 |
 | Name | relayevent | relayevent |
 | EventType | null | null |
-| EventSubject | null | https&#58;//hosta/CellA/#account |
+| EventSubject | null | https&#58;//cell1.unit1.example/#account |
 | EventObject | object | null |
 | EventInfo | null | null |
 | EventExternal | true | true |
 | Action | relay.event | relay.event |
-| TargetUrl | https&#58;//hostb/CellB/ | https&#58;//hostc/CellC/ |
+| TargetUrl | https&#58;//cell2.unit2.example/ | https&#58;//cell3.unit3.example/ |
 
-CellBのBoxBのSchemaは、https&#58;//host/AppCell/とします。
+cell2のbox2のSchemaは、https&#58;//app-cell1.unit1.example/とします。
 
 ###### 伝播されるイベント
-| 項目名 | CellA | CellB | CellC |
+| 項目名 | cell1 | cell2 | cell3 |
 |:--|:--|:--|:--|
-| Subject | https&#58;//hosta/CellA/#account | <- | <- |
-| Schema | https&#58;//hostb/AppCell/ | <- | <- |
+| Subject | https&#58;//cell1.unit1.example/#account | <- | <- |
+| Schema | https&#58;//app-cell1.unit1.example/ | <- | <- |
 | External | true | true | true |
 | Type | type | relay.ext.type | <- |
 | Object | object | <- | <- |

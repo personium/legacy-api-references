@@ -116,23 +116,23 @@ Refer to [Error Message List](004_Error_Messages.md)
 External Events
 
 ```
-2013-02-04T00:50:12.761Z,[INFO ],Req_animal-access_1001,client,{CellURL},
-https://{UnitFQDN}/servicemanager/#admin,authSchema,{CellURL}{BoxName}/service_name/token_keeper,
-[XXXX2033] Success schema authorization. cellUrl=https://{UnitFQDN}/keeper-d4a57bb26eae481486b07d06487051d1/
+2013-02-04T00:50:12.761Z,[INFO ],"Req_animal-access_1001","true","https://cell1.unit1.example/",
+"https://unitadmin.unit1.example/#admin","authSchema","https://cell1.unit1.example/box1/service_name/token_keeper",
+"[XXXX2033] Success schema authorization. cellUrl=https://keeper-d4a57bb26eae481486b07d06487051d1.unit1.example/"
 ```
 
 Internal Event
 
 ```
-2013-04-18T14:52:39.778Z,[INFO ],"PCS-1364350331902","false","https://{UnitFQDN}/appCell/",
-"https://{UnitFQDN}/appCell/#staff","cellctl.Role.list","https://{UnitFQDN}//homeClinic/__ctl/Role","200"
+2013-04-18T14:52:39.778Z,[INFO ],"PCS-1364350331902","false","https://app-cell1.unit1.example/",
+"https://app-cell1.unit1.example/#staff","cellctl.Role.list","https://homeClinic.unit1.example/__ctl/Role","200"
 ```
 
 
 ## cURL Command
 
 ```sh
-curl "{CellURL}__log/current/default.log" -X GET -i -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://cell1.unit1.example/__log/current/default.log" -X GET -i \
+-H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' -H 'Accept: application/json'
 ```
 

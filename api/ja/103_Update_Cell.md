@@ -16,11 +16,11 @@
 ## リクエスト
 ### リクエストURL
 ```
-/__ctl/Cell(Name='{CellName}')
+{UnitURL}__ctl/Cell(Name='{CellName}')
 ```
 または、
 ```
-/__ctl/Cell('{CellName}')
+{UnitURL}__ctl/Cell('{CellName}')
 ```
 
 ### メソッド
@@ -47,7 +47,7 @@ JSON
 
 ### リクエストサンプル
 ```JSON
-{"Name":"{CellName}"}
+{"Name":"cell2"}
 ```
 
 
@@ -69,7 +69,7 @@ JSON
 ## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/__ctl/Cell(Name='{CellName}')" -X PUT -i -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{CellName}"}'
+curl "https://unit1.example/__ctl/Cell(Name='cell1')" -X PUT -i -H \
+'Authorization: Bearer PEFzc2V...(省略)...lvbj4' -H 'Accept: application/json' -d '{"Name":"cell2"}'
 ```
 

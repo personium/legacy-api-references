@@ -89,8 +89,8 @@ POST
 ### リクエストサンプル
 ```JSON
 {
-  "Name": "{RoleName}",
-  "_Box.Name": "{BoxName}"
+  "Name": "role1",
+  "_Box.Name": "box1"
 }
 ```
 
@@ -131,14 +131,14 @@ POST
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')",
+        "uri": "https://cell1.unit1.example/__ctl/Role(Name='role1',_Box.Name='box1')",
         "etag": "W/\"1-1486515294719\"",
         "type": "CellCtl.Role"
       },
-      "Name": "{RoleName}",
+      "Name": "role1",
       "__published": "/Date(1486515294719)/",
       "__updated": "/Date(1486515294719)/",
-      "_Box.Name": "{BoxName}"
+      "_Box.Name": "box1"
     }
   }
 }
@@ -151,7 +151,8 @@ POST
 
 #### RelationのnavigationProperty経由登録
 ```sh
-curl "{CellURL}__ctl/Role('{RoleName}')/_Relation" -X POST -i -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{RelationName}"}'
+curl "https://cell1.unit1.example/__ctl/Role('role1')/_Relation" -X POST -i \
+-H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' \
+-H 'Accept: application/json' -d '{"Name":"relation1"}'
 ```
 

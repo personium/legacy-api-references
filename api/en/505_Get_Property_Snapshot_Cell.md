@@ -159,20 +159,20 @@ Refer to [Error Message List](004_Error_Messages.md)
 
 ```xml
 <multistatus xmlns="DAV:">
-    <response>
-        <href>{CellURL}__snapshot/CellExport_2017_01.zip</href>
-        <propstat>
-            <prop>
-                <creationdate>2017-02-15T01:52:34.635+0000</creationdate>
-                <getcontentlength>2000000</getcontentlength>
-                <getcontenttype>application/zip</getcontenttype>
-                <getlastmodified>Wed, 15 Feb 2017 01:52:34 GMT</getlastmodified>
-                <resourcetype/>
-                <acl xmlns:p="urn:x-personium:xmlns"/>
-            </prop>
-            <status>HTTP/1.1 200 OK</status>
-        </propstat>
-    </response>
+  <response>
+    <href>https://cell1.unit1.example/__snapshot/CellExport_2017_01.zip</href>
+    <propstat>
+      <prop>
+        <creationdate>2017-02-15T01:52:34.635+0000</creationdate>
+        <getcontentlength>2000000</getcontentlength>
+        <getcontenttype>application/zip</getcontenttype>
+        <getlastmodified>Wed, 15 Feb 2017 01:52:34 GMT</getlastmodified>
+        <resourcetype/>
+        <acl xmlns:p="urn:x-personium:xmlns"/>
+      </prop>
+      <status>HTTP/1.1 200 OK</status>
+    </propstat>
+  </response>
 </multistatus>
 ```
 
@@ -180,9 +180,9 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Sample
 
 ```sh
-curl "{CellURL}__snapshot/CellExport_2017_01.zip" -X PROPFIND -i  -H \
-'Depth:0' -H 'Authorization: Bearer {AccessToken}' -d '<?xml version="1.0" encoding="utf-8"?>\
-<D:propfind xmlns:D="DAV:"><D:allprop/></D:propfind>'
+curl "https://cell1.unit1.example/__snapshot/CellExport_2017_01.zip" -X PROPFIND -i  \
+-H 'Depth:0' -H 'Authorization: Bearer {AccessToken}' -d '<?xml version="1.0" \
+encoding="utf-8"?><D:propfind xmlns:D="DAV:"><D:allprop/></D:propfind>'
 ```
 
 

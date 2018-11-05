@@ -189,14 +189,15 @@ Refer to [Error Message List](004_Error_Messages.md)
 {
   "d": {
     "results": {
-      "Name": "{RelationName}",
-      "_Box.Name": "{BoxName}",
-      "__metadata": {
-        "uri": "{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')",
-        "type": "CellCtl.relation"
-      },
-      "__published" : "\/Date(1339128525502)\/",
-      "__updated"   : "\/Date(1339128525502)\/"
+      "Name": "relation1",
+      "_Box.Name": "box1",
+      "__metadata": {  
+        "uri": "https://cell1.unit1.example/__ctl/Relation(Name='relation1'
+,_Box.Name='box1')",
+        "type": "CellCtl.relation"  
+      },  
+      "__published" : "\/Date(1339128525502)\/",  
+      "__updated"   : "\/Date(1339128525502)\/"  
     }
   }
 }

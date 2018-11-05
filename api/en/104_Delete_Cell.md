@@ -23,13 +23,13 @@ Only unit users permitted
 ### Request URL
 
 ```
-/_ctl/Cell(Name='{CellName}')
+{UnitURL}_ctl/Cell(Name='{CellName}')
 ```
 
 or
 
 ```
-/_ctl/Cell('{CellName}')
+{UnitURL}_ctl/Cell('{CellName}')
 ```
 
 ### Request Method
@@ -93,7 +93,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/__ctl/Cell(Name='{CellName}')" -X DELETE -i -H 'If-Match: *' -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://unit1.example/__ctl/Cell(Name='cell1')" -X DELETE -i -H 'If-Match: *' -H \
+'Authorization: Bearer PEFzc2V...(snip)...lvbj4' -H 'Accept: application/json'
 ```
 

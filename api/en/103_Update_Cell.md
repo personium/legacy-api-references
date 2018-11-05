@@ -22,13 +22,13 @@ Only unit users permitted
 ### Request URL
 
 ```
-/__ctl/Cell(Name='{CellName}')
+{UnitURL}__ctl/Cell(Name='{CellName}')
 ```
 
 or
 
 ```
-/__ctl/Cell('{CellName}')
+{UnitURL}__ctl/Cell('{CellName}')
 ```
 
 ### Request Method
@@ -64,7 +64,7 @@ JSON
 ### Request Sample
 
 ```JSON
-{"Name":"{CellName}"}
+{"Name":"cell2"}
 ```
 
 
@@ -95,7 +95,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/__ctl/Cell(Name='{CellName}')" -X PUT -i -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name":"{CellName}"}'
+curl "https://unit1.example/__ctl/Cell(Name='cell1')" -X PUT -i -H \
+'Authorization: Bearer PEFzc2V...(snip)...lvbj4' -H 'Accept: application/json' -d '{"Name":"cell2"}'
 ```
 

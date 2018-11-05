@@ -108,8 +108,8 @@ GET
   "d": {
     "results": [
       {
-        "uri": "{CellURL}{BoxName}/{CollectionName}/$metadata/AssociationEnd
-(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')"
+        "uri": "https://cell1.unit1.example/box1/odata-collection2/$metadata/AssociationEnd
+(Name='association-end2',_EntityType.Name='entity-type2')"
       }
     ]
   }
@@ -118,8 +118,8 @@ GET
 
 ## cURLサンプル
 ```sh
-curl "{CellURL}{BoxName}/{CollectionName}/\$metadata/AssociationEnd(Name=\
-'{AssociationEndName}',_EntityType.Name='{EntityTypeName}')/\$links/_AssociationEnd" -X GET -i -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://cell1.unit1.example/box1/odata-collection1/\$metadata/AssociationEnd\
+(Name='association-end1',_EntityType.Name='entity-type1')/\$links/_AssociationEnd" -X GET -i \
+-H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json'
 ```
 

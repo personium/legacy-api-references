@@ -13,16 +13,18 @@ ExtRoleに紐付いたRoleの$links情報を削除する
 ## リクエスト
 ### リクエストURL
 ```
-{CellURL}__ctl/ExtRole(ExtRole='{ExtRoleURL}')/$links/_Role(Name='{RoleName}',
-_Box.Name='{BoxName}')
+{CellURL}__ctl/ExtRole(ExtRole='https%3A%2F%2F{CellName}.{UnitFQDN}%2F__role%2F__%2F{RoleName}',
+_Relation.Name='{RelationName}')/$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')
 ```
 または、
 ```
-{CellURL}__ctl/ExtRole(ExtRole='{ExtRoleURL}')/$links/_Role(Name='{RoleName}')
+{CellURL}__ctl/ExtRole(ExtRole='https%3A%2F%2F{CellName}.{UnitFQDN}%2F__role%2F__%2F{RoleName}',
+_Relation.Name='{RelationName}')/$links/_Role(Name='{RoleName}')
 ```
 または、
 ```
-{CellURL}__ctl/ExtRole(ExtRole='{ExtRoleURL}')/$links/_Role('{RoleName}')
+{CellURL}__ctl/ExtRole(ExtRole='https%3A%2F%2F{CellName}.{UnitFQDN}%2F__role%2F__%2F{RoleName}',
+_Relation.Name='{RelationName}')/$links/_Role('{RoleName}')
 ```
 ※ {ExtRoleURL}についてはURLエンコードが必要
 ※ \_Box.Nameパラメタを省略した場合は、nullが指定されたものとする
@@ -68,9 +70,9 @@ DELETE
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}__ctl/ExtRole(ExtRole='https%3A%2F%2F{UnitFQDN}%2F{CellName}\
-%2F__role%2F__%2F{ExtRoleName}',_Relation.Name='{RelationName}',_Relation._Box.Name='{BoxName}')\
-/\$links/_Role('{RoleName}')" -X DELETE -i -H 'Authorization: Bearer {AccessToken}' -H \
+curl "https://cell1.unit1.example/__ctl/ExtRole(ExtRole='https%3A%2F%2Fcell2.unit1.example\
+%2F__role%2F__%2Frole1',_Relation.Name='relation1',_Relation._Box.Name='box1')\
+/\$links/_Role('role2')" -X DELETE -i -H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H \
 'Accept: application/json'
 ```
 

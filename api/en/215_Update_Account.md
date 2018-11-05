@@ -67,7 +67,7 @@ Account name update
 
 ```JSON
 {
-  "Name": "{AccountName}"
+  "Name": "account2"
 }
 ```
 
@@ -75,7 +75,7 @@ Account name and Account type update
 
 ```JSON
 {
-  "Name": "{AccountName}","Type":"oidc:google"
+  "Name": "account2","Type":"oidc:google"
 }
 ```
 
@@ -104,16 +104,17 @@ Refer to [Error Message List](004_Error_Messages.md)
 Account name update
 
 ```sh
-curl "{CellURL}__ctl/Account('{AccountName}')" -X PUT -i -H 'If-Match: *' \
--H 'X-Personium-Credential:password' -H 'Authorization: Bearer {AccessToken}' -H \
-'Accept: application/json' -d '{"Name":"{AccountName}"}'
+curl "https://cell1.unit1.example/__ctl/Account('account1')" -X PUT -i -H \
+'If-Match: *' -H 'X-Personium-Credential:password' -H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' -H \
+'Accept: application/json' -d '{"Name":"account2"}'
 ```
 
 Account name and Account type update
 
 ```sh
-curl "{CellURL}__ctl/Account('{AccountName}')" -X PUT -i -H 'If-Match: *' -H \
-'X-Personium-Credential:password' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' \
--d '{"Name":"{AccountName}","Type":"oidc:google"}'
+curl "https://cell1.unit1.example/__ctl/Account('account1')" -X PUT -i \
+-H 'If-Match: *' -H 'X-Personium-Credential:password' \
+-H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' \
+-H 'Accept: application/json' -d '{"Name":"account2","Type":"oidc:google"}'
 ```
 

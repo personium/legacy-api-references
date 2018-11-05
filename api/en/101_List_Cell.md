@@ -22,7 +22,7 @@ Only unit users permitted
 ### Request URL
 
 ```
-/__ctl/Cell
+{UnitURL}__ctl/Cell
 ```
 
 ### Request Method
@@ -133,21 +133,21 @@ Refer to [Error Message List](004_Error_Messages.md)
     "results": [
       {
         "__metadata": {
-          "uri": "https://{UnitFQDN}/__ctl/Cell (Name = {CellName})",
+          "uri": "https://unit1.example/__ctl/Cell (Name = cell1)",
           "etag": "W/\"1-1480553481439\"",
           "type": "UnitCtl.Cell"
         },
-        "Name": "{CellName}",
+        "Name": "cell1",
         "__published": "/Date(1480553481439)/",
         "__updated": "/Date(1480553481439)/"
       },
       {
         "__metadata": {
-          "uri": "https://{UnitFQDN}/__ctl/Cell (Name = {CellName})",
+          "uri": "https://unit1.example/__ctl/Cell (Name = cell2)",
           "etag": "W/\"1-1480659614484\"",
           "type": "UnitCtl.Cell"
         },
-        "Name": "{CellName}",
+        "Name": "cell2",
         "__published": "/Date(1480659614484)/",
         "__updated": "/Date(1480659614484)/"
       }
@@ -160,7 +160,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/__ctl/Cell" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H \
-'Accept: application/json'
+curl "https://unit1.example/__ctl/Cell" -X GET -i \
+-H 'Authorization: Bearer PEFzc2V...(snip)...lvbj4' -H 'Accept: application/json'
 ```
 

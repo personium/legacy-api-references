@@ -87,44 +87,44 @@ GET
       {
         "__metadata": {
           "uri":
-          "{CellURL}__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{ExtCellName1}%2F')",
+          "https://cell1.unit1.example/__ctl/ExtCell('https%3A%2F%2Fcell2.unit1.example%2F')",
           "etag": "W/\"1-1486519006899\"",
           "type": "CellCtl.ExtCell"
         },
-        "Url": "https://{UnitFQDN}/{ExtCellName1}/",
+        "Url": "https://cell2.unit1.example/",
         "__published": "/Date(1486519006899)/",
         "__updated": "/Date(1486519006899)/",
         "_Role": {
           "__deferred": {
-            "uri": "{CellURL}__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{ExtCellName1}%2F')
+            "uri": "https://cell1.unit1.example/__ctl/ExtCell('https%3A%2F%2Fcell2.unit1.example%2F')
 /_Role"
           }
         },
         "_Relation": {
           "__deferred": {
-            "uri": "{CellURL}__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{ExtCellName1}%2F')
+            "uri": "https://cell1.unit1.example/__ctl/ExtCell('https%3A%2F%2Fcell2.unit1.example%2F')
 /_Relation"
           }
         }
       },
       {
         "__metadata": {
-          "uri": "{CellURL}__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{ExtCellName2}%2F')",
+          "uri": "https://cell1.unit1.example/__ctl/ExtCell('https%3A%2F%2Fcell3.unit1.example%2F')",
           "etag": "W/\"1-1486520191416\"",
           "type": "CellCtl.ExtCell"
         },
-        "Url": "https://{UnitFQDN}/{ExtCellName2}/",
+        "Url": "https://cell3.unit1.example/",
         "__published": "/Date(1486520191416)/",
         "__updated": "/Date(1486520191416)/",
         "_Role": {
           "__deferred": {
-            "uri": "{CellURL}__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{ExtCellName2}%2F')
+            "uri": "https://cell1.unit1.example/__ctl/ExtCell('https%3A%2F%2Fcell3.unit1.example%2F')
 /_Role"
           }
         },
         "_Relation": {
           "__deferred": {
-            "uri": "{CellURL}__ctl/ExtCell('https%3A%2F%2F{UnitFQDN}%2F{ExtCellName2}%2F')
+            "uri": "https://cell1.unit1.example/__ctl/ExtCell('https%3A%2F%2Fcell3.unit1.example%2F')
 /_Relation"
           }
         }
@@ -138,6 +138,6 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}__ctl/ExtCell" -X GET -i -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://cell1.unit1.example/__ctl/ExtCell" -X GET -i \
+-H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json'
 ```

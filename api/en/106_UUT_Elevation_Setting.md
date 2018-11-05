@@ -147,22 +147,22 @@ Namespace
 
 ```xml
 <multistatus xmlns="DAV:">
-    <response>
-        <href>http://localhost:9998/testcell1/box1/patchcol</href>
-        <propstat>
-            <prop>
-                <Z:Author xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" xmlns:Z=
+  <response>
+    <href>http://localhost:9998/testcell1/box1/patchcol</href>
+    <propstat>
+      <prop>
+        <Z:Author xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" xmlns:Z=
 "http://www.w3.com/standards/z39.50/">Author1 update</Z:Author>
-                <p:hoge xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" xmlns:Z=
+        <p:hoge xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" xmlns:Z=
 "http://www.w3.com/standards/z39.50/">fuga</p:hoge>
-                <Z:Author xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" xmlns:Z=
+        <Z:Author xmlns:p="urn:x-personium:xmlns" xmlns:D="DAV:" xmlns:Z=
 "http://www.w3.com/standards/z39.50/"/>
-                <p:hoge xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" xmlns:Z=
+        <p:hoge xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" xmlns:Z=
 "http://www.w3.com/standards/z39.50/"/>
-            </prop>
-            <status>HTTP/1.1 200 OK</status>
-        </propstat>
-    </response>
+      </prop>
+      <status>HTTP/1.1 200 OK</status>
+    </propstat>
+  </response>
 </multistatus>   
 ```
 
@@ -173,8 +173,9 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "https://{UnitFQDN}/cell -X PROPPATCH" -H 'Authorization: Bearer {AccessToken}' -d \
-'<?xml version="1.0" encoding="utf-8" ?>\
+curl "https://cell1.unit1.example/ -X PROPPATCH" \
+-H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' \
+-d '<?xml version="1.0" encoding="utf-8" ?>\
 <D:propertyupdate xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" \
 xmlns:Z="http://www.w3.com/standards/z39.50/">\
 <D:set><D:prop><p:requireSchemaAuthz>confidential</p:requireSchemaAuthz></D:prop></D:set>\

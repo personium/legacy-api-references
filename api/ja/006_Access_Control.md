@@ -61,14 +61,14 @@ privilege:all
 <D:acl xmlns:D="DAV:" xml:base="http://fqdn/testcell1/__role/box1/"
     xmlns:p="urn:x-personium:xmlns"
     p:requireSchemaAuthz="none">
-    <D:ace>
-        <D:principal>
-            </D:all>
-        </D:principal>
-        <D:grant>
-            <D:privilege><D:read/></D:privilege>
-        </D:grant>
-    </D:ace>
+  <D:ace>
+    <D:principal>
+      </D:all>
+    </D:principal>
+    <D:grant>
+      <D:privilege><D:read/></D:privilege>
+    </D:grant>
+  </D:ace>
 </D:acl>
 ```
 
@@ -87,23 +87,23 @@ Principalに設定するロールリソースURLを全て記述する
 <D:acl xmlns:D="DAV:"
     xmlns:p="urn:x-personium:xmlns"
     p:requireSchemaAuthz="none">
-    <D:ace>
-        <D:principal>
-            <D:href>http://fqdn/testcell1/__role/box1/doctor</D:href>
-        </D:principal>
-        <D:grant>
-            <D:privilege><D:read/></D:privilege>
-            <D:privilege><D:write/></D:privilege>
-        </D:grant>
-    </D:ace>
-    <D:ace>
-        <D:principal>
-            <D:href>http://fqdn/testcell1/__role/box2/guest</D:href>
-        </D:principal>
-        <D:grant>
-            <D:privilege><D:read/></D:privilege>
-        </D:grant>
-    </D:ace>
+  <D:ace>
+    <D:principal>
+      <D:href>http://fqdn/testcell1/__role/box1/doctor</D:href>
+    </D:principal>
+    <D:grant>
+      <D:privilege><D:read/></D:privilege>
+      <D:privilege><D:write/></D:privilege>
+    </D:grant>
+  </D:ace>
+  <D:ace>
+    <D:principal>
+      <D:href>http://fqdn/testcell1/__role/box2/guest</D:href>
+    </D:principal>
+    <D:grant>
+      <D:privilege><D:read/></D:privilege>
+    </D:grant>
+  </D:ace>
 </D:acl>
 ```
 
@@ -116,23 +116,23 @@ acl要素のxml:base属性にボックスまでのロールリソースURLを記
 <D:acl xmlns:D="DAV:" xml:base="http://fqdn/testcell1/__role/box1/"
     xmlns:p="urn:x-personium:xmlns"
     p:requireSchemaAuthz="none">
-    <D:ace>
-        <D:principal>
-            <D:href>doctor</D:href>
-        </D:principal>
-        <D:grant>
-            <D:privilege><D:read/></D:privilege>
-            <D:privilege><D:write/></D:privilege>
-        </D:grant>
-    </D:ace>
-    <D:ace>
-        <D:principal>
-            <D:href>../box2/guest</D:href>
-        </D:principal>
-        <D:grant>
-            <D:privilege><D:read/></D:privilege>
-        </D:grant>
-    </D:ace>
+  <D:ace>
+    <D:principal>
+      <D:href>doctor</D:href>
+    </D:principal>
+    <D:grant>
+      <D:privilege><D:read/></D:privilege>
+      <D:privilege><D:write/></D:privilege>
+    </D:grant>
+  </D:ace>
+  <D:ace>
+    <D:principal>
+      <D:href>../box2/guest</D:href>
+    </D:principal>
+    <D:grant>
+      <D:privilege><D:read/></D:privilege>
+    </D:grant>
+  </D:ace>
 </D:acl>
 ```
 
@@ -180,30 +180,30 @@ ACL設定をPROPFINDで出力した際、xml:base属性は以下の様に出力�
 <?xml version="1.0" encoding="utf-8" ?>
 <D:acl xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns"
     xml:base="https://example.com/cell/box">
-    <D:ace>
-        <D:principal>
-            <D:href>role10</D:href>
-        </D:principal>
-        <D:grant>
-            <D:privilege><p:root/></D:privilege>
-        </D:grant>
-    </D:ace>
-    <D:ace>
-        <D:principal>
-            <D:href>../box2/role13</D:href>
-        </D:principal>
-        <D:grant>
-            <D:privilege><p:social/></D:privilege>
-        </D:grant>
-    </D:ace>
-    <D:ace>
-        <D:principal>
-            <D:href>role15</D:href>
-        </D:principal>
-        <D:grant>
-            <D:privilege><p:acl/></D:privilege>
-        </D:grant>
-    </D:ace>
+  <D:ace>
+    <D:principal>
+      <D:href>role10</D:href>
+    </D:principal>
+    <D:grant>
+      <D:privilege><p:root/></D:privilege>
+    </D:grant>
+  </D:ace>
+  <D:ace>
+    <D:principal>
+      <D:href>../box2/role13</D:href>
+    </D:principal>
+    <D:grant>
+      <D:privilege><p:social/></D:privilege>
+    </D:grant>
+  </D:ace>
+  <D:ace>
+    <D:principal>
+      <D:href>role15</D:href>
+    </D:principal>
+    <D:grant>
+      <D:privilege><p:acl/></D:privilege>
+    </D:grant>
+  </D:ace>
 </D:acl>
 ```
 
@@ -233,23 +233,23 @@ ACL設定をPROPFINDで出力した際、xml:base属性は以下の様に出力�
 <D:acl xmlns:D="DAV:" xml:base="http://fqdn/testcell1/__role/box1/"
     xmlns:p="urn:x-personium:xmlns"
     p:requireSchemaAuthz="none">
-    <D:ace>
-        <D:principal>
-            <D:href>doctor</D:href>
-        </D:principal>
-        <D:grant>
-            <D:privilege><D:read/></D:privilege>
-            <D:privilege><D:write/></D:privilege>
-        </D:grant>
-    </D:ace>
-    <D:ace>
-        <D:principal>
-            <D:href>../box2/guest</D:href>
-        </D:principal>
-        <D:grant>
-            <D:privilege><D:read/></D:privilege>
-        </D:grant>
-    </D:ace>
+  <D:ace>
+    <D:principal>
+      <D:href>doctor</D:href>
+    </D:principal>
+    <D:grant>
+      <D:privilege><D:read/></D:privilege>
+      <D:privilege><D:write/></D:privilege>
+    </D:grant>
+  </D:ace>
+  <D:ace>
+    <D:principal>
+      <D:href>../box2/guest</D:href>
+    </D:principal>
+    <D:grant>
+      <D:privilege><D:read/></D:privilege>
+    </D:grant>
+  </D:ace>
 </D:acl>
 ```
 
@@ -300,16 +300,16 @@ ACL設定をPROPFINDで出力した際、xml:base属性は以下の様に出力�
 <?xml version="1.0" encoding="utf-8" ?>
 <D:acl xmlns:D="DAV:" xml:base="http://localhost:8080/testcell1/__role/box1/"
     xmlns:p="urn:x-personium:xmlns"
-    p:requireSchemaAuthz="{レベル値}">
-    <D:ace>
-        <D:principal>
-            <D:all/>
-        </D:principal>
-        <D:grant>
-            <D:privilege><D:read/></D:privilege>
-            <D:privilege><D:write/></D:privilege>
-        </D:grant>
-    </D:ace>
+    p:requireSchemaAuthz="none">
+  <D:ace>
+    <D:principal>
+      <D:all/>
+    </D:principal>
+    <D:grant>
+      <D:privilege><D:read/></D:privilege>
+      <D:privilege><D:write/></D:privilege>
+    </D:grant>
+  </D:ace>
 </D:acl>
 ```
 

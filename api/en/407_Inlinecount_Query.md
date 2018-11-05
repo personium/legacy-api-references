@@ -17,8 +17,8 @@ If omitted, do not include the number of acquisition results in response
 Example: Obtaining the cell list When acquiring the cell count including the number of results:
 
 ```sh
-curl "https://{UnitFQDN}/__ctl/Cell?\$inlinecount=allpages" -X GET -i -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://unit1.example/__ctl/Cell?\$inlinecount=allpages" -X GET -i -H \
+'Authorization: Bearer AA~PBDc...(snip)...FrTjA' -H 'Accept: application/json'
 ```
 
 

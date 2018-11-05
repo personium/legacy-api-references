@@ -147,14 +147,15 @@ Refer to [Error Message List](004_Error_Messages.md)
     "results": [
       {
         "__metadata": {
-          "uri": "{CellURL}__ctl/ReceivedMessage('c87b42e10df846a9bee842225d1383fe')",
+          "uri": "https://cell1.unit1.example/__ctl/ReceivedMessage
+('c87b42e10df846a9bee842225d1383fe')",
           "etag": "W/\"1-1486683974451\"",
           "type": "CellCtl.ReceivedMessage"
         },
         "__id": "c87b42e10df846a9bee842225d1383fe",
-        "_Box.Name": "{BoxName}",
+        "_Box.Name": "box1",
         "InReplyTo": "xnKXmd4TTZCw-bfSEw4f0AxnKXmd4TTZ",
-        "From": "{CellURL}",
+        "From": "https://cell2.unit1.example/",
         "MulticastTo": null,
         "Type": "request",
         "Title": "Message Sample Title",
@@ -165,8 +166,8 @@ Refer to [Error Message List](004_Error_Messages.md)
           {
             "RequestType": "relation.add",
             "Name": null,
-            "ClassUrl": "https://{UnitFQDN}/{AppCellName}/__relation/__/{RelationName}",
-            "TargetUrl": "{CellURL}",
+            "ClassUrl": "https://app-cell1.unit1.example/__relation/__/relation1",
+            "TargetUrl": "https://cell1.unit1.example/",
             "EventType": null,
             "EventSubject": null,
             "EventObject": null,
@@ -178,25 +179,28 @@ Refer to [Error Message List](004_Error_Messages.md)
         "__updated": "/Date(1486683974451)/",
         "_Box": {
           "__deferred": {
-            "uri": "{CellURL}__ctl/ReceivedMessage('c87b42e10df846a9bee842225d1383fe')/_Box"
+            "uri": "https://cell1.unit1.example/__ctl/ReceivedMessage
+('c87b42e10df846a9bee842225d1383fe')/_Box"
           }
         },
         "_AccountRead": {
           "__deferred": {
-            "uri": "{CellURL}__ctl/ReceivedMessage('c87b42e10df846a9bee842225d1383fe')/_AccountRead"
+            "uri": "https://cell1.unit1.example/__ctl/ReceivedMessage
+('c87b42e10df846a9bee842225d1383fe')/_AccountRead"
           }
         }
       },
       {
         "__metadata": {
-          "uri": "{CellURL}__ctl/ReceivedMessage('3afcc60e35fc49ee9a4e4f6c1ebee426')",
+          "uri": "https://cell1.unit1.example/__ctl/ReceivedMessage
+('3afcc60e35fc49ee9a4e4f6c1ebee426')",
           "etag": "W/\"3-1486688634556\"",
           "type": "CellCtl.ReceivedMessage"
         },
         "__id": "3afcc60e35fc49ee9a4e4f6c1ebee426",
         "_Box.Name": null,
         "InReplyTo": "xnKXmd4TTZCw-bfSEw4f0AxnKXmd4TTZ",
-        "From": "{CellURL}",
+        "From": "https://cell1.unit1.example/",
         "MulticastTo": null,
         "Type": "message",
         "Title": "Message Sample Title",
@@ -209,12 +213,14 @@ Refer to [Error Message List](004_Error_Messages.md)
         "__updated": "/Date(1486688634556)/",
         "_Box": {
           "__deferred": {
-            "uri": "{CellURL}__ctl/ReceivedMessage('3afcc60e35fc49ee9a4e4f6c1ebee426')/_Box"
+            "uri": "https://cell1.unit1.example/__ctl/ReceivedMessage
+('3afcc60e35fc49ee9a4e4f6c1ebee426')/_Box"
           }
         },
         "_AccountRead": {
           "__deferred": {
-            "uri": "{CellURL}__ctl/ReceivedMessage('3afcc60e35fc49ee9a4e4f6c1ebee426')/_AccountRead"
+            "uri": "https://cell1.unit1.example/__ctl/ReceivedMessage
+('3afcc60e35fc49ee9a4e4f6c1ebee426')/_AccountRead"
           }
         }
       }
@@ -227,6 +233,6 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}__ctl/ReceivedMessage" -X GET -i -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://cell1.unit1.example/__ctl/ReceivedMessage" -X GET -i \
+-H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' -H 'Accept: application/json'
 ```

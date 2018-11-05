@@ -129,37 +129,36 @@ GET
     "results": [
       {
         "__metadata": {
-          "uri": "{CellURL}__ctl/Relation(Name='{RelationName}'
-,_Box.Name='{BoxName}')",
+          "uri": "https://cell1.unit1.example/__ctl/Relation(Name='relation1',_Box.Name='box1')",
           "etag": "W/\"1-1486700131198\"",
           "type": "CellCtl.Relation"
         },
-        "Name": "{RelationName}",
-        "_Box.Name": "{BoxName}",
+        "Name": "relation1",
+        "_Box.Name": "box1",
         "__published": "/Date(1486700131198)/",
         "__updated": "/Date(1486700131198)/",
         "_Box": {
           "__deferred": {
-            "uri": "{CellURL}__ctl/Relation(Name='{RelationName}'
-,_Box.Name='{BoxName}')/_Box"
+            "uri": "https://cell1.unit1.example/__ctl/Relation(Name='relation1',_Box.Name='box1')
+/_Box"
           }
         },
         "_ExtCell": {
           "__deferred": {
-            "uri": "{CellURL}__ctl/Relation(Name='{RelationName}'
-,_Box.Name='{BoxName}')/_ExtCell"
+            "uri": "https://cell1.unit1.example/__ctl/Relation(Name='relation1',_Box.Name='box1')
+/_ExtCell"
           }
         },
         "_ExtRole": {
           "__deferred": {
-            "uri": "{CellURL}__ctl/Relation(Name='{RelationName}'
-,_Box.Name='{BoxName}')/_ExtRole"
+            "uri": "https://cell1.unit1.example/__ctl/Relation(Name='relation1',_Box.Name='box1')
+/_ExtRole"
           }
         },
         "_Role": {
           "__deferred": {
-            "uri": "{CellURL}__ctl/Relation(Name='{RelationName}'
-,_Box.Name='{BoxName}')/_Role"
+            "uri": "https://cell1.unit1.example/__ctl/Relation(Name='relation1',_Box.Name='box1')
+/_Role"
           }
         }
       }
@@ -172,19 +171,17 @@ GET
 ## cURLサンプル
 #### Roleを取得する場合
 ```sh
-curl
-"{CellURL}__ctl/Box('{BoxName}')/_Role" -X GET -i  -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://cell1.unit1.example/__ctl/Box('box1')/_Role" -X GET -i \
+-H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json'
 ```
 #### Relationを取得する場合
 ```sh
-curl "{CellURL}__ctl/Box('{BoxName}')/_Relation" -X GET -i -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://cell1.unit1.example/__ctl/Box('box1')/_Relation" -X GET -i \
+-H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json'
 ```
 #### Ruleを取得する場合
 ```sh
-curl
-"{CellURL}__ctl/Box('{BoxName}')/_Rule" -X GET -i  -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://cell1.unit1.example/__ctl/Box('box1')/_Rule" -X GET -i \
+-H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json'
 ```
 

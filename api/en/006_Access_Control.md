@@ -60,14 +60,14 @@ Give read access to all access subjects.
 <D:acl xmlns:D="DAV:" xml:base="http://fqdn/testcell1/__role/box1/"
     xmlns:p="urn:x-personium:xmlns"
     p:requireSchemaAuthz="none">
-    <D:ace>
-        <D:principal>
-            </D:all>
-        </D:principal>
-        <D:grant>
-            <D:privilege><D:read/></D:privilege>
-        </D:grant>
-    </D:ace>
+  <D:ace>
+    <D:principal>
+      </D:all>
+    </D:principal>
+    <D:grant>
+      <D:privilege><D:read/></D:privilege>
+    </D:grant>
+  </D:ace>
 </D:acl>
 ```
 
@@ -86,23 +86,23 @@ Describe all role resource URLs to be set in Principal
 <D:acl xmlns:D="DAV:"
     xmlns:p="urn:x-personium:xmlns"
     p:requireSchemaAuthz="none">
-    <D:ace>
-        <D:principal>
-            <D:href>http://fqdn/testcell1/__role/box1/doctor</D:href>
-        </D:principal>
-        <D:grant>
-            <D:privilege><D:read/></D:privilege>
-            <D:privilege><D:write/></D:privilege>
-        </D:grant>
-    </D:ace>
-    <D:ace>
-        <D:principal>
-            <D:href>http://fqdn/testcell1/__role/box2/guest</D:href>
-        </D:principal>
-        <D:grant>
-            <D:privilege><D:read/></D:privilege>
-        </D:grant>
-    </D:ace>
+  <D:ace>
+    <D:principal>
+      <D:href>http://fqdn/testcell1/__role/box1/doctor</D:href>
+    </D:principal>
+    <D:grant>
+      <D:privilege><D:read/></D:privilege>
+      <D:privilege><D:write/></D:privilege>
+    </D:grant>
+  </D:ace>
+  <D:ace>
+    <D:principal>
+      <D:href>http://fqdn/testcell1/__role/box2/guest</D:href>
+    </D:principal>
+    <D:grant>
+      <D:privilege><D:read/></D:privilege>
+    </D:grant>
+  </D:ace>
 </D:acl>
 ```
 
@@ -115,23 +115,23 @@ By describing the role resource URL up to the box in the xml: base attribute of 
 <D:acl xmlns:D="DAV:" xml:base="http://fqdn/testcell1/__role/box1/"
     xmlns:p="urn:x-personium:xmlns"
     p:requireSchemaAuthz="none">
-    <D:ace>
-        <D:principal>
-            <D:href>doctor</D:href>
-        </D:principal>
-        <D:grant>
-            <D:privilege><D:read/></D:privilege>
-            <D:privilege><D:write/></D:privilege>
-        </D:grant>
-    </D:ace>
-    <D:ace>
-        <D:principal>
-            <D:href>../box2/guest</D:href>
-        </D:principal>
-        <D:grant>
-            <D:privilege><D:read/></D:privilege>
-        </D:grant>
-    </D:ace>
+  <D:ace>
+    <D:principal>
+      <D:href>doctor</D:href>
+    </D:principal>
+    <D:grant>
+      <D:privilege><D:read/></D:privilege>
+      <D:privilege><D:write/></D:privilege>
+    </D:grant>
+  </D:ace>
+  <D:ace>
+    <D:principal>
+      <D:href>../box2/guest</D:href>
+    </D:principal>
+    <D:grant>
+      <D:privilege><D:read/></D:privilege>
+    </D:grant>
+  </D:ace>
 </D:acl>
 ```
 
@@ -179,30 +179,30 @@ When the authority located at the higher level is set, it has the authority belo
 <?xml version="1.0" encoding="utf-8" ?>
 <D:acl xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns"
     xml:base="https://example.com/cell/box">
-    <D:ace>
-        <D:principal>
-            <D:href>role10</D:href>
-        </D:principal>
-        <D:grant>
-            <D:privilege><p:root/></D:privilege>
-        </D:grant>
-    </D:ace>
-    <D:ace>
-        <D:principal>
-            <D:href>../box2/role13</D:href>
-        </D:principal>
-        <D:grant>
-            <D:privilege><p:social/></D:privilege>
-        </D:grant>
-    </D:ace>
-    <D:ace>
-        <D:principal>
-            <D:href>role15</D:href>
-        </D:principal>
-        <D:grant>
-            <D:privilege><p:acl/></D:privilege>
-        </D:grant>
-    </D:ace>
+  <D:ace>
+    <D:principal>
+      <D:href>role10</D:href>
+    </D:principal>
+    <D:grant>
+      <D:privilege><p:root/></D:privilege>
+    </D:grant>
+  </D:ace>
+  <D:ace>
+    <D:principal>
+      <D:href>../box2/role13</D:href>
+    </D:principal>
+    <D:grant>
+      <D:privilege><p:social/></D:privilege>
+    </D:grant>
+  </D:ace>
+  <D:ace>
+    <D:principal>
+      <D:href>role15</D:href>
+    </D:principal>
+    <D:grant>
+      <D:privilege><p:acl/></D:privilege>
+    </D:grant>
+  </D:ace>
 </D:acl>
 ```
 
@@ -232,23 +232,23 @@ When the authority located at the higher level is set, it has the authority belo
 <D:acl xmlns:D="DAV:" xml:base="http://fqdn/testcell1/__role/box1/"
     xmlns:p="urn:x-personium:xmlns"
     p:requireSchemaAuthz="none">
-    <D:ace>
-        <D:principal>
-            <D:href>doctor</D:href>
-        </D:principal>
-        <D:grant>
-            <D:privilege><D:read/></D:privilege>
-            <D:privilege><D:write/></D:privilege>
-        </D:grant>
-    </D:ace>
-    <D:ace>
-        <D:principal>
-            <D:href>../box2/guest</D:href>
-        </D:principal>
-        <D:grant>
-            <D:privilege><D:read/></D:privilege>
-        </D:grant>
-    </D:ace>
+  <D:ace>
+    <D:principal>
+      <D:href>doctor</D:href>
+    </D:principal>
+    <D:grant>
+      <D:privilege><D:read/></D:privilege>
+      <D:privilege><D:write/></D:privilege>
+    </D:grant>
+  </D:ace>
+  <D:ace>
+    <D:principal>
+      <D:href>../box2/guest</D:href>
+    </D:principal>
+    <D:grant>
+      <D:privilege><D:read/></D:privilege>
+    </D:grant>
+  </D:ace>
 </D:acl>
 ```
 
@@ -299,16 +299,16 @@ Sample Schema Privilege Request Level Setting ACL
 <?xml version="1.0" encoding="utf-8" ?>
 <D:acl xmlns:D="DAV:" xml:base="http://localhost:8080/testcell1/__role/box1/"
     xmlns:p="urn:x-personium:xmlns"
-    p:requireSchemaAuthz="{レベル値}">
-    <D:ace>
-        <D:principal>
-            <D:all/>
-        </D:principal>
-        <D:grant>
-            <D:privilege><D:read/></D:privilege>
-            <D:privilege><D:write/></D:privilege>
-        </D:grant>
-    </D:ace>
+    p:requireSchemaAuthz="none">
+  <D:ace>
+    <D:principal>
+      <D:all/>
+    </D:principal>
+    <D:grant>
+      <D:privilege><D:read/></D:privilege>
+      <D:privilege><D:write/></D:privilege>
+    </D:grant>
+  </D:ace>
 </D:acl>
 ```
 

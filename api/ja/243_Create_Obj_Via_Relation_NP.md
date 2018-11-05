@@ -97,8 +97,8 @@ JSON
 #### リクエストサンプル
 ```JSON
 {
-  "Name": "{RelationName}",
-  "_Box.Name": "{BoxName}"
+  "Name": "relation2",
+  "_Box.Name": "box2"
 }
 ```
 
@@ -143,11 +143,11 @@ JSON
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}__ctl/Box('{BoxName}')",
+        "uri": "https://cell1.unit1.example/__ctl/Box('box1')",
         "etag": "W/\"1-1486945452485\"",
         "type": "CellCtl.Box"
       },
-      "Name": "{BoxName}",
+      "Name": "box1",
       "Schema": null,
       "__published": "/Date(1486945452485)/",
       "__updated": "/Date(1486945452485)/"
@@ -162,8 +162,8 @@ JSON
 
 #### Boxを登録した場合
 ```sh
-curl "{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')\
-/_Box" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' \
--d '{"Name":"{BoxName}"}'
+curl "https://cell1.unit1.example/__ctl/Relation(Name='relation1',_Box.Name='box1')\
+/_Box" -X POST -i -H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' \
+-H 'Accept: application/json' -d '{"Name":"relation2"}'
 ```
 

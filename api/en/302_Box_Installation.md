@@ -134,7 +134,7 @@ For the file structure of the bar file, see the [ bar file ](301_Bar_File.md).
 Location sample
 
 ```
-Location:{CellURL}{BoxName}
+Location: https://cell1.unit1.example/box1
 ```
 
 For details of URL for [Box metadata acquisition API](303_Progress_of_Bar_File_Installation.md), see Box metadata acquisition.
@@ -158,6 +158,7 @@ For details of URL for [Box metadata acquisition API](303_Progress_of_Bar_File_I
 ## cURL Command
 
 ```sh
-curl "{CellURL}{BoxName}" -X MKCOL -i -H 'Content-type: application/zip' -H\
- 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -T "{FilePath}"
+curl "https://cell1.unit1.example/box1" -X MKCOL -i -H 'Content-type: application/zip' \
+-H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' -H 'Accept: application/json' \
+-T "/tmp/sample.bar"
 ```

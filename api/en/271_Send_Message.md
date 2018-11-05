@@ -102,12 +102,11 @@ Ask the creation / deletion of the specified Rule.
 |TargetUrl|Specific target url of the action|See the [CreateRule](2A0_Create_Rule.md) for details|No|On message, not check if this item is able to convert to personium-localunit scheme.|
 
 ### Request Sample
-
 ```JSON
 {
   "BoxBound": true,
   "InReplyTo": "hnKXm44TTZCw-bfSEw4f0A",
-  "To": "https://{UnitFQDN}/{TargetCellName}",
+  "To": "https://cell2.unit1.example/",
   "ToRelation": null,
   "Type": "request",
   "Title": "Friend request",
@@ -116,13 +115,13 @@ Ask the creation / deletion of the specified Rule.
   "RequestObjects": [
     {
       "RequestType": "relation.add",
-      "ClassUrl": "https://{UnitFQDN}/{AppCellName}/__relation/__/{RelationName}",
-      "TargetUrl": "{CellURL}"
+      "ClassUrl": "https://app-cell1.unit1.example/__relation/__/relation1",
+      "TargetUrl": "https://cell2.unit1.example/"
     },
     {
       "RequestType": "role.add",
-      "Name": "{RoleName}",
-      "TargetUrl": "{CellURL}"
+      "Name": "role1",
+      "TargetUrl": "https://cell2.unit1.example/"
     }
   ]
 }
@@ -203,13 +202,14 @@ Refer to [Error Message List](004_Error_Messages.md)
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}__ctl/SentMessage('3afcc60e35fc49ee9a4e4f6c1ebee426')",
+        "uri": "https://cell1.unit1.example/__ctl/SentMessage
+('3afcc60e35fc49ee9a4e4f6c1ebee426')",
         "etag": "W/\"1-1486638759524\"",
         "type": "CellCtl.SentMessage"
       },
       "__id": "3afcc60e35fc49ee9a4e4f6c1ebee426",
       "InReplyTo": "xnKXmd4TTZCw-bfSEw4f0AxnKXmd4TTZ",
-      "To": "{CellURL}",
+      "To": "https://cell2.unit1.example/",
       "ToRelation": null,
       "Type": "request",
       "Title": "Message Sample Title",
@@ -219,8 +219,8 @@ Refer to [Error Message List](004_Error_Messages.md)
         {
           "RequestType": "relation.add",
           "Name": null,
-          "ClassUrl": "https://{UnitFQDN}/{AppCellName}/__relation/__/{RelationName}",
-          "TargetUrl": "{CellURL}",
+          "ClassUrl": "https://app-cell1.unit1.example/__relation/__/relation1",
+          "TargetUrl": "https://cell2.unit1.example/",
           "EventType": null,
           "EventSubject": null,
           "EventObject": null,
@@ -231,7 +231,7 @@ Refer to [Error Message List](004_Error_Messages.md)
       "_Box.Name": null,
       "Result": [
         {
-          "To": "{CellURL}",
+          "To": "https://cell2.unit1.example/",
           "Code": "201",
           "Reason": "Created."
         }
@@ -247,8 +247,9 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}__message/send" -X POST -i -H 'Authorization: Bearer {AccessToken}' \
--H 'Accept: application/json' -d '{"BoxBound":false,"InReplyTo":"xnKXmd4TTZCw-bfSEw4f0AxnKXmd4TTZ",\
-"To":"{CellURL}","Type":"message","Title":"Message Sample Title","Body":"Message Sample Body",\
+curl "https://cell1.unit1.example/__message/send" -X POST -i \
+-H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' -H 'Accept: application/json' \
+-d '{"BoxBound":false,"InReplyTo":"xnKXmd4TTZCw-bfSEw4f0AxnKXmd4TTZ",\
+"To":"https://cell2.unit1.example/","Type":"message","Title":"Message Sample Title","Body":"Message Sample Body",\
 "Priority":3}'
 ```

@@ -16,11 +16,11 @@
 ## リクエスト
 ### リクエストURL
 ```
-/__ctl/Cell(Name='{CellName}')
+{UnitURL}__ctl/Cell(Name='{CellName}')
 ```
 または、
 ```
-/__ctl/Cell('{CellName}')
+{UnitURL}__ctl/Cell('{CellName}')
 ```
 
 ### メソッド
@@ -99,11 +99,11 @@ GET
   "d": {
     "results": {
       "__metadata": {
-        "uri": "https:/{UnitFQDN}/__ctl/Cell(Name='{CellName}')",
+        "uri": "https:/unit1.example/__ctl/Cell(Name='cell1')",
         "etag": "W/\"1-1486427790039\"",
         "type": "UnitCtl.Cell"
       },
-      "Name": "{CellName}",
+      "Name": "cell1",
       "__published": "/Date(1486427790039)/",
       "__updated": "/Date(1486427790039)/"
     }
@@ -115,7 +115,7 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/__ctl/Cell('{CellName}')" -X GET -i -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://unit1.example/__ctl/Cell('cell1')" -X GET -i -H \
+'Authorization: Bearer PEFzc2V...(省略)...lvbj4' -H 'Accept: application/json'
 ```
 

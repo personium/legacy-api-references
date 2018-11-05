@@ -16,7 +16,7 @@ auth
 ## リクエスト
 ### リクエストURL
 ```
-{CellURL}__ctl/ExtCell('http%3A%2F%2F{UnitFQDN}%2F{CellName}')
+{CellURL}__ctl/ExtCell('https%3A%2F%2F{CellName}.{UnitFQDN}%2F')
 ```
 ### メソッド
 DELETE
@@ -57,7 +57,7 @@ DELETE
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}__ctl/ExtCell('http%3A%2F%2F{UnitFQDN}%2F{CellName}')" -X \
-DELETE -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://cell1.unit1.example/__ctl/ExtCell('https%3A%2F%2Fcell2.unit1.example%2F')" -X DELETE \
+-i -H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json'
 ```
 

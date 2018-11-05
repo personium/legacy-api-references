@@ -24,13 +24,15 @@ auth
 ### Request URL
 
 ```
-{CellURL}__ctl/ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name='{RelationName}',_Relation._Box.Name='{BoxName}')
+{CellURL}__ctl/ExtRole(ExtRole='https%3A%2F%2F{CellName}.{UnitFQDN}%2F__role%2F__%2F{RoleName}',
+_Relation.Name='{RelationName}',_Relation._Box.Name='{BoxName}')
 ```
 
 or
 
 ```
-{CellURL}__ctl/ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name='{RelationName}')
+{CellURL}__ctl/ExtRole(ExtRole='https%3A%2F%2F{CellName}.{UnitFQDN}%2F__role%2F__%2F{RoleName}',
+_Relation.Name='{RelationName}')
 ```
 
 If the \_Relation.\_Box.Name parameter is omitted, it is assumed that null is specified
@@ -69,9 +71,9 @@ PUT
 
 ```JSON
 {
-  "ExtRole": "{CellURL}__role/__/roletest",
-  "_Relation.Name": "{RelationName}",
-  "_Relation._Box.Name": "{BoxName}"
+  "ExtRole": "https://cell2.unit1.example/__role/__/role1",
+  "_Relation.Name": "relation2",
+  "_Relation._Box.Name": "box2"  
 }
 ```
 
@@ -93,11 +95,11 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl curl "{CellURL}__ctl/ExtRole(ExtRole='https%3A%2F%2F{UnitFQDN}%2F{CellName}\
-%2F__role%2F__%2F{ExtRoleName}',_Relation.Name='{RelationName}',_Relation._Box.Name='{BoxName}')" \
--X PUT -i -H 'If-Match: *' -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' \
--d '{ "ExtRole": "{CellURL}__role/__/{ExtRoleName}", "_Relation.Name":"{RelationName}",\
-"_Relation._Box.Name": "{BoxName}"}'
+curl "https://cell1.unit1.example/__ctl/ExtRole(ExtRole='https%3A%2F%2Fcell2.unit1.example\
+%2F__role%2F__%2Frole1',_Relation.Name='relation1',_Relation._Box.Name='box1')" -X PUT -i \
+-H 'If-Match: *' -H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' -H 'Accept: application/json' \
+-d '{"ExtRole": "https://cell2.unit1.example/__role/__/role2",\
+"_Relation.Name":"relation2","_Relation._Box.Name": "box2"}'
 ```
 
 

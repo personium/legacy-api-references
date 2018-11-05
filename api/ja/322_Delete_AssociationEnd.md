@@ -55,8 +55,8 @@ DELETE
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}{BoxName}/{ODataCollecitonName}/\$metadata/AssociationEnd\
-(Name='{AssociationEndName}',_EntityType.Name='{EntityTypeName}')" -X DELETE -i -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://cell1.unit1.example/box1/odata-collection1/\$metadata/AssociationEnd\
+(Name='association-end1',_EntityType.Name='entity-type1')" -X DELETE -i \
+-H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json'
 ```
 

@@ -145,29 +145,29 @@ PROPFIND
 ### レスポンスサンプル
 ```xml
 <multistatus xmlns="DAV:">
-    <response>
-        <href>{CellURL}</href>
-        <propstat>
-            <prop>
-                <creationdate>2017-02-03T01:27:31.130+0000</creationdate>
-                <getlastmodified>Fri, 03 Feb 2017 01:27:31 GMT</getlastmodified>
-                <resourcetype>
-                    <collection/>
-                </resourcetype>
-                <p:cellstatus xmlns:p="urn:x-personium:xmlns">normal</p:cellstatus>
-                <acl xmlns:p="urn:x-personium:xmlns"/>
-            </prop>
-            <status>HTTP/1.1 200 OK</status>
-        </propstat>
-    </response>
+  <response>
+    <href>https://cell1.unit1.example/</href>
+    <propstat>
+      <prop>
+        <creationdate>2017-02-03T01:27:31.130+0000</creationdate>
+        <getlastmodified>Fri, 03 Feb 2017 01:27:31 GMT</getlastmodified>
+        <resourcetype>
+          <collection/>
+        </resourcetype>
+        <p:cellstatus xmlns:p="urn:x-personium:xmlns">normal</p:cellstatus>
+        <acl xmlns:p="urn:x-personium:xmlns"/>
+      </prop>
+      <status>HTTP/1.1 200 OK</status>
+    </propstat>
+  </response>
 </multistatus>
 ```
 
 
 ## cURLサンプル
 ```sh
-curl "{CellURL}" -X PROPFIND -i -H 'Depth:1' -H \
-'Authorization: Bearer {AccessToken}' -d \
-'<?xml version="1.0" encoding="utf-8"?><D:propfind xmlns:D="DAV:"><D:allpop/></D:propfind>'
+curl "https://cell1.unit1.example/" -X PROPFIND -i -H 'Depth:1' \
+-H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' \
+-d '<?xml version="1.0" encoding="utf-8"?><D:propfind xmlns:D="DAV:"><D:allpop/></D:propfind>'
 ```
 

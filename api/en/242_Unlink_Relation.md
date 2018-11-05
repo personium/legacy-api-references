@@ -234,8 +234,8 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}__ctl/Relation(Name='{RelationName}',_Box.Name='{BoxName}')\
-/\$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')" -X DELETE -i -H 'Authorization: Bearer {AccessToken}' \
--H 'Accept: application/json'
+curl "https://cell1.unit1.example/__ctl/Relation(Name='relation1',_Box.Name='box1')\
+/\$links/_Role(Name='role1',_Box.Name='box2')" -X DELETE -i \
+-H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' -H 'Accept: application/json'
 ```
 

@@ -57,7 +57,7 @@ The data types to be searched are shown below
 Example: When acquiring a cell list, when acquiring a cell that matches the keyword "sample":
 
 ```sh
-curl "https://{UnitFQDN}/__ctl/Cell?q=sample" -X GET -i -H 'Authorization: Bearer {AccessToken}' \
+curl "https://unit1.example/__ctl/Cell?q=sample" -X GET -i -H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' \
 -H 'Accept: application/json'
 ```
 

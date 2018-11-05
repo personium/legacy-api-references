@@ -98,73 +98,73 @@ GET
     "results": [
       {
         "__metadata": {
-          "uri": "{CellURL}__ctl/Box('{BoxName}')",
+          "uri": "https://cell1.unit1.example/__ctl/Box('box1')",
           "etag": "W/\"1-1486368212581\"",
           "type": "CellCtl.Box"
         },
-        "Name": "{BoxName}",
+        "Name": "box1",
         "Schema": null,
         "__published": "/Date(1486368212581)/",
         "__updated": "/Date(1486368212581)/",
         "_Role": {
           "__deferred": {
-            "uri": "{CellURL}__ctl/Box('{BoxName}')/_Role"
+            "uri": "https://cell1.unit1.example/__ctl/Box('box1')/_Role"
           }
         },
         "_Relation": {
           "__deferred": {
-            "uri": "{CellURL}__ctl/Box('{BoxName}')/_Relation"
+            "uri": "https://cell1.unit1.example/__ctl/Box('box1')/_Relation"
           }
         },
         "_ReceivedMessage": {
           "__deferred": {
-            "uri": "{CellURL}__ctl/Box('{BoxName}')/_ReceivedMessage"
+            "uri": "https://cell1.unit1.example/__ctl/Box('box1')/_ReceivedMessage"
           }
         },
         "_SentMessage": {
           "__deferred": {
-            "uri": "{CellURL}__ctl/Box('{BoxName}')/_SentMessage"
+            "uri": "https://cell1.unit1.example/__ctl/Box('box1')/_SentMessage"
           }
         },
         "_Rule": {
           "__deferred": {
-            "uri": "{CellURL}__ctl/Box('{BoxName}')/_Rule"
+            "uri": "https://cell1.unit1.example/__ctl/Box('box1')/_Rule"
           }
         }
       },
       {
         "__metadata": {
-          "uri": "{CellURL}__ctl/Box('{BoxName}')",
+          "uri": "https://cell1.unit1.example/__ctl/Box('box2')",
           "etag": "W/\"1-1486461000154\"",
           "type": "CellCtl.Box"
         },
-        "Name": "{BoxName}",
+        "Name": "box2",
         "Schema": null,
         "__published": "/Date(1486461000154)/",
         "__updated": "/Date(1486461000154)/",
         "_Role": {
           "__deferred": {
-            "uri": "{CellURL}__ctl/Box('{BoxName}')/_Role"
+            "uri": "https://cell1.unit1.example/__ctl/Box('box2')/_Role"
           }
         },
         "_Relation": {
           "__deferred": {
-            "uri": "{CellURL}__ctl/Box('{BoxName}')/_Relation"
+            "uri": "https://cell1.unit1.example/__ctl/Box('box2')/_Relation"
           }
         },
         "_ReceivedMessage": {
           "__deferred": {
-            "uri": "{CellURL}__ctl/Box('{BoxName}')/_ReceivedMessage"
+            "uri": "https://cell1.unit1.example/__ctl/Box('box2')/_ReceivedMessage"
           }
         },
         "_SentMessage": {
           "__deferred": {
-            "uri": "{CellURL}__ctl/Box('{BoxName}')/_SentMessage"
+            "uri": "https://cell1.unit1.example/__ctl/Box('box2')/_SentMessage"
           }
         },
         "_Rule": {
           "__deferred": {
-            "uri": "{CellURL}__ctl/Box('{BoxName}')/_Rule"
+            "uri": "https://cell1.unit1.example/__ctl/Box('box2')/_Rule"
           }
         }
       }
@@ -176,6 +176,6 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}__ctl/Box" -X GET -i -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://cell1.unit1.example/__ctl/Box" -X GET -i \
+-H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json'
 ```

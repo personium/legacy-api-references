@@ -97,8 +97,8 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}{BoxName}/{CollectionName}/$metadata/ComplexType('Address')\
-/$links/_Property('PostalCode')" -X DELETE -i -H 'If-Match: *' -H 'Authorization: Bearer {AccessToken}' \
--H 'Accept: application/json'
+curl "https://cell1.unit1.example/box1/odata-collection1/$metadata/ComplexType('complex-type1')\
+/$links/_Property('property1')" -X DELETE -i -H 'If-Match: *' \
+-H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' -H 'Accept: application/json'
 ```
 

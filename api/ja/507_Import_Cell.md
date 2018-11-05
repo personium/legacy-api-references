@@ -12,12 +12,12 @@ Cellインポートの状況を確認するには[Cellインポート状態取�
 ```
 Cellインポートの呼び出し例（クライアントでのポーリングを10秒とした場合)
  1. Cellインポート受付
-    -- POST {CellURL}__import
+    -- POST https://cell1.unit1.example/__import
  2. Cellインポート状態確認
-    -- GET {CellURL}__import -> "処理中"で返却。
+    -- GET https://cell1.unit1.example/__import -> "処理中"で返却。
     -- 10秒ポーリング
  3. Cellインポート完了
-    -- GET {CellURL}__import -> "受付可能"で返却。
+    -- GET https://cell1.unit1.example/__import -> "受付可能"で返却。
  ※上記 2. の処理はループして処理完了までポーリングする。
 ```
 
@@ -96,6 +96,6 @@ JSON
 
 ## cURLサンプル
 ```sh
-curl "{CellURL}__import" -X POST -i -H \
-'Authorization: Bearer {AccessToken}' -d '{"Name":"CellExport_2017_01"}'
+curl "https://cell1.unit1.example/__import" -X POST -i -H \
+'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -d '{"Name":"CellExport_2017_01"}'
 ```

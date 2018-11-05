@@ -101,27 +101,25 @@ The response is a JSON object, and the correspondence between the key (name) and
 {
   "d": {
     "results": {
-      {
-        "__metadata": {
-          "uri": "{CellURL}__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')",
-          "etag": "W/\"1-1486368212581\"",
-          "type": "CellCtl.Rule"
-        },
-        "Name": "{RuleName}",
-        "_Box.Name": "{BoxName}",
-        "EventExternal": true,
-        "EventSubject": null,
-        "EventType": null,
-        "EventObject": null,
-        "EventInfo": null,
-        "Action": "log",
-        "TargetUrl": null,
-        "__published": "/Date(1486368212581)/",
-        "__updated": "/Date(1486368212581)/",
-        "_Box": {
-          "__deferred": {
-            "uri": "{CellURL}__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')/_Box"
-          }
+      "__metadata": {
+        "uri": "https://cell1.unit1.example/__ctl/Rule(Name='rule1',_Box.Name='box1')",
+        "etag": "W/\"1-1486368212581\"",
+        "type": "CellCtl.Rule"
+      },
+      "Name": "rule1",
+      "_Box.Name": "box1",
+      "EventExternal": true,
+      "EventSubject": null,
+      "EventType": null,
+      "EventObject": null,
+      "EventInfo": null,
+      "Action": "log",
+      "TargetUrl": null,
+      "__published": "/Date(1486368212581)/",
+      "__updated": "/Date(1486368212581)/",
+      "_Box": {
+        "__deferred": {
+          "uri": "https://cell1.unit1.example/__ctl/Rule(Name='rule1',_Box.Name='box1')/_Box"
         }
       }
     }
@@ -131,6 +129,6 @@ The response is a JSON object, and the correspondence between the key (name) and
 ## cURL Sample
 
 ```sh
-curl "{CellURL}__ctl/Rule('{RuleName}')" -X GET -i -H 'Authorization: Bearer {AccessToken}' \
--H 'Accept: application/json'
+curl "https://cell1.unit1.example/__ctl/Rule('rule1')" -X GET -i \
+-H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' -H 'Accept: application/json'
 ```

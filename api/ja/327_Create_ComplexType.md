@@ -59,7 +59,7 @@ JSON
 
 ### リクエストサンプル
 ```JSON
-{"Name": "Address"}
+{"Name": "complex-type1"}
 ```
 ## レスポンス
 ### ステータスコード
@@ -111,12 +111,12 @@ JSON
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}{BoxName}/{ODataCollecitonName}/$metadata
-/ComplexType('{ComplexTypeName}')",
+        "uri": "https://cell1.unit1.example/box1/odata-collection1/$metadata
+/ComplexType('complex-type1')",
         "etag": "W/\"1-1487650447372\"",
         "type": "ODataSvcSchema.ComplexType"
       },
-      "Name": "{ComplexTypeName}",
+      "Name": "complex-type1",
       "__published": "/Date(1487650447372)/",
       "__updated": "/Date(1487650447372)/"
     }
@@ -130,8 +130,8 @@ JSON
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}{BoxName}/{ODataCollecitonName}/\$metadata/ComplexType" -X \
-POST -i -H  'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
-'{"Name": "{ComplexTypeName}"}'
+curl "https://cell1.unit1.example/box1/odata-collection1/\$metadata/ComplexType" -X POST -i \
+-H  'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json' \
+-d '{"Name": "complex-type1"}'
 ```
 

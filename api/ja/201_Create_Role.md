@@ -45,8 +45,8 @@ POST
 ### リクエストサンプル
 ```JSON
 {
-  "Name":"{CellName}",
-  "_Box.Name": "{BoxName}"
+  "Name":"role1",
+  "_Box.Name": "box1"
 }
 ```
 
@@ -96,12 +96,12 @@ POST
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')",
+        "uri": "https://cell1.unit1.example/__ctl/Role(Name='role1',_Box.Name='box1')",
         "etag": "W/\"1-1486456585171\"",
         "type": "CellCtl.Role"
       },
-      "Name": "{RoleName}",
-      "_Box.Name": "{BoxName}",
+      "Name": "role1",
+      "_Box.Name": "box1",
       "__published": "/Date(1486456585171)/",
       "__updated": "/Date(1486456585171)/"
     }
@@ -114,7 +114,7 @@ POST
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}__ctl/Role" -X POST -i -H 'Authorization: Bearer \
-{AccessToken}' -H 'Accept: application/json' -d '{ "Name": "{RoleName}", "_Box.Name": "{BoxName}"}'
+curl "https://cell1.unit1.example/__ctl/Role" -X POST -i -H 'Authorization: Bearer \
+AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json' -d '{ "Name": "role1", "_Box.Name": "box1"}'
 ```
 

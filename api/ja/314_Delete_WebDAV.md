@@ -68,7 +68,7 @@ DELETE
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}{BoxName}/{ResourcePath}" -X DELETE -i -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://cell1.unit1.example/box1/{ResourcePath}" -X DELETE -i \
+-H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json'
 ```
 

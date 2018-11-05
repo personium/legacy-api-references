@@ -24,7 +24,7 @@ $top={number}
 Example: When acquiring 10 cells:
 
 ```sh
-curl "https://{UnitFQDN}/__ctl/Cell?\$top=10" -X GET -i -H 'Authorization: Bearer {AccessToken}' \
+curl "https://unit1.example/__ctl/Cell?\$top=10" -X GET -i -H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' \
 -H 'Accept: application/json'
 ```
 

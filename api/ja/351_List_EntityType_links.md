@@ -87,7 +87,7 @@ GET
 |:--|:--|:--|:--|
 |ルート|d|object|オブジェクト{1}|
 |{1}|results|array|オブジェクト{2}の配列|
-|{2}|_uri|string|紐付いているODataリソースへのURL|
+|{2}|uri|string|紐付いているODataリソースへのURL|
 ### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
 
@@ -97,10 +97,12 @@ GET
    "d": {
     "results": [
       {
-        "uri": "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name=null)"
+        "uri": "https://cell1.unit1.example/box1/odata-collection1/$metadata/AssociationEnd\
+(Name='association-end1',_EntityType.Name=null)"
       },
       {
-        "uri": "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='box1')"
+        "uri": "https://cell1.unit1.example/box1/odata-collection1/$metadata/AssociationEnd\
+(Name='association-end2',_EntityType.Name='entity-type2')"
       }
     ]
   }
@@ -111,7 +113,7 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}{BoxName}/{CollectionName}/$metadata/EntityType(Name=\
-'{EntityTypeName}')/$links/_AssociationEnd" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H \
-'Accept: application/json'
+curl "https://cell1.unit1.example/box1/odata-collection1/\$metadata/EntityType\
+(Name='entity-type1')/$links/_AssociationEnd" -X GET -i \
+-H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json'
 ```

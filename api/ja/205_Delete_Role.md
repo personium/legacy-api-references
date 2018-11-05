@@ -67,7 +67,7 @@ DELETE
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')" -X \
-DELETE -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://cell1.unit1.example/__ctl/Role(Name='role1',_Box.Name='box1')" -X \
+DELETE -i -H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json'
 ```
 

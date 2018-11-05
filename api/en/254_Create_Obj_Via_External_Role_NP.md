@@ -24,15 +24,15 @@ write
 #### Navigation Property to Role
 
 ```
-{CellURL}__ctl/ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name='{RelationName}',
-_Relation._Box.Name='{BoxName}')/_Role
+{CellURL}__ctl/ExtRole(ExtRole='https%3A%2F%2F{CellName}.{UnitFQDN}%2F__role%2F__%2F{RoleName}',
+_Relation.Name='{RelationName},_Relation._Box.Name='{BoxName}')/_Role
 ```
 
 #### NavigationProperty to Relation
 
 ```
-{CellURL}__ctl/ExtRole(ExtRole='{ExtRoleURL}',_Relation.Name='{RelationName}',
-_Relation._Box.Name='{BoxName}')/_Relation
+{CellURL}__ctl/ExtRole(ExtRole='https%3A%2F%2F{CellName}.{UnitFQDN}%2F__role%2F__%2F{RoleName}',
+_Relation.Name='{RelationName},_Relation._Box.Name='{BoxName}')/_Relation
 ```
 
 If the \_Relation.\_Box.Name parameter is omitted, it is assumed that null is specified  
@@ -76,8 +76,8 @@ JSON
 
 ```JSON
 {
-  "Name":"{CellName}",
-  "_Box.Name": "{BoxName}"
+  "Name":"role2",
+  "_Box.Name": "box2"
 }
 ```
 
@@ -131,12 +131,12 @@ Refer to [Error Message List](004_Error_Messages.md)
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')",
+        "uri": "https://cell1.unit1.example/__ctl/Role(Name='role1',_Box.Name='box1')",
         "etag": "W/\"1-1486950269621\"",
         "type": "CellCtl.Role"
       },
-      "Name": "{RoleName}",
-      "_Box.Name": "{BoxName}",
+      "Name": "role1",
+      "_Box.Name": "box1",
       "__published": "/Date(1486950269621)/",
       "__updated": "/Date(1486950269621)/"
     }
@@ -150,10 +150,10 @@ Refer to [Error Message List](004_Error_Messages.md)
 ### When registering Role
 
 ```sh
-curl "{CellURL}__ctl/ExtRole(ExtRole='https%3A%2F%2F{UnitFQDN}%2F{CellName}\
-%2F__role%2F__%2F{ExtRoleName}',_Relation.Name='{RelationName}',_Relation._Box.Name='{BoxName}')\
-/_Role" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
-'{ "Name": "{RoleName}", "_Box.Name": "{BoxName}"}'
+curl "https://cell1.unit1.example/__ctl/ExtRole(role='https%3A%2F%2Fcell2.unit1.example%2F\
+__role%2F__%2Frole1',_Relation.Name='relation1',_Relation._Box.Name='box1')/_Role" -X POST -i \
+-H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' -H 'Accept: application/json' \
+-d '{ "Name": "role2", "_Box.Name": "box2"}'
 ```
 
 

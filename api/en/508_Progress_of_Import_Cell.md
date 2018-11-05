@@ -125,8 +125,8 @@ Cell Import Abnormal termination
 ## cURL Sample
 
 ```sh
-curl "{CellURL}__import" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H \
-'Accept: application/json'
+curl "https://cell1.unit1.example/__import" -X GET -i -H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' \
+-H 'Accept: application/json'
 ```
 
 

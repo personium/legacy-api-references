@@ -107,35 +107,35 @@ GET
     "results": [
       {
         "__metadata": {
-          "uri": "{CellURL}{BoxName}/{ODataCollecitonName}/$metadata
-/ComplexType('{ComplexTypeName}')",
+          "uri": "https://cell1.unit1.example/box1/odata-collection1/$metadata
+/ComplexType('complex-type1')",
           "etag": "W/\"1-1487586982792\"",
           "type": "ODataSvcSchema.ComplexType"
         },
-        "Name": "{ComplexTypeName}",
+        "Name": "complex-type1",
         "__published": "/Date(1487586982792)/",
         "__updated": "/Date(1487586982792)/",
         "_ComplexTypeProperty": {
           "__deferred": {
-            "uri": "{CellURL}{BoxName}/{ODataCollecitonName}/$metadata
-/ComplexType('{ComplexTypeName}')/_ComplexTypeProperty"
+            "uri": "https://cell1.unit1.example/box1/odata-collection1/$metadata
+/ComplexType('complex-type1')/_ComplexTypeProperty"
           }
         }
       },
       {
         "__metadata": {
-          "uri": "{CellURL}{BoxName}/{ODataCollecitonName}/$metadata
-/ComplexType('{ComplexTypeName}')",
+          "uri": "https://cell1.unit1.example/box1/odata-collection1/$metadata
+/ComplexType('complex-type2')",
           "etag": "W/\"1-1487650447372\"",
           "type": "ODataSvcSchema.ComplexType"
         },
-        "Name": "{ComplexTypeName}",
+        "Name": "complex-type2",
         "__published": "/Date(1487650447372)/",
         "__updated": "/Date(1487650447372)/",
         "_ComplexTypeProperty": {
           "__deferred": {
-            "uri": "{CellURL}{BoxName}/{ODataCollecitonName}/$metadata
-/ComplexType('{ComplexTypeName}')/_ComplexTypeProperty"
+            "uri": "https://cell1.unit1.example/box1/odata-collection1/$metadata
+/ComplexType('complex-type2')/_ComplexTypeProperty"
           }
         }
       }
@@ -150,7 +150,7 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}{BoxName}/{ODataCollecitonName}/\$metadata/ComplexType" -X \
-GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://cell1.unit1.example/box1/odata-collection1/\$metadata/ComplexType" -X GET -i \
+-H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json'
 ```
 

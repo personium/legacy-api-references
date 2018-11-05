@@ -59,5 +59,5 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}" -X GET -i -H 'Accept: text/html'
+curl "https://cell1.unit1.example/" -X GET -i -H 'Accept: text/html'
 ```

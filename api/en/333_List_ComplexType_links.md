@@ -117,7 +117,7 @@ The response is a JSON object, the correspondence between the key (name) and typ
 |:--|:--|:--|:--|
 |Root|d|object|Object{1}|
 |{1}|results|array|Array object {2}|
-|{2}|_uri|string|URI of the linked OData resource|
+|{2}|uri|string|URI of the linked OData resource|
 
 ### Error Messages
 
@@ -130,10 +130,12 @@ Refer to [Error Message List](004_Error_Messages.md)
   "d": {
     "results": [
       {
-        "uri": "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name=null)"
+        "uri": "https://cell1.unit1.example/box1/odata-collection1/$metadata/Property
+(Name='property1',_EntityType.Name='entity-type1')"
       },
       {
-        "uri": "{CellURL}__ctl/Role(Name='{RoleName}',_Box.Name='box1')"
+        "uri": "https://cell1.unit1.example/box1/odata-collection1/$metadata/Property
+(Name='property2',_EntityType.Name=null)"
       }
     ]
   }
@@ -144,7 +146,8 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}{BoxName}/{CollectionName}/$metadata/ComplexType('Address')\
-/$links/_Property" -X GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://cell1.unit1.example/box1/odata-collection1/$metadata/ComplexType('complex-type1')\
+/$links/_Property" -X GET -i -H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' \
+-H 'Accept: application/json'
 ```
 

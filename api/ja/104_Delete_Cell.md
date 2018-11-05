@@ -16,12 +16,12 @@ Cellに紐付くBox,Account,Role,ExtCell,ExtRole,Relationがある場合は409�
 ## リクエスト
 ### リクエストURL
 ```
-/_ctl/Cell(Name='{CellName}')
+{UnitURL}_ctl/Cell(Name='{CellName}')
 ```
 
 または、
 ```
-/_ctl/Cell('{CellName}')
+{UnitURL}_ctl/Cell('{CellName}')
 ```
 
 ### メソッド
@@ -63,7 +63,7 @@ DELETE
 ## cURLサンプル
 
 ```sh
-curl "https://{UnitFQDN}/__ctl/Cell(Name='{CellName}')" -X DELETE -i -H 'If-Match: *' -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://unit1.example/__ctl/Cell(Name='cell1')" -X DELETE -i -H 'If-Match: *' -H \
+'Authorization: Bearer PEFzc2V...(省略)...lvbj4' -H 'Accept: application/json'
 ```
 

@@ -18,19 +18,22 @@ delete Role $links associated with ExtRole
 ### Request URL
 
 ```
-{CellURL}__ctl/ExtRole(ExtRole='{ExtRoleURL}')/$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')
+{CellURL}__ctl/ExtRole(ExtRole='https%3A%2F%2F{CellName}.{UnitFQDN}%2F__role%2F__%2F{RoleName}',
+_Relation.Name='{RelationName}')/$links/_Role(Name='{RoleName}',_Box.Name='{BoxName}')
 ```
 
 or
 
 ```
-{CellURL}__ctl/ExtRole(ExtRole='{ExtRoleURL}')/$links/_Role(Name='{RoleName}')
+{CellURL}__ctl/ExtRole(ExtRole='https%3A%2F%2F{CellName}.{UnitFQDN}%2F__role%2F__%2F{RoleName}',
+_Relation.Name='{RelationName}')/$links/_Role(Name='{RoleName}')
 ```
 
 or
 
 ```
-{CellURL}__ctl/ExtRole(ExtRole='{ExtRoleURL}')/$links/_Role('{RoleName}')
+{CellURL}__ctl/ExtRole(ExtRole='https%3A%2F%2F{CellName}.{UnitFQDN}%2F__role%2F__%2F{RoleName}',
+_Relation.Name='{RelationName}')/$links/_Role('{RoleName}')
 ```
 
 \* URL encoding required for {ExtRoleURL}  
@@ -87,9 +90,10 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}__ctl/ExtRole(ExtRole='https%3A%2F%2F{UnitFQDN}%2F{CellName}\
-%2F__role%2F__%2F{ExtRoleName}',_Relation.Name='{RelationName}',_Relation._Box.Name='{BoxName}')\
-/\$links/_Role('{RoleName}')" -X DELETE -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://cell1.unit1.example/__ctl/ExtRole(ExtRole='https%3A%2F%2Fcell2.unit1.example\
+%2F__role%2F__%2Frole1',_Relation.Name='relation1',_Relation._Box.Name='box1')\
+/\$links/_Role('role2')" -X DELETE -i -H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' -H \
+'Accept: application/json'
 ```
 
 

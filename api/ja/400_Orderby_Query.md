@@ -15,8 +15,8 @@ $orderby={propertyName} {option}, ・・・
 ## cURLサンプル
 例：セル情報をセル名の降順で取得する場合:
 ```sh
-curl "https://{UnitFQDN}/__ctl/Cell?\$orderby=Name%20desc" -X GET -i -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://unit1.example/__ctl/Cell?\$orderby=Name%20desc" -X GET -i -H \
+'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json'
 ```
 ## 動作詳細
 * null値を含む場合のソート順序  

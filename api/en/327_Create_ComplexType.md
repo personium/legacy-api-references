@@ -72,7 +72,7 @@ JSON
 ### Request Sample
 
 ```JSON
-{"Name": "Address"}
+{"Name": "complex-type1"}
 ```
 
 ## Response
@@ -130,12 +130,12 @@ The response is a JSON object, the correspondence between the key (name) and typ
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}{BoxName}/{ODataCollecitonName}/$metadata
-/ComplexType('{ComplexTypeName}')",
+        "uri": "https://cell1.unit1.example/box1/odata-collection1/$metadata
+/ComplexType('complex-type1')",
         "etag": "W/\"1-1487650447372\"",
         "type": "ODataSvcSchema.ComplexType"
       },
-      "Name": "{ComplexTypeName}",
+      "Name": "complex-type1",
       "__published": "/Date(1487650447372)/",
       "__updated": "/Date(1487650447372)/"
     }
@@ -150,8 +150,9 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}{BoxName}/{ODataCollecitonName}/\$metadata/ComplexType" -X \
-POST -i -H  'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d '{"Name": "{ComplexTypeName}"}'
-```
+curl "https://cell1.unit1.example/box1/odata-collection1/\$metadata/ComplexType" -X POST -i \
+-H  'Authorization: Bearer AA~PBDc...(snip)...FrTjA' -H 'Accept: application/json' \
+-d '{"Name": "complex-type1"}'
+````
 
 

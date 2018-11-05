@@ -107,47 +107,47 @@ GET
     "results": [
       {
         "__metadata": {
-          "uri": "{CellURL}{BoxName}/{ODataCollecitonName}/$metadata
-/EntityType('{EntityTypeName}')",
+          "uri": "https://cell1.unit1.example/box1/odata-collection1/$metadata
+/EntityType('entity-type1')",
           "etag": "W/\"1-1487586234224\"",
           "type": "ODataSvcSchema.EntityType"
         },
-        "Name": "{EntityTypeName}",
+        "Name": "entity-type1",
         "__published": "/Date(1487586234224)/",
         "__updated": "/Date(1487586234224)/",
         "_AssociationEnd": {
           "__deferred": {
-            "uri": "{CellURL}{BoxName}/{ODataCollecitonName}/$metadata
-/EntityType('{EntityTypeName}')/_AssociationEnd"
+            "uri": "https://cell1.unit1.example/box1/odata-collection1/$metadata
+/EntityType('entity-type1')/_AssociationEnd"
           }
         },
         "_Property": {
           "__deferred": {
-            "uri": "{CellURL}{BoxName}/{ODataCollecitonName}/$metadata
-/EntityType('{EntityTypeName}')/_Property"
+            "uri": "https://cell1.unit1.example/box1/odata-collection1/$metadata
+/EntityType('entity-type1')/_Property"
           }
         }
       },
       {
         "__metadata": {
-          "uri": "{CellURL}{BoxName}/{ODataCollecitonName}/$metadata/EntityType
-('{EntityTypeName}')",
+          "uri": "https://cell1.unit1.example/box1/odata-collection1/$metadata
+/EntityType('entity-type2')",
           "etag": "W/\"1-1487589344011\"",
           "type": "ODataSvcSchema.EntityType"
         },
-        "Name": "{EntityTypeName}",
+        "Name": "entity-type2",
         "__published": "/Date(1487589344011)/",
         "__updated": "/Date(1487589344011)/",
         "_AssociationEnd": {
           "__deferred": {
-            "uri": "{CellURL}{BoxName}/{ODataCollecitonName}/$metadata/EntityType
-('{EntityTypeName}')/_AssociationEnd"
+            "uri": "https://cell1.unit1.example/box1/odata-collection1/$metadata
+/EntityType('entity-type2')/_AssociationEnd"
           }
         },
         "_Property": {
           "__deferred": {
-            "uri": "{CellURL}{BoxName}/{ODataCollecitonName}/$metadata/EntityType
-('{EntityTypeName}')/_Property"
+            "uri": "https://cell1.unit1.example/box1/odata-collection1/$metadata
+/EntityType('entity-type2')/_Property"
           }
         }
       }
@@ -160,7 +160,7 @@ GET
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}{BoxName}/{OdataCollecitonName}/\$metadata/EntityType" -X \
-GET -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://cell1.unit1.example/box1/odata-collection1/\$metadata/EntityType" -X GET -i \
+-H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json'
 ```
 

@@ -175,7 +175,7 @@ The following shows an example of a request when acquiring, registering, updatin
 Content-Type: application/http
 Content-Transfer-Encoding:binary
 
-GET {CellURL}{BoxName}/{ODataCollecitonName}/{EntityTypeName}('0000')
+GET https://cell1.unit1.example/box1/collection1/entity-type1('0000')
 Accept-Encoding: gzip
 Accept: application/json
 Content-Length: 0
@@ -187,7 +187,7 @@ Content-Length: 608
 Content-Type: application/http
 Content-Transfer-Encoding: binary
 
-POST {CellURL}{BoxName}/{ODataCollecitonName}/{EntityTypeName}
+POST https://cell1.unit1.example/box1/odata-collection1/entity-type1
 Content-Type: application/json
 Content-Length: 41
 
@@ -197,7 +197,7 @@ Content-Length: 41
 Content-Type: application/http
 Content-Transfer-Encoding: binary
 
-PUT {CellURL}{BoxName}/{ODataCollecitonName}/{EntityTypeName}('0000')
+PUT https://cell1.unit1.example/box1/odata-collection1/entity-type1('0000')
 Content-Type: application/json
 Content-Length: 87
 If-Match: *
@@ -209,7 +209,7 @@ If-Match: *
 Content-Type: application/http
 Content-Transfer-Encoding:binary
 
-GET {CellURL}{BoxName}/{ODataCollecitonName}/{EntityTypeName}('0000')
+GET https://cell1.unit1.example/box1/odata-collection1/entity-type1('0000')
 Accept-Encoding: gzip
 Accept: application/json
 Content-Length: 0
@@ -221,7 +221,7 @@ Content-Length: 686
 Content-Type: application/http
 Content-Transfer-Encoding: binary
 
-POST {CellURL}{BoxName}/{ODataCollecitonName}/{EntityTypeName}('0001')/_log
+POST https://cell1.unit1.example/box1/odata-collection1/entity-type1('0001')/_log
 Content-Type: application/json
 Content-Length: 37
 
@@ -231,14 +231,14 @@ Content-Length: 37
 Content-Type: application/http
 Content-Transfer-Encoding: binary
 
-DELETE {CellURL}{BoxName}/{ODataCollecitonName}/{EntityTypeName}('0001')/_log
+DELETE https://cell1.unit1.example/box1/odata-collection1/entity-type1('0001')/_log
 Content-Length: 0
 If-Match: *
 --changeset_d4883767-a06e-4632-9608-ae952b443dfc
 Content-Type: application/http
 Content-Transfer-Encoding: binary
 
-DELETE {CellURL}{BoxName}/{ODataCollecitonName}/{EntityTypeName}('0000')
+DELETE https://cell1.unit1.example/box1/odata-collection1/entity-type1('0000')
 Content-Length: 0
 If-Match: *
 --changeset_d4883767-a06e-4632-9608-ae952b443dfc--
@@ -305,12 +305,14 @@ HTTP/1.1 201 Created
 Content-Type: application/json
 Content-Length: 425
 DataServiceVersion: 2.0
-Location: http://{UnitFQDN}:50280/api/context/xxx-ah,http%253A%252F%252FUnitFQDN%252Fds%252Fabc-web/odata/user('0000')
+Location: http://unit1.example:50280/api/context/xxx-ah,http%253A%252F%252FUnitFQDN%252Fds%252Fabc-web
+/odata/user('0000')
 {
   "d": {
     "Results": {
       "__metadata": {
-        "uri": "http://{UnitFQDN}/api/context/xxx-ah,http%253A%252F%252FUnitFQDN%252Fds%252Fvet-web/odata/user('0000')"
+        "uri": "http://unit1.example/api/context/xxx-ah,http%253A%252F%252FUnitFQDN%252Fds%252Fvet-web
+/odata/user('0000')"
         "etag": "W/\"1-1488184348000\"",
         "type": "UserData.user",
       },
@@ -348,7 +350,7 @@ Content-Type: application/json
   "d": {
     "results": {
       "__metadata": {
-        "uri": "{CellURL}{BoxName}/{ODataCollecitonName}/{EntityTypeName}('0000')"
+        "uri": "https://cell1.unit1.example/box1/odata-collection1/entity-type1('0000')"
         "etag": "W/\"1-1370248522812\"",
         "type": "UserData.user",
       },
@@ -358,7 +360,8 @@ Content-Type: application/json
       "name": "John Smith",
       "_log": {
         "__deferred": {
-          "uri": "{CellURL}{BoxName}/{ODataCollecitonName}/{EntityTypeName}('0000')/_log"
+          "uri": "https://cell1.unit1.example/box1/odata-collection1/entity-type1
+('0000')/_log"
         }
       }
     }
@@ -401,9 +404,9 @@ DataServiceVersion: 2.0
 curl command
 
 ```sh
-curl "{CellURL}{BoxName}/{ODataCollecitonName}/\$batch" -X POST -i -H \
-'Authorization: Bearer {AccessToken}' -H 'Content-Type:multipart/mixed; \
-boundary=batch_XAmu9BiJJLBa20sRWIq74jp2UlNAVueztqu' --data-binary @sample.txt
+curl "https://cell1.unit1.example/box1/odata-collection1/\$batch" -X POST -i -H \
+'Authorization: Bearer AA~PBDc...(snip)...FrTjA' -H 'Content-Type:multipart/mixed; boundary=\
+batch_XAmu9BiJJLBa20sRWIq74jp2UlNAVueztqu' --data-binary @sample.txt
 ```
 
 sample.txt
@@ -413,8 +416,8 @@ sample.txt
 Content-Type: application/http
 Content-Transfer-Encoding:binary
 
-GET {CellURL}{BoxName}/{ODataCollecitonName}/{EntityTypeName}('{EntityID}')
-Authorization: Bearer {AccessToken}
+GET https://cell1.unit1.example/box1/odata-collection1/entity-type1('{100-1_20101108-111352093}')
+Authorization: Bearer AA~PBDc...(snip)...FrTjA
 --batch_XAmu9BiJJLBa20sRWIq74jp2UlNAVueztqu
 Content-Type: multipart/mixed; boundary=changeset_76c10b01-3eaf-49c2-bdd7-9fe90df24159
 Content-Length: 608
@@ -423,7 +426,7 @@ Content-Length: 608
 Content-Type: application/http
 Content-Transfer-Encoding: binary
 
-POST {CellURL}{BoxName}/{ODataCollecitonName}/{EntityTypeName}
+POST https://cell1.unit1.example/box1/odata-collection1/entity-type1
 Content-Type: application/json
 Content-Length: 41
 

@@ -76,7 +76,7 @@ JSON
 ### Request Sample
 
 ```JSON
-{"uri":"https://{UnitFQDN}/Cell/__ctl/Box('{BoxName}')"}
+{"uri":"https://unit1.example/Cell/__ctl/Box('box1')"}
 ```
 
 
@@ -115,9 +115,10 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}{BoxName}/{OdataCollecitonPath}/$metadata/Property('property_nameName')\
-/$links/_EntityType" -X POST -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -d \
-'{"uri":"{CellURL}{BoxName}/{OdataCollecitonPath}/$metadata/EntityType('Profile')"}'
+curl "https://cell1.unit1.example/box1/odata-collection1/$metadata/Property\
+('property_nameName')/$links/_EntityType" -X POST -i -H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' -H \
+'Accept: application/json' -d \'{"uri":"https://cell1.unit1.example/box1\
+/odata-collection1/$metadata/EntityType('Profile')"}'
 ```
 
 

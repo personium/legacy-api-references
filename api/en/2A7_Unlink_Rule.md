@@ -61,6 +61,7 @@ None
 ## cURL Sample
 
 ```sh
-curl "{CellURL}__ctl/Rule(Name='{RuleName}',_Box.Name='{BoxName}')/\$links/_Box(Name='{BoxName}')" \
--X DELETE -i -H 'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://cell1.unit1.example/__ctl/Rule(Name='rule1',\
+_Box.Name='box1')/\$links/_Box(Name='box2')" \
+-X DELETE -i -H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' -H 'Accept: application/json'
 ```

@@ -49,8 +49,8 @@ JSON
 ```JSON
 {
   "Type":"authSchema",
-  "Object":"{CellURL}{BoxName}/service_name/token_keeper",
-  "Info":"[XXXX2033] Success schema authorization. cellUrl=https://{UnitFQDN}/keeper-d4a57bb26eae481486b07d06487051d1/"
+  "Object":"https://cell1.unit1.example/box1/service_name/token_keeper",
+  "Info":"[XXXX2033] Success schema authorization. cellUrl=https://keeper-d4a57bb26eae481486b07d06487051d1.unit1.example/"
 }
 ```
 
@@ -80,9 +80,12 @@ Refer to [Error Message List](004_Error_Messages.md)
 
 ## cURL Command
 ```sh
-curl "{CellURL}__event" -X POST -i -H 'Authorization: Bearer {AccessToken}' \
--H 'Accept: application/json' -d '{"Type":"authSchema", "Object":"{CellURL}{BoxName}/service_name/token_keeper", \
-"Info":"[XXXX2033] Success schema authorization. cellUrl=https://{UnitFQDN}/keeper-d4a57bb26eae481486b07d06487051d1/"}'
+curl "https://cell1.unit1.example/__event" -X POST -i \
+-H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' \
+-H 'Accept: application/json' \
+-d '{"Type":"authSchema", "Object":"https://cell1.unit1.example/box1/service_name/token_keeper", \
+"Info":"[XXXX2033] Success schema authorization. \
+cellUrl=https://keeper-d4a57bb26eae481486b07d06487051d1.unit1.example/"}'
 ```
 
 

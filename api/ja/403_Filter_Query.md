@@ -49,7 +49,7 @@
 ## cURLサンプル
 例：セル名がsampleのセルを取得する場合:
 ```sh
-curl "https://{UnitFQDN}/__ctl/Cell?\$filter=Name%20eq%20'sample'" -X GET -i -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json'
+curl "https://unit1.example/__ctl/Cell?\$filter=Name%20eq%20'sample'" -X GET -i -H \
+'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json'
 ```
 

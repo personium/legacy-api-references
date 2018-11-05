@@ -303,12 +303,12 @@ FromRole="TestEntity:TestAssociationEndFrom" ToRole="TestEntity:TestAssociationE
 ## cURLサンプル
 ### SchemaのAtom ServiceDocumentの場合
 ```sh
-curl "{CellURL}{BoxName}/{ODataCollecitonName}/\$metadata" -X GET -i -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept:application/atomsvc+xml'
+curl "https://cell1.unit1.example/box1/odata-collection1/\$metadata" -X GET -i -H \
+'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept:application/atomsvc+xml'
 ```
 ### ユーザデータの場合
 ```sh
-curl "{CellURL}{BoxName}/{ODataCollecitonName}/\$metadata" -X GET -i -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept:application/xml'
+curl "https://cell1.unit1.example/box1/odata-collection1/\$metadata" -X GET -i -H \
+'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept:application/xml'
 ```
 

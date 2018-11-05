@@ -61,8 +61,8 @@ PUT
 ## cURLサンプル
 
 ```sh
-curl "{CellURL}{BoxName}/{CollectionName}/__src/{ResourceName}" -X PUT -i  -H \
-'Authorization: Bearer {AccessToken}' -H 'Accept: application/json' -H \
+curl "https://cell1.unit1.example/box1/collection1/__src/{ResourceName}" -X PUT -i  -H \
+'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json' -H \
 'Content-Type:text/javascript' -d '【ファイル内容】'
 ```
 

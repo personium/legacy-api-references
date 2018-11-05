@@ -92,24 +92,25 @@ None
 Change the collection name ("/" at the end is mandatory)
 
 ```sh
-curl "{CellURL}{BoxName}/{OldCollectionName}/" -X MOVE -i -H \
-'Destination:{CellURL}{BoxName}/{NewCollectionName}/' -H 'Authorization: Bearer {AccessToken}'
+curl "https://cell1.unit1.example/box1/collection1/" -X MOVE -i \
+-H 'Destination:https://cell1.unit1.example/box1/collection2/' \
+-H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA'
 ```
 
 File name change
 
 ```sh
-curl "{CellURL}{BoxName}/{CollectionName}/{OldFileName}/" -X MOVE -i -H \
-'Destination:{CellURL}{BoxName}/{CollectionName}/{NewFileName}' -H \
-'Authorization: Bearer {AccessToken}'
+curl "https://cell1.unit1.example/box1/collection1/file1/" -X MOVE -i \
+-H 'Destination:https://cell1.unit1.example/box1/collection1/file2/' \
+-H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA'
 ```
 
 File move
 
 ```sh
-curl  "{CellURL}{BoxName}/{CollectionNameA}/{FileName}" -X MOVE -i -H \
-'Destination:{CellURL}{BoxName}/{CollectionNameB}/{FileName}' -H \
-'Authorization: Bearer {AccessToken}'
+curl  "https://cell1.unit1.example/box1/collection1/file1/" -X MOVE -i \
+-H 'Destination:https://cell1.unit1.example/box1/collection2/file1/' \
+-H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA'
 ```
 
 

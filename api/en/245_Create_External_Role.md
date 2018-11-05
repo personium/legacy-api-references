@@ -59,9 +59,9 @@ POST
 
 ```JSON
 {
-  "ExtRole": "{CellURL}__role/__/RoleName",
-  "_Relation.Name": "{RelationName}",
-  "_Relation._Box.Name": "{BoxName}"
+  "ExtRole": "https://cell2.unit1.example/__role/__/role1",
+  "_Relation.Name": "relation1",
+  "_Relation._Box.Name": "box1"  
 }
 ```
 
@@ -122,32 +122,15 @@ Refer to [Error Message List](004_Error_Messages.md)
 {
   "d": {
     "results": {
-      "__published": "/Date(1371010428917)/",
-      "_Relation._Box.Name": null,
-      "__updated": "/Date(1371010428917)/",
-      "_Relation.Name": "{RelationName}",
       "__metadata": {
-        "etag": "W/\"1-1371010428917\"",
-        "type": "CellCtl.ExtRole",
-        "uri": "{CellURL}__ctl/ExtRole(ExtRole='https%3A%2F%2F{UnitFQDN}%2F{CellName}
-%2F__role%2F__%2Froletest',_Relation.Name='relation',_Relation._Box.Name=null)"
-      },
-      "ExtRole": "{CellURL}__role/__/RoleName"
-    }
-  }
-}
-{
-  "d": {
-    "results": {
-      "__metadata": {
-        "uri": "{CellURL}__ctl/ExtRole(ExtRole='https%3A%2F%2F{UnitFQDN}%2F{CellName}
-%2F__role%2F__%2F{ExtRoleName}',_Relation.Name='{RelationName}',_Relation._Box.Name='{BoxName}')",
+        "uri": "https://cell1.unit1.example/__ctl/ExtRole(ExtRole='https%3A%2F%2Fcell2.unit1.example
+%2F__role%2F__%2Frole1',_Relation.Name='relation1',_Relation._Box.Name='box1')",
         "etag": "W/\"1-1486717404966\"",
         "type": "CellCtl.ExtRole"
       },
-      "ExtRole": "{CellURL}__role/__/{ExtRoleName}",
-      "_Relation.Name": "{RelationName}",
-      "_Relation._Box.Name": "{BoxName}",
+      "ExtRole": "https://cell2.unit1.example/__role/__/role1",
+      "_Relation.Name": "relation1",
+      "_Relation._Box.Name": "box1",
       "__published": "/Date(1486717404966)/",
       "__updated": "/Date(1486717404966)/"
     }
@@ -159,7 +142,8 @@ Refer to [Error Message List](004_Error_Messages.md)
 ## cURL Command
 
 ```sh
-curl "{CellURL}__ctl/ExtRole" -X POST -i -H 'Authorization: Bearer {AccessToken}' \
--H 'Accept: application/json' -d '{ "ExtRole": "{CellURL}__role/__/{ExtRoleName}", \
-"_Relation.Name": "{RelationName}", "_Relation._Box.Name": "{BoxName}"}'
+curl "https://cell1.unit1.example/__ctl/ExtRole" -X POST -i \
+-H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' -H 'Accept: application/json' \
+-d '{ "ExtRole": "https://cell2.unit1.example/__role/__/role1", "_Relation.Name": \
+"relation1", "_Relation._Box.Name": "box1"}'
 ```

@@ -130,7 +130,7 @@ Refer to [Error Message List](004_Error_Messages.md)
 
 ```sh
 curl "https://unit1.example/__ctl/Cell" -X POST -i \
--H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' \
+-H 'Authorization: Bearer PEFzc2V...(snip)...lvbj4' \
 -H 'Accept: application/json' -d '{"Name":"cell1"}'
 ```
 

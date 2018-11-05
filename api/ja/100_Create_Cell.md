@@ -101,7 +101,7 @@ JSON
 
 ```sh
 curl "https://unit1.example/__ctl/Cell" -X POST -i \
--H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' \
+-H 'Authorization: Bearer PEFzc2V...(省略)...lvbj4' \
 -H 'Accept: application/json' -d '{"Name":"cell1"}'
 ```
 

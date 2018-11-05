@@ -169,7 +169,7 @@ Refer to [Error Message List](004_Error_Messages.md)
         "endedAt": "",
         "episodeType": "care",
         "name": "episode",
-        "outcome": "Ž¡—Ã’†",
+        "outcome": "During treatment",
         "startedAt": "2010-11-08"
       },
       {

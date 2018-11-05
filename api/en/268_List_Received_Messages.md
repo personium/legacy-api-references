@@ -212,7 +212,7 @@ Refer to [Error Message List](004_Error_Messages.md)
         "__published": "/Date(1486638759669)/",
         "__updated": "/Date(1486688634556)/",
         "_Box": {
-         __deferred": {
+          "__deferred": {
             "uri": "https://cell1.unit1.example/__ctl/ReceivedMessage
 ('3afcc60e35fc49ee9a4e4f6c1ebee426')/_Box"
           }

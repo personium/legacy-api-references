@@ -141,6 +141,6 @@ Cell固有レスポンスボディ
 
 ```sh
 curl "https://unit1.example/__ctl/Cell" -X GET -i \
--H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json'
+-H 'Authorization: Bearer PEFzc2V...(省略)...lvbj4' -H 'Accept: application/json'
 ```
 

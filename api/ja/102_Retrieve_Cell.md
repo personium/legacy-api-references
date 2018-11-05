@@ -116,6 +116,6 @@ GET
 
 ```sh
 curl "https://unit1.example/__ctl/Cell('cell1')" -X GET -i -H \
-'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json'
+'Authorization: Bearer PEFzc2V...(省略)...lvbj4' -H 'Accept: application/json'
 ```
 

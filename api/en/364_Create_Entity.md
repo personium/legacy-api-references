@@ -181,7 +181,7 @@ Refer to [Error Message List](004_Error_Messages.md)
       "startedAt": "2010-11-08",
       "episodeType": "care",
       "endedAt": "",
-      "outcome": "Ž¡—Ã’†"
+      "outcome": "During treatment"
     }
   }
 }
@@ -194,5 +194,5 @@ Refer to [Error Message List](004_Error_Messages.md)
 curl "https://cell1.unit1.example/box1/odata-collection1/entity-type1" -X POST -i -H \
 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' -H 'Accept: application/json' -d '{"__id": "100-1_20101108-111352093",\
 "animalId": "100-1","name": "episode","startedAt": "2010-11-08","episodeType": "care","endedAt": \
-"","outcome": "Ž¡—Ã’†"}'
+"","outcome": "During treatment"}'
 ```

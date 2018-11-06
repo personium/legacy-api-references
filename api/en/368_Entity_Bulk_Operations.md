@@ -319,7 +319,7 @@ Location: http://unit1.example:50280/api/context/xxx-ah,http%253A%252F%252FUnitF
       "__id": "0000",
       "__published": "/Date(1488184348000)/",
       "__updated": "/Date(1488184348000)/",
-      "name": "田中 太郎"
+      "name": "John Smith"
       }
     }
   }
@@ -357,7 +357,7 @@ Content-Type: application/json
       "__id": "0000",
       "__published": "/Date(1370248522812)/",
       "__updated": "/Date(1370248522812)/",
-      "name": "田中 太郎",
+      "name": "John Smith",
       "_log": {
         "__deferred": {
           "uri": "https://cell1.unit1.example/box1/odata-collection1/entity-type1

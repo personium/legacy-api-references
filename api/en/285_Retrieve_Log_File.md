@@ -117,7 +117,7 @@ External Events
 
 ```
 2013-02-04T00:50:12.761Z,[INFO ],"Req_animal-access_1001","true","https://cell1.unit1.example/",
-"https://servicemanager.unit1.example/#admin","authSchema","https://cell1.unit1.example/box1/service_name/token_keeper",
+"https://unitadmin.unit1.example/#admin","authSchema","https://cell1.unit1.example/box1/service_name/token_keeper",
 "[XXXX2033] Success schema authorization. cellUrl=https://keeper-d4a57bb26eae481486b07d06487051d1.unit1.example/"
 ```
 

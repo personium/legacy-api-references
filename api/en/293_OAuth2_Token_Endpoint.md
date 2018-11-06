@@ -77,7 +77,7 @@ POST
 |Item Name|Overview|Format|Required|Effective Value|
 |:--|:--|:--|:--|:--|
 |Authorization|Specifies authentication information in the OAuth 2.0 format|Basic {String}|No|If you specify Base64 Encode value for {{Schema Authenticator's source URL}: {Token paid out from the schema authentication source}}, it becomes schema authentication<br>At the above setting, if there is a setting of client_id and client_secret in the request body, the setting of the authorization header takes precedence|
-|Accept|Specifies the response body format|application/x-www-form-urlencoded|No|[application/x-www-form-urlencoded]by default|
+|Content-Type|Specifies the request body format|application/x-www-form-urlencoded|No|[application/x-www-form-urlencoded]by default|
 
 ### Request Body
 

@@ -74,7 +74,7 @@ POST
 |項目名|概要|書式|必須|有効値|
 |:--|:--|:--|:--|:--|
 |Authorization|OAuth2.0形式で、認証情報を指定する|Basic {String}|×|{{アプリのスキーマURI}:{アプリ認証トークン}}をBase64Encodeした値を指定した場合、スキーマ認証になる<br>上記設定時、リクエストボディにclient_idとclient_secretの設定がある場合、Authorizationヘッダの設定が優先される|
-|Accept|レスポンスボディの形式を指定する|application/x-www-form-urlencoded|×|省略時は[application/x-www-form-urlencoded]として扱う|
+|Content-Type|リクエストボディの形式を指定する|application/x-www-form-urlencoded|×|省略時は[application/x-www-form-urlencoded]として扱う|
 
 ### リクエストボディ
 

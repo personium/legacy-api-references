@@ -71,6 +71,6 @@ DELETE
 
 ```sh
 curl "https://cell1.unit1.example/" -X DELETE -i -H 'X-Personium-Recursive: true' \
--H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json'
+-H 'Authorization: Bearer PEFzc2V...(省略)...lvbj4' -H 'Accept: application/json'
 ```
 

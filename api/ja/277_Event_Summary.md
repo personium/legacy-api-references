@@ -267,22 +267,22 @@ Roleを操作するとログがINFOレベルで出力されます。
 ##### 外部イベントの出力例
 ```
 2013-04-18T14:52:39.778Z,[ERROR],"Req_animal-access_1001","true",
-"https://app-cell1.unit1.example/","https://servicemanager.unit1.example/#admin","actionData",
+"https://app-cell1.unit1.example/","https://unitadmin.unit1.example/#admin","actionData",
 "/svc/token_keeper","resultData"
 2013-04-18T14:52:40.688Z,[INFO ],"Req_animal-access_2001","true",
-"https://app-cell1.unit1.example/","https://servicemanager.unit1.example/#admin","action",
+"https://app-cell1.unit1.example/","https://unitadmin.unit1.example/#admin","action",
 "/svc/token_keeper","result"
 2013-04-18T15:01:46.994Z,[INFO ],"Req_animal-access_2001","true",
-"https://app-cell1.unit1.example/","https://servicemanager.unit1.example/#admin","action",
+"https://app-cell1.unit1.example/","https://unitadmin.unit1.example/#admin","action",
 "/svc/token_keeper","result"
 2013-04-18T15:06:19.294Z,[ERROR],"Req_animal-access_1001","true",
-"https://app-cell1.unit1.example/","https://servicemanager.unit1.example/#admin","actionData",
+"https://app-cell1.unit1.example/","https://unitadmin.unit1.example/#admin","actionData",
 "/svc/token_keeper","resultData"
 2013-04-18T15:06:23.360Z,[INFO ],"Req_animal-access_2001","true",
-"https://app-cell1.unit1.example/","https://servicemanager.unit1.example/#admin","action",
+"https://app-cell1.unit1.example/","https://unitadmin.unit1.example/#admin","action",
 "/svc/token_keeper","result"
 2013-04-18T15:09:18.073Z,[ERROR],"Req_animal-access_1001","true",
-"https://app-cell1.unit1.example/","https://servicemanager.unit1.example/#admin","actionData",
+"https://app-cell1.unit1.example/","https://unitadmin.unit1.example/#admin","actionData",
 "/svc/token_keeper","resultData"
 ```
 ##### 内部イベントの出力例

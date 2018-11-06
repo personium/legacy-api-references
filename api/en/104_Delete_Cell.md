@@ -94,6 +94,6 @@ Refer to [Error Message List](004_Error_Messages.md)
 
 ```sh
 curl "https://unit1.example/__ctl/Cell(Name='cell1')" -X DELETE -i -H 'If-Match: *' -H \
-'Authorization: Bearer AA~PBDc...(snip)...FrTjA' -H 'Accept: application/json'
+'Authorization: Bearer PEFzc2V...(snip)...lvbj4' -H 'Accept: application/json'
 ```
 

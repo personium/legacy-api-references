@@ -1,4 +1,4 @@
-# Cross-Domain Policy File
+# Retrieve Cross-Domain Policy File
 
 ## Overview
 

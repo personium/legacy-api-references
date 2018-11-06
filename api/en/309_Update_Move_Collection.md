@@ -1,4 +1,4 @@
-# Move and rename collection
+# Move and Rename collection
 
 ## Overview
 

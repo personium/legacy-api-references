@@ -1,4 +1,4 @@
-# Get schema ($ metadata)
+# Retrieve schema ($ metadata)
 
 ## Overview
 

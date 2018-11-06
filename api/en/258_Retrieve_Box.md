@@ -1,4 +1,4 @@
-# Acquire Box
+# Retrieve Box
 
 ## Overview
 

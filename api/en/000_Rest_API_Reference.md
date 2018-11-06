@@ -132,7 +132,7 @@ Configured ACL can be retrieved together with other properties, by sending regul
 
 #### Message Manipulation
 
-* [Send a message](271_Send_Message.md)
+* [Send Message](271_Send_Message.md)
 * [Change Status](267_Received_Message_Approval.md) (Approve / Decline, etc.)
 
 |Cell Control Object|Operations|
@@ -159,14 +159,14 @@ Configured ACL can be retrieved together with other properties, by sending regul
 
 * [Retrieve Log File](285_Retrieve_Log_File.md)
 * [List of Log Files](284_Retrieve_Log_File_list.md)
-* [Meatadata of Log File](283_Log_File_Information_Acquisition.md)
+* [Retrieve Log File Information](283_Log_File_Information_Acquisition.md)
 * [Delete Log File](286_Delete_Log_File.md)
 
 ### Other functions
 #### Cell root access
 
-* [Get Cell Root](./200_Cell_Root.md)
-* [Get Cell Metadata](./296_Get_Cell_Metadata.md)
+* [Retrieve Cell Root](./200_Cell_Root.md)
+* [Retrieve Cell Metadata](./296_Get_Cell_Metadata.md)
 
 #### Exporting / Importing the contents inside the Cell
 
@@ -257,7 +257,7 @@ You can run the user logic for requests from any path under the collection.
 
 ||Create|Retrieve|Update|Delete|Other|
 |:--|:--|:--|:--|:--|:--|
-|Service Collection Source|[Create](381_Create_Service_Collection_Source.md)|[Retrieve](382_List_Service_Collection_Source.md)|[Apply Settings](380_Configure_Service_Collection.md)|[Delete](383_Delete_Service_Collection_Source.md)|[Service Execute](384_Service_Execution.md)|
+|Service Collection Source|[Create](381_Create_Service_Collection_Source.md)|[Retrieve](382_List_Service_Collection_Source.md)|[Apply Settings](380_Configure_Service_Collection.md)|[Delete](383_Delete_Service_Collection_Source.md)|[Execute Service](384_Service_Execution.md)|
 
 ## Common Information
 
@@ -281,4 +281,4 @@ You can run the user logic for requests from any path under the collection.
 
 #### [CORS Support](002_CORS_Support.md)
 
-#### [Cross Domain Policy File Retrieve](001_Cross_Domain_Policy_File.md)
+#### [Retrieve Cross Domain Policy File](001_Cross_Domain_Policy_File.md)

@@ -1,4 +1,4 @@
-# Acquire ReceivedMessage
+# Retrieve ReceivedMessage
 
 ## Overview
 

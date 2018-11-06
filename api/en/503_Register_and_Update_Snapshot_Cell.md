@@ -1,4 +1,4 @@
-# Cell snapshot file registration update
+# Create/Update Cell snapshot file 
 
 ## Overview
 

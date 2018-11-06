@@ -1,4 +1,4 @@
-# Get BoxURL
+# Retrieve BoxURL
 
 ## Overview
 

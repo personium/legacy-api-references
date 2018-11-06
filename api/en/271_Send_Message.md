@@ -1,4 +1,4 @@
-# SendMessage
+# Send Message
 
 ## Overview
 

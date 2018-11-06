@@ -1,4 +1,4 @@
-# Acquire ComplexType
+# Retrieve ComplexType
 
 ## Overview
 

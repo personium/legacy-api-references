@@ -1,4 +1,4 @@
-# Acquire Role
+# Retrieve Role
 
 ## Overview
 

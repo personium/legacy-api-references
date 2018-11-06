@@ -1,4 +1,4 @@
-# Register of other objects via Entity's Navigation Property
+# Create other objects via Entity's Navigation Property
 
 ## Overview
 

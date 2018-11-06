@@ -1,4 +1,4 @@
-# Get cell export status
+# Retrieve cell export status
 
 ## Overview
 

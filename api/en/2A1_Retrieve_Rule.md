@@ -1,4 +1,4 @@
-# Acquire Rule
+# Retrieve Rule
 ## Overview
 Acquire existing Rule information
 

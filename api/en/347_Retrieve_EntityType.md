@@ -1,4 +1,4 @@
-# Aquire EntityType
+# Retrieve EntityType
 
 ## Overview
 

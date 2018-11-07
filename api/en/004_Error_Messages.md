@@ -160,7 +160,7 @@
 |401|PR401-AU-0005|Authentication failed.||
 |401|PR401-AU-0006|Token parse error.||
 |401|PR401-AU-0007|Can not access with refresh token.||
-|401|PR401-AU-0008|Token dsig error.||
+|401|[PR401-AU-0008](./error/PR401-AU-0008.md)|Token dsig error.||
 |401|PR401-AU-0009|Authentication failed.||
 |401|PR401-AU-0010|Authentication failed.||
 |401|PR401-AU-0011|Authentication failed.||
@@ -190,7 +190,7 @@
 |500|PR500-SV-0005|Failed to search from datastore.||
 |500|PR500-SV-0006|Failed to update data store, and failed to rollback.||
 |500|PR500-SV-0007|Failed to update data store, and completed to rollback.||
-|503|PR503-SV-0001|Too many concurrent requests.||
+|503|[PR503-SV-0001](./error/PR503-SV-0001.md)|Too many concurrent requests.||
 |503|PR503-SV-0002|Server connection error.||
 |503|PR503-SV-0003|Server error. (Lock Manager) Data lock state unknown.||
 |503|PR503-SV-0004|Service is under maintenance [restoring].||

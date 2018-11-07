@@ -158,7 +158,7 @@
 |401|PR401-AU-0005|Authentication failed.||
 |401|PR401-AU-0006|Token parse error.||
 |401|PR401-AU-0007|Can not access with refresh token.||
-|401|PR401-AU-0008|Token dsig error.||
+|401|[PR401-AU-0008](./error/PR401-AU-0008.md)|Token dsig error.||
 |401|PR401-AU-0009|Authentication failed.||
 |401|PR401-AU-0010|Authentication failed.||
 |401|PR401-AU-0011|Authentication failed.||

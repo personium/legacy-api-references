@@ -212,27 +212,16 @@ WebDAVをベースとしたファイルシステム的な考え方のAPI群で�
 
 リレーショナルデータを扱うための特殊コレクションで、[コレクション作成](306_Create_Collection.md)操作時に特定のパラメタを与えることにより作成可能です。スキーマ定義操作として、いわゆるテーブルに相当するEntityTypeを定義することで、その中にテーブル状のデータを格納・管理することができます。
 
-#### データ操作
-後述スキーマ定義でEntityTypeを定義すると対応するEntitySetが利用可能となります。
-
-|ユーザ定義EntitySet|操作|
-|:--|:--|
-|基本操作|[作成](364_Create_Entity.md) &nbsp; &nbsp; [取得](366_Retrieve_Entity.md) &nbsp; &nbsp; [一覧取得](365_List_Entity.md) &nbsp; &nbsp; [更新](367_Update_Entity.md) &nbsp; &nbsp; [部分更新](369_Partial_Update_Entity.md) &nbsp; &nbsp; [削除](370_Delete_Entity.md) |
-|&nbsp; &nbsp; 他EntitySetのEntityとのリンク|[リンク](373_Link_User_Data.md) &nbsp; &nbsp; [リンク解除](376_Unlink_User_Data.md) &nbsp; &nbsp; [リンク一覧取得](374_List_User_Data_links.md) <br>リンク更新はありません。更新したい場合は削除して再作成してください。|
-|&nbsp; &nbsp; 紐づく他EntitySet操作|[作成](377_Create_Entity_Via_NP.md) &nbsp; &nbsp; [一覧取得](378_List_Entity_Via_NP.md)|
-
-
-##### [一括操作](368_Entity_Bulk_Operations.md)
-複数のオペレーションを一つのRESTリクエストにまとめて発行する機能です。アプリの性能確保のためには非常に重要なものです。
-
 #### スキーマ定義
 
 OData Service Collection には、スキーマ定義のためのOData Serviceが内包されています。この内包されたもうひとつのOData Service 上の Entity Set を操作することで、OData Service Collection の Entity Set やその中で扱うべき Property、Complex Propertyを定義したり、Entity Set 間の Association　を定義することができます。
 
 ##### スキーマ定義用 OData Service URL
+
 ```
 {ODataServiceURL}/$metadata/
 ```
+
 ##### スキーマ定義用 Entity Set
 
 |EntityType|操作|
@@ -258,13 +247,31 @@ OData Service Collection には、スキーマ定義のためのOData Serviceが
 
 
 #### サービスドキュメント取得/スキーマ取得
+
 ||取得|
 |:--|:--|
 |サービスドキュメント|[取得](317_Document_Acquisition_Service.md)|
 |スキーマ|[取得](316_User_Defined_Data_Schema.md)|
 
 
+#### データ操作
+
+スキーマ定義でEntityTypeを定義すると対応するEntitySetが利用可能となります。
+
+|ユーザ定義EntitySet|操作|
+|:--|:--|
+|基本操作|[作成](364_Create_Entity.md) &nbsp; &nbsp; [取得](366_Retrieve_Entity.md) &nbsp; &nbsp; [一覧取得](365_List_Entity.md) &nbsp; &nbsp; [更新](367_Update_Entity.md) &nbsp; &nbsp; [部分更新](369_Partial_Update_Entity.md) &nbsp; &nbsp; [削除](370_Delete_Entity.md) |
+|&nbsp; &nbsp; 他EntitySetのEntityとのリンク|[リンク](373_Link_User_Data.md) &nbsp; &nbsp; [リンク解除](376_Unlink_User_Data.md) &nbsp; &nbsp; [リンク一覧取得](374_List_User_Data_links.md) <br>リンク更新はありません。更新したい場合は削除して再作成してください。|
+|&nbsp; &nbsp; 紐づく他EntitySet操作|[作成](377_Create_Entity_Via_NP.md) &nbsp; &nbsp; [一覧取得](378_List_Entity_Via_NP.md)|
+
+
+##### [一括操作](368_Entity_Bulk_Operations.md)
+
+複数のオペレーションを一つのRESTリクエストにまとめて発行する機能です。アプリの性能確保のためには非常に重要なものです。
+
+
 ### Engine サービスコレクション
+
 PersoniumアプリケーションやCell利用者が作成したサーバサイドロジックを登録しこれを走行させることができます。  はじめに、ユーザロジックをファイルとして登録し、サービスコレクションの設定を行ってパスとの関連付けを行うことで、コレクション配下の任意のパスからのリクエストに対してユーザロジックを走行させることができます。
 
 ||作成・登録|取得|更新|削除|その他|

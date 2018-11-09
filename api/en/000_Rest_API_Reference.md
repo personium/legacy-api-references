@@ -185,9 +185,11 @@ Snapshot file can be operated with WebDAV interface.
 The Box Level API is a group of API's that reside on the following Box Root URL and serve for applications and others to manipulate their data.
 
 #### Box Root URL
+
 ```
 {CellURL}{BoxName}/
 ```
+
 Box Level API's are based on an idea of WebDAV file system.  Like ordinary file systems, it is possible to arrange / retrieve files, create / manage folders (collection), get list of files and folders, set / refer to access control, etc.
 
 Also, because it supports the following special collections, it can handle not only file-like data but also various forms of data.  
@@ -248,6 +250,16 @@ These special collections can be created in any path on the WebDAV space provide
 |:--|:--|
 |Service Document|[Retrieve](317_Document_Acquisition_Service.md)|
 |Schema|[Retrieve](316_User_Defined_Data_Schema.md)|
+
+#### Data Manipulation
+
+|User-defined Entity Set|Operations|
+|:--|:--|
+|Basic Operations|[Create](364_Create_Entity.md) &nbsp; &nbsp; [Retrieve](366_Retrieve_Entity.md) &nbsp; &nbsp; [Retrieve List](365_List_Entity.md) &nbsp; &nbsp; [Update](367_Update_Entity.md) &nbsp; &nbsp; [Partial Update](369_Partial_Update_Entity.md) &nbsp; &nbsp; [Delete](370_Delete_Entity.md) |
+|&nbsp; &nbsp; Linking with other objects|[Link](373_Link_User_Data.md) &nbsp; &nbsp; [Unlink](376_Unlink_User_Data.md) &nbsp; &nbsp; [List Links](374_List_User_Data_links.md) &nbsp; &nbsp; <br> There is no link update. If you want to update, delete it and recreate it.|
+|&nbsp; &nbsp; Bound Object Manipulation|[Create](377_Create_Entity_Via_NP.md) &nbsp; &nbsp; [Retrieve List](378_List_Entity_Via_NP.md)|
+
+* [Batch Operation](368_Entity_Bulk_Operations.md)
 
 
 ### Engine Service Collection

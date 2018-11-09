@@ -217,16 +217,6 @@ These special collections can be created in any path on the WebDAV space provide
 
 ### OData Service Collection
 
-#### Data Manipulation
-
-|User-defined Entity Set|Operations|
-|:--|:--|
-|Basic Operations|[Create](364_Create_Entity.md) &nbsp; &nbsp; [Retrieve](366_Retrieve_Entity.md) &nbsp; &nbsp; [Retrieve List](365_List_Entity.md) &nbsp; &nbsp; [Update](367_Update_Entity.md) &nbsp; &nbsp; [Partial Update](369_Partial_Update_Entity.md) &nbsp; &nbsp; [Delete](370_Delete_Entity.md) |
-|&nbsp; &nbsp; Linking with other objects|[Link](373_Link_User_Data.md) &nbsp; &nbsp; [Unlink](376_Unlink_User_Data.md) &nbsp; &nbsp; [List Links](374_List_User_Data_links.md) &nbsp; &nbsp; <br> There is no link update. If you want to update, delete it and recreate it.|
-|&nbsp; &nbsp; Bound Object Manipulation|[Create](377_Create_Entity_Via_NP.md) &nbsp; &nbsp; [Retrieve List](378_List_Entity_Via_NP.md)|
-
-* [Batch Operation](368_Entity_Bulk_Operations.md)
-
 #### Schema Definition
 
 ||Create|Retrieve|Update|Delete|Other|

@@ -20,7 +20,7 @@ write
 |:--|:--|:--|
 |{CellName}|Cell Name||
 |{BoxName}|Box Name||
-|{ResourcePath}|Path to resource|Valid values Number of digits:1-256<br>For multibyte characters, specify a percent-encoded character string(character code:UTF-8)|
+|{ResourcePath}|Path to resource|Valid values Number of digits:1-256<br>Specify a percent-encoded character string(character code:UTF-8)|
 
 ### Request Method
 

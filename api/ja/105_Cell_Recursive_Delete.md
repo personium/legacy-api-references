@@ -10,6 +10,7 @@
 	- ExtRole
 	- ReceivedMessage
 	- SentMessage
+	- Rule
 	- Collection
 	- AssociationEnd
 	- EntityType

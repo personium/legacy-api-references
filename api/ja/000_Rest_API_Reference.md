@@ -193,6 +193,7 @@ WebDAVをベースとしたファイルシステム的な考え方のAPI群で�
 |:--|:--|:--|
 |OData Service Collection|リレーショナルデータ||
 |Engine Service Collection|カスタマイズロジックの走行||
+|Stream Collection|データをストリームとして扱う||
 |CALDAV Collection|カレンダーデータ|未実装|
 |Link Collection|他のCellや他Boxの特定の領域へのエイリアス|未実装|
 
@@ -277,6 +278,14 @@ PersoniumアプリケーションやCell利用者が作成したサーバサイ�
 ||作成・登録|取得|更新|削除|その他|
 |:--|:--|:--|:--|:--|:--|
 |サービスコレクションソース|[作成](381_Create_Service_Collection_Source.md)|[取得](382_List_Service_Collection_Source.md)|[設定適用](380_Configure_Service_Collection.md)|[削除](383_Delete_Service_Collection_Source.md)|[サービス実行](384_Service_Execution.md)|
+
+### Stream コレクション
+
+ActiveMQなどのメッセージキューとの送受信を行うことを可能にするコレクションです。メッセージキューの送受信に使うqueueやtopicを設定することで、設定したqueueに対する送受信やtopicに対する送信が可能になります。topicの受信は、WebSocket接続により可能です。
+
+||操作|送信・受信|
+|:--|:--|:--|
+|Streamコレクション|[設定変更](386_Configure_Stream_Collection.md) &nbsp; &nbsp; [OPTIONS](390_Options_Stream_Collection.md)|[送信](387_Stream_Collection_Send.md) &nbsp; &nbsp; [受信](388_Stream_Collection_Receive.md) &nbsp; &nbsp; [WebSocket接続](389_Stream_Collection_Connect.md)|
 
 ## 共通情報
 

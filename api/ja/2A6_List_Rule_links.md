@@ -6,8 +6,8 @@ Ruleに紐付いたODataリソースを一覧取得する
 * Box
 
 ### 必要な権限
-rule-read
-box-read
+* rule-read
+* box-read
 
 ### 制限事項
 * レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはJSON形式とする
@@ -21,6 +21,7 @@ box-read
 
 ### メソッド
 GET
+
 ### リクエストクエリ
 以下のクエリパラメタが利用可能です。
 
@@ -58,6 +59,7 @@ GET
 |X-Personium-RequestKey|イベントログに出力するRequestKeyフィールドの値|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字|×|指定がない場合、PCS-${UNIX時間}を設定する|
 |Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
 |Accept|レスポンスボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
+
 ### リクエストボディ
 なし
 

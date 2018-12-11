@@ -17,13 +17,6 @@ V1.0系での制限
 {CellURL}{BoxName}/{ResourcePath}
 ```
 
-
-|パス|概要|備考|
-|:--|:--|:--|
-|{CellName}|セル名||
-|{BoxName}|ボックス名||
-|{ResourcePath}|リソースへのパス|有効値 桁数:1&#65374;256|
-
 ### メソッド
 PROPFIND
 
@@ -46,11 +39,13 @@ PROPFIND
 |X-HTTP-Method-Override|メソッドオーバーライド機能|任意|×|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用される|
 |X-Override|ヘッダオーバライド機能|${上書きするヘッダ名}:${値}|×|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定する|
 |X-Personium-RequestKey|イベントログに出力するRequestKeyフィールドの値|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字|×|指定がない場合、PCS-${UNIX時間}を設定する|
+
 #### 個別リクエストヘッダ
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
 |Depth|取得するリソースの階層|0:対象のリソース自身 <br>1:対象のリソースとそれの直下のリソース|○||
+
 ### リクエストボディ
 名前空間
 
@@ -90,12 +85,14 @@ DTD表記
 |コード|メッセージ|概要|
 |:--|:--|:--|
 |207|Multi-Status|成功|
+
 ### レスポンスヘッダ
 
 |ヘッダ名|概要|備考|
 |:--|:--|:--|
 |Content-Type|返却されるデータの形式||
 |DataServiceVersion|ODataのバージョン情報|正常にEntityが取得できた場合のみ返却する|
+
 ### レスポンスボディ
 名前空間
 
@@ -123,10 +120,11 @@ XMLの構造
 |getcontentlength|D:|要素|リソースのサイズ|リソースがファイルの場合のみ|
 |getcontenttype|D:|要素|リソースのcontenttype|リソースがファイルの場合のみ|
 |getlastmodified|D:|要素|リソース更新時刻||
-|resourcetype|D:|要素|リソースのタイプを表す。<br>collectionと、odataかserviceのいずれかが子となるか、子は空となる||
+|resourcetype|D:|要素|リソースのタイプを表す。<br>collectionと、odata、service、streamのいずれかが子となるか、子は空となる||
 |collection|D:|要素|リソースのタイプがコレクションであることを表す|リソースがWebDAVの場合、この要素のみが表示される|
 |odata|p:|要素|リソースのタイプがODataコレクションであることを表す|ODataコレクションの場合表示|
 |service|p:|要素|リソースのタイプがサービスコレクションであることを表す|Serviceコレクションの場合表示|
+|stream|p:|要素|リソースのタイプがStreamコレクションであることを表す|Streamコレクションの場合表示|
 |acl|D:|要素|リソースに設定されているACL設定|ACL設定を取得するためには、対象リソースに対するacl-read権限が必要<br>ACL要素以下の内容については、[Cell Level アクセス制御設定API](289_Cell_ACL.md)を参照|
 |base|xml:|属性|ACLのPrivilegeのBaseURL|CellへのPROPFINDの場合、デフォルトボックス（"__"）のリソースURL|
 
@@ -145,7 +143,7 @@ DTD表記
 <!ELEMENT getcontentlength (#PCDATA)>
 <!ELEMENT getcontenttype (#PCDATA)>
 <!ELEMENT getlastmodified (#PCDATA)>
-<!ELEMENT resourcetype ((collection, (odata or service) or EMPTY))>
+<!ELEMENT resourcetype ((collection, (odata or service or stream) or EMPTY))>
 <!ELEMENT collection EMPTY>
 <!ELEMENT acl (ace*)>
 ```
@@ -155,6 +153,7 @@ DTD表記
 ```dtd
 <!ELEMENT odata EMPTY>
 <!ELEMENT service EMPTY>
+<!ELEMENT stream EMPTY>
 ```
 
 
@@ -191,7 +190,7 @@ DTD表記
 
 ```sh
 curl "https://cell1.unit1.example/box1/{ResourcePath}" -X PROPFIND -i \
--H 'Depth:1' -H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json' \
+-H 'Depth:1' -H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' \
 -d '<?xml version="1.0" encoding="utf-8"?><D:propfind xmlns:D="DAV:"><D:allprop/></D:propfind>'
 ```
 

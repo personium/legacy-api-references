@@ -40,7 +40,7 @@ URLは、personium-localcellスキームによるURLであり、キーを含め�
 
 | リクエストURL | キーを含めたURL |
 |:--|:--|
-| http&#58;//personium/cell/box/col/entity | personium-localcell:/box/col/entity('0123') |
+| http&#58;//cell1.unit1.example/box/col/entity | personium-localcell:/box/col/entity('0123') |
 
 Objectにおけるキーは、正規化されています。正規化の例を以下に示します。
 
@@ -59,7 +59,7 @@ Infoは、基本的には、リクエストのレスポンスコードとリク�
 
 変更後のオブジェクトにアクセスするには、変更後のキーを使用して以下のURLにする必要があります。
 ```
-{CellURL}__ctl/Role(Name='role2', _Box.Name=null)
+personium-localcell:/__ctl/Role(Name='role2', _Box.Name=null)
 ```
 
 #### Cell Level API
@@ -202,6 +202,7 @@ xxxやyyyには、スキーマ定義用EntitySet名が入ります。
 * スクリプト実行
 * 中継
 * イベント中継
+* データ中継
 
 ### ルールとのマッチング
 下記表の通りに項目毎に判定を行い、すべての項目が合致した場合に、ルールに合致したと判定する。
@@ -350,10 +351,8 @@ Authorizationヘッダに以下のトークンが設定されます。
 | Subject | イベントのSubjectと同じ |
 | Schema | イベントのSchemaと同じ |
 
-\_p.as('client')によるアクセスが可能です。
-
-また、パスワード認証や、サービスコレクション設定にて、subjectを設定し、\_p.as('serviceSubject')を使用することも可能です。
-なお、serviceSubjectによるトークンは、Schemaとして、スクリプトが配置されているBoxのSchemaが設定されます。
+#### 事前設定
+スクリプトが実行できるように権限を設定しておく必要があります。
 
 ### 中継アクション
 中継アクションは、イベントの内容を渡して他Cellのサービスを実行します。
@@ -374,7 +373,7 @@ OData作成操作で中継する例
 | Action | relay ||
 | TargetUrl | personium-localunit:/otherCell/box/col/srv ||
 
-TypeおよびObjectが合致する内部イベントのとき、TargetUrlへ中継します。
+TypeおよびObjectが合致する内部イベントのとき、TargetUrlへイベントを中継します。
 
 #### スクリプトへのパラメータ
 スクリプト実行アクションと同じです。
@@ -386,10 +385,6 @@ Authorizationヘッダには、サービスを実行するためにトランス�
 |:--|:--|
 | Subject | イベントのSubjectと同じ |
 | Schema | イベントのSchemaと同じ |
-
-このトークンを利用してアクセスするのは避けたほうがよいでしょう。\_p.as('client')は利用できないものと考えてください。
-
-トークンが必要であれば、スクリプトにてパスワード認証を行うか、サービスコレクション設定にて、subjectを設定し、\_p.as('serviceSubject')を使用してください。
 
 #### 事前設定
 スクリプトが実行できるように権限を設定しておく必要があります。
@@ -497,3 +492,39 @@ cell2のbox2のSchemaは、https&#58;//app-cell1.unit1.example/とします。
 
 #### 事前設定
 外部イベント受付へのアクセスに必要な権限を設定しておく必要があります。
+
+### データ中継アクション
+データ中継アクションは、ODataとして書き込まれた内容をTargetUrlに書き込みます。
+イベントのTypeがodata.createのときは、TargetUrlにPOSTし、イベントのTypeがodata.update、odata.patchのときは、TargetUrlにPUTします。
+アクションは、relay.dataです。
+
+#### ルール例
+OData作成操作でデータ中継する例
+
+| 項目名 | 設定 | 備考 |
+|:--|:--|:--|
+| \_Box.Name | null ||
+| Name | relaydata\_odatacreate | 設定しなくてもよいです |
+| EventType | odata.create ||
+| EventSubject | null ||
+| EventObject | personium-localcell:/box/odatacol/entity ||
+| EventInfo | null ||
+| EventExternal | false ||
+| Action | relay.data ||
+| TargetUrl | personium-localunit:/otherCell/box/col/queue/name ||
+
+TypeおよびObjectが合致する内部イベントのとき、ODataとして書かれた内容をTargetUrlへ書き込みます。
+
+#### TargetUrlへのパラメータ
+ODataのレスポンスのresultsから、__metadata、__published、__updatedを削除したJSON Stringを渡します。
+
+#### TargetUrlへのトークン
+Authorizationヘッダには、トランスセルトークンが設定されています。
+
+| 項目名 | 設定値 |
+|:--|:--|
+| Subject | イベントのSubjectと同じ |
+| Schema | イベントのSchemaと同じ |
+
+#### 事前設定
+ODataのread権限、およびTargetUrlへの書き込み権限を設定しておく必要があります。

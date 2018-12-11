@@ -26,13 +26,11 @@ GET
 
 |クエリ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|p_cookie_peer|クッキー認証値|認証時にサーバから返却されたクッキー認証値|×|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する|_
+|p_cookie_peer|クッキー認証値|認証時にサーバから返却されたクッキー認証値|×|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する|
 
 [$select クエリ](406_Select_Query.md)
 
 [$expand クエリ](405_Expand_Query.md)
-
-[$format クエリ](404_Format_Query.md)
 
 [$filter クエリ](403_Filter_Query.md)
 
@@ -46,6 +44,8 @@ GET
 
 [全文検索(q)クエリ](408_Full_Text_Search_Query.md)
 
+※RuleとBoxは一対一なのでクエリを指定して件数を絞る必要はない。
+
 ### リクエストヘッダ
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
@@ -54,12 +54,14 @@ GET
 |X-Personium-RequestKey|イベントログに出力するRequestKeyフィールドの値|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字|×|指定がない場合、PCS-${UNIX時間}を設定する|
 |Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
 |Accept|レスポンスボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
+
 ### リクエストボディ
 なし
 
 ## レスポンス
 ### ステータスコード
 200
+
 ### レスポンスヘッダ
 |ヘッダ名|概要|備考|
 |:--|:--|:--|
@@ -67,6 +69,7 @@ GET
 |Access-Control-Allow-Origin|クロスドメイン通信許可ヘッダ|返却値は"*"固定|
 |Content-Type|返却されるデータの形式||
 |DataServiceVersion|ODataのバージョン||
+
 ### レスポンスボディ
 |オブジェクト|項目名|Data Type|備考|
 |:--|:--|:--|:--|
@@ -86,6 +89,7 @@ GET
 |{3}|type|string|CellCtl.Box|
 |{2}|Name|string|Box名|
 |{2}|Schema|string|Schema名|
+
 ## レスポンスサンプル
 ```JSON
 {
@@ -131,11 +135,11 @@ GET
   }
 }
 ```
+
 ### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
 
 ## cURLサンプル
-
 ```sh
 curl "https://cell1.unit1.example/__ctl/Rule(Name='rule1',_Box.Name='box1')/_Box" -X GET -i -H \
 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json'

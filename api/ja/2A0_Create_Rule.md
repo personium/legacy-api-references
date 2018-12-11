@@ -81,6 +81,7 @@ EventSubjectには、他CellのSubjectを設定することも可能ですが、
 |exec|エンジンscript が起動しPOSTメソッドでイベントデータが渡されます。|エンジンサービスのurl|-|
 |relay|イベントをTargetUrlにリレーします。|イベントの情報をリレーすべきリレー先Url|-|
 |relay.event|イベントをTargetUrlの外部イベント受付APIにリレーします。|イベントの情報をリレーすべきリレー先Cell URL|-|
+|relay.data|EventObjectのurlからデータをGETしTargetUrlにデータをPOSTします。|データをPOSTするurl|EventTypeはodata.create、odata.update、odata.patchのみ有効|
 |log|Eventを info レベルでログ出力します。|-|-|
 |log.info|Eventを info レベルでログ出力します。|-|-|
 |log.warn|Eventを warn レベルでログ出力します。|-|-|
@@ -97,11 +98,13 @@ EventSubjectには、他CellのSubjectを設定することも可能ですが、
 #### TargetUrl記述の規則
 |Action|\_Box.Name|TargetUrl|備考|
 |:--|:--|:--|:--|
-|exec|設定あり|personium-localbox:/{CollectionName}/{ServiceName}||
-|exec|設定なし|personium-localcell:/{BoxName}/{CollectionName}/{ServiceName}||
+|exec|設定あり|personium-localbox:/...||
+|exec|設定なし|personium-localcell:/...||
 |relay|設定あり|スキームがhttp,https,personium-localunit,personium-localcell,personium-localboxのURL|httpもしくはhttpsのURLの場合、personium-localunitで指定可能なURLの場合はエラーとなります。personium-localunitにて指定してください。|
 |relay|設定なし|スキームがhttp,https,personium-localunit,personium-localcellのURL|httpもしくはhttpsのURLの場合、personium-localunitで指定可能なURLの場合はエラーとなります。personium-localunitにて指定してください。|
-|relay.event||Cell URL<br>http&#58;//...<br>https&#58;//...<br>personium-localunit:{CellURL}<br>personium-localcell:/|httpもしくはhttpsのURLの場合、personium-localunitで指定可能なURLの場合はエラーとなります。personium-localunitにて指定してください。|
+|relay.event||{Cell URL}|httpもしくはhttpsのURLの場合、personium-localunitで指定可能なURLの場合はエラーとなります。personium-localunitにて指定してください。|
+|relay.data|設定あり|スキームがhttp,https,personium-localunit,personium-localcell,personium-localboxのURL|httpもしくはhttpsのURLの場合、personium-localunitで指定可能なURLの場合はエラーとなります。personium-localunitにて指定してください。|
+|relay.data|設定なし|スキームがhttp,https,personium-localunit,personium-localcellのURL|httpもしくはhttpsのURLの場合、personium-localunitで指定可能なURLの場合はエラーとなります。personium-localunitにて指定してください。|
 
 
 ### リクエストサンプル

@@ -16,6 +16,7 @@ rule
 ```
 {CellURL}__ctl/Rule
 ```
+
 ### メソッド
 POST
 
@@ -35,8 +36,8 @@ POST
 |Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
 |Content-Type|リクエストボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
 |Accept|レスポンスボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
-### リクエストボディ
 
+### リクエストボディ
 #### Format
 
 JSON
@@ -51,7 +52,7 @@ JSON
 |EventInfo|ルールをトリガーすべきイベントのEvent Info前方一致検査用文字列|Event info の値はイベントのタイプにより異なります。 任意の文字列を設定可能ですが、意味を持つ値はイベントタイプにより異なります。|×||
 |EventExternal|ルールをトリガーすべきイベントが外部イベントであるかどうかを表すフラグ|真偽値。外部イベントを検出したいときは true を設定してください。|×|デフォルト値 false|
 |Action|イベントがマッチしたときに起動すべきアクション|有効な値は以下の別表|〇||
-|TargetUrl|アクションに対する具体的なターゲットURL|Actionの値によって指定すべき値は変わります。規則は以下の別表 |×||
+|TargetUrl|アクションに対する具体的なターゲットURL|Actionの値によって指定すべき値は変わります。規則は以下の別表 |×|http、httpsスキームでの指定時は、フラグメントにより{CellURL}からの相対パスを指定してください。URLがPathBaseかFqdnBaseかにかかわらず、CellURLを特定するために利用します。<br>例えば、<br>https://cell1.unit1.example/box1/stream-collection1/queue/name <br>であれば、<br>https://cell1.unit1.example/box1/stream-collection1/queue/name#box1/stream-collection1/queue/name <br>と指定します。|
 
 #### タイマーイベント記述の規則
 | EventType | EventObject | EventExternal | 備考 |

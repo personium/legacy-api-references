@@ -34,4 +34,3 @@ APIリファレンスのリクエストURLで使われている変数につい�
 |{ServiceName}|Service名<br>Serviceを実行する際に用いられる|ServiceSource名から拡張子を除いたもの|
 |{QueueName}|Queue名|文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)は指定不|
 |{TopicName}|Topic名|文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)は指定不可|
-|{TopicFullName}|メッセージキューへ接続するtopic名|Stream Collectionにおけるtopic指定のパスの'/'を'.'に変更したものを指定<br>/cell/box/col/topic/nameであれば、cell.box.col.topic.name|

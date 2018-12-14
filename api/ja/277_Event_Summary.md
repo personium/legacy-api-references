@@ -344,7 +344,7 @@ function(request) {
 ```
 
 #### スクリプト実行時のトークン
-Authorizationヘッダに以下のトークンが設定されます。
+Authorizationヘッダにアクセストークンが設定されます。
 
 | 項目名 | 設定値 |
 |:--|:--|
@@ -495,8 +495,10 @@ cell2のbox2のSchemaは、https&#58;//app-cell1.unit1.example/とします。
 
 ### データ中継アクション
 データ中継アクションは、ODataとして書き込まれた内容をTargetUrlに書き込みます。
-イベントのTypeがodata.createのときは、TargetUrlにPOSTし、イベントのTypeがodata.update、odata.patchのときは、TargetUrlにPUTします。
 アクションは、relay.dataです。
+
+イベントのTypeがodata.createのときは、TargetUrlにPOSTし、イベントのTypeがodata.update、odata.patchのときは、TargetUrlにPUTします。
+PUTのときの{EntityID}は、イベントのObjectの{EntityID}を使用します。
 
 #### ルール例
 OData作成操作でデータ中継する例
@@ -516,10 +518,20 @@ OData作成操作でデータ中継する例
 TypeおよびObjectが合致する内部イベントのとき、ODataとして書かれた内容をTargetUrlへ書き込みます。
 
 #### TargetUrlへのパラメータ
-ODataのレスポンスのresultsから、__metadata、__published、__updatedを削除したJSON Stringを渡します。
+ODataのレスポンスのresultsから、\_\_metadata、\_\_published、\_\_updatedを削除したJSON Stringを渡します。\_\_idは、JSON Stringに含まれます。
+
+PUT時のTargetUrlは、イベントのObjectが以下であった場合、
+```
+    personium-localcell:/box/odatacol/entity('id1')
+```
+上記ルール例では、
+```
+    personium-localunit:/otherCell/box/col/queue/name('id1')
+```
+としてアクセスを行います。
 
 #### TargetUrlへのトークン
-Authorizationヘッダには、トランスセルトークンが設定されています。
+Authorizationヘッダには、アクセストークンもしくはトランスセルトークンが設定されています。
 
 | 項目名 | 設定値 |
 |:--|:--|
@@ -527,4 +539,4 @@ Authorizationヘッダには、トランスセルトークンが設定されて�
 | Schema | イベントのSchemaと同じ |
 
 #### 事前設定
-ODataのread権限、およびTargetUrlへの書き込み権限を設定しておく必要があります。
+ODataのread権限、およびTargetUrlへの書き込み権限(writeやsend)を設定しておく必要があります。

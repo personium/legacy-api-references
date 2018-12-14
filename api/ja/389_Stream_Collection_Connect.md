@@ -12,8 +12,23 @@ Stream Collectionのtopicへ送信されたデータをリアルタイムに受�
 
 ### 接続エンドポイントURL
 ```
-    wss://{UnitFQDN}/stream/{TopicFullName}
+    wss://{CellName}.{UnitFQDN}/__topic/{BoxName}/{Path}
 ```
+か
+```
+    wss://{UnitFQDN}/{CellName}/__topic/{BoxName}/{Path}
+```
+
+{Path}は、Stream Collectionの送信時のパスから{CellName}と{BoxName}を除いて、/を.に変更したものを指定します。
+例えば、送信時のURLが
+```
+    https://cell1.unit1.example/box1/stream-collection1/topic/name
+```
+のときは、WebSocket接続は、
+```
+    wss://cell1.unit1.example/__topic/box1/stream-collection1.topic.name
+```
+になります。
 
 まず上記URLにWebSocketでの接続を行ってください。アクセストークンを受け付ける状態となります。この状態ではアクセストークン送付以外のいかなるメッセージ送信も意味を持ちません。
 

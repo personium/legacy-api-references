@@ -3,9 +3,8 @@
 トークンの内容を取得するAPIのエンドポイントです。 RFC7662を実装しています。
 
 ### 必要な権限
-auth-read
-
-※Authorizationヘッダとリクエストのtokenで指定するトークンが同じでかつ、トークンのIssuerかAudienceがCellURLと等しい場合は、auth-readの権限がなくても結果を返します。
+なし
+※トークンのIssuerかAudienceがCellURLと等しい場合のみ結果を返します。
 
 ### 制限事項
 * リクエストヘッダのAcceptは無視される
@@ -20,17 +19,10 @@ auth-read
 ### メソッド
 POST
 
-### リクエストクエリ
-
-|クエリ名|概要|有効値|必須|備考|
-|:--|:--|:--|:--|:--|
-|p_cookie_peer|クッキー認証値|認証時にサーバから返却されたクッキー認証値|×|Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する|
-
 ### リクエストヘッダ
 
 |項目名|概要|書式|必須|有効値|
 |:--|:--|:--|:--|:--|
-|Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {Token}|×|※認証トークンは認証トークン取得APIで取得したアクセストークンかリフレッシュトークン|
 |Content-Type|リクエストボディの形式を指定する|application/x-www-form-urlencoded|×|省略時は[application/x-www-form-urlencoded]として扱う|
 |Accept|レスポンスボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
 
@@ -68,7 +60,7 @@ token=AA~(省略)
 |sub|トークンの主体|string|personiumではトークンのsubject|
 |aud|トークンのオーディエンス|string|personiumではトランスセルトークンにおけるtarget|
 |iss|トークンの発行者|string|トークンを発行したCellのURL|
-|personium_roles|トークンに含まれるロールのリスト|list of string|personium独自仕様|
+|p_roles|トークンに含まれるロールのリスト|list of string|personium独自仕様|
 
 ### レスポンスサンプル
 有効なトークンの場合
@@ -78,9 +70,9 @@ token=AA~(省略)
   "exp": 1544059820,
   "iat": 1543973420,
   "sub": "https://cell1.unit1.example/#account",
-  "aud": null,
+  "aud": "https://cell2.unit1.example/",
   "iss": "https://cell1.unit1.example/",
-  "personium_roles": []
+  "p_roles": ["https://cell1.unit1.example/__role/__/role1","https://cell1.unit1.example/__role/__/role2"]
 }
 ```
 無効なトークンの場合
@@ -97,6 +89,6 @@ token=AA~(省略)
 ```sh
 curl "https://cell1.unit1.example/__introspect" -X POST -i \
 -H 'Content-Type:application/x-www-form-urlencoded' \
--H 'Bearer AA~(省略)' \
+-H 'Accept:application/json' \
 -d 'token=RA~(省略)'
 ```

@@ -50,6 +50,7 @@ Cell Level API は、次のような機能で構成されます。
 * [OAuth2.0 認可エンドポイント](292_OAuth2_Authorization_Endpoint.md)
 * [OAuth2.0 トークンエンドポイント](293_OAuth2_Token_Endpoint.md)
 * [パスワード変更](294_Password_Change.md)
+* [OAuth2.0 Token Introspection](297_OAtuh2_Token_Introspection_Endpoint.md)
 
 #### Account (Cell制御オブジェクト)
 
@@ -281,7 +282,7 @@ PersoniumアプリケーションやCell利用者が作成したサーバサイ�
 
 ### Stream コレクション
 
-ActiveMQなどのメッセージキューとの送受信を行うことを可能にするコレクションです。メッセージキューの送受信に使うqueueやtopicを設定することで、設定したqueueに対する送受信やtopicに対する送信が可能になります。topicの受信は、WebSocket接続により可能です。
+メッセージキューとの送受信を行うことを可能にするコレクションです。メッセージキューの送受信に使うqueueやtopicを設定することで、設定したqueueに対する送受信やtopicに対する送信が可能になります。topicの受信は、WebSocket接続により可能です。
 
 ||操作|送信・受信|
 |:--|:--|:--|

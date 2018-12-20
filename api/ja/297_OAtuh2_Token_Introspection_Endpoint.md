@@ -2,10 +2,10 @@
 ## 概要
 トークンの内容を取得するAPIのエンドポイントです。 RFC7662を実装しています。
 
+トークンのIssuerかAudienceがCellURLと等しい場合のみ結果を返します。
+
 ### 必要な権限
 なし
-
-※トークンのIssuerかAudienceがCellURLと等しい場合のみ結果を返します。
 
 ### 制限事項
 * リクエストヘッダのAcceptは無視される
@@ -24,6 +24,7 @@ POST
 
 |項目名|概要|書式|必須|有効値|
 |:--|:--|:--|:--|:--|
+|Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {Token}<br>Basic {Base64String}|○|Bearerの場合、認証トークンは認証トークン取得APIで取得したアクセストークン。ユニットマスタートークンかユニットユーザトークン、もしくは、トークンのSchemaがリクエストボディで指定するtokenのSchemaと一致する場合のみtokenの情報を取得可能。<br>Basicの場合、ユーザ名とパスワードは、Unitの設定でIntrospection用に設定されたもの、もしくは、CellURLとトークンを指定。CellURLとトークンの場合は、クライアント認証がOKかつCellURLがtokenのSchemaと一致する場合のみtokenの情報を取得可能|
 |Content-Type|リクエストボディの形式を指定する|application/x-www-form-urlencoded|×|省略時は[application/x-www-form-urlencoded]として扱う|
 |Accept|レスポンスボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
 
@@ -89,6 +90,7 @@ token=AA~(省略)
 ## cURLサンプル
 ```sh
 curl "https://cell1.unit1.example/__introspect" -X POST -i \
+-H 'Authorization:Basic aHR(省略)'
 -H 'Content-Type:application/x-www-form-urlencoded' \
 -H 'Accept:application/json' \
 -d 'token=RA~(省略)'

@@ -33,6 +33,7 @@ PROPPATCH
 |:--|:--|:--|
 |DAV:|WebDAVの名前空間|D:|
 |urn&#58;x-personium:xmlns|Personium APIの名前空間|p:|
+
 ※ 参考prefixは以下表の可読性を高めるためのもので、このprefix文字列の使用を保証するものでも要求するものでもありません。
 
 

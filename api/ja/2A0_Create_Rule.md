@@ -82,7 +82,7 @@ EventSubjectには、他CellのSubjectを設定することも可能ですが、
 |exec|エンジンscript が起動しPOSTメソッドでイベントデータが渡されます。|エンジンサービスのurl|-|
 |relay|イベントをTargetUrlにリレーします。|イベントの情報をリレーすべきリレー先Url|-|
 |relay.event|イベントをTargetUrlの外部イベント受付APIにリレーします。|イベントの情報をリレーすべきリレー先Cell URL|-|
-|relay.data|EventObjectのurlからデータをGETしTargetUrlにデータをPOSTします。|データをPOSTするurl|EventTypeはodata.create、odata.update、odata.patchのみ有効|
+|relay.data|EventObjectのurlからデータを読み出しTargetUrlにデータを書込みます。|データを書き込むurl|EventTypeはodata.create、odata.update、odata.patchのみ有効|
 |log|Eventを info レベルでログ出力します。|-|-|
 |log.info|Eventを info レベルでログ出力します。|-|-|
 |log.warn|Eventを warn レベルでログ出力します。|-|-|

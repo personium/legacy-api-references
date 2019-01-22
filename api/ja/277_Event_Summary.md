@@ -580,4 +580,4 @@ Authorizationヘッダには、アクセストークンもしくはトランス�
 | Schema | イベントのSchemaと同じ |
 
 #### 事前設定
-ODataのread権限、およびTargetUrlへの書き込み権限(writeやsend)を設定しておく必要があります。
+ODataのread権限、およびTargetUrlへの書き込み権限(writeやstream-send)を設定しておく必要があります。

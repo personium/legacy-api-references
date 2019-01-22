@@ -6,7 +6,7 @@ Stream Collectionのtopicへ送信されたデータをリアルタイムに受�
 
 ### 必要な権限
 * read : topicの存在確認のため
-* receive : topicからデータを受信するため
+* stream-receive : topicからデータを受信するため
 
 ## 接続とセッション開始
 

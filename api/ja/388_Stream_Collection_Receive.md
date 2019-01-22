@@ -3,7 +3,7 @@
 Stream Collectionのqueueからデータを受信する
 
 ### 必要な権限
-receive
+stream-receive
 
 ### 制限事項
 * リクエストヘッダのAcceptは無視される

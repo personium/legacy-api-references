@@ -3,7 +3,7 @@
 Stream Collectionのqueueやtopicにデータを送信する
 
 ### 必要な権限
-send
+stream-send
 
 ## リクエスト
 ### リクエストURL

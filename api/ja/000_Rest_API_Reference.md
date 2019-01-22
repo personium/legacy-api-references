@@ -145,13 +145,15 @@ Cell Level API は、次のような機能で構成されます。
 
 #### イベント制御ルール　（Cell制御オブジェクト）
 
-イベントが発生したときに起動すべき処理を記述することができます。フィルタすべきイベントの条件とその際に起動すべき処理を記述します。記述可能な処理は、ログ出力、engineスクリプトの起動、他URLへのイベント情報のリレーです。
+イベントが発生したときに起動すべき処理を記述することができます。フィルタすべきイベントの条件とその際に起動すべき処理を記述します。記述可能な処理は、ログ出力、engineスクリプトの起動、他URLへのイベント情報やデータのリレーです。
 
 |Rule|操作|
 |:--|:--|
 |基本操作|[作成](2A0_Create_Rule.md) &nbsp; &nbsp; [取得](2A1_Retrieve_Rule.md) &nbsp; &nbsp; [一覧取得](2A2_List_Rule.md) &nbsp; &nbsp; [更新](2A3_Update_Rule.md) &nbsp; &nbsp; [削除](2A4_Delete_Rule.md) |
 |&nbsp; &nbsp; 他オブジェクトとのリンク|[リンク](2A5_Link_Rule.md) &nbsp; &nbsp; [リンク解除](2A7_Unlink_Rule.md) &nbsp; &nbsp; [リンク一覧取得](2A6_List_Rule_links.md) <br>リンク更新はありません。更新したい場合は削除して再作成してください。|
 |&nbsp; &nbsp; 紐づく他オブジェクト操作|[作成](2A8_Create_Obj_Via_Rule_NP.md) &nbsp; &nbsp; [一覧取得](2A9_List_Obj_Via_Rule_NP.md)|
+
+* [Rule内部情報一覧取得](2AA_List_Internal_Rule.md)
 
 #### イベントログ操作
 

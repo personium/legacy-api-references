@@ -70,8 +70,8 @@ privilegeタグ配下の権限設定の内容については、acl_model（[ア�
 |bind|D:|要素|メンバーURL追加権限|未対応|
 |unbind|D:|要素|メンバーURL削除権限|未対応|
 |exec|p:|要素|サービス実行権限||
-|send|p:|要素|サービス実行権限||
-|receive|p:|要素|サービス実行権限||
+|stream-send|p:|要素|ストリームへの送信権限||
+|stream-receive|p:|要素|ストリームの受信権限||
 
 
 DTD表記
@@ -100,8 +100,8 @@ or write-acl or exec or send or receive or bind or unbind)>
 ```dtd
 <!ATTLIST acl requireSchemaAuthz (none or public or confidential) #IMPLIED>
 <!ELEMENT exec EMPTY>   
-<!ELEMENT send EMPTY>   
-<!ELEMENT receive EMPTY>   
+<!ELEMENT stream-send EMPTY>   
+<!ELEMENT stream-receive EMPTY>   
 ```
 
 名前空間 xml:

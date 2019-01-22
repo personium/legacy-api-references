@@ -31,7 +31,7 @@ PersoniumのACL設定の対象はリソースであり、各リソースのURL�
 ||内容|対象のリソース|
 |:--|:--|:--|
 |セルレベルACL|セルへの設定や、セル制御オブジェクトのCRUDを制御する|セル|
-|ボックスレベルACL|Box配下のリソースへのCRUDを制御する|Box、WebDAVコレクション、ODataコレクション、Serviceコレクション<br>WebDAVコレクション配下のディレクトリ・ファイル|
+|ボックスレベルACL|Box配下のリソースへのCRUDを制御する|Box、WebDAVコレクション、ODataコレクション、Serviceコレクション、Streamコレクション<br>WebDAVコレクション配下のディレクトリ・ファイル|
 
 ## ace
 対象となるアクセス主体はPrincipal要素、権限付与はgrant要素で定義する。ace要素は複数設定が出来る。
@@ -225,8 +225,8 @@ ACL設定をPROPFINDで出力した際、xml:base属性は以下の様に出力�
 |bind|bind権限を有する。|write|※未サポート|
 |unbind|unbind権限を有する。|write|※未サポート|
 |exec|サービス実行権限を有する。※Personium独自実装|all|-|
-|send|Streamへの送信権限を有する。※Personium独自実装|all|PUT,POST,OPTIONS|
-|receive|Streamからの受信権限を有する。※Personium独自実装|all|GET,OPTIONS|
+|stream-send|Streamへの送信権限を有する。※Personium独自実装|all|PUT,POST,OPTIONS|
+|stream-receive|Streamからの受信権限を有する。※Personium独自実装|all|GET,OPTIONS|
 
 ##### 設定例
 

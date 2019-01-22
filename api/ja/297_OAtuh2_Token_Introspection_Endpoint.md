@@ -90,7 +90,7 @@ token=AA~(省略)
 ## cURLサンプル
 ```sh
 curl "https://cell1.unit1.example/__introspect" -X POST -i \
--H 'Authorization:Basic aHR(省略)'
+-H 'Authorization:Basic username:password' \
 -H 'Content-Type:application/x-www-form-urlencoded' \
 -H 'Accept:application/json' \
 -d 'token=RA~(省略)'

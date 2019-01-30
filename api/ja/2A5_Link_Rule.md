@@ -16,7 +16,6 @@ Ruleに$linksで指定したODataリソースを紐付ける
 * リクエストヘッダのContent-Typeは全てapplication/jsonとして扱う
 * リクエストボディはJSON形式のみ受け付ける
 * レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはJSON形式とする
-* $formatクエリオプションは無視される
 
 ## リクエスト
 ### リクエストURL
@@ -48,6 +47,7 @@ POST
 |Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
 |Content-Type|リクエストボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
 |Accept|レスポンスボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
+
 ### リクエストボディ
 #### Format
 JSON

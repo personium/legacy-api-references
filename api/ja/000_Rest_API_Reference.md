@@ -50,6 +50,7 @@ Cell Level API は、次のような機能で構成されます。
 * [OAuth2.0 認可エンドポイント](292_OAuth2_Authorization_Endpoint.md)
 * [OAuth2.0 トークンエンドポイント](293_OAuth2_Token_Endpoint.md)
 * [パスワード変更](294_Password_Change.md)
+* [OAuth2.0 Token Introspection](297_OAtuh2_Token_Introspection_Endpoint.md)
 
 #### Account (Cell制御オブジェクト)
 
@@ -144,13 +145,15 @@ Cell Level API は、次のような機能で構成されます。
 
 #### イベント制御ルール　（Cell制御オブジェクト）
 
-イベントが発生したときに起動すべき処理を記述することができます。フィルタすべきイベントの条件とその際に起動すべき処理を記述します。記述可能な処理は、ログ出力、engineスクリプトの起動、他URLへのイベント情報のリレーです。
+イベントが発生したときに起動すべき処理を記述することができます。フィルタすべきイベントの条件とその際に起動すべき処理を記述します。記述可能な処理は、ログ出力、engineスクリプトの起動、他URLへのイベント情報やデータのリレーです。
 
 |Rule|操作|
 |:--|:--|
 |基本操作|[作成](2A0_Create_Rule.md) &nbsp; &nbsp; [取得](2A1_Retrieve_Rule.md) &nbsp; &nbsp; [一覧取得](2A2_List_Rule.md) &nbsp; &nbsp; [更新](2A3_Update_Rule.md) &nbsp; &nbsp; [削除](2A4_Delete_Rule.md) |
 |&nbsp; &nbsp; 他オブジェクトとのリンク|[リンク](2A5_Link_Rule.md) &nbsp; &nbsp; [リンク解除](2A7_Unlink_Rule.md) &nbsp; &nbsp; [リンク一覧取得](2A6_List_Rule_links.md) <br>リンク更新はありません。更新したい場合は削除して再作成してください。|
 |&nbsp; &nbsp; 紐づく他オブジェクト操作|[作成](2A8_Create_Obj_Via_Rule_NP.md) &nbsp; &nbsp; [一覧取得](2A9_List_Obj_Via_Rule_NP.md)|
+
+* [Rule内部情報一覧取得](2AA_List_Internal_Rule.md)
 
 #### イベントログ操作
 
@@ -193,6 +196,7 @@ WebDAVをベースとしたファイルシステム的な考え方のAPI群で�
 |:--|:--|:--|
 |OData Service Collection|リレーショナルデータ||
 |Engine Service Collection|カスタマイズロジックの走行||
+|Stream Collection|データをストリームとして扱う||
 |CALDAV Collection|カレンダーデータ|未実装|
 |Link Collection|他のCellや他Boxの特定の領域へのエイリアス|未実装|
 
@@ -277,6 +281,14 @@ PersoniumアプリケーションやCell利用者が作成したサーバサイ�
 ||作成・登録|取得|更新|削除|その他|
 |:--|:--|:--|:--|:--|:--|
 |サービスコレクションソース|[作成](381_Create_Service_Collection_Source.md)|[取得](382_List_Service_Collection_Source.md)|[設定適用](380_Configure_Service_Collection.md)|[削除](383_Delete_Service_Collection_Source.md)|[サービス実行](384_Service_Execution.md)|
+
+### Stream コレクション
+
+メッセージキューとの送受信を行うことを可能にするコレクションです。メッセージキューの送受信に使うqueueやtopicを設定することで、設定したqueueに対する送受信やtopicに対する送信が可能になります。topicの受信は、WebSocket接続により可能です。
+
+||操作|送信・受信|
+|:--|:--|:--|
+|Streamコレクション|[設定変更](386_Configure_Stream_Collection.md) &nbsp; &nbsp; [OPTIONS](390_Options_Stream_Collection.md)|[送信](387_Stream_Collection_Send.md) &nbsp; &nbsp; [受信](388_Stream_Collection_Receive.md) &nbsp; &nbsp; [WebSocket接続](389_Stream_Collection_Connect.md)|
 
 ## 共通情報
 

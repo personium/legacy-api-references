@@ -40,7 +40,7 @@ URLは、personium-localcellスキームによるURLであり、キーを含め�
 
 | リクエストURL | キーを含めたURL |
 |:--|:--|
-| http&#58;//personium/cell/box/col/entity | personium-localcell:/box/col/entity('0123') |
+| http&#58;//cell1.unit1.example/box/col/entity | personium-localcell:/box/col/entity('0123') |
 
 Objectにおけるキーは、正規化されています。正規化の例を以下に示します。
 
@@ -59,7 +59,7 @@ Infoは、基本的には、リクエストのレスポンスコードとリク�
 
 変更後のオブジェクトにアクセスするには、変更後のキーを使用して以下のURLにする必要があります。
 ```
-{CellURL}__ctl/Role(Name='role2', _Box.Name=null)
+personium-localcell:/__ctl/Role(Name='role2', _Box.Name=null)
 ```
 
 #### Cell Level API
@@ -89,6 +89,17 @@ xxxやyyyには、Cell制御オブジェクト名が入ります。
 * ReceivedMessage
 * Rule
 
+##### アクセス制御
+
+|| 操作 | Type | Object | Info | 備考 |
+|:--|:--|:--|:--|:--|:--|
+| Cell | ACL設定 | cell.acl | personium-localcell:/ | 200 ||
+|| プロパティ取得 | cell.propfind | personium-localcell:/ | 207 ||
+|| プロパティ変更 | cell.proppatch | personium-localcell:/ | 207 ||
+| Box | ACL設定 | box.acl | URL | 200 ||
+|| プロパティ取得 | box.propfind | URL | 207 ||
+|| プロパティ変更 | box.proppatch | URL | 207 ||
+
 ##### Boxインストール
 
 | 状態 | Type | Object | Info | 備考 |
@@ -108,6 +119,12 @@ BoxインストールによりCell制御オブジェクトの作成が実行さ�
 |:--|:--|:--|:--|:--|:--|
 | 基本操作 | 作成 | cellctl.xxx.create | キーを含めたURL | box install | |
 | 他オブジェクトとのリンク | リンク | cellctl.xxx.links.yyy.create | キーを含めたURL | box install | |
+
+##### Box再帰削除
+
+| Type | Object | Info | 備考 |
+|:--|:--|:--|:--|
+| box.delete | URL | 204 ||
 
 ##### Cell間のメッセージ交換
 
@@ -151,8 +168,32 @@ BoxインストールによりCell制御オブジェクトの作成が実行さ�
 
 || 操作 | Type | Object | Info | 備考 |
 |:--|:--|:--|:--|:--|:--|
-| 基本操作 | 登録更新 | davfile.update | URL | 204 ||
+| WebDav Collection | 作成 | webdavcol.mkcol | URL | 201 ||
+|| ACL設定 | webdavcol.acl | URL | 200 ||
+|| プロパティ取得 | webdavcol.propfind | URL | 207 ||
+|| プロパティ変更 | webdavcol.proppatch | URL | 207 ||
+|| 削除 | webdavcol.delete | URL | 204 ||
+| OData Service Collection | 作成 | odatacol.mkcol | URL | 201 ||
+|| ACL設定 | odatacol.acl | URL | 200 ||
+|| プロパティ取得 | odatacol.propfind | URL | 207 ||
+|| プロパティ変更 | odatacol.proppatch | URL | 207 ||
+|| 削除 | odatacol.delete | URL | 204 ||
+| Engine Service Collection | 作成 | servicecol.mkcol | URL | 201 ||
+|| ACL設定 | servicecol.acl | URL | 200 ||
+|| プロパティ取得 | servicecol.propfind | URL | 207 ||
+|| プロパティ変更 | servicecol.proppatch | URL | 207 ||
+|| 削除 | servicecol.delete | URL | 204 ||
+| Stream Collection | 作成 | streamcol.mkcol | URL | 201 ||
+|| ACL設定 | streamcol.acl | URL | 200 ||
+|| プロパティ取得 | streamcol.propfind | URL | 207 ||
+|| プロパティ変更 | streamcol.proppatch | URL | 207 ||
+|| 削除 | streamcol.delete | URL | 204 ||
+| ファイル | 登録 | davfile.create | URL | 201 ||
+|| 更新 | davfile.update | URL | 204 ||
 || 取得 | davfile.get | URL | 200 ||
+|| ACL設定 | davfile.acl | URL | 200 ||
+|| プロパティ取得 | davfile.propfind | URL | 207 ||
+|| プロパティ変更 | davfile.proppatch | URL | 207 ||
 || 削除 | davfile.delete | URL | 204 ||
 
 ##### ODataサービスコレクション
@@ -202,6 +243,7 @@ xxxやyyyには、スキーマ定義用EntitySet名が入ります。
 * スクリプト実行
 * 中継
 * イベント中継
+* データ中継
 
 ### ルールとのマッチング
 下記表の通りに項目毎に判定を行い、すべての項目が合致した場合に、ルールに合致したと判定する。
@@ -212,7 +254,7 @@ xxxやyyyには、スキーマ定義用EntitySet名が入ります。
 | Schema | \_Box.NameのBoxのSchema | 完全一致 | \_Box.Nameがnullのときは合致と判定 |
 | RequestKey || 判定に使用しません ||
 | External | EventExternal | 完全一致 ||
-| Type | EventType | 前方一致 | EventTypeがnullのときは合致と判定 |
+| Type | EventType | 前方一致もしくは後方一致 | .で始まるEventTypeのときは後方一致で、それ以外は前方一致。<br>EventTypeがnullのときは合致と判定 |
 | Object | EventObject | 前方一致 | EventObjectがnullのときは合致と判定 |
 | Info | EventInfo | 前方一致 | EventInfoがnullのときは合致と判定 |
 
@@ -343,17 +385,15 @@ function(request) {
 ```
 
 #### スクリプト実行時のトークン
-Authorizationヘッダに以下のトークンが設定されます。
+Authorizationヘッダにアクセストークンが設定されます。
 
 | 項目名 | 設定値 |
 |:--|:--|
 | Subject | イベントのSubjectと同じ |
 | Schema | イベントのSchemaと同じ |
 
-\_p.as('client')によるアクセスが可能です。
-
-また、パスワード認証や、サービスコレクション設定にて、subjectを設定し、\_p.as('serviceSubject')を使用することも可能です。
-なお、serviceSubjectによるトークンは、Schemaとして、スクリプトが配置されているBoxのSchemaが設定されます。
+#### 事前設定
+スクリプトが実行できるように権限を設定しておく必要があります。
 
 ### 中継アクション
 中継アクションは、イベントの内容を渡して他Cellのサービスを実行します。
@@ -374,7 +414,7 @@ OData作成操作で中継する例
 | Action | relay ||
 | TargetUrl | personium-localunit:/otherCell/box/col/srv ||
 
-TypeおよびObjectが合致する内部イベントのとき、TargetUrlへ中継します。
+TypeおよびObjectが合致する内部イベントのとき、TargetUrlへイベントを中継します。
 
 #### スクリプトへのパラメータ
 スクリプト実行アクションと同じです。
@@ -386,10 +426,6 @@ Authorizationヘッダには、サービスを実行するためにトランス�
 |:--|:--|
 | Subject | イベントのSubjectと同じ |
 | Schema | イベントのSchemaと同じ |
-
-このトークンを利用してアクセスするのは避けたほうがよいでしょう。\_p.as('client')は利用できないものと考えてください。
-
-トークンが必要であれば、スクリプトにてパスワード認証を行うか、サービスコレクション設定にて、subjectを設定し、\_p.as('serviceSubject')を使用してください。
 
 #### 事前設定
 スクリプトが実行できるように権限を設定しておく必要があります。
@@ -497,3 +533,51 @@ cell2のbox2のSchemaは、https&#58;//app-cell1.unit1.example/とします。
 
 #### 事前設定
 外部イベント受付へのアクセスに必要な権限を設定しておく必要があります。
+
+### データ中継アクション
+データ中継アクションは、ODataとして書き込まれた内容をTargetUrlに書き込みます。
+アクションは、relay.dataです。
+
+イベントのTypeがodata.createのときは、TargetUrlにPOSTし、イベントのTypeがodata.update、odata.patchのときは、TargetUrlにPUTします。
+PUTのときの{EntityID}は、イベントのObjectの{EntityID}を使用します。
+
+#### ルール例
+OData作成操作でデータ中継する例
+
+| 項目名 | 設定 | 備考 |
+|:--|:--|:--|
+| \_Box.Name | null ||
+| Name | relaydata\_odatacreate | 設定しなくてもよいです |
+| EventType | odata.create ||
+| EventSubject | null ||
+| EventObject | personium-localcell:/box/odatacol/entity ||
+| EventInfo | null ||
+| EventExternal | false ||
+| Action | relay.data ||
+| TargetUrl | personium-localunit:/otherCell/box/col/queue/name ||
+
+TypeおよびObjectが合致する内部イベントのとき、ODataとして書かれた内容をTargetUrlへ書き込みます。
+
+#### TargetUrlへのパラメータ
+ODataのレスポンスのresultsから、\_\_metadata、\_\_published、\_\_updatedを削除したJSON Stringを渡します。\_\_idは、JSON Stringに含まれます。
+
+PUT時のTargetUrlは、イベントのObjectが以下であった場合、
+```
+    personium-localcell:/box/odatacol/entity('id1')
+```
+上記ルール例では、
+```
+    personium-localunit:/otherCell/box/col/queue/name('id1')
+```
+としてアクセスを行います。
+
+#### TargetUrlへのトークン
+Authorizationヘッダには、アクセストークンもしくはトランスセルトークンが設定されています。
+
+| 項目名 | 設定値 |
+|:--|:--|
+| Subject | イベントのSubjectと同じ |
+| Schema | イベントのSchemaと同じ |
+
+#### 事前設定
+ODataのread権限、およびTargetUrlへの書き込み権限(writeやstream-send)を設定しておく必要があります。

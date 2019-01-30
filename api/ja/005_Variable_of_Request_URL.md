@@ -20,7 +20,7 @@ APIリファレンスのリクエストURLで使われている変数につい�
 |{LogName}|ログファイル名||
 |{MessageID}|MessageのID<br>MessageとはCell間で送受信可能なメッセージを指す||
 |{CollectionName}|Collection名<br>Collectionとは通常のファイルシステムでいうところのフォルダ・ディレクトリに相当する||
-|{ResourcePath}|リソースへのパス<br>Box配下のCollectionとファイルが対象となる||
+|{ResourcePath}|リソースへのパス<br>Box配下のCollectionとファイルが対象となる|有効値 桁数:1&#65374;256|
 |{OdataCollectionName}|OdataCollection名<br>OdataCollectionとはユーザがODataプロトコルで任意のリレーショナルデータを扱うための特殊WebDAV拡張コレクションを指す||
 |{EntityTypeName}|EntityType名<br>EntityTypeとはデータの構造をEntityDataModel(EDM)であらわすための定義体を指す|Entityの上位概念|
 |{AssociationEndName}|AssociationEnd名<br>AssociationEndとはAssociationを構成するエンドポイントとなっているEntityTypeを指す||
@@ -32,4 +32,5 @@ APIリファレンスのリクエストURLで使われている変数につい�
 |{NavigationPropertyName}|NavigationProperty名<br>NavigationPropertyとはEntityDataModelやODataのデータ構造において、Associationの一方のEndから別のEndへのナビゲーションを表すPropertyを指す||
 |{ServiceSourceName}|ServiceSource名<br>ServiceとはServiceCollectionに登録されたユーザ定義のサーバサイドロジックを指す||
 |{ServiceName}|Service名<br>Serviceを実行する際に用いられる|ServiceSource名から拡張子を除いたもの|
-
+|{QueueName}|Queue名|文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)は指定不|
+|{TopicName}|Topic名|文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)は指定不可|

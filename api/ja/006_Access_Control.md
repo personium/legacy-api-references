@@ -1,7 +1,7 @@
 # アクセス制御モデル
 
 ## ACL
-ACLによるアクセス主体へアクセス制御は、[WebDAV ACL](http://www.ietf.org/rfc/rfc3744)をロールベースアクセスコントロールに応用したもので行なっている。  
+ACLによるアクセス主体へアクセス制御は、[WebDAV ACL](https://www.ietf.org/rfc/rfc3744)をロールベースアクセスコントロールに応用したもので行なっている。  
 CellやBox・コレクション等にACLメソッドでACL設定をすることで、そのリソースへのアクセス権限を設定出来る。  
 基本的にはWebDAV ACLの仕様に準じるが、このページではPersonium独自の仕様について説明を行う。
 
@@ -31,7 +31,7 @@ PersoniumのACL設定の対象はリソースであり、各リソースのURL�
 ||内容|対象のリソース|
 |:--|:--|:--|
 |セルレベルACL|セルへの設定や、セル制御オブジェクトのCRUDを制御する|セル|
-|ボックスレベルACL|Box配下のリソースへのCRUDを制御する|Box、WebDAVコレクション、ODataコレクション、Serviceコレクション<br>WebDAVコレクション配下のディレクトリ・ファイル|
+|ボックスレベルACL|Box配下のリソースへのCRUDを制御する|Box、WebDAVコレクション、ODataコレクション、Serviceコレクション、Streamコレクション<br>WebDAVコレクション配下のディレクトリ・ファイル|
 
 ## ace
 対象となるアクセス主体はPrincipal要素、権限付与はgrant要素で定義する。ace要素は複数設定が出来る。
@@ -58,7 +58,7 @@ privilege:all
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
-<D:acl xmlns:D="DAV:" xml:base="http://fqdn/testcell1/__role/box1/"
+<D:acl xmlns:D="DAV:" xml:base="https://cell1.unit1.example/__role/box1/"
     xmlns:p="urn:x-personium:xmlns"
     p:requireSchemaAuthz="none">
   <D:ace>
@@ -89,7 +89,7 @@ Principalに設定するロールリソースURLを全て記述する
     p:requireSchemaAuthz="none">
   <D:ace>
     <D:principal>
-      <D:href>http://fqdn/testcell1/__role/box1/doctor</D:href>
+      <D:href>https://cell1.unit1.example/__role/box1/doctor</D:href>
     </D:principal>
     <D:grant>
       <D:privilege><D:read/></D:privilege>
@@ -98,7 +98,7 @@ Principalに設定するロールリソースURLを全て記述する
   </D:ace>
   <D:ace>
     <D:principal>
-      <D:href>http://fqdn/testcell1/__role/box2/guest</D:href>
+      <D:href>https://cell1.uni1.example/__role/box2/guest</D:href>
     </D:principal>
     <D:grant>
       <D:privilege><D:read/></D:privilege>
@@ -113,7 +113,7 @@ acl要素のxml:base属性にボックスまでのロールリソースURLを記
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
-<D:acl xmlns:D="DAV:" xml:base="http://fqdn/testcell1/__role/box1/"
+<D:acl xmlns:D="DAV:" xml:base="https://cell1.unit1.example/__role/box1/"
     xmlns:p="urn:x-personium:xmlns"
     p:requireSchemaAuthz="none">
   <D:ace>
@@ -179,7 +179,7 @@ ACL設定をPROPFINDで出力した際、xml:base属性は以下の様に出力�
 ```
 <?xml version="1.0" encoding="utf-8" ?>
 <D:acl xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns"
-    xml:base="https://example.com/cell/box">
+    xml:base="https://cell1.unit1.example/__role/box1/">
   <D:ace>
     <D:principal>
       <D:href>role10</D:href>
@@ -225,12 +225,14 @@ ACL設定をPROPFINDで出力した際、xml:base属性は以下の様に出力�
 |bind|bind権限を有する。|write|※未サポート|
 |unbind|unbind権限を有する。|write|※未サポート|
 |exec|サービス実行権限を有する。※Personium独自実装|all|-|
+|stream-send|Streamへの送信権限を有する。※Personium独自実装|all|PUT,POST,OPTIONS|
+|stream-receive|Streamからの受信権限を有する。※Personium独自実装|all|GET,OPTIONS|
 
 ##### 設定例
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
-<D:acl xmlns:D="DAV:" xml:base="http://fqdn/testcell1/__role/box1/"
+<D:acl xmlns:D="DAV:" xml:base="http://cell1.unit1.example/__role/box1/"
     xmlns:p="urn:x-personium:xmlns"
     p:requireSchemaAuthz="none">
   <D:ace>
@@ -264,11 +266,11 @@ ACL設定をPROPFINDで出力した際、xml:base属性は以下の様に出力�
 
 |リソースのタイプ|リソース名|リソースURL|
 |:--|:--|:--|
-|セル|cell|https&#58;//fqdn/cell|
-|ボックス|box|https&#58;//fqdn/cell/box|
-|WebDAVコレクション|webdav|https&#58;//fqdn/cell/box/webdav|
-|ディレクトリ|directory|https&#58;//fqdn/cell/box/webdav/directory|
-|ファイル|file|https&#58;//fqdn/cell/box/webdav/directory/file|
+|セル|cell|https&#58;//cell.unit1.example/|
+|ボックス|box|https&#58;//cell.unit1.example/box|
+|WebDAVコレクション|webdav|https&#58;//cell.unit1.example/box/webdav|
+|ディレクトリ|directory|https&#58;//cell.unit1.example/box/webdav/directory|
+|ファイル|file|https&#58;//cell.unit1.example/box/webdav/directory/file|
 
 上記のリソースに下記のACL設定を行った上で、各リソースへのアクセス時に適用される権限は以下のとおり。  
 
@@ -298,7 +300,7 @@ ACL設定をPROPFINDで出力した際、xml:base属性は以下の様に出力�
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
-<D:acl xmlns:D="DAV:" xml:base="http://localhost:8080/testcell1/__role/box1/"
+<D:acl xmlns:D="DAV:" xml:base="https://cell1.unit1.example/__role/box1/"
     xmlns:p="urn:x-personium:xmlns"
     p:requireSchemaAuthz="none">
   <D:ace>
@@ -326,11 +328,11 @@ ACL設定をPROPFINDで出力した際、xml:base属性は以下の様に出力�
 
 |リソースのタイプ|リソース名|リソースURL|
 |:--|:--|:--|
-|セル|cell|https&#58;//fqdn/cell|
-|ボックス|box|https&#58;//fqdn/cell/box|
-|WebDAVコレクション|webdav|https&#58;//fqdn/cell/box/webdav|
-|ディレクトリ|directory|https&#58;//fqdn/cell/box/webdav/directory|
-|ファイル|file|https&#58;//fqdn/cell/box/webdav/directory/file|
+|セル|cell|https&#58;//cell.unit1.example/|
+|ボックス|box|https&#58;//cell.unit1.example/box|
+|WebDAVコレクション|webdav|https&#58;//cell.unit1.example/box/webdav|
+|ディレクトリ|directory|https&#58;//cell.unit1.example/box/webdav/directory|
+|ファイル|file|https&#58;//cell.unit1.example/box/webdav/directory/file|
 
 上記のリソースに下記のACL設定を行った上で、各リソースへのアクセス時に適用される権限は以下のとおり。  
 

@@ -16,6 +16,7 @@ rule
 ```
 {CellURL}__ctl/Rule
 ```
+
 ### メソッド
 POST
 
@@ -35,8 +36,8 @@ POST
 |Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
 |Content-Type|リクエストボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
 |Accept|レスポンスボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
-### リクエストボディ
 
+### リクエストボディ
 #### Format
 
 JSON
@@ -45,13 +46,13 @@ JSON
 |:--|:--|:--|:--|:--|
 |\_Box.Name|ルールが紐づくべきBox名|有効な box名. このキーを指定しなかったりnull値を指定したリクエストは、いかなるBoxにも紐づかないRuleと解釈されます.|×||
 |Name|作成するルールを識別するため任意の名前|Boxに紐づく場合はBox内で一意、Boxに紐づかない場合はセルで一意である必要があります。|×|省略時は自動的にuuidが割り当たります|
-|EventType|ルールをトリガーするイベントのタイプの前方一致検査用文字列|Evnet Typeの値は、内部イベントでは[別表](277_Event_Summary.md)のようにTypeが定義されています。外部イベントでは任意のTypeを指定可能です。<br>時刻によってトリガーされるイベントタイプとして、timer.oneshotとtimer.periodicがあります。これらをタイマーイベントと呼びます。 |×||
+|EventType|ルールをトリガーするイベントのタイプの一致検査用文字列|Evnet Typeの値は、内部イベントでは[別表](277_Event_Summary.md)のようにTypeが定義されています。外部イベントでは任意のTypeを指定可能です。<br>時刻によってトリガーされるイベントタイプとして、timer.oneshotとtimer.periodicがあります。これらをタイマーイベントと呼びます。 |×|.ではじまる文字列の場合、後方一致でマッチングを行います。それ以外は前方一致でマッチングを行います。|
 |EventSubject|ルールをトリガーすべきイベントのEvent Subject一致検査用文字列|Event Subject はアカウントを表すURLになります。有効な値はその完全一致文字列となります。スキームとしては、http、https、personium-localunitが利用可能です。 |×|httpもしくはhttpsのURLの場合、personium-localunitで指定可能なURLの場合はエラーとなります。personium-localunitにて指定してください。|
 |EventObject|ルールをトリガーすべきイベントのEvent Object前方一致検査用文字列|Event object の値はイベントのタイプにより異なります。 任意の文字列を設定可能ですが、意味を持つ値はイベントタイプにより異なります。<br>イベントタイプがtimer.oneshotのときは、ルールをトリガーしたい時刻をエポックミリ秒で指定します。その時刻にこのルールがトリガーされます。イベントタイプがtimer.periodicのときは、ルールをトリガーしたい周期を分で指定します。周期的にこのルールがトリガーされます。 |×||
 |EventInfo|ルールをトリガーすべきイベントのEvent Info前方一致検査用文字列|Event info の値はイベントのタイプにより異なります。 任意の文字列を設定可能ですが、意味を持つ値はイベントタイプにより異なります。|×||
 |EventExternal|ルールをトリガーすべきイベントが外部イベントであるかどうかを表すフラグ|真偽値。外部イベントを検出したいときは true を設定してください。|×|デフォルト値 false|
 |Action|イベントがマッチしたときに起動すべきアクション|有効な値は以下の別表|〇||
-|TargetUrl|アクションに対する具体的なターゲットURL|Actionの値によって指定すべき値は変わります。規則は以下の別表 |×||
+|TargetUrl|アクションに対する具体的なターゲットURL|Actionの値によって指定すべき値は変わります。規則は以下の別表 |×|フラグメントは設定しても無視されます。|
 
 #### タイマーイベント記述の規則
 | EventType | EventObject | EventExternal | 備考 |
@@ -81,6 +82,7 @@ EventSubjectには、他CellのSubjectを設定することも可能ですが、
 |exec|エンジンscript が起動しPOSTメソッドでイベントデータが渡されます。|エンジンサービスのurl|-|
 |relay|イベントをTargetUrlにリレーします。|イベントの情報をリレーすべきリレー先Url|-|
 |relay.event|イベントをTargetUrlの外部イベント受付APIにリレーします。|イベントの情報をリレーすべきリレー先Cell URL|-|
+|relay.data|EventObjectのurlからデータを読み出しTargetUrlにデータを書込みます。|データを書き込むurl|EventTypeはodata.create、odata.update、odata.patchのみ有効|
 |log|Eventを info レベルでログ出力します。|-|-|
 |log.info|Eventを info レベルでログ出力します。|-|-|
 |log.warn|Eventを warn レベルでログ出力します。|-|-|
@@ -97,11 +99,13 @@ EventSubjectには、他CellのSubjectを設定することも可能ですが、
 #### TargetUrl記述の規則
 |Action|\_Box.Name|TargetUrl|備考|
 |:--|:--|:--|:--|
-|exec|設定あり|personium-localbox:/{CollectionName}/{ServiceName}||
-|exec|設定なし|personium-localcell:/{BoxName}/{CollectionName}/{ServiceName}||
+|exec|設定あり|personium-localbox:/...||
+|exec|設定なし|personium-localcell:/...||
 |relay|設定あり|スキームがhttp,https,personium-localunit,personium-localcell,personium-localboxのURL|httpもしくはhttpsのURLの場合、personium-localunitで指定可能なURLの場合はエラーとなります。personium-localunitにて指定してください。|
 |relay|設定なし|スキームがhttp,https,personium-localunit,personium-localcellのURL|httpもしくはhttpsのURLの場合、personium-localunitで指定可能なURLの場合はエラーとなります。personium-localunitにて指定してください。|
-|relay.event||Cell URL<br>http&#58;//...<br>https&#58;//...<br>personium-localunit:{CellURL}<br>personium-localcell:/|httpもしくはhttpsのURLの場合、personium-localunitで指定可能なURLの場合はエラーとなります。personium-localunitにて指定してください。|
+|relay.event||{Cell URL}|httpもしくはhttpsのURLの場合、personium-localunitで指定可能なURLの場合はエラーとなります。personium-localunitにて指定してください。|
+|relay.data|設定あり|スキームがhttp,https,personium-localunit,personium-localcell,personium-localboxのURL|httpもしくはhttpsのURLの場合、personium-localunitで指定可能なURLの場合はエラーとなります。personium-localunitにて指定してください。|
+|relay.data|設定なし|スキームがhttp,https,personium-localunit,personium-localcellのURL|httpもしくはhttpsのURLの場合、personium-localunitで指定可能なURLの場合はエラーとなります。personium-localunitにて指定してください。|
 
 
 ### リクエストサンプル

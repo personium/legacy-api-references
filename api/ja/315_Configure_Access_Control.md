@@ -21,12 +21,6 @@ write-acl
 {CellURL}{BoxName}/{ResourcePath}
 ```
 
-|パス|概要|備考|
-|:--|:--|:--|
-|{CellName}|セル名||
-|{BoxName}|ボックス名||
-|{ResourcePath}|リソースへのパス|有効値 桁数:1&#65374;256|
-
 ### メソッド
 ACL
 
@@ -75,7 +69,9 @@ privilegeタグ配下の権限設定の内容については、acl_model（[ア�
 |write-acl|D:|要素|ACL設定編集権限||
 |bind|D:|要素|メンバーURL追加権限|未対応|
 |unbind|D:|要素|メンバーURL削除権限|未対応|
-|exec|D:|要素|サービス実行権限||
+|exec|p:|要素|サービス実行権限||
+|stream-send|p:|要素|ストリームへの送信権限||
+|stream-receive|p:|要素|ストリームの受信権限||
 
 
 DTD表記
@@ -89,7 +85,7 @@ DTD表記
 <!ELEMENT href (#PCDATA)>
 <!ELEMENT all EMPTY>
 <!ELEMENT privilege (all or read or write or read-properties or write-properties or read-acl 
-or write-acl or exec or bind or unbind)>
+or write-acl or exec or send or receive or bind or unbind)>
 <!ELEMENT read EMPTY>
 <!ELEMENT write EMPTY>
 <!ELEMENT read-properties EMPTY>
@@ -98,13 +94,14 @@ or write-acl or exec or bind or unbind)>
 <!ELEMENT write-acl EMPTY>
 <!ELEMENT bind EMPTY>
 <!ELEMENT unbind EMPTY>
-<!ELEMENT exec EMPTY>
 ```
 
 名前空間 p:
 ```dtd
 <!ATTLIST acl requireSchemaAuthz (none or public or confidential) #IMPLIED>
 <!ELEMENT exec EMPTY>   
+<!ELEMENT stream-send EMPTY>   
+<!ELEMENT stream-receive EMPTY>   
 ```
 
 名前空間 xml:
@@ -133,6 +130,7 @@ or write-acl or exec or bind or unbind)>
     <D:grant>
       <D:privilege><D:read/></D:privilege>
       <D:privilege><D:write/></D:privilege>
+      <D:privilege><p:exec/></D:privilege>
     </D:grant>
   </D:ace>
 </D:acl>
@@ -145,11 +143,13 @@ or write-acl or exec or bind or unbind)>
 |コード|メッセージ|概要|
 |:--|:--|:--|
 |200|OK|成功|
+
 ### レスポンスヘッダ
 
 |ヘッダ名|概要|備考|
 |:--|:--|:--|
 |Content-Type|返却されるデータの形式|更新・作成時に失敗した場合のみ返却する|
+
 ### レスポンスボディ
 なし
 
@@ -167,4 +167,3 @@ xml:base="https://cell1.unit1.example/__role/box1/" xmlns:p="urn:x-personium:xml
 p:requireSchemaAuthz="none"><D:ace><D:principal><D:href>role1</D:href></D:principal><D:grant>\
 <D:privilege><D:read/></D:privilege><D:privilege><D:write/></D:privilege></D:grant></D:ace></D:acl>'
 ```
-

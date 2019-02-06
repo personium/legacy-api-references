@@ -7,7 +7,7 @@ Accountのパスワードに関する操作を行うAPI
 ※ アカウントに対する変更のため、UnitUserTokenではなく、アカウント認証によるCellLocalTokenが必須となる。
 
 ### 必要な権限
-Cell Level ACLのauth権限
+なし
 
 ## リクエスト
 ### リクエストURL

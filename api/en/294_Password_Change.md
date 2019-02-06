@@ -12,7 +12,7 @@ Change password of your account.
 
 ### Required Privileges
 
-Auth authority of cell-level ACL
+None
 
 
 ## Request

@@ -36,7 +36,7 @@ None
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
 |Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {CellLocalToken}|Yes|The authentication token is a cell local token acquired by the authentication token acquisition API|
-|X-Personium-Credential|Password after change|String|Yes|\* Follow the password restrictions of unit setting<br>The default is as follows<br>Number of character:6 - 32<br>Character type: Half size alphanumeric characters and following half-width symbol<br>-_!$\*=^`{&#124;}~.@|
+|X-Personium-Credential|Password after change|String|Yes|\* Follow the password restrictions of unit setting<br>The default is as follows<br>Number of character:6 - 32<br>Character type: Half size alphanumeric characters and following half-width symbol<br>-_!$\*=^\`{&#124;}~.@|
 
 ### Request Body
 

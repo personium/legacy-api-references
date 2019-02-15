@@ -33,13 +33,13 @@ POST
 |Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
 |Content-Type|リクエストボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
 |Accept|レスポンスボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
-|X-Personium-Credential|パスワード|文字列|×|文字数：6&#65374;32文字<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)|
+|X-Personium-Credential|パスワード|文字列|×|※unitの設定のパスワード制限に従う<br>デフォルトは以下の通り<br>文字数：6&#65374;32文字<br>文字種:半角英数字と下記半角記号<br>-_!$\*=^`{&#124;}~.@|
 ### リクエストボディ
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|Name|アカウント名|桁数：1&#65374;128<br>文字種:半角英数字と下記半角記号<br>-_!$*=^`{&#124;}~.@<br>ただし、先頭文字に半角記号は指定不可|○||
+|Name|アカウント名|桁数：1&#65374;128<br>文字種:半角英数字と下記半角記号<br>-_!$\*=^`{&#124;}~.@<br>ただし、先頭文字に半角記号は指定不可|○||
 |Type|アカウントタイプ|basic(ID/PWによる認証)<br>oidc:google(Google OpenID Connectによる認証)<br>または上記２つをスペースで区切る|×|デフォルト：basic|
-|LastAuthenticated|最終認証日時|/Date(【long型の時刻】)/の形式で文字列で指定する<br>【long型の時刻】の有効値は、-6847804800000(1753-01-01T00:00:00.000Z)&#65374;253402300799999(9999-12-31T23:59:59.999Z)|×|デフォルト：null|
+|IPAddressRange|IPアドレス帯|認証を許可するIPアドレス帯を指定する<br>カンマ区切りで複数指定、プレフィックス表記による範囲指定可<br>nullの場合は全てのIPアドレスで認証可とする|×|デフォルト：null|
 ### リクエストサンプル
 ID/PW認証用アカウント
 ```JSON
@@ -57,6 +57,12 @@ ID/PW認証＋Google認証用アカウント
 ```JSON
 {
   "Name": "account1","Type":"basic oidc:google"
+}
+```
+IPアドレス帯を設定
+```JSON
+{
+  "Name": "account1","IPAddressRange":"192.127.0.2,192.128.0.0/24"
 }
 ```
 
@@ -95,7 +101,7 @@ ID/PW認証＋Google認証用アカウント
 |:--|:--|:--|:--|
 |{3}|type|string|CellCtl.Account|
 |{2}|Name|string|Account名|
-|{2}|LastAuthenticated|string|デフォルト：null|
+|{2}|IPAddressRange|string|デフォルト：null|
 |{2}|Type|string|デフォルト:"basic"|
 |{2}|Cell|string|デフォルト：null|
 ### エラーメッセージ一覧
@@ -113,7 +119,7 @@ ID/PW認証用アカウント
         "type": "CellCtl.Account"
       },
       "Name": "account1",
-      "LastAuthenticated": null,
+      "IPAddressRange": null,
       "Type": "basic",
       "Cell": null,
       "__published": "/Date(1486462510467)/",
@@ -133,7 +139,7 @@ Google認証用アカウント
         "type": "CellCtl.Account"
       },
       "Name": "account1",
-      "LastAuthenticated": null,
+      "IPAddressRange": null,
       "Type": "oidc:google",
       "Cell": null,
       "__published": "/Date(1486462510467)/",
@@ -153,7 +159,7 @@ ID/PW認証＋Google認証用アカウント
         "type": "CellCtl.Account"
       },
       "Name": "account1",
-      "LastAuthenticated": null,
+      "IPAddressRange": null,
       "Type": "basic oidc:google",
       "Cell": null,
       "__published": "/Date(1486462510467)/",

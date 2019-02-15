@@ -67,7 +67,7 @@ GET
 |:--|:--|:--|:--|
 |{3}|type|string|CellCtl.Account|
 |{2}|Name|string|Account名|
-|{2}|LastAuthenticated|string|デフォルト：null|
+|{2}|IPAddressRange|string|デフォルト：null|
 |{2}|Type|string|初期値:"basic"|
 |{2}|Cell|string|デフォルト：null|
 
@@ -85,7 +85,7 @@ GET
         "type": "CellCtl.Account"
       },
       "Name": "account1",
-      "LastAuthenticated": null,
+      "IPAddressRange": null,
       "Type": "basic",
       "Cell": null,
       "__published": "/Date(1486462510467)/",

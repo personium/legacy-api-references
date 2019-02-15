@@ -44,15 +44,15 @@ POST
 |Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
 |Content-Type|Specifies the request body format|application/json|No|[application/json] by default|
 |Accept|Specifies the response body format|application/json|No|[application/json] by default|
-|X-Personium-Credential|Password|String|No|Number of character:6 - 92<br>Character type: Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")|
+|X-Personium-Credential|Password|String|No|\* Follow the password restrictions of unit setting<br>The default is as follows<br>Number of character:6 - 32<br>Character type: Half size alphanumeric characters and following half-width symbol<br>-_!$\*=^`{&#124;}~.@|
 
 ### Request Body
 
 |Header Name|Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|:--|
-|Name|Account Name|Number of digits: 1 - 128<br>Character type: Half size alphanumeric characters and following half-width symbol<br>-_!$*=^`{&#124;}~.@<br>However, the first character cannot be a half-width symbol|Yes||
+|Name|Account Name|Number of digits: 1 - 128<br>Character type: Half size alphanumeric characters and following half-width symbol<br>-_!$\*=^`{&#124;}~.@<br>However, the first character cannot be a half-width symbol|Yes||
 |Type|Account Type|basic(ID/PW authentication)<br>oidc:google(Google OpenID Connect authentication)<br>or divide upper case by space character|No|default: basic|
-|LastAuthenticated|last authentication date|It is specified as a character string in the format of Date ([time of long type])<br>The valid value of [time of long type] is -6847804800000(1753-01-01T00:00:00.000Z)-253402300799999(9999-12-31T23:59:59.999Z)|No|default: null|
+|IPAddressRange|IP address range|Specify the IP address range for which authentication is permitted<br>Multiple specification with comma delimited, range specification by prefix notation possible<br>When it is null, authentication is enabled with all IP addresses|No|default: null|
 
 ### Request Sample
 
@@ -80,6 +80,13 @@ ID/PW authentication +Googleaccount for authentication
 }
 ```
 
+Set IP address range
+
+```JSON
+{
+  "Name": "account1","IPAddressRange":"192.127.0.2,192.128.0.0/24"
+}
+```
 
 ## Response
 
@@ -117,7 +124,7 @@ ID/PW authentication +Googleaccount for authentication
 |:--|:--|:--|:--|
 |{3}|type|string|CellCtl.Account|
 |{2}|Name|string|Account name|
-|{2}|LastAuthenticated|string|default: null|
+|{2}|IPAddressRange|string|default: null|
 |{2}|Type|string|default: "basic"|
 |{2}|Cell|string|default: null|
 
@@ -139,7 +146,7 @@ ID/PWaccount for authentication
         "type": "CellCtl.Account"
       },
       "Name": "account1",
-      "LastAuthenticated": null,
+      "IPAddressRange": null,
       "Type": "basic",
       "Cell": null,
       "__published": "/Date(1486462510467)/",
@@ -161,7 +168,7 @@ Googleaccount for authentication
         "type": "CellCtl.Account"
       },
       "Name": "account1",
-      "LastAuthenticated": null,
+      "IPAddressRange": null,
       "Type": "oidc:google",
       "Cell": null,
       "__published": "/Date(1486462510467)/",
@@ -183,7 +190,7 @@ ID/PW authentication +Googleaccount for authentication
         "type": "CellCtl.Account"
       },
       "Name": "account1",
-      "LastAuthenticated": null,
+      "IPAddressRange": null,
       "Type": "basic oidc:google",
       "Cell": null,
       "__published": "/Date(1486462510467)/",
@@ -219,5 +226,3 @@ curl "https://cell1.unit1.example/__ctl/Account" -X POST -i -H \
 'X-Personium-Credential:password' -H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' \
 -H 'Accept: application/json' -d '{"Name":"account1","Type":"basic oidc:google"}'
 ```
-
-

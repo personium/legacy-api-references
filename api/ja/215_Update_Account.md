@@ -40,14 +40,14 @@ PUT
 |Content-Type|リクエストボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
 |Accept|レスポンスボディの形式を指定する|application/json|×|省略時は[application/json]として扱う|
 |If-Match|対象ETag値を指定する|ETag値|×|省略時は[*]として扱う|
-|X-Personium-Credential|パスワード|文字列|×|文字数：6&#65374;32文字<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)|
+|X-Personium-Credential|パスワード|文字列|×|※unitの設定のパスワード制限に従う<br>デフォルトは以下の通り<br>文字数：6&#65374;32文字<br>文字種:半角英数字と下記半角記号<br>-_!$\*=^`{&#124;}~.@|
 ### リクエストボディ
 
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
-|Name|アカウント名|桁数：1&#65374;128<br>文字種:半角英数字と右記半角記号（-_!$*=^`{&#124;}~.@）<br>ただし、先頭文字に半角記号は指定不可|○||
+|Name|アカウント名|桁数：1&#65374;128<br>文字種:半角英数字と右記半角記号（-_!$\*=^`{&#124;}~.@）<br>ただし、先頭文字に半角記号は指定不可|○||
 |Type|アカウントタイプ|basic(ID/PWによる認証)<br>oidc:google(Google OpenID Connectによる認証)<br>または上記２つをスペースで区切る<br>説明：省略した場合basicで更新される|×|デフォルト：basic|
-|LastAuthenticated|最終認証日時|/Date(【long型の時刻】)/の形式で文字列で指定する<br>【long型の時刻】の有効値は、-6847804800000(1753-01-01T00:00:00.000Z)&#65374;253402300799999(9999-12-31T23:59:59.999Z)<br>説明：省略した場合nullで更新される|×|デフォルト：null|
+|IPAddressRange|IPアドレス帯|認証を許可するIPアドレス帯を指定する<br>カンマ区切りで複数指定、プレフィックス表記による範囲指定可<br>nullの場合は全てのIPアドレスで認証可とする<br>説明：省略した場合nullで更新される|×|デフォルト：null|
 ### リクエストサンプル
 アカウント名更新
 ```JSON
@@ -89,4 +89,3 @@ curl "https://cell1.unit1.example/__ctl/Account('account1')" -X PUT -i \
 -H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' \
 -H 'Accept: application/json' -d '{"Name":"account2","Type":"oidc:google"}'
 ```
-

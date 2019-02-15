@@ -157,6 +157,8 @@ grant_type=password&username=username&password=pass&p_cookie=true
 |token_type|Bearer||
 |expires_in|アクセストークンの有効期限|1時間（3600秒）|
 |p_cookie_peer|クッキー認証値|クッキー認証時に指定する認証値<br>※クッキー発行オプション（p_cookie）をリクエスト時に設定した場合のみ返却する|
+|last_authenticated|前回認証日時|前回の認証日時（long型のUNIX時間）<br>初回認証時はnull<br>※認可タイプ（grant_type）にpasswordをリクエスト時に設定した場合のみ返却する|
+|failed_count|認証失敗回数|前回認証時からのパスワード認証に連続で失敗した回数<br>※認可タイプ（grant_type）にpasswordをリクエスト時に設定した場合のみ返却する|
 
 ### レスポンスサンプル
 ```JSON
@@ -165,7 +167,9 @@ grant_type=password&username=username&password=pass&p_cookie=true
   "refresh_token_expires_in": 86400,
   "refresh_token": "RA~uELM...(省略)...yWMoQ",
   "token_type": "Bearer",
-  "expires_in": 3600
+  "expires_in": 3600,
+  "last_authenticated": 1486462510467,
+  "failed_count": 2
 }
 ```
 ### エラーメッセージ一覧

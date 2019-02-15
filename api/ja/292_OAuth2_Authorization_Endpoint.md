@@ -71,7 +71,7 @@ HTML認証フォームを返却する。
 303  
 ブラウザはredirect_uriにリダイレクトされる。redirect_uriに、「URLパラメータ」で示すフラグメントが格納される。
 ```
-{redirect_uri}#access_token={access_token}&token_type=Bearer&expires_in={expires_in}&state={state}
+{redirect_uri}#access_token={access_token}&token_type=Bearer&expires_in={expires_in}&state={state}&last_authenticated={last_authenticated}&failed_count={failed_count}
 ```
 |項目名|概要|備考|
 |:--|:--|:--|
@@ -80,6 +80,8 @@ HTML認証フォームを返却する。
 |token_type|Bearer||
 |expires_in|上記「access_token」の有効期限|1時間（3600秒）|
 |state|リクエスト時に設定したstateの値|リクエストとコールバックの間で状態を維持するために使用するランダムな値|
+|last_authenticated|前回認証日時|前回の認証日時（long型のUNIX時間）<br>初回認証時はnull<br>※パスワード認証の場合のみ返却する|
+|failed_count|認証失敗回数|前回認証時からのパスワード認証に連続で失敗した回数<br>※パスワード認証の場合のみ返却する|
 #### エラーメッセージ一覧
 |項目名|概要|備考|
 |:--|:--|:--|
@@ -114,13 +116,15 @@ HTML認証フォームを返却する。
 303  
 ブラウザはredirect_uriにリダイレクトされる。redirect_uriに、「URLパラメータ」で示すクエリが格納される。
 ```
-{redirect_uri}?code={code}&state={state}
+{redirect_uri}?code={code}&state={state}&last_authenticated={last_authenticated}&failed_count={failed_count}
 ```
 |項目名|概要|備考|
 |:--|:--|:--|
 |redirect_uri|クライアントのリダイレクトエンドポイントURL|リクエストの「redirect_uri」の値|
 |code|認証・認可要求フォームで取得したCode|grant_type:authorization_codeで認可可能なCode|
 |state|リクエスト時に設定したstateの値|リクエストとコールバックの間で状態を維持するために使用するランダムな値|
+|last_authenticated|前回認証日時|前回の認証日時（long型のUNIX時間）<br>初回認証時はnull<br>※パスワード認証の場合のみ返却する|
+|failed_count|認証失敗回数|前回認証時からのパスワード認証に連続で失敗した回数<br>※パスワード認証の場合のみ返却する|
 #### エラーメッセージ一覧
 |項目名|概要|備考|
 |:--|:--|:--|

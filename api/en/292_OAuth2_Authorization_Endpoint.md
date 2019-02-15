@@ -100,7 +100,7 @@ None
 The browser is redirected to redirect\_uri. A fragment indicated by "URL parameter" is stored in redirect\_uri.
 
 ```
-{redirect_uri}#access_token={access_token}&token_type=Bearer&expires_in={expires_in}&state={state}
+{redirect_uri}#access_token={access_token}&token_type=Bearer&expires_in={expires_in}&state={state}&last_authenticated={last_authenticated}&failed_count={failed_count}
 ```
 
 |Item Name|Overview|Notes|
@@ -110,6 +110,8 @@ The browser is redirected to redirect\_uri. A fragment indicated by "URL paramet
 |token_type|Bearer||
 |expires_in|Expiration date of "access_token"|1 hour (3600 seconds)|
 |state|Value of state set at the time of request|Random value used to maintain state between request and callback|
+|last_authenticated|Last authentication date and time|Last authentication date and time（UNIX time of long type）<br>initial authentication is null<br>\*Return only when password authentication|
+|failed_count|Number of authentication failures|Number of consecutive failures in password authentication since last authentication<br>\*Return only when password authentication|
 
 #### Error Messages
 
@@ -154,7 +156,7 @@ Other than those above
 The browser is redirected to redirect\_uri. A fragment indicated by "URL parameter" is stored in redirect\_uri.
 
 ```
-{redirect_uri}?code={code}&state={state}
+{redirect_uri}?code={code}&state={state}&last_authenticated={last_authenticated}&failed_count={failed_count}
 ```
 
 |Item Name|Overview|Notes|
@@ -162,6 +164,8 @@ The browser is redirected to redirect\_uri. A fragment indicated by "URL paramet
 |redirect_uri|Client redirect endpoint URL|The value of "redirect_uri" in the request|
 |code|Code acquired in the authentication/authorization request form|Code that can be authorized with "grant_type: authorization_code"|
 |state|Value of state set at the time of request|Random value used to maintain state between request and callback|
+|last_authenticated|Last authentication date and time|Last authentication date and time（UNIX time of long type）<br>initial authentication is null<br>\*Return only when password authentication|
+|failed_count|Number of authentication failures|Number of consecutive failures in password authentication since last authentication<br>\*Return only when password authentication|
 
 #### Error Messages
 

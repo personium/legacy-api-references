@@ -22,7 +22,7 @@ PUT
 |ヘッダ名|概要|有効値|必須|備考|
 |:--|:--|:--|:--|:--|
 |Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {CellLocalToken}|○|認証トークンは認証トークン取得APIで取得したセルローカルトークン|
-|X-Personium-Credential|変更後パスワード|文字列|○|文字数：6&#65374;32文字<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)|
+|X-Personium-Credential|変更後パスワード|文字列|○|※unitの設定のパスワード制限に従う<br>デフォルトは以下の通り<br>文字数：6&#65374;32文字<br>文字種:半角英数字と下記半角記号<br>-_!$\*=^`{&#124;}~.@|
 ### リクエストボディ
 なし
 
@@ -44,4 +44,3 @@ curl "https://cell1.unit1.example/__mypassword" -X PUT -i -H \
 'X-Personium-Credential: change_password' -H 'Authorization: Bearer AA~4l...(省略)........auMhw' -H \
 'Accept: application/json'
 ```
-

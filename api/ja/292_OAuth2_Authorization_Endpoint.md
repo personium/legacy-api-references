@@ -7,9 +7,10 @@ OAuth2の認可エンドポイントAPI
 このAPIを実行するためには、アプリセルURLをスキーマに持つBoxを事前に作成しておく必要がある。
 
 ### 制限事項
-リクエストクエリ、リクエストボディの「p_target」パラメータの指定は未サポート
-* p_targetを指定した場合、レスポンスヘッダの「Location」の値が4,096文字を超えるため、nginxでエラーとなる。
-* Internet Explorerでは、URLの最大長が2,048文字に制限されているため、正しくリダイレクトできない。
+scope=openidは、以下のresponse_typeのみ指定可能  
+
+* response_type=id_token
+* response_type=code
 
 
 ## リクエスト
@@ -20,17 +21,16 @@ OAuth2の認可エンドポイントAPI
 
 ### メソッド
 GET : 認証フォームリクエスト  
-POST : 認証フォームリクエスト、トークン認証、コード認証  
+POST : トークン認証リクエスト、コード認証リクエスト  
 
 ### リクエストクエリ
 |項目名|概要|書式|必須|有効値|
 |:--|:--|:--|:--|:--|
-|response_type|応答タイプ|String|○|token, code|
+|response_type|応答タイプ|String|○|token, code, id_token(scope=openid必須)|
 |client_id|アプリセル URL|String|○|スキーマ認証元のアプリセルURL|
 |redirect_uri|クライアントのリダイレクトエンドポイントURL|String|○|アプリセルのデフォルトBOX配下に登録されたリダイレクトスクリプトのURL<br>application/x-www-form-urlencodedでフォーマットされたクエリパラメータを含める事ができる<br>フラグメントを含める事はできない<br>有効桁長:512byte|
 |state|リクエストとコールバックの間で状態を維持するために使用するランダムな値|String|×|ランダムな値<br>有効桁長:512byte|
-|p_target|トランスセルトークンターゲット|String|×|払い出されるトークンを使うセルURL<br>指定した場合トランスセルトークンを払い出す|
-|p_owner|ULUUT昇格実行クエリ|String|×|trueのみ有効<br>※このクエリを設定した場合、認証情報はCookieで返却されない|
+|scope|要求するアクセス範囲|String|×|Personiumでは"openid"を指定可能|
 |username|ユーザ名|String|×|登録済のユーザ名|
 |password|パスワード|String|×|登録済のパスワード|
 
@@ -73,6 +73,7 @@ HTML認証フォームを返却する。
 ```
 {redirect_uri}#access_token={access_token}&token_type=Bearer&expires_in={expires_in}&state={state}&last_authenticated={last_authenticated}&failed_count={failed_count}
 ```
+#### URLパラメータ
 |項目名|概要|備考|
 |:--|:--|:--|
 |redirect_uri|クライアントのリダイレクトエンドポイントURL|リクエストの「redirect_uri」の値|
@@ -118,6 +119,7 @@ HTML認証フォームを返却する。
 ```
 {redirect_uri}?code={code}&state={state}&last_authenticated={last_authenticated}&failed_count={failed_count}
 ```
+#### URLパラメータ
 |項目名|概要|備考|
 |:--|:--|:--|
 |redirect_uri|クライアントのリダイレクトエンドポイントURL|リクエストの「redirect_uri」の値|

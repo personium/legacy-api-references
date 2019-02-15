@@ -158,6 +158,7 @@ grant_type=password&username=username&password=pass&p_cookie=true
 |refresh_token|Refresh token|*If p_owner is set at the time of request, it will not be returned|
 |token_type|Bearer||
 |expires_in|Access token expiration date|1 hour (3600 seconds)|
+|id_token|id_token available with OpenID Connect|Return only if<br>grant_type=authorization_code and<br>scope of code is openid|
 |p_cookie_peer|Cookie Authentication Value|Authentication value specified at the time of cookie authentication<br>\*Return only when the cookie issue option (p_cookie) is set at the time of request|
 |last_authenticated|Last authentication date and time|Last authentication date and time（UNIX time of long type）<br>initial authentication is null<br>\*Return only when password is set as authorization type (grant_type) at the time of request|
 |failed_count|Number of authentication failures|Number of consecutive failures in password authentication since last authentication<br>\*Return only when password is set as authorization type (grant_type) at the time of request|

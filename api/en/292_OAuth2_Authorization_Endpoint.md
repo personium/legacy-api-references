@@ -11,10 +11,10 @@ In order to execute this API, it is necessary to prepare in advance Box which ha
 
 ### Restrictions
 
-Request query, specification of "p\_target" parameter of request body is not supported
+For scope=openid, only the following response_type can be specified.  
 
-* When p_target is specified, an error occurs in nginx because the value of "Location" in the response header exceeds 4,096 characters.
-* Internet Explorer can not redirect correctly because the maximum URL length is limited to 2048 characters.
+* response_type=id_token
+* response_type=code
 
 
 ## Request
@@ -34,12 +34,11 @@ POST : Forms Authentication Request, Request Token Authentication, Request Code 
 
 |Item Name|Overview|Format|Required|Effective Value|
 |:--|:--|:--|:--|:--|
-|response_type|Response Type|String|Yes|token, code|
+|response_type|Response Type|String|Yes|token, code, id_token(scope=openid required)|
 |client_id|Application Cell URL|String|Yes|Application Cell URL of authentication form request|
 |redirect_uri|Client redirect endpoint URL|String|Yes|URL of the redirect script registered under the default BOX of the application cell<br>Query parameters formatted with application/x-www-form-urlencoded can be included<br>It is not possible to include fragments<br>Effective digit length:512byte|
 |state|Random value used to maintain state between request and callback|String|No|Random value<br>Effective digit length:512byte|
-|p_target|Transcell token target|String|No|Cell URL using token to be paid out<br>When specified, pays out a transcell token|
-|p_owner|ULUUT Execute promotion Query|String|No|Valid only for true<br>* When this query is set, authentication information is not returned as cookie|
+|scope|Access scope requested|String|No|Personium can specify "openid"|
 |username|User name|String|No|Registered user name|
 |password|Password|String|No|Registered password|
 
@@ -103,6 +102,8 @@ The browser is redirected to redirect\_uri. A fragment indicated by "URL paramet
 {redirect_uri}#access_token={access_token}&token_type=Bearer&expires_in={expires_in}&state={state}&last_authenticated={last_authenticated}&failed_count={failed_count}
 ```
 
+#### URL parameter
+
 |Item Name|Overview|Notes|
 |:--|:--|:--|
 |redirect_uri|Client redirect endpoint URL|The value of "redirect_uri" in the request|
@@ -158,6 +159,8 @@ The browser is redirected to redirect\_uri. A fragment indicated by "URL paramet
 ```
 {redirect_uri}?code={code}&state={state}&last_authenticated={last_authenticated}&failed_count={failed_count}
 ```
+
+#### URL parameter
 
 |Item Name|Overview|Notes|
 |:--|:--|:--|

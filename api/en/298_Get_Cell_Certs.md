@@ -2,8 +2,8 @@
 
 ## Overview
 
-OpenID ConnectのID Tokenの検証に利用可能な公開鍵情報を取得する。
-公開鍵情報には、以下の情報が含まれる。  
+Get Publickkey information that can be used for verification of ID Token of OpenID Connect.
+The Publickkey information includes the following information.
 
 * Key type
 * Signature algorithm
@@ -79,7 +79,7 @@ Refer to [Error Message List](004_Error_Messages.md)
       "kty": "RSA",
       "alg": "RS256",
       "kid": "fdef9343-68e7-4104-b817-81fe933ae2a0",
-      "n": "k52ZUTZpBFU6vH2QK70ahb_FUvcSson5-SGqHmy5_ZliGLiCPoEd_FkQ1jksVzhcVPluD8PouNyukShCMrAszg9kYqJn5dZLUC6nQJFuYHgaoZOYxA1CMC-McG-HXifRlSf9jb4XQG_sU4VQlgaALEof1nH0b3ZkEwJ-HnjXChJvTfVQfYuvcRr2wIqS9AtylCU8N07X8ZN2n-CvIoFjF1RxZefBUxXlhioilE0S17dVn8gwGTSfa-hWq-Pot299K3QvKXuQmnh4gu8UQg7v5aMzNzxjJGeFuv8ui6hZ0oVZCinzTDyFXWkUVo_iXtyCEYcAxwGz-sCAhz0pHI6ttQ",
+      "n": "k5~(snip)",
       "e": "AQAB"
     }
   ]

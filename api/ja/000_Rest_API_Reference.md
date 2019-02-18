@@ -51,6 +51,7 @@ Cell Level API は、次のような機能で構成されます。
 * [OAuth2.0 トークンエンドポイント](293_OAuth2_Token_Endpoint.md)
 * [パスワード変更](294_Password_Change.md)
 * [OAuth2.0 Token Introspection](297_OAtuh2_Token_Introspection_Endpoint.md)
+* [Cell公開鍵取得](298_Get_Cell_Certs.md)
 
 #### Account (Cell制御オブジェクト)
 

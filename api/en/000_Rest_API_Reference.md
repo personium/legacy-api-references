@@ -54,6 +54,8 @@ Most of these functions are implemented in the form of Cell Control Objects that
 * [OAuth2.0 Authorization Endpoint](292_OAuth2_Authorization_Endpoint.md)
 * [OAuth2.0 Token Endpoint](293_OAuth2_Token_Endpoint.md)
 * [Change Password](294_Password_Change.md)
+* [OAuth2.0 Token Introspection](297_OAtuh2_Token_Introspection_Endpoint.md)
+* [Get Cell Certs](298_Get_Cell_Certs.md)
 
 #### Account (Cell Control Object)
 

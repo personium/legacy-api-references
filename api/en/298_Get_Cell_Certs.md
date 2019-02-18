@@ -2,7 +2,7 @@
 
 ## Overview
 
-Get Publickkey information that can be used for verification of ID Token of OpenID Connect.
+Get Publickkey information that can be used for verification of ID Token of OpenID Connect.  
 The Publickkey information includes the following information.
 
 * Key type

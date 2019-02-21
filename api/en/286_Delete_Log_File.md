@@ -9,14 +9,6 @@ If you exceed the maximum number of generations to hold rotate when the log file
 
 log
 
-### Restrictions
-
-* Log output of the internal event is not supported, Log output configuration is not supported
-* log file name"default.log"(fixed)
-* Set rotate size: 50MB
-* Configure the log output label to "info"(fixed)(output for all INFO, WARN, ERROR)
-
-
 ## Request
 
 ### Request URL

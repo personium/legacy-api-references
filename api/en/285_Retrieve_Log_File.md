@@ -2,8 +2,7 @@
 
 ## Overview
 
-acquire event log  
-If you exceed the maximum number of generations to hold rotate when the log file, the log file of the oldest is deleted.
+Retrieves an event log file. 
 
 ### Required Privileges
 

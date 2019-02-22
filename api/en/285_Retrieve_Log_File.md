@@ -11,11 +11,13 @@ log-read
 
 ### Restrictions
 
-*  Log output configuration is not supported. Log output configuration reference is not supported.
-* Set the log file name as "default.log "
-*  Rotate will be according to following default settings
-    * Set rotate size: 50MB
-* The file name when rotated is default.log. {Timestamp}. {Timestamp} is numbered by the time when it was rotated.
+Planned log output configuration is not yet supported.  Following fixed configuration is applied.
+
+* log file name is "default.log".
+* Log file is rotated when the size reaches a certain amount (50MB). 
+* When rotated the file will be renamed to "default.log. {Timestamp}". {Timestamp} represents the time when the file is rotated.
+* Only a certain number of archived logs are kept.  (12 generations)
+* When the number of archived files exceeds the maximum, the oldest log file is automatically deleted.
 
 |Action|Archived log file|Description|Notes|
 |:--|:--|:--|:--|

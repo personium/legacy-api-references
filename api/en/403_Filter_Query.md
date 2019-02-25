@@ -32,7 +32,8 @@ Use the $filter query to specify the search condition when retrieving the list
 |Function|Overview|Example|Notes|
 |:--|:--|:--|:--|
 |startswith|Forward match|$filter=startswith(itemKey, 'searchValue')|Only for character string correspondence|
-|substringof|Partial Match|$filter=substringof('searchValue1', itemKey1)|Only for character string correspondence<br>*partial matching of alphanumeric characters is not supported|
+
+\*Partial match, backward match is not supported.
 
 ## Search specification by property type
 

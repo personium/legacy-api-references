@@ -41,7 +41,7 @@ POST : Forms Authentication Request, Request Token Authentication, Request Code 
 |scope|Access scope requested|String|No|Personium can specify "openid"|
 |username|User name|String|No|Registered user name|
 |password|Password|String|No|Registered password|
-|expires_in|Access token expiration in (sec)|String (Int)<br>1～3600|No|Specify expiration in of issued access token<br>The default is 3600 (1 hour)<br>* When response_type is other than token, specification of this parameter is ignored|
+|expires_in|Access token expiration in (sec)|Int<br>1～3600|No|Specify expiration in of issued access token<br>The default is 3600 (1 hour)<br>* When response_type is other than token, specification of this parameter is ignored|
 
 ### Request Header
 

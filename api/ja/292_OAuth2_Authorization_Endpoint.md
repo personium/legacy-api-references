@@ -33,7 +33,7 @@ POST : トークン認証リクエスト、コード認証リクエスト
 |scope|要求するアクセス範囲|String|×|Personiumでは"openid"を指定可能|
 |username|ユーザ名|String|×|登録済のユーザ名|
 |password|パスワード|String|×|登録済のパスワード|
-|expires_in|アクセストークンの有効期限（秒）|String (Int)<br>1～3600|×|発行されるアクセストークンの有効期限を指定<br>デフォルトは3600（1時間）<br>※response_typeがtoken以外の場合は、本パラメタの指定は無視する
+|expires_in|アクセストークンの有効期限（秒）|Int<br>1～3600|×|発行されるアクセストークンの有効期限を指定<br>デフォルトは3600（1時間）<br>※response_typeがtoken以外の場合は、本パラメタの指定は無視する
 
 ### リクエストヘッダ
 なし

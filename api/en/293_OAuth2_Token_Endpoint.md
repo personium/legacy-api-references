@@ -95,8 +95,8 @@ POST
 |client_secret|Application authentication token|String|No|An application authentication token issued from an application cell or the like<br>When specified with client_id Issue an application-certified token<br>At the same time, if the same information is transmitted in the Authorization header, the setting of the Authorization header takes precedence|
 |p_owner|ULUUT promotion execution Query|String|No|Valid only for true|
 |p_cookie|Authentication cookie issuance option<br>If specified, issue an authentication cookie<br>When p_target is specified, specification of this parameter is ignored|String|No|Valid only for true|
-|expires_in|Access token expiration in (sec)|String (Int)<br>1～3600|No|Specify expiration in of issued access token<br>The default is 3600 (1 hour)|
-|refresh_token_expires_in|Refresh token expiration in (sec)|String (Int)<br>1～86400|No|Specify expiration in of issued refresh token<br>The default is 86400 (24 hours)<br>When p_owner is specified, specification of this parameter is ignored|
+|expires_in|Access token expiration in (sec)|Int<br>1～3600|No|Specify expiration in of issued access token<br>The default is 3600 (1 hour)|
+|refresh_token_expires_in|Refresh token expiration in (sec)|Int<br>1～86400|No|Specify expiration in of issued refresh token<br>The default is 86400 (24 hours)<br>When p_owner is specified, specification of this parameter is ignored|
 
 ### Request Sample
 

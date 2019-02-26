@@ -41,6 +41,7 @@ POST : Forms Authentication Request, Request Token Authentication, Request Code 
 |scope|Access scope requested|String|No|Personium can specify "openid"|
 |username|User name|String|No|Registered user name|
 |password|Password|String|No|Registered password|
+|expires_in|Access token expiration in (sec)|String (Int)<br>1～3600|No|Specify expiration in of issued access token<br>The default is 3600 (1 hour)<br>* When response_type is other than token, specification of this parameter is ignored|
 
 ### Request Header
 
@@ -109,7 +110,7 @@ The browser is redirected to redirect\_uri. A fragment indicated by "URL paramet
 |redirect_uri|Client redirect endpoint URL|The value of "redirect_uri" in the request|
 |access_token|Access token acquired in the authentication/authorization request form|Return cell local token or transcell token|
 |token_type|Bearer||
-|expires_in|Expiration date of "access_token"|1 hour (3600 seconds)|
+|expires_in|Access token expiration in (sec)|Expiration date set at the time of request<br>The default is 3600 (1 hour)|
 |state|Value of state set at the time of request|Random value used to maintain state between request and callback|
 |last_authenticated|Last authentication date and time|Last authentication date and time（UNIX time of long type）<br>initial authentication is null<br>\*Return only when password authentication|
 |failed_count|Number of authentication failures|Number of consecutive failures in password authentication since last authentication<br>\*Return only when password authentication|

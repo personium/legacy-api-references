@@ -93,6 +93,8 @@ POST
 |client_secret|アプリ認証トークン|String|×|アプリセル等から発行されるアプリ認証トークン<br>client_idとともに指定した場合アプリ認証済トークンを発行<br>同時にAuthorizationヘッダで同様情報が送信された場合、Authorizationヘッダの設定が優先される|
 |p_owner|ULUUT昇格実行クエリ|String|×|trueのみ有効|
 |p_cookie|認証クッキー発行オプション<br>指定された場合は認証クッキーを発行する<br>p_targetが指定された場合は、本パラメタの指定は無視する|String|×|trueのみ有効|
+|expires_in|アクセストークンの有効期限（秒）|String (Int)<br>1～3600|×|発行されるアクセストークンの有効期限を指定<br>デフォルトは3600（1時間）|
+|refresh_token_expires_in|リフレッシュトークンの有効期限（秒）|String (Int)<br>1～86400|×|発行されるリフレッシュトークンの有効期限を指定<br>デフォルトは86400（24時間）<br>p_ownerが指定された場合は、本パラメタの指定は無視する|
 
 
 ### リクエストサンプル
@@ -152,10 +154,10 @@ grant_type=password&username=username&password=pass&p_cookie=true
 |項目名|概要|備考|
 |:--|:--|:--|
 |access_token|アクセストークン||
-|refresh_token_expires_in|リフレッシュトークンの有効期限|24時間（86400秒）<br>※p_ownerをリクエスト時に設定した場合、返却されない|
+|refresh_token_expires_in|リフレッシュトークンの有効期限（秒）|リクエスト時に設定した有効期限<br>デフォルトは86400（24時間）<br>※p_ownerをリクエスト時に設定した場合、返却されない|
 |refresh_token|リフレッシュトークン|※p_ownerをリクエスト時に設定した場合、返却されない|
 |token_type|Bearer||
-|expires_in|アクセストークンの有効期限|1時間（3600秒）|
+|expires_in|アクセストークンの有効期限（秒）|リクエスト時に設定した有効期限<br>デフォルトは3600（1時間）|
 |id_token|OpenID Connectで利用可能なid_token|grant_type=authorization_code かつ<br>codeのscopeがopenidである<br>場合のみ返却する|
 |p_cookie_peer|クッキー認証値|クッキー認証時に指定する認証値<br>※クッキー発行オプション（p_cookie）をリクエスト時に設定した場合のみ返却する|
 |last_authenticated|前回認証日時|前回の認証日時（long型のUNIX時間）<br>初回認証時はnull<br>※認可タイプ（grant_type）にpasswordをリクエスト時に設定した場合のみ返却する|

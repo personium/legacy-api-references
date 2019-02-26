@@ -95,6 +95,8 @@ POST
 |client_secret|Application authentication token|String|No|An application authentication token issued from an application cell or the like<br>When specified with client_id Issue an application-certified token<br>At the same time, if the same information is transmitted in the Authorization header, the setting of the Authorization header takes precedence|
 |p_owner|ULUUT promotion execution Query|String|No|Valid only for true|
 |p_cookie|Authentication cookie issuance option<br>If specified, issue an authentication cookie<br>When p_target is specified, specification of this parameter is ignored|String|No|Valid only for true|
+|expires_in|Access token expiration in (sec)|String (Int)<br>1～3600|No|Specify expiration in of issued access token<br>The default is 3600 (1 hour)|
+|refresh_token_expires_in|Refresh token expiration in (sec)|String (Int)<br>1～86400|No|Specify expiration in of issued refresh token<br>The default is 86400 (24 hours)<br>When p_owner is specified, specification of this parameter is ignored|
 
 ### Request Sample
 
@@ -154,13 +156,13 @@ grant_type=password&username=username&password=pass&p_cookie=true
 |Item Name|Overview|Notes|
 |:--|:--|:--|
 |access_token|Access token||
-|refresh_token_expires_in|Refresh token expiration date|24 hours (86400 seconds)<br>*If p_owner is set at the time of request, it will not be returned|
+|refresh_token_expires_in|Refresh token expiration in (sec)|Expiration date set at the time of request<br>The default is 86400 (24 hours)<br>*If p_owner is set at the time of request, it will not be returned|
 |refresh_token|Refresh token|*If p_owner is set at the time of request, it will not be returned|
 |token_type|Bearer||
-|expires_in|Access token expiration date|1 hour (3600 seconds)|
+|expires_in|Access token expiration in (sec)|Expiration date set at the time of request<br>The default is 3600 (1 hour)|
 |id_token|id_token available with OpenID Connect|Return only if<br>grant_type=authorization_code and<br>scope of code is openid|
 |p_cookie_peer|Cookie Authentication Value|Authentication value specified at the time of cookie authentication<br>\*Return only when the cookie issue option (p_cookie) is set at the time of request|
-|last_authenticated|Last authentication date and time|Last authentication date and time（UNIX time of long type）<br>initial authentication is null<br>\*Return only when password is set as authorization type (grant_type) at the time of request|
+|last_authenticated|Last authentication date and time|Last authentication date and time (UNIX time of long type)<br>initial authentication is null<br>\*Return only when password is set as authorization type (grant_type) at the time of request|
 |failed_count|Number of authentication failures|Number of consecutive failures in password authentication since last authentication<br>\*Return only when password is set as authorization type (grant_type) at the time of request|
 
 ### Response Sample

@@ -33,6 +33,7 @@ POST : トークン認証リクエスト、コード認証リクエスト
 |scope|要求するアクセス範囲|String|×|Personiumでは"openid"を指定可能|
 |username|ユーザ名|String|×|登録済のユーザ名|
 |password|パスワード|String|×|登録済のパスワード|
+|expires_in|アクセストークンの有効期限（秒）|String (Int)<br>1～3600|×|発行されるアクセストークンの有効期限を指定<br>デフォルトは3600（1時間）<br>※response_typeがtoken以外の場合は、本パラメタの指定は無視する
 
 ### リクエストヘッダ
 なし
@@ -79,7 +80,7 @@ HTML認証フォームを返却する。
 |redirect_uri|クライアントのリダイレクトエンドポイントURL|リクエストの「redirect_uri」の値|
 |access_token|認証・認可要求フォームで取得したアクセストークン|セルローカルトークンもしくは、トランスセルトークンを返却する|
 |token_type|Bearer||
-|expires_in|上記「access_token」の有効期限|1時間（3600秒）|
+|expires_in|上記「access_token」の有効期限|リクエスト時に設定した有効期限<br>デフォルトは3600（1時間）|
 |state|リクエスト時に設定したstateの値|リクエストとコールバックの間で状態を維持するために使用するランダムな値|
 |last_authenticated|前回認証日時|前回の認証日時（long型のUNIX時間）<br>初回認証時はnull<br>※パスワード認証の場合のみ返却する|
 |failed_count|認証失敗回数|前回認証時からのパスワード認証に連続で失敗した回数<br>※パスワード認証の場合のみ返却する|

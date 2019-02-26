@@ -2,8 +2,7 @@
 
 ## Overview
 
-acquire event log  
-If you exceed the maximum number of generations to hold rotate when the log file, the log file of the oldest is deleted.
+Retrieves an event log file. 
 
 ### Required Privileges
 
@@ -11,16 +10,13 @@ log-read
 
 ### Restrictions
 
-* Maximum depth of the hierarchy of the collection 50
-* The maximum value of the child number of elements in each collection under 10,000
-    * The collection immediately below the Box is regarded as the first level, and the collection is counted as the second level, the third level, Files to be created under the collection are not counted as hierarchies
-* Log output of the internal event is not supported
-*  Log output configuration is not supported. Log output configuration reference is not supported.
-* Set the log file name as "default.log "
-*  Rotate will be according to following default settings
-    * Set rotate size: 50MB
-* Configure the log output level to "info" (output for all INFO, WARN, ERROR).
-* The file name when rotated is default.log. {Timestamp}. {Timestamp} is numbered by the time when it was rotated.
+Planned log output configuration is not yet supported.  Following fixed configuration is applied.
+
+* log file name is "default.log".
+* Log file is rotated when the size reaches a certain amount (50MB). 
+* When rotated the file will be renamed to "default.log. {Timestamp}". {Timestamp} represents the time when the file is rotated.
+* Only a certain number of archived logs are kept.  (12 generations)
+* When the number of archived files exceeds the maximum, the oldest log file is automatically deleted.
 
 |Action|Archived log file|Description|Notes|
 |:--|:--|:--|:--|

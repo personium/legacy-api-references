@@ -2,20 +2,14 @@
 
 ## Overview
 
-This API deletes the existing log files. It cannot delete the most recent log file.  
-If you exceed the maximum number of generations to hold rotate when the log file, the log file of the oldest is deleted.
+Deletes an arhcived log files. The most recent log file cannot be deleted. 
+Log file is rotated when the size reaches a certain amount (50MB). 
+Only a certain number of archived logs are kept.  (12 generations)
+When the number of archived files exceeds the maximum, the oldest log file is automatically deleted.
 
 ### Required Privileges
 
 log
-
-### Restrictions
-
-* Log output of the internal event is not supported, Log output configuration is not supported
-* log file name"default.log"(fixed)
-* Set rotate size: 50MB
-* Configure the log output label to "info"(fixed)(output for all INFO, WARN, ERROR)
-
 
 ## Request
 

@@ -25,7 +25,9 @@
 |Function|概要|Example|備考|
 |:--|:--|:--|:--|
 |startswith|前方一致|$filter=startswith(itemKey, 'searchValue')|文字列のみ対応|
-|substringof|部分一致|$filter=substringof('searchValue1', itemKey1)|文字列のみ対応<br>※英数字の部分一致は未対応|
+
+※ 部分一致、後方一致は未対応
+
 ## プロパティ型別の検索仕様
 ### Edm.String型
 検索に指定したキーワードを文字列型に変換して検索する

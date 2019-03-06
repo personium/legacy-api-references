@@ -92,15 +92,15 @@ HTML認証フォームを返却する。
 |error_description|エラーの追加情報|例外メッセージなどを設定する|
 |error_uri|エラーの追加情報のWebページのURI|空文字を返す<br>※今後のエンハンスに備えて設定|
 |state|リクエスト時に設定したstateの値||
-|code|Personiumのエラーコード||
+|code|[Personiumのエラーコード](004_Error_Messages.md)||
+##### error
+|項目名|概要|備考|
+|:--|:--|:--|
 |invalid_request|リクエストで必須パラメータが指定されていない<br>リクエストパラメータの形式が不正<br>アカウントロック中||
 |unauthorized_client|クライアントが認可されていない<br>ユーザによってキャンセルボタンが押下された||
 |access_denied|client_idとredirect_uriのセルが異なる<br>トランスセルトークン認証に失敗した場合||
 |unsupported_response_type|response_typeの値が不正||
 |server_error|サーバエラー||
-|Please, input user ID and password.|「username」もしくは「password」が未入力||
-|User ID or password is incorrect.|パスワード認証に失敗した場合||
-|Since the Expiration Date of the authentication passed,<br>You must be authorized again.|Cookie認証に失敗した場合||
 #### Parameter Check Error
 ブラウザはredirect_uriにリダイレクトされる。  
 「redirect_uriがURL形式ではない」「client_idとredirect_uriのセルが異なる」「認可処理失敗」
@@ -136,7 +136,15 @@ HTML認証フォームを返却する。
 |error_description|エラーの追加情報|例外メッセージなどを設定する|
 |error_uri|エラーの追加情報のWebページのURI|空文字を返す<br>※今後のエンハンスに備えて設定|
 |state|リクエスト時に設定したstateの値||
-|code|Personiumのエラーコード||
+|code|[Personiumのエラーコード](004_Error_Messages.md)||
+##### error
+|項目名|概要|備考|
+|:--|:--|:--|
+|invalid_request|リクエストで必須パラメータが指定されていない<br>リクエストパラメータの形式が不正<br>アカウントロック中||
+|unauthorized_client|クライアントが認可されていない<br>ユーザによってキャンセルボタンが押下された||
+|access_denied|client_idとredirect_uriのセルが異なる<br>トランスセルトークン認証に失敗した場合||
+|unsupported_response_type|response_typeの値が不正||
+|server_error|サーバエラー||
 #### Parameter Check Error
 ブラウザはredirect_uriにリダイレクトされる。  
 「redirect_uriがURL形式ではない」「client_idとredirect_uriのセルが異なる」「認可処理失敗」

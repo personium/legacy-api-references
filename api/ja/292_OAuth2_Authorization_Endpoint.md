@@ -92,7 +92,7 @@ HTML認証フォームを返却する。
 |error_description|エラーの追加情報|例外メッセージなどを設定する|
 |error_uri|エラーの追加情報のWebページのURI|空文字を返す<br>※今後のエンハンスに備えて設定|
 |state|リクエスト時に設定したstateの値||
-|code|[Personiumのエラーコード](004_Error_Messages.md)||
+|code|[Personiumのメッセージコード](004_Error_Messages.md)||
 ##### error
 |項目名|概要|備考|
 |:--|:--|:--|
@@ -136,7 +136,7 @@ HTML認証フォームを返却する。
 |error_description|エラーの追加情報|例外メッセージなどを設定する|
 |error_uri|エラーの追加情報のWebページのURI|空文字を返す<br>※今後のエンハンスに備えて設定|
 |state|リクエスト時に設定したstateの値||
-|code|[Personiumのエラーコード](004_Error_Messages.md)||
+|code|[Personiumのメッセージコード](004_Error_Messages.md)||
 ##### error
 |項目名|概要|備考|
 |:--|:--|:--|

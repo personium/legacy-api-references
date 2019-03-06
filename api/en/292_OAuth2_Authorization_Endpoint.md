@@ -124,7 +124,7 @@ The browser is redirected to redirect\_uri. A fragment indicated by "URL paramet
 |error_description|Additional information on errors|Set exception message etc|
 |error_uri|Web page URI of additional information on error|Return empty string<br>* Set for future enhancemen|
 |state|Value of state set at the time of request||
-|code|[Personium error code](004_Error_Messages.md)||
+|code|[Personium message code](004_Error_Messages.md)||
 
 ##### error
 
@@ -182,7 +182,7 @@ The browser is redirected to redirect\_uri. A fragment indicated by "URL paramet
 |error_description|Additional information on errors|Set exception message etc|
 |error_uri|Web page URI of additional information on error|Return empty string<br>* Set for future enhancemen|
 |state|Value of state set at the time of request||
-|code|[Personium error code](004_Error_Messages.md)||
+|code|[Personium message code](004_Error_Messages.md)||
 
 ##### error
 

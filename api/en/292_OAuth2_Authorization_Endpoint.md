@@ -124,15 +124,17 @@ The browser is redirected to redirect\_uri. A fragment indicated by "URL paramet
 |error_description|Additional information on errors|Set exception message etc|
 |error_uri|Web page URI of additional information on error|Return empty string<br>* Set for future enhancemen|
 |state|Value of state set at the time of request||
-|code|Personium error code||
+|code|[Personium message code](004_Error_Messages.md)||
+
+##### error
+
+|Item Name|Overview|Notes|
+|:--|:--|:--|
 |invalid_request|A required parameter is not specified in the request<br>Invalid request parameter format<br>Account locked||
 |unauthorized_client|The client is not authorized<br>Cancel button pressed by user||
 |access_denied|The cells of client_id and redirect_uri are different<br>When transcell token authentication fails||
 |unsupported_response_type|Invalid value of response_type||
 |server_error|Server Error||
-|Please, input user ID and password.|"Username" or "password" has not been entered||
-|User ID or password is incorrect.|When password authentication fails||
-|Since the Expiration Date of the authentication passed,<br>You must be authorized again.|Cookie authentication failed||
 
 #### Parameter Check Error
 
@@ -180,7 +182,17 @@ The browser is redirected to redirect\_uri. A fragment indicated by "URL paramet
 |error_description|Additional information on errors|Set exception message etc|
 |error_uri|Web page URI of additional information on error|Return empty string<br>* Set for future enhancemen|
 |state|Value of state set at the time of request||
-|code|Personium error code||
+|code|[Personium message code](004_Error_Messages.md)||
+
+##### error
+
+|Item Name|Overview|Notes|
+|:--|:--|:--|
+|invalid_request|A required parameter is not specified in the request<br>Invalid request parameter format<br>Account locked||
+|unauthorized_client|The client is not authorized<br>Cancel button pressed by user||
+|access_denied|The cells of client_id and redirect_uri are different<br>When transcell token authentication fails||
+|unsupported_response_type|Invalid value of response_type||
+|server_error|Server Error||
 
 #### Parameter Check Error
 

@@ -228,7 +228,7 @@ ACL設定をPROPFINDで出力した際、xml:base属性は以下の様に出力�
 |stream-send|Streamへの送信権限を有する。※Personium独自実装|all|PUT,POST,OPTIONS|
 |stream-receive|Streamからの受信権限を有する。※Personium独自実装|all|GET,OPTIONS|
 
-MOVEは、移動元コレクションのunbind権限と移動先コレクションのbind権限が必要。
+MOVEは、移動元コレクションのunbind権限と移動先コレクションのbind権限が必要。<br>
 移動先に対象リソースが存在する場合は、加えて移動先コレクションのunbind権限が必要。
 
 ##### 設定例

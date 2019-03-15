@@ -213,19 +213,19 @@ When the authority located at the higher level is set, it has the authority belo
 
 |Authority name|Target cell control object|Top authority name|Methods that can be executed|
 |:--|:--|:--|:--|
-|all|It has all the authorities below |p:root|All|
-|read|Has read permission. It does not include read-acl.|all|GET, OPTIONS|
-|write|Has write authority. It does not include write-acl.  |all|PUT, POST, DELETE, MKCOL|
+|all|It has all the authorities below.|p:root|All|
+|read|Has read permission. It does not include read-acl.|all|GET,OPTIONS|
+|write|Has write authority. It does not include write-acl.|all|PUT,POST,DELETE,MKCOL|
 |read-properties|Has the right to read properties.|read|PROPFIND|
-|write-properties|Have authority to write properties. |write|PROPPATCH|
-|read-acl|It has read authority of ACL. |all|Display of ACL setting of PROPFIND|
-|write-acl|Has authority to write ACL. |all|ACL|
-|write-content|Has authority to write content. It does not include bind and unbind. |write|PUT (target exists)|
-|bind|Has additional authority. It does not include write-content. |write|PUT (no target exists),MKCOL|
-|unbind|Has authority to delete subordinate resources. It does not include write-content. |write|DELETE|
+|write-properties|Have authority to write properties.|write|PROPPATCH|
+|read-acl|It has read authority of ACL.|all|Display of ACL setting of PROPFIND|
+|write-acl|Has authority to write ACL.|all|ACL|
+|write-content|Has authority to write content. It does not include bind and unbind.|write|PUT (target exists)|
+|bind|Has additional authority. It does not include write-content.|write|PUT (no target exists),MKCOL|
+|unbind|Has authority to delete subordinate resources. It does not include write-content.|write|DELETE|
 |exec|Has service execution authority. * Personium original implementation|all|-|
 
-MOVE requires the unbind permission of the move source collection and the bind permission of the move destination collection.
+MOVE requires the unbind permission of the move source collection and the bind permission of the move destination collection.<br>
 If the target resource exists at the move destination, in addition the unbind permission of the move destination collection is required.
 
 ##### Setting Example

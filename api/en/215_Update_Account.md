@@ -121,13 +121,13 @@ curl "https://cell1.unit1.example/__ctl/Account('account1')" -X PUT -i \
 Account name and Status update
 ```sh
 curl "https://cell1.unit1.example/__ctl/Account('account1')" -X PUT -i -H \
-'If-Match: *' -H 'Authorization: Bearer AA~PBDc...(è»ó™)...FrTjA' -H \
+'If-Match: *' -H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' -H \
 'Accept: application/json' -d '{"Name":"account2","Status":"deactivated"}'
 ```
 
 Password initialization (force change)
 ```sh
 curl "https://cell1.unit1.example/__ctl/Account('account1')" -X PUT -i -H \
-'If-Match: *' -H 'X-Personium-Credential:password' -H 'Authorization: Bearer AA~PBDc...(è»ó™)...FrTjA' -H \
+'If-Match: *' -H 'X-Personium-Credential:password' -H 'Authorization: Bearer AA~PBDc...(snip)...FrTjA' -H \
 'Accept: application/json' -d '{"Name":"target_account","Status":"passwordChangeRequired"}'
 ```

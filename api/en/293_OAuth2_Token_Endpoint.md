@@ -180,7 +180,7 @@ grant_type=password&username=username&password=pass&p_cookie=true
 ```
 
 ### Authentication failed
-Return an error response. Refer to the "Authentication API" of [Error Message List](004_Error_Messages.md).
+Return an error response. Refer to the "Authentication API" of [Error Message List](004_Error_Messages.md).<br>
 The response body is as follows.
 
 |Item Name|Overview|Notes|

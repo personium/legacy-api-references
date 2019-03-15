@@ -220,10 +220,13 @@ When the authority located at the higher level is set, it has the authority belo
 |write-properties|Have authority to write properties. |write|PROPPATCH|
 |read-acl|It has read authority of ACL. |all|Display of ACL setting of PROPFIND|
 |write-acl|Has authority to write ACL. |all|ACL|
-|write-content|Has authority to write content.|write|*Notsupported|
-|bind|Has bind authority.|write|*Notsupported|
-|unbind|Has unbind authority. |write|*Notsupported|
+|write-content|Has authority to write content. It does not include bind and unbind. |write|PUT (target exists)|
+|bind|Has additional authority. It does not include write-content. |write|PUT (no target exists),MKCOL|
+|unbind|Has authority to delete subordinate resources. It does not include write-content. |write|DELETE|
 |exec|Has service execution authority. * Personium original implementation|all|-|
+
+MOVE requires the unbind permission of the move source collection and the bind permission of the move destination collection.
+If the target resource exists at the move destination, in addition the unbind permission of the move destination collection is required.
 
 ##### Setting Example
 

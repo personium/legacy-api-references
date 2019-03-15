@@ -58,11 +58,12 @@ privilegeタグ配下の権限設定の内容については、acl_model（[ア�
 |:--|:--|:--|:--|:--|
 |acl|D:|要素|ACL（アクセス制御リスト）のルートを表し、1つ以上複数のaceが子となる||
 |base|D:|要素|hrefタグ内に記述するURLの基底を表し、任意の値を属性値とする。||
-|ace|D:|要素|ACE（アクセス制御エレメント）を表し、principalとgrantが一対で子となる|「invert」「deny」「protected」「inherited」はV1.1系未対応|
+|ace|D:|要素|ACE（アクセス制御エレメント）を表し、principalとgrantが一対で子となる<br>※プロパティ取得時、継承したACEの子にinheritedが追加される|「invert」「deny」「protected」は未対応|
 |principal|D:|要素|権限設定対象を表し、hrefまたはallが子となる||
 |grant|D:|要素|権限付与設定を表し、1つ以上複数のprivilegeが子となる||
 |href|D:|要素|権限設定対象ロール表し、ロールリソースURLを入力するテキストノード|権限設定対象ロールのリソースURLを指定する<br>acl要素内のxml:base属性の設定によって、URLを短縮する事が出来る|
 |all|D:|要素|全アクセス主体権限設定|全てのロールや認証されていないアクセス主体（Authorizationヘッダなし）に対してのの設定となります|
+|inherited|D:|要素|権限継承元を表し、href（権限継承元コレクションのURL）が子となる|※設定不可（プロパティ取得時にのみ付与される要素で、ACL設定時には無視される）|
 |privilege|D:|要素|権限設定を表し、以下の要素のいづれか一つが子となる||
 |root|p:|要素|全権限||
 |auth|p:|要素|認証系管理API編集・参照権限||

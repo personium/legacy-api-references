@@ -70,12 +70,13 @@ For details on the privilege settings within the privilege tag, please refer to 
 |Node name|Namespace|Node type|Overview|Notes|
 |:--|:--|:--|:--|:--|
 |acl|D:|Element|Denotes the root of the ACL (Access Control List); one or more ace nodes will be its child||
-|base|D:|Element|Denotes an ACE (Access Control Element); a pair of principal and grant will be its child||
-|ace|D:|Element|Denotes the privilege configuration target; href or all will be its child|"invert", "deny", "protected", and "inherited" are not supported in V 1.1 systems|
+|base|D:|Element|Denotes the basis of the URL described in the href tag, and takes any value as the attribute value.||
+|ace|D:|Element|Denotes an ACE (Access Control Element); a pair of principal and grant will be its child; * When property is acquired, "inherited" is added to the inherited ACE child|"invert", "deny", and "protected" are not supported|
 |principal|D:|Element|Denotes the privilege configuration target; href or all will be its child||
 |grant|D:|Element|Denotes the privilege grant setting; one or more privilege nodes will be its child node||
 |href|D:|Element|Denotes the privilege configuration target role and is the text node to input the role resource URL|Specify the resource URL of the privilege configuration target role<br>It is possible to shorten the URL using the xml:base attribute setting in the acl element|
 |all|D:|Element|All access entity privilege setting|The setting for all roles and non-authorized access entities (without the Authorization header)|
+|inherited|D:|Element|Denotes the authority inheritance source, href (URL of the authority inheritance source collection) is a child|* Configuration disabled (This element is given only when acquiring properties, and ignored when setting ACL)|
 |privilege|D:|Element|Denotes the privilege setting; one of the following elements will be its child||
 |root|p:|Element|All privileges||
 |auth|p:|Element|Authentication management API editing and viewing privileges||

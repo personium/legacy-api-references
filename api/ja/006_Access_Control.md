@@ -221,12 +221,15 @@ ACL設定をPROPFINDで出力した際、xml:base属性は以下の様に出力�
 |write-properties|プロパティの書き出し権限を有する。|write|PROPPATCH|
 |read-acl|ACLの読み出し権限を有する。|all|PROPFINDのACL設定表示|
 |write-acl|ACLの書き出し権限を有する。|all|ACL|
-|write-content|コンテンツの書き出し権限を有する。|write|※未サポート|
-|bind|bind権限を有する。|write|※未サポート|
-|unbind|unbind権限を有する。|write|※未サポート|
+|write-content|コンテンツの書き出し権限を有する。bindとunbindは含まない。|write|PUT（対象が存在する）|
+|bind|コンテンツの追加権限を有する。write-contentは含まない。|write|PUT（対象が存在しない）,MKCOL|
+|unbind|配下リソースの削除権限を有する。write-contentは含まない。|write|DELETE|
 |exec|サービス実行権限を有する。※Personium独自実装|all|-|
 |stream-send|Streamへの送信権限を有する。※Personium独自実装|all|PUT,POST,OPTIONS|
 |stream-receive|Streamからの受信権限を有する。※Personium独自実装|all|GET,OPTIONS|
+
+MOVEは、移動元コレクションのunbind権限と移動先コレクションのbind権限が必要。
+移動先に対象リソースが存在する場合は、加えて移動先コレクションのunbind権限が必要。
 
 ##### 設定例
 

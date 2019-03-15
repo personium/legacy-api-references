@@ -48,6 +48,7 @@ PUT
 |Name|アカウント名|桁数：1&#65374;128<br>文字種:半角英数字と右記半角記号（-_!$\*=^\`{&#124;}~.@）<br>ただし、先頭文字に半角記号は指定不可|○||
 |Type|アカウントタイプ|basic(ID/PWによる認証)<br>oidc:google(Google OpenID Connectによる認証)<br>または上記２つをスペースで区切る<br>説明：省略した場合basicで更新される|×|デフォルト：basic|
 |IPAddressRange|IPアドレス帯|認証を許可するIPアドレス帯を指定する<br>カンマ区切りで複数指定、プレフィックス表記による範囲指定可<br>nullの場合は全てのIPアドレスで認証可とする<br>説明：省略した場合nullで更新される|×|デフォルト：null|
+|Status|ステータス|アカウントの状態を指定する<br>active<br>deactivated<br>passwordChangeRequired<br>説明：省略した場合activeで更新される|×|デフォルト：active|
 ### リクエストサンプル
 アカウント名更新
 ```JSON
@@ -88,4 +89,18 @@ curl "https://cell1.unit1.example/__ctl/Account('account1')" -X PUT -i \
 -H 'If-Match: *' -H 'X-Personium-Credential:password' \
 -H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' \
 -H 'Accept: application/json' -d '{"Name":"account2","Type":"oidc:google"}'
+```
+
+アカウント名+ステータス更新
+```sh
+curl "https://cell1.unit1.example/__ctl/Account('account1')" -X PUT -i -H \
+'If-Match: *' -H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H \
+'Accept: application/json' -d '{"Name":"account2","Status":"deactivated"}'
+```
+
+パスワードの初期化（変更を強制）
+```sh
+curl "https://cell1.unit1.example/__ctl/Account('account1')" -X PUT -i -H \
+'If-Match: *' -H 'X-Personium-Credential:Initial_password' -H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H \
+'Accept: application/json' -d '{"Name":"target_account","Status":"passwordChangeRequired"}'
 ```

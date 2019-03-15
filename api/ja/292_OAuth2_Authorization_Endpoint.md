@@ -50,11 +50,13 @@ htmlを指定する場合、[Unitの設定](../../server-operator/unit_config_li
 Unitの設定  
 ```
 io.personium.core.cell.authorizationhtmlurl.default={htmlが取得可能なURL}
+io.personium.core.cell.authorizationpasswordchangehtmlurl.default={htmlが取得可能なURL}
 ```
 
 対象Cellのプロパティ設定  
 ```xml
 <p:authorizationhtmlurl>{htmlが取得可能なURL}</p:authorizationhtmlurl>
+<p:authorizationpasswordchangehtmlurl>{htmlが取得可能なURL}</p:authorizationpasswordchangehtmlurl>
 ```
 URLに指定可能なスキームは"http","https","personium-localunit","personium-localcell"。
 

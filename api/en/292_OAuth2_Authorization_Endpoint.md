@@ -62,11 +62,13 @@ When specifying html, [Unit setting](../../server-operator/unit_config_list.md) 
 Unit setting  
 ```
 io.personium.core.cell.authorizationhtmlurl.default={URL that html can obtain}
+io.personium.core.cell.authorizationpasswordchangehtmlurl.default={URL that html can obtain}
 ```
 
 Target cell property setting  
 ```xml
 <p:authorizationhtmlurl>{URL that html can obtain}</p:authorizationhtmlurl>
+<p:authorizationpasswordchangehtmlurl>{URL that html can obtain}</p:authorizationpasswordchangehtmlurl>
 ```
 The schemes that can be specified as URL are "http", "https", "personium-localunit", "personium-localcell".
 

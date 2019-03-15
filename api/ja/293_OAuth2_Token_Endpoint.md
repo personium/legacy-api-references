@@ -175,8 +175,18 @@ grant_type=password&username=username&password=pass&p_cookie=true
   "failed_count": 2
 }
 ```
-### エラーメッセージ一覧
-[エラーメッセージ一覧](004_Error_Messages.md)を参照
+### 認証失敗時
+エラーのレスポンスを返す。[エラーメッセージ一覧](004_Error_Messages.md)の認証系APIを参照<br>
+レスポンスボディは以下の通り。
+
+|項目名|概要|備考|
+|:--|:--|:--|
+|error|OAUTH エラーコード||
+|error_description|[{メッセージコード}] - {メッセージ}|メッセージコードとメッセージを結合した文字列を返却|
+|access_token|アクセストークン|メッセージコードが"PR401-AN-0001"の場合、パスワード変更のみ可能なアクセストークンを返却<br>上記以外は返却されない|
+|url|URL|メッセージコードが"PR401-AN-0001"の場合にパスワード変更APIのURLを返却<br>上記以外は返却されない|
+|last_authenticated|前回認証日時|メッセージコードが"PR401-AN-0001"の場合にのみ返却する|
+|failed_count|認証失敗回数|メッセージコードが"PR401-AN-0001"の場合にのみ返却する|
 
 ## cURLサンプル
 #### アカウント所有者認証

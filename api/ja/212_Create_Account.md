@@ -40,6 +40,7 @@ POST
 |Name|アカウント名|桁数：1&#65374;128<br>文字種:半角英数字と下記半角記号<br>-_!$\*=^\`{&#124;}~.@<br>ただし、先頭文字に半角記号は指定不可|○||
 |Type|アカウントタイプ|basic(ID/PWによる認証)<br>oidc:google(Google OpenID Connectによる認証)<br>または上記２つをスペースで区切る|×|デフォルト：basic|
 |IPAddressRange|IPアドレス帯|認証を許可するIPアドレス帯を指定する<br>カンマ区切りで複数指定、プレフィックス表記による範囲指定可<br>nullの場合は全てのIPアドレスで認証可とする|×|デフォルト：null|
+|Status|ステータス|アカウントの状態を指定する<br>active<br>deactivated<br>passwordChangeRequired|×|デフォルト：active|
 ### リクエストサンプル
 ID/PW認証用アカウント
 ```JSON
@@ -103,6 +104,7 @@ IPアドレス帯を設定
 |{2}|Name|string|Account名|
 |{2}|IPAddressRange|string|デフォルト：null|
 |{2}|Type|string|デフォルト:"basic"|
+|{2}|Status|string|デフォルト："active"|
 |{2}|Cell|string|デフォルト：null|
 ### エラーメッセージ一覧
 [エラーメッセージ一覧](004_Error_Messages.md)を参照
@@ -120,6 +122,7 @@ ID/PW認証用アカウント
       },
       "Name": "account1",
       "IPAddressRange": null,
+      "Status": "active",
       "Type": "basic",
       "Cell": null,
       "__published": "/Date(1486462510467)/",
@@ -140,6 +143,7 @@ Google認証用アカウント
       },
       "Name": "account1",
       "IPAddressRange": null,
+      "Status": "active",
       "Type": "oidc:google",
       "Cell": null,
       "__published": "/Date(1486462510467)/",
@@ -160,6 +164,7 @@ ID/PW認証＋Google認証用アカウント
       },
       "Name": "account1",
       "IPAddressRange": null,
+      "Status": "active",
       "Type": "basic oidc:google",
       "Cell": null,
       "__published": "/Date(1486462510467)/",

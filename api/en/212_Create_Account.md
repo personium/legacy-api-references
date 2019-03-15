@@ -53,6 +53,7 @@ POST
 |Name|Account Name|Number of digits: 1 - 128<br>Character type: Half size alphanumeric characters and following half-width symbol<br>-_!$\*=^\`{&#124;}~.@<br>However, the first character cannot be a half-width symbol|Yes||
 |Type|Account Type|basic(ID/PW authentication)<br>oidc:google(Google OpenID Connect authentication)<br>or divide upper case by space character|No|default: basic|
 |IPAddressRange|IP address range|Specify the IP address range for which authentication is permitted<br>Multiple specification with comma delimited, range specification by prefix notation possible<br>When it is null, authentication is enabled with all IP addresses|No|default: null|
+|Status|status|Specify account status<br>active<br>deactivated<br>passwordChangeRequired|No|default: active|
 
 ### Request Sample
 
@@ -125,6 +126,7 @@ Set IP address range
 |{3}|type|string|CellCtl.Account|
 |{2}|Name|string|Account name|
 |{2}|IPAddressRange|string|default: null|
+|{2}|Status|string|default: "active"|
 |{2}|Type|string|default: "basic"|
 |{2}|Cell|string|default: null|
 
@@ -147,6 +149,7 @@ ID/PWaccount for authentication
       },
       "Name": "account1",
       "IPAddressRange": null,
+      "Status": "active",
       "Type": "basic",
       "Cell": null,
       "__published": "/Date(1486462510467)/",
@@ -169,6 +172,7 @@ Googleaccount for authentication
       },
       "Name": "account1",
       "IPAddressRange": null,
+      "Status": "active",
       "Type": "oidc:google",
       "Cell": null,
       "__published": "/Date(1486462510467)/",
@@ -191,6 +195,7 @@ ID/PW authentication +Googleaccount for authentication
       },
       "Name": "account1",
       "IPAddressRange": null,
+      "Status": "active",
       "Type": "basic oidc:google",
       "Cell": null,
       "__published": "/Date(1486462510467)/",

@@ -92,7 +92,8 @@ None
 |{3}|type|string|CellCtl.Account|
 |{2}|Name|string|Account name|
 |{2}|IPAddressRange|string|default: null|
-|{2}|Type|string|Initial value:"basic"|
+|{2}|Status|string|default: "active"|
+|{2}|Type|string|default: "basic"|
 |{2}|Cell|string|default: null|
 
 ### Error Messages
@@ -112,6 +113,7 @@ Refer to [Error Message List](004_Error_Messages.md)
       },
       "Name": "account1",
       "IPAddressRange": null,
+      "Status": "active",
       "Type": "basic",
       "Cell": null,
       "__published": "/Date(1486462510467)/",

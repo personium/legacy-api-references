@@ -38,7 +38,7 @@ PROPPATCH
 |set|DAV:|プロパティ設定|×|<! ELEMENT set (prop *)>||
 |remove|DAV:|プロパティ削除|×|<! ELEMENT set (prop *)>||
 |prop|DAV:|プロパティ|×|<! ELEMENT prop ANY>|ANYに指定したXMLタグをキーとして設定または削除を行う|
-※ "p:relayhtmlurl" 及び "p:authorizationhtmlurl" はシステムで予約されています。  
+※ "p:relayhtmlurl" 及び "p:authorizationhtmlurl" 及び "p:authorizationpasswordchangehtmlurl" はシステムで予約されています。  
 詳細は [Cellルート取得](./200_Cell_Root.md) 及び [OAuth2.0 認可エンドポイント](./292_OAuth2_Authorization_Endpoint.md) を参照。
 
 ### リクエストサンプル

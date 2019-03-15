@@ -1,31 +1,32 @@
 # エラーメッセージ一覧
 
 ## 認証系 API
-|OAUTH エラーコード|メッセージコード|メッセージ|
-|:--|:--|:--|
-|unsupported_grant_type|PR400-AN-0001|Unsupported grant type.||
-|invalid_request|PR400-AN-0002|Invalid p_target.||
-|invalid_client|PR400-AN-0003|Failed to parse client secret.||
-|invalid_client|PR400-AN-0004|Client secret is expired and invalid.||
-|invalid_client|PR400-AN-0005|Client secret dsig is invalid.||
-|invalid_client|PR400-AN-0006|Client secret issuer does not match the client_id.||
-|invalid_client|PR400-AN-0007|Client secret target is wrong.||
-|invalid_grant|PR400-AN-0008|Trans-Cell access can not represent owner.||
-|invalid_grant|PR400-AN-0009|Token parse error.||
-|invalid_grant|PR400-AN-0010|Token expired or invalid.||
-|invalid_grant|PR400-AN-0011|Token dsig is invalid.||
-|invalid_grant|PR400-AN-0012|Token target is wrong. target=[{0}]||
-|invalid_grant|PR400-AN-0013|Not a refresh token.||
-|invalid_grant|PR400-AN-0014|Not allowed to represent owner.||
-|invalid_grant|PR400-AN-0015|Cell owner does not exist.||
-|invalid_request|PR400-AN-0016|Required parameter [{0}] missing.||
-|invalid_grant|PR400-AN-0017|Authentication failed.||
-|invalid_client|PR400-AN-0018|Authorization header is invalid.||
-|invalid_grant|PR400-AN-0019|Authentication failed.||
-|invalid_grant|PR400-AN-0030|Wrong IDToken Audience [{0}].||
-|invalid_grant|PR400-AN-0031|OpenID Connect Authentication failed.||
-|invalid_grant|PR400-AN-0032|OpenID Connect Invalid Token. ({0})||
-|invalid_grant|PR400-AN-0033|OpenID Connect ID Token Expired (at UnixTime: {0}).||
+|レスポンスコード|OAUTH エラーコード|メッセージコード|メッセージ|
+|:--|:--|:--|:--|
+|400|unsupported_grant_type|PR400-AN-0001|Unsupported grant type.|
+|400|invalid_request|PR400-AN-0002|Invalid p_target.|
+|400|invalid_client|PR400-AN-0003|Failed to parse client secret.|
+|400|invalid_client|PR400-AN-0004|Client secret is expired and invalid.|
+|400|invalid_client|PR400-AN-0005|Client secret dsig is invalid.|
+|400|invalid_client|PR400-AN-0006|Client secret issuer does not match the client_id.|
+|400|invalid_client|PR400-AN-0007|Client secret target is wrong.|
+|400|invalid_grant|PR400-AN-0008|Trans-Cell access can not represent owner.|
+|400|invalid_grant|PR400-AN-0009|Token parse error.|
+|400|invalid_grant|PR400-AN-0010|Token expired or invalid.|
+|400|invalid_grant|PR400-AN-0011|Token dsig is invalid.|
+|400|invalid_grant|PR400-AN-0012|Token target is wrong. target=[{0}]|
+|400|invalid_grant|PR400-AN-0013|Not a refresh token.|
+|400|invalid_grant|PR400-AN-0014|Not allowed to represent owner.|
+|400|invalid_grant|PR400-AN-0015|Cell owner does not exist.|
+|400|invalid_request|PR400-AN-0016|Required parameter [{0}] missing.|
+|400|invalid_grant|PR400-AN-0017|Authentication failed.|
+|400|invalid_client|PR400-AN-0018|Authorization header is invalid.|
+|400|invalid_grant|PR400-AN-0019|Authentication failed.|
+|400|invalid_grant|PR400-AN-0030|Wrong IDToken Audience [{0}].|
+|400|invalid_grant|PR400-AN-0031|OpenID Connect Authentication failed.|
+|400|invalid_grant|PR400-AN-0032|OpenID Connect Invalid Token. ({0})|
+|400|invalid_grant|PR400-AN-0033|OpenID Connect ID Token Expired (at UnixTime: {0}).|
+|401|unauthorized_client|PR401-AN-0001|The password should be changed.|
 
 ## その他 API
 |レスポンスコード|メッセージコード|メッセージ|詳細|
@@ -80,6 +81,7 @@
 |400|PR400-OD-0048|Unable to parse operand or argument. ''{0}''||
 |400|PR400-OD-0049|[{0}] field format error. Cell URL should be normalized URL with http(s) scheme and trailing slash.||
 |400|PR400-OD-0050|[{0}] field format error. Schema URI should be either normalized URL with http(s) scheme and trailing slash, or URN.||
+|400|PR400-OD-0051|Query value is invalid.||
 |404|PR404-OD-0000|Not found.||
 |404|PR404-OD-0001|No such entity set.||
 |404|PR404-OD-0002|No such entity.||
@@ -162,6 +164,7 @@
 |401|PR401-AU-0009|Authentication failed.||
 |401|PR401-AU-0010|Authentication failed.||
 |401|PR401-AU-0011|Authentication failed.||
+|401|PR401-AU-0012|Can not access with password change access token.||
 |403|PR403-AU-0001|Unit user access required.||
 |403|PR403-AU-0002|Necessary privilege is lacking.||
 |403|PR403-AU-0003|This resource can not be accessed by the Unit User specified in authorization header.||
@@ -172,6 +175,10 @@
 |400|PR400-AZ-0002|Request parameter is invalid [client_id].||
 |400|PR400-AZ-0003|Request parameter is invalid [redirect_uri].||
 |400|PR400-AZ-0004|Request parameter is invalid [response_type].||
+|400|PR400-AZ-0005|JSON parse error. {0}||
+|400|PR400-AZ-0006|ID Token encoded invalid. {0}||
+|400|PR400-AZ-0007|Unsupported grant_type.||
+|400|PR400-AZ-0008|Authorization failed.||
 |401|PR401-AZ-0001|User cancel.||
 |401|PR401-AZ-0002|Token authorization error.||
 |400|PR400-EV-0001|JSON parse error.||

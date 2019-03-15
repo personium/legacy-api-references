@@ -46,7 +46,7 @@ PROPPATCH
 |set|DAV:|set property|No|<! ELEMENT set (prop *)>||
 |remove|DAV:|remove property|No|<! ELEMENT set (prop *)>||
 |prop|DAV:|property value|No|<! ELEMENT prop ANY>|Set or Delete using the XML tag specified as ANY as a key|
-\* "p:relayhtmlurl" and "p:authorizationhtmlurl" are reserved in the system.  
+\* "p:relayhtmlurl" and "p:authorizationhtmlurl" and "p:authorizationpasswordchangehtmlurl" are reserved in the system.  
 For details, see [Get Cell Root](./200_Cell_Root.md) and [OAuth2.0 Authorization Endpoint](./292_OAuth2_Authorization_Endpoint.md).
 
 ### Request Sample

@@ -187,8 +187,8 @@ The response body is as follows.
 |:--|:--|:--|
 |error|OAUTH error code||
 |error_description|[{Message code}] - {Message}|Returns a string that combines the message code and the message.|
-|access_token|Access token|If the message code is "PR401-AN-0001", return the access token that can only change the password.<br>Other than the above will not be returned.|
-|url|URL|If the message code is "PR401-AN-0001", the URL of the password change API is returned.<br>Other than the above will not be returned.|
+|access_token|Access token|Return only when the message code is "PR401-AN-0001".<br>Return the access token that can only change the password.|
+|url|URL|Return only when the message code is "PR401-AN-0001".<br>The URL of the password change API is returned.|
 |last_authenticated|Last authentication date and time|Return only when the message code is "PR401-AN-0001"|
 |failed_count|Number of authentication failures|Return only when the message code is "PR401-AN-0001"|
 

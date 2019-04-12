@@ -183,8 +183,8 @@ grant_type=password&username=username&password=pass&p_cookie=true
 |:--|:--|:--|
 |error|OAUTH エラーコード||
 |error_description|[{メッセージコード}] - {メッセージ}|メッセージコードとメッセージを結合した文字列を返却|
-|access_token|アクセストークン|メッセージコードが"PR401-AN-0001"の場合、パスワード変更のみ可能なアクセストークンを返却<br>上記以外は返却されない|
-|url|URL|メッセージコードが"PR401-AN-0001"の場合にパスワード変更APIのURLを返却<br>上記以外は返却されない|
+|access_token|アクセストークン|メッセージコードが"PR401-AN-0001"の場合にのみ返却する<br>パスワード変更のみ可能なアクセストークンを返却|
+|url|URL|メッセージコードが"PR401-AN-0001"の場合にのみ返却する<br>パスワード変更APIのURLを返却|
 |last_authenticated|前回認証日時|メッセージコードが"PR401-AN-0001"の場合にのみ返却する|
 |failed_count|認証失敗回数|メッセージコードが"PR401-AN-0001"の場合にのみ返却する|
 

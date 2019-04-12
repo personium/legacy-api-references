@@ -30,7 +30,7 @@ POST : 認可処理リクエスト（トークン認証、コード認証、id_t
 |username|ユーザ名|String|×|登録済のユーザ名|
 |password|パスワード|String|×|登録済のパスワード|
 |expires_in|アクセストークンの有効期限（秒）|Int<br>1～3600|×|発行されるアクセストークンの有効期限を指定<br>デフォルトは3600（1時間）<br>※response_typeがtoken以外の場合は、本パラメタの指定は無視する|
-|cancel_flg|キャンセルフラグ|Int|×|認可処理のユーザキャンセルフラグ<br>1が設定された場合、ユーザによりキャンセルされたものとする|
+|cancel_flg|キャンセルフラグ|Boolean|×|認可処理のユーザキャンセルフラグ<br>trueが設定された場合、ユーザによりキャンセルされたものとする|
 |password_change_required|パスワード変更必須フラグ|Boolean|×|認証したアカウントがパスワード変更必須であったかを示すフラグ<br>※認可リクエストのレスポンスで返却されたpassword_change_required|
 |access_token|アクセストークン|String|×|認証したアカウントのアクセストークンを指定<br>※認可リクエストのレスポンスで返却されたaccess_token|
 
@@ -89,7 +89,7 @@ URLに指定可能なスキームは"http","https","personium-localunit","person
 
 ### パラメータチェックエラー（上記以外）
 client_id、redirect_uri、username、password以外のリクエストパラメータで、必須項目が未設定もしくは設定値が不正な形式の場合<br>
-または、cancel_flgに1が設定されている（ユーザによりキャンセルされた）場合
+または、cancel_flgにtrueが設定されている（ユーザによりキャンセルされた）場合
 #### ステータスコード
 303  
 URLパラメータで示すフラグメントまたはクエリが格納される。

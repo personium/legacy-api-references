@@ -3,15 +3,11 @@
 OAuth2の認可エンドポイントAPI  
 このAPIは、JSアプリケーション・ネイティブアプリでPersoniumを利用する場合のOAuth2の認可エンドポイントである。
 
-### 前提条件
-このAPIを実行するためには、アプリセルURLをスキーマに持つBoxを事前に作成しておく必要がある。
-
 ### 制限事項
 scope=openidは、以下のresponse_typeのみ指定可能  
 
 * response_type=id_token
 * response_type=code
-
 
 ## リクエスト
 ### リクエストURL
@@ -21,7 +17,7 @@ scope=openidは、以下のresponse_typeのみ指定可能
 
 ### メソッド
 GET : 認証フォームリクエスト  
-POST : トークン認証リクエスト、コード認証リクエスト  
+POST : 認可処理リクエスト（トークン認証、コード認証、id_token認証）
 
 ### リクエストクエリ
 |項目名|概要|書式|必須|有効値|
@@ -33,7 +29,10 @@ POST : トークン認証リクエスト、コード認証リクエスト
 |scope|要求するアクセス範囲|String|×|Personiumでは"openid"を指定可能|
 |username|ユーザ名|String|×|登録済のユーザ名|
 |password|パスワード|String|×|登録済のパスワード|
-|expires_in|アクセストークンの有効期限（秒）|Int<br>1～3600|×|発行されるアクセストークンの有効期限を指定<br>デフォルトは3600（1時間）<br>※response_typeがtoken以外の場合は、本パラメタの指定は無視する
+|expires_in|アクセストークンの有効期限（秒）|Int<br>1～3600|×|発行されるアクセストークンの有効期限を指定<br>デフォルトは3600（1時間）<br>※response_typeがtoken以外の場合は、本パラメタの指定は無視する|
+|cancel_flg|キャンセルフラグ|Int|×|認可処理のユーザキャンセルフラグ<br>1が設定された場合、ユーザによりキャンセルされたものとする|
+|password_change_required|パスワード変更必須フラグ|Boolean|×|認証したアカウントがパスワード変更必須であったかを示すフラグ<br>※認可リクエストのレスポンスで返却されたpassword_change_required|
+|access_token|アクセストークン|String|×|認証したアカウントのアクセストークンを指定<br>※認可リクエストのレスポンスで返却されたaccess_token|
 
 ### リクエストヘッダ
 なし
@@ -42,9 +41,11 @@ POST : トークン認証リクエスト、コード認証リクエスト
 リクエストクエリと同じ
 
 
-## レスポンス
-### 認証フォームリクエスト
-認証フォームはシステムのデフォルト、または指定したhtmlを使用することができる。  
+## レスポンス（認証フォームリクエスト）
+リクエスト時に設定したpassword_change_requiredがtrueの場合、パスワード変更フォームを表示する。それ以外の場合、認証フォームを表示する。
+ただし、リクエストパラメータが不正な場合はフォームを表示せずリダイレクトエンドポイントにリダイレクトされる。
+
+認証フォームおよびパスワード変更フォームは、システムのデフォルトまたは指定したhtmlを使用することができる。  
 htmlを指定する場合、[Unitの設定](../../server-operator/unit_config_list.md)または[対象Cellのプロパティ設定](./291_Cell_Change_Property.md)が必要。2つを同時に設定した場合、対象Cellのプロパティ設定が優先される。  
 
 Unitの設定  
@@ -60,19 +61,67 @@ io.personium.core.cell.authorizationpasswordchangehtmlurl.default={htmlが取得
 ```
 URLに指定可能なスキームは"http","https","personium-localunit","personium-localcell"。
 
+### 認証フォーム表示、パスワード変更フォーム表示
 #### ステータスコード
-200
+200  
 #### レスポンスヘッダ
 |ヘッダ名|概要|備考|
 |:--|:--|:--|
 |Content-Type|text/html; charset=UTF-8||
 #### レスポンスボディ
-HTML認証フォームを返却する。
+認証フォームまたはパスワード変更フォーム(HTML)を返却する。
 
-### トークン認証
+
+### パラメータチェックエラー（client_id、redirect_uri）
+「client_id、redirect_uriが未指定」「client_id、redirect_uriがURL形式ではない」「client_idとredirect_uriのセルが異なる」の何れかの場合
 #### ステータスコード
 303  
-ブラウザはredirect_uriにリダイレクトされる。redirect_uriに、「URLパラメータ」で示すフラグメントが格納される。
+システムのエラーページにリダイレクトされる。
+```
+{error_page_uri}?code={code}
+```
+
+#### URLパラメータ
+|項目名|概要|備考|
+|:--|:--|:--|
+|error_page_uri|Redirect URL|システムのエラーページ「セルのURL + __html/error」|
+|code|[Personiumのメッセージコード](004_Error_Messages.md)||
+
+### パラメータチェックエラー（上記以外）
+client_id、redirect_uri、username、password以外のリクエストパラメータで、必須項目が未設定もしくは設定値が不正な形式の場合<br>
+または、cancel_flgに1が設定されている（ユーザによりキャンセルされた）場合
+#### ステータスコード
+303  
+URLパラメータで示すフラグメントまたはクエリが格納される。
+（response_type=codeの場合はクエリが格納され、それ以外の場合はフラグメントが格納される）
+```
+{redirect_uri}#error={error}&error_description={error_description}&state={state}&code={code}
+```
+#### URLパラメータ
+|項目名|概要|備考|
+|:--|:--|:--|
+|redirect_uri|Redirect URL|リクエストの「redirect_uri」で指定された、<br>クライアントのリダイレクトスプリクトのURL|
+|error|エラー内容を示すコード|「error」を参照|
+|error_description|エラーの追加情報|例外メッセージなどを設定する|
+|error_uri|エラーの追加情報のWebページのURI|空文字を返す<br>※今後のエンハンスに備えて設定|
+|state|リクエスト時に設定したstateの値||
+|code|[Personiumのメッセージコード](004_Error_Messages.md)||
+##### error
+|コード値|概要|備考|
+|:--|:--|:--|
+|invalid_request|リクエストで必須パラメータが指定されていない<br>リクエストパラメータの形式が不正<br>認証失敗||
+|unauthorized_client|クライアントが認可されていない<br>ユーザによってキャンセルされた||
+|access_denied|client_idとredirect_uriのセルが異なる<br>トランスセルトークン認証に失敗した場合||
+|unsupported_response_type|response_typeの値が不正||
+|server_error|サーバエラー||
+
+## レスポンス（認可処理リクエスト）
+### 認可処理成功（トークン認証）
+認可処理に成功 かつ リクエストのresponse_typeにtokenを指定した場合
+#### ステータスコード
+303  
+ブラウザはクライアントのリダイレクトエンドポイントURL（リクエストの「redirect_uri」の値）にリダイレクトされる。<br>
+redirect_uriに、「URLパラメータ」で示すフラグメントが格納される。
 ```
 {redirect_uri}#access_token={access_token}&token_type=Bearer&expires_in={expires_in}&state={state}&last_authenticated={last_authenticated}&failed_count={failed_count}
 ```
@@ -80,45 +129,20 @@ HTML認証フォームを返却する。
 |項目名|概要|備考|
 |:--|:--|:--|
 |redirect_uri|クライアントのリダイレクトエンドポイントURL|リクエストの「redirect_uri」の値|
-|access_token|認証・認可要求フォームで取得したアクセストークン|セルローカルトークンもしくは、トランスセルトークンを返却する|
+|access_token|取得されたアクセストークン|セルローカルトークンもしくは、トランスセルトークンを返却する|
 |token_type|Bearer||
 |expires_in|アクセストークンの有効期限（秒）|リクエスト時に設定した有効期限<br>デフォルトは3600（1時間）|
 |state|リクエスト時に設定したstateの値|リクエストとコールバックの間で状態を維持するために使用するランダムな値|
 |last_authenticated|前回認証日時|前回の認証日時（long型のUNIX時間）<br>初回認証時はnull<br>※パスワード認証の場合のみ返却する|
 |failed_count|認証失敗回数|前回認証時からのパスワード認証に連続で失敗した回数<br>※パスワード認証の場合のみ返却する|
-#### エラーメッセージ一覧
-|項目名|概要|備考|
-|:--|:--|:--|
-|redirect_uri|Redirect URL|リクエストの「redirect_uri」で指定された、<br>クライアントのリダイレクトスプリクトのURL<br>ただし、以下のエラー内容の場合はこの値は「セルのURL + __html/error」に設定される<br>「redirect_uriがURL形式ではない」「client_idとredirect_uriのセルが異なる」|
-|error|エラー内容を示すコード|「error」を参照|
-|error_description|エラーの追加情報|例外メッセージなどを設定する|
-|error_uri|エラーの追加情報のWebページのURI|空文字を返す<br>※今後のエンハンスに備えて設定|
-|state|リクエスト時に設定したstateの値||
-|code|[Personiumのメッセージコード](004_Error_Messages.md)||
-##### error
-|項目名|概要|備考|
-|:--|:--|:--|
-|invalid_request|リクエストで必須パラメータが指定されていない<br>リクエストパラメータの形式が不正<br>アカウントロック中||
-|unauthorized_client|クライアントが認可されていない<br>ユーザによってキャンセルボタンが押下された||
-|access_denied|client_idとredirect_uriのセルが異なる<br>トランスセルトークン認証に失敗した場合||
-|unsupported_response_type|response_typeの値が不正||
-|server_error|サーバエラー||
-#### Parameter Check Error
-ブラウザはredirect_uriにリダイレクトされる。  
-「redirect_uriがURL形式ではない」「client_idとredirect_uriのセルが異なる」「認可処理失敗」
-```
-{redirect_uri}?code={code}
-```
+|box_not_installed|Box未インストールフラグ|アプリセルURLをスキーマに持つBoxが作成されていない場合のみtrueを返却する|
 
-上記以外
-```
-{redirect_uri}#error={error}&error_description={error_description}&state={state}&code={code}
-```
-
-### コード認証
+### 認可処理成功（コード認証）
+認可処理に成功 かつ リクエストのresponse_typeにcodeを指定した場合
 #### ステータスコード
 303  
-ブラウザはredirect_uriにリダイレクトされる。redirect_uriに、「URLパラメータ」で示すクエリが格納される。
+ブラウザはクライアントのリダイレクトエンドポイント（リクエストの「redirect_uri」の値）にリダイレクトされる。<br>
+redirect_uriに、「URLパラメータ」で示すクエリが格納される。
 ```
 {redirect_uri}?code={code}&state={state}&last_authenticated={last_authenticated}&failed_count={failed_count}
 ```
@@ -126,48 +150,75 @@ HTML認証フォームを返却する。
 |項目名|概要|備考|
 |:--|:--|:--|
 |redirect_uri|クライアントのリダイレクトエンドポイントURL|リクエストの「redirect_uri」の値|
-|code|認証・認可要求フォームで取得したCode|grant_type:authorization_codeで認可可能なCode|
+|code|取得されたCode|grant_type:authorization_codeで認可可能なCode|
 |state|リクエスト時に設定したstateの値|リクエストとコールバックの間で状態を維持するために使用するランダムな値|
 |last_authenticated|前回認証日時|前回の認証日時（long型のUNIX時間）<br>初回認証時はnull<br>※パスワード認証の場合のみ返却する|
 |failed_count|認証失敗回数|前回認証時からのパスワード認証に連続で失敗した回数<br>※パスワード認証の場合のみ返却する|
-#### エラーメッセージ一覧
+|box_not_installed|Box未インストールフラグ|アプリセルURLをスキーマに持つBoxが作成されていない場合のみtrueを返却する|
+
+### 認可処理成功（id_token認証）
+認可処理に成功 かつ リクエストのresponse_typeにid_tokenを指定した場合
+#### ステータスコード
+303  
+ブラウザはクライアントのリダイレクトエンドポイントURL（リクエストの「redirect_uri」の値）にリダイレクトされる。<br>
+redirect_uriに、「URLパラメータ」で示すフラグメントが格納される。
+```
+{redirect_uri}#id_token={id_token}&state={state}&last_authenticated={last_authenticated}&failed_count={failed_count}
+```
+
+#### URLパラメータ
 |項目名|概要|備考|
 |:--|:--|:--|
-|redirect_uri|Redirect URL|リクエストの「redirect_uri」で指定された、<br>クライアントのリダイレクトスプリクトのURL<br>ただし、以下のエラー内容の場合はこの値は「セルのURL + __html/error」に設定される<br>「redirect_uriがURL形式ではない」「client_idとredirect_uriのセルが異なる」|
+|redirect_uri|クライアントのリダイレクトエンドポイントURL|リクエストの「redirect_uri」の値|
+|id_token|取得されたid_token|OpenID Connectで利用可能なid_token|
+|state|リクエスト時に設定したstateの値|リクエストとコールバックの間で状態を維持するために使用するランダムな値|
+|last_authenticated|前回認証日時|前回の認証日時（long型のUNIX時間）<br>初回認証時はnull<br>※パスワード認証の場合のみ返却する|
+|failed_count|認証失敗回数|前回認証時からのパスワード認証に連続で失敗した回数<br>※パスワード認証の場合のみ返却する|
+|box_not_installed|Box未インストールフラグ|アプリセルURLをスキーマに持つBoxが作成されていない場合のみtrueを返却する|
+
+### 認証失敗
+認可処理中で行っている認証に失敗した場合（パスワード不一致、アカウントロック中など）
+#### ステータスコード
+303  
+ブラウザは認可エンドポイント（セルのURL + \_\_authz）に再度リダイレクトされる。<br>
+リダイレクトURLには下記パラメータのクエリが格納される。
+```
+{authorization_endpoint_url}?response_type={response_type}&redirect_uri={redirect_uri}&client_id={client_id}&state={state}&scope={scope}&response_type={response_type}&expires_in={expires_in}&error={error}&error_description={error_description}&error_uri={error_uri}&code={code}&password_change_required={password_change_required}&access_token={access_token}
+```
+#### URLパラメータ
+|項目名|概要|備考|
+|:--|:--|:--|
+|authorization_endpoint_url|認可エンドポイントのURL（セルのURL + __authz）||
+|response_type|リクエスト時に設定したresponse_typeの値||
+|client_id|リクエスト時に設定したclient_idの値||
+|redirect_uri|リクエスト時に設定したredirect_uriの値||
+|state|リクエスト時に設定したstateの値||
+|scope|リクエスト時に設定したscopeの値||
+|response_type|リクエスト時に設定したresponse_typeの値||
+|expires_in|リクエスト時に設定したexpires_inの値||
 |error|エラー内容を示すコード|「error」を参照|
 |error_description|エラーの追加情報|例外メッセージなどを設定する|
 |error_uri|エラーの追加情報のWebページのURI|空文字を返す<br>※今後のエンハンスに備えて設定|
-|state|リクエスト時に設定したstateの値||
 |code|[Personiumのメッセージコード](004_Error_Messages.md)||
-##### error
-|項目名|概要|備考|
-|:--|:--|:--|
-|invalid_request|リクエストで必須パラメータが指定されていない<br>リクエストパラメータの形式が不正<br>アカウントロック中||
-|unauthorized_client|クライアントが認可されていない<br>ユーザによってキャンセルボタンが押下された||
-|access_denied|client_idとredirect_uriのセルが異なる<br>トランスセルトークン認証に失敗した場合||
-|unsupported_response_type|response_typeの値が不正||
-|server_error|サーバエラー||
-#### Parameter Check Error
-ブラウザはredirect_uriにリダイレクトされる。  
-「redirect_uriがURL形式ではない」「client_idとredirect_uriのセルが異なる」「認可処理失敗」
-```
-{redirect_uri}?code={code}
-```
+|password_change_required|認証したアカウントがパスワード変更必須であったかを示すフラグ|認証できるがパスワード変更が必須の場合にのみtrueを返却する|
+|access_token|認証したアカウントのアクセストークン|password_change_requiredがtrueの場合のみ返却する<br>パスワード変更のみ可能なアクセストークンを返却|
 
-上記以外
-```
-{redirect_uri}?error={error}&error_description={error_description}&state={state}&code={code}
-```
+### パラメータチェックエラー（client_id、redirect_uri）
+リクエストパラメータのclient_id、redirect_uriに不正な値が設定されている場合<br>
+「レスポンス（認証フォームリクエスト）」の「パラメータチェックエラー（client_id、redirect_uri）」と同様。
 
+### パラメータチェックエラー（上記以外）
+リクエストパラメータに不正な値が設定されている場合<br>
+「レスポンス（認証フォームリクエスト）」の「パラメータチェックエラー（上記以外）」と同様。
 
 ## cURLサンプル
-### GET
+### GET（認証フォーム表示）
 ```sh
 curl "https://cell1.unit1.example/__authz?response_type=token&\
 redirect_uri=https://app-cell1.unit1.example/__/redirect.md&\
 client_id=https://app-cell1.unit1.example" -X GET -i
 ```
-### POST
+### POST（認可処理リクエスト）
 ```sh
 curl "https://cell1.unit1.example/__authz" -X POST -i \
 -d 'response_type=token&client_id=https://app-cell1.unit1.example/&\

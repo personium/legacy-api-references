@@ -16,7 +16,7 @@ scope=openidは、以下のresponse_typeのみ指定可能
 ```
 
 ### メソッド
-GET : 認証フォームリクエスト  
+GET : 認証フォームリクエスト
 POST : 認可処理リクエスト（トークン認証、コード認証、id_token認証）
 
 ### リクエストクエリ
@@ -42,10 +42,10 @@ POST : 認可処理リクエスト（トークン認証、コード認証、id_t
 
 
 ## レスポンス（認証フォームリクエスト）
-リクエスト時に設定したpassword_change_requiredがtrueの場合、パスワード変更フォームを表示する。それ以外の場合、認証フォームを表示する。
+認証フォームまたはパスワード変更フォームを表示する。
 ただし、リクエストパラメータが不正な場合はフォームを表示せずリダイレクトエンドポイントにリダイレクトされる。
 
-認証フォームおよびパスワード変更フォームは、システムのデフォルトまたは指定したhtmlを使用することができる。  
+認証フォームとパスワード変更フォームは、システムのデフォルトまたは指定したhtmlを使用することができる。  
 htmlを指定する場合、[Unitの設定](../../server-operator/unit_config_list.md)または[対象Cellのプロパティ設定](./291_Cell_Change_Property.md)が必要。2つを同時に設定した場合、対象Cellのプロパティ設定が優先される。  
 
 Unitの設定  
@@ -69,11 +69,13 @@ URLに指定可能なスキームは"http","https","personium-localunit","person
 |:--|:--|:--|
 |Content-Type|text/html; charset=UTF-8||
 #### レスポンスボディ
-認証フォームまたはパスワード変更フォーム(HTML)を返却する。
+認証フォームまたはパスワード変更フォーム(HTML)を返却する。<br>
+リクエスト時に設定したpassword_change_requiredがtrueの場合、パスワード変更フォームを返却する。<br>
+それ以外の場合、認証フォームを返却する。
 
 
 ### パラメータチェックエラー（client_id、redirect_uri）
-「client_id、redirect_uriが未指定」「client_id、redirect_uriがURL形式ではない」「client_idとredirect_uriのセルが異なる」の何れかの場合
+「client_id、redirect_uriが未指定」「client_id、redirect_uriがURL形式ではない」「client_idとredirect_uriのセルが異なる」の場合
 #### ステータスコード
 303  
 システムのエラーページにリダイレクトされる。
@@ -116,6 +118,15 @@ URLパラメータで示すフラグメントまたはクエリが格納され�
 |server_error|サーバエラー||
 
 ## レスポンス（認可処理リクエスト）
+認可処理を行う。処理結果によってリダイレクト先やURLパラメータが異なる。  
+処理結果のパターンは以下の通り。
+- 認可処理成功（トークン認証）
+- 認可処理成功（コード認証）
+- 認可処理成功（id_token認証）
+- 認証失敗
+- パラメータチェックエラー（client_id、redirect_uri）
+- パラメータチェックエラー（上記以外）
+
 ### 認可処理成功（トークン認証）
 認可処理に成功 かつ リクエストのresponse_typeにtokenを指定した場合
 #### ステータスコード
@@ -204,11 +215,11 @@ redirect_uriに、「URLパラメータ」で示すフラグメントが格納�
 |access_token|認証したアカウントのアクセストークン|password_change_requiredがtrueの場合のみ返却する<br>パスワード変更のみ可能なアクセストークンを返却|
 
 ### パラメータチェックエラー（client_id、redirect_uri）
-リクエストパラメータのclient_id、redirect_uriに不正な値が設定されている場合<br>
+「client_id、redirect_uriが未指定」「client_id、redirect_uriがURL形式ではない」「client_idとredirect_uriのセルが異なる」の場合<br>
 「レスポンス（認証フォームリクエスト）」の「パラメータチェックエラー（client_id、redirect_uri）」と同様。
 
 ### パラメータチェックエラー（上記以外）
-リクエストパラメータに不正な値が設定されている場合<br>
+client_id、redirect_uri、username、password以外のリクエストパラメータで、必須項目が未設定もしくは設定値が不正な形式の場合<br>
 「レスポンス（認証フォームリクエスト）」の「パラメータチェックエラー（上記以外）」と同様。
 
 ## cURLサンプル

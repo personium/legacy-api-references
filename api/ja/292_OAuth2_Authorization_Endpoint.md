@@ -1,4 +1,5 @@
-# OAuth2.0 認可エンドポイント(\__authz)
+# OAuth2.0 認可エンドポイント(\_\_authz)
+
 ## 概要
 OAuth2の認可エンドポイントAPI  
 このAPIは、JSアプリケーション・ネイティブアプリでPersoniumを利用する場合のOAuth2の認可エンドポイントである。
@@ -69,8 +70,8 @@ URLに指定可能なスキームは"http","https","personium-localunit","person
 |:--|:--|:--|
 |Content-Type|text/html; charset=UTF-8||
 #### レスポンスボディ
-認証フォームまたはパスワード変更フォーム(HTML)を返却する。<br>
-リクエスト時に設定したpassword_change_requiredがtrueの場合、パスワード変更フォームを返却する。<br>
+認証フォームまたはパスワード変更フォーム(HTML)を返却する。  
+リクエスト時に設定したpassword_change_requiredがtrueの場合、パスワード変更フォームを返却する。  
 それ以外の場合、認証フォームを返却する。
 
 
@@ -78,7 +79,7 @@ URLに指定可能なスキームは"http","https","personium-localunit","person
 「client_id、redirect_uriが未指定」「client_id、redirect_uriがURL形式ではない」「client_idとredirect_uriのセルが異なる」の場合
 #### ステータスコード
 303  
-システムのエラーページにリダイレクトされる。
+ブラウザはシステムのエラーページにリダイレクトされる。
 ```
 {error_page_uri}?code={code}
 ```
@@ -94,9 +95,11 @@ client_id、redirect_uri、username、password以外のリクエストパラメ�
 または、cancel_flgにtrueが設定されている（ユーザによりキャンセルされた）場合
 #### ステータスコード
 303  
-URLパラメータで示すフラグメントまたはクエリが格納される。  
+ブラウザはクライアントのリダイレクトエンドポイントURL（リクエストの「redirect_uri」の値）にリダイレクトされる。  
+redirect_uriに、「URLパラメータ」で示すフラグメントまたはクエリが格納される。  
 （response_type=codeの場合はクエリが格納され、それ以外の場合はフラグメントが格納される）
 ```
+{redirect_uri}?error={error}&error_description={error_description}&state={state}&code={code}
 {redirect_uri}#error={error}&error_description={error_description}&state={state}&code={code}
 ```
 #### URLパラメータ
@@ -122,7 +125,7 @@ URLパラメータで示すフラグメントまたはクエリが格納され�
 処理結果のパターンは以下の通り。
 - 認可処理成功（トークン認証）
 - 認可処理成功（コード認証）
-- 認可処理成功（id_token認証）
+- 認可処理成功（ID Token認証）
 - 認証失敗
 - パラメータチェックエラー（client_id、redirect_uri）
 - パラメータチェックエラー（上記以外）
@@ -170,7 +173,7 @@ redirect_uriに、「URLパラメータ」で示すクエリが格納される�
 |failed_count|認証失敗回数|前回認証時からのパスワード認証に連続で失敗した回数<br>※パスワード認証の場合のみ返却する|
 |box_not_installed|Box未インストールフラグ|アプリセルURLをスキーマに持つBoxが作成されていない場合のみtrueを返却する|
 
-### 認可処理成功（id_token認証）
+### 認可処理成功（ID Token認証）
 認可処理に成功 かつ リクエストのresponse_typeにid_tokenを指定した場合
 #### ステータスコード
 303  
@@ -191,7 +194,7 @@ redirect_uriに、「URLパラメータ」で示すフラグメントが格納�
 |box_not_installed|Box未インストールフラグ|アプリセルURLをスキーマに持つBoxが作成されていない場合のみtrueを返却する|
 
 ### 認証失敗
-認可処理中で行っている認証に失敗した場合（パスワード不一致、アカウントロック中など）
+認証に失敗した場合（パスワード不一致、アカウントロック中など）
 #### ステータスコード
 303  
 ブラウザは認可エンドポイント（セルのURL + \_\_authz）に再度リダイレクトされる。  
@@ -211,14 +214,13 @@ redirect_uriに、「URLパラメータ」で示すフラグメントが格納�
 |redirect_uri|リクエスト時に設定したredirect_uriの値||
 |state|リクエスト時に設定したstateの値||
 |scope|リクエスト時に設定したscopeの値||
-|response_type|リクエスト時に設定したresponse_typeの値||
 |expires_in|リクエスト時に設定したexpires_inの値||
 |error|エラー内容を示すコード|「error」を参照|
 |error_description|エラーの追加情報|例外メッセージなどを設定する|
 |error_uri|エラーの追加情報のWebページのURI|空文字を返す<br>※今後のエンハンスに備えて設定|
 |code|[Personiumのメッセージコード](004_Error_Messages.md)||
-|password_change_required|認証したアカウントがパスワード変更必須であったかを示すフラグ|認証できるがパスワード変更が必須の場合にのみtrueを返却する|
-|access_token|認証したアカウントのアクセストークン|password_change_requiredがtrueの場合のみ返却する<br>パスワード変更のみ可能なアクセストークンを返却|
+|password_change_required|認証したアカウントがパスワード変更必須かを示すフラグ|認証できるがパスワード変更が必須の場合にのみtrueを返却する|
+|access_token|認証したアカウントのアクセストークン|password_change_requiredがtrueの場合のみパスワード変更のみ可能なアクセストークンを返却|
 
 ### パラメータチェックエラー（client_id、redirect_uri）
 「client_id、redirect_uriが未指定」「client_id、redirect_uriがURL形式ではない」「client_idとredirect_uriのセルが異なる」の場合  

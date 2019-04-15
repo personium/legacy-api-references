@@ -16,7 +16,7 @@ scope=openidは、以下のresponse_typeのみ指定可能
 ```
 
 ### メソッド
-GET : 認証フォームリクエスト
+GET : 認証フォームリクエスト  
 POST : 認可処理リクエスト（トークン認証、コード認証、id_token認証）
 
 ### リクエストクエリ
@@ -42,7 +42,7 @@ POST : 認可処理リクエスト（トークン認証、コード認証、id_t
 
 
 ## レスポンス（認証フォームリクエスト）
-認証フォームまたはパスワード変更フォームを表示する。
+認証フォームまたはパスワード変更フォームを表示する。  
 ただし、リクエストパラメータが不正な場合はフォームを表示せずリダイレクトエンドポイントにリダイレクトされる。
 
 認証フォームとパスワード変更フォームは、システムのデフォルトまたは指定したhtmlを使用することができる。  
@@ -94,7 +94,7 @@ client_id、redirect_uri、username、password以外のリクエストパラメ�
 または、cancel_flgにtrueが設定されている（ユーザによりキャンセルされた）場合
 #### ステータスコード
 303  
-URLパラメータで示すフラグメントまたはクエリが格納される。
+URLパラメータで示すフラグメントまたはクエリが格納される。  
 （response_type=codeの場合はクエリが格納され、それ以外の場合はフラグメントが格納される）
 ```
 {redirect_uri}#error={error}&error_description={error_description}&state={state}&code={code}
@@ -134,8 +134,11 @@ URLパラメータで示すフラグメントまたはクエリが格納され�
 ブラウザはクライアントのリダイレクトエンドポイントURL（リクエストの「redirect_uri」の値）にリダイレクトされる。<br>
 redirect_uriに、「URLパラメータ」で示すフラグメントが格納される。
 ```
-{redirect_uri}#access_token={access_token}&token_type=Bearer&expires_in={expires_in}&state={state}&last_authenticated={last_authenticated}&failed_count={failed_count}
+{redirect_uri}#access_token={access_token}&token_type=Bearer&expires_in={expires_in}&state={state}&last_authenticated={last_authenticated}
+&failed_count={failed_count}
+※実際には改行されず一行で返却される
 ```
+
 #### URLパラメータ
 |項目名|概要|備考|
 |:--|:--|:--|
@@ -191,10 +194,13 @@ redirect_uriに、「URLパラメータ」で示すフラグメントが格納�
 認可処理中で行っている認証に失敗した場合（パスワード不一致、アカウントロック中など）
 #### ステータスコード
 303  
-ブラウザは認可エンドポイント（セルのURL + \_\_authz）に再度リダイレクトされる。<br>
-リダイレクトURLには下記パラメータのクエリが格納される。
+ブラウザは認可エンドポイント（セルのURL + \_\_authz）に再度リダイレクトされる。  
+認可エンドポイントに、「URLパラメータ」で示すクエリが格納される。
 ```
-{authorization_endpoint_url}?response_type={response_type}&redirect_uri={redirect_uri}&client_id={client_id}&state={state}&scope={scope}&response_type={response_type}&expires_in={expires_in}&error={error}&error_description={error_description}&error_uri={error_uri}&code={code}&password_change_required={password_change_required}&access_token={access_token}
+{authorization_endpoint_url}?response_type={response_type}&redirect_uri={redirect_uri}&client_id={client_id}&state={state}&scope={scope}
+&expires_in={expires_in}&error={error}&error_description={error_description}&error_uri={error_uri}&code={code}
+&password_change_required={password_change_required}&access_token={access_token}
+※実際には改行されず一行で返却される
 ```
 #### URLパラメータ
 |項目名|概要|備考|
@@ -215,11 +221,11 @@ redirect_uriに、「URLパラメータ」で示すフラグメントが格納�
 |access_token|認証したアカウントのアクセストークン|password_change_requiredがtrueの場合のみ返却する<br>パスワード変更のみ可能なアクセストークンを返却|
 
 ### パラメータチェックエラー（client_id、redirect_uri）
-「client_id、redirect_uriが未指定」「client_id、redirect_uriがURL形式ではない」「client_idとredirect_uriのセルが異なる」の場合<br>
+「client_id、redirect_uriが未指定」「client_id、redirect_uriがURL形式ではない」「client_idとredirect_uriのセルが異なる」の場合  
 「レスポンス（認証フォームリクエスト）」の「パラメータチェックエラー（client_id、redirect_uri）」と同様。
 
 ### パラメータチェックエラー（上記以外）
-client_id、redirect_uri、username、password以外のリクエストパラメータで、必須項目が未設定もしくは設定値が不正な形式の場合<br>
+client_id、redirect_uri、username、password以外のリクエストパラメータで、必須項目が未設定もしくは設定値が不正な形式の場合  
 「レスポンス（認証フォームリクエスト）」の「パラメータチェックエラー（上記以外）」と同様。
 
 ## cURLサンプル

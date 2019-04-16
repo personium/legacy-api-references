@@ -28,8 +28,8 @@ POST : 認可処理リクエスト（トークン認証、コード認証、ID�
 |redirect_uri|クライアントのリダイレクトエンドポイントURL|String|○|アプリセルのデフォルトBOX配下に登録されたリダイレクトスクリプトのURL<br>application/x-www-form-urlencodedでフォーマットされたクエリパラメータを含める事ができる<br>フラグメントを含める事はできない<br>有効桁長:512byte|
 |state|リクエストとコールバックの間で状態を維持するために使用するランダムな値|String|×|ランダムな値<br>有効桁長:512byte|
 |scope|要求するアクセス範囲|String|×|Personiumでは"openid"を指定可能|
-|username|ユーザ名|String|×|登録済のユーザ名|
-|password|パスワード|String|×|登録済のパスワード|
+|username|ユーザ名|String|×|登録済のユーザ名<br>※認証フォームリクエスト時、本パラメタの指定は無視する|
+|password|パスワード|String|×|登録済のパスワード<br>※認証フォームリクエスト時、本パラメタの指定は無視する|
 |expires_in|アクセストークンの有効期限（秒）|Int<br>1～3600|×|発行されるアクセストークンの有効期限を指定<br>デフォルトは3600（1時間）<br>※response_typeがtoken以外の場合は、本パラメタの指定は無視する|
 |cancel_flg|キャンセルフラグ|Boolean|×|認可処理のユーザキャンセルフラグ<br>trueが設定された場合、ユーザによりキャンセルされたものとする|
 |password_change_required|パスワード変更必須フラグ|Boolean|×|認証したアカウントがパスワード変更必須であったかを示すフラグ<br>※認可リクエストのレスポンスで返却されたpassword_change_required|
@@ -114,9 +114,8 @@ redirect_uriに、「URLパラメータ」で示すフラグメントまたは�
 ##### error
 |コード値|概要|備考|
 |:--|:--|:--|
-|invalid_request|リクエストで必須パラメータが指定されていない<br>リクエストパラメータの形式が不正<br>認証失敗||
-|unauthorized_client|クライアントが認可されていない<br>ユーザによってキャンセルされた||
-|access_denied|client_idとredirect_uriのセルが異なる<br>トランスセルトークン認証に失敗した場合||
+|invalid_request|リクエストで必須パラメータが指定されていない<br>リクエストパラメータの形式が不正||
+|unauthorized_client|ユーザによってキャンセルされた||
 |unsupported_response_type|response_typeの値が不正||
 |server_error|サーバエラー||
 
@@ -224,11 +223,9 @@ redirect_uriに、「URLパラメータ」で示すフラグメントが格納�
 ##### error
 |コード値|概要|備考|
 |:--|:--|:--|
-|invalid_request|認証に必須なパラメータが指定されていない||
-|invalid_grant|認証失敗||
+|invalid_request|認証に必須なパラメータ（username、password）が指定されていない||
+|invalid_grant|認証失敗<br>アカウントロック中||
 |unauthorized_client|クライアントが認可されていない||
-|access_denied|client_idとredirect_uriのセルが異なる<br>トランスセルトークン認証に失敗した場合||
-|unsupported_response_type|response_typeの値が不正||
 |server_error|サーバエラー||
 
 ### パラメータチェックエラー（client_id、redirect_uri）

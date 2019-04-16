@@ -115,9 +115,8 @@ The fragment or query indicated by "URL parameter" is stored in redirect_uri.
 ##### error
 |Code value|Overview|Notes|
 |:--|:--|:--|
-|invalid_request|A required parameter is not specified in the request<br>Invalid request parameter format<br>Account locked||
-|unauthorized_client|The client is not authorized<br>Cancel button pressed by user||
-|access_denied|The cells of client_id and redirect_uri are different<br>When transcell token authentication fails||
+|invalid_request|A required parameter is not specified in the request<br>Invalid request parameter format||
+|unauthorized_client|Cancel button pressed by user||
 |unsupported_response_type|Invalid value of response_type||
 |server_error|Server Error||
 
@@ -224,6 +223,13 @@ A query indicated by "URL parameter" is stored in authorization endpoint.
 |code|[Personium message code](004_Error_Messages.md)||
 |password_change_required|Flag indicating whether the authenticated account is required to change password|Return true only if authentication is possible but password change is mandatory|
 |access_token|Access token for authenticated account|Only when password_change_required is true, the access token that can only change the password is returned|
+##### error
+|Code value|Overview|Notes|
+|:--|:--|:--|
+|invalid_request|Parameters required for authentication (username, password) are not specified||
+|invalid_grant|Authentication failure<br>Account locked||
+|unauthorized_client|The client is not authorized||
+|server_error|Server Error||
 
 ### Parameter check error (client_id, redirect_uri)
 In the case of "client_id, redirect_uri not set" "client_id, Redirect_uri is not in URL format" "cell in client_id and redirect_uri is different"  

@@ -228,7 +228,7 @@ A query indicated by "URL parameter" is stored in authorization endpoint.
 |:--|:--|:--|
 |invalid_request|Parameters required for authentication (username, password) are not specified||
 |invalid_grant|Authentication failure<br>Account locked||
-|unauthorized_client|The client is not authorized||
+|unauthorized_client|The client is not authorized<br>Password change is required||
 |server_error|Server Error||
 
 ### Parameter check error (client_id, redirect_uri)

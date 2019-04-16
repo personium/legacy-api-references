@@ -225,7 +225,7 @@ redirect_uriに、「URLパラメータ」で示すフラグメントが格納�
 |:--|:--|:--|
 |invalid_request|認証に必須なパラメータ（username、password）が指定されていない||
 |invalid_grant|認証失敗<br>アカウントロック中||
-|unauthorized_client|クライアントが認可されていない||
+|unauthorized_client|クライアントが認可されていない<br>パスワード変更が必要||
 |server_error|サーバエラー||
 
 ### パラメータチェックエラー（client_id、redirect_uri）

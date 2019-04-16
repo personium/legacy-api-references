@@ -17,7 +17,7 @@ For scope=openid, only the following response_type can be specified.
 ```
 
 ### Request Method
-GET : Forms Authentication Request  
+GET : Authentication form request  
 POST : Authorization processing request (Request Token Authentication, Request Code Authentication, Request ID Token Authentication)
 
 
@@ -29,8 +29,8 @@ POST : Authorization processing request (Request Token Authentication, Request C
 |redirect_uri|Client redirect endpoint URL|String|Yes|URL of the redirect script registered under the default BOX of the application cell<br>Query parameters formatted with application/x-www-form-urlencoded can be included<br>It is not possible to include fragments<br>Effective digit length:512byte|
 |state|Random value used to maintain state between request and callback|String|No|Random value<br>Effective digit length:512byte|
 |scope|Access scope requested|String|No|Personium can specify "openid"|
-|username|User name|String|No|Registered user name|
-|password|Password|String|No|Registered password|
+|username|User name|String|No|Registered user name<br>\* When  Authentication form request, specification of this parameter is ignored|
+|password|Password|String|No|Registered password<br>\* When  Authentication form request, specification of this parameter is ignored|
 |expires_in|Access token expiration in (sec)|Int<br>1～3600|No|Specify expiration in of issued access token<br>The default is 3600 (1 hour)<br>* When response_type is other than token, specification of this parameter is ignored|
 |cancel_flg|Canceled flag|Boolean|No|User cancellation flag for authorization process<br>If true is set, it shall be canceled by the user|
 |password_change_required|Password change required flag|Boolean|No|A flag indicating whether the authenticated account required password change<br>* Password_change_required returned in response to authorization request|

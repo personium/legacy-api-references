@@ -75,7 +75,7 @@ Return authentication form or password change form (HTML).
 If password_change_required set at request is true, password change form will be returned.  
 Otherwise, the authentication form is returned.
 
-"" ""
+
 ### Parameter check error (client_id, redirect_uri)
 In the case of "client_id, redirect_uri not set" "client_id, Redirect_uri is not in URL format" "cell in client_id and redirect_uri is different"
 #### Response Code

@@ -61,7 +61,7 @@ GET
 |:--|:--|:--|:--|:--|
 |X-HTTP-Method-Override|Method override function|User-defined|No|Specifying this value in a request with the POST method indicates that the specified value is used as the method|
 |X-Override|Header override function|${OverwrittenHeaderName}:${Value}|No|The normal HTTP header value is overwritten. Specify multiple X-Override headers for the overwriting of multiple headers|
-|X-Personium-RequestKey|RequestKey field value output in the event log|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters|No|PCS-${UNIXtime} by default|
+|X-Personium-RequestKey|RequestKey field value output in the event log|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters|No|PCS-${32 character string with UUID} by default|
 |Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
 
 ### Request Body
@@ -95,7 +95,7 @@ Output form is following
 |:--|:--|:--|
 |dateTime|Log write date and time (ISO8601 UTC format)|YYYY-MM-DDTHH:MM:SS.sssZ|
 |level|log level INFO,WARN,ERROR|String|
-|RequestKey|Value specified on X-Dc-RequestKey header<br>when the X-Dc-RequestKey header is not specified, PCS-$ {UNIX time}|String|
+|RequestKey|Value specified on X-Personium-RequestKey header<br>when the X-Personium-RequestKey header is not specified, PCS-${32 character string with UUID}|String|
 |external|External events:true<br>Internal events:false|String|
 |schema|Schema of box of accepted URL|URL format|
 |subject|Principal events|URL format|

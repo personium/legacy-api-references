@@ -43,7 +43,7 @@ GET
 |:--|:--|:--|:--|:--|
 |X-HTTP-Method-Override|メソッドオーバーライド機能|任意|×|POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用される|
 |X-Override|ヘッダオーバライド機能|${上書きするヘッダ名}:${値}|×|通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定する|
-|X-Personium-RequestKey|イベントログに出力するRequestKeyフィールドの値|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字|×|指定がない場合、PCS-${UNIX時間}を設定する|
+|X-Personium-RequestKey|イベントログに出力するRequestKeyフィールドの値|半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字|×|指定がない場合、PCS-${UUIDで32文字の文字列}を設定する|
 |Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
 ### リクエストボディ
 なし
@@ -69,7 +69,7 @@ currentのログ取得時にログが存在しない場合は、空のレスポ�
 |:--|:--|:--|
 |dateTime|ログ書込み日時（ISO8601 UTC形式）|YYYY-MM-DDTHH:MM:SS.sssZ|
 |level|ログレベル INFO,WARN,ERRORのいずれか|文字列|
-|RequestKey|X-Personium-RequestKeyヘッダで指定された値<br>X-Personium-RequestKeyヘッダ指定がない場合、PCS-${UNIX時間}|文字列|
+|RequestKey|X-Personium-RequestKeyヘッダで指定された値<br>X-Personium-RequestKeyヘッダ指定がない場合、PCS-${UUIDで32文字の文字列}|文字列|
 |external|外部イベント：true<br>内部イベント：false|文字列|
 |schema|受け付けたURLのboxのschema|URL形式|
 |subject|イベントの主体|URL形式|

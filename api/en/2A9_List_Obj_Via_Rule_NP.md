@@ -50,7 +50,7 @@ The following query parameters are available.
 |:--|:--|:--|:--|:--|
 | X-HTTP-Method-Override | method override function | optional | No | If you specify this value when requesting with the POST method, the specified value will be used as a method. |
 | X-Override | header override function | ${overwrite header name}: ${value} | No | overwrites the value of normal HTTP header. To overwrite multiple headers, specify multiple X-Override headers. |
-| X-Personium-RequestKey | Value of the RequestKey field to be output to the event log | Single byte alphanumeric characters, - (half size hyphen) and _ (half width underscore) Maximum 128 characters | No | PCS-${ UNIX time}
+| X-Personium-RequestKey |RequestKey field value output in the event log|Single-byte alphanumeric characters, hyphens ("-"), and underscores ("_")<br>Maximum of 128 characters|No|PCS-${32 character string with UUID} by default|
 | Authorization | Specify authentication information in OAuth 2.0 format | Bearer {AccessToken} | No | * Authentication token acquired with the authentication token acquisition API Token |
 | Accept | Specify the response body format | application / json | No | treat as [application / json] when omitted |
 ### Request body

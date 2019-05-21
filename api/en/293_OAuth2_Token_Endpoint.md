@@ -60,7 +60,7 @@ An account that does not record authentication history can be set in [Target cel
 
 Target cell property setting  
 ```xml
-<p:accountsnotrecordingauthhistory>{Account name not to record authentication history(can specify multiple items separated by commas)}</p:accountsnotrecordingauthhistory>
+<p:accountsnotrecordingauthhistory>{Account name(can specify multiple items separated by commas)}</p:accountsnotrecordingauthhistory>
 ```
 
 ## Request

@@ -61,7 +61,7 @@ p_target というパラメタで他のセルのURLを指定することで、�
 
 対象Cellのプロパティ設定
 ```xml
-<p:accountsnotrecordingauthhistory>{認証履歴を記録しないアカウント名（カンマ区切りで複数指定可）}</p:accountsnotrecordingauthhistory>
+<p:accountsnotrecordingauthhistory>{アカウント名（カンマ区切りで複数指定可）}</p:accountsnotrecordingauthhistory>
 ```
 
 ## リクエスト

@@ -40,7 +40,15 @@ POST
 |Name|アカウント名|桁数：1&#65374;128<br>文字種:半角英数字と下記半角記号<br>-_!$\*=^\`{&#124;}~.@<br>ただし、先頭文字に半角記号は指定不可|○||
 |Type|アカウントタイプ|basic(ID/PWによる認証)<br>oidc:google(Google OpenID Connectによる認証)<br>または上記２つをスペースで区切る|×|デフォルト：basic|
 |IPAddressRange|IPアドレス帯|認証を許可するIPアドレス帯を指定する<br>カンマ区切りで複数指定、プレフィックス表記による範囲指定可<br>nullの場合は全てのIPアドレスで認証可とする|×|デフォルト：null|
-|Status|ステータス|アカウントの状態を指定する<br>active<br>deactivated<br>passwordChangeRequired|×|デフォルト：active|
+|Status|ステータス|アカウントの状態を指定する<br>「Account status」を参照|×|デフォルト：active|
+
+#### Account status
+|値|概要|備考|
+|:--|:--|:--|
+|active|有効||
+|deactivated|無効化|そのアカウントに対する認証が必ず失敗する。<br>管理者が何らかの理由でアカウントを凍結したい場合などに利用することを想定。|
+|passwordChangeRequired|パスワード変更必須|そのアカウントに対する認証時、パスワード変更が必須という結果（認証失敗）とパスワード変更のみ利用可能なトークンを返す。<br>[パスワード変更](./294_Password_Change.md)を実行すると、そのアカウントのStatusは自動で「active」に更新される。<br>初期パスワードの付与やパスワードの初期化などに利用することを想定。|
+
 ### リクエストサンプル
 ID/PW認証用アカウント
 ```JSON

@@ -53,6 +53,15 @@ By specifying the URL of another cell by using the parameter called p_target, we
 * With this, it is possible to display private media only to authorized users using tags such as HTML img video audio.
 * Cookies that are issued are valid only in this cell and can not be used in combination with p_target, which is a token acquisition parameter for accessing other cells.
 
+### Record of authentication history
+
+In case of password authentication (when "password" is set at the time of request as grant_type), the last authentication date and number of authentication failure are recorded as authentication history.<br>
+An account that does not record authentication history can be set in [Target cell property setting](./291_Cell_Change_Property.md).
+
+Target cell property setting  
+```xml
+<p:accountsnotrecordingauthhistory>{Account name not to record authentication history(can specify multiple items separated by commas)}</p:accountsnotrecordingauthhistory>
+```
 
 ## Request
 

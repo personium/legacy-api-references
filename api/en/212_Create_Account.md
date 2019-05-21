@@ -53,7 +53,14 @@ POST
 |Name|Account Name|Number of digits: 1 - 128<br>Character type: Half size alphanumeric characters and following half-width symbol<br>-_!$\*=^\`{&#124;}~.@<br>However, the first character cannot be a half-width symbol|Yes||
 |Type|Account Type|basic(ID/PW authentication)<br>oidc:google(Google OpenID Connect authentication)<br>or divide upper case by space character|No|default: basic|
 |IPAddressRange|IP address range|Specify the IP address range for which authentication is permitted<br>Multiple specification with comma delimited, range specification by prefix notation possible<br>When it is null, authentication is enabled with all IP addresses|No|default: null|
-|Status|status|Specify account status<br>active<br>deactivated<br>passwordChangeRequired|No|default: active|
+|Status|status|Specify account status<br>See "Account status"|No|default: active|
+
+#### Account status
+|Value|Overview|Notes|
+|:--|:--|:--|
+|active|Active||
+|deactivated|Deactivated|Authentication for the account always fails.<br>It is assumed that the administrator uses it when you want to freeze the account for some reason.|
+|passwordChangeRequired|Password change required|When authenticating to the account, the result that the password change is mandatory (authentication failure) and the token that can be used only for the password change are returned.<br>When [Change Password](./294_Password_Change.md) is executed, the Status of the account is automatically updated to "active".<br>It is assumed that it will be used for initial password assignment and password initialization.|
 
 ### Request Sample
 

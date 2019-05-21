@@ -53,9 +53,9 @@ POST
 |Name|Account Name|Number of digits: 1 - 128<br>Character type: Half size alphanumeric characters and following half-width symbol<br>-_!$\*=^\`{&#124;}~.@<br>However, the first character cannot be a half-width symbol|Yes||
 |Type|Account Type|basic(ID/PW authentication)<br>oidc:google(Google OpenID Connect authentication)<br>or divide upper case by space character|No|default: basic|
 |IPAddressRange|IP address range|Specify the IP address range for which authentication is permitted<br>Multiple specification with comma delimited, range specification by prefix notation possible<br>When it is null, authentication is enabled with all IP addresses|No|default: null|
-|Status|status|Specify account status<br>See "Account status"|No|default: active|
+|Status|status|Specify account status<br>See "Status"|No|default: active|
 
-#### Account status
+#### Status
 |Value|Overview|Notes|
 |:--|:--|:--|
 |active|Active||

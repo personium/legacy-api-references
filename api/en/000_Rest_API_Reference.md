@@ -61,7 +61,7 @@ Most of these functions are implemented in the form of Cell Control Objects that
 
 |Account|Operations|
 |:--|:--|
-|Basic Operations|[Create](212_Create_Account.md) &nbsp; &nbsp; [Retrieve](213_Retrieve_Account.md) &nbsp; &nbsp; [Retrieve List](214_List_Account.md) &nbsp; &nbsp; [Update](215_Update_Account.md) &nbsp; &nbsp; [Delete](216_Delete_Account.md)|
+|Basic Operations|[Create](212_Create_Account.md) &nbsp; &nbsp; [Retrieve](213_Retrieve_Account.md) &nbsp; &nbsp; [Retrieve List](214_List_Account.md) &nbsp; &nbsp; [Update](215_Update_Account.md) &nbsp; &nbsp; [Partial Update](2AC_Partial_Update_Account.md) &nbsp; &nbsp; [Delete](216_Delete_Account.md)|
 |&nbsp; &nbsp; Linking with other objects|[Link](217_Link_Account.md) &nbsp; &nbsp; [Unlink](220_Unlink_Account.md) &nbsp; &nbsp; [List Links](218_List_Account_links.md) <br> There is no link update. If you want to update, delete it and recreate it.|
 |&nbsp; &nbsp; Bound Object Manipulation|[Create](221_Create_Obj_Via_Account_NP.md) &nbsp; &nbsp; [Retrieve List](222_List_Obj_Via_Account_NP.md)|
 
@@ -82,7 +82,7 @@ Configured ACL can be retrieved together with other properties, by sending regul
 
 |Role|Operations|
 |:--|:--|
-|Basic Operations|[Create](201_Create_Role.md) &nbsp; &nbsp; [Retrieve](203_Retrieve_Role.md) &nbsp; &nbsp; [Retrieve List](202_List_Role.md) &nbsp; &nbsp; [Update](204_Update_Role.md) &nbsp; &nbsp; [Delete](205_Delete_Role.md)|
+|Basic Operations|[Create](201_Create_Role.md) &nbsp; &nbsp; [Retrieve](203_Retrieve_Role.md) &nbsp; &nbsp; [Retrieve List](202_List_Role.md) &nbsp; &nbsp; [Update](204_Update_Role.md) &nbsp; &nbsp; [Partial Update](2AB_Partial_Update_Role.md) &nbsp; &nbsp; [Delete](205_Delete_Role.md)|
 |&nbsp; &nbsp; Linking with other objects|[Link](206_Link_Role.md) &nbsp; &nbsp; [Unlink](209_Unlink_Role.md) &nbsp; &nbsp; [List Links](207_List_Role_links.md) <br> There is no link update. If you want to update, delete it and recreate it.|
 |&nbsp; &nbsp; Bound Object Manipulation|[Create](210_Create_Obj_Via_Role_NP.md) &nbsp; &nbsp; [Retrieve List](211_List_Obj_Via_Role_NP.md)|
 
@@ -93,7 +93,7 @@ Configured ACL can be retrieved together with other properties, by sending regul
 
 |ExtCell|Operations|
 |:--|:--|
-|Basic Operations|[Create](223_Create_External_Cell.md) &nbsp; &nbsp; [Retrieve](225_Retrieve_External_Cell.md) &nbsp; &nbsp; [Retrieve List](224_List_External_Cell.md) &nbsp; &nbsp; [Update](226_Update_External_Cell.md) &nbsp; &nbsp; [Delete](227_Delete_External_Cell.md)|
+|Basic Operations|[Create](223_Create_External_Cell.md) &nbsp; &nbsp; [Retrieve](225_Retrieve_External_Cell.md) &nbsp; &nbsp; [Retrieve List](224_List_External_Cell.md) &nbsp; &nbsp; [Update](226_Update_External_Cell.md) &nbsp; &nbsp; [Partial Update](2AD_Partial_Update_External_Cell.md) &nbsp; &nbsp; [Delete](227_Delete_External_Cell.md)|
 |&nbsp; &nbsp; Linking with other objects|[Link](228_Link_External_Cell.md) &nbsp; &nbsp; [Unlink](231_Unlink_External_Cell.md) &nbsp; &nbsp; [List Links](229_List_External_Cell_links.md) <br> There is no link update. If you want to update, delete it and recreate it.|
 |&nbsp; &nbsp; Bound Object Manipulation|[Create](232_Create_Obj_Via_External_Cell_NP.md) &nbsp; &nbsp; [Retrieve List](233_List_Obj_Via_External_Cell_NP.md)|
 
@@ -101,7 +101,7 @@ Configured ACL can be retrieved together with other properties, by sending regul
 
 |Relation|Operations|
 |:--|:--|
-|Basic Operations|[Create](234_Create_Relation.md) &nbsp; &nbsp; [Retrieve](236_Retrieve_Relation.md) &nbsp; &nbsp; [Retrieve List](235_List_Relation.md) &nbsp; &nbsp; [Update](237_Update_Relation.md) &nbsp; &nbsp; [Delete](238_Delete_Relation.md)|
+|Basic Operations|[Create](234_Create_Relation.md) &nbsp; &nbsp; [Retrieve](236_Retrieve_Relation.md) &nbsp; &nbsp; [Retrieve List](235_List_Relation.md) &nbsp; &nbsp; [Update](237_Update_Relation.md) &nbsp; &nbsp; [Partial Update](2AE_Partial_Update_Relation.md) &nbsp; &nbsp; [Delete](238_Delete_Relation.md)|
 |&nbsp; &nbsp; Linking with other objects|[Link](239_Link_Relation.md) &nbsp; &nbsp; [Unlink](242_Unlink_Relation.md) &nbsp; &nbsp; [List Links](240_List_Relation_links.md) <br> There is no link update. If you want to update, delete it and recreate it.|
 |&nbsp; &nbsp; Bound Object Manipulation|[Create](243_Create_Obj_Via_Relation_NP.md) &nbsp; &nbsp; [Retrieve List](244_List_Obj_Via_Relation_NP.md)|
 
@@ -110,7 +110,7 @@ Configured ACL can be retrieved together with other properties, by sending regul
 
 |ExtRole|Operations|
 |:--|:--|
-|Basic Operations|[Create](245_Create_External_Role.md) &nbsp; &nbsp; [Retrieve](247_Retrieve_External_Role.md) &nbsp; &nbsp; [Retrieve List](246_List_External_Role.md) &nbsp; &nbsp; [Update](248_Update_External_Role.md) &nbsp; &nbsp; [Delete](249_Delete_External_Role.md)|
+|Basic Operations|[Create](245_Create_External_Role.md) &nbsp; &nbsp; [Retrieve](247_Retrieve_External_Role.md) &nbsp; &nbsp; [Retrieve List](246_List_External_Role.md) &nbsp; &nbsp; [Update](248_Update_External_Role.md) &nbsp; &nbsp; [Partial Update](2AF_Partial_Update_External_Role.md) &nbsp; &nbsp; [Delete](249_Delete_External_Role.md)|
 |&nbsp; &nbsp; Linking with other objects|[Link](250_Link_External_Role.md) &nbsp; &nbsp; [Unlink](253_Unlink_External_Role.md) &nbsp; &nbsp; [List Links](251_List_External_Role_links.md) <br> There is no link update. If you want to update, delete it and recreate it.|
 |&nbsp; &nbsp; Bound Object Manipulation|[Create](254_Create_Obj_Via_External_Role_NP.md) &nbsp; &nbsp; [Retrieve List](255_List_Obj_Via_External_Role_NP.md)|
 
@@ -126,7 +126,7 @@ Configured ACL can be retrieved together with other properties, by sending regul
 
 |Box|Operations|
 |:--|:--|
-|Basic Operations|[Create](256_Create_Box.md) &nbsp; &nbsp; [Retrieve](258_Retrieve_Box.md) &nbsp; &nbsp; [Retrieve List](257_List_Box.md) &nbsp; &nbsp; [Update](259_Update_Box.md) &nbsp; &nbsp; [Delete](260_Delete_Box.md)|
+|Basic Operations|[Create](256_Create_Box.md) &nbsp; &nbsp; [Retrieve](258_Retrieve_Box.md) &nbsp; &nbsp; [Retrieve List](257_List_Box.md) &nbsp; &nbsp; [Update](259_Update_Box.md) &nbsp; &nbsp; [Partial Update](2B0_Partial_Update_Box.md) &nbsp; &nbsp; [Delete](260_Delete_Box.md)|
 |&nbsp; &nbsp; Linking with other objects|[Link](261_Link_Box.md) &nbsp; &nbsp; [Unlink](264_Unlink_Box.md) &nbsp; &nbsp; [List Links](262_List_Box_links.md) <br> There is no link update. If you want to update, delete it and recreate it.|
 |&nbsp; &nbsp; Bound Object Manipulation|[Create](265_Create_Obj_Via_Box_NP.md) &nbsp; &nbsp; [Retrieve List](266_List_Obj_Via_Box_NP.md)|
 

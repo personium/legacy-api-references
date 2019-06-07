@@ -57,7 +57,7 @@ Cell Level API は、次のような機能で構成されます。
 
 |Account|操作|
 |:--|:--|
-|基本操作|[作成](212_Create_Account.md) &nbsp; &nbsp; [取得](213_Retrieve_Account.md) &nbsp; &nbsp; [一覧取得](214_List_Account.md)  &nbsp; &nbsp; [更新](215_Update_Account.md)  &nbsp; &nbsp; [削除](216_Delete_Account.md) |
+|基本操作|[作成](212_Create_Account.md) &nbsp; &nbsp; [取得](213_Retrieve_Account.md) &nbsp; &nbsp; [一覧取得](214_List_Account.md)  &nbsp; &nbsp; [更新](215_Update_Account.md)  &nbsp; &nbsp; [部分更新](2AC_Partial_Update_Account.md)  &nbsp; &nbsp; [削除](216_Delete_Account.md) |
 |&nbsp; &nbsp; 他オブジェクトとのリンク|[リンク](217_Link_Account.md) &nbsp; &nbsp;  [リンク解除](220_Unlink_Account.md) &nbsp; &nbsp; [リンク一覧取得](218_List_Account_links.md) <br>リンク更新はありません。更新したい場合は削除して再作成してください。|
 |&nbsp; &nbsp; 紐づく他オブジェクト操作|[作成](221_Create_Obj_Via_Account_NP.md) &nbsp; &nbsp; [一覧取得](222_List_Obj_Via_Account_NP.md)|
 
@@ -72,7 +72,7 @@ Cell Level API は、次のような機能で構成されます。
 
 |Role|操作|
 |:--|:--|
-|基本操作|[作成](201_Create_Role.md) &nbsp; &nbsp;  [取得](203_Retrieve_Role.md) &nbsp; &nbsp; [一覧取得](202_List_Role.md) &nbsp; &nbsp; [更新](204_Update_Role.md) &nbsp; &nbsp; [削除](205_Delete_Role.md)|
+|基本操作|[作成](201_Create_Role.md) &nbsp; &nbsp;  [取得](203_Retrieve_Role.md) &nbsp; &nbsp; [一覧取得](202_List_Role.md) &nbsp; &nbsp; [更新](204_Update_Role.md) &nbsp; &nbsp; [部分更新](2AB_Partial_Update_Role.md) &nbsp; &nbsp; [削除](205_Delete_Role.md)|
 |&nbsp; &nbsp; 他オブジェクトとのリンク|[リンク](206_Link_Role.md) &nbsp; &nbsp; [リンク解除](209_Unlink_Role.md) &nbsp; &nbsp; [リンク一覧取得](207_List_Role_links.md) <br>リンク更新はありません。更新したい場合は削除して再作成してください。|
 |&nbsp; &nbsp; 紐づく他オブジェクト操作|[作成](210_Create_Obj_Via_Role_NP.md) &nbsp; &nbsp; [一覧取得](211_List_Obj_Via_Role_NP.md)|
 
@@ -85,7 +85,7 @@ Cell Level API は、次のような機能で構成されます。
 
 |ExtCell|操作|
 |:--|:--|
-|基本操作|[作成](223_Create_External_Cell.md) &nbsp; &nbsp;  [取得](225_Retrieve_External_Cell.md) &nbsp; &nbsp; [一覧取得](224_List_External_Cell.md) &nbsp; &nbsp; [更新](226_Update_External_Cell.md) &nbsp; &nbsp; [削除](227_Delete_External_Cell.md)|
+|基本操作|[作成](223_Create_External_Cell.md) &nbsp; &nbsp;  [取得](225_Retrieve_External_Cell.md) &nbsp; &nbsp; [一覧取得](224_List_External_Cell.md) &nbsp; &nbsp; [更新](226_Update_External_Cell.md) &nbsp; &nbsp; [部分更新](2AD_Partial_Update_External_Cell.md) &nbsp; &nbsp; [削除](227_Delete_External_Cell.md)|
 |&nbsp; &nbsp; 他オブジェクトとのリンク|[リンク](228_Link_External_Cell.md) &nbsp; &nbsp; [リンク解除](231_Unlink_External_Cell.md) &nbsp; &nbsp; [リンク一覧取得](229_List_External_Cell_links.md) <br>リンク更新はありません。更新したい場合は削除して再作成してください。|
 |&nbsp; &nbsp; 紐づく他オブジェクト操作|[作成](232_Create_Obj_Via_External_Cell_NP.md) &nbsp; &nbsp; [一覧取得](233_List_Obj_Via_External_Cell_NP.md)|
 
@@ -97,7 +97,7 @@ Cell Level API は、次のような機能で構成されます。
 
 |Relation|操作|
 |:--|:--|
-|基本操作|[作成](234_Create_Relation.md) &nbsp; &nbsp;  [取得](236_Retrieve_Relation.md) &nbsp; &nbsp; [一覧取得](235_List_Relation.md) &nbsp; &nbsp; [更新](237_Update_Relation.md) &nbsp; &nbsp; [削除](238_Delete_Relation.md)|
+|基本操作|[作成](234_Create_Relation.md) &nbsp; &nbsp;  [取得](236_Retrieve_Relation.md) &nbsp; &nbsp; [一覧取得](235_List_Relation.md) &nbsp; &nbsp; [更新](237_Update_Relation.md) &nbsp; &nbsp; [部分更新](2AE_Partial_Update_Relation.md) &nbsp; &nbsp; [削除](238_Delete_Relation.md)|
 |&nbsp; &nbsp;他オブジェクトとのリンク|[リンク](239_Link_Relation.md) &nbsp; &nbsp; [リンク解除](242_Unlink_Relation.md) &nbsp; &nbsp; [リンク一覧取得](240_List_Relation_links.md) <br>リンク更新はありません。更新したい場合は削除して再作成してください。|
 |&nbsp; &nbsp;紐づく他オブジェクト操作|[作成](243_Create_Obj_Via_Relation_NP.md) &nbsp; &nbsp; [一覧取得](244_List_Obj_Via_Relation_NP.md)|
 
@@ -107,7 +107,7 @@ Cell Level API は、次のような機能で構成されます。
 
 |ExtRole|操作|
 |:--|:--|
-|基本操作|[作成](245_Create_External_Role.md) &nbsp; &nbsp; [取得](247_Retrieve_External_Role.md) &nbsp; &nbsp; [一覧取得](246_List_External_Role.md) &nbsp; &nbsp; [更新](248_Update_External_Role.md) &nbsp; &nbsp; [削除](249_Delete_External_Role.md)|
+|基本操作|[作成](245_Create_External_Role.md) &nbsp; &nbsp; [取得](247_Retrieve_External_Role.md) &nbsp; &nbsp; [一覧取得](246_List_External_Role.md) &nbsp; &nbsp; [更新](248_Update_External_Role.md) &nbsp; &nbsp; [部分更新](2AF_Partial_Update_External_Role.md) &nbsp; &nbsp; [削除](249_Delete_External_Role.md)|
 | &nbsp; &nbsp; 他オブジェクトとのリンク|[リンク](250_Link_External_Role.md) &nbsp; &nbsp; [リンク解除](253_Unlink_External_Role.md) &nbsp; &nbsp; [リンク一覧取得](251_List_External_Role_links.md) <br>リンク更新はありません。更新したい場合は削除して再作成してください。|
 | &nbsp; &nbsp; 紐づく他オブジェクト操作作|[作成](254_Create_Obj_Via_External_Role_NP.md) &nbsp; &nbsp; [一覧取得](255_List_Obj_Via_External_Role_NP.md)|
 
@@ -124,7 +124,7 @@ Cell Level API は、次のような機能で構成されます。
 
 |Box|操作|
 |:--|:--|
-|基本操作|[作成](256_Create_Box.md) &nbsp; &nbsp; [取得](258_Retrieve_Box.md) &nbsp; &nbsp; [一覧取得](257_List_Box.md) &nbsp; &nbsp; [更新](259_Update_Box.md) &nbsp; &nbsp; [削除](260_Delete_Box.md) |
+|基本操作|[作成](256_Create_Box.md) &nbsp; &nbsp; [取得](258_Retrieve_Box.md) &nbsp; &nbsp; [一覧取得](257_List_Box.md) &nbsp; &nbsp; [更新](259_Update_Box.md) &nbsp; &nbsp; [部分更新](2B0_Partial_Update_Box.md) &nbsp; &nbsp; [削除](260_Delete_Box.md) |
 |&nbsp; &nbsp;他オブジェクトとのリンク|[リンク](261_Link_Box.md) &nbsp; &nbsp; [リンク解除](264_Unlink_Box.md) &nbsp; &nbsp; [リンク一覧取得](262_List_Box_links.md) <br>リンク更新はありません。更新したい場合は削除して再作成してください。|
 |&nbsp; &nbsp;紐づく他オブジェクト操作|[作成](265_Create_Obj_Via_Box_NP.md) &nbsp; &nbsp; [一覧取得](266_List_Obj_Via_Box_NP.md)|
 

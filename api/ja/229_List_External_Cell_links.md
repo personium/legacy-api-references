@@ -5,6 +5,12 @@ ExtCellに紐付いたODataリソースを一覧取得する
 * Role
 * Relation
 
+### 必要な権限
+|紐付け先|必要な権限|
+|:-|:-|
+|Role|social-read<br>auth-read|
+|Relation|social-read|
+
 ### 制限事項
 * リクエストヘッダのAcceptは無視される
 * リクエストヘッダのContent-Typeは全てapplication/jsonとして扱う

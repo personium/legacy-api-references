@@ -4,6 +4,11 @@ Accountに紐付いたODataリソースを一覧取得する
 以下のODataリソースを指定することができる
 * Role
 
+### 必要な権限
+|紐付け先|必要な権限|
+|:-|:-|
+|Role|auth-read|
+
 ### 制限事項
 * OData 制限
 	* リクエストヘッダのContent-Typeは全てapplication/jsonとして扱う

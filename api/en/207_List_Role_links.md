@@ -10,6 +10,15 @@ You can specify the following OData resources
 * ExtRole
 * Relation
 
+### Required Privileges
+
+|Link Object|Required Privileges|
+|:-|:-|
+|Account|auth-read|
+|ExtCell|auth-read<br>social-read|
+|ExtRole|auth-read|
+|Relation|auth-read<br>social-read|
+
 ### Restrictions
 
 * Accept in the request header is ignored

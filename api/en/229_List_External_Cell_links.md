@@ -8,6 +8,13 @@ You can specify the following OData resources
 * Role
 * Relation
 
+### Required Privileges
+
+|Link Object|Required Privileges|
+|:-|:-|
+|Role|social-read<br>auth-read|
+|Relation|social-read|
+
 ### Restrictions
 
 * Accept in the request header is ignored

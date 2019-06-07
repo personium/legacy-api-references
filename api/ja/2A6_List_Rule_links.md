@@ -6,8 +6,9 @@ Ruleに紐付いたODataリソースを一覧取得する
 * Box
 
 ### 必要な権限
-* rule-read
-* box-read
+|紐付け先|必要な権限|
+|:-|:-|
+|Box|rule-read<br>box-read|
 
 ### 制限事項
 * レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはJSON形式とする

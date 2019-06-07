@@ -5,9 +5,10 @@ You can specify the following OData resources
 
 * Box
 
-### Required Permissions
-rule-read
-box-read
+### Required Privileges
+|Link Object|Required Privileges|
+|:-|:-|
+|Box|rule-read<br>box-read|
 
 ### Limitations
 * Content-Type of the response header supports only application / json, and the response body is JSON format

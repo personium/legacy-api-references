@@ -7,6 +7,14 @@ Roleに紐付いたODataリソースを一覧取得する
 * ExtRole
 * Relation
 
+### 必要な権限
+|紐付け先|必要な権限|
+|:-|:-|
+|Account|auth-read|
+|ExtCell|auth-read<br>social-read|
+|ExtRole|auth-read|
+|Relation|auth-read<br>social-read|
+
 ### 制限事項
 * リクエストヘッダのAcceptは無視される
 * リクエストヘッダのContent-Typeは全てapplication/jsonとして扱う

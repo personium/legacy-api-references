@@ -7,6 +7,12 @@ You can specify the following OData resources
 
 * Role
 
+### Required Privileges
+
+|Link Object|Required Privileges|
+|:-|:-|
+|Role|auth-read|
+
 ### Restrictions
 
 * OData Restrictions

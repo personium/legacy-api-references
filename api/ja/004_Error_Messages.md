@@ -185,8 +185,10 @@
 |400|PR400-EV-0002|Request header is invalid [X-Personium-RequestKey].||
 |400|PR400-EV-0003|[{0}] is required.||
 |400|PR400-EV-0004|[{0}] field format error.||
+|400|PR400-EV-0005|Cannot delete current eventLog file.||
 |500|PR500-EV-0001|Failed to output http response.||
 |500|PR500-EV-0002|Cannot open archive eventLog file.||
+|500|PR500-EV-0003|Delete eventLog failed.||
 |500|PR500-SV-0000|Unknown error.||
 |500|PR500-SV-0001|Datastore connection error.||
 |500|PR500-SV-0002|Datastore unknown error.||

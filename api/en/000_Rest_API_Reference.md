@@ -156,7 +156,7 @@ Configured ACL can be retrieved together with other properties, by sending regul
 |&nbsp; &nbsp; Linking with other objects|[Link](2A5_Link_Rule.md) &nbsp; &nbsp; [Unlink](2A7_Unlink_Rule.md) &nbsp; &nbsp; [List Links](2A6_List_Rule_links.md) &nbsp; &nbsp; <br> There is no link update. If you want to update, delete it and recreate it.|
 |&nbsp; &nbsp; Bound Object Manipulation|[Create](2A8_Create_Obj_Via_Rule_NP.md) &nbsp; &nbsp; [Retrieve List](2A9_List_Obj_Via_Rule_NP.md)|
 
-* [Retrieve List of internal Rule information](2AA_List_Internal_Rule.md)
+* [Retrieve List of Internal Rule information](2AA_List_Internal_Rule.md)
 
 #### Event Log
 

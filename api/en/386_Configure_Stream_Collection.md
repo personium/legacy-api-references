@@ -25,7 +25,7 @@ PROPPATCH
 |:--|:--|:--|:--|:--|
 |Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
 |Content-Type|Specifies the request body format|application/xml|No||
-|Accept|Specifies the response body format|application/zip+x-personium-bar|Yes||
+|Accept|Specify acceptable media types in response|application/xml|No||
 
 ### Request Body
 

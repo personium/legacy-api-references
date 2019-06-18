@@ -40,7 +40,7 @@ If it is not registered, a 404 error will occur.
 The data sent to the queue can be obtained by [Receive](388_Stream_Collection_Receive.md) of Stream Collection.
 However, since the queue can be acquired only once, it can not be acquired if someone receives it.
 
-The data sent to topic can be obtained from [WebSocket connection](389_Stream_Collection_WebSocket.md) of Stream Collection.
+The data sent to topic can be obtained from [WebSocket connection](389_Stream_Collection_Connect.md) of Stream Collection.
 However, you need to connect before sending. Only data sent after connection can be acquired.
 
 ## Response

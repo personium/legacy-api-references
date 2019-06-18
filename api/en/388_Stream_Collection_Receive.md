@@ -29,7 +29,7 @@ None
 |Accept|Specifies the response body format|application/json|No|[application/json] by default|
 
 ### queue settings
-It is necessary to register Queue name in [Configuration change] (386_Configure_Stream_Collection.md) of Stream Collection.
+It is necessary to register Queue name in [Configuration change](386_Configure_Stream_Collection.md) of Stream Collection.
 If it is not registered, a 404 error will occur.
 
 ## Response

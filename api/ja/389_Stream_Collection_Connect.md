@@ -1,7 +1,7 @@
 # Stream Collection への Web Socket 接続
 
 ## 概要
-Stream Collectionのtopicへ送信されたデータをリアルタイムに受信することができます。
+Stream Collectionのtopicへ送信されたデータをリアルタイムに受信することができます。  
 本APIは最初にアクセストークンの送信を要求します。該当トークンがtopicの受信権限をもつときのみ接続を許可します。
 
 ### 必要な権限
@@ -19,7 +19,7 @@ Stream Collectionのtopicへ送信されたデータをリアルタイムに受�
     wss://{UnitFQDN}/{CellName}/__topic/{BoxName}/{Path}
 ```
 
-{Path}は、Stream Collectionの送信時のパスから{CellName}と{BoxName}を除いて、"/"を"."に変更したものを指定します。
+{Path}は、Stream Collectionの送信時のパスから{CellName}と{BoxName}を除いて、"/"を"."に変更したものを指定します。  
 例えば、送信時のURLが
 ```
     https://cell1.unit1.example/box1/stream-collection1/topic/name

@@ -1,7 +1,7 @@
 # Web Socket connection to Stream Collection
 
 ## Overview
-You can receive the data sent to the topic of Stream Collection in real time.
+You can receive the data sent to the topic of Stream Collection in real time.  
 This API first requests transmission of an access token. Allows connection only when the corresponding token has topic receive authority.
 
 ### Required Privileges
@@ -20,7 +20,6 @@ or
 ```
 
 {Path} specifies the path when sending Stream Collection, excluding {CellName} and {BoxName}, and changing "/" to ".".  
-
 For example, the URL when sending
 ```
     https://cell1.unit1.example/box1/stream-collection1/topic/name
@@ -77,11 +76,11 @@ For example,
 ```
 {"hoge":"testmessage", "flag":true}
 ```
-Is sent from cell1 (https: //cell1.unit1.example/), 
+is sent from cell1 (https: //cell1.unit1.example/), 
 ```
 {"From":"https://cell1.unit1.example/", "Body":{"hoge":"testmessage", "flag":true}}
 ```
-Receive.
+receive.
 
 ## Error response message
 

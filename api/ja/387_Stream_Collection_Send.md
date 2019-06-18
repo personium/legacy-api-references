@@ -40,7 +40,7 @@ Stream Collectionの[設定](386_Configure_Stream_Collection.md)にてQueue名�
 queueに送信したデータは、Stream Collectionの[受信](388_Stream_Collection_Receive.md)により取得可能です。
 ただし、queueは一度しか取得できないため、誰かが受信した場合は、取得できません。
 
-topicに送信したデータは、Stream Collectionの[WebSocket接続](389_Stream_Collection_WebSocket.md)により取得可能です。
+topicに送信したデータは、Stream Collectionの[WebSocket接続](389_Stream_Collection_Connect.md)により取得可能です。
 ただし、送信前に接続をしておく必要があります。接続後に送信したデータのみ取得可能です。
 
 ## レスポンス

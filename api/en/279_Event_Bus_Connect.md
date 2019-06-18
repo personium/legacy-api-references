@@ -135,7 +135,7 @@ Erroneous request message will be responded by a error message in the following 
 |Error Message|Description|
 |:--|:--|
 |Format error|When command message format is invalid|
-|Subscriptions not found|When trying to unsbscribe non-existent subscription conditionき|
+|Subscriptions not found|When trying to unsbscribe non-existent subscription condition|
 
 
 ## Web Socket Spec Details

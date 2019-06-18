@@ -19,7 +19,7 @@ Stream Collectionのtopicへ送信されたデータをリアルタイムに受�
     wss://{UnitFQDN}/{CellName}/__topic/{BoxName}/{Path}
 ```
 
-{Path}は、Stream Collectionの送信時のパスから{CellName}と{BoxName}を除いて、/を.に変更したものを指定します。
+{Path}は、Stream Collectionの送信時のパスから{CellName}と{BoxName}を除いて、"/"を"."に変更したものを指定します。
 例えば、送信時のURLが
 ```
     https://cell1.unit1.example/box1/stream-collection1/topic/name
@@ -71,7 +71,7 @@ topicにデータが送信されると、JSON形式のデータがクライア�
       "Body":{データ}
     }
 
-Fromには、topicにデータを送信したCellのCellURLが設定されます。Bodyには送信されたデータが設定されます。
+Fromには、topicにデータを送信したCellのCellURLが設定されます。Bodyには送信されたデータが設定されます。  
 例えば、
 ```
 {"hoge":"testmessage", "flag":true}

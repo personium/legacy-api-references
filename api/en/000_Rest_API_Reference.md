@@ -156,6 +156,7 @@ Configured ACL can be retrieved together with other properties, by sending regul
 |&nbsp; &nbsp; Linking with other objects|[Link](2A5_Link_Rule.md) &nbsp; &nbsp; [Unlink](2A7_Unlink_Rule.md) &nbsp; &nbsp; [List Links](2A6_List_Rule_links.md) &nbsp; &nbsp; <br> There is no link update. If you want to update, delete it and recreate it.|
 |&nbsp; &nbsp; Bound Object Manipulation|[Create](2A8_Create_Obj_Via_Rule_NP.md) &nbsp; &nbsp; [Retrieve List](2A9_List_Obj_Via_Rule_NP.md)|
 
+* [Retrieve List of internal Rule information](2AA_List_Internal_Rule.md)
 
 #### Event Log
 
@@ -262,6 +263,15 @@ You can run the user logic for requests from any path under the collection.
 ||Create|Retrieve|Update|Delete|Other|
 |:--|:--|:--|:--|:--|:--|
 |Service Collection Source|[Create](381_Create_Service_Collection_Source.md)|[Retrieve](382_List_Service_Collection_Source.md)|[Apply Settings](380_Configure_Service_Collection.md)|[Delete](383_Delete_Service_Collection_Source.md)|[Execute Service](384_Service_Execution.md)|
+
+
+### Stream Collection
+
+A collection that allows you to send and receive messages. By setting the queue and topic used for sending and receiving message queues, It is possible to send and receive for the set queue and send for the topic. Reception of topic is possible by WebSocket connection.
+
+||Operation|Send/Receive|
+|:--|:--|:--|
+|Stream Collection|[Change settings](386_Configure_Stream_Collection.md) &nbsp; &nbsp; [OPTIONS](390_Options_Stream_Collection.md)|[Send](387_Stream_Collection_Send.md) &nbsp; &nbsp; [Receive](388_Stream_Collection_Receive.md) &nbsp; &nbsp; [WebSocket connection](389_Stream_Collection_Connect.md)|
 
 ## Common Information
 

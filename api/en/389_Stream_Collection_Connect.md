@@ -24,11 +24,11 @@ For example, the URL when sending
 ```
     https://cell1.unit1.example/box1/stream-collection1/topic/name
 ```
-When the WebSocket connection is
+when the WebSocket connection is
 ```
     wss://cell1.unit1.example/__topic/box1/stream-collection1.topic.name
 ```
-It becomes.
+it becomes.
 
 First, please connect to the above URL by WebSocket. It will be in the state which accepts an access token. In this state, sending any message other than sending access token has no meaning.
 

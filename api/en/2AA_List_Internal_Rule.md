@@ -1,7 +1,7 @@
-# Retrieve List of internal Rule information
+# Retrieve List of Internal Rule information
 
 ## Overview
-Retrieve List of internal Rule information
+Retrieve list of internal rule information
 
 ### Required Permissions
 rule-read

@@ -10,12 +10,10 @@ read
 
 ### Restrictions
 
-* User data restrictions
-    * Property scope of Edm.DateTime type is not properly checked
-    * Array of Edm.DateTime type is not supported
-    * If SYSUTCDATETIME () is specified as the property of Edm.DateTime type, the set system time may be different
-    * When setting in request body and setting with DefaultValue (\_\_published, \_\_ updated is the latter timing)
-    * For EntityType, you can create up to 400 DynamicProperty / DeclaredProperty / ComplexTypeProperty
+* Array of Edm.DateTime type is not supported
+* If SYSUTCDATETIME () is specified as the property of Edm.DateTime type, the set system time may be different
+  * When setting in request body and setting with DefaultValue (\_\_published, \_\_ updated is the latter timing)
+* For EntityType, you can create up to 400 DynamicProperty / DeclaredProperty / ComplexTypeProperty
 
 
 ## Request

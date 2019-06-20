@@ -1,8 +1,8 @@
-# Retrieve List of Entity
+# Retrieve List of Entities
 
 ## Overview
 
-Get a list of Entities of user data.
+Retrieve a list of Entities from an Entity Set defined in an OData Service Collection.
 
 ### Required Privileges
 
@@ -83,11 +83,6 @@ The following query parameters are available
 |:--|:--|:--|:--|:--|
 |Accept|Specify the format of the response body|application/json|No|When omitted, treat it as [application/json]|
 |If-None-Match|Specify the value of ETag, if there is no change, 304, if it is changed return the latest resource||No|Specified when acquiring Entity not matching ETag<br>Not compatible|
-
-### Request Body
-
-None
-
 
 ## Response
 

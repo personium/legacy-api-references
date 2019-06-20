@@ -177,7 +177,7 @@
 |400|PR400-AZ-0004|Request parameter is invalid [response_type].||
 |400|PR400-AZ-0005|JSON parse error. {0}||
 |400|PR400-AZ-0006|ID Token encoded invalid. {0}||
-|400|PR400-AZ-0007|Unsupported grant_type.||
+|400|PR400-AZ-0007|Box not installed.||
 |400|PR400-AZ-0008|Authorization failed.||
 |401|PR401-AZ-0001|User cancel.||
 |401|PR401-AZ-0002|Token authorization error.||

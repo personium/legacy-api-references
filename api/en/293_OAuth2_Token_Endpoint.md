@@ -1,4 +1,4 @@
-# OAuth2.0 Token Endpoint
+# OAuth 2.0 Token Endpoint
 
 ## Overview
 
@@ -24,8 +24,9 @@ An API endpoint that issues access tokens to access various APIs in the cell. It
 
 * By sending a refresh token, it is possible to receive a new access token that inherited the user authentication state received when the refresh token was issued.
 * Re-authentication of the application is required here even if application authentication has been undergone when issuing a refresh token to be transmitted.
-* In Personium, applications can be switched by sending client_id and client_secret of different applications at token refresh.
-* This is for transferring processing from a cell application to a general application, which is a premise that the cell owner places a high level of trust, and should not share or exchange access tokens or refresh tokens among general applications.
+* Applications cannot be switched at token refresh by sending client_id different from the originally used one when the refresh token is issued.
+* Use OpenID Connect ID tokens in cases that authenticated state should be transferred form one app to another, such as single-sign-on from a cell application to a general application.
+* Access tokens or refresh tokens should not be shared or exchanged among applications.
 
 ### Information transmission for application authentication
 

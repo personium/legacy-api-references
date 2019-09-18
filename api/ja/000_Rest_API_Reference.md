@@ -217,6 +217,12 @@ WebDAVをベースとしたファイルシステム的な考え方のAPI群で�
 
 リレーショナルデータを扱うための特殊コレクションで、[コレクション作成](306_Create_Collection.md)操作時に特定のパラメタを与えることにより作成可能です。スキーマ定義操作として、いわゆるテーブルに相当するEntityTypeを定義することで、その中にテーブル状のデータを格納・管理することができます。
 
+#### スキーマ情報取得
+
+||操作|
+|:--|:--|
+|スキーマ情報確認|[ATOM サービスドキュメント取得](317_Document_Acquisition_Service.md) &nbsp; &nbsp; [EDMX スキーマ取得](316_User_Defined_Data_Schema.md)|
+
 #### スキーマ定義
 
 OData Service Collection には、スキーマ定義のためのOData Serviceが内包されています。この内包されたもうひとつのOData Service 上の Entity Set を操作することで、OData Service Collection の Entity Set やその中で扱うべき Property、Complex Propertyを定義したり、Entity Set 間の Association　を定義することができます。
@@ -251,12 +257,6 @@ OData Service Collection には、スキーマ定義のためのOData Serviceが
 |基本操作|[作成](336_Create_ComplexTypeProperty.md) &nbsp; &nbsp; [取得](338_Retrieve_ComplexTypeProperty.md) &nbsp; &nbsp; [一覧取得](337_List_ComplexTypeProperty.md) &nbsp; &nbsp; [更新](339_Update_ComplexTypeProperty.md) &nbsp; &nbsp; [削除](340_Delete_ComplexTypeProperty.md)|
 
 
-#### サービスドキュメント取得/スキーマ取得
-
-||取得|
-|:--|:--|
-|サービスドキュメント|[取得](317_Document_Acquisition_Service.md)|
-|スキーマ|[取得](316_User_Defined_Data_Schema.md)|
 
 
 #### データ操作
@@ -279,9 +279,10 @@ OData Service Collection には、スキーマ定義のためのOData Serviceが
 
 PersoniumアプリケーションやCell利用者が作成したサーバサイドロジックを登録しこれを走行させることができます。  はじめに、ユーザロジックをファイルとして登録し、サービスコレクションの設定を行ってパスとの関連付けを行うことで、コレクション配下の任意のパスからのリクエストに対してユーザロジックを走行させることができます。
 
-||作成・登録|取得|更新|削除|その他|
-|:--|:--|:--|:--|:--|:--|
-|サービスコレクションソース|[作成](381_Create_Service_Collection_Source.md)|[取得](382_List_Service_Collection_Source.md)|[設定適用](380_Configure_Service_Collection.md)|[削除](383_Delete_Service_Collection_Source.md)|[サービス実行](384_Service_Execution.md)|
+||操作|
+|:--|:--|
+|スクリプトファイル|[作成](381_Create_Service_Collection_Source.md) &nbsp; &nbsp; [取得](382_List_Service_Collection_Source.md) &nbsp; &nbsp; [削除](383_Delete_Service_Collection_Source.md)|
+|設定/実行|[設定適用](380_Configure_Service_Collection.md) &nbsp; &nbsp; [サービス実行](384_Service_Execution.md)|
 
 ### Stream コレクション
 

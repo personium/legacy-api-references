@@ -220,6 +220,13 @@ These special collections can be created in any path on the WebDAV space provide
 
 ### OData Service Collection
 
+#### Viewing Schema
+
+||Operations|
+|:--|:--|
+|Schema Retrieval|[ATOM Service Document](317_Document_Acquisition_Service.md) &nbsp; &nbsp; [EDMX Schema](316_User_Defined_Data_Schema.md)|
+
+
 #### Schema Definition
 
 ||Create|Retrieve|Update|Delete|Other|
@@ -237,12 +244,6 @@ These special collections can be created in any path on the WebDAV space provide
 |**ComplexTypeProperty**|[Create](336_Create_ComplexTypeProperty.md)|[Retrieve](338_Retrieve_ComplexTypeProperty.md)<br>[Retrieve List](337_List_ComplexTypeProperty.md)|[Update](339_Update_ComplexTypeProperty.md)|[Delete](340_Delete_ComplexTypeProperty.md)||
 |_$links|Create|List|Update|Delete||
 
-##### Service Document Retrieve/Schema Retrieve
-
-||Retrieve|
-|:--|:--|
-|Service Document|[Retrieve](317_Document_Acquisition_Service.md)|
-|Schema|[Retrieve](316_User_Defined_Data_Schema.md)|
 
 #### Data Manipulation
 
@@ -256,17 +257,14 @@ These special collections can be created in any path on the WebDAV space provide
 
 
 ### Engine Service Collection
-You can register Personium application and server side logic created by Cell user and run it.  
-First, register the user logic as a file, set the service collection and associate with the path, so that  
-You can run the user logic for requests from any path under the collection.
+Personium applications and Cell users can create server-side logics and run them on each Cell. It is enabled with a special collection called Engine Service Collection (ESC). Each ESC has its source directory where user logic can be registered as script files. After script files are registered in the directory and the routing from any paths under ESC to the registered script files can be configured, HTTP request to the configured path will be handled with the registered script.
 
-||Create|Retrieve|Update|Delete|Other|
-|:--|:--|:--|:--|:--|:--|
-|Service Collection Source|[Create](381_Create_Service_Collection_Source.md)|[Retrieve](382_List_Service_Collection_Source.md)|[Apply Settings](380_Configure_Service_Collection.md)|[Delete](383_Delete_Service_Collection_Source.md)|[Execute Service](384_Service_Execution.md)|
-
+||Operations|
+|:--|:--|
+|Script files|[Create](381_Create_Service_Collection_Source.md) &nbsp; &nbsp; [Retrieve](382_List_Service_Collection_Source.md)  &nbsp; &nbsp; [Delete](383_Delete_Service_Collection_Source.md)|
+|Configure / Execute|[Apply Settings](380_Configure_Service_Collection.md)  &nbsp; &nbsp; [Execute Service](384_Service_Execution.md)|
 
 ### Stream Collection
-
 A collection that allows you to send and receive messages. By setting the queue and topic used for sending and receiving message queues, It is possible to send and receive for the set queue and send for the topic. Reception of topic is possible by WebSocket connection.
 
 ||Operation|Send/Receive|

@@ -1,8 +1,8 @@
-# OAuth2.0 Token Endpoint
+# OAuth 2.0 Token Endpoint
 
 ## Overview
 
-An API endpoint that issues access tokens to access various APIs in the cell. It complies with the OAuth 2.0 specification, it authenticates users and applications in various ways and issues access tokens and refresh tokens.
+An API endpoint that issues access tokens to access various APIs in the cell. It complies with the OAuth 2.0 specification, it authenticates users and applications in various ways and issues tokens such as access / refresh tokens.
 
 ### Variation of user authentication
 
@@ -11,7 +11,7 @@ An API endpoint that issues access tokens to access various APIs in the cell. It
 * Resource Owner Password Credential (ROPC) flow in OAuth 2.0.
 * Based on the registered account name and password, you can authenticate the owner of the account and receive access token issuance.
 * As a defense against brute force attack, even if the password is legitimate for that account for one second after failure of authentication, an authentication error will result.
-* This flow should be used only by the cell application, which is the premise that cell owners place high levels of trust.
+* This flow should be used only by cell administration applications such as Cell GUI, which cell owners place high levels of trust.
 * As described in the OAuth 2.0 specification, general Personium applications should not use this flow.
 
 #### Authentication of other cell user by transcell access token
@@ -24,8 +24,9 @@ An API endpoint that issues access tokens to access various APIs in the cell. It
 
 * By sending a refresh token, it is possible to receive a new access token that inherited the user authentication state received when the refresh token was issued.
 * Re-authentication of the application is required here even if application authentication has been undergone when issuing a refresh token to be transmitted.
-* In Personium, applications can be switched by sending client_id and client_secret of different applications at token refresh.
-* This is for transferring processing from a cell application to a general application, which is a premise that the cell owner places a high level of trust, and should not share or exchange access tokens or refresh tokens among general applications.
+* Applications cannot be switched at token refresh by sending client_id different from the originally used one when the refresh token is issued.
+* Use OpenID Connect ID tokens in cases that authenticated state should be transferred form one app to another, such as single-sign-on from a cell application to a general application.
+* Access tokens or refresh tokens should not be shared or exchanged among applications.
 
 ### Information transmission for application authentication
 
@@ -68,7 +69,7 @@ Target cell property setting
 ### Request URL
 
 ```
-{CellName}/__token
+{CellURL}/__token
 ```
 
 ### Request Method
@@ -85,23 +86,26 @@ POST
 
 |Item Name|Overview|Format|Required|Effective Value|
 |:--|:--|:--|:--|:--|
-|Authorization|Specifies authentication information in the OAuth 2.0 format|Basic {String}|No|If you specify Base64 Encode value for {{Schema Authenticator's source URL}: {Token paid out from the schema authentication source}}, it becomes schema authentication<br>At the above setting, if there is a setting of client_id and client_secret in the request body, the setting of the authorization header takes precedence|
+|Authorization|Specifies client authentication information in the Basic authentication format|Basic {String}|No|As defined in OAuth2.0 spec, client authentication can be performed using Basic auth format in this header. Just send base64url Encoded value of the string {{Schema Authenticator's source URL}: {Token paid out from the schema authentication source}} followed by the fixed string "Basic . If request body has client_assertion or client_assertion_type parameters, then they will have the priority. On the other hand, the setting of the authorization header takes precedence over client_id and client_secret in the request body.|
 |Content-Type|Specifies the request body format|application/x-www-form-urlencoded|No|[application/x-www-form-urlencoded]by default|
 
 ### Request Body
 
 |Item Name|Overview|Format|Required|Effective Value|
 |:--|:--|:--|:--|:--|
-|grant_type|Authentication type|String|Yes|password<br>urn&#58;x-personium:oidc:google<br>urn&#58;ietf:params:oauth:grant-type:saml2-bearer<br>authorization_code<br>refresh_token|
+|grant_type|grant type defined in OAuth 2.0  (RFC6749)|String|Yes|password<br>urn&#58;x-personium:oidc:google<br>urn&#58;ietf:params:oauth:grant-type:saml2-bearer<br>authorization_code<br>refresh_token|
 |username|User name|String|Yes(When grant_type = password)|Registered user name|
 |password|Password|String|Yes(When grant_type = password)|Registered password|
 |assertion|Transcell token target|String|Yes(When grant_type=urn&#58;ietf:params:oauth:grant-type:saml2-bearer)|A valid transacell access token|
-|code|Code|String|Yes(When grant_type = authorization_code)|Registered code|
+|code|Authorization Code|String|Yes(When grant_type = authorization_code)|Valid authorization code|
 |refresh_token|Refresh token|String|Yes(When grant_type=refresh_token)|Effective refresh token|
 |id_token|Token ID|JSON Web Token|Yes(grant_type=urn&#58;x-personium:oidc:For google)|JWT Formed ID Token|
 |p_target|Issue target|String|No|Where to use the token to be paid (cell URL)<br>If specified, it becomes transcellation token authentication|
+|client_assertion_type|Type of client_assertion|String|No|Only valid value is "urn:ietf:params:oauth:grant-type:saml2-bearer" defined in RFC7522. When this parameter or client_assertion is specified, then client authentication will be performed in the manner defined in RFC7522, and the content of Authorization header or client_sercret is neglected.|
+|client_assertion|Application authentication token|String|No|An application authentication token issued from an application cell, etc. When this parameter and client_assertion_type are specified, then client authentication will be performed in the manner defined in RFC7522, and the content of Authorization header or client_sercret is neglected.|
 |client_id|Application schema URI|String|Yes(When grant_type = authorization_code)|In many cases App store URL<br>When specified with client_secret Is issued application-certified token<br>At the same time, if the same information is transmitted in the Authorization header, the setting of the Authorization header takes precedence|
-|client_secret|Application authentication token|String|No|An application authentication token issued from an application cell or the like<br>When specified with client_id Issue an application-certified token<br>At the same time, if the same information is transmitted in the Authorization header, the setting of the Authorization header takes precedence|
+|client_secret|Application authentication token|String|No|An application authentication token issued from an application cell, etc. When specified with client_id, issue an application-certified token. If the same information is transmitted in the Authorization header, the setting of the Authorization header takes precedence.|
+|scope|Scope request|String|No|Space-separated scope identifiers that app requests|
 |p_owner|ULUUT promotion execution Query|String|No|Valid only for true|
 |p_cookie|Authentication cookie issuance option<br>If specified, issue an authentication cookie<br>When p_target is specified, specification of this parameter is ignored|String|No|Valid only for true|
 |expires_in|Access token expiration in (sec)|Int<br>1～3600|No|Specify expiration in of issued access token<br>The default is 3600 (1 hour)|
@@ -165,10 +169,11 @@ grant_type=password&username=username&password=pass&p_cookie=true
 |Item Name|Overview|Notes|
 |:--|:--|:--|
 |access_token|Access token||
-|refresh_token_expires_in|Refresh token expiration in (sec)|Expiration date set at the time of request<br>The default is 86400 (24 hours)<br>*If p_owner is set at the time of request, it will not be returned|
 |refresh_token|Refresh token|*If p_owner is set at the time of request, it will not be returned|
 |token_type|Bearer||
+|scope|scopes that are granted to the token issued upon the requet|Multiple scopes may be returned using space-separated syntax|
 |expires_in|Access token expiration in (sec)|Expiration date set at the time of request<br>The default is 3600 (1 hour)|
+|refresh_token_expires_in|Refresh token expiration in (sec)|Expiration date set at the time of request<br>The default is 86400 (24 hours)<br>*If p_owner is set at the time of request, it will not be returned|
 |id_token|id_token available with OpenID Connect|Return only if<br>grant_type=authorization_code and<br>scope of code is openid|
 |p_cookie_peer|Cookie Authentication Value|Authentication value specified at the time of cookie authentication<br>\*Return only when the cookie issue option (p_cookie) is set at the time of request|
 |last_authenticated|Last authentication date and time|Last authentication date and time (UNIX time of long type)<br>initial authentication is null<br>\*Return only when password is set as authorization type (grant_type) at the time of request|
@@ -182,6 +187,7 @@ grant_type=password&username=username&password=pass&p_cookie=true
   "refresh_token_expires_in": 86400,
   "refresh_token": "RA~uELM...(snip)...yWMoQ",
   "token_type": "Bearer",
+  "scope": "root",
   "expires_in": 3600,
   "last_authenticated": 1486462510467,
   "failed_count": 2

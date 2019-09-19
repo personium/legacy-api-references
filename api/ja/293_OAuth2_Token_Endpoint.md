@@ -10,7 +10,7 @@
 * OAuth 2.0 の ROPC (Resource Owner Password Credential) フローです。
 * 登録したアカウントの名前とパスワードに基づきアカウントの所有者を認証してアクセストークン発行を受けることができます。
 * 総当たり攻撃に対する防御策として、認証に失敗後1秒間はそのアカウントについてはパスワードが正当であっても認証エラーとなります。
-* このフローはセルGUIをはじめとすて、セル所有者が高いレベルの信用を置く前提であるセル管理アプリのみが使うべきものです。
+* このフローはセルGUIをはじめとして、セル所有者が高いレベルの信用を置く前提であるセル管理アプリのみが使うべきものです。
 * OAuth 2.0の仕様に記述されているとおり、このフローを一般のPersoniumアプリは使うべきではありません。
 
 #### トランスセルアクセストークンによる他セルユーザの認証
@@ -82,7 +82,7 @@ POST
 
 |項目名|概要|書式|必須|有効値|
 |:--|:--|:--|:--|:--|
-|Authorization|OAuth2.0でClient認証に用いる。|Basic {String}|×|OAuth2.0 に定められたとおり、本ヘッダを使いBasic認証の形式でClient認証を行うことができます。Basic に続いて{{アプリのスキーマURI}:{アプリ認証トークン}}をBase64Encodeした値を送信してください。<br>リクエストボディにclient_assertion_typeやclient_assertionパラメタの指定がある場合それを優先します。client_idとclient_secretの設定があっても本ヘッダの指定を優先します。|
+|Authorization|OAuth 2.0でClient認証に用いる|Basic {String}|×|OAuth 2.0 に定められたとおり、本ヘッダを使いBasic認証の形式でClient認証を行うことができます。Basic に続いて{{アプリのスキーマURI}:{アプリ認証トークン}}をBase64Encodeした値を送信してください。<br>リクエストボディにclient_assertion_typeやclient_assertionパラメタの指定がある場合それを優先します。client_idとclient_secretの設定があっても本ヘッダの指定を優先します。|
 |Content-Type|リクエストボディの形式を指定|application/x-www-form-urlencodedのみ有効|×|省略時は[application/x-www-form-urlencoded]として扱う|
 
 ### リクエストボディ
@@ -102,8 +102,8 @@ POST
 |client_assertion|アプリ認証トークン|String|×|アプリセル等から発行されるアプリ認証トークン<br>client_assertion_typeとともに指定した場合アプリ認証済トークンを発行<br>このパラメタやclient_assertion_typeの設定があるときはRFC7522の動作を優先的に行う。（Authorizationヘッダの内容やclient_sercretの内容は参照しない。）|
 |client_id|アプリのスキーマURI|String|(grant_type=authorization_codeの場合必須)|多くの場合アプリセルURL<br>client_assertion, client_secretとともに有効値を指定した場合アプリ認証済トークンを発行。|
 |client_secret|アプリ認証トークン|String|×|アプリセル等から発行されるアプリ認証トークン<br>client_idとともに指定した場合アプリ認証済トークンを発行<br>同時にAuthorizationヘッダで同様情報が送信された場合、Authorizationヘッダの設定が優先される|
-|scope|要求scope|String|×|アプリが求めるscope情報をスペース区切りで指定します。|
-|p_owner|ULUUT昇格実行クエリ|String|×|trueのみ有効|
+|scope|要求scope|String|×|アプリが求めるscope情報をスペース区切りで指定|
+|p_owner|ユニットユーザ昇格指定|String|×|trueのみ有効|
 |p_cookie|認証クッキー発行オプション<br>指定された場合は認証クッキーを発行する<br>p_targetが指定された場合は、本パラメタの指定は無視する|String|×|trueのみ有効|
 |expires_in|アクセストークンの有効期限（秒）|Int<br>1～3600|×|発行されるアクセストークンの有効期限を指定<br>デフォルトは3600（1時間）|
 |refresh_token_expires_in|リフレッシュトークンの有効期限（秒）|Int<br>1～86400|×|発行されるリフレッシュトークンの有効期限を指定<br>デフォルトは86400（24時間）<br>p_ownerが指定された場合は、本パラメタの指定は無視する|
@@ -161,6 +161,7 @@ grant_type=password&username=username&password=pass&p_cookie=true
 |:--|:--|:--|
 |Content-Type|application/json||
 |Set-Cookie|クッキー認証情報（p_cookie）|クッキー発行オプション（p_cookie）をリクエスト時に設定した場合のみ|
+
 ### レスポンスボディ
 
 |項目名|概要|備考|
@@ -168,7 +169,7 @@ grant_type=password&username=username&password=pass&p_cookie=true
 |access_token|アクセストークン||
 |refresh_token|リフレッシュトークン|※p_ownerをリクエスト時に設定した場合、返却されない|
 |token_type|Bearer||
-|scope|要求に応じて発行されたトークンに認められたscope|スペース区切りで複数のスコープが返ることがあります。|
+|scope|要求に応じて発行されたトークンに認められたscope|複数のスコープが返る場合は、スペース区切り文字列で返却|
 |expires_in|アクセストークンの有効期限（秒）|リクエスト時に設定した有効期限<br>デフォルトは3600（1時間）|
 |refresh_token_expires_in|リフレッシュトークンの有効期限（秒）|リクエスト時に設定した有効期限<br>デフォルトは86400（24時間）<br>※p_ownerをリクエスト時に設定した場合、返却されない|
 |id_token|OpenID Connectで利用可能なid_token|grant_type=authorization_code かつ<br>codeのscopeがopenidである<br>場合のみ返却する|

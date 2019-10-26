@@ -131,6 +131,8 @@
 |409|PR409-DV-0002|File [{0}] already exists.||
 |412|PR412-DV-0001|ETag does not match.||
 |412|PR412-DV-0002|Overwrite header is "F" and the destination URL is already mapped to a resource.||
+|412|PR412-DV-0003|No entity matching.||
+|412|PR412-DV-0004|An entity matches with the given ETag.||
 |416|PR416-DV-0001|Requested range not satisfiable.||
 |500|PR500-DV-0001|File system inconsistency detected.||
 |500|PR500-DV-0002|Dav system inconsistency detected.||

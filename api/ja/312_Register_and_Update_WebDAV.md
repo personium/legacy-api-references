@@ -33,11 +33,11 @@ PUT
 |:--|:--|:--|:--|:--|
 |Authorization|OAuth2.0形式で、認証情報を指定する|Bearer {AccessToken}|×|※認証トークンは認証トークン取得APIで取得したトークン|
 |If-Match|対象ETag値を指定する|ETag値|×|省略時は[*]として扱う|
-|Content-Type|登録・更新ファイルのコンテンツ形式を指定する|String|×|SWF形式で登録・更新する場合<br>Content-Type:application/x-shockwave-flash<br>PDF形式で登録・更新する場合<br>Content-Type:application/pdf<br>JPG形式で登録・更新する場合<br>Content-Type:image/jpeg<br>js形式で登録・更新する場合<br>Content-Type:application/x-javascript|
+|Content-Type|登録・更新ファイルのMIMEタイプ (IANA メディアタイプ)を指定する|String|×|ここで登録した値がGET時のレスポンスContent-Typeで返ります。<br>指定すべき値は[IANAメディアタイプ一覧](https://www.iana.org/assignments/media-types/media-types.xhtml)を参照してください。|
 ### リクエストボディ
 |概要|有効値|必須|備考|
 |:--|:--|:--|:--|
-|登録・更新するコンテキスト情報をバイナリでリクエストボディに指定する|Content-Typeヘッダで指定した方式|○||
+|登録・更新するファイル内容をバイナリ形式ででリクエストボディに指定する|Content-Typeヘッダで指定した形式のバイト列|○||
 
 ## レスポンス
 ### ステータスコード
@@ -61,6 +61,6 @@ PUT
 ```sh
 curl "https://cell1.unit1.example/box1/{ResourcePath}" -X PUT -i \
 -H 'Authorization: Bearer AA~PBDc...(省略)...FrTjA' -H 'Accept: application/json' \
--d '{【ファイル内容】}'
+-d '{"sample":"content"}'
 ```
 

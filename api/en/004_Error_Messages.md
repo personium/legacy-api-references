@@ -22,12 +22,15 @@
 |400|invalid_request|PR400-AN-0016|Required parameter [{0}] missing.|
 |400|invalid_grant|PR400-AN-0017|Authentication failed.|
 |400|invalid_client|PR400-AN-0018|Authorization header is invalid.|
-|400|invalid_grant|PR400-AN-0019|Authentication failed.|
+|400|invalid_grant|PR400-AN-0019|Invalid grant code.|
+|400|invalid_client|PR400-AN-0020|Client mismatch for refresh token. [{0}]|
+|400|invalid_client|PR400-AN-0021|Client Authentication is required.|
+|400|invalid_client|PR400-AN-0022|Invalid Client Assertion Type. Acceptable Value is [{0}].|
+|401|invalid_grant|PR401-AN-0023|The password should be changed.|
 |400|invalid_grant|PR400-AN-0030|Wrong IDToken Audience [{0}].|
 |400|invalid_grant|PR400-AN-0031|OpenID Connect Authentication failed.|
 |400|invalid_grant|PR400-AN-0032|OpenID Connect Invalid Token. ({0})|
 |400|invalid_grant|PR400-AN-0033|OpenID Connect ID Token Expired (at UnixTime: {0}).|
-|401|unauthorized_client|PR401-AN-0001|The password should be changed.|
 
 ## Other Resource API
 

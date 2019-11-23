@@ -50,13 +50,13 @@ PUT
 |:--|:--|:--|:--|:--|
 |Authorization|Specifies authentication information in the OAuth 2.0 format|Bearer {AccessToken}|No|* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API|
 |If-Match|Specifies the target ETag value|ETag value|No|[*] by default|
-|Content-Type|Specify the content format of the registration / update file|String|No|When registering and updating in SWF format<br>Content-Type:application/x-shockwave-flash<br>When registering / updating in PDF format<br>Content-Type:application/pdf<br>When registering and updating in JPG format<br>Content-Type:image/jpeg<br>When registering and updating in js format<br>Content-Type:application/x-javascript|
+|Content-Type|Specify the MIME Type (IANA Media Type) of the file content|String|No|The value specified here will be returned upon GET request as a response Content-Type header value. <br>See [IANA Media Types list](https://www.iana.org/assignments/media-types/media-types.xhtml) for what value to specify.|
 
 ### Request Body
 
 |Overview|Effective Value|Required|Notes|
 |:--|:--|:--|:--|
-|Designate context information to be registered / updated as a request body in binary|The method specified in the Content-Type header|Yes||
+|Binary byte sequence of the file content to register or update|Body content should comply with the specified format in the Content-Type header|Yes||
 
 
 ## Response

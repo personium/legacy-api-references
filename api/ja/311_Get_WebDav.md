@@ -60,7 +60,7 @@ GET
 ### レスポンスヘッダ
 |ヘッダ名|概要|備考|
 |:--|:--|:--|
-|Content-Type|リソースのContent-Type|ステータスコード200の場合のみ返却する|
+|Content-Type|リソースのContent-Type|PUT時に指定したContent-Typeが返ります。|
 |ETag|リソースのバージョン情報||
 |Accept-Ranges|リソースへのバイトレンジ(範囲)リクエストの受け入れを示す||
 |Content-Range|バイトレンジリクエストで指定した分がエンティティボディ全体のうちどこに当たるものかを示す||

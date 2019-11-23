@@ -85,7 +85,7 @@ None
 
 |Header Name|Overview|Notes|
 |:--|:--|:--|
-|Content-Type|Content-Type of resource|Return only for status code 200|
+|Content-Type|Content-Type of resource|The value specified when the resource is created or updated with PUT method will return.|
 |ETag|Resource version information||
 |Accept-Ranges|Indicates acceptance of byte range (range) request to resource||
 |Content-Range|Indicates where the entity body corresponds to the part specified by the byte range request||
